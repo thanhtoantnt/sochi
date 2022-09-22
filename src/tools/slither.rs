@@ -1,6 +1,4 @@
 //! Module to run Slither
 
-pub fn run() {
-    //
-    todo!("To implement");
-}
+/// Run slither using options
+pub fn run(_dir: &str) {}
