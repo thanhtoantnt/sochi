@@ -18,7 +18,6 @@ fn main() {
         .output()
         .unwrap();
     let git_time = String::from_utf8(git_time_output.stdout).unwrap();
-    let git_version =
-        "Git:".to_owned() + git_rev.as_str() + ":" + git_time.as_str();
+    let git_version = "Git:".to_owned() + git_rev.as_str() + ":" + git_time.as_str();
     println!("cargo:rustc-env=GIT_VERSION={}", git_version);
 }
