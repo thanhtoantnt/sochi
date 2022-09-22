@@ -1,11 +1,8 @@
 //! Command line arguments for Insight
 
 use clap::{Arg, ArgMatches, Command};
-
 use rutil::arg::ArgExt;
 use std::cmp::Ordering;
-
-// use crate::tools;
 
 /// Data structure
 #[derive(Debug, PartialEq, Eq)]

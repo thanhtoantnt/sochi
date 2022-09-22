@@ -18,7 +18,6 @@
 #![cfg_attr(feature = "linting", deny(rustdoc::bare_urls))]
 //---------------------------------------------------------------------
 
-// Import all macros from Verazt
 #[allow(unused_extern_crates)]
 extern crate rutil;
 
@@ -26,6 +25,9 @@ use rutil::{debug, report};
 
 use sochi::cli;
 use sochi::tools::slither;
+
+/// Global variable which enables the printing of debugging message.
+pub static mut DEBUG_MODE: bool = true;
 
 /// Apply debugging flags.
 pub fn apply_debugging_flags(debug_mode: bool) {
