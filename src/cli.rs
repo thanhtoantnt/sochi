@@ -4,7 +4,29 @@ use clap::{Arg, ArgMatches, Command};
 
 use rutil::arg::ArgExt;
 
-// use std::cmp::Ordering;
+// use crate::tools;
+
+/// Data structure
+#[derive(Debug, PartialEq)]
+pub enum ToolName {
+    /// Slither
+    Slither,
+
+    /// Mythril
+    Mythril,
+}
+
+impl ToolName {
+    pub fn from_str(input: String) -> ToolName {
+        if input == "slither" {
+            return ToolName::Slither;
+        } else if input == "mythril" {
+            return ToolName::Mythril;
+        }
+
+        panic!("The tool is not in the list of [slither, mythril]");
+    }
+}
 
 /// Module defining print command-line arguments for `Insight`.
 pub mod print_args {
@@ -16,19 +38,19 @@ pub mod print_args {
 }
 
 /// Data structure for options in printing source code insights.
-#[derive(Clone, Debug, PartialEq, Eq)]
-pub struct PrinterOptions<'a> {
+#[derive(Debug)]
+pub struct PrinterOptions {
     /// Debug mod
     pub debug_mode: bool,
 
     /// Select one tool to run: [Slither, Mythril, etc]
-    pub tool: Vec<&'a str>,
+    pub tools: Vec<ToolName>,
 }
 /// Command line options.
 #[derive(Debug)]
-pub struct Options<'a> {
+pub struct Options {
     /// Print options for Insight.
-    pub printer_options: PrinterOptions<'a>,
+    pub printer_options: PrinterOptions,
 }
 
 /// A trait to declare print arguments for `Insight`.
@@ -73,14 +95,19 @@ pub fn configure_arguments() -> ArgMatches {
 /// Parse print options.
 pub fn parse_printer_argument_matches(argms: &ArgMatches) -> PrinterOptions {
     use self::print_args::*;
-    let tool = match argms.values_of_os(TOOL) {
+    let tools = match argms.values_of_os(TOOL) {
         None => vec![],
         Some(ss) => ss.into_iter().filter_map(|v| v.to_str()).collect(),
     };
 
+    let tools = tools
+        .into_iter()
+        .map(|v| ToolName::from_str(v.to_string()))
+        .collect();
+
     PrinterOptions {
         debug_mode: argms.is_present(DEBUG_MODE),
-        tool,
+        tools,
     }
 }
 

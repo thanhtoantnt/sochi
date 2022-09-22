@@ -25,6 +25,7 @@ extern crate rutil;
 use rutil::{debug, report};
 
 use sochi::cli;
+use sochi::tools::slither;
 
 /// Apply debugging flags.
 pub fn apply_debugging_flags(debug_mode: bool) {
@@ -43,4 +44,9 @@ fn main() {
     let matches = cli::configure_arguments();
     let opts = cli::parse_argument_matches(&matches);
     apply_debugging_flags(opts.printer_options.debug_mode);
+
+    let tools = opts.printer_options.tools;
+    if tools.contains(&cli::ToolName::Slither) {
+        slither::run();
+    }
 }
