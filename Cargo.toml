@@ -1,0 +1,26 @@
+[package]
+name = "sochi"
+version = "0.1.0"
+authors = ["Thanh-Toan Nguyen"]
+build = "./build.rs"
+edition = "2021"
+
+[[bin]]
+name = "sochi"
+path = "src/sochi.rs"
+
+[features]
+linting = []
+
+# Dependencies should be alphabetically sorted.
+[dependencies]
+rutil = { path = "./rutil", version = "0.1.1" }
+clap = "3.1"
+remain = "0.2"
+serde = { version = "1.0.85", features = ["derive"] }
+serde_json = "1.0"
+regex = "1.5"
+semver = "1.0"
+
+[dev-dependencies]
+serial_test = "0.9.0"
