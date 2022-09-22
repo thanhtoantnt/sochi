@@ -19,9 +19,6 @@
 #![cfg_attr(feature = "linting", deny(rustdoc::bare_urls))]
 //---------------------------------------------------------------------
 
-// Import all macros from Verazt
-extern crate rutil;
-
 // Import modules
 pub mod cli;
 

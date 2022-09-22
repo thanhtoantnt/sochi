@@ -8,7 +8,7 @@ use std::cmp::Ordering;
 // use crate::tools;
 
 /// Data structure
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Eq)]
 pub enum ToolName {
     /// Slither
     Slither,
@@ -18,7 +18,8 @@ pub enum ToolName {
 }
 
 impl ToolName {
-    pub fn from_str(input: String) -> ToolName {
+    /// Constructor
+    pub fn new(input: String) -> ToolName {
         if input == "slither" {
             return ToolName::Slither;
         } else if input == "mythril" {
@@ -119,7 +120,7 @@ pub fn parse_printer_argument_matches(argms: &ArgMatches) -> RunOptions {
 
     let tools = tools
         .into_iter()
-        .map(|v| ToolName::from_str(v.to_string()))
+        .map(|v| ToolName::new(v.to_string()))
         .collect();
 
     RunOptions {
