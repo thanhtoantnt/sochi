@@ -3,6 +3,7 @@
 use clap::{Arg, ArgMatches, Command};
 
 use rutil::arg::ArgExt;
+use std::cmp::Ordering;
 
 // use crate::tools;
 
@@ -37,9 +38,15 @@ pub mod print_args {
     pub const TOOL: &str = "tool";
 }
 
-/// Data structure for options in printing source code insights.
+/// Command line argument.
+pub mod args {
+    /// Argument to parse input directory.
+    pub const INPUT_DIR: &str = "input-dir";
+}
+
+/// Data structure for options.
 #[derive(Debug)]
-pub struct PrinterOptions {
+pub struct RunOptions {
     /// Debug mod
     pub debug_mode: bool,
 
@@ -48,9 +55,12 @@ pub struct PrinterOptions {
 }
 /// Command line options.
 #[derive(Debug)]
-pub struct Options {
+pub struct Options<'a> {
     /// Print options for Insight.
-    pub printer_options: PrinterOptions,
+    pub printer_options: RunOptions,
+
+    /// Input directory
+    pub input_dir: &'a str,
 }
 
 /// A trait to declare print arguments for `Insight`.
@@ -70,7 +80,7 @@ impl<'a> PrinterCli for Command<'a> {
         )
         .arg(
             Arg::new_argument(TOOL)
-                .help("To run a tool [Slither, Mythril]")
+                .help("To run a tool in the set [slither, mythril]")
                 .takes_value(true)
                 .multiple_occurrences(true)
                 .allow_invalid_utf8(true)
@@ -87,13 +97,20 @@ pub fn configure_arguments() -> ArgMatches {
         .about("Run tools to do benchmark")
         // .author(&*format!("By {}", env!("CARGO_PKG_AUTHORS")))
         .configure_print_arguments()
+        .arg(
+            Arg::new(args::INPUT_DIR)
+                .help("Input directory")
+                .required(true)
+                .allow_invalid_utf8(true)
+                .multiple_values(false),
+        )
         .get_matches();
 
     matches
 }
 
 /// Parse print options.
-pub fn parse_printer_argument_matches(argms: &ArgMatches) -> PrinterOptions {
+pub fn parse_printer_argument_matches(argms: &ArgMatches) -> RunOptions {
     use self::print_args::*;
     let tools = match argms.values_of_os(TOOL) {
         None => vec![],
@@ -105,7 +122,7 @@ pub fn parse_printer_argument_matches(argms: &ArgMatches) -> PrinterOptions {
         .map(|v| ToolName::from_str(v.to_string()))
         .collect();
 
-    PrinterOptions {
+    RunOptions {
         debug_mode: argms.is_present(DEBUG_MODE),
         tools,
     }
@@ -115,7 +132,17 @@ pub fn parse_printer_argument_matches(argms: &ArgMatches) -> PrinterOptions {
 pub fn parse_argument_matches(argms: &ArgMatches) -> Options {
     // Configure `Insight` flags
     let vopts = parse_printer_argument_matches(argms);
+
+    let mut input_dirs = argms.values_of_os(args::INPUT_DIR).unwrap();
+
+    let input_dir = match input_dirs.len().cmp(&1) {
+        Ordering::Less => panic!("No input directory is given!"),
+        Ordering::Greater => panic!("Expect only 1 input directory!"),
+        Ordering::Equal => input_dirs.next().unwrap().to_str().unwrap_or_default(),
+    };
+
     Options {
         printer_options: vopts,
+        input_dir,
     }
 }
