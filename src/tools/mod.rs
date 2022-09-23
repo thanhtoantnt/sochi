@@ -18,15 +18,19 @@ pub struct Summary {
     /// Re-entrancy
     pub re_entrancy: usize,
 
+    /// Timestamp dependency
+    pub timestamp: usize,
+
     /// Tx_origin
     pub tx_origin: usize,
 }
 
 /// Implement functions for `Summary`
 impl Summary {
-    pub fn new(re_entrancy: usize, tx_origin: usize) -> Summary {
+    pub fn new(re_entrancy: usize, timestamp: usize, tx_origin: usize) -> Summary {
         Summary {
             re_entrancy,
+            timestamp,
             tx_origin,
         }
     }
@@ -36,6 +40,7 @@ impl Summary {
 impl Display for Summary {
     fn fmt(&self, f: &mut Formatter<'_>) -> Result {
         let _ = write!(f, "\nReentrancy: {}", self.re_entrancy);
+        let _ = write!(f, "\nTimestamp Dependency: {}", self.timestamp);
         write!(f, "\nTx_origin: {}\n", self.tx_origin)
     }
 }

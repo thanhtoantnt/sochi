@@ -68,11 +68,6 @@ fn check_solc_version(required_version: Version) -> Result<(), String> {
             match Version::parse(solc_ver) {
                 Ok(ver) => {
                     if required_version != ver {
-                        debug!(
-                            "Expect Solc version {0} but found: {1}. Please use Solc {0}",
-                            required_version, solc_ver
-                        );
-
                         return install_solc_version(required_version);
                     }
 
@@ -167,10 +162,12 @@ fn interpret_results(file: &PathBuf) -> Summary {
     let contents =
         fs::read_to_string(file.to_str().unwrap()).expect("Should have been able to read the file");
 
-    let regex = Regex::new(r"Reentrancy in ").unwrap();
-    let reentrancy = regex.captures_iter(contents.as_str()).count();
+    let reentrancy_regex = Regex::new(r"Reentrancy in ").unwrap();
+    let timestamp_regex = Regex::new(r" uses timestamp ").unwrap();
+    let reentrancy = reentrancy_regex.captures_iter(contents.as_str()).count();
+    let timestamp = timestamp_regex.captures_iter(contents.as_str()).count();
 
-    Summary::new(reentrancy, 0)
+    Summary::new(reentrancy, timestamp, 0)
 }
 
 /// Run slither using options
@@ -180,6 +177,7 @@ pub fn run_directory(dir: &str) -> Summary {
     let files = fs::read_dir(path).unwrap();
 
     let mut reentrancy = 0;
+    let mut timestamp = 0;
     let mut tx_origin = 0;
     for file in files {
         let file = file.unwrap().path();
@@ -194,6 +192,7 @@ pub fn run_directory(dir: &str) -> Summary {
                     debug!("The output is written to: {}", result.display());
                     let result = interpret_results(&result);
                     reentrancy += result.re_entrancy;
+                    timestamp += result.timestamp;
                     tx_origin += result.tx_origin;
                     debug!("bugs: {}", result);
                 }
@@ -204,5 +203,5 @@ pub fn run_directory(dir: &str) -> Summary {
         }
     }
 
-    Summary::new(reentrancy, tx_origin)
+    Summary::new(reentrancy, timestamp, tx_origin)
 }
