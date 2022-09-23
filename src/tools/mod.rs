@@ -27,6 +27,7 @@ pub struct Summary {
 
 /// Implement functions for `Summary`
 impl Summary {
+    /// Constructor
     pub fn new(re_entrancy: usize, timestamp: usize, tx_origin: usize) -> Summary {
         Summary {
             re_entrancy,

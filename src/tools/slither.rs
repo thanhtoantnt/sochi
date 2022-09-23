@@ -85,7 +85,7 @@ fn check_solc_version(required_version: Version) -> Result<(), String> {
 }
 
 /// Check settings of the Solc compiler
-fn check_solc_settings(input_file: &PathBuf) -> Result<(), String> {
+fn check_solc_settings(input_file: &Path) -> Result<(), String> {
     let contents = fs::read_to_string(input_file.to_str().unwrap())
         .expect("Should have been able to read the file");
 
@@ -125,7 +125,7 @@ fn run_file(input_file_path: PathBuf) -> Result<PathBuf, String> {
         return Err(msg);
     }
 
-    let slither_args = input_file_path.to_str().unwrap().to_string() + " --exclude-low";
+    let slither_args = input_file_path.to_str().unwrap().to_string();
 
     let slither_output = Command::new(super::SLITHER)
         .args(slither_args.split_whitespace())
@@ -153,7 +153,7 @@ fn run_file(input_file_path: PathBuf) -> Result<PathBuf, String> {
 }
 
 /// Interpret Slither results
-fn interpret_results(file: &PathBuf) -> Summary {
+fn interpret_results(file: &Path) -> Summary {
     // Note: Slither can find bugs in the following types:
     // Re-entrancy
     // Timestamp dependency
