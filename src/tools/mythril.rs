@@ -15,8 +15,12 @@ fn run_file(input_file_path: PathBuf) -> Result<PathBuf, String> {
         return Err(msg);
     }
 
-    let mythril_args =
-        "analyze".to_owned() + "execution-timeout 60" + input_file_path.to_str().unwrap();
+    let solv = check_results.unwrap();
+
+    let mythril_args = "analyze".to_owned()
+        + " --execution-timeout 60"
+        + format!(" --solv {} ", solv).as_str()
+        + input_file_path.to_str().unwrap();
 
     let mythril_output = Command::new(super::MYTHRIL)
         .args(mythril_args.split_whitespace())
@@ -53,16 +57,16 @@ fn interpret_results(file: &Path) -> Summary {
     let contents =
         fs::read_to_string(file.to_str().unwrap()).expect("Should have been able to read the file");
 
-    let reentrancy_regex = Regex::new(r"Reentrancy in ").unwrap();
-    let timestamp_regex = Regex::new(r" uses timestamp ").unwrap();
-    let unhandled_regex = Regex::new(r"Failure condition of ").unwrap();
-    let tx_origin_regex = Regex::new(r" uses tx.origin for authorization").unwrap();
+    let reentrancy_regex = Regex::new(r"==== External Call To User-Supplied Address ====").unwrap();
+    // let timestamp_regex = Regex::new(r" uses timestamp ").unwrap();
+    // let unhandled_regex = Regex::new(r"Failure condition of ").unwrap();
+    // let tx_origin_regex = Regex::new(r" uses tx.origin for authorization").unwrap();
     let reentrancy = reentrancy_regex.captures_iter(contents.as_str()).count();
-    let timestamp = timestamp_regex.captures_iter(contents.as_str()).count();
-    let unhandled = unhandled_regex.captures_iter(contents.as_str()).count();
-    let tx_origin = tx_origin_regex.captures_iter(contents.as_str()).count();
+    // let timestamp = timestamp_regex.captures_iter(contents.as_str()).count();
+    // let unhandled = unhandled_regex.captures_iter(contents.as_str()).count();
+    // let tx_origin = tx_origin_regex.captures_iter(contents.as_str()).count();
 
-    Summary::new(reentrancy, timestamp, 0, unhandled, 0, 0, tx_origin)
+    Summary::new(reentrancy, 0, 0, 0, 0, 0, 0)
 }
 
 /// Run mythril using options

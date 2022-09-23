@@ -83,7 +83,6 @@ pub fn run_directory(dir: &str) -> Summary {
             let output = run_file(file);
             match output {
                 Ok(result) => {
-                    // TODO: Interpret results
                     debug!("The output is written to: {}", result.display());
                     let result = interpret_results(&result);
                     reentrancy += result.re_entrancy;
