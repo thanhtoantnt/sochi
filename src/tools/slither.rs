@@ -158,6 +158,11 @@ fn run_file(input_file_path: PathBuf) -> Result<PathBuf, String> {
 
 /// Interpret Slither results
 fn interpret_results(_file: &PathBuf) {
+    // Note: Slither can find bugs in the following types:
+    // Re-entrancy
+    // Timestamp dependency
+    // Unhandled exceptions
+    // Use of tx.origin
     todo!("To implement");
 }
 
