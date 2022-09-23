@@ -156,6 +156,11 @@ fn run_file(input_file_path: PathBuf) -> Result<PathBuf, String> {
     Ok(output_file_path)
 }
 
+/// Interpret Slither results
+fn interpret_results(_file: &PathBuf) {
+    todo!("To implement");
+}
+
 /// Run slither using options
 pub fn run_directory(dir: &str) {
     // List all files in the repository
@@ -171,7 +176,9 @@ pub fn run_directory(dir: &str) {
             let output = run_file(file);
             match output {
                 Ok(result) => {
+                    // TODO: Interpret results
                     println!("The output is written to: {}", result.display());
+                    interpret_results(&result);
                 }
                 Err(msg) => {
                     println!("err: {}", msg);
