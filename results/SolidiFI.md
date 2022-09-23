@@ -4,7 +4,7 @@
 | Bug Type               | Slither  | Mythril  |
 | :--------------------- | :------: | :------- |
 | Re-entrancy            | 1303     |          |
-| Timestamp Dependency   |          |          |
+| Timestamp Dependency   | 1149     |          |
 | Unchecked Send         | 0        |          |
 | Unhandled Exceptions   |          |          |
 | TOD                    | 0        |          |
