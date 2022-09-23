@@ -89,26 +89,31 @@ pub fn check_solc_settings(input_file: &Path) -> Result<String, String> {
         .expect("Should have been able to read the file");
 
     let regex = Regex::new(r"pragma solidity \^(\d+\.\d+\.\d+)").unwrap();
-    let regex_gt = Regex::new(r"pragma solidity >=\x20?(\d+\.\d+\.\d+) <(\d+\.\d+\.\d+)").unwrap();
+    let regex_gt = Regex::new(r"pragma solidity >=\x20?(\d+\.\d+\.\d+)").unwrap();
+    let regex_less =
+        Regex::new(r"pragma solidity >=\x20?(\d+\.\d+\.\d+) <(\d+\.\d+\.\d+)").unwrap();
     let solc_ver = match regex.captures(contents.as_str()) {
         Some(capture) => capture.get(1).map_or("", |c| c.as_str()),
         None => match regex_gt.captures(contents.as_str()) {
-            Some(capture) => {
-                let version = capture.get(1).map_or("", |c| c.as_str());
-                let version2 = capture.get(2).map_or("", |c| c.as_str());
-                if version2 == ZERO_EIGHT_FIRST {
-                    ZERO_SEVEN_LAST
-                } else if version2 == ZERO_SEVEN_FIRST {
-                    ZERO_SIX_LAST
-                } else if version2 == ZERO_SIX_FIRST {
-                    ZERO_FIVE_LAST
-                } else if version2 == ZERO_FIVE_FIRST {
-                    ZERO_FOUR_LAST
-                } else {
-                    version
+            Some(capture) => capture.get(1).map_or("", |c| c.as_str()),
+            None => match regex_less.captures(contents.as_str()) {
+                Some(capture) => {
+                    let version = capture.get(1).map_or("", |c| c.as_str());
+                    let version2 = capture.get(2).map_or("", |c| c.as_str());
+                    if version2 == ZERO_EIGHT_FIRST {
+                        ZERO_SEVEN_LAST
+                    } else if version2 == ZERO_SEVEN_FIRST {
+                        ZERO_SIX_LAST
+                    } else if version2 == ZERO_SIX_FIRST {
+                        ZERO_FIVE_LAST
+                    } else if version2 == ZERO_FIVE_FIRST {
+                        ZERO_FOUR_LAST
+                    } else {
+                        version
+                    }
                 }
-            }
-            None => "",
+                None => "",
+            },
         },
     };
 
