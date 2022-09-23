@@ -1,5 +1,6 @@
 //! Module to run Slither
 
+use super::Summary;
 use regex::Regex;
 use rutil::system;
 use semver::Version;
@@ -157,13 +158,19 @@ fn run_file(input_file_path: PathBuf) -> Result<PathBuf, String> {
 }
 
 /// Interpret Slither results
-fn interpret_results(_file: &PathBuf) {
+fn interpret_results(file: &PathBuf) -> Summary {
     // Note: Slither can find bugs in the following types:
     // Re-entrancy
     // Timestamp dependency
     // Unhandled exceptions
     // Use of tx.origin
-    todo!("To implement");
+    let contents =
+        fs::read_to_string(file.to_str().unwrap()).expect("Should have been able to read the file");
+
+    let regex = Regex::new(r"Reentrancy in ").unwrap();
+    let reentrancy = regex.captures_iter(contents.as_str()).count();
+
+    Summary::new(reentrancy, 0)
 }
 
 /// Run slither using options
@@ -183,7 +190,8 @@ pub fn run_directory(dir: &str) {
                 Ok(result) => {
                     // TODO: Interpret results
                     println!("The output is written to: {}", result.display());
-                    interpret_results(&result);
+                    let result = interpret_results(&result);
+                    println!("bugs: {}", result);
                 }
                 Err(msg) => {
                     println!("err: {}", msg);

@@ -4,7 +4,7 @@ use clap::{Arg, ArgMatches, Command};
 use rutil::arg::ArgExt;
 use std::cmp::Ordering;
 
-/// Data structure
+/// Data structure for a list of tools
 #[derive(Debug, PartialEq, Eq)]
 pub enum ToolName {
     /// Slither
