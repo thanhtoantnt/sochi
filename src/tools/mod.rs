@@ -1,16 +1,49 @@
 //! Module for tools used by `sochi`
 
+pub mod mythril;
 pub mod slither;
+pub mod solc;
+
 use std::fmt::{Display, Formatter, Result};
 
 /// Executable file name of `Slither`
 pub const SLITHER: &str = "slither";
+
+/// Executable file name of `Mythril`
+pub const MYTHRIL: &str = "myth";
 
 /// Executable file name of the Solc compiler
 pub const SOLC: &str = "solc";
 
 /// Executable file name of `solc-select`
 pub const SOLC_SELECT: &str = "solc-select";
+
+/// Module for defining Solidity versions
+pub mod solidity_versions {
+    /// 0.8.0
+    pub const ZERO_EIGHT_FIRST: &str = "0.8.0";
+
+    /// 0.7.0
+    pub const ZERO_SEVEN_FIRST: &str = "0.7.0";
+
+    /// 0.7.6
+    pub const ZERO_SEVEN_LAST: &str = "0.7.6";
+
+    /// 0.6.0
+    pub const ZERO_SIX_FIRST: &str = "0.6.0";
+
+    /// 0.6.12
+    pub const ZERO_SIX_LAST: &str = "0.6.12";
+
+    /// 0.5.0
+    pub const ZERO_FIVE_FIRST: &str = "0.5.0";
+
+    /// 0.5.16
+    pub const ZERO_FIVE_LAST: &str = "0.5.16";
+
+    /// 0.4.25
+    pub const ZERO_FOUR_LAST: &str = "0.4.25";
+}
 
 /// Data structure for a list of bugs
 #[derive(Debug)]

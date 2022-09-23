@@ -24,6 +24,7 @@ extern crate rutil;
 use rutil::{debug, report};
 
 use sochi::cli;
+use sochi::tools::mythril;
 use sochi::tools::slither;
 
 /// Global variable which enables the printing of debugging message.
@@ -51,5 +52,10 @@ fn main() {
     if tools.contains(&cli::ToolName::Slither) {
         let result = slither::run_directory(opts.input_dir);
         println!("Slither results: {}", result);
+    }
+
+    if tools.contains(&cli::ToolName::Mythril) {
+        let result = mythril::run_directory(opts.input_dir);
+        println!("Mythril results: {}", result);
     }
 }

@@ -1,4 +1,4 @@
-//! Module to run Slither
+//! Module to run Mythril
 
 use super::solc;
 use super::Summary;
@@ -7,7 +7,7 @@ use std::io::prelude::*;
 use std::path::PathBuf;
 use std::{ffi::OsStr, fs, fs::File, path::Path, process::Command};
 
-/// Run slither for each file
+/// Run mythril for each file
 fn run_file(input_file_path: PathBuf) -> Result<PathBuf, String> {
     let check_results = solc::check_solc_settings(&input_file_path);
 
@@ -15,17 +15,18 @@ fn run_file(input_file_path: PathBuf) -> Result<PathBuf, String> {
         return Err(msg);
     }
 
-    let slither_args = input_file_path.to_str().unwrap().to_string();
+    let mythril_args =
+        "analyze".to_owned() + "execution-timeout 60" + input_file_path.to_str().unwrap();
 
-    let slither_output = Command::new(super::SLITHER)
-        .args(slither_args.split_whitespace())
+    let mythril_output = Command::new(super::MYTHRIL)
+        .args(mythril_args.split_whitespace())
         .output()
         .unwrap();
 
-    debug!("Running command: {} {}", super::SLITHER, slither_args);
+    debug!("Running command: {} {}", super::MYTHRIL, mythril_args);
 
-    if !slither_output.status.success() {
-        panic!("Slither running error");
+    if !mythril_output.status.success() {
+        panic!("Mythril running error");
     }
 
     let file_stem_name = input_file_path
@@ -34,17 +35,17 @@ fn run_file(input_file_path: PathBuf) -> Result<PathBuf, String> {
         .unwrap_or("");
 
     let parent_dir = input_file_path.parent().unwrap_or_else(|| Path::new(""));
-    let output_file_path = parent_dir.join(file_stem_name.to_owned() + "_slither.txt");
+    let output_file_path = parent_dir.join(file_stem_name.to_owned() + "_mythril.txt");
 
     let mut output_file = File::create(&output_file_path).unwrap();
-    output_file.write_all(&slither_output.stderr).unwrap();
+    output_file.write_all(&mythril_output.stderr).unwrap();
 
     Ok(output_file_path)
 }
 
-/// Interpret Slither results
+/// Interpret Mythril results
 fn interpret_results(file: &Path) -> Summary {
-    // Note: Slither can find bugs in the following types:
+    // Note: Mythril can find bugs in the following types:
     // Re-entrancy
     // Timestamp dependency
     // Unhandled exceptions
@@ -64,7 +65,7 @@ fn interpret_results(file: &Path) -> Summary {
     Summary::new(reentrancy, timestamp, 0, unhandled, 0, 0, tx_origin)
 }
 
-/// Run slither using options
+/// Run mythril using options
 pub fn run_directory(dir: &str) -> Summary {
     // List all files in the repository
     let path = Path::new(&dir);
