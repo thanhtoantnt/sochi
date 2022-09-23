@@ -174,11 +174,13 @@ fn interpret_results(file: &PathBuf) -> Summary {
 }
 
 /// Run slither using options
-pub fn run_directory(dir: &str) {
+pub fn run_directory(dir: &str) -> Summary {
     // List all files in the repository
     let path = Path::new(&dir);
     let files = fs::read_dir(path).unwrap();
 
+    let mut reentrancy = 0;
+    let mut tx_origin = 0;
     for file in files {
         let file = file.unwrap().path();
         let extension = file.extension().and_then(OsStr::to_str);
@@ -189,9 +191,11 @@ pub fn run_directory(dir: &str) {
             match output {
                 Ok(result) => {
                     // TODO: Interpret results
-                    println!("The output is written to: {}", result.display());
+                    debug!("The output is written to: {}", result.display());
                     let result = interpret_results(&result);
-                    println!("bugs: {}", result);
+                    reentrancy += result.re_entrancy;
+                    tx_origin += result.tx_origin;
+                    debug!("bugs: {}", result);
                 }
                 Err(msg) => {
                     println!("err: {}", msg);
@@ -199,4 +203,6 @@ pub fn run_directory(dir: &str) {
             }
         }
     }
+
+    Summary::new(reentrancy, tx_origin)
 }
