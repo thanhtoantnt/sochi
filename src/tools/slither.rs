@@ -5,10 +5,8 @@ use std::path::PathBuf;
 use std::{ffi::OsStr, fs, fs::File, path::Path, process::Command};
 
 /// Run slither for each file
-fn run_file(filename: PathBuf) {
-    //
-
-    let slither_args = filename.to_str().unwrap().to_string() + " --exclude-low";
+fn run_file(input_file_path: PathBuf) {
+    let slither_args = input_file_path.to_str().unwrap().to_string() + " --exclude-low";
 
     let slither_output = Command::new(super::SLITHER)
         .args(slither_args.split_whitespace())
@@ -21,7 +19,15 @@ fn run_file(filename: PathBuf) {
         panic!("Slither running error");
     }
 
-    let mut output_file = File::create("output.txt").unwrap();
+    let file_stem_name = input_file_path
+        .file_stem()
+        .and_then(OsStr::to_str)
+        .unwrap_or("");
+
+    let parent_dir = input_file_path.parent().unwrap_or_else(|| Path::new(""));
+    let output_file_path = parent_dir.join(file_stem_name.to_owned() + "_slither.txt");
+
+    let mut output_file = File::create(output_file_path).unwrap();
     let _ = output_file.write_all(&slither_output.stderr).unwrap();
 }
 
