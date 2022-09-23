@@ -5,7 +5,7 @@ use std::path::PathBuf;
 use std::{ffi::OsStr, fs, fs::File, path::Path, process::Command};
 
 /// Run slither for each file
-fn run_file(input_file_path: PathBuf) {
+fn run_file(input_file_path: PathBuf) -> PathBuf {
     let slither_args = input_file_path.to_str().unwrap().to_string() + " --exclude-low";
 
     let slither_output = Command::new(super::SLITHER)
@@ -27,8 +27,10 @@ fn run_file(input_file_path: PathBuf) {
     let parent_dir = input_file_path.parent().unwrap_or_else(|| Path::new(""));
     let output_file_path = parent_dir.join(file_stem_name.to_owned() + "_slither.txt");
 
-    let mut output_file = File::create(output_file_path).unwrap();
-    let _ = output_file.write_all(&slither_output.stderr).unwrap();
+    let mut output_file = File::create(&output_file_path).unwrap();
+    output_file.write_all(&slither_output.stderr).unwrap();
+
+    output_file_path
 }
 
 /// Run slither using options
@@ -42,8 +44,9 @@ pub fn run_directory(dir: &str) {
         let extension = file.extension().and_then(OsStr::to_str);
 
         if extension.unwrap() == "sol" {
-            println!("filename: {}", file.display());
-            run_file(file);
+            println!("Input file: {}", file.display());
+            let output = run_file(file);
+            println!("The output is written to: {}", output.display());
         }
     }
 }
