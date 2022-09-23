@@ -164,10 +164,12 @@ fn interpret_results(file: &Path) -> Summary {
 
     let reentrancy_regex = Regex::new(r"Reentrancy in ").unwrap();
     let timestamp_regex = Regex::new(r" uses timestamp ").unwrap();
+    let unhandled_regex = Regex::new(r"Failure condition of ").unwrap();
     let reentrancy = reentrancy_regex.captures_iter(contents.as_str()).count();
     let timestamp = timestamp_regex.captures_iter(contents.as_str()).count();
+    let unhandled = unhandled_regex.captures_iter(contents.as_str()).count();
 
-    Summary::new(reentrancy, timestamp, 0)
+    Summary::new(reentrancy, timestamp, unhandled, 0)
 }
 
 /// Run slither using options
@@ -179,6 +181,7 @@ pub fn run_directory(dir: &str) -> Summary {
     let mut reentrancy = 0;
     let mut timestamp = 0;
     let mut tx_origin = 0;
+    let mut unhanled_exceptions = 0;
     for file in files {
         let file = file.unwrap().path();
         let extension = file.extension().and_then(OsStr::to_str);
@@ -193,6 +196,7 @@ pub fn run_directory(dir: &str) -> Summary {
                     let result = interpret_results(&result);
                     reentrancy += result.re_entrancy;
                     timestamp += result.timestamp;
+                    unhanled_exceptions += result.unhandled_exceptions;
                     tx_origin += result.tx_origin;
                     debug!("bugs: {}", result);
                 }
@@ -203,5 +207,5 @@ pub fn run_directory(dir: &str) -> Summary {
         }
     }
 
-    Summary::new(reentrancy, timestamp, tx_origin)
+    Summary::new(reentrancy, timestamp, unhanled_exceptions, tx_origin)
 }

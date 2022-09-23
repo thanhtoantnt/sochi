@@ -21,6 +21,9 @@ pub struct Summary {
     /// Timestamp dependency
     pub timestamp: usize,
 
+    /// Unhandled exceptions
+    pub unhandled_exceptions: usize,
+
     /// Tx_origin
     pub tx_origin: usize,
 }
@@ -28,10 +31,16 @@ pub struct Summary {
 /// Implement functions for `Summary`
 impl Summary {
     /// Constructor
-    pub fn new(re_entrancy: usize, timestamp: usize, tx_origin: usize) -> Summary {
+    pub fn new(
+        re_entrancy: usize,
+        timestamp: usize,
+        unhandled_exceptions: usize,
+        tx_origin: usize,
+    ) -> Summary {
         Summary {
             re_entrancy,
             timestamp,
+            unhandled_exceptions,
             tx_origin,
         }
     }
