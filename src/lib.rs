@@ -22,3 +22,8 @@
 // Import modules
 pub mod cli;
 pub mod tools;
+
+// Import all macros from Verazt
+#[macro_use]
+#[allow(unused_extern_crates)]
+extern crate rutil;

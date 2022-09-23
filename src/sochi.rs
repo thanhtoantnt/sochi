@@ -49,6 +49,6 @@ fn main() {
 
     let tools = opts.printer_options.tools;
     if tools.contains(&cli::ToolName::Slither) {
-        slither::run(opts.input_dir);
+        slither::run_directory(opts.input_dir);
     }
 }
