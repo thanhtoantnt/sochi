@@ -1,11 +1,134 @@
 //! Module to run Slither
 
+use regex::Regex;
+use rutil::system;
+use semver::Version;
 use std::io::prelude::*;
 use std::path::PathBuf;
 use std::{ffi::OsStr, fs, fs::File, path::Path, process::Command};
 
+/// Check path of the Solc compiler
+fn check_solc_path() -> Result<(), String> {
+    match system::path_of_command_from_env(super::SOLC) {
+        Ok(path) => {
+            debug!("Solc path: {}", path);
+            Ok(())
+        }
+        Err(_) => Err("Solc path not found!".to_string()),
+    }
+}
+
+/// Check path of `solc-select`
+fn check_solc_select_path() -> Result<(), String> {
+    match system::path_of_command_from_env(super::SOLC_SELECT) {
+        Ok(path) => {
+            debug!("Solc-select path: {}", path);
+            Ok(())
+        }
+        Err(_) => Err("Solc-select path not found!".to_string()),
+    }
+}
+
+/// Install required solc version
+fn install_solc_version(version: Version) -> Result<(), String> {
+    match check_solc_select_path() {
+        Ok(_) => {
+            // Install solc
+            let args = " install".to_owned() + &version.to_string();
+            Command::new(super::SOLC_SELECT)
+                .args(args.split_whitespace())
+                .output()
+                .unwrap();
+
+            // Use solc version
+            let args = " use".to_owned() + &version.to_string();
+            Command::new(super::SOLC_SELECT)
+                .args(args.split_whitespace())
+                .output()
+                .unwrap();
+
+            Ok(())
+        }
+        Err(msg) => Err(msg),
+    }
+}
+
+/// Check version of the Solc compiler
+fn check_solc_version(required_version: Version) -> Result<(), String> {
+    match Command::new(super::SOLC).args(&["--version"]).output() {
+        Ok(output) => {
+            let output_str = String::from_utf8(output.stdout).unwrap();
+            let regex = Regex::new(r"Version: (\d+\.\d+\.\d+)").unwrap();
+            let solc_ver = match regex.captures(output_str.as_str()) {
+                Some(capture) => capture.get(1).map_or("", |c| c.as_str()),
+                None => "",
+            };
+
+            match Version::parse(solc_ver) {
+                Ok(ver) => {
+                    if required_version != ver {
+                        debug!(
+                            "Expect Solc version {0} but found: {1}. Please use Solc {0}",
+                            required_version, solc_ver
+                        );
+
+                        return install_solc_version(required_version);
+                    }
+
+                    Ok(())
+                }
+                Err(msg) => {
+                    let err_msg = format!("Solc version not found: {}", msg);
+                    Err(err_msg)
+                }
+            }
+        }
+
+        Err(_) => Err("Check Solc version: command not found".to_string()),
+    }
+}
+
+/// Check settings of the Solc compiler
+fn check_solc_settings(input_file: &PathBuf) -> Result<(), String> {
+    let contents = fs::read_to_string(input_file.to_str().unwrap())
+        .expect("Should have been able to read the file");
+
+    let regex = Regex::new(r"pragma solidity \^(\d+\.\d+\.\d+)").unwrap();
+    let regex_gt = Regex::new(r"pragma solidity >=(\d+\.\d+\.\d+)").unwrap();
+    let solc_ver = match regex.captures(contents.as_str()) {
+        Some(capture) => capture.get(1).map_or("", |c| c.as_str()),
+        None => match regex_gt.captures(contents.as_str()) {
+            Some(capture) => capture.get(1).map_or("", |c| c.as_str()),
+            None => "",
+        },
+    };
+
+    let solc_ver = match Version::parse(solc_ver) {
+        Ok(ver) => ver,
+        Err(msg) => {
+            let err_msg = format!(
+                "Solc version not found: {}.\n Please add pragma solidity ^solc_version to the input contract",
+                msg
+            );
+
+            return Err(err_msg);
+        }
+    };
+
+    match check_solc_path() {
+        Ok(_) => check_solc_version(solc_ver),
+        Err(msg) => Err(msg),
+    }
+}
+
 /// Run slither for each file
-fn run_file(input_file_path: PathBuf) -> PathBuf {
+fn run_file(input_file_path: PathBuf) -> Result<PathBuf, String> {
+    let check_results = check_solc_settings(&input_file_path);
+
+    if let Err(msg) = check_results {
+        return Err(msg);
+    }
+
     let slither_args = input_file_path.to_str().unwrap().to_string() + " --exclude-low";
 
     let slither_output = Command::new(super::SLITHER)
@@ -30,7 +153,7 @@ fn run_file(input_file_path: PathBuf) -> PathBuf {
     let mut output_file = File::create(&output_file_path).unwrap();
     output_file.write_all(&slither_output.stderr).unwrap();
 
-    output_file_path
+    Ok(output_file_path)
 }
 
 /// Run slither using options
@@ -46,7 +169,14 @@ pub fn run_directory(dir: &str) {
         if extension.unwrap() == "sol" {
             println!("Input file: {}", file.display());
             let output = run_file(file);
-            println!("The output is written to: {}", output.display());
+            match output {
+                Ok(result) => {
+                    println!("The output is written to: {}", result.display());
+                }
+                Err(msg) => {
+                    println!("err: {}", msg);
+                }
+            }
         }
     }
 }
