@@ -3,6 +3,7 @@
 use super::solc;
 use super::Summary;
 use regex::Regex;
+use rutil::report;
 use std::io::prelude::*;
 use std::path::PathBuf;
 use std::{ffi::OsStr, fs, fs::File, path::Path, process::Command};
@@ -30,7 +31,10 @@ fn run_file(input_file_path: PathBuf) -> Result<PathBuf, String> {
     debug!("Running command: {} {}", super::MYTHRIL, mythril_args);
 
     if !mythril_output.status.success() {
-        panic!("Mythril running error");
+        let error_msg =
+            String::from_utf8(mythril_output.stderr.to_vec()).expect("Mythril: unknown error!");
+        report::print_message("Graphviz error message:", error_msg.as_str());
+        panic!("Failed to run: {}", input_file_path.display());
     }
 
     let file_stem_name = input_file_path

@@ -3,6 +3,7 @@
 use super::solc;
 use super::Summary;
 use regex::Regex;
+use rutil::report;
 use std::io::prelude::*;
 use std::path::PathBuf;
 use std::{ffi::OsStr, fs, fs::File, path::Path, process::Command};
@@ -25,7 +26,10 @@ fn run_file(input_file_path: PathBuf) -> Result<PathBuf, String> {
     debug!("Running command: {} {}", super::SLITHER, slither_args);
 
     if !slither_output.status.success() {
-        panic!("Slither running error");
+        let error_msg =
+            String::from_utf8(slither_output.stderr.to_vec()).expect("Slither: unknown error!");
+        report::print_message("Graphviz error message:", error_msg.as_str());
+        panic!("Failed to run: {}", input_file_path.display());
     }
 
     let file_stem_name = input_file_path
