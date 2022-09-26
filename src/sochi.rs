@@ -58,7 +58,7 @@ fn main() {
         if opts.printer_options.generate_commands {
             mythril::generate_commands(opts.input_dir);
         } else {
-            let result = slither::run_directory(opts.input_dir);
+            let result = mythril::run_directory(opts.input_dir);
             println!("Slither results: {}", result);
         }
     }

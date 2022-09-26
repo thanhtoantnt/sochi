@@ -10,24 +10,34 @@ use std::io::Write;
 use std::path::PathBuf;
 use std::{ffi::OsStr, fs, fs::File, path::Path};
 
-/// Run mythril for each file
-fn run_file(input_file_path: PathBuf) -> Result<PathBuf, String> {
-    let check_results = solc::check_solc_settings(&input_file_path);
+/// Read and interpret mythril results for each file
+fn interpret_mythril_results(input_file: PathBuf) -> Summary {
+    let contents = fs::read_to_string(input_file.to_str().unwrap())
+        .expect("Should have been able to read the file");
 
-    if let Err(msg) = check_results {
-        return Err(msg);
-    }
+    let reentrancy_regex = Regex::new(r"State access after external call").unwrap();
+    let reentrancy_regex_2 = Regex::new(r"External Call To User-Supplied Address").unwrap();
+    let timestamp_dep_regex = Regex::new(r" uses timestamp ").unwrap();
+    let unhandled_exceptions_regex = Regex::new(r"Failure condition of ").unwrap();
+    let tx_origin_regex = Regex::new(r" uses tx.origin for authorization").unwrap();
 
-    let solv = check_results.unwrap();
+    let reentrancy = reentrancy_regex.captures_iter(contents.as_str()).count();
+    let reentrancy_2 = reentrancy_regex_2.captures_iter(contents.as_str()).count();
+    let timestamp_dep = timestamp_dep_regex.captures_iter(contents.as_str()).count();
+    let unhandled_exceptions = unhandled_exceptions_regex
+        .captures_iter(contents.as_str())
+        .count();
+    let tx_origin = tx_origin_regex.captures_iter(contents.as_str()).count();
 
-    let mythril_args = "analyze".to_owned()
-        + " --execution-timeout 60"
-        + format!(" --solv {} ", solv).as_str()
-        + input_file_path.to_str().unwrap();
-
-    println!("Running command:\n{} {}", super::MYTHRIL, mythril_args);
-
-    Err("To produce running command only".to_string())
+    Summary::new(
+        reentrancy + reentrancy_2,
+        timestamp_dep,
+        0,
+        unhandled_exceptions,
+        0,
+        0,
+        tx_origin,
+    )
 }
 
 /// Generate mythril command for each file
@@ -60,51 +70,12 @@ fn generate_command(input_file_path: PathBuf) -> String {
     format!("{} {}", super::MYTHRIL, mythril_args)
 }
 
-/// Interpret Mythril results
-fn interpret_results(file: &Path) -> Summary {
-    // Note: Mythril can find bugs in the following types:
-    // Re-entrancy
-    // Timestamp dependency
-    // Unhandled exceptions
-    // Use of tx.origin
-    let contents =
-        fs::read_to_string(file.to_str().unwrap()).expect("Should have been able to read the file");
-
-    let reentrancy_regex = Regex::new(r"External Call To User-Supplied Address").unwrap();
-    let timestamp_dep_regex =
-        Regex::new(r"Dependence on predictable environment variable").unwrap();
-    let unhandled_exceptions_regex = Regex::new(r"Exception State").unwrap();
-    let tx_origin_regex = Regex::new(r"Dependence on tx.origin").unwrap();
-    let integer_regex = Regex::new(r"Integer Arithmetic Bugs").unwrap();
-    let unchecked_send_regex = Regex::new(r"Unchecked return value from external call").unwrap();
-
-    let reentrancy = reentrancy_regex.captures_iter(contents.as_str()).count();
-    let timestamp_dep = timestamp_dep_regex.captures_iter(contents.as_str()).count();
-    let unhandled_exceptions = unhandled_exceptions_regex
-        .captures_iter(contents.as_str())
-        .count();
-    let tx_origin = tx_origin_regex.captures_iter(contents.as_str()).count();
-    let integer_bugs = integer_regex.captures_iter(contents.as_str()).count();
-    let unchecked_send = unchecked_send_regex
-        .captures_iter(contents.as_str())
-        .count();
-
-    Summary::new(
-        reentrancy,
-        timestamp_dep,
-        unchecked_send,
-        unhandled_exceptions,
-        0,
-        integer_bugs,
-        tx_origin,
-    )
-}
-
 /// Run mythril using options
 pub fn run_directory(dir: &str) -> Summary {
     // List all files in the repository
     let path = Path::new(&dir);
-    let files = fs::read_dir(path).unwrap();
+    let mut paths: Vec<_> = fs::read_dir(path).unwrap().map(|r| r.unwrap()).collect();
+    paths.sort_by_key(|dir| dir.path());
 
     let mut reentrancy = 0;
     let mut timestamp = 0;
@@ -113,30 +84,20 @@ pub fn run_directory(dir: &str) -> Summary {
     let mut unchecked_send = 0;
     let mut integer_bugs = 0;
 
-    for file in files {
-        let file = file.unwrap().path();
+    for path in paths {
+        let file = path.path();
         let extension = file.extension().and_then(OsStr::to_str);
 
-        if extension.unwrap() == "sol" {
+        if extension.unwrap() == super::MYTHRIL {
             println!("Input file: {}", file.display());
-            let output = run_file(file);
-            match output {
-                Ok(result) => {
-                    // TODO: Interpret results
-                    debug!("The output is written to: {}", result.display());
-                    let result = interpret_results(&result);
-                    reentrancy += result.re_entrancy;
-                    timestamp += result.timestamp;
-                    unhanled_exceptions += result.unhandled_exceptions;
-                    tx_origin += result.tx_origin;
-                    integer_bugs += result.integer_flow;
-                    unchecked_send += result.unchecked_send;
-                    debug!("bugs: {}", result);
-                }
-                Err(msg) => {
-                    println!("err: {}", msg);
-                }
-            }
+            let result = interpret_mythril_results(file);
+            reentrancy += result.re_entrancy;
+            timestamp += result.timestamp;
+            unhanled_exceptions += result.unhandled_exceptions;
+            tx_origin += result.tx_origin;
+            integer_bugs += result.integer_flow;
+            unchecked_send += result.unchecked_send;
+            debug!("bugs: {}", result);
         }
     }
 

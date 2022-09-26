@@ -9,7 +9,7 @@ use std::path::PathBuf;
 use std::{ffi::OsStr, fs, fs::File, path::Path, process::Command};
 
 /// Run slither for each file
-fn run_file(input_file_path: PathBuf) -> Result<PathBuf, String> {
+fn run_slither(input_file_path: PathBuf) -> Result<PathBuf, String> {
     let check_results = solc::check_solc_settings(&input_file_path);
 
     if let Err(msg) = check_results {
@@ -47,7 +47,7 @@ fn run_file(input_file_path: PathBuf) -> Result<PathBuf, String> {
 }
 
 /// Interpret Slither results
-fn interpret_results(file: &Path) -> Summary {
+fn interpret_slither_results(file: &Path) -> Summary {
     // Note: Slither can find bugs in the following types:
     // Re-entrancy
     // Timestamp dependency
@@ -94,11 +94,11 @@ pub fn run_directory(dir: &str) -> Summary {
 
         if extension.unwrap() == "sol" {
             println!("Input file: {}", file.display());
-            let output = run_file(file);
+            let output = run_slither(file);
             match output {
                 Ok(result) => {
                     debug!("The output is written to: {}", result.display());
-                    let result = interpret_results(&result);
+                    let result = interpret_slither_results(&result);
                     reentrancy += result.re_entrancy;
                     timestamp += result.timestamp;
                     unhanled_exceptions += result.unhandled_exceptions;
