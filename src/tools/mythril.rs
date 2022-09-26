@@ -46,7 +46,7 @@ fn generate_command(input_file_path: PathBuf) -> String {
         .unwrap_or("");
 
     let parent_dir = input_file_path.parent().unwrap_or_else(|| Path::new(""));
-    let output_file_path = parent_dir.join(file_stem_name.to_owned() + "." + super::SLITHER);
+    let output_file_path = parent_dir.join(file_stem_name.to_owned() + "." + super::MYTHRIL);
 
     let mythril_args = "analyze".to_owned()
         + " --execution-timeout 60"
