@@ -1,0 +1,26 @@
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ChannelWallet
+Function name: callme_re_ent42()
+PC address: 2682
+Estimated Gas Usage: 7686 - 61967
+Any sender can withdraw Ether from the contract account.
+Arbitrary senders other than the contract creator can profitably extract Ether from the contract account. Verify the business logic carefully and make sure that appropriate security controls are in place to prevent unexpected loss of funds.
+--------------------
+In file: Re-entrancy/buggy_6.sol:85
+
+msg.sender.send(10 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x23b7e5d4a9d780102, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x429eff7c2e216f6af, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x8ac7230489e80000
+Caller: [ATTACKER], function: callme_re_ent42(), txdata: 0x0f7219b0, value: 0x0
+
+

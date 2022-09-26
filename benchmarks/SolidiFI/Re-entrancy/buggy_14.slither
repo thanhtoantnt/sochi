@@ -1,0 +1,201 @@
+==== External Call To User-Supplied Address ====
+SWC ID: 107
+Severity: Low
+Contract: ERC20
+Function name: withdraw_balances_re_ent8()
+PC address: 4016
+Estimated Gas Usage: 7362 - 62306
+A call to a user-supplied address is executed.
+An external message call to an address specified by the caller is executed. Note that the callee account might contain arbitrary code and could re-enter any function within this contract. Reentering the contract in an intermediate state may lead to unexpected behaviour. Make sure that no state modifications are executed after this call and/or reentrancy guards are in place.
+--------------------
+In file: Re-entrancy/buggy_14.sol:210
+
+msg.sender.call.value(balances_re_ent8[msg.sender ])("")
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x3b48292040a022d3d, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x100, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [ATTACKER], function: withdraw_balances_re_ent8(), txdata: 0xa2bcc8c5, value: 0x0
+
+==== State access after external call ====
+SWC ID: 107
+Severity: Medium
+Contract: ERC20
+Function name: withdraw_balances_re_ent8()
+PC address: 4147
+Estimated Gas Usage: 7362 - 62306
+Write to persistent state following external call
+The contract account state is accessed after an external call to a user defined address. To prevent reentrancy issues, consider accessing the state only before the call, especially if the callee is untrusted. Alternatively, a reentrancy lock can be used to prevent untrusted callees from re-entering the contract in an intermediate state.
+--------------------
+In file: Re-entrancy/buggy_14.sol:212
+
+balances_re_ent8[msg.sender] = 0
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x30a88e80820001c31, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [ATTACKER], function: withdraw_balances_re_ent8(), txdata: 0xa2bcc8c5, value: 0x0
+
+==== External Call To User-Supplied Address ====
+SWC ID: 107
+Severity: Low
+Contract: ERC20
+Function name: withdrawFunds_re_ent3(uint256)
+PC address: 4277
+Estimated Gas Usage: 8322 - 63266
+A call to a user-supplied address is executed.
+An external message call to an address specified by the caller is executed. Note that the callee account might contain arbitrary code and could re-enter any function within this contract. Reentering the contract in an intermediate state may lead to unexpected behaviour. Make sure that no state modifications are executed after this call and/or reentrancy guards are in place.
+--------------------
+In file: Re-entrancy/buggy_14.sol:76
+
+msg.sender.call.value(_weiToWithdraw)("")
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x100020800200207b9, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x200000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [ATTACKER], function: withdrawFunds_re_ent3(uint256), txdata: 0xa4e80ee00000000000000000000000000000000000000000000000000000000000000000, decoded_data: (0,), value: 0x0
+
+==== State access after external call ====
+SWC ID: 107
+Severity: Medium
+Contract: ERC20
+Function name: withdrawFunds_re_ent3(uint256)
+PC address: 4414
+Estimated Gas Usage: 8322 - 63266
+Read of persistent state following external call
+The contract account state is accessed after an external call to a user defined address. To prevent reentrancy issues, consider accessing the state only before the call, especially if the callee is untrusted. Alternatively, a reentrancy lock can be used to prevent untrusted callees from re-entering the contract in an intermediate state.
+--------------------
+In file: Re-entrancy/buggy_14.sol:78
+
+balances_re_ent3[msg.sender] -= _weiToWithdraw
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x200084000008333b, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x20000000000000401, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [ATTACKER], function: withdrawFunds_re_ent3(uint256), txdata: 0xa4e80ee00000000000000000000000000000000000000000000000000000000000000000, decoded_data: (0,), value: 0x0
+
+==== State access after external call ====
+SWC ID: 107
+Severity: Medium
+Contract: ERC20
+Function name: withdrawFunds_re_ent3(uint256)
+PC address: 4421
+Estimated Gas Usage: 8322 - 63266
+Write to persistent state following external call
+The contract account state is accessed after an external call to a user defined address. To prevent reentrancy issues, consider accessing the state only before the call, especially if the callee is untrusted. Alternatively, a reentrancy lock can be used to prevent untrusted callees from re-entering the contract in an intermediate state.
+--------------------
+In file: Re-entrancy/buggy_14.sol:78
+
+balances_re_ent3[msg.sender] -= _weiToWithdraw
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x200084000008333b, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x20000000000000401, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [ATTACKER], function: withdrawFunds_re_ent3(uint256), txdata: 0xa4e80ee00000000000000000000000000000000000000000000000000000000000000000, decoded_data: (0,), value: 0x0
+
+==== State access after external call ====
+SWC ID: 107
+Severity: Low
+Contract: ERC20
+Function name: buyTicket_re_ent9()
+PC address: 4613
+Estimated Gas Usage: 14661 - 89885
+Read of persistent state following external call
+The contract account state is accessed after an external call to a fixed address. To prevent reentrancy issues, consider accessing the state only before the call, especially if the callee is untrusted. Alternatively, a reentrancy lock can be used to prevent untrusted callees from re-entering the contract in an intermediate state.
+--------------------
+In file: Re-entrancy/buggy_14.sol:87
+
+lastPlayer_re_ent9 = msg.sender
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x24000880020820835, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [CREATOR], function: buyTicket_re_ent9(), txdata: 0xacc0544f, value: 0x0
+
+==== State access after external call ====
+SWC ID: 107
+Severity: Low
+Contract: ERC20
+Function name: buyTicket_re_ent9()
+PC address: 4666
+Estimated Gas Usage: 14661 - 89885
+Write to persistent state following external call
+The contract account state is accessed after an external call to a fixed address. To prevent reentrancy issues, consider accessing the state only before the call, especially if the callee is untrusted. Alternatively, a reentrancy lock can be used to prevent untrusted callees from re-entering the contract in an intermediate state.
+--------------------
+In file: Re-entrancy/buggy_14.sol:87
+
+lastPlayer_re_ent9 = msg.sender
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x24000880020820835, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [CREATOR], function: buyTicket_re_ent9(), txdata: 0xacc0544f, value: 0x0
+
+==== State access after external call ====
+SWC ID: 107
+Severity: Low
+Contract: ERC20
+Function name: buyTicket_re_ent9()
+PC address: 4696
+Estimated Gas Usage: 14661 - 89885
+Write to persistent state following external call
+The contract account state is accessed after an external call to a fixed address. To prevent reentrancy issues, consider accessing the state only before the call, especially if the callee is untrusted. Alternatively, a reentrancy lock can be used to prevent untrusted callees from re-entering the contract in an intermediate state.
+--------------------
+In file: Re-entrancy/buggy_14.sol:88
+
+jackpot_re_ent9    = address(this).balance
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x24000880020820835, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [CREATOR], function: buyTicket_re_ent9(), txdata: 0xacc0544f, value: 0x0
+
+
