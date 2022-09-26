@@ -91,7 +91,7 @@ pub fn check_solc_settings(input_file: &Path) -> Result<String, String> {
     let regex = Regex::new(r"pragma solidity \^(\d+\.\d+\.\d+)").unwrap();
     let regex_gt = Regex::new(r"pragma solidity >=\x20?(\d+\.\d+\.\d+)").unwrap();
     let regex_less =
-        Regex::new(r"pragma solidity >=\x20?(\d+\.\d+\.\d+) <(\d+\.\d+\.\d+)").unwrap();
+        Regex::new(r"pragma solidity >=\x20?(\d+\.\d+\.\d+) <\x20?(\d+\.\d+\.\d+)").unwrap();
     let solc_ver = match regex.captures(contents.as_str()) {
         Some(capture) => capture.get(1).map_or("", |c| c.as_str()),
         None => match regex_less.captures(contents.as_str()) {

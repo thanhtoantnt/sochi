@@ -54,7 +54,7 @@ fn generate_command(input_file_path: PathBuf) -> String {
         + " > "
         + output_file_path.to_str().unwrap();
 
-    println!("{} {}", super::MYTHRIL, mythril_args);
+    debug!("{} {}", super::MYTHRIL, mythril_args);
 
     format!("{} {}", super::MYTHRIL, mythril_args).to_string()
 }

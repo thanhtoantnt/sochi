@@ -55,6 +55,8 @@ fn main() {
     }
 
     if tools.contains(&cli::ToolName::Mythril) {
-        mythril::generate_commands(opts.input_dir);
+        if opts.printer_options.generate_commands {
+            mythril::generate_commands(opts.input_dir);
+        }
     }
 }

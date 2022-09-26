@@ -34,6 +34,9 @@ pub mod print_args {
 
     /// Directory to store output files
     pub const TOOL: &str = "tool";
+
+    /// Generate commands for a tool
+    pub const GENERATE_COMMANDS: &str = "gen-commands";
 }
 
 /// Command line argument.
@@ -47,6 +50,9 @@ pub mod args {
 pub struct RunOptions {
     /// Debug mod
     pub debug_mode: bool,
+
+    /// Generate commands
+    pub generate_commands: bool,
 
     /// Select one tool to run: [Slither, Mythril, etc]
     pub tools: Vec<ToolName>,
@@ -82,6 +88,11 @@ impl<'a> PrinterCli for Command<'a> {
                 .takes_value(true)
                 .multiple_occurrences(true)
                 .allow_invalid_utf8(true)
+                .display_order(2),
+        )
+        .arg(
+            Arg::new_argument(GENERATE_COMMANDS)
+                .help("Only generate commands for a tool")
                 .display_order(2),
         )
     }
@@ -122,6 +133,7 @@ pub fn parse_printer_argument_matches(argms: &ArgMatches) -> RunOptions {
 
     RunOptions {
         debug_mode: argms.is_present(DEBUG_MODE),
+        generate_commands: argms.is_present(GENERATE_COMMANDS),
         tools,
     }
 }
