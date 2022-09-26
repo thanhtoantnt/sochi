@@ -28,7 +28,7 @@ fn run_file(input_file_path: PathBuf) -> Result<PathBuf, String> {
     if !slither_output.status.success() {
         let error_msg =
             String::from_utf8(slither_output.stderr.to_vec()).expect("Slither: unknown error!");
-        report::print_message("Graphviz error message:", error_msg.as_str());
+        report::print_message("Slither error message:", error_msg.as_str());
         panic!("Failed to run: {}", input_file_path.display());
     }
 

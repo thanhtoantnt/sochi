@@ -55,7 +55,6 @@ fn main() {
     }
 
     if tools.contains(&cli::ToolName::Mythril) {
-        let result = mythril::run_directory(opts.input_dir);
-        println!("Mythril results: {}", result);
+        mythril::generate_commands(opts.input_dir);
     }
 }

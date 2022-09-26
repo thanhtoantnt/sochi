@@ -3,10 +3,11 @@
 use super::solc;
 use super::Summary;
 use regex::Regex;
-use rutil::report;
-use std::io::prelude::*;
+use std::fs::OpenOptions;
+use std::io::Write;
+// use rutil::report;
 use std::path::PathBuf;
-use std::{ffi::OsStr, fs, fs::File, path::Path, process::Command};
+use std::{ffi::OsStr, fs, fs::File, path::Path};
 
 /// Run mythril for each file
 fn run_file(input_file_path: PathBuf) -> Result<PathBuf, String> {
@@ -23,19 +24,20 @@ fn run_file(input_file_path: PathBuf) -> Result<PathBuf, String> {
         + format!(" --solv {} ", solv).as_str()
         + input_file_path.to_str().unwrap();
 
-    let mythril_output = Command::new(super::MYTHRIL)
-        .args(mythril_args.split_whitespace())
-        .output()
-        .unwrap();
+    println!("Running command:\n{} {}", super::MYTHRIL, mythril_args);
 
-    debug!("Running command: {} {}", super::MYTHRIL, mythril_args);
+    Err("To produce running command only".to_string())
+}
 
-    if !mythril_output.status.success() {
-        let error_msg =
-            String::from_utf8(mythril_output.stderr.to_vec()).expect("Mythril: unknown error!");
-        report::print_message("Graphviz error message:", error_msg.as_str());
-        panic!("Failed to run: {}", input_file_path.display());
+/// Generate mythril command for each file
+fn generate_command(input_file_path: PathBuf) -> String {
+    let check_results = solc::check_solc_settings(&input_file_path);
+
+    if let Err(msg) = check_results {
+        panic!("{}", msg);
     }
+
+    let solv = check_results.unwrap();
 
     let file_stem_name = input_file_path
         .file_stem()
@@ -43,12 +45,18 @@ fn run_file(input_file_path: PathBuf) -> Result<PathBuf, String> {
         .unwrap_or("");
 
     let parent_dir = input_file_path.parent().unwrap_or_else(|| Path::new(""));
-    let output_file_path = parent_dir.join(file_stem_name.to_owned() + "." + super::MYTHRIL);
+    let output_file_path = parent_dir.join(file_stem_name.to_owned() + "." + super::SLITHER);
 
-    let mut output_file = File::create(&output_file_path).unwrap();
-    output_file.write_all(&mythril_output.stderr).unwrap();
+    let mythril_args = "analyze".to_owned()
+        + " --execution-timeout 60"
+        + format!(" --solv {} ", solv).as_str()
+        + input_file_path.to_str().unwrap()
+        + " > "
+        + output_file_path.to_str().unwrap();
 
-    Ok(output_file_path)
+    println!("{} {}", super::MYTHRIL, mythril_args);
+
+    format!("{} {}", super::MYTHRIL, mythril_args).to_string()
 }
 
 /// Interpret Mythril results
@@ -140,4 +148,32 @@ pub fn run_directory(dir: &str) -> Summary {
         integer_bugs,
         tx_origin,
     )
+}
+
+/// Generate mythril commands
+pub fn generate_commands(dir: &str) {
+    // List all files in the repository
+    let path = Path::new(&dir);
+    let mut paths: Vec<_> = fs::read_dir(path).unwrap().map(|r| r.unwrap()).collect();
+    paths.sort_by_key(|dir| dir.path());
+
+    // TODO: delete the existing file
+    let output_file_path = path.parent().unwrap().join("mythril_script.sh");
+
+    let _ = File::create(&output_file_path).unwrap();
+    let mut output_file = OpenOptions::new()
+        .write(true)
+        .append(true)
+        .open(output_file_path)
+        .unwrap();
+
+    for path in paths {
+        let file = path.path();
+        let extension = file.extension().and_then(OsStr::to_str);
+
+        if extension.unwrap() == "sol" {
+            let output = generate_command(path.path());
+            let _ = writeln!(output_file, "{}", output);
+        }
+    }
 }
