@@ -66,7 +66,7 @@ fn generate_command(input_file_path: PathBuf) -> String {
 
     debug!("{} {}", super::MYTHRIL, mythril_args);
 
-    format!("{0} {1}\necho \"{0} {1}\"", super::MYTHRIL, mythril_args)
+    format!("echo \"{0} {1}\"\n{0} {1}", super::MYTHRIL, mythril_args)
 }
 
 /// Run mythril using options
