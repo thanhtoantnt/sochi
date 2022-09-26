@@ -3,6 +3,7 @@
 use super::solc;
 use super::Summary;
 use regex::Regex;
+use std::env;
 use std::fs::OpenOptions;
 use std::io::Write;
 // use rutil::report;
@@ -56,7 +57,7 @@ fn generate_command(input_file_path: PathBuf) -> String {
 
     debug!("{} {}", super::MYTHRIL, mythril_args);
 
-    format!("{} {}", super::MYTHRIL, mythril_args).to_string()
+    format!("{} {}", super::MYTHRIL, mythril_args)
 }
 
 /// Interpret Mythril results
@@ -157,10 +158,8 @@ pub fn generate_commands(dir: &str) {
     let mut paths: Vec<_> = fs::read_dir(path).unwrap().map(|r| r.unwrap()).collect();
     paths.sort_by_key(|dir| dir.path());
 
-    // TODO: delete the existing file
-    let output_file_path = path.parent().unwrap().join("mythril_script.sh");
-
-    let _ = File::create(&output_file_path).unwrap();
+    let output_file_path = env::current_dir().unwrap().join("mythril_script.sh");
+    File::create(&output_file_path).unwrap();
     let mut output_file = OpenOptions::new()
         .write(true)
         .append(true)

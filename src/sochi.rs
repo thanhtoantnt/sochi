@@ -57,6 +57,9 @@ fn main() {
     if tools.contains(&cli::ToolName::Mythril) {
         if opts.printer_options.generate_commands {
             mythril::generate_commands(opts.input_dir);
+        } else {
+            let result = slither::run_directory(opts.input_dir);
+            println!("Slither results: {}", result);
         }
     }
 }
