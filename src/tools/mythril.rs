@@ -19,7 +19,7 @@ fn interpret_mythril_results(input_file: PathBuf) -> Summary {
     let reentrancy_regex_2 = Regex::new(r"External Call To User-Supplied Address").unwrap();
     let timestamp_dep_regex = Regex::new(r" uses timestamp ").unwrap();
     let unhandled_exceptions_regex = Regex::new(r"Failure condition of ").unwrap();
-    let tx_origin_regex = Regex::new(r" uses tx.origin for authorization").unwrap();
+    let tx_origin_regex = Regex::new(r"Dependence on tx.origin").unwrap();
 
     let reentrancy = reentrancy_regex.captures_iter(contents.as_str()).count();
     let reentrancy_2 = reentrancy_regex_2.captures_iter(contents.as_str()).count();
