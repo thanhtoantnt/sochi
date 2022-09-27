@@ -2,7 +2,7 @@
  *Submitted for verification at Etherscan.io on 2019-09-24
 */
 
-pragma solidity ^0.5.11;
+pragma solidity ^0.5.12;
 // ----------------------------------------------------------------------------
 //this ieo smart contract has been compiled and tested with the Solidity Version 0.5.2
 //There are some minor changes comparing to ieo contract compiled with versions < 0.5.0
