@@ -3,7 +3,8 @@
 use regex::Regex;
 use rutil::system;
 use semver::Version;
-use std::{fs, path::Path, process::Command};
+use std::io::prelude::*;
+use std::{fs, fs::File, path::Path, process::Command};
 
 /// Check path of the Solc compiler
 fn check_solc_path() -> Result<(), String> {
@@ -85,8 +86,17 @@ fn check_solc_version(required_version: Version) -> Result<String, String> {
 pub fn check_solc_settings(input_file: &Path) -> Result<String, String> {
     use super::solidity_versions::*;
 
-    let contents = fs::read_to_string(input_file.to_str().unwrap())
+    let org_contents = fs::read_to_string(input_file.to_str().unwrap())
         .expect("Should have been able to read the file");
+
+    let contents = str::replace(org_contents.as_str(), "0.5.11", "0.5.12");
+
+    if contents != org_contents {
+        fs::remove_file(input_file.to_str().unwrap()).unwrap_or(());
+        let mut new_file = File::create(input_file.to_str().unwrap()).unwrap();
+        new_file.write_all(contents.as_bytes()).unwrap();
+        println!("new file is written to: {}", input_file.to_str().unwrap());
+    }
 
     let regex = Regex::new(r"pragma solidity \^(\d+\.\d+\.\d+)").unwrap();
     let regex_gt = Regex::new(r"pragma solidity >=\x20?(\d+\.\d+\.\d+)").unwrap();

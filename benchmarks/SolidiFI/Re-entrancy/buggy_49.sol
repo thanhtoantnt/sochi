@@ -2,7 +2,7 @@
  *Submitted for verification at Etherscan.io on 2019-09-23
 */
 
-pragma solidity ^0.5.11;
+pragma solidity ^0.5.12;
 
 contract TAMC {
   uint256 counter_re_ent14 =0;
