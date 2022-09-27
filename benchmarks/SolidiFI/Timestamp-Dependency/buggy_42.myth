@@ -1,0 +1,103 @@
+==== Integer Arithmetic Bugs ====
+SWC ID: 101
+Severity: High
+Contract: Owned
+Function name: play_tmstmp23(uint256)
+PC address: 548
+Estimated Gas Usage: 6183 - 26608
+The arithmetic operator can overflow.
+It is possible to cause an integer overflow or underflow in the arithmetic operation. 
+--------------------
+In file: Timestamp-Dependency/buggy_42.sol:26
+
+startTime + (5 * 1 days)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x3, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [SOMEGUY], function: play_tmstmp23(uint256), txdata: 0x7cd2ce0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffd6800, decoded_data: (115792089237316195423570985008687907853269984665640564039457584007913129469952,), value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: Owned
+Function name: play_tmstmp23(uint256)
+PC address: 554
+Estimated Gas Usage: 293 - 388
+A control flow decision is made based on The block.timestamp environment variable.
+The block.timestamp environment variable is used to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables as sources of randomness and be aware that use of these variables introduces a certain level of trust into miners.
+--------------------
+In file: Timestamp-Dependency/buggy_42.sol:26
+
+if (startTime + (5 * 1 days) == _vtime){
+		winner_tmstmp23 = msg.sender;}
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x12, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [SOMEGUY], function: play_tmstmp23(uint256), txdata: 0x7cd2ce0f0000000000000000000000000000000000000000000000000000000000000000, decoded_data: (0,), value: 0x0
+
+==== Integer Arithmetic Bugs ====
+SWC ID: 101
+Severity: High
+Contract: Owned
+Function name: play_tmstmp14(uint256)
+PC address: 706
+Estimated Gas Usage: 6169 - 26594
+The arithmetic operator can overflow.
+It is possible to cause an integer overflow or underflow in the arithmetic operation. 
+--------------------
+In file: Timestamp-Dependency/buggy_42.sol:40
+
+startTime + (5 * 1 days)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x3, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [SOMEGUY], function: play_tmstmp14(uint256), txdata: 0xecd97e16fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffd6800, decoded_data: (115792089237316195423570985008687907853269984665640564039457584007913129469952,), value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: Owned
+Function name: play_tmstmp14(uint256)
+PC address: 712
+Estimated Gas Usage: 281 - 376
+A control flow decision is made based on The block.timestamp environment variable.
+The block.timestamp environment variable is used to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables as sources of randomness and be aware that use of these variables introduces a certain level of trust into miners.
+--------------------
+In file: Timestamp-Dependency/buggy_42.sol:40
+
+if (startTime + (5 * 1 days) == block.timestamp){
+		winner_tmstmp14 = msg.sender;}
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x3, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [SOMEGUY], function: play_tmstmp14(uint256), txdata: 0xecd97e160000000000000000000000000000000000000000000000000000000000000000, decoded_data: (0,), value: 0x0
+
+
