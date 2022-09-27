@@ -6,7 +6,7 @@
  * website: https://exclusiveplatform.com
 */
 
-pragma solidity ^0.5.11;
+pragma solidity ^0.5.12;
 
 /**
  * @title SafeMath
