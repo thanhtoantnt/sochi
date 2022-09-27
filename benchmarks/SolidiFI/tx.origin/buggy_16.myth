@@ -1,0 +1,101 @@
+==== Dependence on tx.origin ====
+SWC ID: 115
+Severity: Low
+Contract: Owned
+Function name: sendto_txorigin1(address,uint256,address)
+PC address: 615
+Estimated Gas Usage: 284 - 379
+Use of tx.origin as a part of authorization control.
+The tx.origin environment variable has been found to influence a control flow decision. Note that using tx.origin as a security control might cause a situation where a user inadvertently authorizes a smart contract to perform an action on their behalf. It is recommended to use msg.sender instead.
+--------------------
+In file: tx.origin/buggy_16.sol:130
+
+require (tx.origin == owner_txorigin1)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x939080008380803, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x1000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [ATTACKER], function: sendto_txorigin1(address,uint256,address), txdata: 0x64acbadd000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
+
+==== Dependence on tx.origin ====
+SWC ID: 115
+Severity: Low
+Contract: Owned
+Function name: transferOwnership(address)
+PC address: 817
+Estimated Gas Usage: 1104 - 1529
+Use of tx.origin as a part of authorization control.
+The tx.origin environment variable has been found to influence a control flow decision. Note that using tx.origin as a security control might cause a situation where a user inadvertently authorizes a smart contract to perform an action on their behalf. It is recommended to use msg.sender instead.
+--------------------
+In file: tx.origin/buggy_16.sol:116
+
+require(msg.sender == owner)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x8, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [SOMEGUY], function: transferOwnership(address), txdata: 0xf2fde38b0000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000',), value: 0x0
+
+==== Dependence on tx.origin ====
+SWC ID: 115
+Severity: Low
+Contract: Owned
+Function name: sendto_txorigin33(address,uint256,address)
+PC address: 1121
+Estimated Gas Usage: 350 - 445
+Use of tx.origin as a part of authorization control.
+The tx.origin environment variable has been found to influence a control flow decision. Note that using tx.origin as a security control might cause a situation where a user inadvertently authorizes a smart contract to perform an action on their behalf. It is recommended to use msg.sender instead.
+--------------------
+In file: tx.origin/buggy_16.sol:95
+
+require (tx.origin == owner_txorigin33)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x139080008180903, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x200000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [ATTACKER], function: sendto_txorigin33(address,uint256,address), txdata: 0xf7ae6cde000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
+
+==== Dependence on tx.origin ====
+SWC ID: 115
+Severity: Low
+Contract: Owned
+Function name: transferTo_txorigin11(address,uint256,address)
+PC address: 1253
+Estimated Gas Usage: 372 - 467
+Use of tx.origin as a part of authorization control.
+The tx.origin environment variable has been found to influence a control flow decision. Note that using tx.origin as a security control might cause a situation where a user inadvertently authorizes a smart contract to perform an action on their behalf. It is recommended to use msg.sender instead.
+--------------------
+In file: tx.origin/buggy_16.sol:108
+
+require(tx.origin == owner_txorigin11)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [SOMEGUY], function: transferTo_txorigin11(address,uint256,address), txdata: 0xfca25f6c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
+
+
