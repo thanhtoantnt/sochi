@@ -15,12 +15,12 @@ msg.sender.call.value(userBalance_re_ent40[msg.sender])("")
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x4009010010000a202, nonce:0, storage:{}
-Account: [ATTACKER], balance: 0x20000000000200000, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x4010300010002a091, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x2041000000000800, nonce:0, storage:{}
 
 Transaction Sequence:
 
-Caller: [CREATOR], calldata: , value: 0x0
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
 Caller: [ATTACKER], function: withdrawBalance_re_ent40(), txdata: 0x6cfd7721, value: 0x0
 
 ==== State access after external call ====
@@ -40,12 +40,12 @@ userBalance_re_ent40[msg.sender] = 0
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x40041000022432002, nonce:0, storage:{}
-Account: [ATTACKER], balance: 0x20, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x400c0000020000002, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x15005000840008, nonce:0, storage:{}
 
 Transaction Sequence:
 
-Caller: [CREATOR], calldata: , value: 0x0
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
 Caller: [ATTACKER], function: withdrawBalance_re_ent40(), txdata: 0x6cfd7721, value: 0x0
 
 ==== External Call To User-Supplied Address ====
@@ -54,7 +54,7 @@ Severity: Low
 Contract: RaffleTokenExchange
 Function name: withdrawBalance_re_ent26()
 PC address: 7614
-Estimated Gas Usage: 7040 - 61701
+Estimated Gas Usage: 7113 - 62057
 A call to a user-supplied address is executed.
 An external message call to an address specified by the caller is executed. Note that the callee account might contain arbitrary code and could re-enter any function within this contract. Reentering the contract in an intermediate state may lead to unexpected behaviour. Make sure that no state modifications are executed after this call and/or reentrancy guards are in place.
 --------------------
@@ -65,12 +65,12 @@ msg.sender.call.value(userBalance_re_ent26[msg.sender])("")
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x2404a0000088020, nonce:0, storage:{}
-Account: [ATTACKER], balance: 0x4100000000000008, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x400804200000010c1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x112000008000001, nonce:0, storage:{}
 
 Transaction Sequence:
 
-Caller: [CREATOR], calldata: , value: 0x0
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
 Caller: [ATTACKER], function: withdrawBalance_re_ent26(), txdata: 0x8f94454c, value: 0x0
 
 ==== State access after external call ====
@@ -79,7 +79,7 @@ Severity: Medium
 Contract: RaffleTokenExchange
 Function name: withdrawBalance_re_ent26()
 PC address: 7749
-Estimated Gas Usage: 7040 - 61701
+Estimated Gas Usage: 7113 - 62057
 Write to persistent state following external call
 The contract account state is accessed after an external call to a user defined address. To prevent reentrancy issues, consider accessing the state only before the call, especially if the callee is untrusted. Alternatively, a reentrancy lock can be used to prevent untrusted callees from re-entering the contract in an intermediate state.
 --------------------
@@ -90,12 +90,12 @@ userBalance_re_ent26[msg.sender] = 0
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x40b02042000009081, nonce:0, storage:{}
-Account: [ATTACKER], balance: 0x2000a00000002, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x3c0100022001161, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x1, nonce:0, storage:{}
 
 Transaction Sequence:
 
-Caller: [CREATOR], calldata: , value: 0x0
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
 Caller: [ATTACKER], function: withdrawBalance_re_ent26(), txdata: 0x8f94454c, value: 0x0
 
 ==== External Call To User-Supplied Address ====
@@ -104,7 +104,7 @@ Severity: Low
 Contract: RaffleTokenExchange
 Function name: withdraw_balances_re_ent8()
 PC address: 8493
-Estimated Gas Usage: 7043 - 61704
+Estimated Gas Usage: 7116 - 62060
 A call to a user-supplied address is executed.
 An external message call to an address specified by the caller is executed. Note that the callee account might contain arbitrary code and could re-enter any function within this contract. Reentering the contract in an intermediate state may lead to unexpected behaviour. Make sure that no state modifications are executed after this call and/or reentrancy guards are in place.
 --------------------
@@ -115,12 +115,12 @@ msg.sender.call.value(balances_re_ent8[msg.sender ])("")
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x21c00008200d8ca9, nonce:0, storage:{}
-Account: [ATTACKER], balance: 0x4000000000001, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x2c00000000b1001, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x4004008010004, nonce:0, storage:{}
 
 Transaction Sequence:
 
-Caller: [CREATOR], calldata: , value: 0x0
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
 Caller: [ATTACKER], function: withdraw_balances_re_ent8(), txdata: 0xa2bcc8c5, value: 0x0
 
 ==== State access after external call ====
@@ -129,7 +129,7 @@ Severity: Medium
 Contract: RaffleTokenExchange
 Function name: withdraw_balances_re_ent8()
 PC address: 8624
-Estimated Gas Usage: 7043 - 61704
+Estimated Gas Usage: 7116 - 62060
 Write to persistent state following external call
 The contract account state is accessed after an external call to a user defined address. To prevent reentrancy issues, consider accessing the state only before the call, especially if the callee is untrusted. Alternatively, a reentrancy lock can be used to prevent untrusted callees from re-entering the contract in an intermediate state.
 --------------------
@@ -140,12 +140,12 @@ balances_re_ent8[msg.sender] = 0
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x403c0042198508, nonce:0, storage:{}
-Account: [ATTACKER], balance: 0x12010000000c008c2, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x40000180000022001, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x20808000004000000, nonce:0, storage:{}
 
 Transaction Sequence:
 
-Caller: [CREATOR], calldata: , value: 0x0
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
 Caller: [ATTACKER], function: withdraw_balances_re_ent8(), txdata: 0xa2bcc8c5, value: 0x0
 
 ==== External Call To User-Supplied Address ====
@@ -154,7 +154,7 @@ Severity: Low
 Contract: RaffleTokenExchange
 Function name: withdrawBalance_re_ent33()
 PC address: 8924
-Estimated Gas Usage: 7017 - 61678
+Estimated Gas Usage: 7090 - 62034
 A call to a user-supplied address is executed.
 An external message call to an address specified by the caller is executed. Note that the callee account might contain arbitrary code and could re-enter any function within this contract. Reentering the contract in an intermediate state may lead to unexpected behaviour. Make sure that no state modifications are executed after this call and/or reentrancy guards are in place.
 --------------------
@@ -165,12 +165,12 @@ msg.sender.call.value(userBalance_re_ent33[msg.sender])("")
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x521a0000021012b61, nonce:0, storage:{}
-Account: [ATTACKER], balance: 0x28208000800004, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x28290000120000301, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x8004200000, nonce:0, storage:{}
 
 Transaction Sequence:
 
-Caller: [CREATOR], calldata: , value: 0x0
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
 Caller: [ATTACKER], function: withdrawBalance_re_ent33(), txdata: 0xc6604ad7, value: 0x0
 
 ==== State access after external call ====
@@ -179,7 +179,7 @@ Severity: Medium
 Contract: RaffleTokenExchange
 Function name: withdrawBalance_re_ent33()
 PC address: 9059
-Estimated Gas Usage: 7017 - 61678
+Estimated Gas Usage: 7090 - 62034
 Write to persistent state following external call
 The contract account state is accessed after an external call to a user defined address. To prevent reentrancy issues, consider accessing the state only before the call, especially if the callee is untrusted. Alternatively, a reentrancy lock can be used to prevent untrusted callees from re-entering the contract in an intermediate state.
 --------------------
@@ -190,12 +190,12 @@ userBalance_re_ent33[msg.sender] = 0
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0xd40000000a1220, nonce:0, storage:{}
-Account: [ATTACKER], balance: 0x100000000000001, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x38100196001023881, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x4000004, nonce:0, storage:{}
 
 Transaction Sequence:
 
-Caller: [CREATOR], calldata: , value: 0x0
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
 Caller: [ATTACKER], function: withdrawBalance_re_ent33(), txdata: 0xc6604ad7, value: 0x0
 
 
