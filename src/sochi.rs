@@ -24,6 +24,7 @@ extern crate rutil;
 use rutil::{debug, report};
 
 use sochi::cli;
+use sochi::tools::confuzzius;
 use sochi::tools::mythril;
 use sochi::tools::slither;
 
@@ -50,7 +51,16 @@ fn main() {
 
     let tools = opts.printer_options.tools;
     if tools.contains(&cli::ToolName::Slither) {
-        let result = slither::run_directory(opts.input_dir);
+        if opts.printer_options.generate_commands {
+            slither::generate_results(opts.input_dir);
+        } else {
+            let result = slither::interpret_results(opts.input_dir);
+            println!("Slither results: {}", result);
+        }
+    }
+
+    if tools.contains(&cli::ToolName::Confuzzius) {
+        let result = confuzzius::run_directory(opts.input_dir);
         println!("Slither results: {}", result);
     }
 

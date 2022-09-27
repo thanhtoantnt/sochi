@@ -1,5 +1,6 @@
 //! Command line arguments for Insight
 
+use crate::tools;
 use clap::{Arg, ArgMatches, Command};
 use rutil::arg::ArgExt;
 use std::cmp::Ordering;
@@ -10,6 +11,9 @@ pub enum ToolName {
     /// Slither
     Slither,
 
+    /// Confuzzius
+    Confuzzius,
+
     /// Mythril
     Mythril,
 }
@@ -17,13 +21,15 @@ pub enum ToolName {
 impl ToolName {
     /// Constructor
     pub fn new(input: String) -> ToolName {
-        if input == "slither" {
+        if input == tools::SLITHER {
             return ToolName::Slither;
-        } else if input == "mythril" {
+        } else if input == tools::MYTHRIL {
             return ToolName::Mythril;
+        } else if input == tools::CONFUZZIUS {
+            return ToolName::Confuzzius;
         }
 
-        panic!("The tool is not in the list of [slither, mythril]");
+        panic!("The tool is not in the list of [slither, mythril, confuzzius]");
     }
 }
 
@@ -32,11 +38,14 @@ pub mod print_args {
     /// Debug mode
     pub const DEBUG_MODE: &str = "debug";
 
-    /// Directory to store output files
+    /// The tool to be run and get results
     pub const TOOL: &str = "tool";
 
     /// Generate commands for a tool
     pub const GENERATE_COMMANDS: &str = "gen-commands";
+
+    /// Generate results for a tool
+    pub const GENERATE_RESULTS: &str = "gen-results";
 }
 
 /// Command line argument.
@@ -53,6 +62,9 @@ pub struct RunOptions {
 
     /// Generate commands
     pub generate_commands: bool,
+
+    /// Generate results
+    pub generate_results: bool,
 
     /// Select one tool to run: [Slither, Mythril, etc]
     pub tools: Vec<ToolName>,
@@ -84,7 +96,7 @@ impl<'a> PrinterCli for Command<'a> {
         )
         .arg(
             Arg::new_argument(TOOL)
-                .help("To run a tool in the set [slither, mythril]")
+                .help("To run a tool in the set [slither, mythril, confuzzius]")
                 .takes_value(true)
                 .multiple_occurrences(true)
                 .allow_invalid_utf8(true)
@@ -93,6 +105,11 @@ impl<'a> PrinterCli for Command<'a> {
         .arg(
             Arg::new_argument(GENERATE_COMMANDS)
                 .help("Only generate commands for a tool")
+                .display_order(2),
+        )
+        .arg(
+            Arg::new_argument(GENERATE_RESULTS)
+                .help("Only generate running results for a tool")
                 .display_order(2),
         )
     }
@@ -134,6 +151,7 @@ pub fn parse_printer_argument_matches(argms: &ArgMatches) -> RunOptions {
     RunOptions {
         debug_mode: argms.is_present(DEBUG_MODE),
         generate_commands: argms.is_present(GENERATE_COMMANDS),
+        generate_results: argms.is_present(GENERATE_RESULTS),
         tools,
     }
 }

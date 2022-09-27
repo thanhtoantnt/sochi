@@ -1,4 +1,4 @@
-//! Module to run Slither
+//! Module to run Confuzzius
 
 use super::solc;
 use super::Summary;
@@ -8,27 +8,36 @@ use std::io::prelude::*;
 use std::path::PathBuf;
 use std::{ffi::OsStr, fs, fs::File, path::Path, process::Command};
 
-/// Run slither for each file
-fn run_slither(input_file_path: PathBuf) -> Result<PathBuf, String> {
+/// Run confuzzius for each file
+fn run_confuzzius(input_file_path: PathBuf) -> Result<PathBuf, String> {
     let check_results = solc::check_solc_settings(&input_file_path);
 
     if let Err(msg) = check_results {
         return Err(msg);
     }
 
-    let slither_args = input_file_path.to_str().unwrap().to_string();
+    let solc = check_results.unwrap();
 
-    let slither_output = Command::new(super::SLITHER)
-        .args(slither_args.split_whitespace())
+    let confuzzius_loc = "../ConFuzzius/fuzzer/main.py";
+
+    let confuzzius_args = confuzzius_loc.to_owned()
+        + " -s "
+        + input_file_path.to_str().unwrap()
+        + format!(" --solc v{}", solc).as_str()
+        + " --evm byzantium"
+        + " -g 20";
+
+    let confuzzius_output = Command::new(super::PYTHON3)
+        .args(confuzzius_args.split_whitespace())
         .output()
         .unwrap();
 
-    debug!("Running command: {} {}", super::SLITHER, slither_args);
+    debug!("Running command: {} {}", super::PYTHON3, confuzzius_args);
 
-    if !slither_output.status.success() {
-        let error_msg =
-            String::from_utf8(slither_output.stderr.to_vec()).expect("Slither: unknown error!");
-        report::print_message("Slither error message:", error_msg.as_str());
+    if !confuzzius_output.status.success() {
+        let error_msg = String::from_utf8(confuzzius_output.stderr.to_vec())
+            .expect("Confuzzius: unknown error!");
+        report::print_message("Confuzzius error message:", error_msg.as_str());
         panic!("Failed to run: {}", input_file_path.display());
     }
 
@@ -38,17 +47,17 @@ fn run_slither(input_file_path: PathBuf) -> Result<PathBuf, String> {
         .unwrap_or("");
 
     let parent_dir = input_file_path.parent().unwrap_or_else(|| Path::new(""));
-    let output_file_path = parent_dir.join(file_stem_name.to_owned() + "." + super::SLITHER);
+    let output_file_path = parent_dir.join(file_stem_name.to_owned() + "." + super::CONFUZZIUS);
 
     let mut output_file = File::create(&output_file_path).unwrap();
-    output_file.write_all(&slither_output.stderr).unwrap();
+    output_file.write_all(&confuzzius_output.stderr).unwrap();
 
     Ok(output_file_path)
 }
 
-/// Interpret Slither results
-fn interpret_slither_results(file: &Path) -> Summary {
-    // Note: Slither can find bugs in the following types:
+/// Interpret Confuzzius results
+fn interpret_confuzzius_results(file: &Path) -> Summary {
+    // Note: Confuzzius can find bugs in the following types:
     // Re-entrancy
     // Timestamp dependency
     // Unhandled exceptions
@@ -78,8 +87,8 @@ fn interpret_slither_results(file: &Path) -> Summary {
     )
 }
 
-/// Interpret slither results
-pub fn interpret_results(dir: &str) -> Summary {
+/// Run confuzzius using options
+pub fn run_directory(dir: &str) -> Summary {
     // List all files in the repository
     let path = Path::new(&dir);
     let files = fs::read_dir(path).unwrap();
@@ -91,14 +100,24 @@ pub fn interpret_results(dir: &str) -> Summary {
     for file in files {
         let file = file.unwrap().path();
         let extension = file.extension().and_then(OsStr::to_str);
-        if extension.unwrap() == super::SLITHER {
+
+        if extension.unwrap() == "sol" {
             println!("Input file: {}", file.display());
-            let result = interpret_slither_results(&file);
-            reentrancy += result.re_entrancy;
-            timestamp += result.timestamp;
-            unhanled_exceptions += result.unhandled_exceptions;
-            tx_origin += result.tx_origin;
-            debug!("bugs: {}", result);
+            let output = run_confuzzius(file);
+            match output {
+                Ok(result) => {
+                    debug!("The output is written to: {}", result.display());
+                    let result = interpret_confuzzius_results(&result);
+                    reentrancy += result.re_entrancy;
+                    timestamp += result.timestamp;
+                    unhanled_exceptions += result.unhandled_exceptions;
+                    tx_origin += result.tx_origin;
+                    debug!("bugs: {}", result);
+                }
+                Err(msg) => {
+                    println!("err: {}", msg);
+                }
+            }
         }
     }
 
@@ -111,29 +130,4 @@ pub fn interpret_results(dir: &str) -> Summary {
         0,
         tx_origin,
     )
-}
-
-/// Run slither and get results
-pub fn generate_results(dir: &str) {
-    // List all files in the repository
-    let path = Path::new(&dir);
-    let files = fs::read_dir(path).unwrap();
-
-    for file in files {
-        let file = file.unwrap().path();
-        let extension = file.extension().and_then(OsStr::to_str);
-
-        if extension.unwrap() == "sol" {
-            println!("Input file: {}", file.display());
-            let output = run_slither(file);
-            match output {
-                Ok(result) => {
-                    println!("The output is written to: {}", result.display());
-                }
-                Err(msg) => {
-                    println!("err: {}", msg);
-                }
-            }
-        }
-    }
 }
