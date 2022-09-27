@@ -59,7 +59,7 @@ fn generate_command(input_file_path: PathBuf) -> String {
     let output_file_path = parent_dir.join(file_stem_name.to_owned() + "." + super::MYTHRIL);
 
     let mythril_args = "analyze".to_owned()
-        + " --execution-timeout 60"
+        + " --execution-timeout 10"
         + format!(" --solv {} ", solv).as_str()
         + input_file_path.to_str().unwrap()
         + " > "
