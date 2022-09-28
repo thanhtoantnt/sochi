@@ -64,7 +64,7 @@ fn main() {
             confuzzius::generate_results(opts.input_dir);
         } else {
             let result = confuzzius::interpret_results(opts.input_dir);
-            println!("Slither results: {}", result);
+            println!("Confuzzius results: {}", result);
         }
     }
 
@@ -75,7 +75,7 @@ fn main() {
             mythril::generate_commands(opts.input_dir);
         } else {
             let result = mythril::interpret_results(opts.input_dir);
-            println!("Slither results: {}", result);
+            println!("Mythril results: {}", result);
         }
     }
 }

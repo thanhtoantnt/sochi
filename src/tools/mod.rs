@@ -109,7 +109,10 @@ impl Display for Summary {
     fn fmt(&self, f: &mut Formatter<'_>) -> Result {
         let _ = write!(f, "\nReentrancy: {}", self.re_entrancy);
         let _ = write!(f, "\nTimestamp Dependency: {}", self.timestamp);
+        let _ = write!(f, "\nUnchecked Send: {}", self.unchecked_send);
         let _ = write!(f, "\nUnhanled Exceptions: {}", self.unhandled_exceptions);
+        let _ = write!(f, "\nTOD: {}", self.trans_ordering_dep);
+        let _ = write!(f, "\nInteger Over/Underflow: {}", self.integer_flow);
         write!(f, "\nTx_origin: {}\n", self.tx_origin)
     }
 }

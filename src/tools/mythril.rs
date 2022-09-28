@@ -16,26 +16,38 @@ fn interpret_mythril_results(input_file: PathBuf) -> Summary {
         .expect("Should have been able to read the file");
 
     let reentrancy_regex = Regex::new(r"State access after external call").unwrap();
-    let reentrancy_regex_2 = Regex::new(r"External Call To User-Supplied Address").unwrap();
-    let timestamp_dep_regex = Regex::new(r" uses timestamp ").unwrap();
-    let unhandled_exceptions_regex = Regex::new(r"Failure condition of ").unwrap();
+    let timestamp_dep_regex = Regex::new(
+        r"The block.timestamp environment variable is used to determine a control flow decision",
+    )
+    .unwrap();
+    let unhandled_exceptions_regex =
+        Regex::new(r"Unchecked return value from external call").unwrap();
+    let unhandled_exception_regex2 = Regex::new(r"External Call To User-Supplied Address").unwrap();
     let tx_origin_regex = Regex::new(r"Dependence on tx.origin").unwrap();
+    let integer_regex = Regex::new(r"Integer Arithmetic Bugs").unwrap();
+    let unchecked_send_regex = Regex::new(r"Unprotected Ether Withdrawal").unwrap();
 
     let reentrancy = reentrancy_regex.captures_iter(contents.as_str()).count();
-    let reentrancy_2 = reentrancy_regex_2.captures_iter(contents.as_str()).count();
     let timestamp_dep = timestamp_dep_regex.captures_iter(contents.as_str()).count();
     let unhandled_exceptions = unhandled_exceptions_regex
         .captures_iter(contents.as_str())
         .count();
+    let unhandled_exception2 = unhandled_exception_regex2
+        .captures_iter(contents.as_str())
+        .count();
     let tx_origin = tx_origin_regex.captures_iter(contents.as_str()).count();
+    let integer_bugs = integer_regex.captures_iter(contents.as_str()).count();
+    let unchecked_send = unchecked_send_regex
+        .captures_iter(contents.as_str())
+        .count();
 
     Summary::new(
-        reentrancy + reentrancy_2,
+        reentrancy,
         timestamp_dep,
+        unchecked_send,
+        unhandled_exceptions + unhandled_exception2,
         0,
-        unhandled_exceptions,
-        0,
-        0,
+        integer_bugs,
         tx_origin,
     )
 }
