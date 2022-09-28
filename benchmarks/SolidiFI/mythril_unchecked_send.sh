@@ -1,47 +1,47 @@
-echo "myth analyze --execution-timeout 10 --solv 0.5.16 Unchecked-Send/buggy_1.sol > Unchecked-Send/buggy_1.myth"
-myth analyze --execution-timeout 10 --solv 0.5.16 Unchecked-Send/buggy_1.sol > Unchecked-Send/buggy_1.myth
+# echo "myth analyze --execution-timeout 10 --solv 0.5.16 Unchecked-Send/buggy_1.sol > Unchecked-Send/buggy_1.myth"
+# myth analyze --execution-timeout 10 --solv 0.5.16 Unchecked-Send/buggy_1.sol > Unchecked-Send/buggy_1.myth
 
-echo "myth analyze --execution-timeout 10 --solv 0.5.16 Unchecked-Send/buggy_10.sol > Unchecked-Send/buggy_10.myth"
-myth analyze --execution-timeout 10 --solv 0.5.16 Unchecked-Send/buggy_10.sol > Unchecked-Send/buggy_10.myth
+# echo "myth analyze --execution-timeout 10 --solv 0.5.16 Unchecked-Send/buggy_10.sol > Unchecked-Send/buggy_10.myth"
+# myth analyze --execution-timeout 10 --solv 0.5.16 Unchecked-Send/buggy_10.sol > Unchecked-Send/buggy_10.myth
 
-echo "myth analyze --execution-timeout 10 --solv 0.5.0 Unchecked-Send/buggy_11.sol > Unchecked-Send/buggy_11.myth"
-myth analyze --execution-timeout 10 --solv 0.5.0 Unchecked-Send/buggy_11.sol > Unchecked-Send/buggy_11.myth
+# echo "myth analyze --execution-timeout 10 --solv 0.5.0 Unchecked-Send/buggy_11.sol > Unchecked-Send/buggy_11.myth"
+# myth analyze --execution-timeout 10 --solv 0.5.0 Unchecked-Send/buggy_11.sol > Unchecked-Send/buggy_11.myth
 
-echo "myth analyze --execution-timeout 10 --solv 0.5.16 Unchecked-Send/buggy_12.sol > Unchecked-Send/buggy_12.myth"
-myth analyze --execution-timeout 10 --solv 0.5.16 Unchecked-Send/buggy_12.sol > Unchecked-Send/buggy_12.myth
+# echo "myth analyze --execution-timeout 10 --solv 0.5.16 Unchecked-Send/buggy_12.sol > Unchecked-Send/buggy_12.myth"
+# myth analyze --execution-timeout 10 --solv 0.5.16 Unchecked-Send/buggy_12.sol > Unchecked-Send/buggy_12.myth
 
-echo "myth analyze --execution-timeout 10 --solv 0.5.16 Unchecked-Send/buggy_13.sol > Unchecked-Send/buggy_13.myth"
-myth analyze --execution-timeout 10 --solv 0.5.16 Unchecked-Send/buggy_13.sol > Unchecked-Send/buggy_13.myth
+# echo "myth analyze --execution-timeout 10 --solv 0.5.16 Unchecked-Send/buggy_13.sol > Unchecked-Send/buggy_13.myth"
+# myth analyze --execution-timeout 10 --solv 0.5.16 Unchecked-Send/buggy_13.sol > Unchecked-Send/buggy_13.myth
 
-echo "myth analyze --execution-timeout 10 --solv 0.5.1 Unchecked-Send/buggy_14.sol > Unchecked-Send/buggy_14.myth"
-myth analyze --execution-timeout 10 --solv 0.5.1 Unchecked-Send/buggy_14.sol > Unchecked-Send/buggy_14.myth
+# echo "myth analyze --execution-timeout 10 --solv 0.5.1 Unchecked-Send/buggy_14.sol > Unchecked-Send/buggy_14.myth"
+# myth analyze --execution-timeout 10 --solv 0.5.1 Unchecked-Send/buggy_14.sol > Unchecked-Send/buggy_14.myth
 
-echo "myth analyze --execution-timeout 10 --solv 0.5.7 Unchecked-Send/buggy_15.sol > Unchecked-Send/buggy_15.myth"
-myth analyze --execution-timeout 10 --solv 0.5.7 Unchecked-Send/buggy_15.sol > Unchecked-Send/buggy_15.myth
+# echo "myth analyze --execution-timeout 10 --solv 0.5.7 Unchecked-Send/buggy_15.sol > Unchecked-Send/buggy_15.myth"
+# myth analyze --execution-timeout 10 --solv 0.5.7 Unchecked-Send/buggy_15.sol > Unchecked-Send/buggy_15.myth
 
-echo "myth analyze --execution-timeout 10 --solv 0.5.12 Unchecked-Send/buggy_16.sol > Unchecked-Send/buggy_16.myth"
-myth analyze --execution-timeout 10 --solv 0.5.12 Unchecked-Send/buggy_16.sol > Unchecked-Send/buggy_16.myth
+# echo "myth analyze --execution-timeout 10 --solv 0.5.12 Unchecked-Send/buggy_16.sol > Unchecked-Send/buggy_16.myth"
+# myth analyze --execution-timeout 10 --solv 0.5.12 Unchecked-Send/buggy_16.sol > Unchecked-Send/buggy_16.myth
 
-echo "myth analyze --execution-timeout 10 --solv 0.5.6 Unchecked-Send/buggy_17.sol > Unchecked-Send/buggy_17.myth"
-myth analyze --execution-timeout 10 --solv 0.5.6 Unchecked-Send/buggy_17.sol > Unchecked-Send/buggy_17.myth
+# echo "myth analyze --execution-timeout 10 --solv 0.5.6 Unchecked-Send/buggy_17.sol > Unchecked-Send/buggy_17.myth"
+# myth analyze --execution-timeout 10 --solv 0.5.6 Unchecked-Send/buggy_17.sol > Unchecked-Send/buggy_17.myth
 
-echo "myth analyze --execution-timeout 10 --solv 0.5.9 Unchecked-Send/buggy_18.sol > Unchecked-Send/buggy_18.myth"
-myth analyze --execution-timeout 10 --solv 0.5.9 Unchecked-Send/buggy_18.sol > Unchecked-Send/buggy_18.myth
+# echo "myth analyze --execution-timeout 10 --solv 0.5.9 Unchecked-Send/buggy_18.sol > Unchecked-Send/buggy_18.myth"
+# myth analyze --execution-timeout 10 --solv 0.5.9 Unchecked-Send/buggy_18.sol > Unchecked-Send/buggy_18.myth
 
-echo "myth analyze --execution-timeout 10 --solv 0.5.1 Unchecked-Send/buggy_19.sol > Unchecked-Send/buggy_19.myth"
-myth analyze --execution-timeout 10 --solv 0.5.1 Unchecked-Send/buggy_19.sol > Unchecked-Send/buggy_19.myth
+# echo "myth analyze --execution-timeout 10 --solv 0.5.1 Unchecked-Send/buggy_19.sol > Unchecked-Send/buggy_19.myth"
+# myth analyze --execution-timeout 10 --solv 0.5.1 Unchecked-Send/buggy_19.sol > Unchecked-Send/buggy_19.myth
 
-echo "myth analyze --execution-timeout 10 --solv 0.5.1 Unchecked-Send/buggy_2.sol > Unchecked-Send/buggy_2.myth"
-myth analyze --execution-timeout 10 --solv 0.5.1 Unchecked-Send/buggy_2.sol > Unchecked-Send/buggy_2.myth
+# echo "myth analyze --execution-timeout 10 --solv 0.5.1 Unchecked-Send/buggy_2.sol > Unchecked-Send/buggy_2.myth"
+# myth analyze --execution-timeout 10 --solv 0.5.1 Unchecked-Send/buggy_2.sol > Unchecked-Send/buggy_2.myth
 
-echo "myth analyze --execution-timeout 10 --solv 0.5.10 Unchecked-Send/buggy_20.sol > Unchecked-Send/buggy_20.myth"
-myth analyze --execution-timeout 10 --solv 0.5.10 Unchecked-Send/buggy_20.sol > Unchecked-Send/buggy_20.myth
+# echo "myth analyze --execution-timeout 10 --solv 0.5.10 Unchecked-Send/buggy_20.sol > Unchecked-Send/buggy_20.myth"
+# myth analyze --execution-timeout 10 --solv 0.5.10 Unchecked-Send/buggy_20.sol > Unchecked-Send/buggy_20.myth
 
-echo "myth analyze --execution-timeout 10 --solv 0.5.12 Unchecked-Send/buggy_21.sol > Unchecked-Send/buggy_21.myth"
-myth analyze --execution-timeout 10 --solv 0.5.12 Unchecked-Send/buggy_21.sol > Unchecked-Send/buggy_21.myth
+# echo "myth analyze --execution-timeout 10 --solv 0.5.12 Unchecked-Send/buggy_21.sol > Unchecked-Send/buggy_21.myth"
+# myth analyze --execution-timeout 10 --solv 0.5.12 Unchecked-Send/buggy_21.sol > Unchecked-Send/buggy_21.myth
 
-echo "myth analyze --execution-timeout 10 --solv 0.5.1 Unchecked-Send/buggy_22.sol > Unchecked-Send/buggy_22.myth"
-myth analyze --execution-timeout 10 --solv 0.5.1 Unchecked-Send/buggy_22.sol > Unchecked-Send/buggy_22.myth
+# echo "myth analyze --execution-timeout 10 --solv 0.5.1 Unchecked-Send/buggy_22.sol > Unchecked-Send/buggy_22.myth"
+# myth analyze --execution-timeout 10 --solv 0.5.1 Unchecked-Send/buggy_22.sol > Unchecked-Send/buggy_22.myth
 
 echo "myth analyze --execution-timeout 10 --solv 0.5.2 Unchecked-Send/buggy_23.sol > Unchecked-Send/buggy_23.myth"
 myth analyze --execution-timeout 10 --solv 0.5.2 Unchecked-Send/buggy_23.sol > Unchecked-Send/buggy_23.myth
