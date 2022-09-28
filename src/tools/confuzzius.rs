@@ -27,18 +27,19 @@ fn run_confuzzius(input_file_path: PathBuf) -> Result<PathBuf, String> {
         + " --evm byzantium"
         + " -g 20";
 
+    debug!("Running command: {} {}", super::PYTHON3, confuzzius_args);
+
     let confuzzius_output = Command::new(super::PYTHON3)
         .args(confuzzius_args.split_whitespace())
         .output()
         .unwrap();
 
-    debug!("Running command: {} {}", super::PYTHON3, confuzzius_args);
-
     if !confuzzius_output.status.success() {
         let error_msg = String::from_utf8(confuzzius_output.stderr.to_vec())
             .expect("Confuzzius: unknown error!");
         report::print_message("Confuzzius error message:", error_msg.as_str());
-        panic!("Failed to run: {}", input_file_path.display());
+        let msg = format!("Failed to run: {}", input_file_path.display());
+        return Err(msg);
     }
 
     let file_stem_name = input_file_path
