@@ -10,6 +10,18 @@ use std::{ffi::OsStr, fs, fs::File, path::Path, process::Command};
 
 /// Run confuzzius for each file
 fn run_confuzzius(input_file_path: PathBuf) -> Result<PathBuf, String> {
+    let file_stem_name = input_file_path
+        .file_stem()
+        .and_then(OsStr::to_str)
+        .unwrap_or("");
+
+    let parent_dir = input_file_path.parent().unwrap_or_else(|| Path::new(""));
+    let output_file_path = parent_dir.join(file_stem_name.to_owned() + "." + super::CONFUZZIUS);
+
+    if output_file_path.exists() {
+        return Ok(output_file_path);
+    }
+
     let check_results = solc::check_solc_settings(&input_file_path);
 
     if let Err(msg) = check_results {
@@ -41,14 +53,6 @@ fn run_confuzzius(input_file_path: PathBuf) -> Result<PathBuf, String> {
         let msg = format!("Failed to run: {}", input_file_path.display());
         return Err(msg);
     }
-
-    let file_stem_name = input_file_path
-        .file_stem()
-        .and_then(OsStr::to_str)
-        .unwrap_or("");
-
-    let parent_dir = input_file_path.parent().unwrap_or_else(|| Path::new(""));
-    let output_file_path = parent_dir.join(file_stem_name.to_owned() + "." + super::CONFUZZIUS);
 
     let mut output_file = File::create(&output_file_path).unwrap();
     output_file.write_all(&confuzzius_output.stderr).unwrap();
