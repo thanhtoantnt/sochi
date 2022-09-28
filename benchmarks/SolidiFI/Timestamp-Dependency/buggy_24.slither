@@ -1,0 +1,509 @@
+
+FomoFeast.bug_tmstmp16() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#241-249) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#247)
+FomoFeast.bug_tmstmp24() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#251-259) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#257)
+FomoFeast.bug_tmstmp28() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#271-279) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#277)
+FomoFeast.bug_tmstmp12() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#301-309) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#307)
+FomoFeast.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#493-501) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#499)
+FomoFeast.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#516-524) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#522)
+FomoFeast.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#547-555) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#553)
+FomoFeast.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#695-703) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#701)
+FomoFeast.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#728-736) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#734)
+FomoFeast.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#765-773) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#771)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+FomoFeast.bug_tmstmp16() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#241-249) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#246)" 
+FomoFeast.bug_tmstmp24() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#251-259) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#256)" 
+FomoFeast.bug_tmstmp28() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#271-279) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#276)" 
+FomoFeast.bug_tmstmp12() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#301-309) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#306)" 
+FomoFeast.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#493-501) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#498)" 
+FomoFeast.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#516-524) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#521)" 
+FomoFeast.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#547-555) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#552)" 
+FomoFeast.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#695-703) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#700)" 
+FomoFeast.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#728-736) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#733)" 
+FomoFeast.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#765-773) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#770)" 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG
+
+FomoFeast.getAvaliableStaticCommissionAmount(FomoFeast.User) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#503-515) performs a multiplication on the result of a division:
+	-commissionDays = now.sub(user.currentInvestTime).div(ONE_DAY) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#507)
+	-amount = user.currentInvestAmount.mul(user.currentStaticCommissionRatio).mul(commissionDays) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#511)
+FomoFeast.invest(address,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#571-628) performs a multiplication on the result of a division:
+	-investAmount = msg.value.div(ONE_ETH) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#575)
+	-investAmount = investAmount.mul(ONE_ETH) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#576)
+FomoFeast.invest(address,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#571-628) performs a multiplication on the result of a division:
+	-investAmount = msg.value.div(ONE_ETH) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#575)
+	-operatorFunds = operatorFunds.add(investAmount.mul(3).div(100)) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#627)
+FomoFeast.calcDynamicCommission() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#851-900) performs a multiplication on the result of a division:
+	-dynamicCA = dynamicCA.mul(6).div(1000 * 100 * 10) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#878)
+	-dynamicCA = dynamicCA.div(1000 * 100) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#880)
+FomoFeast.calcDynamicCommissionRange(uint256,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#913-948) performs a multiplication on the result of a division:
+	-dynamicCA = dynamicCA.mul(6).div(1000 * 100 * 10) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#935)
+	-dynamicCA = dynamicCA.div(1000 * 100) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#937)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+
+FomoFeast.bug_tmstmp12() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#301-309) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#306)
+FomoFeast.bug_tmstmp16() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#241-249) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#246)
+FomoFeast.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#493-501) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#498)
+FomoFeast.bug_tmstmp24() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#251-259) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#256)
+FomoFeast.bug_tmstmp28() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#271-279) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#276)
+FomoFeast.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#516-524) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#521)
+FomoFeast.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#728-736) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#733)
+FomoFeast.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#547-555) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#552)
+FomoFeast.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#765-773) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#770)
+FomoFeast.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#695-703) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#700)
+FomoFeast.getAvaliableStaticCommissionAmount(FomoFeast.User) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#503-515) uses a dangerous strict equality:
+	- user.currentInvestAmount == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#504)
+FomoFeast.invest(address,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#571-628) uses a dangerous strict equality:
+	- require(bool,string)(user.sponsorAddress == sponsorAddress,sponsor address is inconsistent) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#583)
+FomoFeast.invest(address,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#571-628) uses a dangerous strict equality:
+	- require(bool,string)(user.currentInvestAmount == 0,Dumplicate invest) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#584)
+FomoFeast.invest(address,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#571-628) uses a dangerous strict equality:
+	- require(bool,string)(user.currentInvestTime == 0,Invalid state) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#585)
+FomoFeast.invest(address,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#571-628) uses a dangerous strict equality:
+	- require(bool,string)(user.currentInvestCycle == 0,Invalid state) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#586)
+FomoFeast.invest(address,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#571-628) uses a dangerous strict equality:
+	- require(bool,string)(user.currentlevel == 0,Invalid state) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#587)
+FomoFeast.invest(address,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#571-628) uses a dangerous strict equality:
+	- require(bool,string)(user.currentStaticCommissionRatio == 0,Invalid state) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#588)
+FomoFeast.invest(address,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#571-628) uses a dangerous strict equality:
+	- require(bool,string)(user.currentStaticCommissionWithdrawAmount == 0,Invalid state) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#589)
+FomoFeast.play_tmstmp10(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#291-293) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#292)
+FomoFeast.play_tmstmp11(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#312-315) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#314)
+FomoFeast.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#656-658) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#657)
+FomoFeast.play_tmstmp15(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#266-269) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#268)
+FomoFeast.play_tmstmp18(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#227-229) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#228)
+FomoFeast.play_tmstmp19(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#425-428) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#427)
+FomoFeast.play_tmstmp2(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#322-324) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#323)
+FomoFeast.play_tmstmp22(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#297-299) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#298)
+FomoFeast.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#630-633) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#632)
+FomoFeast.play_tmstmp26(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#458-460) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#459)
+FomoFeast.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#820-823) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#822)
+FomoFeast.play_tmstmp3(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#387-390) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#389)
+FomoFeast.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#683-685) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#684)
+FomoFeast.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#846-849) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#848)
+FomoFeast.play_tmstmp34(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#282-284) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#283)
+FomoFeast.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#756-759) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#758)
+FomoFeast.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#535-537) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#536)
+FomoFeast.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#714-717) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#716)
+FomoFeast.play_tmstmp6(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#237-239) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#238)
+FomoFeast.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#566-569) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#568)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+FomoFeast.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#766) is a local variable never initialized
+FomoFeast.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#729) is a local variable never initialized
+FomoFeast.bug_tmstmp24().pastBlockTime_tmstmp24 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#252) is a local variable never initialized
+FomoFeast.bug_tmstmp8().pastBlockTime_tmstmp8 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#696) is a local variable never initialized
+FomoFeast.bug_tmstmp28().pastBlockTime_tmstmp28 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#272) is a local variable never initialized
+FomoFeast.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#302) is a local variable never initialized
+FomoFeast.bug_tmstmp4().pastBlockTime_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#548) is a local variable never initialized
+FomoFeast.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#517) is a local variable never initialized
+FomoFeast.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#494) is a local variable never initialized
+FomoFeast.bug_tmstmp16().pastBlockTime_tmstmp16 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#242) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+FomoFeast.transferOwnership(address) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#382-385) should emit an event for: 
+	- owner = newOwner (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#384) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+FomoFeast.invest(address,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#571-628) should emit an event for: 
+	- totalInvestAmount = totalInvestAmount.add(investAmount) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#625) 
+	- engineerFunds = engineerFunds.add(investAmount.div(50)) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#626) 
+	- operatorFunds = operatorFunds.add(investAmount.mul(3).div(100)) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#627) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+
+FomoFeast.play_tmstmp18(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#227-229) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#228)
+FomoFeast.bug_tmstmp29() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#232-234) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#233)
+FomoFeast.play_tmstmp6(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#237-239) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#238)
+FomoFeast.bug_tmstmp16() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#241-249) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp16) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#244)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#246)
+FomoFeast.bug_tmstmp24() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#251-259) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp24) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#254)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#256)
+FomoFeast.bug_tmstmp5() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#261-263) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#262)
+FomoFeast.play_tmstmp15(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#266-269) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#268)
+FomoFeast.bug_tmstmp28() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#271-279) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp28) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#274)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#276)
+FomoFeast.play_tmstmp34(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#282-284) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#283)
+FomoFeast.bug_tmstmp21() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#286-288) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#287)
+FomoFeast.play_tmstmp10(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#291-293) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#292)
+FomoFeast.play_tmstmp22(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#297-299) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#298)
+FomoFeast.bug_tmstmp12() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#301-309) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp12) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#304)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#306)
+FomoFeast.play_tmstmp11(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#312-315) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#314)
+FomoFeast.bug_tmstmp1() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#317-319) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#318)
+FomoFeast.play_tmstmp2(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#322-324) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#323)
+FomoFeast.bug_tmstmp17() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#344-346) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#345)
+FomoFeast.bug_tmstmp37() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#357-359) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#358)
+FomoFeast.play_tmstmp3(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#387-390) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#389)
+FomoFeast.bug_tmstmp9() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#401-403) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#402)
+FomoFeast.isInvestExpired(FomoFeast.User) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#405-407) uses timestamp for comparisons
+	Dangerous comparisons:
+	- expired = (user.currentInvestTime.add(user.currentInvestCycle.mul(ONE_DAY)) < now) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#406)
+FomoFeast.bug_tmstmp25() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#408-410) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#409)
+FomoFeast.getAbortInvestAmount(FomoFeast.User) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#412-423) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(commissionDays >= 3,Invest time must >= 3days) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#414)
+	- commissionDays >= 60 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#416)
+	- commissionDays >= 30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#418)
+FomoFeast.play_tmstmp19(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#425-428) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#427)
+FomoFeast.play_tmstmp26(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#458-460) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#459)
+FomoFeast.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#493-501) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp20) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#496)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#498)
+FomoFeast.getAvaliableStaticCommissionAmount(FomoFeast.User) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#503-515) uses timestamp for comparisons
+	Dangerous comparisons:
+	- user.currentInvestAmount == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#504)
+	- commissionDays > user.currentInvestCycle (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#508)
+FomoFeast.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#516-524) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp32) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#519)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#521)
+FomoFeast.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#535-537) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#536)
+FomoFeast.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#547-555) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp4) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#550)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#552)
+FomoFeast.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#566-569) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#568)
+FomoFeast.invest(address,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#571-628) uses timestamp for comparisons
+	Dangerous comparisons:
+	- user.totalInvestCount > 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#582)
+	- require(bool,string)(user.sponsorAddress == sponsorAddress,sponsor address is inconsistent) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#583)
+	- require(bool,string)(user.currentInvestAmount == 0,Dumplicate invest) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#584)
+	- require(bool,string)(user.currentInvestTime == 0,Invalid state) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#585)
+	- require(bool,string)(user.currentInvestCycle == 0,Invalid state) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#586)
+	- require(bool,string)(user.currentlevel == 0,Invalid state) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#587)
+	- require(bool,string)(user.currentStaticCommissionRatio == 0,Invalid state) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#588)
+	- require(bool,string)(user.currentStaticCommissionWithdrawAmount == 0,Invalid state) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#589)
+FomoFeast.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#630-633) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#632)
+FomoFeast.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#656-658) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#657)
+FomoFeast.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#683-685) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#684)
+FomoFeast.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#695-703) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp8) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#698)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#700)
+FomoFeast.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#714-717) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#716)
+FomoFeast.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#728-736) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp36) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#731)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#733)
+FomoFeast.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#756-759) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#758)
+FomoFeast.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#765-773) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp40) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#768)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#770)
+FomoFeast.bug_tmstmp33() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#795-797) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#796)
+FomoFeast.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#820-823) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#822)
+FomoFeast.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#846-849) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#848)
+FomoFeast.calcDynamicCommission() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#851-900) uses timestamp for comparisons
+	Dangerous comparisons:
+	- commissionDays >= 1 && commissionDays <= user_scope_1.currentInvestCycle (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#861)
+FomoFeast.bug_tmstmp13() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#901-903) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#902)
+FomoFeast.calcDynamicCommissionRange(uint256,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#913-948) uses timestamp for comparisons
+	Dangerous comparisons:
+	- commissionDays >= 1 && commissionDays <= user.currentInvestCycle (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#918)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+SafeMath.mod(uint256,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#143-145) is never used and should be removed
+SafeMath.mod(uint256,uint256,string) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#161-164) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.5.0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#7) allows old versions
+Pragma version^0.5.0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#169) allows old versions
+solc-0.5.0 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function FomoFeast.play_tmstmp18(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#227-229) is not in mixedCase
+Function FomoFeast.bug_tmstmp29() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#232-234) is not in mixedCase
+Function FomoFeast.play_tmstmp6(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#237-239) is not in mixedCase
+Function FomoFeast.bug_tmstmp16() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#241-249) is not in mixedCase
+Function FomoFeast.bug_tmstmp24() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#251-259) is not in mixedCase
+Function FomoFeast.bug_tmstmp5() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#261-263) is not in mixedCase
+Function FomoFeast.play_tmstmp15(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#266-269) is not in mixedCase
+Function FomoFeast.bug_tmstmp28() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#271-279) is not in mixedCase
+Function FomoFeast.play_tmstmp34(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#282-284) is not in mixedCase
+Function FomoFeast.bug_tmstmp21() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#286-288) is not in mixedCase
+Function FomoFeast.play_tmstmp10(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#291-293) is not in mixedCase
+Function FomoFeast.play_tmstmp22(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#297-299) is not in mixedCase
+Function FomoFeast.bug_tmstmp12() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#301-309) is not in mixedCase
+Function FomoFeast.play_tmstmp11(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#312-315) is not in mixedCase
+Function FomoFeast.bug_tmstmp1() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#317-319) is not in mixedCase
+Function FomoFeast.play_tmstmp2(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#322-324) is not in mixedCase
+Function FomoFeast.bug_tmstmp17() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#344-346) is not in mixedCase
+Function FomoFeast.bug_tmstmp37() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#357-359) is not in mixedCase
+Function FomoFeast.play_tmstmp3(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#387-390) is not in mixedCase
+Function FomoFeast.bug_tmstmp9() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#401-403) is not in mixedCase
+Function FomoFeast.bug_tmstmp25() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#408-410) is not in mixedCase
+Function FomoFeast.play_tmstmp19(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#425-428) is not in mixedCase
+Function FomoFeast.play_tmstmp26(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#458-460) is not in mixedCase
+Function FomoFeast.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#493-501) is not in mixedCase
+Function FomoFeast.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#516-524) is not in mixedCase
+Function FomoFeast.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#535-537) is not in mixedCase
+Function FomoFeast.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#547-555) is not in mixedCase
+Function FomoFeast.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#566-569) is not in mixedCase
+Function FomoFeast.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#630-633) is not in mixedCase
+Function FomoFeast.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#656-658) is not in mixedCase
+Function FomoFeast.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#683-685) is not in mixedCase
+Function FomoFeast.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#695-703) is not in mixedCase
+Function FomoFeast.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#714-717) is not in mixedCase
+Function FomoFeast.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#728-736) is not in mixedCase
+Function FomoFeast.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#756-759) is not in mixedCase
+Function FomoFeast.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#765-773) is not in mixedCase
+Function FomoFeast.bug_tmstmp33() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#795-797) is not in mixedCase
+Function FomoFeast.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#820-823) is not in mixedCase
+Function FomoFeast.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#846-849) is not in mixedCase
+Function FomoFeast.bug_tmstmp13() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#901-903) is not in mixedCase
+Variable FomoFeast.winner_tmstmp18 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#226) is not in mixedCase
+Variable FomoFeast.winner_tmstmp6 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#236) is not in mixedCase
+Variable FomoFeast.winner_tmstmp15 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#265) is not in mixedCase
+Variable FomoFeast.winner_tmstmp34 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#281) is not in mixedCase
+Variable FomoFeast.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#290) is not in mixedCase
+Variable FomoFeast.winner_tmstmp22 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#296) is not in mixedCase
+Variable FomoFeast.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#311) is not in mixedCase
+Variable FomoFeast.winner_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#321) is not in mixedCase
+Variable FomoFeast.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#370) is not in mixedCase
+Variable FomoFeast.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#376) is not in mixedCase
+Variable FomoFeast.winner_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#386) is not in mixedCase
+Variable FomoFeast.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#424) is not in mixedCase
+Variable FomoFeast.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#457) is not in mixedCase
+Variable FomoFeast.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#534) is not in mixedCase
+Variable FomoFeast.winner_tmstmp7 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#565) is not in mixedCase
+Variable FomoFeast.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#629) is not in mixedCase
+Variable FomoFeast.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#655) is not in mixedCase
+Variable FomoFeast.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#682) is not in mixedCase
+Variable FomoFeast.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#713) is not in mixedCase
+Variable FomoFeast.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#755) is not in mixedCase
+Variable FomoFeast.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#819) is not in mixedCase
+Variable FomoFeast.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#845) is not in mixedCase
+Variable FomoFeast.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#911) is not in mixedCase
+Variable FomoFeast.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#949) is not in mixedCase
+Variable FomoFeast.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#961) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable FomoFeast.userWithdrawCommission().avaliableDCB (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#662) is too similar to FomoFeast.userWithdrawCommission().avaliableSCB (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#664)
+Variable FomoFeast.userWithdrawCommission().avaliableSCA (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#663) is too similar to FomoFeast.userWithdrawCommission().avaliableSCB (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#664)
+Variable FomoFeast.userWithdraw().avaliableSCA (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#642) is too similar to FomoFeast.userWithdrawCommission().avaliableSCB (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#664)
+Variable FomoFeast.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#949) is too similar to FomoFeast.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#961)
+Variable FomoFeast.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#949) is too similar to FomoFeast.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#370)
+Variable FomoFeast.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#949) is too similar to FomoFeast.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#376)
+Variable FomoFeast.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#961) is too similar to FomoFeast.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#370)
+Variable FomoFeast.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#961) is too similar to FomoFeast.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#376)
+Variable FomoFeast.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#370) is too similar to FomoFeast.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#376)
+Variable FomoFeast.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#949) is too similar to FomoFeast.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#911)
+Variable FomoFeast.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#961) is too similar to FomoFeast.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#911)
+Variable FomoFeast.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#370) is too similar to FomoFeast.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#911)
+Variable FomoFeast.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#376) is too similar to FomoFeast.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#911)
+Variable FomoFeast.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#302) is too similar to FomoFeast.bug_tmstmp16().pastBlockTime_tmstmp16 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#242)
+Variable FomoFeast.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#302) is too similar to FomoFeast.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#494)
+Variable FomoFeast.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#302) is too similar to FomoFeast.bug_tmstmp28().pastBlockTime_tmstmp28 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#272)
+Variable FomoFeast.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#302) is too similar to FomoFeast.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#517)
+Variable FomoFeast.bug_tmstmp16().pastBlockTime_tmstmp16 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#242) is too similar to FomoFeast.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#494)
+Variable FomoFeast.bug_tmstmp16().pastBlockTime_tmstmp16 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#242) is too similar to FomoFeast.bug_tmstmp28().pastBlockTime_tmstmp28 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#272)
+Variable FomoFeast.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#302) is too similar to FomoFeast.bug_tmstmp24().pastBlockTime_tmstmp24 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#252)
+Variable FomoFeast.bug_tmstmp16().pastBlockTime_tmstmp16 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#242) is too similar to FomoFeast.bug_tmstmp24().pastBlockTime_tmstmp24 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#252)
+Variable FomoFeast.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#494) is too similar to FomoFeast.bug_tmstmp24().pastBlockTime_tmstmp24 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#252)
+Variable FomoFeast.bug_tmstmp24().pastBlockTime_tmstmp24 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#252) is too similar to FomoFeast.bug_tmstmp28().pastBlockTime_tmstmp28 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#272)
+Variable FomoFeast.bug_tmstmp24().pastBlockTime_tmstmp24 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#252) is too similar to FomoFeast.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#517)
+Variable FomoFeast.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#494) is too similar to FomoFeast.bug_tmstmp28().pastBlockTime_tmstmp28 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#272)
+Variable FomoFeast.bug_tmstmp16().pastBlockTime_tmstmp16 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#242) is too similar to FomoFeast.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#517)
+Variable FomoFeast.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#494) is too similar to FomoFeast.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#517)
+Variable FomoFeast.bug_tmstmp28().pastBlockTime_tmstmp28 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#272) is too similar to FomoFeast.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#517)
+Variable FomoFeast.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#302) is too similar to FomoFeast.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#729)
+Variable FomoFeast.bug_tmstmp16().pastBlockTime_tmstmp16 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#242) is too similar to FomoFeast.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#729)
+Variable FomoFeast.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#494) is too similar to FomoFeast.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#729)
+Variable FomoFeast.bug_tmstmp24().pastBlockTime_tmstmp24 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#252) is too similar to FomoFeast.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#729)
+Variable FomoFeast.bug_tmstmp28().pastBlockTime_tmstmp28 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#272) is too similar to FomoFeast.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#729)
+Variable FomoFeast.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#517) is too similar to FomoFeast.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#729)
+Variable FomoFeast.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#729) is too similar to FomoFeast.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#766)
+Variable FomoFeast.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#302) is too similar to FomoFeast.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#766)
+Variable FomoFeast.bug_tmstmp16().pastBlockTime_tmstmp16 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#242) is too similar to FomoFeast.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#766)
+Variable FomoFeast.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#494) is too similar to FomoFeast.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#766)
+Variable FomoFeast.bug_tmstmp24().pastBlockTime_tmstmp24 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#252) is too similar to FomoFeast.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#766)
+Variable FomoFeast.bug_tmstmp28().pastBlockTime_tmstmp28 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#272) is too similar to FomoFeast.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#766)
+Variable FomoFeast.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#517) is too similar to FomoFeast.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#766)
+Variable FomoFeast.bug_tmstmp4().pastBlockTime_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#548) is too similar to FomoFeast.bug_tmstmp8().pastBlockTime_tmstmp8 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#696)
+Variable FomoFeast.calcDynamicCommission().user_scope_1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#858) is too similar to FomoFeast.calcDynamicCommission().user_scope_3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#894)
+Variable FomoFeast.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#290) is too similar to FomoFeast.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#655)
+Variable FomoFeast.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#290) is too similar to FomoFeast.winner_tmstmp15 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#265)
+Variable FomoFeast.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#290) is too similar to FomoFeast.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#424)
+Variable FomoFeast.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#290) is too similar to FomoFeast.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#682)
+Variable FomoFeast.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#290) is too similar to FomoFeast.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#845)
+Variable FomoFeast.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#290) is too similar to FomoFeast.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#311)
+Variable FomoFeast.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#311) is too similar to FomoFeast.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#655)
+Variable FomoFeast.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#311) is too similar to FomoFeast.winner_tmstmp15 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#265)
+Variable FomoFeast.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#311) is too similar to FomoFeast.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#424)
+Variable FomoFeast.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#311) is too similar to FomoFeast.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#845)
+Variable FomoFeast.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#655) is too similar to FomoFeast.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#424)
+Variable FomoFeast.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#655) is too similar to FomoFeast.winner_tmstmp15 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#265)
+Variable FomoFeast.winner_tmstmp15 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#265) is too similar to FomoFeast.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#424)
+Variable FomoFeast.winner_tmstmp15 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#265) is too similar to FomoFeast.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#845)
+Variable FomoFeast.winner_tmstmp15 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#265) is too similar to FomoFeast.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#755)
+Variable FomoFeast.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#290) is too similar to FomoFeast.winner_tmstmp18 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#226)
+Variable FomoFeast.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#311) is too similar to FomoFeast.winner_tmstmp18 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#226)
+Variable FomoFeast.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#655) is too similar to FomoFeast.winner_tmstmp18 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#226)
+Variable FomoFeast.winner_tmstmp15 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#265) is too similar to FomoFeast.winner_tmstmp18 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#226)
+Variable FomoFeast.winner_tmstmp18 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#226) is too similar to FomoFeast.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#424)
+Variable FomoFeast.winner_tmstmp18 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#226) is too similar to FomoFeast.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#845)
+Variable FomoFeast.winner_tmstmp18 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#226) is too similar to FomoFeast.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#534)
+Variable FomoFeast.winner_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#321) is too similar to FomoFeast.winner_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#386)
+Variable FomoFeast.winner_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#321) is too similar to FomoFeast.winner_tmstmp7 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#565)
+Variable FomoFeast.winner_tmstmp22 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#296) is too similar to FomoFeast.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#629)
+Variable FomoFeast.winner_tmstmp22 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#296) is too similar to FomoFeast.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#457)
+Variable FomoFeast.winner_tmstmp22 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#296) is too similar to FomoFeast.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#819)
+Variable FomoFeast.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#629) is too similar to FomoFeast.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#534)
+Variable FomoFeast.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#629) is too similar to FomoFeast.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#457)
+Variable FomoFeast.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#457) is too similar to FomoFeast.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#819)
+Variable FomoFeast.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#629) is too similar to FomoFeast.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#819)
+Variable FomoFeast.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#629) is too similar to FomoFeast.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#682)
+Variable FomoFeast.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#682) is too similar to FomoFeast.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#534)
+Variable FomoFeast.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#655) is too similar to FomoFeast.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#845)
+Variable FomoFeast.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#424) is too similar to FomoFeast.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#845)
+Variable FomoFeast.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#629) is too similar to FomoFeast.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#845)
+Variable FomoFeast.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#682) is too similar to FomoFeast.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#845)
+Variable FomoFeast.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#845) is too similar to FomoFeast.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#755)
+Variable FomoFeast.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#845) is too similar to FomoFeast.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#534)
+Variable FomoFeast.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#845) is too similar to FomoFeast.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#713)
+Variable FomoFeast.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#655) is too similar to FomoFeast.winner_tmstmp34 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#281)
+Variable FomoFeast.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#629) is too similar to FomoFeast.winner_tmstmp34 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#281)
+Variable FomoFeast.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#682) is too similar to FomoFeast.winner_tmstmp34 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#281)
+Variable FomoFeast.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#845) is too similar to FomoFeast.winner_tmstmp34 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#281)
+Variable FomoFeast.winner_tmstmp34 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#281) is too similar to FomoFeast.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#755)
+Variable FomoFeast.winner_tmstmp34 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#281) is too similar to FomoFeast.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#534)
+Variable FomoFeast.winner_tmstmp34 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#281) is too similar to FomoFeast.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#713)
+Variable FomoFeast.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#629) is too similar to FomoFeast.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#755)
+Variable FomoFeast.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#682) is too similar to FomoFeast.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#755)
+Variable FomoFeast.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#755) is too similar to FomoFeast.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#534)
+Variable FomoFeast.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#755) is too similar to FomoFeast.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#713)
+Variable FomoFeast.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#424) is too similar to FomoFeast.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#713)
+Variable FomoFeast.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#629) is too similar to FomoFeast.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#713)
+Variable FomoFeast.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#682) is too similar to FomoFeast.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#713)
+Variable FomoFeast.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#534) is too similar to FomoFeast.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#713)
+Variable FomoFeast.winner_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#321) is too similar to FomoFeast.winner_tmstmp6 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#236)
+Variable FomoFeast.winner_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#386) is too similar to FomoFeast.winner_tmstmp6 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#236)
+Variable FomoFeast.winner_tmstmp6 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#236) is too similar to FomoFeast.winner_tmstmp7 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#565)
+Variable FomoFeast.winner_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#386) is too similar to FomoFeast.winner_tmstmp7 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#565)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+FomoFeast.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#370) is never used in FomoFeast (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#173-962)
+FomoFeast.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#376) is never used in FomoFeast (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#173-962)
+FomoFeast.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#911) is never used in FomoFeast (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#173-962)
+FomoFeast.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#949) is never used in FomoFeast (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#173-962)
+FomoFeast.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#961) is never used in FomoFeast (benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol#173-962)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+benchmarks/SolidiFI/Timestamp-Dependency/buggy_24.sol analyzed (2 contracts with 80 detectors), 298 result(s) found

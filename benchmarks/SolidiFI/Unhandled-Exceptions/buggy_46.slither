@@ -1,0 +1,120 @@
+Compilation warnings/errors on benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol:
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol:25:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk44.send(winAmount_unchk44);
+        ^------------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol:87:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol:103:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (42 ether); }
+       ^------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol:143:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol:164:1: Warning: Function state mutability can be restricted to pure
+function callnotchecked_unchk13(address callee) public {
+^ (Relevant source part starts here and spans across multiple lines).
+
+
+ProofOfExistence.withdrawLeftOver_unchk33() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#85-88) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#87)
+ProofOfExistence.bug_unchk27(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#102-103) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(42000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#103)
+ProofOfExistence.withdrawLeftOver_unchk45() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#141-144) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#143)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+ProofOfExistence (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#7-169) contract sets array length with a user-controlled value:
+	- fileExistenceProofs[dappBoxOrigin].push(newInfo) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#49)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#array-length-assignment
+
+ProofOfExistence.winner_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#20) is never initialized. It is used in:
+	- ProofOfExistence.sendToWinner_unchk44() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#23-27)
+ProofOfExistence.winAmount_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#21) is never initialized. It is used in:
+	- ProofOfExistence.sendToWinner_unchk44() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#23-27)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+
+ProofOfExistence.sendToWinner_unchk44() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#23-27) ignores return value by winner_unchk44.send(winAmount_unchk44) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#25)
+ProofOfExistence.withdrawLeftOver_unchk33() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#85-88) ignores return value by msg.sender.send(address(this).balance) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#87)
+ProofOfExistence.bug_unchk27(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#102-103) ignores return value by addr.send(42000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#103)
+ProofOfExistence.withdrawLeftOver_unchk45() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#141-144) ignores return value by msg.sender.send(address(this).balance) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#143)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-send
+
+ProofOfExistence.bug_unchk31().addr_unchk31 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#115) is a local variable never initialized
+ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification).newInfo (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#38) is a local variable never initialized
+ProofOfExistence.UncheckedExternalCall_unchk40().addr_unchk40 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#53) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+ProofOfExistence.bug_unchk27(address).addr (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#102) lacks a zero-check on :
+		- addr.send(42000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#103)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+ProofOfExistence.GetFileExistenceProof(address,string,string) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#66-82) compares to a boolean constant:
+	-res == true (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#73)
+ProofOfExistence.getQRCode(address,string,string) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#125-138) compares to a boolean constant:
+	-res == true (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#132)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#boolean-equality
+
+Pragma version>=0.4.21<0.6.0 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#5) allows old versions
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function ProofOfExistence.sendToWinner_unchk44() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#23-27) is not in mixedCase
+Function ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#36-51) is not in mixedCase
+Parameter ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification)._fileHash (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#36) is not in mixedCase
+Parameter ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification)._filePathHash (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#36) is not in mixedCase
+Parameter ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification)._contractAddress (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#36) is not in mixedCase
+Parameter ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification)._identifier (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#36) is not in mixedCase
+Function ProofOfExistence.UncheckedExternalCall_unchk40() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#52-60) is not in mixedCase
+Function ProofOfExistence.GetFileExistenceProof(address,string,string) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#66-82) is not in mixedCase
+Function ProofOfExistence.withdrawLeftOver_unchk33() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#85-88) is not in mixedCase
+Function ProofOfExistence.bug_unchk27(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#102-103) is not in mixedCase
+Parameter ProofOfExistence.generateQRCodeForFile(address,string,string,address,ProofOfExistence.BlockchainIdentification)._fileHash (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#108) is not in mixedCase
+Parameter ProofOfExistence.generateQRCodeForFile(address,string,string,address,ProofOfExistence.BlockchainIdentification)._contractAddress (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#108) is not in mixedCase
+Parameter ProofOfExistence.generateQRCodeForFile(address,string,string,address,ProofOfExistence.BlockchainIdentification)._identifier (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#108) is not in mixedCase
+Function ProofOfExistence.bug_unchk31() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#114-118) is not in mixedCase
+Function ProofOfExistence.withdrawLeftOver_unchk45() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#141-144) is not in mixedCase
+Parameter ProofOfExistence.searchExistenceProoUsngQRf(address,bytes32).QRCodeHash (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#150) is not in mixedCase
+Function ProofOfExistence.callnotchecked_unchk13(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#164-166) is not in mixedCase
+Variable ProofOfExistence.payedOut_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#19) is not in mixedCase
+Variable ProofOfExistence.winner_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#20) is not in mixedCase
+Variable ProofOfExistence.winAmount_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#21) is not in mixedCase
+Variable ProofOfExistence.payedOut_unchk33 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#83) is not in mixedCase
+Variable ProofOfExistence.payedOut_unchk45 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#139) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in ProofOfExistence.sendToWinner_unchk44() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#23-27):
+	External calls:
+	- winner_unchk44.send(winAmount_unchk44) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#25)
+	State variables written after the call(s):
+	- payedOut_unchk44 = true (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#26)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable ProofOfExistence.payedOut_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#19) is too similar to ProofOfExistence.payedOut_unchk45 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#139)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+ProofOfExistence.payedOut_unchk33 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#83) should be constant
+ProofOfExistence.payedOut_unchk45 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#139) should be constant
+ProofOfExistence.winAmount_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#21) should be constant
+ProofOfExistence.winner_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#20) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification) should be declared external:
+	- ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#36-51)
+Moreover, the following function parameters should change its data location:
+_fileHash location should be calldata
+_filePathHash location should be calldata
+GetFileExistenceProof(address,string,string) should be declared external:
+	- ProofOfExistence.GetFileExistenceProof(address,string,string) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#66-82)
+Moreover, the following function parameters should change its data location:
+fileHash location should be calldata
+filePathHash location should be calldata
+getQRCode(address,string,string) should be declared external:
+	- ProofOfExistence.getQRCode(address,string,string) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol#125-138)
+Moreover, the following function parameters should change its data location:
+fileHash location should be calldata
+filePathHash location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_46.sol analyzed (1 contracts with 80 detectors), 48 result(s) found

@@ -1,0 +1,391 @@
+Compilation warnings/errors on benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol:
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol:7:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk46.send(subpot_unchk46);  //bug
+        ^---------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol:28:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol:73:2: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+	msg.sender.send(Balances_unchk17);}
+	^-------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol:82:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (42 ether); }
+       ^------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol:89:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol:121:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol:138:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol:148:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk20.send(winAmount_unchk20);
+        ^------------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol:159:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk32.send(winAmount_unchk32);
+        ^------------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol:165:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol:201:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk8.send(winAmount_unchk8);
+        ^----------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol:212:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (4 ether); }
+       ^-----------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol:225:9: Warning: Return value of low-level calls not used.
+        dst.call.value(msg.value)("");
+        ^---------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol:250:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol:276:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk44.send(winAmount_unchk44);
+        ^------------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol:451:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol:467:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (42 ether); }
+       ^------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol:486:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol:5:23: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                      ^-------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol:5:40: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                                       ^--------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol:66:3: Warning: Function state mutability can be restricted to pure
+  function callnotchecked_unchk13(address callee) public {
+  ^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol:76:3: Warning: Function state mutability can be restricted to pure
+  function callnotchecked_unchk37(address payable callee) public {
+  ^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol:125:3: Warning: Function state mutability can be restricted to pure
+  function callnotchecked_unchk25(address payable callee) public {
+  ^ (Relevant source part starts here and spans across multiple lines).
+
+
+Token.cash_unchk46(uint256,uint256,address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#5-9) sends eth to arbitrary user
+	Dangerous calls:
+	- winner_unchk46.send(subpot_unchk46) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#7)
+StableDEX.withdrawBal_unchk17() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#71-73) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(Balances_unchk17) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#73)
+StableDEX.bug_unchk3(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#81-82) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(42000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#82)
+StableDEX.withdrawLeftOver_unchk9() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#87-90) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#89)
+StableDEX.unhandledsend_unchk14(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#120-122) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#121)
+StableDEX.unhandledsend_unchk26(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#137-139) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#138)
+StableDEX.unhandledsend_unchk38(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#164-166) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#165)
+StableDEX.bug_unchk39(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#211-212) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(4000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#212)
+StableDEX.withdrawLeftOver_unchk33() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#449-452) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#451)
+StableDEX.bug_unchk27(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#466-467) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(42000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#467)
+StableDEX.withdrawLeftOver_unchk45() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#484-487) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#486)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+StableDEX.tokenDeposit(address,uint256) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#214-223) ignores return value by Token(tokenaddr).transferFrom(msg.sender,address(this),tokenAmount) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#219)
+StableDEX.withdraw(uint8,address,uint256) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#228-248) ignores return value by Token(tokenaddr).transfer(msg.sender,(amount.sub(withdrawfee[tokenaddr]))) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#242)
+StableDEX.adminProfitWithdraw(uint8,address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#253-269) ignores return value by Token(tokenAddr).transfer(admin,feeAmount[admin][tokenAddr]) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#263)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-transfer
+
+StableDEX.winner_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#143) is never initialized. It is used in:
+	- StableDEX.sendToWinner_unchk20() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#146-150)
+StableDEX.winAmount_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#144) is never initialized. It is used in:
+	- StableDEX.sendToWinner_unchk20() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#146-150)
+StableDEX.winner_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#154) is never initialized. It is used in:
+	- StableDEX.sendToWinner_unchk32() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#157-161)
+StableDEX.winAmount_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#155) is never initialized. It is used in:
+	- StableDEX.sendToWinner_unchk32() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#157-161)
+StableDEX.winner_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#196) is never initialized. It is used in:
+	- StableDEX.sendToWinner_unchk8() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#199-203)
+StableDEX.winAmount_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#197) is never initialized. It is used in:
+	- StableDEX.sendToWinner_unchk8() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#199-203)
+StableDEX.winner_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#271) is never initialized. It is used in:
+	- StableDEX.sendToWinner_unchk44() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#274-278)
+StableDEX.winAmount_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#272) is never initialized. It is used in:
+	- StableDEX.sendToWinner_unchk44() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#274-278)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+
+StableDEX.verify(string,uint8,bytes32,bytes32) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#303-342) performs a multiplication on the result of a division:
+	-digit = length.div(divisor) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#315)
+	-divisor = divisor.div(10) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#319)
+	-length = length.sub(digit.mul(divisor)) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#324)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+
+Reentrancy in StableDEX.adminProfitWithdraw(uint8,address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#253-269):
+	External calls:
+	- Token(tokenAddr).transfer(admin,feeAmount[admin][tokenAddr]) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#263)
+	State variables written after the call(s):
+	- feeAmount[admin][tokenAddr] = 0 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#264)
+Reentrancy in StableDEX.withdraw(uint8,address,uint256) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#228-248):
+	External calls:
+	- Token(tokenaddr).transfer(msg.sender,(amount.sub(withdrawfee[tokenaddr]))) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#242)
+	State variables written after the call(s):
+	- userDetails[msg.sender][tokenaddr] = userDetails[msg.sender][tokenaddr].sub(amount) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#243)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
+
+StableDEX.my_func_uncheck36(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#224-226) ignores return value by dst.call.value(msg.value)() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#225)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-low-level-calls
+
+Token.cash_unchk46(uint256,uint256,address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#5-9) ignores return value by winner_unchk46.send(subpot_unchk46) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#7)
+Token.my_func_unchk23(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#27-29) ignores return value by dst.send(msg.value) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#28)
+StableDEX.withdrawBal_unchk17() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#71-73) ignores return value by msg.sender.send(Balances_unchk17) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#73)
+StableDEX.bug_unchk3(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#81-82) ignores return value by addr.send(42000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#82)
+StableDEX.withdrawLeftOver_unchk9() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#87-90) ignores return value by msg.sender.send(address(this).balance) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#89)
+StableDEX.unhandledsend_unchk14(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#120-122) ignores return value by callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#121)
+StableDEX.unhandledsend_unchk26(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#137-139) ignores return value by callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#138)
+StableDEX.sendToWinner_unchk20() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#146-150) ignores return value by winner_unchk20.send(winAmount_unchk20) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#148)
+StableDEX.sendToWinner_unchk32() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#157-161) ignores return value by winner_unchk32.send(winAmount_unchk32) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#159)
+StableDEX.unhandledsend_unchk38(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#164-166) ignores return value by callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#165)
+StableDEX.sendToWinner_unchk8() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#199-203) ignores return value by winner_unchk8.send(winAmount_unchk8) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#201)
+StableDEX.bug_unchk39(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#211-212) ignores return value by addr.send(4000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#212)
+StableDEX.my_func_unchk35(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#249-251) ignores return value by dst.send(msg.value) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#250)
+StableDEX.sendToWinner_unchk44() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#274-278) ignores return value by winner_unchk44.send(winAmount_unchk44) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#276)
+StableDEX.withdrawLeftOver_unchk33() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#449-452) ignores return value by msg.sender.send(address(this).balance) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#451)
+StableDEX.bug_unchk27(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#466-467) ignores return value by addr.send(42000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#467)
+StableDEX.withdrawLeftOver_unchk45() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#484-487) ignores return value by msg.sender.send(address(this).balance) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#486)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-send
+
+StableDEX.bug_unchk19().addr_unchk19 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#131) is a local variable never initialized
+Token.UncheckedExternalCall_unchk4().addr_unchk4 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#12) is a local variable never initialized
+StableDEX.bug_unchk31().addr_unchk31 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#474) is a local variable never initialized
+StableDEX.bug_unchk30().receivers_unchk30 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#180) is a local variable never initialized
+Token.bug_unchk7().addr_unchk7 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#22) is a local variable never initialized
+StableDEX.makeOrder(uint256[9],address[2],string,uint8,bytes32,bytes32).amount__ (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#370) is a local variable never initialized
+StableDEX.bug_unchk30().addr_unchk30 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#181) is a local variable never initialized
+StableDEX.UncheckedExternalCall_unchk40().addr_unchk40 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#292) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+Token.cash_unchk46(uint256,uint256,address).winner_unchk46 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#5) lacks a zero-check on :
+		- winner_unchk46.send(subpot_unchk46) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#7)
+Token.my_func_unchk23(address).dst (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#27) lacks a zero-check on :
+		- dst.send(msg.value) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#28)
+StableDEX.bug_unchk3(address).addr (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#81) lacks a zero-check on :
+		- addr.send(42000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#82)
+StableDEX.constructor(address,address)._admin (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#115) lacks a zero-check on :
+		- admin = _admin (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#116)
+StableDEX.constructor(address,address).feeAddress_ (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#115) lacks a zero-check on :
+		- feeAddress = feeAddress_ (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#117)
+StableDEX.unhandledsend_unchk14(address).callee (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#120) lacks a zero-check on :
+		- callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#121)
+StableDEX.unhandledsend_unchk26(address).callee (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#137) lacks a zero-check on :
+		- callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#138)
+StableDEX.unhandledsend_unchk38(address).callee (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#164) lacks a zero-check on :
+		- callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#165)
+StableDEX.bug_unchk39(address).addr (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#211) lacks a zero-check on :
+		- addr.send(4000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#212)
+StableDEX.my_func_uncheck36(address).dst (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#224) lacks a zero-check on :
+		- dst.call.value(msg.value)() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#225)
+StableDEX.my_func_unchk35(address).dst (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#249) lacks a zero-check on :
+		- dst.send(msg.value) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#250)
+StableDEX.bug_unchk27(address).addr (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#466) lacks a zero-check on :
+		- addr.send(42000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#467)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Reentrancy in StableDEX.withdraw(uint8,address,uint256) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#228-248):
+	External calls:
+	- Token(tokenaddr).transfer(msg.sender,(amount.sub(withdrawfee[tokenaddr]))) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#242)
+	State variables written after the call(s):
+	- feeAmount[admin][tokenaddr] = feeAmount[admin][tokenaddr].add(withdrawfee[tokenaddr]) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#244)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-2
+
+Reentrancy in StableDEX.tokenDeposit(address,uint256) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#214-223):
+	External calls:
+	- Token(tokenaddr).transferFrom(msg.sender,address(this),tokenAmount) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#219)
+	Event emitted after the call(s):
+	- DepositandWithdraw(msg.sender,tokenaddr,tokenAmount,0) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#220)
+Reentrancy in StableDEX.withdraw(uint8,address,uint256) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#228-248):
+	External calls:
+	- Token(tokenaddr).transfer(msg.sender,(amount.sub(withdrawfee[tokenaddr]))) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#242)
+	External calls sending eth:
+	- msg.sender.transfer(amount.sub(withdrawfee[address(0)])) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#234)
+	Event emitted after the call(s):
+	- DepositandWithdraw(msg.sender,tokenaddr,amount,1) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#246)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+
+StableDEX.verify(string,uint8,bytes32,bytes32) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#303-342) uses assembly
+	- INLINE ASM (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#307-310)
+	- INLINE ASM (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#328-330)
+	- INLINE ASM (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#337-339)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#assembly-usage
+
+StableDEX.addToken(address,string,uint256) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#188-194) compares to a boolean constant:
+	-require(bool)(msg.sender == feeAddress && tokendetails[tokenAddress].status == false) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#189)
+StableDEX.tokenDeposit(address,uint256) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#214-223) compares to a boolean constant:
+	-require(bool)(tokenAmount > 0 && tokendetails[tokenaddr].status == true) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#216)
+StableDEX.withdraw(uint8,address,uint256) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#228-248) compares to a boolean constant:
+	-require(bool)(tokenaddr != address(0) && tokendetails[tokenaddr].status == true) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#240)
+StableDEX.dexstatuscheck() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#169-172) compares to a boolean constant:
+	-require(bool)(dexStatus == true) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#170)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#boolean-equality
+
+Pragma version^0.5.12 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#1) allows old versions
+solc-0.5.12 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in StableDEX.my_func_uncheck36(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#224-226):
+	- dst.call.value(msg.value)() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#225)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Function Token.cash_unchk46(uint256,uint256,address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#5-9) is not in mixedCase
+Parameter Token.cash_unchk46(uint256,uint256,address).winner_unchk46 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#5) is not in mixedCase
+Function Token.UncheckedExternalCall_unchk4() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#11-19) is not in mixedCase
+Function Token.bug_unchk7() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#21-25) is not in mixedCase
+Function Token.my_func_unchk23(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#27-29) is not in mixedCase
+Struct StableDEX.orders (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#93-105) is not in CapWords
+Struct StableDEX.tokens (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#107-112) is not in CapWords
+Function StableDEX.callnotchecked_unchk13(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#66-68) is not in mixedCase
+Function StableDEX.withdrawBal_unchk17() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#71-73) is not in mixedCase
+Function StableDEX.callnotchecked_unchk37(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#76-78) is not in mixedCase
+Function StableDEX.bug_unchk3(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#81-82) is not in mixedCase
+Function StableDEX.withdrawLeftOver_unchk9() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#87-90) is not in mixedCase
+Function StableDEX.unhandledsend_unchk14(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#120-122) is not in mixedCase
+Function StableDEX.callnotchecked_unchk25(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#125-127) is not in mixedCase
+Function StableDEX.bug_unchk19() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#130-134) is not in mixedCase
+Function StableDEX.unhandledsend_unchk26(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#137-139) is not in mixedCase
+Function StableDEX.sendToWinner_unchk20() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#146-150) is not in mixedCase
+Function StableDEX.sendToWinner_unchk32() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#157-161) is not in mixedCase
+Function StableDEX.unhandledsend_unchk38(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#164-166) is not in mixedCase
+Function StableDEX.bug_unchk30() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#179-186) is not in mixedCase
+Function StableDEX.sendToWinner_unchk8() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#199-203) is not in mixedCase
+Function StableDEX.bug_unchk39(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#211-212) is not in mixedCase
+Function StableDEX.my_func_uncheck36(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#224-226) is not in mixedCase
+Function StableDEX.my_func_unchk35(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#249-251) is not in mixedCase
+Function StableDEX.sendToWinner_unchk44() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#274-278) is not in mixedCase
+Function StableDEX.UncheckedExternalCall_unchk40() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#291-299) is not in mixedCase
+Function StableDEX.withdrawLeftOver_unchk33() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#449-452) is not in mixedCase
+Function StableDEX.bug_unchk27(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#466-467) is not in mixedCase
+Function StableDEX.bug_unchk31() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#473-477) is not in mixedCase
+Function StableDEX.withdrawLeftOver_unchk45() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#484-487) is not in mixedCase
+Variable StableDEX.payedOut_unchk9 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#85) is not in mixedCase
+Variable StableDEX.Order (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#128) is not in mixedCase
+Variable StableDEX.payedOut_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#142) is not in mixedCase
+Variable StableDEX.winner_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#143) is not in mixedCase
+Variable StableDEX.winAmount_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#144) is not in mixedCase
+Variable StableDEX.payedOut_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#153) is not in mixedCase
+Variable StableDEX.winner_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#154) is not in mixedCase
+Variable StableDEX.winAmount_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#155) is not in mixedCase
+Variable StableDEX.payedOut_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#195) is not in mixedCase
+Variable StableDEX.winner_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#196) is not in mixedCase
+Variable StableDEX.winAmount_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#197) is not in mixedCase
+Variable StableDEX.payedOut_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#270) is not in mixedCase
+Variable StableDEX.winner_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#271) is not in mixedCase
+Variable StableDEX.winAmount_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#272) is not in mixedCase
+Variable StableDEX.payedOut_unchk33 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#447) is not in mixedCase
+Variable StableDEX.payedOut_unchk45 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#482) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in StableDEX.adminProfitWithdraw(uint8,address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#253-269):
+	External calls:
+	- admin.transfer(feeAmount[admin][address(0)]) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#257)
+	State variables written after the call(s):
+	- feeAmount[admin][address(0)] = 0 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#258)
+Reentrancy in StableDEX.sendToWinner_unchk20() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#146-150):
+	External calls:
+	- winner_unchk20.send(winAmount_unchk20) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#148)
+	State variables written after the call(s):
+	- payedOut_unchk20 = true (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#149)
+Reentrancy in StableDEX.sendToWinner_unchk32() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#157-161):
+	External calls:
+	- winner_unchk32.send(winAmount_unchk32) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#159)
+	State variables written after the call(s):
+	- payedOut_unchk32 = true (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#160)
+Reentrancy in StableDEX.sendToWinner_unchk44() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#274-278):
+	External calls:
+	- winner_unchk44.send(winAmount_unchk44) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#276)
+	State variables written after the call(s):
+	- payedOut_unchk44 = true (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#277)
+Reentrancy in StableDEX.sendToWinner_unchk8() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#199-203):
+	External calls:
+	- winner_unchk8.send(winAmount_unchk8) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#201)
+	State variables written after the call(s):
+	- payedOut_unchk8 = true (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#202)
+Reentrancy in StableDEX.withdraw(uint8,address,uint256) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#228-248):
+	External calls:
+	- msg.sender.transfer(amount.sub(withdrawfee[address(0)])) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#234)
+	State variables written after the call(s):
+	- feeAmount[admin][address(0)] = feeAmount[admin][address(0)].add(withdrawfee[address(0)]) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#236)
+	- userDetails[msg.sender][address(0)] = userDetails[msg.sender][address(0)].sub(amount) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#235)
+	Event emitted after the call(s):
+	- DepositandWithdraw(msg.sender,tokenaddr,amount,1) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#246)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable Token.UncheckedExternalCall_unchk4().addr_unchk4 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#12) is too similar to Token.bug_unchk7().addr_unchk7 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#22)
+Variable StableDEX.bug_unchk30().addr_unchk30 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#181) is too similar to StableDEX.UncheckedExternalCall_unchk40().addr_unchk40 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#292)
+Variable StableDEX.bug_unchk19().addr_unchk19 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#131) is too similar to StableDEX.bug_unchk31().addr_unchk31 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#474)
+Variable StableDEX.bug_unchk30().addr_unchk30 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#181) is too similar to StableDEX.bug_unchk31().addr_unchk31 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#474)
+Variable StableDEX.payedOut_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#142) is too similar to StableDEX.payedOut_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#153)
+Variable StableDEX.payedOut_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#153) is too similar to StableDEX.payedOut_unchk33 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#447)
+Variable StableDEX.payedOut_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#270) is too similar to StableDEX.payedOut_unchk45 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#482)
+Variable StableDEX.payedOut_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#195) is too similar to StableDEX.payedOut_unchk9 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#85)
+Variable StableDEX.winAmount_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#144) is too similar to StableDEX.winAmount_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#155)
+Variable StableDEX.winner_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#143) is too similar to StableDEX.winner_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#154)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+StableDEX.verify(string,uint8,bytes32,bytes32) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#303-342) uses literals with too many digits:
+	- header = Ethereum Signed Message:
+000000 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#304)
+StableDEX.verify(string,uint8,bytes32,bytes32) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#303-342) uses literals with too many digits:
+	- divisor = 100000 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#313)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+Token (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#3-30) does not implement functions:
+	- Token.allowance(address,address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#26)
+	- Token.balanceOf(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#20)
+	- Token.transfer(address,uint256) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#4)
+	- Token.transferFrom(address,address,uint256) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#10)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unimplemented-functions
+
+StableDEX.payedOut_unchk33 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#447) should be constant
+StableDEX.payedOut_unchk45 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#482) should be constant
+StableDEX.payedOut_unchk9 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#85) should be constant
+StableDEX.tokenId (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#91) should be constant
+StableDEX.winAmount_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#144) should be constant
+StableDEX.winAmount_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#155) should be constant
+StableDEX.winAmount_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#272) should be constant
+StableDEX.winAmount_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#197) should be constant
+StableDEX.winner_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#143) should be constant
+StableDEX.winner_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#154) should be constant
+StableDEX.winner_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#271) should be constant
+StableDEX.winner_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#196) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+addToken(address,string,uint256) should be declared external:
+	- StableDEX.addToken(address,string,uint256) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#188-194)
+Moreover, the following function parameters should change its data location:
+tokenSymbol location should be calldata
+setwithdrawfee(address[],uint256[]) should be declared external:
+	- StableDEX.setwithdrawfee(address[],uint256[]) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#281-290)
+Moreover, the following function parameters should change its data location:
+addr location should be calldata
+feeamount location should be calldata
+makeOrder(uint256[9],address[2],string,uint8,bytes32,bytes32) should be declared external:
+	- StableDEX.makeOrder(uint256[9],address[2],string,uint8,bytes32,bytes32) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol#348-446)
+Moreover, the following function parameters should change its data location:
+tradeDetails location should be calldata
+traderAddresses location should be calldata
+message location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_21.sol analyzed (3 contracts with 80 detectors), 154 result(s) found

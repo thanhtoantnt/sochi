@@ -85,14 +85,17 @@ fn interpret_slither_results(file: &Path) -> Summary {
 pub fn interpret_results(dir: &str) -> Summary {
     // List all files in the repository
     let path = Path::new(&dir);
-    let files = fs::read_dir(path).unwrap();
+    let mut paths: Vec<_> = fs::read_dir(path).unwrap().map(|r| r.unwrap()).collect();
+    paths.sort_by_key(|dir| dir.path());
 
+    // Statistics
     let mut reentrancy = 0;
     let mut timestamp = 0;
     let mut tx_origin = 0;
     let mut unhanled_exceptions = 0;
-    for file in files {
-        let file = file.unwrap().path();
+
+    for path in paths {
+        let file = path.path();
         let extension = file.extension().and_then(OsStr::to_str);
         if extension.unwrap() == super::SLITHER {
             println!("Input file: {}", file.display());

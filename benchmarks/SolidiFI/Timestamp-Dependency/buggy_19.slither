@@ -1,0 +1,277 @@
+
+ethBank.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#144-152) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#150)
+ethBank.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#163-171) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#169)
+ethBank.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#186-194) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#192)
+ethBank.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#238-246) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#244)
+ethBank.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#262-270) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#268)
+ethBank.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#286-294) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#292)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+ethBank.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#144-152) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#149)" 
+ethBank.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#163-171) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#168)" 
+ethBank.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#186-194) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#191)" 
+ethBank.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#238-246) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#243)" 
+ethBank.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#262-270) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#267)" 
+ethBank.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#286-294) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#291)" 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG
+
+ethBank.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#144-152) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#149)
+ethBank.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#163-171) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#168)
+ethBank.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#262-270) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#267)
+ethBank.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#186-194) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#191)
+ethBank.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#286-294) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#291)
+ethBank.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#238-246) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#243)
+ethBank.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#221-223) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#222)
+ethBank.play_tmstmp19(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#116-119) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#118)
+ethBank.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#211-214) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#213)
+ethBank.play_tmstmp26(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#133-135) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#134)
+ethBank.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#309-312) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#311)
+owned.play_tmstmp3(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#90-93) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#92)
+ethBank.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#230-232) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#231)
+ethBank.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#319-322) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#321)
+ethBank.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#277-280) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#279)
+ethBank.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#178-180) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#179)
+ethBank.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#253-256) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#255)
+ethBank.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#201-204) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#203)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+ethBank.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#263) is a local variable never initialized
+ethBank.bug_tmstmp8().pastBlockTime_tmstmp8 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#239) is a local variable never initialized
+ethBank.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#145) is a local variable never initialized
+ethBank.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#287) is a local variable never initialized
+ethBank.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#164) is a local variable never initialized
+ethBank.bug_tmstmp4().pastBlockTime_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#187) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+owned.transferOwnership(address) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#85-88) should emit an event for: 
+	- owner = newOwner (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#87) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+ethBank.withdrawForUser(address,uint256)._address (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#103) lacks a zero-check on :
+		- _address.transfer(amount) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#105)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+owned.bug_tmstmp17() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#58-60) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#59)
+owned.bug_tmstmp37() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#69-71) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#70)
+owned.play_tmstmp3(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#90-93) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#92)
+ethBank.bug_tmstmp9() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#99-101) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#100)
+ethBank.bug_tmstmp25() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#107-109) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#108)
+ethBank.play_tmstmp19(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#116-119) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#118)
+ethBank.play_tmstmp26(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#133-135) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#134)
+ethBank.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#144-152) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp20) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#147)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#149)
+ethBank.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#163-171) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp32) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#166)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#168)
+ethBank.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#178-180) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#179)
+ethBank.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#186-194) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp4) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#189)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#191)
+ethBank.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#201-204) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#203)
+ethBank.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#211-214) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#213)
+ethBank.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#221-223) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#222)
+ethBank.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#230-232) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#231)
+ethBank.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#238-246) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp8) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#241)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#243)
+ethBank.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#253-256) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#255)
+ethBank.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#262-270) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp36) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#265)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#267)
+ethBank.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#277-280) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#279)
+ethBank.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#286-294) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp40) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#289)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#291)
+ethBank.bug_tmstmp33() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#300-302) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#301)
+ethBank.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#309-312) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#311)
+ethBank.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#319-322) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#321)
+ethBank.bug_tmstmp13() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#328-330) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#329)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+SafeMath.add(uint256,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#44-48) is never used and should be removed
+SafeMath.div(uint256,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#28-31) is never used and should be removed
+SafeMath.mul(uint256,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#16-23) is never used and should be removed
+SafeMath.sub(uint256,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#36-39) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.5.1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#5) allows old versions
+solc-0.5.1 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Contract owned (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#57-94) is not in CapWords
+Function owned.bug_tmstmp17() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#58-60) is not in mixedCase
+Function owned.bug_tmstmp37() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#69-71) is not in mixedCase
+Function owned.play_tmstmp3(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#90-93) is not in mixedCase
+Variable owned.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#80) is not in mixedCase
+Variable owned.winner_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#89) is not in mixedCase
+Contract ethBank (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#96-355) is not in CapWords
+Function ethBank.bug_tmstmp9() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#99-101) is not in mixedCase
+Parameter ethBank.withdrawForUser(address,uint256)._address (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#103) is not in mixedCase
+Function ethBank.bug_tmstmp25() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#107-109) is not in mixedCase
+Function ethBank.play_tmstmp19(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#116-119) is not in mixedCase
+Function ethBank.play_tmstmp26(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#133-135) is not in mixedCase
+Function ethBank.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#144-152) is not in mixedCase
+Function ethBank.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#163-171) is not in mixedCase
+Function ethBank.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#178-180) is not in mixedCase
+Function ethBank.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#186-194) is not in mixedCase
+Function ethBank.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#201-204) is not in mixedCase
+Function ethBank.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#211-214) is not in mixedCase
+Function ethBank.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#221-223) is not in mixedCase
+Function ethBank.activeBonusCacl_1() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#224-228) is not in mixedCase
+Function ethBank.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#230-232) is not in mixedCase
+Function ethBank.activeBonusCacl_2() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#233-237) is not in mixedCase
+Function ethBank.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#238-246) is not in mixedCase
+Function ethBank.activeBonusCacl_3() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#247-251) is not in mixedCase
+Function ethBank.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#253-256) is not in mixedCase
+Function ethBank.activeBonusCacl_4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#257-261) is not in mixedCase
+Function ethBank.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#262-270) is not in mixedCase
+Function ethBank.activeBonusCacl_5() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#271-275) is not in mixedCase
+Function ethBank.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#277-280) is not in mixedCase
+Function ethBank.activeBonusCacl_6() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#281-285) is not in mixedCase
+Function ethBank.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#286-294) is not in mixedCase
+Function ethBank.activeBonusCacl_7() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#295-299) is not in mixedCase
+Function ethBank.bug_tmstmp33() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#300-302) is not in mixedCase
+Function ethBank.activeBonusCacl_8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#303-307) is not in mixedCase
+Function ethBank.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#309-312) is not in mixedCase
+Function ethBank.activeBonusCacl_9() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#313-317) is not in mixedCase
+Function ethBank.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#319-322) is not in mixedCase
+Function ethBank.bug_tmstmp13() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#328-330) is not in mixedCase
+Variable ethBank.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#115) is not in mixedCase
+Variable ethBank.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#132) is not in mixedCase
+Variable ethBank.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#177) is not in mixedCase
+Variable ethBank.winner_tmstmp7 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#200) is not in mixedCase
+Variable ethBank.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#210) is not in mixedCase
+Variable ethBank.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#220) is not in mixedCase
+Variable ethBank.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#229) is not in mixedCase
+Variable ethBank.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#252) is not in mixedCase
+Variable ethBank.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#276) is not in mixedCase
+Variable ethBank.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#308) is not in mixedCase
+Variable ethBank.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#318) is not in mixedCase
+Variable ethBank.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#336) is not in mixedCase
+Variable ethBank.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#342) is not in mixedCase
+Variable ethBank.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#348) is not in mixedCase
+Variable ethBank.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#354) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable ethBank.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#342) is too similar to ethBank.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#348)
+Variable ethBank.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#342) is too similar to ethBank.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#354)
+Variable ethBank.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#342) is too similar to owned.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#80)
+Variable ethBank.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#342) is too similar to ethBank.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#336)
+Variable ethBank.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#348) is too similar to owned.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#80)
+Variable ethBank.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#348) is too similar to ethBank.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#354)
+Variable ethBank.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#354) is too similar to owned.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#80)
+Variable ethBank.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#348) is too similar to ethBank.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#336)
+Variable ethBank.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#354) is too similar to ethBank.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#336)
+Variable owned.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#80) is too similar to ethBank.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#336)
+Variable ethBank.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#145) is too similar to ethBank.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#263)
+Variable ethBank.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#145) is too similar to ethBank.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#287)
+Variable ethBank.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#145) is too similar to ethBank.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#164)
+Variable ethBank.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#164) is too similar to ethBank.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#263)
+Variable ethBank.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#164) is too similar to ethBank.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#287)
+Variable ethBank.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#263) is too similar to ethBank.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#287)
+Variable ethBank.bug_tmstmp4().pastBlockTime_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#187) is too similar to ethBank.bug_tmstmp8().pastBlockTime_tmstmp8 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#239)
+Variable ethBank.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#220) is too similar to ethBank.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#318)
+Variable ethBank.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#220) is too similar to ethBank.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#115)
+Variable ethBank.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#115) is too similar to ethBank.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#318)
+Variable ethBank.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#210) is too similar to ethBank.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#132)
+Variable ethBank.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#210) is too similar to ethBank.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#308)
+Variable ethBank.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#132) is too similar to ethBank.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#308)
+Variable ethBank.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#210) is too similar to ethBank.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#229)
+Variable ethBank.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#210) is too similar to ethBank.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#318)
+Variable ethBank.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#229) is too similar to ethBank.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#318)
+Variable ethBank.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#210) is too similar to ethBank.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#276)
+Variable ethBank.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#229) is too similar to ethBank.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#276)
+Variable ethBank.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#318) is too similar to ethBank.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#276)
+Variable ethBank.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#210) is too similar to ethBank.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#177)
+Variable ethBank.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#229) is too similar to ethBank.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#177)
+Variable ethBank.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#318) is too similar to ethBank.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#177)
+Variable ethBank.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#276) is too similar to ethBank.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#177)
+Variable ethBank.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#115) is too similar to ethBank.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#252)
+Variable ethBank.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#210) is too similar to ethBank.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#252)
+Variable ethBank.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#229) is too similar to ethBank.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#252)
+Variable ethBank.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#318) is too similar to ethBank.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#252)
+Variable ethBank.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#276) is too similar to ethBank.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#252)
+Variable ethBank.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#177) is too similar to ethBank.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#252)
+Variable owned.winner_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#89) is too similar to ethBank.winner_tmstmp7 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#200)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+owned.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#80) is never used in ethBank (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#96-355)
+ethBank.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#336) is never used in ethBank (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#96-355)
+ethBank.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#342) is never used in ethBank (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#96-355)
+ethBank.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#348) is never used in ethBank (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#96-355)
+ethBank.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#354) is never used in ethBank (benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol#96-355)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+benchmarks/SolidiFI/Timestamp-Dependency/buggy_19.sol analyzed (3 contracts with 80 detectors), 166 result(s) found

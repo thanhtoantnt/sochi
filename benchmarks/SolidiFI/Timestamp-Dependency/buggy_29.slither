@@ -1,0 +1,211 @@
+
+RaffleTokenExchange.buyRaffle(uint256[],uint256[]) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#314-339) uses arbitrary from in transferFrom: require(bool,string)(raffleContract.transferFrom(listing.seller,msg.sender,amount),Token transfer failed!) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#330)
+Reference: https://github.com/trailofbits/slither/wiki/Detector-Documentation#arbitrary-send-erc20
+
+IERC20Interface.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#25-33) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#31)
+RaffleTokenExchange.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#161-169) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#167)
+RaffleTokenExchange.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#182-190) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#188)
+RaffleTokenExchange.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#300-308) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#306)
+RaffleTokenExchange.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#360-368) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#366)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+IERC20Interface.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#25-33) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#30)" 
+RaffleTokenExchange.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#161-169) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#166)" 
+RaffleTokenExchange.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#182-190) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#187)" 
+RaffleTokenExchange.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#300-308) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#305)" 
+RaffleTokenExchange.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#360-368) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#365)" 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG
+
+IERC20Interface.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#25-33) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#30)
+ERC20Interface.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#18-20) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#19)
+IERC20Interface.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#36-39) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#38)
+RaffleTokenExchange.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#161-169) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#166)
+RaffleTokenExchange.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#300-308) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#305)
+RaffleTokenExchange.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#182-190) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#187)
+RaffleTokenExchange.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#360-368) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#365)
+RaffleTokenExchange.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#214-216) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#215)
+RaffleTokenExchange.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#205-208) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#207)
+RaffleTokenExchange.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#389-392) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#391)
+RaffleTokenExchange.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#400-403) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#402)
+RaffleTokenExchange.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#341-344) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#343)
+RaffleTokenExchange.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#175-177) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#176)
+RaffleTokenExchange.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#196-199) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#198)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+RaffleTokenExchange.buyRaffle(uint256[],uint256[]) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#314-339) contains a tautology or contradiction:
+	- require(bool,string)(listing.amountLeft >= 0,Amount left needs to be higher than 0.) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#324)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#tautology-or-contradiction
+
+RaffleTokenExchange.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#301) is a local variable never initialized
+RaffleTokenExchange.bug_tmstmp4().pastBlockTime_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#183) is a local variable never initialized
+RaffleTokenExchange.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#162) is a local variable never initialized
+RaffleTokenExchange.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#361) is a local variable never initialized
+IERC20Interface.bug_tmstmp8().pastBlockTime_tmstmp8 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#26) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+RaffleTokenExchange.buyRaffle(uint256[],uint256[]) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#314-339) has external calls inside a loop: listing.seller.transfer(amountToPay) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#327)
+RaffleTokenExchange.buyRaffle(uint256[],uint256[]) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#314-339) has external calls inside a loop: require(bool,string)(raffleContract.transferFrom(listing.seller,msg.sender,amount),Token transfer failed!) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#330)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop
+
+ERC20Interface.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#18-20) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#19)
+IERC20Interface.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#25-33) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp8) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#28)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#30)
+IERC20Interface.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#36-39) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#38)
+RaffleTokenExchange.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#161-169) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp32) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#164)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#166)
+RaffleTokenExchange.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#175-177) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#176)
+RaffleTokenExchange.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#182-190) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp4) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#185)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#187)
+RaffleTokenExchange.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#196-199) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#198)
+RaffleTokenExchange.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#205-208) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#207)
+RaffleTokenExchange.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#214-216) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#215)
+RaffleTokenExchange.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#300-308) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp36) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#303)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#305)
+RaffleTokenExchange.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#341-344) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#343)
+RaffleTokenExchange.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#360-368) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp40) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#363)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#365)
+RaffleTokenExchange.bug_tmstmp33() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#379-381) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#380)
+RaffleTokenExchange.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#389-392) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#391)
+RaffleTokenExchange.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#400-403) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#402)
+RaffleTokenExchange.bug_tmstmp13() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#411-413) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#412)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+RaffleTokenExchange.onlyUnpaused() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#287-290) compares to a boolean constant:
+	-require(bool,string)(paused == false,Exchange is paused.) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#288)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#boolean-equality
+
+SafeMath.div(uint256,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#124-131) is never used and should be removed
+SafeMath.mod(uint256,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#144-147) is never used and should be removed
+SafeMath.mul(uint256,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#99-111) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version>=0.5.12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#5) allows old versions
+solc-0.5.12 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function ERC20Interface.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#18-20) is not in mixedCase
+Variable ERC20Interface.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#17) is not in mixedCase
+Function IERC20Interface.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#25-33) is not in mixedCase
+Function IERC20Interface.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#36-39) is not in mixedCase
+Variable IERC20Interface.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#35) is not in mixedCase
+Function RaffleTokenExchange.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#161-169) is not in mixedCase
+Function RaffleTokenExchange.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#175-177) is not in mixedCase
+Function RaffleTokenExchange.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#182-190) is not in mixedCase
+Function RaffleTokenExchange.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#196-199) is not in mixedCase
+Function RaffleTokenExchange.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#205-208) is not in mixedCase
+Function RaffleTokenExchange.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#214-216) is not in mixedCase
+Function RaffleTokenExchange.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#300-308) is not in mixedCase
+Function RaffleTokenExchange.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#341-344) is not in mixedCase
+Function RaffleTokenExchange.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#360-368) is not in mixedCase
+Function RaffleTokenExchange.bug_tmstmp33() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#379-381) is not in mixedCase
+Function RaffleTokenExchange.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#389-392) is not in mixedCase
+Function RaffleTokenExchange.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#400-403) is not in mixedCase
+Function RaffleTokenExchange.bug_tmstmp13() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#411-413) is not in mixedCase
+Constant RaffleTokenExchange.raffleContract (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#157) is not in UPPER_CASE_WITH_UNDERSCORES
+Variable RaffleTokenExchange.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#174) is not in mixedCase
+Variable RaffleTokenExchange.winner_tmstmp7 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#195) is not in mixedCase
+Variable RaffleTokenExchange.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#204) is not in mixedCase
+Variable RaffleTokenExchange.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#213) is not in mixedCase
+Variable RaffleTokenExchange.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#268) is not in mixedCase
+Variable RaffleTokenExchange.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#270) is not in mixedCase
+Variable RaffleTokenExchange.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#272) is not in mixedCase
+Variable RaffleTokenExchange.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#283) is not in mixedCase
+Variable RaffleTokenExchange.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#291) is not in mixedCase
+Variable RaffleTokenExchange.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#340) is not in mixedCase
+Variable RaffleTokenExchange.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#388) is not in mixedCase
+Variable RaffleTokenExchange.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#399) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable ERC20Interface.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#17) is too similar to IERC20Interface.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#35)
+Variable RaffleTokenExchange.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#291) is too similar to RaffleTokenExchange.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#268)
+Variable RaffleTokenExchange.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#291) is too similar to RaffleTokenExchange.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#270)
+Variable RaffleTokenExchange.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#268) is too similar to RaffleTokenExchange.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#270)
+Variable RaffleTokenExchange.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#270) is too similar to RaffleTokenExchange.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#272)
+Variable RaffleTokenExchange.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#270) is too similar to RaffleTokenExchange.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#283)
+Variable RaffleTokenExchange.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#291) is too similar to RaffleTokenExchange.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#272)
+Variable RaffleTokenExchange.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#268) is too similar to RaffleTokenExchange.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#272)
+Variable RaffleTokenExchange.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#291) is too similar to RaffleTokenExchange.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#283)
+Variable RaffleTokenExchange.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#268) is too similar to RaffleTokenExchange.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#283)
+Variable RaffleTokenExchange.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#272) is too similar to RaffleTokenExchange.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#283)
+Variable RaffleTokenExchange.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#162) is too similar to RaffleTokenExchange.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#301)
+Variable RaffleTokenExchange.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#162) is too similar to RaffleTokenExchange.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#361)
+Variable RaffleTokenExchange.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#301) is too similar to RaffleTokenExchange.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#361)
+Variable RaffleTokenExchange.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#213) is too similar to RaffleTokenExchange.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#399)
+Variable RaffleTokenExchange.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#204) is too similar to RaffleTokenExchange.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#399)
+Variable RaffleTokenExchange.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#204) is too similar to RaffleTokenExchange.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#174)
+Variable RaffleTokenExchange.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#204) is too similar to RaffleTokenExchange.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#388)
+Variable RaffleTokenExchange.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#204) is too similar to RaffleTokenExchange.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#340)
+Variable RaffleTokenExchange.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#399) is too similar to RaffleTokenExchange.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#340)
+Variable RaffleTokenExchange.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#340) is too similar to RaffleTokenExchange.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#174)
+Variable RaffleTokenExchange.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#399) is too similar to RaffleTokenExchange.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#174)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+RaffleToken (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#42) does not implement functions:
+	- IERC20Interface.allowance(address,address) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#24)
+	- IERC20Interface.balanceOf(address) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#34)
+	- ERC20Interface.transferFrom(address,address,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#16)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unimplemented-functions
+
+RaffleTokenExchange.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#268) is never used in RaffleTokenExchange (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#150-414)
+RaffleTokenExchange.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#270) is never used in RaffleTokenExchange (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#150-414)
+RaffleTokenExchange.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#272) is never used in RaffleTokenExchange (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#150-414)
+RaffleTokenExchange.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#283) is never used in RaffleTokenExchange (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#150-414)
+RaffleTokenExchange.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#291) is never used in RaffleTokenExchange (benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol#150-414)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+benchmarks/SolidiFI/Timestamp-Dependency/buggy_29.sol analyzed (5 contracts with 80 detectors), 114 result(s) found

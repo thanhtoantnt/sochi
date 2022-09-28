@@ -1,0 +1,297 @@
+Compilation warnings/errors on benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol:
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol:14:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol:42:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk20.send(winAmount_unchk20);
+        ^------------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol:61:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk32.send(winAmount_unchk32);
+        ^------------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol:73:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk44.send(winAmount_unchk44);
+        ^------------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol:91:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol:95:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (42 ether); }
+       ^------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol:107:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol:120:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol:129:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk46.send(subpot_unchk46);  //bug
+        ^---------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol:216:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol:253:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol:285:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk8.send(winAmount_unchk8);
+        ^----------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol:294:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (4 ether); }
+       ^-----------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol:301:9: Warning: Return value of low-level calls not used.
+        dst.call.value(msg.value)("");
+        ^---------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol:311:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol:127:23: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                      ^-------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol:127:40: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                                       ^--------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol:110:1: Warning: Function state mutability can be restricted to pure
+function callnotchecked_unchk13(address callee) public {
+^ (Relevant source part starts here and spans across multiple lines).
+
+
+WhiteBetting.unhandledsend_unchk26(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#13-15) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#14)
+WhiteBetting.withdrawLeftOver_unchk33() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#89-92) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#91)
+WhiteBetting.bug_unchk27(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#94-95) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(42000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#95)
+WhiteBetting.withdrawLeftOver_unchk45() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#105-108) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#107)
+WhiteBetting.unhandledsend_unchk38(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#119-121) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#120)
+WhiteBetting.cash_unchk46(uint256,uint256,address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#127-131) sends eth to arbitrary user
+	Dangerous calls:
+	- winner_unchk46.send(subpot_unchk46) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#129)
+WhiteBetting.unhandledsend_unchk14(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#252-254) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#253)
+WhiteBetting.bug_unchk39(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#293-294) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(4000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#294)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+WhiteBetting (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#12-314) contract sets array length with a user-controlled value:
+	- betList[_fixtureId].push(BetFixture(msg.sender,stake,_odd,_selectedTeam)) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#211)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#array-length-assignment
+
+WhiteBetting.winner_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#37) is never initialized. It is used in:
+	- WhiteBetting.sendToWinner_unchk20() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#40-44)
+WhiteBetting.winAmount_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#38) is never initialized. It is used in:
+	- WhiteBetting.sendToWinner_unchk20() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#40-44)
+WhiteBetting.winner_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#56) is never initialized. It is used in:
+	- WhiteBetting.sendToWinner_unchk32() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#59-63)
+WhiteBetting.winAmount_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#57) is never initialized. It is used in:
+	- WhiteBetting.sendToWinner_unchk32() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#59-63)
+WhiteBetting.winner_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#68) is never initialized. It is used in:
+	- WhiteBetting.sendToWinner_unchk44() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#71-75)
+WhiteBetting.winAmount_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#69) is never initialized. It is used in:
+	- WhiteBetting.sendToWinner_unchk44() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#71-75)
+WhiteBetting.winner_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#280) is never initialized. It is used in:
+	- WhiteBetting.sendToWinner_unchk8() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#283-287)
+WhiteBetting.winAmount_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#281) is never initialized. It is used in:
+	- WhiteBetting.sendToWinner_unchk8() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#283-287)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+
+WhiteBetting.my_func_uncheck36(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#300-302) ignores return value by dst.call.value(msg.value)() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#301)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-low-level-calls
+
+WhiteBetting.unhandledsend_unchk26(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#13-15) ignores return value by callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#14)
+WhiteBetting.sendToWinner_unchk20() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#40-44) ignores return value by winner_unchk20.send(winAmount_unchk20) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#42)
+WhiteBetting.sendToWinner_unchk32() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#59-63) ignores return value by winner_unchk32.send(winAmount_unchk32) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#61)
+WhiteBetting.sendToWinner_unchk44() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#71-75) ignores return value by winner_unchk44.send(winAmount_unchk44) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#73)
+WhiteBetting.withdrawLeftOver_unchk33() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#89-92) ignores return value by msg.sender.send(address(this).balance) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#91)
+WhiteBetting.bug_unchk27(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#94-95) ignores return value by addr.send(42000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#95)
+WhiteBetting.withdrawLeftOver_unchk45() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#105-108) ignores return value by msg.sender.send(address(this).balance) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#107)
+WhiteBetting.unhandledsend_unchk38(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#119-121) ignores return value by callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#120)
+WhiteBetting.cash_unchk46(uint256,uint256,address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#127-131) ignores return value by winner_unchk46.send(subpot_unchk46) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#129)
+WhiteBetting.my_func_unchk23(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#215-217) ignores return value by dst.send(msg.value) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#216)
+WhiteBetting.unhandledsend_unchk14(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#252-254) ignores return value by callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#253)
+WhiteBetting.sendToWinner_unchk8() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#283-287) ignores return value by winner_unchk8.send(winAmount_unchk8) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#285)
+WhiteBetting.bug_unchk39(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#293-294) ignores return value by addr.send(4000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#294)
+WhiteBetting.my_func_unchk35(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#310-312) ignores return value by dst.send(msg.value) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#311)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-send
+
+WhiteBetting.bug_unchk7().addr_unchk7 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#171) is a local variable never initialized
+WhiteBetting.bug_unchk30().receivers_unchk30 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#267) is a local variable never initialized
+WhiteBetting.UncheckedExternalCall_unchk40().addr_unchk40 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#78) is a local variable never initialized
+WhiteBetting.bug_unchk31().addr_unchk31 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#98) is a local variable never initialized
+WhiteBetting.UncheckedExternalCall_unchk4().addr_unchk4 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#146) is a local variable never initialized
+WhiteBetting.bug_unchk30().addr_unchk30 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#268) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+WhiteBetting.changeOwner(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#290-292) should emit an event for: 
+	- owner = _newOwner (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#291) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+WhiteBetting.unhandledsend_unchk26(address).callee (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#13) lacks a zero-check on :
+		- callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#14)
+WhiteBetting.bug_unchk27(address).addr (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#94) lacks a zero-check on :
+		- addr.send(42000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#95)
+WhiteBetting.unhandledsend_unchk38(address).callee (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#119) lacks a zero-check on :
+		- callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#120)
+WhiteBetting.cash_unchk46(uint256,uint256,address).winner_unchk46 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#127) lacks a zero-check on :
+		- winner_unchk46.send(subpot_unchk46) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#129)
+WhiteBetting.my_func_unchk23(address).dst (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#215) lacks a zero-check on :
+		- dst.send(msg.value) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#216)
+WhiteBetting.unhandledsend_unchk14(address).callee (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#252) lacks a zero-check on :
+		- callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#253)
+WhiteBetting.changeOwner(address)._newOwner (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#290) lacks a zero-check on :
+		- owner = _newOwner (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#291)
+WhiteBetting.bug_unchk39(address).addr (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#293) lacks a zero-check on :
+		- addr.send(4000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#294)
+WhiteBetting.my_func_uncheck36(address).dst (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#300) lacks a zero-check on :
+		- dst.call.value(msg.value)() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#301)
+WhiteBetting.my_func_unchk35(address).dst (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#310) lacks a zero-check on :
+		- dst.send(msg.value) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#311)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+WhiteBetting.givePrizeMoney(uint64,uint8,uint8) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#220-251) has external calls inside a loop: betList[_fixtureId][i].player.transfer(returnEth) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#241)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop
+
+WhiteBetting.placeBet(uint64,uint16,uint32) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#177-214) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now < (gameList[_fixtureId].timestamp - 600)) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#208)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+WhiteBetting.givePrizeMoney(uint64,uint8,uint8) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#220-251) compares to a boolean constant:
+	-require(bool)(gameList[_fixtureId].isDone == false) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#224)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#boolean-equality
+
+Pragma version^0.5.12 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#5) allows old versions
+solc-0.5.12 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in WhiteBetting.my_func_uncheck36(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#300-302):
+	- dst.call.value(msg.value)() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#301)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Function WhiteBetting.unhandledsend_unchk26(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#13-15) is not in mixedCase
+Function WhiteBetting.sendToWinner_unchk20() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#40-44) is not in mixedCase
+Function WhiteBetting.sendToWinner_unchk32() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#59-63) is not in mixedCase
+Function WhiteBetting.sendToWinner_unchk44() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#71-75) is not in mixedCase
+Function WhiteBetting.UncheckedExternalCall_unchk40() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#77-85) is not in mixedCase
+Function WhiteBetting.withdrawLeftOver_unchk33() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#89-92) is not in mixedCase
+Function WhiteBetting.bug_unchk27(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#94-95) is not in mixedCase
+Function WhiteBetting.bug_unchk31() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#97-101) is not in mixedCase
+Function WhiteBetting.withdrawLeftOver_unchk45() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#105-108) is not in mixedCase
+Function WhiteBetting.callnotchecked_unchk13(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#110-112) is not in mixedCase
+Function WhiteBetting.unhandledsend_unchk38(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#119-121) is not in mixedCase
+Parameter WhiteBetting.setOpenStatus(uint64,uint8)._fixtureId (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#124) is not in mixedCase
+Parameter WhiteBetting.setOpenStatus(uint64,uint8)._open_status (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#124) is not in mixedCase
+Function WhiteBetting.cash_unchk46(uint256,uint256,address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#127-131) is not in mixedCase
+Parameter WhiteBetting.cash_unchk46(uint256,uint256,address).winner_unchk46 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#127) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._fixtureId (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#134) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._odd_homeTeam (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#134) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._odd_drawTeam (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#134) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._odd_awayTeam (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#134) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._odd_over (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#134) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._odd_under (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#134) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._odd_homeTeamAndDraw (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#134) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._odd_homeAndAwayTeam (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#134) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._odd_awayTeamAndDraw (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#134) is not in mixedCase
+Function WhiteBetting.UncheckedExternalCall_unchk4() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#145-153) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._fixtureId (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#156) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._timestamp (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#156) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._odd_homeTeam (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#156) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._odd_drawTeam (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#156) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._odd_awayTeam (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#156) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._odd_over (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#156) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._odd_under (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#156) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._odd_homeTeamAndDraw (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#156) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._odd_homeAndAwayTeam (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#156) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._odd_awayTeamAndDraw (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#156) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._open_status (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#156) is not in mixedCase
+Function WhiteBetting.bug_unchk7() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#170-174) is not in mixedCase
+Parameter WhiteBetting.placeBet(uint64,uint16,uint32)._fixtureId (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#177) is not in mixedCase
+Parameter WhiteBetting.placeBet(uint64,uint16,uint32)._selectedTeam (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#177) is not in mixedCase
+Parameter WhiteBetting.placeBet(uint64,uint16,uint32)._odd (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#177) is not in mixedCase
+Function WhiteBetting.my_func_unchk23(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#215-217) is not in mixedCase
+Parameter WhiteBetting.givePrizeMoney(uint64,uint8,uint8)._fixtureId (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#220) is not in mixedCase
+Parameter WhiteBetting.givePrizeMoney(uint64,uint8,uint8)._homeDrawAway (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#220) is not in mixedCase
+Parameter WhiteBetting.givePrizeMoney(uint64,uint8,uint8)._overUnder (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#220) is not in mixedCase
+Function WhiteBetting.unhandledsend_unchk14(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#252-254) is not in mixedCase
+Function WhiteBetting.bug_unchk30() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#266-273) is not in mixedCase
+Parameter WhiteBetting.deposit(uint256)._eth (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#276) is not in mixedCase
+Function WhiteBetting.sendToWinner_unchk8() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#283-287) is not in mixedCase
+Parameter WhiteBetting.changeOwner(address)._newOwner (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#290) is not in mixedCase
+Function WhiteBetting.bug_unchk39(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#293-294) is not in mixedCase
+Function WhiteBetting.my_func_uncheck36(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#300-302) is not in mixedCase
+Parameter WhiteBetting.withdraw(uint256)._amount (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#305) is not in mixedCase
+Function WhiteBetting.my_func_unchk35(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#310-312) is not in mixedCase
+Variable WhiteBetting.payedOut_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#36) is not in mixedCase
+Variable WhiteBetting.winner_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#37) is not in mixedCase
+Variable WhiteBetting.winAmount_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#38) is not in mixedCase
+Variable WhiteBetting.payedOut_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#55) is not in mixedCase
+Variable WhiteBetting.winner_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#56) is not in mixedCase
+Variable WhiteBetting.winAmount_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#57) is not in mixedCase
+Variable WhiteBetting.payedOut_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#67) is not in mixedCase
+Variable WhiteBetting.winner_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#68) is not in mixedCase
+Variable WhiteBetting.winAmount_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#69) is not in mixedCase
+Variable WhiteBetting.payedOut_unchk33 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#87) is not in mixedCase
+Variable WhiteBetting.payedOut_unchk45 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#103) is not in mixedCase
+Variable WhiteBetting.payedOut_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#279) is not in mixedCase
+Variable WhiteBetting.winner_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#280) is not in mixedCase
+Variable WhiteBetting.winAmount_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#281) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in WhiteBetting.sendToWinner_unchk20() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#40-44):
+	External calls:
+	- winner_unchk20.send(winAmount_unchk20) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#42)
+	State variables written after the call(s):
+	- payedOut_unchk20 = true (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#43)
+Reentrancy in WhiteBetting.sendToWinner_unchk32() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#59-63):
+	External calls:
+	- winner_unchk32.send(winAmount_unchk32) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#61)
+	State variables written after the call(s):
+	- payedOut_unchk32 = true (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#62)
+Reentrancy in WhiteBetting.sendToWinner_unchk44() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#71-75):
+	External calls:
+	- winner_unchk44.send(winAmount_unchk44) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#73)
+	State variables written after the call(s):
+	- payedOut_unchk44 = true (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#74)
+Reentrancy in WhiteBetting.sendToWinner_unchk8() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#283-287):
+	External calls:
+	- winner_unchk8.send(winAmount_unchk8) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#285)
+	State variables written after the call(s):
+	- payedOut_unchk8 = true (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#286)
+Reentrancy in WhiteBetting.withdraw(uint256) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#305-309):
+	External calls:
+	- owner.transfer(_amount) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#307)
+	Event emitted after the call(s):
+	- Withdraw(owner,_amount) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#308)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable WhiteBetting.bug_unchk30().addr_unchk30 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#268) is too similar to WhiteBetting.bug_unchk31().addr_unchk31 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#98)
+Variable WhiteBetting.UncheckedExternalCall_unchk4().addr_unchk4 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#146) is too similar to WhiteBetting.bug_unchk7().addr_unchk7 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#171)
+Variable WhiteBetting.bug_unchk30().addr_unchk30 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#268) is too similar to WhiteBetting.UncheckedExternalCall_unchk40().addr_unchk40 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#78)
+Variable WhiteBetting.payedOut_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#36) is too similar to WhiteBetting.payedOut_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#55)
+Variable WhiteBetting.payedOut_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#55) is too similar to WhiteBetting.payedOut_unchk33 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#87)
+Variable WhiteBetting.payedOut_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#67) is too similar to WhiteBetting.payedOut_unchk45 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#103)
+Variable WhiteBetting.winAmount_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#38) is too similar to WhiteBetting.winAmount_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#57)
+Variable WhiteBetting.winner_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#37) is too similar to WhiteBetting.winner_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#56)
+Variable WhiteBetting.winner_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#68) is too similar to WhiteBetting.cash_unchk46(uint256,uint256,address).winner_unchk46 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#127)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+WhiteBetting.payedOut_unchk33 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#87) should be constant
+WhiteBetting.payedOut_unchk45 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#103) should be constant
+WhiteBetting.winAmount_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#38) should be constant
+WhiteBetting.winAmount_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#57) should be constant
+WhiteBetting.winAmount_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#69) should be constant
+WhiteBetting.winAmount_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#281) should be constant
+WhiteBetting.winner_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#37) should be constant
+WhiteBetting.winner_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#56) should be constant
+WhiteBetting.winner_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#68) should be constant
+WhiteBetting.winner_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol#280) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_25.sol analyzed (1 contracts with 80 detectors), 146 result(s) found

@@ -1,0 +1,300 @@
+
+ERC20Interface.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#40-48) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#46)
+ERC20Interface.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#50-58) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#56)
+ERC20Interface.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#65-73) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#71)
+ForTheBlockchain.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#188-196) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#194)
+ForTheBlockchain.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#218-226) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#224)
+ForTheBlockchain.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#260-268) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#266)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+ERC20Interface.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#40-48) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#45)" 
+ERC20Interface.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#50-58) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#55)" 
+ERC20Interface.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#65-73) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#70)" 
+ForTheBlockchain.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#188-196) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#193)" 
+ForTheBlockchain.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#218-226) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#223)" 
+ForTheBlockchain.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#260-268) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#265)" 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG
+
+ApproveAndCallFallBack.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#85-88) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#87)
+ERC20Interface.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#40-48) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#45)
+ERC20Interface.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#50-58) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#55)
+ForTheBlockchain.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#218-226) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#223)
+ERC20Interface.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#65-73) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#70)
+ForTheBlockchain.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#260-268) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#265)
+ForTheBlockchain.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#188-196) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#193)
+Owned.play_tmstmp11(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#94-97) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#96)
+Owned.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#126-128) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#127)
+ERC20Interface.play_tmstmp19(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#30-33) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#32)
+ForTheBlockchain.play_tmstmp2(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#146-148) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#147)
+Owned.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#111-114) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#113)
+ERC20Interface.play_tmstmp26(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#36-38) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#37)
+ForTheBlockchain.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#300-303) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#302)
+ForTheBlockchain.play_tmstmp3(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#159-162) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#161)
+Owned.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#136-138) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#137)
+ForTheBlockchain.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#318-321) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#320)
+ForTheBlockchain.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#241-244) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#243)
+ERC20Interface.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#61-63) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#62)
+ForTheBlockchain.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#206-209) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#208)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+ERC20Interface.bug_tmstmp4().pastBlockTime_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#66) is a local variable never initialized
+ForTheBlockchain.bug_tmstmp8().pastBlockTime_tmstmp8 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#189) is a local variable never initialized
+ForTheBlockchain.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#219) is a local variable never initialized
+ERC20Interface.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#51) is a local variable never initialized
+ForTheBlockchain.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#261) is a local variable never initialized
+ERC20Interface.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#41) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+Owned.transferOwnership(address)._newOwner (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#122) lacks a zero-check on :
+		- newOwner = _newOwner (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#123)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+ERC20Interface.play_tmstmp19(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#30-33) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#32)
+ERC20Interface.play_tmstmp26(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#36-38) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#37)
+ERC20Interface.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#40-48) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp20) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#43)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#45)
+ERC20Interface.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#50-58) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp32) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#53)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#55)
+ERC20Interface.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#61-63) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#62)
+ERC20Interface.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#65-73) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp4) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#68)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#70)
+ApproveAndCallFallBack.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#85-88) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#87)
+Owned.play_tmstmp11(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#94-97) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#96)
+Owned.bug_tmstmp1() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#99-101) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#100)
+Owned.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#111-114) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#113)
+Owned.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#126-128) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#127)
+Owned.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#136-138) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#137)
+ForTheBlockchain.play_tmstmp2(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#146-148) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#147)
+ForTheBlockchain.bug_tmstmp17() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#150-152) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#151)
+ForTheBlockchain.bug_tmstmp37() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#154-156) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#155)
+ForTheBlockchain.play_tmstmp3(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#159-162) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#161)
+ForTheBlockchain.bug_tmstmp9() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#166-168) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#167)
+ForTheBlockchain.bug_tmstmp25() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#170-172) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#171)
+ForTheBlockchain.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#188-196) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp8) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#191)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#193)
+ForTheBlockchain.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#206-209) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#208)
+ForTheBlockchain.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#218-226) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp36) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#221)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#223)
+ForTheBlockchain.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#241-244) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#243)
+ForTheBlockchain.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#260-268) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp40) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#263)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#265)
+ForTheBlockchain.bug_tmstmp33() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#287-289) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#288)
+ForTheBlockchain.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#300-303) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#302)
+ForTheBlockchain.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#318-321) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#320)
+ForTheBlockchain.bug_tmstmp13() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#330-332) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#331)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+SafeMath.div(uint256,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#21-24) is never used and should be removed
+SafeMath.mul(uint256,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#17-20) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.5.0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#5) allows old versions
+solc-0.5.0 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function ERC20Interface.play_tmstmp19(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#30-33) is not in mixedCase
+Function ERC20Interface.play_tmstmp26(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#36-38) is not in mixedCase
+Function ERC20Interface.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#40-48) is not in mixedCase
+Function ERC20Interface.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#50-58) is not in mixedCase
+Function ERC20Interface.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#61-63) is not in mixedCase
+Function ERC20Interface.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#65-73) is not in mixedCase
+Variable ERC20Interface.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#29) is not in mixedCase
+Variable ERC20Interface.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#35) is not in mixedCase
+Variable ERC20Interface.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#60) is not in mixedCase
+Variable ERC20Interface.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#75) is not in mixedCase
+Variable ERC20Interface.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#77) is not in mixedCase
+Function ApproveAndCallFallBack.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#85-88) is not in mixedCase
+Variable ApproveAndCallFallBack.winner_tmstmp7 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#84) is not in mixedCase
+Function Owned.play_tmstmp11(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#94-97) is not in mixedCase
+Function Owned.bug_tmstmp1() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#99-101) is not in mixedCase
+Function Owned.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#111-114) is not in mixedCase
+Parameter Owned.transferOwnership(address)._newOwner (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#122) is not in mixedCase
+Function Owned.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#126-128) is not in mixedCase
+Function Owned.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#136-138) is not in mixedCase
+Variable Owned.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#93) is not in mixedCase
+Variable Owned.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#104) is not in mixedCase
+Variable Owned.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#110) is not in mixedCase
+Variable Owned.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#120) is not in mixedCase
+Variable Owned.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#125) is not in mixedCase
+Variable Owned.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#135) is not in mixedCase
+Function ForTheBlockchain.play_tmstmp2(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#146-148) is not in mixedCase
+Function ForTheBlockchain.bug_tmstmp17() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#150-152) is not in mixedCase
+Function ForTheBlockchain.bug_tmstmp37() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#154-156) is not in mixedCase
+Function ForTheBlockchain.play_tmstmp3(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#159-162) is not in mixedCase
+Function ForTheBlockchain.bug_tmstmp9() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#166-168) is not in mixedCase
+Function ForTheBlockchain.bug_tmstmp25() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#170-172) is not in mixedCase
+Function ForTheBlockchain.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#188-196) is not in mixedCase
+Function ForTheBlockchain.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#206-209) is not in mixedCase
+Function ForTheBlockchain.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#218-226) is not in mixedCase
+Function ForTheBlockchain.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#241-244) is not in mixedCase
+Function ForTheBlockchain.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#260-268) is not in mixedCase
+Function ForTheBlockchain.bug_tmstmp33() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#287-289) is not in mixedCase
+Function ForTheBlockchain.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#300-303) is not in mixedCase
+Function ForTheBlockchain.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#318-321) is not in mixedCase
+Function ForTheBlockchain.bug_tmstmp13() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#330-332) is not in mixedCase
+Variable ForTheBlockchain.winner_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#145) is not in mixedCase
+Variable ForTheBlockchain.winner_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#158) is not in mixedCase
+Variable ForTheBlockchain._totalSupply (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#163) is not in mixedCase
+Variable ForTheBlockchain.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#205) is not in mixedCase
+Variable ForTheBlockchain.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#240) is not in mixedCase
+Variable ForTheBlockchain.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#299) is not in mixedCase
+Variable ForTheBlockchain.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#317) is not in mixedCase
+Variable ForTheBlockchain.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#341) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable ERC20Interface.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#75) is too similar to ERC20Interface.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#77)
+Variable ERC20Interface.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#41) is too similar to ERC20Interface.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#51)
+Variable Owned.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#120) is too similar to Owned.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#104)
+Variable Owned.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#93) is too similar to Owned.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#125)
+Variable Owned.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#110) is too similar to Owned.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#135)
+Variable Owned.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#120) is too similar to ERC20Interface.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#75)
+Variable ERC20Interface.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#75) is too similar to Owned.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#104)
+Variable Owned.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#120) is too similar to ERC20Interface.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#77)
+Variable ERC20Interface.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#77) is too similar to Owned.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#104)
+Variable Owned.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#120) is too similar to ForTheBlockchain.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#341)
+Variable ERC20Interface.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#75) is too similar to ForTheBlockchain.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#341)
+Variable ERC20Interface.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#77) is too similar to ForTheBlockchain.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#341)
+Variable Owned.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#104) is too similar to ForTheBlockchain.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#341)
+Variable ERC20Interface.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#41) is too similar to ForTheBlockchain.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#219)
+Variable ERC20Interface.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#51) is too similar to ForTheBlockchain.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#219)
+Variable ERC20Interface.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#41) is too similar to ForTheBlockchain.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#261)
+Variable ERC20Interface.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#51) is too similar to ForTheBlockchain.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#261)
+Variable ForTheBlockchain.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#219) is too similar to ForTheBlockchain.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#261)
+Variable ERC20Interface.bug_tmstmp4().pastBlockTime_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#66) is too similar to ForTheBlockchain.bug_tmstmp8().pastBlockTime_tmstmp8 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#189)
+Variable Owned.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#125) is too similar to ERC20Interface.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#29)
+Variable Owned.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#93) is too similar to ERC20Interface.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#29)
+Variable Owned.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#110) is too similar to ERC20Interface.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#35)
+Variable Owned.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#110) is too similar to ForTheBlockchain.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#299)
+Variable ERC20Interface.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#35) is too similar to ForTheBlockchain.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#299)
+Variable ForTheBlockchain.winner_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#145) is too similar to ForTheBlockchain.winner_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#158)
+Variable Owned.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#135) is too similar to ERC20Interface.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#60)
+Variable Owned.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#93) is too similar to ForTheBlockchain.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#317)
+Variable Owned.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#125) is too similar to ForTheBlockchain.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#317)
+Variable ERC20Interface.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#29) is too similar to ForTheBlockchain.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#317)
+Variable Owned.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#110) is too similar to ForTheBlockchain.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#317)
+Variable Owned.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#135) is too similar to ForTheBlockchain.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#317)
+Variable ForTheBlockchain.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#317) is too similar to ForTheBlockchain.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#240)
+Variable ForTheBlockchain.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#317) is too similar to ERC20Interface.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#60)
+Variable ForTheBlockchain.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#317) is too similar to ForTheBlockchain.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#205)
+Variable Owned.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#110) is too similar to ForTheBlockchain.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#240)
+Variable Owned.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#135) is too similar to ForTheBlockchain.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#240)
+Variable ForTheBlockchain.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#240) is too similar to ERC20Interface.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#60)
+Variable ForTheBlockchain.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#240) is too similar to ForTheBlockchain.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#205)
+Variable Owned.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#110) is too similar to ERC20Interface.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#60)
+Variable ERC20Interface.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#29) is too similar to ForTheBlockchain.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#205)
+Variable Owned.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#110) is too similar to ForTheBlockchain.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#205)
+Variable Owned.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#135) is too similar to ForTheBlockchain.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#205)
+Variable ERC20Interface.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#60) is too similar to ForTheBlockchain.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#205)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+ForTheBlockchain.constructor() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#179-187) uses literals with too many digits:
+	- _totalSupply = 100000000 * 10 ** (decimals) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#183)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+ApproveAndCallFallBack (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#82-89) does not implement functions:
+	- ApproveAndCallFallBack.receiveApproval(address,uint256,address,bytes) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#83)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unimplemented-functions
+
+ERC20Interface.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#75) is never used in ForTheBlockchain (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#142-343)
+ERC20Interface.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#77) is never used in ForTheBlockchain (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#142-343)
+Owned.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#104) is never used in ForTheBlockchain (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#142-343)
+Owned.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#120) is never used in ForTheBlockchain (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#142-343)
+ForTheBlockchain.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#341) is never used in ForTheBlockchain (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#142-343)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+
+receiveApproval(address,uint256,address,bytes) should be declared external:
+	- ApproveAndCallFallBack.receiveApproval(address,uint256,address,bytes) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#83)
+Moreover, the following function parameters should change its data location:
+data location should be calldata
+approveAndCall(address,uint256,bytes) should be declared external:
+	- ForTheBlockchain.approveAndCall(address,uint256,bytes) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol#311-316)
+Moreover, the following function parameters should change its data location:
+data location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+benchmarks/SolidiFI/Timestamp-Dependency/buggy_11.sol analyzed (5 contracts with 80 detectors), 170 result(s) found

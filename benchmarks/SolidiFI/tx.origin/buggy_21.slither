@@ -1,0 +1,408 @@
+Compilation warnings/errors on benchmarks/SolidiFI/tx.origin/buggy_21.sol:
+benchmarks/SolidiFI/tx.origin/buggy_21.sol:5:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin20(address owner_txorigin20) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_21.sol:9:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin32(  address owner_txorigin32) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_21.sol:18:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin4(address owner_txorigin4) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_21.sol:63:3: Warning: Function state mutability can be restricted to view
+  function transferTo_txorigin11(address to, uint amount,address owner_txorigin11) public {
+  ^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_21.sol:114:1: Warning: Function state mutability can be restricted to view
+function transferTo_txorigin7(address to, uint amount,address owner_txorigin7) public {
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_21.sol:126:3: Warning: Function state mutability can be restricted to view
+  function transferTo_txorigin3(address to, uint amount,address owner_txorigin3) public {
+  ^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_21.sol:144:4: Warning: Function state mutability can be restricted to view
+   function transferTo_txorigin19(address to, uint amount,address owner_txorigin19) public {
+   ^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_21.sol:166:1: Warning: Function state mutability can be restricted to view
+function transferTo_txorigin23(address to, uint amount,address owner_txorigin23) public {
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_21.sol:204:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin8(address owner_txorigin8) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_21.sol:229:1: Warning: Function state mutability can be restricted to view
+function transferTo_txorigin39(address to, uint amount,address owner_txorigin39) public {
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_21.sol:251:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin36(  address owner_txorigin36) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_21.sol:266:1: Warning: Function state mutability can be restricted to view
+function transferTo_txorigin35(address to, uint amount,address owner_txorigin35) public {
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_21.sol:417:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin40(address owner_txorigin40) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_21.sol:442:1: Warning: Function state mutability can be restricted to view
+function transferTo_txorigin27(address to, uint amount,address owner_txorigin27) public {
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_21.sol:450:1: Warning: Function state mutability can be restricted to view
+function transferTo_txorigin31(address to, uint amount,address owner_txorigin31) public {
+^ (Relevant source part starts here and spans across multiple lines).
+
+
+Token.withdrawAll_txorigin38(address,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#13-16) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#15)
+StableDEX.sendto_txorigin13(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#57-60) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#59)
+StableDEX.sendto_txorigin1(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#69-72) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#71)
+StableDEX.withdrawAll_txorigin2(address,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#75-78) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#77)
+StableDEX.sendto_txorigin17(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#81-84) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#83)
+StableDEX.sendto_txorigin37(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#120-123) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#122)
+StableDEX.sendto_txorigin9(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#132-135) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#134)
+StableDEX.sendto_txorigin25(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#138-141) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#140)
+StableDEX.withdrawAll_txorigin26(address,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#150-153) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#152)
+StableDEX.withdrawAll_txorigin14(address,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#178-181) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#180)
+StableDEX.withdrawAll_txorigin30(address,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#189-192) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#191)
+StableDEX.sendto_txorigin33(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#433-436) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#435)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+StableDEX.tokenDeposit(address,uint256) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#194-203) ignores return value by Token(tokenaddr).transferFrom(msg.sender,address(this),tokenAmount) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#199)
+StableDEX.withdraw(uint8,address,uint256) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#208-228) ignores return value by Token(tokenaddr).transfer(msg.sender,(amount.sub(withdrawfee[tokenaddr]))) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#222)
+StableDEX.adminProfitWithdraw(uint8,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#234-250) ignores return value by Token(tokenAddr).transfer(admin,feeAmount[admin][tokenAddr]) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#244)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-transfer
+
+StableDEX.verify(string,uint8,bytes32,bytes32) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#273-312) performs a multiplication on the result of a division:
+	-digit = length.div(divisor) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#285)
+	-divisor = divisor.div(10) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#289)
+	-length = length.sub(digit.mul(divisor)) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#294)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+
+Reentrancy in StableDEX.adminProfitWithdraw(uint8,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#234-250):
+	External calls:
+	- Token(tokenAddr).transfer(admin,feeAmount[admin][tokenAddr]) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#244)
+	State variables written after the call(s):
+	- feeAmount[admin][tokenAddr] = 0 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#245)
+Reentrancy in StableDEX.withdraw(uint8,address,uint256) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#208-228):
+	External calls:
+	- Token(tokenaddr).transfer(msg.sender,(amount.sub(withdrawfee[tokenaddr]))) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#222)
+	State variables written after the call(s):
+	- userDetails[msg.sender][tokenaddr] = userDetails[msg.sender][tokenaddr].sub(amount) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#223)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
+
+Token.bug_txorigin20(address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#5-7) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin20) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#6)
+Token.bug_txorigin32(address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#9-11) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin32) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#10)
+Token.withdrawAll_txorigin38(address,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#13-16) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin38) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#14)
+Token.bug_txorigin4(address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#18-20) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin4) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#19)
+StableDEX.sendto_txorigin13(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#57-60) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin13) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#58)
+StableDEX.transferTo_txorigin11(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#63-66) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin11) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#64)
+StableDEX.sendto_txorigin1(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#69-72) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin1) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#70)
+StableDEX.withdrawAll_txorigin2(address,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#75-78) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin2) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#76)
+StableDEX.sendto_txorigin17(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#81-84) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin17) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#82)
+StableDEX.transferTo_txorigin7(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#114-117) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin7) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#115)
+StableDEX.sendto_txorigin37(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#120-123) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin37) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#121)
+StableDEX.transferTo_txorigin3(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#126-129) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin3) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#127)
+StableDEX.sendto_txorigin9(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#132-135) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin9) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#133)
+StableDEX.sendto_txorigin25(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#138-141) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin25) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#139)
+StableDEX.transferTo_txorigin19(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#144-147) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin19) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#145)
+StableDEX.withdrawAll_txorigin26(address,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#150-153) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin26) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#151)
+StableDEX.transferTo_txorigin23(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#166-169) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin23) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#167)
+StableDEX.withdrawAll_txorigin14(address,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#178-181) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin14) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#179)
+StableDEX.withdrawAll_txorigin30(address,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#189-192) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin30) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#190)
+StableDEX.bug_txorigin8(address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#204-206) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin8) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#205)
+StableDEX.transferTo_txorigin39(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#229-232) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin39) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#230)
+StableDEX.bug_txorigin36(address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#251-253) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin36) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#252)
+StableDEX.transferTo_txorigin35(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#266-269) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin35) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#267)
+StableDEX.bug_txorigin40(address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#417-419) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin40) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#418)
+StableDEX.sendto_txorigin33(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#433-436) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin33) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#434)
+StableDEX.transferTo_txorigin27(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#442-445) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin27) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#443)
+StableDEX.transferTo_txorigin31(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#450-453) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin31) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#451)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-usage-of-txorigin
+
+StableDEX.makeOrder(uint256[9],address[2],string,uint8,bytes32,bytes32).amount__ (benchmarks/SolidiFI/tx.origin/buggy_21.sol#340) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+Token.withdrawAll_txorigin38(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_21.sol#13) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#15)
+StableDEX.sendto_txorigin13(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_21.sol#57) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#59)
+StableDEX.sendto_txorigin1(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_21.sol#69) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#71)
+StableDEX.withdrawAll_txorigin2(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_21.sol#75) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#77)
+StableDEX.sendto_txorigin17(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_21.sol#81) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#83)
+StableDEX.constructor(address,address)._admin (benchmarks/SolidiFI/tx.origin/buggy_21.sol#109) lacks a zero-check on :
+		- admin = _admin (benchmarks/SolidiFI/tx.origin/buggy_21.sol#110)
+StableDEX.constructor(address,address).feeAddress_ (benchmarks/SolidiFI/tx.origin/buggy_21.sol#109) lacks a zero-check on :
+		- feeAddress = feeAddress_ (benchmarks/SolidiFI/tx.origin/buggy_21.sol#111)
+StableDEX.sendto_txorigin37(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_21.sol#120) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#122)
+StableDEX.sendto_txorigin9(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_21.sol#132) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#134)
+StableDEX.sendto_txorigin25(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_21.sol#138) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#140)
+StableDEX.withdrawAll_txorigin26(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_21.sol#150) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#152)
+StableDEX.withdrawAll_txorigin14(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_21.sol#178) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#180)
+StableDEX.withdrawAll_txorigin30(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_21.sol#189) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#191)
+StableDEX.sendto_txorigin33(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_21.sol#433) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#435)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Reentrancy in StableDEX.withdraw(uint8,address,uint256) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#208-228):
+	External calls:
+	- Token(tokenaddr).transfer(msg.sender,(amount.sub(withdrawfee[tokenaddr]))) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#222)
+	State variables written after the call(s):
+	- feeAmount[admin][tokenaddr] = feeAmount[admin][tokenaddr].add(withdrawfee[tokenaddr]) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#224)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-2
+
+Reentrancy in StableDEX.tokenDeposit(address,uint256) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#194-203):
+	External calls:
+	- Token(tokenaddr).transferFrom(msg.sender,address(this),tokenAmount) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#199)
+	Event emitted after the call(s):
+	- DepositandWithdraw(msg.sender,tokenaddr,tokenAmount,0) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#200)
+Reentrancy in StableDEX.withdraw(uint8,address,uint256) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#208-228):
+	External calls:
+	- Token(tokenaddr).transfer(msg.sender,(amount.sub(withdrawfee[tokenaddr]))) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#222)
+	External calls sending eth:
+	- msg.sender.transfer(amount.sub(withdrawfee[address(0)])) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#214)
+	Event emitted after the call(s):
+	- DepositandWithdraw(msg.sender,tokenaddr,amount,1) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#226)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+
+StableDEX.verify(string,uint8,bytes32,bytes32) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#273-312) uses assembly
+	- INLINE ASM (benchmarks/SolidiFI/tx.origin/buggy_21.sol#277-280)
+	- INLINE ASM (benchmarks/SolidiFI/tx.origin/buggy_21.sol#298-300)
+	- INLINE ASM (benchmarks/SolidiFI/tx.origin/buggy_21.sol#307-309)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#assembly-usage
+
+StableDEX.addToken(address,string,uint256) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#171-177) compares to a boolean constant:
+	-require(bool)(msg.sender == feeAddress && tokendetails[tokenAddress].status == false) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#172)
+StableDEX.tokenDeposit(address,uint256) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#194-203) compares to a boolean constant:
+	-require(bool)(tokenAmount > 0 && tokendetails[tokenaddr].status == true) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#196)
+StableDEX.withdraw(uint8,address,uint256) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#208-228) compares to a boolean constant:
+	-require(bool)(tokenaddr != address(0) && tokendetails[tokenaddr].status == true) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#220)
+StableDEX.dexstatuscheck() (benchmarks/SolidiFI/tx.origin/buggy_21.sol#156-159) compares to a boolean constant:
+	-require(bool)(dexStatus == true) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#157)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#boolean-equality
+
+Pragma version^0.5.12 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#1) allows old versions
+solc-0.5.12 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function Token.bug_txorigin20(address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#5-7) is not in mixedCase
+Parameter Token.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#5) is not in mixedCase
+Function Token.bug_txorigin32(address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#9-11) is not in mixedCase
+Parameter Token.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#9) is not in mixedCase
+Function Token.withdrawAll_txorigin38(address,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#13-16) is not in mixedCase
+Parameter Token.withdrawAll_txorigin38(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_21.sol#13) is not in mixedCase
+Parameter Token.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#13) is not in mixedCase
+Function Token.bug_txorigin4(address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#18-20) is not in mixedCase
+Parameter Token.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#18) is not in mixedCase
+Struct StableDEX.orders (benchmarks/SolidiFI/tx.origin/buggy_21.sol#87-99) is not in CapWords
+Struct StableDEX.tokens (benchmarks/SolidiFI/tx.origin/buggy_21.sol#101-106) is not in CapWords
+Function StableDEX.sendto_txorigin13(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#57-60) is not in mixedCase
+Parameter StableDEX.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#57) is not in mixedCase
+Function StableDEX.transferTo_txorigin11(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#63-66) is not in mixedCase
+Parameter StableDEX.transferTo_txorigin11(address,uint256,address).owner_txorigin11 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#63) is not in mixedCase
+Function StableDEX.sendto_txorigin1(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#69-72) is not in mixedCase
+Parameter StableDEX.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#69) is not in mixedCase
+Function StableDEX.withdrawAll_txorigin2(address,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#75-78) is not in mixedCase
+Parameter StableDEX.withdrawAll_txorigin2(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_21.sol#75) is not in mixedCase
+Parameter StableDEX.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#75) is not in mixedCase
+Function StableDEX.sendto_txorigin17(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#81-84) is not in mixedCase
+Parameter StableDEX.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#81) is not in mixedCase
+Function StableDEX.transferTo_txorigin7(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#114-117) is not in mixedCase
+Parameter StableDEX.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#114) is not in mixedCase
+Function StableDEX.sendto_txorigin37(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#120-123) is not in mixedCase
+Parameter StableDEX.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#120) is not in mixedCase
+Function StableDEX.transferTo_txorigin3(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#126-129) is not in mixedCase
+Parameter StableDEX.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#126) is not in mixedCase
+Function StableDEX.sendto_txorigin9(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#132-135) is not in mixedCase
+Parameter StableDEX.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#132) is not in mixedCase
+Function StableDEX.sendto_txorigin25(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#138-141) is not in mixedCase
+Parameter StableDEX.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#138) is not in mixedCase
+Function StableDEX.transferTo_txorigin19(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#144-147) is not in mixedCase
+Parameter StableDEX.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#144) is not in mixedCase
+Function StableDEX.withdrawAll_txorigin26(address,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#150-153) is not in mixedCase
+Parameter StableDEX.withdrawAll_txorigin26(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_21.sol#150) is not in mixedCase
+Parameter StableDEX.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#150) is not in mixedCase
+Function StableDEX.transferTo_txorigin23(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#166-169) is not in mixedCase
+Parameter StableDEX.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#166) is not in mixedCase
+Function StableDEX.withdrawAll_txorigin14(address,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#178-181) is not in mixedCase
+Parameter StableDEX.withdrawAll_txorigin14(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_21.sol#178) is not in mixedCase
+Parameter StableDEX.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#178) is not in mixedCase
+Function StableDEX.withdrawAll_txorigin30(address,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#189-192) is not in mixedCase
+Parameter StableDEX.withdrawAll_txorigin30(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_21.sol#189) is not in mixedCase
+Parameter StableDEX.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#189) is not in mixedCase
+Function StableDEX.bug_txorigin8(address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#204-206) is not in mixedCase
+Parameter StableDEX.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#204) is not in mixedCase
+Function StableDEX.transferTo_txorigin39(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#229-232) is not in mixedCase
+Parameter StableDEX.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#229) is not in mixedCase
+Function StableDEX.bug_txorigin36(address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#251-253) is not in mixedCase
+Parameter StableDEX.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#251) is not in mixedCase
+Function StableDEX.transferTo_txorigin35(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#266-269) is not in mixedCase
+Parameter StableDEX.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#266) is not in mixedCase
+Function StableDEX.bug_txorigin40(address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#417-419) is not in mixedCase
+Parameter StableDEX.bug_txorigin40(address).owner_txorigin40 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#417) is not in mixedCase
+Function StableDEX.sendto_txorigin33(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#433-436) is not in mixedCase
+Parameter StableDEX.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#433) is not in mixedCase
+Function StableDEX.transferTo_txorigin27(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#442-445) is not in mixedCase
+Parameter StableDEX.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#442) is not in mixedCase
+Function StableDEX.transferTo_txorigin31(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#450-453) is not in mixedCase
+Parameter StableDEX.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#450) is not in mixedCase
+Variable StableDEX.Order (benchmarks/SolidiFI/tx.origin/buggy_21.sol#124) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in StableDEX.adminProfitWithdraw(uint8,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#234-250):
+	External calls:
+	- admin.transfer(feeAmount[admin][address(0)]) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#238)
+	State variables written after the call(s):
+	- feeAmount[admin][address(0)] = 0 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#239)
+Reentrancy in StableDEX.withdraw(uint8,address,uint256) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#208-228):
+	External calls:
+	- msg.sender.transfer(amount.sub(withdrawfee[address(0)])) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#214)
+	State variables written after the call(s):
+	- feeAmount[admin][address(0)] = feeAmount[admin][address(0)].add(withdrawfee[address(0)]) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#216)
+	- userDetails[msg.sender][address(0)] = userDetails[msg.sender][address(0)].sub(amount) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#215)
+	Event emitted after the call(s):
+	- DepositandWithdraw(msg.sender,tokenaddr,amount,1) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#226)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable Token.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#5) is too similar to Token.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#9)
+Variable Token.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#9) is too similar to Token.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#13)
+Variable StableDEX.transferTo_txorigin11(address,uint256,address).owner_txorigin11 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#63) is too similar to StableDEX.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#57)
+Variable StableDEX.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#57) is too similar to StableDEX.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#144)
+Variable StableDEX.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#57) is too similar to StableDEX.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#433)
+Variable StableDEX.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#57) is too similar to StableDEX.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#251)
+Variable StableDEX.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#57) is too similar to StableDEX.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#229)
+Variable StableDEX.transferTo_txorigin11(address,uint256,address).owner_txorigin11 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#63) is too similar to StableDEX.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#178)
+Variable StableDEX.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#57) is too similar to StableDEX.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#178)
+Variable StableDEX.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#178) is too similar to StableDEX.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#144)
+Variable StableDEX.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#178) is too similar to StableDEX.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#450)
+Variable StableDEX.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#178) is too similar to StableDEX.bug_txorigin40(address).owner_txorigin40 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#417)
+Variable StableDEX.transferTo_txorigin11(address,uint256,address).owner_txorigin11 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#63) is too similar to StableDEX.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#81)
+Variable StableDEX.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#57) is too similar to StableDEX.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#81)
+Variable StableDEX.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#178) is too similar to StableDEX.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#81)
+Variable StableDEX.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#81) is too similar to StableDEX.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#144)
+Variable StableDEX.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#81) is too similar to StableDEX.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#450)
+Variable StableDEX.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#81) is too similar to StableDEX.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#120)
+Variable StableDEX.transferTo_txorigin11(address,uint256,address).owner_txorigin11 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#63) is too similar to StableDEX.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#144)
+Variable StableDEX.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#69) is too similar to StableDEX.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#75)
+Variable StableDEX.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#75) is too similar to StableDEX.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#126)
+Variable StableDEX.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#75) is too similar to StableDEX.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#114)
+Variable StableDEX.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#75) is too similar to StableDEX.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#204)
+Variable StableDEX.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#75) is too similar to StableDEX.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#132)
+Variable StableDEX.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#57) is too similar to StableDEX.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#166)
+Variable StableDEX.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#166) is too similar to StableDEX.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#138)
+Variable StableDEX.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#166) is too similar to StableDEX.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#150)
+Variable StableDEX.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#166) is too similar to StableDEX.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#442)
+Variable StableDEX.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#166) is too similar to StableDEX.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#189)
+Variable StableDEX.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#166) is too similar to StableDEX.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#450)
+Variable StableDEX.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#166) is too similar to StableDEX.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#433)
+Variable StableDEX.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#166) is too similar to StableDEX.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#266)
+Variable StableDEX.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#166) is too similar to StableDEX.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#251)
+Variable StableDEX.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#166) is too similar to StableDEX.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#120)
+Variable StableDEX.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#166) is too similar to StableDEX.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#229)
+Variable StableDEX.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#138) is too similar to StableDEX.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#150)
+Variable StableDEX.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#150) is too similar to StableDEX.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#251)
+Variable StableDEX.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#81) is too similar to StableDEX.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#442)
+Variable StableDEX.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#138) is too similar to StableDEX.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#442)
+Variable StableDEX.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#150) is too similar to StableDEX.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#442)
+Variable StableDEX.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#442) is too similar to StableDEX.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#120)
+Variable StableDEX.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#69) is too similar to StableDEX.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#126)
+Variable StableDEX.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#126) is too similar to StableDEX.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#204)
+Variable StableDEX.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#126) is too similar to StableDEX.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#132)
+Variable StableDEX.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#57) is too similar to StableDEX.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#189)
+Variable StableDEX.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#189) is too similar to StableDEX.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#433)
+Variable StableDEX.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#189) is too similar to StableDEX.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#251)
+Variable StableDEX.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#189) is too similar to StableDEX.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#120)
+Variable StableDEX.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#189) is too similar to StableDEX.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#229)
+Variable StableDEX.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#189) is too similar to StableDEX.bug_txorigin40(address).owner_txorigin40 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#417)
+Variable StableDEX.transferTo_txorigin11(address,uint256,address).owner_txorigin11 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#63) is too similar to StableDEX.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#450)
+Variable StableDEX.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#57) is too similar to StableDEX.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#450)
+Variable StableDEX.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#144) is too similar to StableDEX.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#450)
+Variable StableDEX.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#189) is too similar to StableDEX.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#450)
+Variable StableDEX.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#450) is too similar to StableDEX.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#433)
+Variable StableDEX.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#450) is too similar to StableDEX.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#251)
+Variable StableDEX.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#450) is too similar to StableDEX.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#120)
+Variable StableDEX.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#450) is too similar to StableDEX.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#229)
+Variable StableDEX.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#433) is too similar to StableDEX.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#251)
+Variable StableDEX.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#57) is too similar to StableDEX.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#266)
+Variable StableDEX.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#138) is too similar to StableDEX.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#266)
+Variable StableDEX.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#189) is too similar to StableDEX.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#266)
+Variable StableDEX.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#450) is too similar to StableDEX.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#266)
+Variable StableDEX.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#433) is too similar to StableDEX.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#266)
+Variable StableDEX.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#266) is too similar to StableDEX.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#251)
+Variable StableDEX.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#266) is too similar to StableDEX.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#120)
+Variable StableDEX.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#266) is too similar to StableDEX.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#229)
+Variable StableDEX.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#57) is too similar to StableDEX.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#120)
+Variable StableDEX.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#433) is too similar to StableDEX.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#120)
+Variable StableDEX.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#251) is too similar to StableDEX.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#120)
+Variable StableDEX.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#120) is too similar to StableDEX.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#229)
+Variable StableDEX.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#144) is too similar to StableDEX.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#229)
+Variable StableDEX.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#433) is too similar to StableDEX.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#229)
+Variable StableDEX.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#251) is too similar to StableDEX.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#229)
+Variable StableDEX.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#69) is too similar to StableDEX.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#114)
+Variable StableDEX.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#126) is too similar to StableDEX.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#114)
+Variable StableDEX.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#114) is too similar to StableDEX.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#204)
+Variable StableDEX.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#114) is too similar to StableDEX.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#132)
+Variable StableDEX.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#69) is too similar to StableDEX.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#204)
+Variable StableDEX.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#204) is too similar to StableDEX.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#132)
+Variable StableDEX.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#69) is too similar to StableDEX.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#132)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+StableDEX.verify(string,uint8,bytes32,bytes32) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#273-312) uses literals with too many digits:
+	- header = Ethereum Signed Message:
+000000 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#274)
+StableDEX.verify(string,uint8,bytes32,bytes32) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#273-312) uses literals with too many digits:
+	- divisor = 100000 (benchmarks/SolidiFI/tx.origin/buggy_21.sol#283)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+Token (benchmarks/SolidiFI/tx.origin/buggy_21.sol#3-21) does not implement functions:
+	- Token.allowance(address,address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#17)
+	- Token.balanceOf(address) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#12)
+	- Token.transfer(address,uint256) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#4)
+	- Token.transferFrom(address,address,uint256) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#8)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unimplemented-functions
+
+StableDEX.tokenId (benchmarks/SolidiFI/tx.origin/buggy_21.sol#85) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+addToken(address,string,uint256) should be declared external:
+	- StableDEX.addToken(address,string,uint256) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#171-177)
+Moreover, the following function parameters should change its data location:
+tokenSymbol location should be calldata
+setwithdrawfee(address[],uint256[]) should be declared external:
+	- StableDEX.setwithdrawfee(address[],uint256[]) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#256-265)
+Moreover, the following function parameters should change its data location:
+addr location should be calldata
+feeamount location should be calldata
+makeOrder(uint256[9],address[2],string,uint8,bytes32,bytes32) should be declared external:
+	- StableDEX.makeOrder(uint256[9],address[2],string,uint8,bytes32,bytes32) (benchmarks/SolidiFI/tx.origin/buggy_21.sol#318-416)
+Moreover, the following function parameters should change its data location:
+tradeDetails location should be calldata
+traderAddresses location should be calldata
+message location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+benchmarks/SolidiFI/tx.origin/buggy_21.sol analyzed (3 contracts with 80 detectors), 222 result(s) found

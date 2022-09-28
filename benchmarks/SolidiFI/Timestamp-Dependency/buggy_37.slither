@@ -1,0 +1,338 @@
+
+ERC20Interface.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#76-84) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#82)
+ERC20Interface.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#86-94) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#92)
+ERC20Interface.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#101-109) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#107)
+AugustCoin.bug_tmstmp12() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#195-203) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#201)
+AugustCoin.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#238-246) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#244)
+AugustCoin.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#268-276) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#274)
+AugustCoin.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#310-318) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#316)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+ERC20Interface.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#76-84) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#81)" 
+ERC20Interface.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#86-94) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#91)" 
+ERC20Interface.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#101-109) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#106)" 
+AugustCoin.bug_tmstmp12() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#195-203) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#200)" 
+AugustCoin.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#238-246) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#243)" 
+AugustCoin.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#268-276) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#273)" 
+AugustCoin.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#310-318) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#315)" 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG
+
+ApproveAndCallFallBack.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#126-129) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#128)
+AugustCoin.bug_tmstmp12() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#195-203) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#200)
+ERC20Interface.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#76-84) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#81)
+ERC20Interface.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#86-94) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#91)
+AugustCoin.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#268-276) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#273)
+ERC20Interface.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#101-109) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#106)
+AugustCoin.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#310-318) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#315)
+AugustCoin.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#238-246) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#243)
+Owned.play_tmstmp10(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#142-144) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#143)
+AugustCoin.play_tmstmp11(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#206-209) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#208)
+Owned.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#169-171) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#170)
+ERC20Interface.play_tmstmp19(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#66-69) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#68)
+AugustCoin.play_tmstmp2(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#217-219) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#218)
+AugustCoin.play_tmstmp22(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#191-193) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#192)
+Owned.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#154-157) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#156)
+ERC20Interface.play_tmstmp26(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#72-74) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#73)
+AugustCoin.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#350-353) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#352)
+SafeMath.play_tmstmp3(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#38-41) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#40)
+Owned.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#179-181) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#180)
+AugustCoin.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#368-371) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#370)
+AugustCoin.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#291-294) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#293)
+ERC20Interface.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#97-99) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#98)
+AugustCoin.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#256-259) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#258)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+ERC20Interface.bug_tmstmp4().pastBlockTime_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#102) is a local variable never initialized
+AugustCoin.bug_tmstmp8().pastBlockTime_tmstmp8 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#239) is a local variable never initialized
+ERC20Interface.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#87) is a local variable never initialized
+AugustCoin.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#311) is a local variable never initialized
+ERC20Interface.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#77) is a local variable never initialized
+AugustCoin.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#196) is a local variable never initialized
+AugustCoin.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#269) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+Owned.transferOwnership(address)._newOwner (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#165) lacks a zero-check on :
+		- newOwner = _newOwner (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#166)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+SafeMath.bug_tmstmp37() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#30-32) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#31)
+SafeMath.play_tmstmp3(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#38-41) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#40)
+SafeMath.bug_tmstmp9() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#46-48) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#47)
+SafeMath.bug_tmstmp25() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#53-55) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#54)
+ERC20Interface.play_tmstmp19(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#66-69) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#68)
+ERC20Interface.play_tmstmp26(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#72-74) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#73)
+ERC20Interface.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#76-84) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp20) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#79)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#81)
+ERC20Interface.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#86-94) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp32) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#89)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#91)
+ERC20Interface.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#97-99) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#98)
+ERC20Interface.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#101-109) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp4) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#104)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#106)
+ApproveAndCallFallBack.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#126-129) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#128)
+Owned.bug_tmstmp21() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#137-139) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#138)
+Owned.play_tmstmp10(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#142-144) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#143)
+Owned.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#154-157) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#156)
+Owned.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#169-171) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#170)
+Owned.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#179-181) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#180)
+AugustCoin.play_tmstmp22(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#191-193) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#192)
+AugustCoin.bug_tmstmp12() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#195-203) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp12) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#198)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#200)
+AugustCoin.play_tmstmp11(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#206-209) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#208)
+AugustCoin.bug_tmstmp1() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#211-213) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#212)
+AugustCoin.play_tmstmp2(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#217-219) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#218)
+AugustCoin.bug_tmstmp17() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#221-223) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#222)
+AugustCoin.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#238-246) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp8) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#241)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#243)
+AugustCoin.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#256-259) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#258)
+AugustCoin.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#268-276) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp36) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#271)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#273)
+AugustCoin.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#291-294) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#293)
+AugustCoin.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#310-318) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp40) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#313)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#315)
+AugustCoin.bug_tmstmp33() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#337-339) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#338)
+AugustCoin.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#350-353) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#352)
+AugustCoin.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#368-371) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#370)
+AugustCoin.bug_tmstmp13() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#380-382) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#381)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+Pragma version^0.5.0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#5) allows old versions
+solc-0.5.0 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function SafeMath.bug_tmstmp37() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#30-32) is not in mixedCase
+Function SafeMath.play_tmstmp3(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#38-41) is not in mixedCase
+Function SafeMath.bug_tmstmp9() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#46-48) is not in mixedCase
+Function SafeMath.bug_tmstmp25() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#53-55) is not in mixedCase
+Variable SafeMath.winner_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#37) is not in mixedCase
+Function ERC20Interface.play_tmstmp19(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#66-69) is not in mixedCase
+Function ERC20Interface.play_tmstmp26(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#72-74) is not in mixedCase
+Function ERC20Interface.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#76-84) is not in mixedCase
+Function ERC20Interface.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#86-94) is not in mixedCase
+Function ERC20Interface.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#97-99) is not in mixedCase
+Function ERC20Interface.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#101-109) is not in mixedCase
+Variable ERC20Interface.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#65) is not in mixedCase
+Variable ERC20Interface.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#71) is not in mixedCase
+Variable ERC20Interface.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#96) is not in mixedCase
+Variable ERC20Interface.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#111) is not in mixedCase
+Variable ERC20Interface.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#113) is not in mixedCase
+Function ApproveAndCallFallBack.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#126-129) is not in mixedCase
+Variable ApproveAndCallFallBack.winner_tmstmp7 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#125) is not in mixedCase
+Function Owned.bug_tmstmp21() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#137-139) is not in mixedCase
+Function Owned.play_tmstmp10(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#142-144) is not in mixedCase
+Function Owned.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#154-157) is not in mixedCase
+Parameter Owned.transferOwnership(address)._newOwner (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#165) is not in mixedCase
+Function Owned.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#169-171) is not in mixedCase
+Function Owned.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#179-181) is not in mixedCase
+Variable Owned.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#141) is not in mixedCase
+Variable Owned.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#147) is not in mixedCase
+Variable Owned.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#153) is not in mixedCase
+Variable Owned.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#163) is not in mixedCase
+Variable Owned.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#168) is not in mixedCase
+Variable Owned.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#178) is not in mixedCase
+Function AugustCoin.play_tmstmp22(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#191-193) is not in mixedCase
+Function AugustCoin.bug_tmstmp12() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#195-203) is not in mixedCase
+Function AugustCoin.play_tmstmp11(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#206-209) is not in mixedCase
+Function AugustCoin.bug_tmstmp1() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#211-213) is not in mixedCase
+Function AugustCoin.play_tmstmp2(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#217-219) is not in mixedCase
+Function AugustCoin.bug_tmstmp17() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#221-223) is not in mixedCase
+Function AugustCoin.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#238-246) is not in mixedCase
+Function AugustCoin.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#256-259) is not in mixedCase
+Function AugustCoin.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#268-276) is not in mixedCase
+Function AugustCoin.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#291-294) is not in mixedCase
+Function AugustCoin.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#310-318) is not in mixedCase
+Function AugustCoin.bug_tmstmp33() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#337-339) is not in mixedCase
+Function AugustCoin.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#350-353) is not in mixedCase
+Function AugustCoin.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#368-371) is not in mixedCase
+Function AugustCoin.bug_tmstmp13() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#380-382) is not in mixedCase
+Variable AugustCoin.winner_tmstmp22 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#190) is not in mixedCase
+Variable AugustCoin.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#205) is not in mixedCase
+Variable AugustCoin._totalSupply (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#214) is not in mixedCase
+Variable AugustCoin.winner_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#216) is not in mixedCase
+Variable AugustCoin.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#255) is not in mixedCase
+Variable AugustCoin.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#290) is not in mixedCase
+Variable AugustCoin.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#349) is not in mixedCase
+Variable AugustCoin.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#367) is not in mixedCase
+Variable AugustCoin.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#391) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable ERC20Interface.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#111) is too similar to ERC20Interface.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#113)
+Variable ERC20Interface.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#77) is too similar to ERC20Interface.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#87)
+Variable Owned.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#163) is too similar to Owned.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#147)
+Variable Owned.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#141) is too similar to Owned.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#168)
+Variable Owned.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#141) is too similar to Owned.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#178)
+Variable Owned.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#153) is too similar to Owned.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#178)
+Variable Owned.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#163) is too similar to ERC20Interface.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#111)
+Variable Owned.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#163) is too similar to ERC20Interface.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#113)
+Variable ERC20Interface.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#111) is too similar to Owned.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#147)
+Variable ERC20Interface.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#113) is too similar to Owned.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#147)
+Variable Owned.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#163) is too similar to AugustCoin.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#391)
+Variable ERC20Interface.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#111) is too similar to AugustCoin.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#391)
+Variable ERC20Interface.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#113) is too similar to AugustCoin.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#391)
+Variable Owned.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#147) is too similar to AugustCoin.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#391)
+Variable AugustCoin.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#196) is too similar to ERC20Interface.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#77)
+Variable AugustCoin.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#196) is too similar to ERC20Interface.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#87)
+Variable ERC20Interface.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#87) is too similar to AugustCoin.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#269)
+Variable ERC20Interface.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#87) is too similar to AugustCoin.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#311)
+Variable AugustCoin.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#196) is too similar to AugustCoin.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#269)
+Variable ERC20Interface.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#77) is too similar to AugustCoin.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#269)
+Variable ERC20Interface.bug_tmstmp4().pastBlockTime_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#102) is too similar to AugustCoin.bug_tmstmp8().pastBlockTime_tmstmp8 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#239)
+Variable AugustCoin.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#196) is too similar to AugustCoin.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#311)
+Variable ERC20Interface.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#77) is too similar to AugustCoin.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#311)
+Variable AugustCoin.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#269) is too similar to AugustCoin.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#311)
+Variable Owned.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#141) is too similar to AugustCoin.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#205)
+Variable Owned.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#141) is too similar to ERC20Interface.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#65)
+Variable AugustCoin.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#205) is too similar to Owned.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#168)
+Variable AugustCoin.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#205) is too similar to ERC20Interface.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#65)
+Variable Owned.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#168) is too similar to ERC20Interface.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#65)
+Variable ERC20Interface.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#65) is too similar to AugustCoin.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#255)
+Variable AugustCoin.winner_tmstmp22 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#190) is too similar to Owned.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#153)
+Variable Owned.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#153) is too similar to ERC20Interface.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#71)
+Variable Owned.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#153) is too similar to AugustCoin.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#290)
+Variable Owned.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#153) is too similar to AugustCoin.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#255)
+Variable AugustCoin.winner_tmstmp22 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#190) is too similar to ERC20Interface.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#71)
+Variable AugustCoin.winner_tmstmp22 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#190) is too similar to AugustCoin.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#349)
+Variable Owned.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#153) is too similar to AugustCoin.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#349)
+Variable ERC20Interface.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#71) is too similar to AugustCoin.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#349)
+Variable AugustCoin.winner_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#216) is too similar to SafeMath.winner_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#37)
+Variable Owned.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#178) is too similar to AugustCoin.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#290)
+Variable Owned.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#178) is too similar to AugustCoin.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#255)
+Variable Owned.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#141) is too similar to AugustCoin.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#367)
+Variable AugustCoin.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#205) is too similar to AugustCoin.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#367)
+Variable Owned.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#168) is too similar to AugustCoin.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#367)
+Variable ERC20Interface.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#65) is too similar to AugustCoin.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#367)
+Variable Owned.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#153) is too similar to AugustCoin.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#367)
+Variable Owned.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#178) is too similar to AugustCoin.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#367)
+Variable AugustCoin.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#367) is too similar to AugustCoin.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#290)
+Variable AugustCoin.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#367) is too similar to ERC20Interface.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#96)
+Variable AugustCoin.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#367) is too similar to AugustCoin.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#255)
+Variable Owned.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#153) is too similar to ERC20Interface.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#96)
+Variable Owned.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#178) is too similar to ERC20Interface.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#96)
+Variable AugustCoin.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#290) is too similar to ERC20Interface.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#96)
+Variable ERC20Interface.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#96) is too similar to AugustCoin.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#255)
+Variable AugustCoin.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#290) is too similar to AugustCoin.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#255)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+AugustCoin.constructor() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#230-237) uses literals with too many digits:
+	- _totalSupply = 100000000000000000000000000 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#234)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+ApproveAndCallFallBack (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#123-130) does not implement functions:
+	- ApproveAndCallFallBack.receiveApproval(address,uint256,address,bytes) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#124)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unimplemented-functions
+
+ERC20Interface.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#111) is never used in AugustCoin (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#189-392)
+ERC20Interface.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#113) is never used in AugustCoin (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#189-392)
+Owned.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#147) is never used in AugustCoin (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#189-392)
+Owned.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#163) is never used in AugustCoin (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#189-392)
+AugustCoin.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#391) is never used in AugustCoin (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#189-392)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+
+receiveApproval(address,uint256,address,bytes) should be declared external:
+	- ApproveAndCallFallBack.receiveApproval(address,uint256,address,bytes) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#124)
+Moreover, the following function parameters should change its data location:
+data location should be calldata
+approveAndCall(address,uint256,bytes) should be declared external:
+	- AugustCoin.approveAndCall(address,uint256,bytes) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol#361-366)
+Moreover, the following function parameters should change its data location:
+data location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+benchmarks/SolidiFI/Timestamp-Dependency/buggy_37.sol analyzed (5 contracts with 80 detectors), 196 result(s) found

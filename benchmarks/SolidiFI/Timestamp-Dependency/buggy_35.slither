@@ -1,0 +1,354 @@
+
+owned.bug_tmstmp12() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#141-149) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#147)
+BitpayerDEX.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#272-280) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#278)
+BitpayerDEX.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#290-298) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#296)
+BitpayerDEX.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#319-327) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#325)
+BitpayerDEX.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#384-392) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#390)
+BitpayerDEX.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#411-419) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#417)
+BitpayerDEX.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#456-464) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#462)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+owned.bug_tmstmp12() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#141-149) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#146)" 
+BitpayerDEX.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#272-280) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#277)" 
+BitpayerDEX.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#290-298) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#295)" 
+BitpayerDEX.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#319-327) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#324)" 
+BitpayerDEX.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#384-392) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#389)" 
+BitpayerDEX.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#411-419) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#416)" 
+BitpayerDEX.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#456-464) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#461)" 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG
+
+BitpayerDEX.withdrawToken(address,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#394-401) ignores return value by ERC20Essential(token).transfer(msg.sender,amount) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#399)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-transfer
+
+owned.bug_tmstmp12() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#141-149) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#146)
+BitpayerDEX.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#272-280) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#277)
+BitpayerDEX.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#290-298) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#295)
+BitpayerDEX.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#411-419) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#416)
+BitpayerDEX.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#319-327) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#324)
+BitpayerDEX.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#456-464) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#461)
+BitpayerDEX.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#384-392) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#389)
+BitpayerDEX.play_tmstmp11(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#206-209) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#208)
+BitpayerDEX.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#361-363) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#362)
+owned.play_tmstmp19(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#188-191) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#190)
+BitpayerDEX.play_tmstmp2(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#216-218) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#217)
+owned.play_tmstmp22(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#137-139) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#138)
+BitpayerDEX.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#351-354) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#353)
+BitpayerDEX.play_tmstmp26(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#257-259) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#258)
+BitpayerDEX.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#497-500) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#499)
+BitpayerDEX.play_tmstmp3(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#230-233) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#232)
+BitpayerDEX.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#373-375) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#374)
+owned.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#154-157) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#156)
+BitpayerDEX.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#427-430) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#429)
+BitpayerDEX.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#311-313) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#312)
+BitpayerDEX.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#403-406) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#405)
+BitpayerDEX.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#334-337) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#336)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+owned.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#142) is a local variable never initialized
+BitpayerDEX.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#273) is a local variable never initialized
+BitpayerDEX.bug_tmstmp8().pastBlockTime_tmstmp8 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#385) is a local variable never initialized
+BitpayerDEX.bug_tmstmp4().pastBlockTime_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#320) is a local variable never initialized
+BitpayerDEX.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#457) is a local variable never initialized
+BitpayerDEX.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#412) is a local variable never initialized
+BitpayerDEX.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#291) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+BitpayerDEX.changetradingFee(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#315-318) should emit an event for: 
+	- tradingFee = tradingFee_ (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#317) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+
+owned.onlyOwnerTransferOwnership(address)._newOwner (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#173) lacks a zero-check on :
+		- newOwner = _newOwner (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#174)
+BitpayerDEX.changeFeeAccount(address).feeAccount_ (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#307) lacks a zero-check on :
+		- feeAccount = feeAccount_ (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#308)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Reentrancy in BitpayerDEX.depositToken(address,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#377-383):
+	External calls:
+	- require(bool)(ERC20Essential(token).transferFrom(msg.sender,address(this),amount)) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#380)
+	State variables written after the call(s):
+	- tokens[token][msg.sender] = tokens[token][msg.sender].add(amount) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#381)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-2
+
+Reentrancy in BitpayerDEX.depositToken(address,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#377-383):
+	External calls:
+	- require(bool)(ERC20Essential(token).transferFrom(msg.sender,address(this),amount)) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#380)
+	Event emitted after the call(s):
+	- Deposit(now,token,msg.sender,amount,tokens[token][msg.sender]) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#382)
+Reentrancy in BitpayerDEX.withdrawToken(address,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#394-401):
+	External calls:
+	- ERC20Essential(token).transfer(msg.sender,amount) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#399)
+	Event emitted after the call(s):
+	- Withdraw(now,token,msg.sender,amount,tokens[token][msg.sender]) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#400)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+
+owned.play_tmstmp22(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#137-139) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#138)
+owned.bug_tmstmp12() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#141-149) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp12) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#144)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#146)
+owned.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#154-157) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#156)
+owned.bug_tmstmp9() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#163-165) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#164)
+owned.bug_tmstmp25() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#176-178) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#177)
+owned.play_tmstmp19(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#188-191) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#190)
+BitpayerDEX.play_tmstmp11(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#206-209) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#208)
+BitpayerDEX.bug_tmstmp1() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#211-213) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#212)
+BitpayerDEX.play_tmstmp2(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#216-218) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#217)
+BitpayerDEX.bug_tmstmp17() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#221-223) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#222)
+BitpayerDEX.bug_tmstmp37() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#225-227) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#226)
+BitpayerDEX.play_tmstmp3(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#230-233) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#232)
+BitpayerDEX.bug_tmstmp13() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#236-238) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#237)
+BitpayerDEX.play_tmstmp26(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#257-259) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#258)
+BitpayerDEX.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#272-280) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp20) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#275)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#277)
+BitpayerDEX.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#290-298) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp32) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#293)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#295)
+BitpayerDEX.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#311-313) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#312)
+BitpayerDEX.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#319-327) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp4) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#322)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#324)
+BitpayerDEX.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#334-337) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#336)
+BitpayerDEX.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#351-354) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#353)
+BitpayerDEX.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#361-363) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#362)
+BitpayerDEX.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#373-375) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#374)
+BitpayerDEX.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#384-392) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp8) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#387)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#389)
+BitpayerDEX.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#403-406) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#405)
+BitpayerDEX.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#411-419) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp36) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#414)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#416)
+BitpayerDEX.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#427-430) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#429)
+BitpayerDEX.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#456-464) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp40) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#459)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#461)
+BitpayerDEX.bug_tmstmp33() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#474-476) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#475)
+BitpayerDEX.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#497-500) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#499)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+BitpayerDEX.changeSafeguardStatus() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#261-271) compares to a boolean constant:
+	-safeGuard == false (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#263)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#boolean-equality
+
+SafeMath.mod(uint256,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#124-127) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version>=0.5.12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#5) allows old versions
+solc-0.5.12 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Contract owned (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#135-192) is not in CapWords
+Function owned.play_tmstmp22(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#137-139) is not in mixedCase
+Function owned.bug_tmstmp12() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#141-149) is not in mixedCase
+Function owned.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#154-157) is not in mixedCase
+Function owned.bug_tmstmp9() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#163-165) is not in mixedCase
+Parameter owned.onlyOwnerTransferOwnership(address)._newOwner (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#173) is not in mixedCase
+Function owned.bug_tmstmp25() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#176-178) is not in mixedCase
+Function owned.play_tmstmp19(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#188-191) is not in mixedCase
+Variable owned.winner_tmstmp22 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#136) is not in mixedCase
+Variable owned.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#153) is not in mixedCase
+Variable owned.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#187) is not in mixedCase
+Function BitpayerDEX.play_tmstmp11(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#206-209) is not in mixedCase
+Function BitpayerDEX.bug_tmstmp1() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#211-213) is not in mixedCase
+Function BitpayerDEX.play_tmstmp2(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#216-218) is not in mixedCase
+Function BitpayerDEX.bug_tmstmp17() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#221-223) is not in mixedCase
+Function BitpayerDEX.bug_tmstmp37() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#225-227) is not in mixedCase
+Function BitpayerDEX.play_tmstmp3(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#230-233) is not in mixedCase
+Function BitpayerDEX.bug_tmstmp13() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#236-238) is not in mixedCase
+Function BitpayerDEX.play_tmstmp26(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#257-259) is not in mixedCase
+Function BitpayerDEX.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#272-280) is not in mixedCase
+Parameter BitpayerDEX.calculatePercentage(uint256,uint256).PercentOf (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#283) is not in mixedCase
+Function BitpayerDEX.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#290-298) is not in mixedCase
+Function BitpayerDEX.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#311-313) is not in mixedCase
+Function BitpayerDEX.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#319-327) is not in mixedCase
+Function BitpayerDEX.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#334-337) is not in mixedCase
+Function BitpayerDEX.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#351-354) is not in mixedCase
+Function BitpayerDEX.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#361-363) is not in mixedCase
+Function BitpayerDEX.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#373-375) is not in mixedCase
+Function BitpayerDEX.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#384-392) is not in mixedCase
+Function BitpayerDEX.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#403-406) is not in mixedCase
+Function BitpayerDEX.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#411-419) is not in mixedCase
+Function BitpayerDEX.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#427-430) is not in mixedCase
+Function BitpayerDEX.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#456-464) is not in mixedCase
+Function BitpayerDEX.bug_tmstmp33() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#474-476) is not in mixedCase
+Function BitpayerDEX.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#497-500) is not in mixedCase
+Variable BitpayerDEX.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#205) is not in mixedCase
+Variable BitpayerDEX.winner_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#215) is not in mixedCase
+Variable BitpayerDEX.winner_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#229) is not in mixedCase
+Variable BitpayerDEX.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#240) is not in mixedCase
+Variable BitpayerDEX.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#242) is not in mixedCase
+Variable BitpayerDEX.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#244) is not in mixedCase
+Variable BitpayerDEX.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#246) is not in mixedCase
+Variable BitpayerDEX.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#248) is not in mixedCase
+Variable BitpayerDEX.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#256) is not in mixedCase
+Variable BitpayerDEX.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#310) is not in mixedCase
+Variable BitpayerDEX.winner_tmstmp7 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#333) is not in mixedCase
+Variable BitpayerDEX.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#350) is not in mixedCase
+Variable BitpayerDEX.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#360) is not in mixedCase
+Variable BitpayerDEX.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#372) is not in mixedCase
+Variable BitpayerDEX.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#402) is not in mixedCase
+Variable BitpayerDEX.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#426) is not in mixedCase
+Variable BitpayerDEX.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#496) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in BitpayerDEX.withdraw(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#365-371):
+	External calls:
+	- msg.sender.transfer(amount) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#369)
+	Event emitted after the call(s):
+	- Withdraw(now,address(0),msg.sender,amount,tokens[address(0)][msg.sender]) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#370)
+Reentrancy in BitpayerDEX.withdrawTradingFeeOwner() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#339-349):
+	External calls:
+	- msg.sender.transfer(amount) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#345)
+	Event emitted after the call(s):
+	- OwnerWithdrawTradingFee(owner,amount) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#347)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable owned.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#187) is too similar to owned.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#153)
+Variable BitpayerDEX.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#242) is too similar to BitpayerDEX.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#240)
+Variable BitpayerDEX.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#242) is too similar to BitpayerDEX.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#244)
+Variable BitpayerDEX.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#244) is too similar to BitpayerDEX.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#240)
+Variable BitpayerDEX.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#242) is too similar to BitpayerDEX.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#246)
+Variable BitpayerDEX.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#244) is too similar to BitpayerDEX.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#246)
+Variable BitpayerDEX.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#246) is too similar to BitpayerDEX.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#248)
+Variable BitpayerDEX.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#246) is too similar to BitpayerDEX.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#240)
+Variable BitpayerDEX.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#242) is too similar to BitpayerDEX.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#248)
+Variable BitpayerDEX.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#244) is too similar to BitpayerDEX.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#248)
+Variable BitpayerDEX.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#248) is too similar to BitpayerDEX.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#240)
+Variable owned.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#142) is too similar to BitpayerDEX.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#273)
+Variable owned.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#142) is too similar to BitpayerDEX.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#291)
+Variable BitpayerDEX.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#273) is too similar to BitpayerDEX.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#291)
+Variable owned.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#142) is too similar to BitpayerDEX.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#412)
+Variable BitpayerDEX.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#273) is too similar to BitpayerDEX.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#412)
+Variable BitpayerDEX.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#291) is too similar to BitpayerDEX.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#412)
+Variable BitpayerDEX.bug_tmstmp4().pastBlockTime_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#320) is too similar to BitpayerDEX.bug_tmstmp8().pastBlockTime_tmstmp8 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#385)
+Variable owned.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#142) is too similar to BitpayerDEX.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#457)
+Variable BitpayerDEX.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#273) is too similar to BitpayerDEX.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#457)
+Variable BitpayerDEX.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#291) is too similar to BitpayerDEX.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#457)
+Variable BitpayerDEX.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#412) is too similar to BitpayerDEX.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#457)
+Variable BitpayerDEX.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#205) is too similar to BitpayerDEX.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#360)
+Variable BitpayerDEX.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#360) is too similar to owned.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#187)
+Variable BitpayerDEX.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#360) is too similar to owned.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#153)
+Variable BitpayerDEX.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#205) is too similar to owned.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#187)
+Variable BitpayerDEX.winner_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#215) is too similar to BitpayerDEX.winner_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#229)
+Variable owned.winner_tmstmp22 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#136) is too similar to BitpayerDEX.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#350)
+Variable BitpayerDEX.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#350) is too similar to BitpayerDEX.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#496)
+Variable BitpayerDEX.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#350) is too similar to BitpayerDEX.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#372)
+Variable BitpayerDEX.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#350) is too similar to owned.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#153)
+Variable BitpayerDEX.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#350) is too similar to BitpayerDEX.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#426)
+Variable BitpayerDEX.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#350) is too similar to BitpayerDEX.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#402)
+Variable owned.winner_tmstmp22 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#136) is too similar to BitpayerDEX.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#256)
+Variable BitpayerDEX.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#350) is too similar to BitpayerDEX.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#256)
+Variable BitpayerDEX.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#256) is too similar to BitpayerDEX.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#496)
+Variable owned.winner_tmstmp22 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#136) is too similar to BitpayerDEX.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#496)
+Variable BitpayerDEX.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#372) is too similar to owned.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#153)
+Variable BitpayerDEX.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#372) is too similar to BitpayerDEX.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#426)
+Variable BitpayerDEX.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#372) is too similar to BitpayerDEX.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#402)
+Variable BitpayerDEX.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#205) is too similar to owned.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#153)
+Variable owned.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#153) is too similar to BitpayerDEX.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#426)
+Variable BitpayerDEX.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#350) is too similar to BitpayerDEX.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#310)
+Variable BitpayerDEX.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#372) is too similar to BitpayerDEX.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#310)
+Variable owned.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#153) is too similar to BitpayerDEX.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#310)
+Variable BitpayerDEX.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#426) is too similar to BitpayerDEX.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#310)
+Variable BitpayerDEX.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#310) is too similar to BitpayerDEX.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#402)
+Variable owned.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#187) is too similar to BitpayerDEX.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#402)
+Variable owned.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#153) is too similar to BitpayerDEX.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#402)
+Variable BitpayerDEX.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#426) is too similar to BitpayerDEX.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#402)
+Variable BitpayerDEX.winner_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#215) is too similar to BitpayerDEX.winner_tmstmp7 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#333)
+Variable BitpayerDEX.winner_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#229) is too similar to BitpayerDEX.winner_tmstmp7 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#333)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+BitpayerDEX.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#240) is never used in BitpayerDEX (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#203-509)
+BitpayerDEX.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#242) is never used in BitpayerDEX (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#203-509)
+BitpayerDEX.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#244) is never used in BitpayerDEX (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#203-509)
+BitpayerDEX.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#246) is never used in BitpayerDEX (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#203-509)
+BitpayerDEX.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#248) is never used in BitpayerDEX (benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol#203-509)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+benchmarks/SolidiFI/Timestamp-Dependency/buggy_35.sol analyzed (4 contracts with 80 detectors), 194 result(s) found

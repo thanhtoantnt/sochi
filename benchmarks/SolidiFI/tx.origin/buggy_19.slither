@@ -1,0 +1,337 @@
+Compilation warnings/errors on benchmarks/SolidiFI/tx.origin/buggy_19.sol:
+benchmarks/SolidiFI/tx.origin/buggy_19.sol:58:3: Warning: Function state mutability can be restricted to view
+  function bug_txorigin12(address owner_txorigin12) public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_19.sol:185:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin20(address owner_txorigin20) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_19.sol:193:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin32(  address owner_txorigin32) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_19.sol:210:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin4(address owner_txorigin4) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_19.sol:254:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin8(address owner_txorigin8) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_19.sol:271:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin36(  address owner_txorigin36) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_19.sol:288:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin40(address owner_txorigin40) public{
+^ (Relevant source part starts here and spans across multiple lines).
+
+
+owned.sendto_txorigin1(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#89-92) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#91)
+ethBank.withdrawAll_txorigin2(address,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#98-101) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#100)
+ethBank.sendto_txorigin17(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#107-110) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#109)
+ethBank.sendto_txorigin37(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#116-119) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#118)
+ethBank.sendto_txorigin9(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#144-147) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#146)
+ethBank.sendto_txorigin25(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#158-161) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#160)
+ethBank.withdrawAll_txorigin26(address,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#176-179) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#178)
+ethBank.withdrawAll_txorigin38(address,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#201-204) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#203)
+ethBank.withdrawAll_txorigin14(address,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#236-239) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#238)
+ethBank.withdrawAll_txorigin30(address,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#245-248) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#247)
+ethBank.sendto_txorigin33(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#296-299) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#298)
+ethBank.sendto_txorigin13(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#323-326) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#325)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+owned.bug_txorigin12(address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#58-60) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin12) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#59)
+owned.transferTo_txorigin11(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#69-72) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin11) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#70)
+owned.sendto_txorigin1(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#89-92) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin1) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#90)
+ethBank.withdrawAll_txorigin2(address,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#98-101) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin2) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#99)
+ethBank.sendto_txorigin17(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#107-110) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin17) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#108)
+ethBank.sendto_txorigin37(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#116-119) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin37) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#117)
+ethBank.transferTo_txorigin3(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#132-135) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin3) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#133)
+ethBank.sendto_txorigin9(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#144-147) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin9) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#145)
+ethBank.sendto_txorigin25(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#158-161) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin25) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#159)
+ethBank.transferTo_txorigin19(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#167-170) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin19) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#168)
+ethBank.withdrawAll_txorigin26(address,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#176-179) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin26) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#177)
+ethBank.bug_txorigin20(address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#185-187) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin20) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#186)
+ethBank.bug_txorigin32(address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#193-195) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin32) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#194)
+ethBank.withdrawAll_txorigin38(address,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#201-204) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin38) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#202)
+ethBank.bug_txorigin4(address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#210-212) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin4) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#211)
+ethBank.transferTo_txorigin7(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#218-221) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin7) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#219)
+ethBank.transferTo_txorigin23(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#227-230) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin23) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#228)
+ethBank.withdrawAll_txorigin14(address,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#236-239) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin14) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#237)
+ethBank.withdrawAll_txorigin30(address,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#245-248) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin30) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#246)
+ethBank.bug_txorigin8(address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#254-256) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin8) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#255)
+ethBank.transferTo_txorigin39(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#262-265) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin39) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#263)
+ethBank.bug_txorigin36(address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#271-273) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin36) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#272)
+ethBank.transferTo_txorigin35(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#279-282) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin35) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#280)
+ethBank.bug_txorigin40(address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#288-290) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin40) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#289)
+ethBank.sendto_txorigin33(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#296-299) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin33) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#297)
+ethBank.transferTo_txorigin27(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#305-308) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin27) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#306)
+ethBank.transferTo_txorigin31(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#314-317) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin31) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#315)
+ethBank.sendto_txorigin13(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#323-326) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin13) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#324)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-usage-of-txorigin
+
+owned.transferOwnership(address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#85-88) should emit an event for: 
+	- owner = newOwner (benchmarks/SolidiFI/tx.origin/buggy_19.sol#87) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+owned.sendto_txorigin1(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_19.sol#89) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#91)
+ethBank.withdrawAll_txorigin2(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_19.sol#98) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#100)
+ethBank.withdrawForUser(address,uint256)._address (benchmarks/SolidiFI/tx.origin/buggy_19.sol#103) lacks a zero-check on :
+		- _address.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#105)
+ethBank.sendto_txorigin17(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_19.sol#107) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#109)
+ethBank.sendto_txorigin37(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_19.sol#116) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#118)
+ethBank.sendto_txorigin9(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_19.sol#144) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#146)
+ethBank.sendto_txorigin25(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_19.sol#158) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#160)
+ethBank.withdrawAll_txorigin26(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_19.sol#176) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#178)
+ethBank.withdrawAll_txorigin38(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_19.sol#201) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#203)
+ethBank.withdrawAll_txorigin14(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_19.sol#236) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#238)
+ethBank.withdrawAll_txorigin30(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_19.sol#245) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#247)
+ethBank.sendto_txorigin33(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_19.sol#296) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#298)
+ethBank.sendto_txorigin13(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_19.sol#323) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#325)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+SafeMath.add(uint256,uint256) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#44-48) is never used and should be removed
+SafeMath.div(uint256,uint256) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#28-31) is never used and should be removed
+SafeMath.mul(uint256,uint256) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#16-23) is never used and should be removed
+SafeMath.sub(uint256,uint256) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#36-39) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.5.1 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#5) allows old versions
+solc-0.5.1 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Contract owned (benchmarks/SolidiFI/tx.origin/buggy_19.sol#57-93) is not in CapWords
+Function owned.bug_txorigin12(address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#58-60) is not in mixedCase
+Parameter owned.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#58) is not in mixedCase
+Function owned.transferTo_txorigin11(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#69-72) is not in mixedCase
+Parameter owned.transferTo_txorigin11(address,uint256,address).owner_txorigin11 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#69) is not in mixedCase
+Function owned.sendto_txorigin1(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#89-92) is not in mixedCase
+Parameter owned.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#89) is not in mixedCase
+Contract ethBank (benchmarks/SolidiFI/tx.origin/buggy_19.sol#95-327) is not in CapWords
+Function ethBank.withdrawAll_txorigin2(address,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#98-101) is not in mixedCase
+Parameter ethBank.withdrawAll_txorigin2(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_19.sol#98) is not in mixedCase
+Parameter ethBank.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#98) is not in mixedCase
+Parameter ethBank.withdrawForUser(address,uint256)._address (benchmarks/SolidiFI/tx.origin/buggy_19.sol#103) is not in mixedCase
+Function ethBank.sendto_txorigin17(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#107-110) is not in mixedCase
+Parameter ethBank.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#107) is not in mixedCase
+Function ethBank.sendto_txorigin37(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#116-119) is not in mixedCase
+Parameter ethBank.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#116) is not in mixedCase
+Function ethBank.transferTo_txorigin3(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#132-135) is not in mixedCase
+Parameter ethBank.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#132) is not in mixedCase
+Function ethBank.sendto_txorigin9(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#144-147) is not in mixedCase
+Parameter ethBank.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#144) is not in mixedCase
+Function ethBank.sendto_txorigin25(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#158-161) is not in mixedCase
+Parameter ethBank.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#158) is not in mixedCase
+Function ethBank.transferTo_txorigin19(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#167-170) is not in mixedCase
+Parameter ethBank.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#167) is not in mixedCase
+Function ethBank.withdrawAll_txorigin26(address,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#176-179) is not in mixedCase
+Parameter ethBank.withdrawAll_txorigin26(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_19.sol#176) is not in mixedCase
+Parameter ethBank.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#176) is not in mixedCase
+Function ethBank.bug_txorigin20(address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#185-187) is not in mixedCase
+Parameter ethBank.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#185) is not in mixedCase
+Function ethBank.bug_txorigin32(address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#193-195) is not in mixedCase
+Parameter ethBank.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#193) is not in mixedCase
+Function ethBank.withdrawAll_txorigin38(address,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#201-204) is not in mixedCase
+Parameter ethBank.withdrawAll_txorigin38(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_19.sol#201) is not in mixedCase
+Parameter ethBank.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#201) is not in mixedCase
+Function ethBank.activeBonusCacl_1() (benchmarks/SolidiFI/tx.origin/buggy_19.sol#205-209) is not in mixedCase
+Function ethBank.bug_txorigin4(address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#210-212) is not in mixedCase
+Parameter ethBank.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#210) is not in mixedCase
+Function ethBank.activeBonusCacl_2() (benchmarks/SolidiFI/tx.origin/buggy_19.sol#213-217) is not in mixedCase
+Function ethBank.transferTo_txorigin7(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#218-221) is not in mixedCase
+Parameter ethBank.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#218) is not in mixedCase
+Function ethBank.activeBonusCacl_3() (benchmarks/SolidiFI/tx.origin/buggy_19.sol#222-226) is not in mixedCase
+Function ethBank.transferTo_txorigin23(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#227-230) is not in mixedCase
+Parameter ethBank.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#227) is not in mixedCase
+Function ethBank.activeBonusCacl_4() (benchmarks/SolidiFI/tx.origin/buggy_19.sol#231-235) is not in mixedCase
+Function ethBank.withdrawAll_txorigin14(address,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#236-239) is not in mixedCase
+Parameter ethBank.withdrawAll_txorigin14(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_19.sol#236) is not in mixedCase
+Parameter ethBank.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#236) is not in mixedCase
+Function ethBank.activeBonusCacl_5() (benchmarks/SolidiFI/tx.origin/buggy_19.sol#240-244) is not in mixedCase
+Function ethBank.withdrawAll_txorigin30(address,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#245-248) is not in mixedCase
+Parameter ethBank.withdrawAll_txorigin30(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_19.sol#245) is not in mixedCase
+Parameter ethBank.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#245) is not in mixedCase
+Function ethBank.activeBonusCacl_6() (benchmarks/SolidiFI/tx.origin/buggy_19.sol#249-253) is not in mixedCase
+Function ethBank.bug_txorigin8(address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#254-256) is not in mixedCase
+Parameter ethBank.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#254) is not in mixedCase
+Function ethBank.activeBonusCacl_7() (benchmarks/SolidiFI/tx.origin/buggy_19.sol#257-261) is not in mixedCase
+Function ethBank.transferTo_txorigin39(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#262-265) is not in mixedCase
+Parameter ethBank.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#262) is not in mixedCase
+Function ethBank.activeBonusCacl_8() (benchmarks/SolidiFI/tx.origin/buggy_19.sol#266-270) is not in mixedCase
+Function ethBank.bug_txorigin36(address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#271-273) is not in mixedCase
+Parameter ethBank.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#271) is not in mixedCase
+Function ethBank.activeBonusCacl_9() (benchmarks/SolidiFI/tx.origin/buggy_19.sol#274-278) is not in mixedCase
+Function ethBank.transferTo_txorigin35(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#279-282) is not in mixedCase
+Parameter ethBank.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#279) is not in mixedCase
+Function ethBank.bug_txorigin40(address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#288-290) is not in mixedCase
+Parameter ethBank.bug_txorigin40(address).owner_txorigin40 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#288) is not in mixedCase
+Function ethBank.sendto_txorigin33(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#296-299) is not in mixedCase
+Parameter ethBank.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#296) is not in mixedCase
+Function ethBank.transferTo_txorigin27(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#305-308) is not in mixedCase
+Parameter ethBank.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#305) is not in mixedCase
+Function ethBank.transferTo_txorigin31(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#314-317) is not in mixedCase
+Parameter ethBank.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#314) is not in mixedCase
+Function ethBank.sendto_txorigin13(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_19.sol#323-326) is not in mixedCase
+Parameter ethBank.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#323) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable owned.transferTo_txorigin11(address,uint256,address).owner_txorigin11 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#69) is too similar to owned.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#58)
+Variable owned.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#89) is too similar to ethBank.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#98)
+Variable owned.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#89) is too similar to ethBank.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#210)
+Variable owned.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#89) is too similar to ethBank.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#218)
+Variable owned.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#89) is too similar to ethBank.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#144)
+Variable owned.transferTo_txorigin11(address,uint256,address).owner_txorigin11 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#69) is too similar to ethBank.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#323)
+Variable owned.transferTo_txorigin11(address,uint256,address).owner_txorigin11 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#69) is too similar to ethBank.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#236)
+Variable owned.transferTo_txorigin11(address,uint256,address).owner_txorigin11 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#69) is too similar to ethBank.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#167)
+Variable owned.transferTo_txorigin11(address,uint256,address).owner_txorigin11 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#69) is too similar to ethBank.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#314)
+Variable owned.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#58) is too similar to ethBank.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#323)
+Variable owned.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#58) is too similar to ethBank.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#236)
+Variable owned.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#58) is too similar to ethBank.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#167)
+Variable owned.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#58) is too similar to ethBank.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#185)
+Variable owned.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#58) is too similar to ethBank.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#176)
+Variable ethBank.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#323) is too similar to ethBank.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#245)
+Variable ethBank.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#323) is too similar to ethBank.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#236)
+Variable owned.transferTo_txorigin11(address,uint256,address).owner_txorigin11 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#69) is too similar to ethBank.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#107)
+Variable owned.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#58) is too similar to ethBank.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#107)
+Variable ethBank.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#323) is too similar to ethBank.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#107)
+Variable ethBank.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#236) is too similar to ethBank.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#107)
+Variable ethBank.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#107) is too similar to ethBank.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#167)
+Variable ethBank.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#107) is too similar to ethBank.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#314)
+Variable ethBank.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#107) is too similar to ethBank.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#116)
+Variable ethBank.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#323) is too similar to ethBank.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#167)
+Variable ethBank.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#236) is too similar to ethBank.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#167)
+Variable ethBank.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#98) is too similar to ethBank.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#218)
+Variable ethBank.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#98) is too similar to ethBank.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#144)
+Variable owned.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#58) is too similar to ethBank.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#227)
+Variable ethBank.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#323) is too similar to ethBank.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#227)
+Variable ethBank.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#185) is too similar to ethBank.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#227)
+Variable ethBank.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#227) is too similar to ethBank.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#176)
+Variable ethBank.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#227) is too similar to ethBank.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#245)
+Variable ethBank.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#227) is too similar to ethBank.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#314)
+Variable ethBank.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#227) is too similar to ethBank.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#296)
+Variable ethBank.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#227) is too similar to ethBank.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#271)
+Variable ethBank.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#227) is too similar to ethBank.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#116)
+Variable ethBank.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#227) is too similar to ethBank.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#201)
+Variable ethBank.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#227) is too similar to ethBank.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#262)
+Variable owned.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#58) is too similar to ethBank.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#158)
+Variable ethBank.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#185) is too similar to ethBank.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#158)
+Variable ethBank.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#227) is too similar to ethBank.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#158)
+Variable ethBank.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#158) is too similar to ethBank.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#176)
+Variable ethBank.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#158) is too similar to ethBank.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#193)
+Variable ethBank.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#185) is too similar to ethBank.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#176)
+Variable owned.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#58) is too similar to ethBank.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#305)
+Variable ethBank.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#107) is too similar to ethBank.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#305)
+Variable ethBank.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#185) is too similar to ethBank.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#305)
+Variable ethBank.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#227) is too similar to ethBank.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#305)
+Variable ethBank.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#158) is too similar to ethBank.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#305)
+Variable ethBank.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#176) is too similar to ethBank.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#305)
+Variable ethBank.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#305) is too similar to ethBank.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#193)
+Variable ethBank.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#305) is too similar to ethBank.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#116)
+Variable owned.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#89) is too similar to ethBank.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#132)
+Variable ethBank.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#98) is too similar to ethBank.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#132)
+Variable ethBank.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#132) is too similar to ethBank.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#210)
+Variable ethBank.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#132) is too similar to ethBank.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#218)
+Variable ethBank.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#132) is too similar to ethBank.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#144)
+Variable ethBank.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#185) is too similar to ethBank.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#245)
+Variable owned.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#58) is too similar to ethBank.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#314)
+Variable ethBank.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#323) is too similar to ethBank.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#314)
+Variable ethBank.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#236) is too similar to ethBank.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#314)
+Variable ethBank.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#167) is too similar to ethBank.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#314)
+Variable ethBank.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#245) is too similar to ethBank.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#314)
+Variable ethBank.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#314) is too similar to ethBank.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#296)
+Variable ethBank.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#314) is too similar to ethBank.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#271)
+Variable ethBank.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#314) is too similar to ethBank.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#116)
+Variable ethBank.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#314) is too similar to ethBank.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#262)
+Variable owned.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#58) is too similar to ethBank.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#193)
+Variable ethBank.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#323) is too similar to ethBank.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#193)
+Variable ethBank.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#185) is too similar to ethBank.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#193)
+Variable ethBank.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#227) is too similar to ethBank.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#193)
+Variable ethBank.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#176) is too similar to ethBank.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#193)
+Variable ethBank.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#245) is too similar to ethBank.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#193)
+Variable ethBank.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#314) is too similar to ethBank.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#193)
+Variable ethBank.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#193) is too similar to ethBank.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#296)
+Variable ethBank.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#193) is too similar to ethBank.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#271)
+Variable ethBank.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#193) is too similar to ethBank.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#116)
+Variable ethBank.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#193) is too similar to ethBank.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#201)
+Variable ethBank.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#193) is too similar to ethBank.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#262)
+Variable ethBank.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#323) is too similar to ethBank.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#296)
+Variable ethBank.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#245) is too similar to ethBank.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#296)
+Variable ethBank.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#296) is too similar to ethBank.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#271)
+Variable ethBank.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#296) is too similar to ethBank.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#116)
+Variable ethBank.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#323) is too similar to ethBank.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#279)
+Variable ethBank.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#227) is too similar to ethBank.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#279)
+Variable ethBank.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#158) is too similar to ethBank.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#279)
+Variable ethBank.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#245) is too similar to ethBank.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#279)
+Variable ethBank.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#314) is too similar to ethBank.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#279)
+Variable ethBank.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#193) is too similar to ethBank.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#279)
+Variable ethBank.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#296) is too similar to ethBank.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#279)
+Variable ethBank.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#279) is too similar to ethBank.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#271)
+Variable ethBank.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#279) is too similar to ethBank.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#116)
+Variable ethBank.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#279) is too similar to ethBank.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#201)
+Variable ethBank.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#279) is too similar to ethBank.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#262)
+Variable ethBank.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#323) is too similar to ethBank.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#271)
+Variable ethBank.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#176) is too similar to ethBank.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#271)
+Variable ethBank.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#245) is too similar to ethBank.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#271)
+Variable ethBank.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#271) is too similar to ethBank.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#116)
+Variable ethBank.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#323) is too similar to ethBank.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#116)
+Variable ethBank.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#245) is too similar to ethBank.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#116)
+Variable ethBank.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#323) is too similar to ethBank.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#201)
+Variable ethBank.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#245) is too similar to ethBank.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#201)
+Variable ethBank.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#314) is too similar to ethBank.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#201)
+Variable ethBank.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#296) is too similar to ethBank.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#201)
+Variable ethBank.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#271) is too similar to ethBank.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#201)
+Variable ethBank.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#116) is too similar to ethBank.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#201)
+Variable ethBank.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#201) is too similar to ethBank.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#262)
+Variable ethBank.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#323) is too similar to ethBank.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#262)
+Variable ethBank.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#167) is too similar to ethBank.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#262)
+Variable ethBank.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#245) is too similar to ethBank.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#262)
+Variable ethBank.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#296) is too similar to ethBank.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#262)
+Variable ethBank.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#271) is too similar to ethBank.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#262)
+Variable ethBank.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#116) is too similar to ethBank.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#262)
+Variable ethBank.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#98) is too similar to ethBank.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#210)
+Variable ethBank.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#210) is too similar to ethBank.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#218)
+Variable ethBank.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#210) is too similar to ethBank.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#144)
+Variable ethBank.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#236) is too similar to ethBank.bug_txorigin40(address).owner_txorigin40 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#288)
+Variable ethBank.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#185) is too similar to ethBank.bug_txorigin40(address).owner_txorigin40 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#288)
+Variable ethBank.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#245) is too similar to ethBank.bug_txorigin40(address).owner_txorigin40 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#288)
+Variable owned.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#89) is too similar to ethBank.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#254)
+Variable ethBank.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#98) is too similar to ethBank.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#254)
+Variable ethBank.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#132) is too similar to ethBank.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#254)
+Variable ethBank.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#210) is too similar to ethBank.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#254)
+Variable ethBank.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#218) is too similar to ethBank.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#254)
+Variable ethBank.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#254) is too similar to ethBank.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#144)
+Variable ethBank.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#218) is too similar to ethBank.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_19.sol#144)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+benchmarks/SolidiFI/tx.origin/buggy_19.sol analyzed (3 contracts with 80 detectors), 259 result(s) found

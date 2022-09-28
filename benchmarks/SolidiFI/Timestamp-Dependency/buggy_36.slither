@@ -1,0 +1,393 @@
+
+tokenRecipient.receiveApproval(address,uint256,address,bytes) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#51-55) uses arbitrary from in transferFrom: require(bool)(t.transferFrom(_from,address(this),_value)) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#53)
+Reference: https://github.com/trailofbits/slither/wiki/Detector-Documentation#arbitrary-send-erc20
+
+Token.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#78-86) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#84)
+Token.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#88-96) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#94)
+Token.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#103-111) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#109)
+MindsyncPlatform.bug_tmstmp12() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#208-216) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#214)
+MindsyncPlatform.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#346-354) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#352)
+MindsyncPlatform.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#419-427) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#425)
+MindsyncPlatform.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#486-494) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#492)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Token.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#78-86) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#83)" 
+Token.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#88-96) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#93)" 
+Token.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#103-111) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#108)" 
+MindsyncPlatform.bug_tmstmp12() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#208-216) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#213)" 
+MindsyncPlatform.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#346-354) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#351)" 
+MindsyncPlatform.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#419-427) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#424)" 
+MindsyncPlatform.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#486-494) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#491)" 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG
+
+Reentrancy in MindsyncPlatform.executeProposal(uint256,bytes) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#504-548):
+	External calls:
+	- (success) = p.recipient.call.value(p.amount)(transactionBytecode) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#537)
+	State variables written after the call(s):
+	- p.proposalPassed = true (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#540)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
+
+Token.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#78-86) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#83)
+Token.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#88-96) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#93)
+Token.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#103-111) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#108)
+Token.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#120-123) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#122)
+Token.play_tmstmp26(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#74-76) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#75)
+Token.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#99-101) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#100)
+Token.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#114-117) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#116)
+MindsyncPlatform.bug_tmstmp12() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#208-216) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#213)
+MindsyncPlatform.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#419-427) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#424)
+MindsyncPlatform.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#486-494) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#491)
+MindsyncPlatform.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#346-354) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#351)
+MindsyncPlatform.play_tmstmp10(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#199-201) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#200)
+MindsyncPlatform.play_tmstmp11(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#219-222) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#221)
+MindsyncPlatform.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#298-300) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#299)
+tokenRecipient.play_tmstmp19(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#64-67) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#66)
+MindsyncPlatform.play_tmstmp2(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#229-231) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#230)
+MindsyncPlatform.play_tmstmp22(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#204-206) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#205)
+tokenRecipient.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#39-42) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#41)
+owned.play_tmstmp3(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#18-21) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#20)
+MindsyncPlatform.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#318-320) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#319)
+tokenRecipient.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#45-48) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#47)
+MindsyncPlatform.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#455-458) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#457)
+MindsyncPlatform.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#393-396) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#395)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+MindsyncPlatform.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#209) is a local variable never initialized
+MindsyncPlatform.bug_tmstmp8().pastBlockTime_tmstmp8 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#347) is a local variable never initialized
+MindsyncPlatform.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#487) is a local variable never initialized
+MindsyncPlatform.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#420) is a local variable never initialized
+Token.bug_tmstmp4().pastBlockTime_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#104) is a local variable never initialized
+Token.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#79) is a local variable never initialized
+Token.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#89) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+owned.transferOwnership(address) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#28-30) should emit an event for: 
+	- owner = newOwner (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#29) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+owned.transferOwnership(address).newOwner (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#28) lacks a zero-check on :
+		- owner = newOwner (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#29)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+MindsyncPlatform.executeProposal(uint256,bytes) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#504-548) has external calls inside a loop: voteWeight = tokenAddress.actualBalanceOf(v.voter) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#520)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop
+
+Reentrancy in MindsyncPlatform.executeProposal(uint256,bytes) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#504-548):
+	External calls:
+	- (success) = p.recipient.call.value(p.amount)(transactionBytecode) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#537)
+	Event emitted after the call(s):
+	- ProposalTallied(proposalNumber,yea - nay,quorum,p.proposalPassed) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#547)
+Reentrancy in tokenRecipient.receiveApproval(address,uint256,address,bytes) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#51-55):
+	External calls:
+	- require(bool)(t.transferFrom(_from,address(this),_value)) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#53)
+	Event emitted after the call(s):
+	- receivedTokens(_from,_value,_token,_extraData) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#54)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+
+owned.bug_tmstmp21() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#9-11) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#10)
+owned.play_tmstmp3(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#18-21) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#20)
+owned.bug_tmstmp9() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#31-33) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#32)
+tokenRecipient.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#39-42) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#41)
+tokenRecipient.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#45-48) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#47)
+tokenRecipient.bug_tmstmp25() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#56-58) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#57)
+tokenRecipient.play_tmstmp19(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#64-67) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#66)
+Token.play_tmstmp26(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#74-76) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#75)
+Token.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#78-86) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp20) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#81)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#83)
+Token.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#88-96) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp32) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#91)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#93)
+Token.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#99-101) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#100)
+Token.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#103-111) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp4) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#106)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#108)
+Token.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#114-117) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#116)
+Token.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#120-123) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#122)
+MindsyncPlatform.play_tmstmp10(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#199-201) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#200)
+MindsyncPlatform.play_tmstmp22(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#204-206) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#205)
+MindsyncPlatform.bug_tmstmp12() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#208-216) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp12) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#211)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#213)
+MindsyncPlatform.play_tmstmp11(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#219-222) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#221)
+MindsyncPlatform.bug_tmstmp1() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#224-226) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#225)
+MindsyncPlatform.play_tmstmp2(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#229-231) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#230)
+MindsyncPlatform.bug_tmstmp17() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#233-235) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#234)
+MindsyncPlatform.bug_tmstmp37() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#238-240) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#239)
+MindsyncPlatform.bug_tmstmp13() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#243-245) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#244)
+MindsyncPlatform.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#298-300) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#299)
+MindsyncPlatform.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#318-320) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#319)
+MindsyncPlatform.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#346-354) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp8) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#349)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#351)
+MindsyncPlatform.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#393-396) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#395)
+MindsyncPlatform.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#419-427) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp36) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#422)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#424)
+MindsyncPlatform.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#455-458) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#457)
+MindsyncPlatform.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#486-494) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp40) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#489)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#491)
+MindsyncPlatform.executeProposal(uint256,bytes) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#504-548) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > p.minExecutionDate && ! p.executed && p.proposalHash == keccak256(bytes)(abi.encodePacked(p.recipient,p.amount,transactionBytecode))) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#508-510)
+MindsyncPlatform.bug_tmstmp33() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#549-551) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#550)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+MindsyncPlatform.sign(uint256,bool) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#438-453) compares to a boolean constant:
+	-require(bool)(signProposal == true) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#448)
+MindsyncPlatform.vote(uint256,bool) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#469-485) compares to a boolean constant:
+	-require(bool)(p.voted[msg.sender] != true) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#477)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#boolean-equality
+
+SafeMath.add(uint256,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#174-179) is never used and should be removed
+SafeMath.mod(uint256,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#185-188) is never used and should be removed
+SafeMath.sub(uint256,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#164-169) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version>=0.5.1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#5) allows old versions
+solc-0.5.1 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in MindsyncPlatform.executeProposal(uint256,bytes) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#504-548):
+	- (success) = p.recipient.call.value(p.amount)(transactionBytecode) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#537)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Contract owned (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#8-34) is not in CapWords
+Function owned.bug_tmstmp21() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#9-11) is not in mixedCase
+Function owned.play_tmstmp3(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#18-21) is not in mixedCase
+Function owned.bug_tmstmp9() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#31-33) is not in mixedCase
+Variable owned.winner_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#17) is not in mixedCase
+Contract tokenRecipient (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#37-68) is not in CapWords
+Event tokenRecipientreceivedEther(address,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#43) is not in CapWords
+Event tokenRecipientreceivedTokens(address,uint256,address,bytes) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#49) is not in CapWords
+Function tokenRecipient.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#39-42) is not in mixedCase
+Function tokenRecipient.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#45-48) is not in mixedCase
+Parameter tokenRecipient.receiveApproval(address,uint256,address,bytes)._from (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#51) is not in mixedCase
+Parameter tokenRecipient.receiveApproval(address,uint256,address,bytes)._value (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#51) is not in mixedCase
+Parameter tokenRecipient.receiveApproval(address,uint256,address,bytes)._token (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#51) is not in mixedCase
+Parameter tokenRecipient.receiveApproval(address,uint256,address,bytes)._extraData (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#51) is not in mixedCase
+Function tokenRecipient.bug_tmstmp25() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#56-58) is not in mixedCase
+Function tokenRecipient.play_tmstmp19(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#64-67) is not in mixedCase
+Variable tokenRecipient.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#38) is not in mixedCase
+Variable tokenRecipient.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#44) is not in mixedCase
+Variable tokenRecipient.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#63) is not in mixedCase
+Function Token.play_tmstmp26(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#74-76) is not in mixedCase
+Function Token.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#78-86) is not in mixedCase
+Function Token.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#88-96) is not in mixedCase
+Function Token.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#99-101) is not in mixedCase
+Function Token.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#103-111) is not in mixedCase
+Function Token.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#114-117) is not in mixedCase
+Function Token.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#120-123) is not in mixedCase
+Variable Token.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#73) is not in mixedCase
+Variable Token.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#98) is not in mixedCase
+Variable Token.winner_tmstmp7 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#113) is not in mixedCase
+Variable Token.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#119) is not in mixedCase
+Function MindsyncPlatform.play_tmstmp10(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#199-201) is not in mixedCase
+Function MindsyncPlatform.play_tmstmp22(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#204-206) is not in mixedCase
+Function MindsyncPlatform.bug_tmstmp12() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#208-216) is not in mixedCase
+Function MindsyncPlatform.play_tmstmp11(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#219-222) is not in mixedCase
+Function MindsyncPlatform.bug_tmstmp1() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#224-226) is not in mixedCase
+Function MindsyncPlatform.play_tmstmp2(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#229-231) is not in mixedCase
+Function MindsyncPlatform.bug_tmstmp17() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#233-235) is not in mixedCase
+Function MindsyncPlatform.bug_tmstmp37() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#238-240) is not in mixedCase
+Function MindsyncPlatform.bug_tmstmp13() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#243-245) is not in mixedCase
+Function MindsyncPlatform.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#298-300) is not in mixedCase
+Parameter MindsyncPlatform.init(Token,address,uint256,uint256,uint256)._tokenAddress (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#311) is not in mixedCase
+Parameter MindsyncPlatform.init(Token,address,uint256,uint256,uint256)._chairmanAddress (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#311) is not in mixedCase
+Parameter MindsyncPlatform.init(Token,address,uint256,uint256,uint256)._minimumTokensToVote (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#311) is not in mixedCase
+Parameter MindsyncPlatform.init(Token,address,uint256,uint256,uint256)._minimumPercentToPassAVote (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#311) is not in mixedCase
+Parameter MindsyncPlatform.init(Token,address,uint256,uint256,uint256)._minutesForDebate (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#311) is not in mixedCase
+Function MindsyncPlatform.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#318-320) is not in mixedCase
+Parameter MindsyncPlatform.changeVotingRules(Token,address,uint256,uint256,uint256)._tokenAddress (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#334) is not in mixedCase
+Parameter MindsyncPlatform.changeVotingRules(Token,address,uint256,uint256,uint256)._chairmanAddress (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#334) is not in mixedCase
+Parameter MindsyncPlatform.changeVotingRules(Token,address,uint256,uint256,uint256)._minimumTokensToVote (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#334) is not in mixedCase
+Parameter MindsyncPlatform.changeVotingRules(Token,address,uint256,uint256,uint256)._minimumPercentToPassAVote (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#334) is not in mixedCase
+Parameter MindsyncPlatform.changeVotingRules(Token,address,uint256,uint256,uint256)._minutesForDebate (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#334) is not in mixedCase
+Function MindsyncPlatform.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#346-354) is not in mixedCase
+Function MindsyncPlatform.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#393-396) is not in mixedCase
+Function MindsyncPlatform.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#419-427) is not in mixedCase
+Function MindsyncPlatform.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#455-458) is not in mixedCase
+Function MindsyncPlatform.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#486-494) is not in mixedCase
+Function MindsyncPlatform.bug_tmstmp33() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#549-551) is not in mixedCase
+Variable MindsyncPlatform.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#198) is not in mixedCase
+Variable MindsyncPlatform.winner_tmstmp22 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#203) is not in mixedCase
+Variable MindsyncPlatform.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#218) is not in mixedCase
+Variable MindsyncPlatform.winner_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#228) is not in mixedCase
+Variable MindsyncPlatform.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#247) is not in mixedCase
+Variable MindsyncPlatform.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#249) is not in mixedCase
+Variable MindsyncPlatform.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#251) is not in mixedCase
+Variable MindsyncPlatform.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#253) is not in mixedCase
+Variable MindsyncPlatform.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#255) is not in mixedCase
+Variable MindsyncPlatform.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#297) is not in mixedCase
+Variable MindsyncPlatform.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#317) is not in mixedCase
+Variable MindsyncPlatform.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#392) is not in mixedCase
+Variable MindsyncPlatform.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#454) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable tokenRecipient.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#63) is too similar to tokenRecipient.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#44)
+Variable Token.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#79) is too similar to Token.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#89)
+Variable Token.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#119) is too similar to Token.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#98)
+Variable Token.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#119) is too similar to Token.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#73)
+Variable MindsyncPlatform.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#249) is too similar to MindsyncPlatform.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#251)
+Variable MindsyncPlatform.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#249) is too similar to MindsyncPlatform.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#253)
+Variable MindsyncPlatform.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#249) is too similar to MindsyncPlatform.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#255)
+Variable MindsyncPlatform.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#251) is too similar to MindsyncPlatform.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#253)
+Variable MindsyncPlatform.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#251) is too similar to MindsyncPlatform.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#255)
+Variable MindsyncPlatform.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#253) is too similar to MindsyncPlatform.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#255)
+Variable MindsyncPlatform.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#249) is too similar to MindsyncPlatform.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#247)
+Variable MindsyncPlatform.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#251) is too similar to MindsyncPlatform.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#247)
+Variable MindsyncPlatform.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#253) is too similar to MindsyncPlatform.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#247)
+Variable MindsyncPlatform.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#255) is too similar to MindsyncPlatform.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#247)
+Variable MindsyncPlatform.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#209) is too similar to MindsyncPlatform.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#487)
+Variable MindsyncPlatform.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#209) is too similar to MindsyncPlatform.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#420)
+Variable MindsyncPlatform.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#420) is too similar to MindsyncPlatform.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#487)
+Variable MindsyncPlatform.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#198) is too similar to MindsyncPlatform.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#218)
+Variable MindsyncPlatform.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#198) is too similar to MindsyncPlatform.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#297)
+Variable MindsyncPlatform.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#198) is too similar to tokenRecipient.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#63)
+Variable MindsyncPlatform.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#198) is too similar to MindsyncPlatform.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#317)
+Variable MindsyncPlatform.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#198) is too similar to tokenRecipient.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#44)
+Variable MindsyncPlatform.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#218) is too similar to MindsyncPlatform.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#297)
+Variable MindsyncPlatform.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#218) is too similar to tokenRecipient.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#63)
+Variable MindsyncPlatform.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#218) is too similar to tokenRecipient.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#44)
+Variable MindsyncPlatform.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#297) is too similar to tokenRecipient.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#63)
+Variable MindsyncPlatform.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#297) is too similar to tokenRecipient.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#44)
+Variable MindsyncPlatform.winner_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#228) is too similar to owned.winner_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#17)
+Variable MindsyncPlatform.winner_tmstmp22 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#203) is too similar to tokenRecipient.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#38)
+Variable MindsyncPlatform.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#317) is too similar to tokenRecipient.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#44)
+Variable MindsyncPlatform.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#317) is too similar to MindsyncPlatform.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#454)
+Variable MindsyncPlatform.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#317) is too similar to MindsyncPlatform.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#392)
+Variable tokenRecipient.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#44) is too similar to MindsyncPlatform.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#454)
+Variable tokenRecipient.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#44) is too similar to MindsyncPlatform.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#392)
+Variable tokenRecipient.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#63) is too similar to MindsyncPlatform.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#392)
+Variable MindsyncPlatform.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#454) is too similar to MindsyncPlatform.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#392)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+Token (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#71-124) does not implement functions:
+	- Token.actualBalanceOf(address) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#77)
+	- Token.pause() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#112)
+	- Token.renounceOwnership() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#97)
+	- Token.totalSupply() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#72)
+	- Token.transferFrom(address,address,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#87)
+	- Token.transferOwnership(address) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#102)
+	- Token.unpause() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#118)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unimplemented-functions
+
+MindsyncPlatform.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#247) is never used in MindsyncPlatform (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#195-552)
+MindsyncPlatform.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#249) is never used in MindsyncPlatform (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#195-552)
+MindsyncPlatform.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#251) is never used in MindsyncPlatform (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#195-552)
+MindsyncPlatform.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#253) is never used in MindsyncPlatform (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#195-552)
+MindsyncPlatform.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#255) is never used in MindsyncPlatform (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#195-552)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+
+receiveApproval(address,uint256,address,bytes) should be declared external:
+	- tokenRecipient.receiveApproval(address,uint256,address,bytes) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#51-55)
+Moreover, the following function parameters should change its data location:
+_extraData location should be calldata
+newProposal(address,uint256,string,bytes) should be declared external:
+	- MindsyncPlatform.newProposal(address,uint256,string,bytes) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#367-391)
+Moreover, the following function parameters should change its data location:
+transactionDescription location should be calldata
+transactionBytecode location should be calldata
+checkProposalCode(uint256,address,uint256,bytes) should be declared external:
+	- MindsyncPlatform.checkProposalCode(uint256,address,uint256,bytes) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#407-418)
+Moreover, the following function parameters should change its data location:
+transactionBytecode location should be calldata
+executeProposal(uint256,bytes) should be declared external:
+	- MindsyncPlatform.executeProposal(uint256,bytes) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol#504-548)
+Moreover, the following function parameters should change its data location:
+transactionBytecode location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+benchmarks/SolidiFI/Timestamp-Dependency/buggy_36.sol analyzed (5 contracts with 80 detectors), 207 result(s) found

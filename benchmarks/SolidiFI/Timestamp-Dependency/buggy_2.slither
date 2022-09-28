@@ -1,0 +1,201 @@
+
+CareerOnToken.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#20-28) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#26)
+CareerOnToken.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#52-60) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#58)
+CareerOnToken.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#91-99) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#97)
+CareerOnToken.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#150-158) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#156)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+CareerOnToken.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#20-28) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#25)" 
+CareerOnToken.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#52-60) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#57)" 
+CareerOnToken.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#91-99) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#96)" 
+CareerOnToken.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#150-158) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#155)" 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG
+
+CareerOnToken.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#91-99) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#96)
+CareerOnToken.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#20-28) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#25)
+CareerOnToken.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#150-158) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#155)
+CareerOnToken.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#52-60) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#57)
+CareerOnToken.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#43-45) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#44)
+CareerOnToken.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#37-40) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#39)
+CareerOnToken.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#178-181) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#180)
+CareerOnToken.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#48-50) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#49)
+CareerOnToken.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#193-196) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#195)
+CareerOnToken.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#122-125) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#124)
+CareerOnToken.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#16-18) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#17)
+CareerOnToken.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#65-68) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#67)
+CareerOnToken.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#31-34) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#33)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+CareerOnToken.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#92) is a local variable never initialized
+CareerOnToken.bug_tmstmp8().pastBlockTime_tmstmp8 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#53) is a local variable never initialized
+CareerOnToken.bug_tmstmp4().pastBlockTime_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#21) is a local variable never initialized
+CareerOnToken.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#151) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+CareerOnToken.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#16-18) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#17)
+CareerOnToken.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#20-28) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp4) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#23)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#25)
+CareerOnToken.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#31-34) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#33)
+CareerOnToken.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#37-40) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#39)
+CareerOnToken.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#43-45) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#44)
+CareerOnToken.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#48-50) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#49)
+CareerOnToken.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#52-60) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp8) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#55)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#57)
+CareerOnToken.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#65-68) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#67)
+CareerOnToken.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#91-99) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp36) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#94)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#96)
+CareerOnToken.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#122-125) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#124)
+CareerOnToken.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#150-158) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp40) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#153)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#155)
+CareerOnToken.bug_tmstmp33() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#167-169) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#168)
+CareerOnToken.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#178-181) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#180)
+CareerOnToken.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#193-196) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#195)
+CareerOnToken.bug_tmstmp13() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#203-205) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#204)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+Pragma version^0.5.1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#5) allows old versions
+solc-0.5.1 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function CareerOnToken.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#16-18) is not in mixedCase
+Function CareerOnToken.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#20-28) is not in mixedCase
+Function CareerOnToken.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#31-34) is not in mixedCase
+Function CareerOnToken.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#37-40) is not in mixedCase
+Function CareerOnToken.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#43-45) is not in mixedCase
+Function CareerOnToken.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#48-50) is not in mixedCase
+Function CareerOnToken.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#52-60) is not in mixedCase
+Function CareerOnToken.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#65-68) is not in mixedCase
+Function CareerOnToken.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#91-99) is not in mixedCase
+Parameter CareerOnToken.transfer(address,uint256)._to (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#103) is not in mixedCase
+Parameter CareerOnToken.transfer(address,uint256)._value (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#104) is not in mixedCase
+Function CareerOnToken.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#122-125) is not in mixedCase
+Parameter CareerOnToken.transferFrom(address,address,uint256)._from (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#129) is not in mixedCase
+Parameter CareerOnToken.transferFrom(address,address,uint256)._to (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#130) is not in mixedCase
+Parameter CareerOnToken.transferFrom(address,address,uint256)._value (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#131) is not in mixedCase
+Function CareerOnToken.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#150-158) is not in mixedCase
+Parameter CareerOnToken.approve(address,uint256)._spender (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#160) is not in mixedCase
+Parameter CareerOnToken.approve(address,uint256)._value (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#160) is not in mixedCase
+Function CareerOnToken.bug_tmstmp33() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#167-169) is not in mixedCase
+Parameter CareerOnToken.allowance(address,address)._owner (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#172) is not in mixedCase
+Parameter CareerOnToken.allowance(address,address)._spender (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#173) is not in mixedCase
+Function CareerOnToken.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#178-181) is not in mixedCase
+Function CareerOnToken.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#193-196) is not in mixedCase
+Function CareerOnToken.bug_tmstmp13() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#203-205) is not in mixedCase
+Parameter CareerOnToken.changeContractName(string,string)._newName (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#208) is not in mixedCase
+Parameter CareerOnToken.changeContractName(string,string)._newSymbol (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#208) is not in mixedCase
+Variable CareerOnToken.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#8) is not in mixedCase
+Variable CareerOnToken.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#10) is not in mixedCase
+Variable CareerOnToken.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#12) is not in mixedCase
+Variable CareerOnToken.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#15) is not in mixedCase
+Variable CareerOnToken.winner_tmstmp7 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#30) is not in mixedCase
+Variable CareerOnToken.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#36) is not in mixedCase
+Variable CareerOnToken.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#42) is not in mixedCase
+Variable CareerOnToken.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#47) is not in mixedCase
+Variable CareerOnToken.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#64) is not in mixedCase
+Variable CareerOnToken.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#121) is not in mixedCase
+Variable CareerOnToken.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#177) is not in mixedCase
+Variable CareerOnToken.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#192) is not in mixedCase
+Variable CareerOnToken.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#213) is not in mixedCase
+Variable CareerOnToken.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#219) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable CareerOnToken.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#219) is too similar to CareerOnToken.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#8)
+Variable CareerOnToken.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#219) is too similar to CareerOnToken.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#12)
+Variable CareerOnToken.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#219) is too similar to CareerOnToken.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#213)
+Variable CareerOnToken.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#8) is too similar to CareerOnToken.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#12)
+Variable CareerOnToken.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#8) is too similar to CareerOnToken.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#213)
+Variable CareerOnToken.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#219) is too similar to CareerOnToken.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#10)
+Variable CareerOnToken.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#8) is too similar to CareerOnToken.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#10)
+Variable CareerOnToken.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#10) is too similar to CareerOnToken.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#12)
+Variable CareerOnToken.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#10) is too similar to CareerOnToken.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#213)
+Variable CareerOnToken.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#12) is too similar to CareerOnToken.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#213)
+Variable CareerOnToken.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#92) is too similar to CareerOnToken.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#151)
+Variable CareerOnToken.bug_tmstmp4().pastBlockTime_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#21) is too similar to CareerOnToken.bug_tmstmp8().pastBlockTime_tmstmp8 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#53)
+Variable CareerOnToken.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#36) is too similar to CareerOnToken.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#177)
+Variable CareerOnToken.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#36) is too similar to CareerOnToken.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#47)
+Variable CareerOnToken.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#42) is too similar to CareerOnToken.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#192)
+Variable CareerOnToken.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#36) is too similar to CareerOnToken.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#192)
+Variable CareerOnToken.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#47) is too similar to CareerOnToken.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#192)
+Variable CareerOnToken.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#192) is too similar to CareerOnToken.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#121)
+Variable CareerOnToken.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#192) is too similar to CareerOnToken.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#15)
+Variable CareerOnToken.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#36) is too similar to CareerOnToken.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#121)
+Variable CareerOnToken.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#47) is too similar to CareerOnToken.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#121)
+Variable CareerOnToken.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#36) is too similar to CareerOnToken.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#15)
+Variable CareerOnToken.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#47) is too similar to CareerOnToken.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#15)
+Variable CareerOnToken.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#121) is too similar to CareerOnToken.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#15)
+Variable CareerOnToken.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#36) is too similar to CareerOnToken.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#64)
+Variable CareerOnToken.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#47) is too similar to CareerOnToken.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#64)
+Variable CareerOnToken.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#192) is too similar to CareerOnToken.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#64)
+Variable CareerOnToken.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#121) is too similar to CareerOnToken.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#64)
+Variable CareerOnToken.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#15) is too similar to CareerOnToken.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#64)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+CareerOnToken.constructor(uint256,uint8) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#71-90) uses literals with too many digits:
+	- totalSupply = 100000000000000000 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#77)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+CareerOnToken.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#8) is never used in CareerOnToken (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#7-220)
+CareerOnToken.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#10) is never used in CareerOnToken (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#7-220)
+CareerOnToken.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#12) is never used in CareerOnToken (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#7-220)
+CareerOnToken.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#213) is never used in CareerOnToken (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#7-220)
+CareerOnToken.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#219) is never used in CareerOnToken (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#7-220)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+
+changeContractName(string,string) should be declared external:
+	- CareerOnToken.changeContractName(string,string) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol#208-212)
+Moreover, the following function parameters should change its data location:
+_newName location should be calldata
+_newSymbol location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+benchmarks/SolidiFI/Timestamp-Dependency/buggy_2.sol analyzed (1 contracts with 80 detectors), 118 result(s) found

@@ -1,0 +1,314 @@
+Compilation warnings/errors on benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol:
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol:14:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol:25:2: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+	msg.sender.send(Balances_unchk17);}
+	^-------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol:33:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol:44:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (42 ether); }
+       ^------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol:64:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (42 ether); }
+       ^------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol:76:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol:105:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol:117:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk20.send(winAmount_unchk20);
+        ^------------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol:130:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk32.send(winAmount_unchk32);
+        ^------------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol:138:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol:157:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol:169:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk46.send(subpot_unchk46);  //bug
+        ^---------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol:252:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol:290:9: Warning: Return value of low-level calls not used.
+        dst.call.value(msg.value)("");
+        ^---------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol:314:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol:338:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk8.send(winAmount_unchk8);
+        ^----------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol:389:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (4 ether); }
+       ^-----------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol:401:9: Warning: Return value of low-level calls not used.
+        dst.call.value(msg.value)("");
+        ^---------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol:412:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol:428:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk44.send(winAmount_unchk44);
+        ^------------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol:167:23: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                      ^-------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol:167:40: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                                       ^--------------^
+
+
+EventMetadata.withdrawLeftOver_unchk33() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#12-15) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#14)
+EventMetadata.withdrawBal_unchk17() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#23-25) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(Balances_unchk17) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#25)
+Operated.unhandledsend_unchk2(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#32-34) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#33)
+Operated.bug_unchk27(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#43-44) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(42000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#44)
+Operated.bug_unchk3(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#63-64) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(42000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#64)
+Operated.withdrawLeftOver_unchk9() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#74-77) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#76)
+Operated.unhandledsend_unchk26(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#104-106) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#105)
+Operated.unhandledsend_unchk38(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#137-139) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#138)
+ProofHashes.withdrawLeftOver_unchk45() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#155-158) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#157)
+ProofHashes.cash_unchk46(uint256,uint256,address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#167-171) sends eth to arbitrary user
+	Dangerous calls:
+	- winner_unchk46.send(subpot_unchk46) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#169)
+Template.unhandledsend_unchk14(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#313-315) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#314)
+Feed.bug_unchk39(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#388-389) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(4000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#389)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Operated.winner_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#112) is never initialized. It is used in:
+	- Operated.sendToWinner_unchk20() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#115-119)
+Operated.winAmount_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#113) is never initialized. It is used in:
+	- Operated.sendToWinner_unchk20() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#115-119)
+Operated.winner_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#125) is never initialized. It is used in:
+	- Operated.sendToWinner_unchk32() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#128-132)
+Operated.winAmount_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#126) is never initialized. It is used in:
+	- Operated.sendToWinner_unchk32() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#128-132)
+Template.winner_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#333) is never initialized. It is used in:
+	- Template.sendToWinner_unchk8() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#336-340)
+Template.winAmount_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#334) is never initialized. It is used in:
+	- Template.sendToWinner_unchk8() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#336-340)
+Feed.winner_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#423) is never initialized. It is used in:
+	- Feed.sendToWinner_unchk44() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#426-430)
+Feed.winAmount_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#424) is never initialized. It is used in:
+	- Feed.sendToWinner_unchk44() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#426-430)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+
+Template.my_func_uncheck48(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#289-291) ignores return value by dst.call.value(msg.value)() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#290)
+Feed.my_func_uncheck36(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#400-402) ignores return value by dst.call.value(msg.value)() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#401)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-low-level-calls
+
+EventMetadata.withdrawLeftOver_unchk33() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#12-15) ignores return value by msg.sender.send(address(this).balance) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#14)
+EventMetadata.withdrawBal_unchk17() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#23-25) ignores return value by msg.sender.send(Balances_unchk17) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#25)
+Operated.unhandledsend_unchk2(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#32-34) ignores return value by callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#33)
+Operated.bug_unchk27(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#43-44) ignores return value by addr.send(42000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#44)
+Operated.bug_unchk3(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#63-64) ignores return value by addr.send(42000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#64)
+Operated.withdrawLeftOver_unchk9() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#74-77) ignores return value by msg.sender.send(address(this).balance) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#76)
+Operated.unhandledsend_unchk26(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#104-106) ignores return value by callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#105)
+Operated.sendToWinner_unchk20() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#115-119) ignores return value by winner_unchk20.send(winAmount_unchk20) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#117)
+Operated.sendToWinner_unchk32() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#128-132) ignores return value by winner_unchk32.send(winAmount_unchk32) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#130)
+Operated.unhandledsend_unchk38(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#137-139) ignores return value by callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#138)
+ProofHashes.withdrawLeftOver_unchk45() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#155-158) ignores return value by msg.sender.send(address(this).balance) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#157)
+ProofHashes.cash_unchk46(uint256,uint256,address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#167-171) ignores return value by winner_unchk46.send(subpot_unchk46) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#169)
+MultiHashWrapper.my_func_unchk23(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#251-253) ignores return value by dst.send(msg.value) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#252)
+Template.unhandledsend_unchk14(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#313-315) ignores return value by callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#314)
+Template.sendToWinner_unchk8() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#336-340) ignores return value by winner_unchk8.send(winAmount_unchk8) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#338)
+Feed.bug_unchk39(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#388-389) ignores return value by addr.send(4000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#389)
+Feed.my_func_unchk35(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#411-413) ignores return value by dst.send(msg.value) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#412)
+Feed.sendToWinner_unchk44() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#426-430) ignores return value by winner_unchk44.send(winAmount_unchk44) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#428)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-send
+
+ProofHashes.bug_unchk31().addr_unchk31 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#148) is a local variable never initialized
+MultiHashWrapper.bug_unchk7().addr_unchk7 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#224) is a local variable never initialized
+Operated.bug_unchk19().addr_unchk19 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#94) is a local variable never initialized
+Template.bug_unchk30().receivers_unchk30 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#321) is a local variable never initialized
+ProofHashes.UncheckedExternalCall_unchk4().addr_unchk4 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#178) is a local variable never initialized
+Template.bug_unchk30().addr_unchk30 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#322) is a local variable never initialized
+Feed.UncheckedExternalCall_unchk40().addr_unchk40 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#440) is a local variable never initialized
+Operated.bug_unchk43().addr_unchk43 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#37) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+Template.my_func_uncheck48(address).dst (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#289) lacks a zero-check on :
+		- dst.call.value(msg.value)() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#290)
+Template.unhandledsend_unchk14(address).callee (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#313) lacks a zero-check on :
+		- callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#314)
+Operated.unhandledsend_unchk2(address).callee (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#32) lacks a zero-check on :
+		- callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#33)
+Operated.bug_unchk27(address).addr (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#43) lacks a zero-check on :
+		- addr.send(42000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#44)
+Operated.bug_unchk3(address).addr (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#63) lacks a zero-check on :
+		- addr.send(42000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#64)
+Operated.unhandledsend_unchk26(address).callee (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#104) lacks a zero-check on :
+		- callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#105)
+Operated.unhandledsend_unchk38(address).callee (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#137) lacks a zero-check on :
+		- callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#138)
+MultiHashWrapper.my_func_unchk23(address).dst (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#251) lacks a zero-check on :
+		- dst.send(msg.value) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#252)
+ProofHashes.cash_unchk46(uint256,uint256,address).winner_unchk46 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#167) lacks a zero-check on :
+		- winner_unchk46.send(subpot_unchk46) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#169)
+Feed.bug_unchk39(address).addr (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#388) lacks a zero-check on :
+		- addr.send(4000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#389)
+Feed.my_func_uncheck36(address).dst (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#400) lacks a zero-check on :
+		- dst.call.value(msg.value)() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#401)
+Feed.my_func_unchk35(address).dst (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#411) lacks a zero-check on :
+		- dst.send(msg.value) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#412)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+MultiHashWrapper._splitMultiHash(bytes) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#234-250) uses assembly
+	- INLINE ASM (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#241-245)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#assembly-usage
+
+MultiHashWrapper._combineMultiHash(MultiHashWrapper.MultiHash) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#210-222) is never used and should be removed
+Operated._deactivateOperator() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#88-92) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.5.0 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#5) allows old versions
+solc-0.5.0 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in Template.my_func_uncheck48(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#289-291):
+	- dst.call.value(msg.value)() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#290)
+Low level call in Feed.my_func_uncheck36(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#400-402):
+	- dst.call.value(msg.value)() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#401)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Function EventMetadata.withdrawLeftOver_unchk33() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#12-15) is not in mixedCase
+Function EventMetadata.withdrawBal_unchk17() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#23-25) is not in mixedCase
+Variable EventMetadata.payedOut_unchk33 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#10) is not in mixedCase
+Function Operated.unhandledsend_unchk2(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#32-34) is not in mixedCase
+Function Operated.bug_unchk43() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#36-40) is not in mixedCase
+Function Operated.bug_unchk27(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#43-44) is not in mixedCase
+Function Operated.callnotchecked_unchk37(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#54-56) is not in mixedCase
+Function Operated.bug_unchk3(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#63-64) is not in mixedCase
+Function Operated.withdrawLeftOver_unchk9() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#74-77) is not in mixedCase
+Function Operated.callnotchecked_unchk25(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#84-86) is not in mixedCase
+Function Operated.bug_unchk19() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#93-97) is not in mixedCase
+Function Operated.unhandledsend_unchk26(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#104-106) is not in mixedCase
+Function Operated.sendToWinner_unchk20() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#115-119) is not in mixedCase
+Function Operated.sendToWinner_unchk32() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#128-132) is not in mixedCase
+Function Operated.unhandledsend_unchk38(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#137-139) is not in mixedCase
+Variable Operated.payedOut_unchk9 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#72) is not in mixedCase
+Variable Operated.payedOut_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#111) is not in mixedCase
+Variable Operated.winner_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#112) is not in mixedCase
+Variable Operated.winAmount_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#113) is not in mixedCase
+Variable Operated.payedOut_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#124) is not in mixedCase
+Variable Operated.winner_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#125) is not in mixedCase
+Variable Operated.winAmount_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#126) is not in mixedCase
+Function ProofHashes.bug_unchk31() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#147-151) is not in mixedCase
+Function ProofHashes.withdrawLeftOver_unchk45() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#155-158) is not in mixedCase
+Function ProofHashes.cash_unchk46(uint256,uint256,address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#167-171) is not in mixedCase
+Parameter ProofHashes.cash_unchk46(uint256,uint256,address).winner_unchk46 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#167) is not in mixedCase
+Function ProofHashes.UncheckedExternalCall_unchk4() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#177-185) is not in mixedCase
+Variable ProofHashes.payedOut_unchk45 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#153) is not in mixedCase
+Function MultiHashWrapper.bug_unchk7() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#223-227) is not in mixedCase
+Function MultiHashWrapper.my_func_unchk23(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#251-253) is not in mixedCase
+Contract iFactory (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#265-283) is not in CapWords
+Function Template.my_func_uncheck48(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#289-291) is not in mixedCase
+Function Template.unhandledsend_unchk14(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#313-315) is not in mixedCase
+Function Template.bug_unchk30() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#320-327) is not in mixedCase
+Function Template.sendToWinner_unchk8() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#336-340) is not in mixedCase
+Variable Template.payedOut_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#332) is not in mixedCase
+Variable Template.winner_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#333) is not in mixedCase
+Variable Template.winAmount_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#334) is not in mixedCase
+Function Feed.callnotchecked_unchk13(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#352-354) is not in mixedCase
+Function Feed.bug_unchk39(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#388-389) is not in mixedCase
+Function Feed.my_func_uncheck36(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#400-402) is not in mixedCase
+Function Feed.my_func_unchk35(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#411-413) is not in mixedCase
+Function Feed.sendToWinner_unchk44() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#426-430) is not in mixedCase
+Function Feed.UncheckedExternalCall_unchk40() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#439-447) is not in mixedCase
+Variable Feed.payedOut_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#422) is not in mixedCase
+Variable Feed.winner_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#423) is not in mixedCase
+Variable Feed.winAmount_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#424) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in Operated.sendToWinner_unchk20() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#115-119):
+	External calls:
+	- winner_unchk20.send(winAmount_unchk20) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#117)
+	State variables written after the call(s):
+	- payedOut_unchk20 = true (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#118)
+Reentrancy in Operated.sendToWinner_unchk32() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#128-132):
+	External calls:
+	- winner_unchk32.send(winAmount_unchk32) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#130)
+	State variables written after the call(s):
+	- payedOut_unchk32 = true (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#131)
+Reentrancy in Feed.sendToWinner_unchk44() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#426-430):
+	External calls:
+	- winner_unchk44.send(winAmount_unchk44) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#428)
+	State variables written after the call(s):
+	- payedOut_unchk44 = true (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#429)
+Reentrancy in Template.sendToWinner_unchk8() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#336-340):
+	External calls:
+	- winner_unchk8.send(winAmount_unchk8) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#338)
+	State variables written after the call(s):
+	- payedOut_unchk8 = true (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#339)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable Operated.payedOut_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#111) is too similar to Operated.payedOut_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#124)
+Variable Operated.winAmount_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#113) is too similar to Operated.winAmount_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#126)
+Variable Operated.winner_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#112) is too similar to Operated.winner_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#125)
+Variable Template.bug_unchk30().addr_unchk30 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#322) is too similar to ProofHashes.bug_unchk31().addr_unchk31 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#148)
+Variable Template.bug_unchk30().addr_unchk30 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#322) is too similar to Feed.UncheckedExternalCall_unchk40().addr_unchk40 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#440)
+Variable Template.bug_unchk30().addr_unchk30 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#322) is too similar to Operated.bug_unchk43().addr_unchk43 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#37)
+Variable Operated.bug_unchk19().addr_unchk19 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#94) is too similar to ProofHashes.bug_unchk31().addr_unchk31 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#148)
+Variable ProofHashes.bug_unchk31().addr_unchk31 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#148) is too similar to Operated.bug_unchk43().addr_unchk43 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#37)
+Variable Feed.UncheckedExternalCall_unchk40().addr_unchk40 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#440) is too similar to Operated.bug_unchk43().addr_unchk43 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#37)
+Variable ProofHashes.UncheckedExternalCall_unchk4().addr_unchk4 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#178) is too similar to MultiHashWrapper.bug_unchk7().addr_unchk7 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#224)
+Variable Operated.payedOut_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#124) is too similar to EventMetadata.payedOut_unchk33 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#10)
+Variable Feed.payedOut_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#422) is too similar to ProofHashes.payedOut_unchk45 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#153)
+Variable Template.payedOut_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#332) is too similar to Operated.payedOut_unchk9 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#72)
+Variable Feed.winner_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#423) is too similar to ProofHashes.cash_unchk46(uint256,uint256,address).winner_unchk46 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#167)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+EventMetadata.payedOut_unchk33 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#10) should be constant
+Feed.winAmount_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#424) should be constant
+Feed.winner_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#423) should be constant
+Operated.payedOut_unchk9 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#72) should be constant
+Operated.winAmount_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#113) should be constant
+Operated.winAmount_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#126) should be constant
+Operated.winner_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#112) should be constant
+Operated.winner_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#125) should be constant
+ProofHashes.payedOut_unchk45 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#153) should be constant
+Template.winAmount_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#334) should be constant
+Template.winner_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#333) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+initialize(address,bytes,bytes) should be declared external:
+	- Feed.initialize(address,bytes,bytes) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#357-387)
+Moreover, the following function parameters should change its data location:
+multihash location should be calldata
+metadata location should be calldata
+setMetadata(bytes) should be declared external:
+	- Feed.setMetadata(bytes) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol#404-410)
+Moreover, the following function parameters should change its data location:
+metadata location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_44.sol analyzed (7 contracts with 80 detectors), 145 result(s) found

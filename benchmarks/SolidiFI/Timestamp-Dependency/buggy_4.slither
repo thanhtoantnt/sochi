@@ -1,0 +1,194 @@
+
+PHO.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#29-37) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#35)
+PHO.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#62-70) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#68)
+PHO.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#79-87) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#85)
+PHO.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#96-104) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#102)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+PHO.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#29-37) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#34)" 
+PHO.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#62-70) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#67)" 
+PHO.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#79-87) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#84)" 
+PHO.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#96-104) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#101)" 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG
+
+PHO.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#79-87) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#84)
+PHO.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#29-37) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#34)
+PHO.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#96-104) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#101)
+PHO.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#62-70) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#67)
+PHO.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#53-55) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#54)
+PHO.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#46-49) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#48)
+PHO.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#111-114) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#113)
+PHO.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#58-60) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#59)
+PHO.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#145-148) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#147)
+PHO.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#91-94) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#93)
+PHO.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#74-77) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#76)
+PHO.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#40-43) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#42)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+PHO.bug_tmstmp8().pastBlockTime_tmstmp8 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#63) is a local variable never initialized
+PHO.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#80) is a local variable never initialized
+PHO.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#97) is a local variable never initialized
+PHO.bug_tmstmp4().pastBlockTime_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#30) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+PHO.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#29-37) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp4) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#32)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#34)
+PHO.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#40-43) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#42)
+PHO.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#46-49) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#48)
+PHO.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#53-55) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#54)
+PHO.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#58-60) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#59)
+PHO.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#62-70) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp8) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#65)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#67)
+PHO.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#74-77) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#76)
+PHO.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#79-87) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp36) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#82)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#84)
+PHO.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#91-94) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#93)
+PHO.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#96-104) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp40) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#99)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#101)
+PHO.bug_tmstmp33() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#106-108) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#107)
+PHO.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#111-114) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#113)
+PHO.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#145-148) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#147)
+PHO.bug_tmstmp13() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#153-155) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#154)
+PHO.transfer(address,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#162-184) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now >= 1589036400) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#170)
+	- require(bool)(now >= 1620572400) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#172)
+	- require(bool)(now >= 1652108400) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#174)
+	- require(bool)(now >= 1683644400) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#176)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+Pragma version>=0.5.0<0.6.0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#5) allows old versions
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function PHO.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#29-37) is not in mixedCase
+Function PHO.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#40-43) is not in mixedCase
+Function PHO.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#46-49) is not in mixedCase
+Function PHO.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#53-55) is not in mixedCase
+Function PHO.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#58-60) is not in mixedCase
+Function PHO.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#62-70) is not in mixedCase
+Function PHO.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#74-77) is not in mixedCase
+Function PHO.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#79-87) is not in mixedCase
+Function PHO.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#91-94) is not in mixedCase
+Function PHO.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#96-104) is not in mixedCase
+Function PHO.bug_tmstmp33() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#106-108) is not in mixedCase
+Function PHO.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#111-114) is not in mixedCase
+Function PHO.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#145-148) is not in mixedCase
+Function PHO.bug_tmstmp13() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#153-155) is not in mixedCase
+Variable PHO.winner_tmstmp7 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#39) is not in mixedCase
+Variable PHO.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#45) is not in mixedCase
+Variable PHO.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#52) is not in mixedCase
+Variable PHO.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#57) is not in mixedCase
+Variable PHO.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#73) is not in mixedCase
+Variable PHO._totalSupply (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#78) is not in mixedCase
+Variable PHO.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#90) is not in mixedCase
+Variable PHO.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#110) is not in mixedCase
+Variable PHO.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#121) is not in mixedCase
+Variable PHO.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#144) is not in mixedCase
+Variable PHO.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#160) is not in mixedCase
+Variable PHO.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#185) is not in mixedCase
+Variable PHO.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#196) is not in mixedCase
+Variable PHO.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#205) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable PHO.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#185) is too similar to PHO.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#196)
+Variable PHO.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#185) is too similar to PHO.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#205)
+Variable PHO.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#185) is too similar to PHO.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#121)
+Variable PHO.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#185) is too similar to PHO.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#160)
+Variable PHO.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#196) is too similar to PHO.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#205)
+Variable PHO.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#196) is too similar to PHO.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#121)
+Variable PHO.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#205) is too similar to PHO.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#121)
+Variable PHO.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#196) is too similar to PHO.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#160)
+Variable PHO.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#205) is too similar to PHO.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#160)
+Variable PHO.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#121) is too similar to PHO.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#160)
+Variable PHO.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#80) is too similar to PHO.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#97)
+Variable PHO.bug_tmstmp4().pastBlockTime_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#30) is too similar to PHO.bug_tmstmp8().pastBlockTime_tmstmp8 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#63)
+Variable PHO.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#45) is too similar to PHO.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#110)
+Variable PHO.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#45) is too similar to PHO.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#57)
+Variable PHO.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#45) is too similar to PHO.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#144)
+Variable PHO.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#45) is too similar to PHO.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#90)
+Variable PHO.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#45) is too similar to PHO.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#73)
+Variable PHO.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#52) is too similar to PHO.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#144)
+Variable PHO.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#57) is too similar to PHO.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#144)
+Variable PHO.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#144) is too similar to PHO.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#90)
+Variable PHO.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#57) is too similar to PHO.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#90)
+Variable PHO.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#57) is too similar to PHO.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#73)
+Variable PHO.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#144) is too similar to PHO.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#73)
+Variable PHO.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#90) is too similar to PHO.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#73)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+PHO.constructor() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#123-143) uses literals with too many digits:
+	- saleAmount = toWei(1000000000) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#129)
+PHO.constructor() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#123-143) uses literals with too many digits:
+	- evtAmount = toWei(200000000) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#130)
+PHO.constructor() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#123-143) uses literals with too many digits:
+	- teamAmount = toWei(800000000) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#131)
+PHO.constructor() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#123-143) uses literals with too many digits:
+	- _totalSupply = toWei(2000000000) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#132)
+PHO.transfer(address,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#162-184) uses literals with too many digits:
+	- balances[msg.sender] - value < toWei(600000000) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#171)
+PHO.transfer(address,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#162-184) uses literals with too many digits:
+	- balances[msg.sender] - value < toWei(400000000) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#173)
+PHO.transfer(address,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#162-184) uses literals with too many digits:
+	- balances[msg.sender] - value < toWei(200000000) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#175)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+PHO.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#121) is never used in PHO (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#28-207)
+PHO.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#160) is never used in PHO (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#28-207)
+PHO.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#185) is never used in PHO (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#28-207)
+PHO.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#196) is never used in PHO (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#28-207)
+PHO.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#205) is never used in PHO (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#28-207)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+
+PHO.decimals (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#50) should be constant
+PHO.name (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#38) should be constant
+PHO.symbol (benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol#44) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+benchmarks/SolidiFI/Timestamp-Dependency/buggy_4.sol analyzed (2 contracts with 80 detectors), 107 result(s) found

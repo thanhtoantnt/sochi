@@ -1,0 +1,425 @@
+
+ERC20Interface.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#30-38) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#36)
+ERC20Interface.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#40-48) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#46)
+AcunarToken.bug_tmstmp24() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#60-68) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#66)
+AcunarToken.bug_tmstmp28() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#81-89) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#87)
+AcunarToken.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#120-128) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#126)
+AcunarToken.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#185-193) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#191)
+AcunarIEO.bug_tmstmp12() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#222-230) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#228)
+AcunarIEO.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#294-302) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#300)
+AcunarIEO.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#318-326) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#324)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+AcunarToken.bug_tmstmp24() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#60-68) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#65)" 
+AcunarToken.bug_tmstmp28() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#81-89) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#86)" 
+AcunarToken.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#120-128) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#125)" 
+AcunarToken.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#185-193) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#190)" 
+ERC20Interface.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#30-38) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#35)" 
+ERC20Interface.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#40-48) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#45)" 
+AcunarIEO.bug_tmstmp12() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#222-230) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#227)" 
+AcunarIEO.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#294-302) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#299)" 
+AcunarIEO.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#318-326) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#323)" 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG
+
+AcunarIEO.bug_tmstmp12() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#222-230) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#227)
+ERC20Interface.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#30-38) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#35)
+AcunarToken.bug_tmstmp24() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#60-68) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#65)
+AcunarToken.bug_tmstmp28() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#81-89) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#86)
+ERC20Interface.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#40-48) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#45)
+AcunarIEO.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#294-302) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#299)
+AcunarToken.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#120-128) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#125)
+AcunarIEO.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#318-326) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#323)
+AcunarToken.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#185-193) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#190)
+AcunarToken.play_tmstmp10(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#103-105) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#104)
+AcunarIEO.play_tmstmp11(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#235-238) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#237)
+AcunarToken.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#170-172) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#171)
+AcunarToken.play_tmstmp15(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#75-78) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#77)
+ERC20Interface.play_tmstmp19(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#18-21) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#20)
+AcunarIEO.play_tmstmp2(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#248-250) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#249)
+AcunarIEO.play_tmstmp22(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#214-216) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#215)
+AcunarToken.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#151-154) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#153)
+ERC20Interface.play_tmstmp26(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#24-26) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#25)
+AcunarIEO.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#352-355) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#354)
+AcunarIEO.play_tmstmp3(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#265-268) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#267)
+AcunarToken.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#178-180) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#179)
+AcunarIEO.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#386-389) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#388)
+AcunarToken.play_tmstmp34(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#92-94) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#93)
+AcunarIEO.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#309-312) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#311)
+ERC20Interface.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#51-53) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#52)
+AcunarToken.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#205-208) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#207)
+AcunarToken.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#135-138) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#137)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+AcunarToken.bug_tmstmp28().pastBlockTime_tmstmp28 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#82) is a local variable never initialized
+AcunarToken.bug_tmstmp8().pastBlockTime_tmstmp8 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#186) is a local variable never initialized
+AcunarToken.bug_tmstmp4().pastBlockTime_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#121) is a local variable never initialized
+ERC20Interface.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#41) is a local variable never initialized
+AcunarToken.bug_tmstmp24().pastBlockTime_tmstmp24 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#61) is a local variable never initialized
+AcunarIEO.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#319) is a local variable never initialized
+AcunarIEO.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#295) is a local variable never initialized
+AcunarIEO.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#223) is a local variable never initialized
+ERC20Interface.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#31) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+AcunarIEO.constructor(address)._deposit (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#289) lacks a zero-check on :
+		- deposit = _deposit (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#290)
+AcunarIEO.changeDepositAddress(address).newDeposit (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#331) lacks a zero-check on :
+		- deposit = newDeposit (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#332)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+ERC20Interface.bug_tmstmp25() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#13-15) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#14)
+ERC20Interface.play_tmstmp19(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#18-21) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#20)
+ERC20Interface.play_tmstmp26(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#24-26) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#25)
+ERC20Interface.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#30-38) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp20) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#33)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#35)
+ERC20Interface.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#40-48) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp32) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#43)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#45)
+ERC20Interface.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#51-53) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#52)
+AcunarToken.bug_tmstmp24() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#60-68) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp24) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#63)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#65)
+AcunarToken.bug_tmstmp5() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#70-72) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#71)
+AcunarToken.play_tmstmp15(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#75-78) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#77)
+AcunarToken.bug_tmstmp28() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#81-89) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp28) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#84)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#86)
+AcunarToken.play_tmstmp34(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#92-94) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#93)
+AcunarToken.bug_tmstmp21() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#97-99) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#98)
+AcunarToken.play_tmstmp10(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#103-105) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#104)
+AcunarToken.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#120-128) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp4) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#123)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#125)
+AcunarToken.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#135-138) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#137)
+AcunarToken.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#151-154) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#153)
+AcunarToken.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#170-172) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#171)
+AcunarToken.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#178-180) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#179)
+AcunarToken.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#185-193) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp8) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#188)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#190)
+AcunarToken.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#205-208) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#207)
+AcunarIEO.play_tmstmp22(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#214-216) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#215)
+AcunarIEO.bug_tmstmp12() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#222-230) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp12) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#225)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#227)
+AcunarIEO.play_tmstmp11(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#235-238) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#237)
+AcunarIEO.bug_tmstmp1() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#242-244) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#243)
+AcunarIEO.play_tmstmp2(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#248-250) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#249)
+AcunarIEO.bug_tmstmp17() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#253-255) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#254)
+AcunarIEO.bug_tmstmp37() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#260-262) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#261)
+AcunarIEO.play_tmstmp3(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#265-268) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#267)
+AcunarIEO.bug_tmstmp9() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#272-274) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#273)
+AcunarIEO.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#294-302) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp36) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#297)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#299)
+AcunarIEO.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#309-312) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#311)
+AcunarIEO.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#318-326) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp40) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#321)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#323)
+AcunarIEO.bug_tmstmp33() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#334-336) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#335)
+AcunarIEO.getCurrentState() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#340-350) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp < saleStart (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#343)
+	- block.timestamp >= saleStart && block.timestamp <= saleEnd (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#345)
+AcunarIEO.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#352-355) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#354)
+AcunarIEO.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#386-389) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#388)
+AcunarIEO.bug_tmstmp13() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#395-397) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#396)
+AcunarIEO.transfer(address,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#410-413) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(block.timestamp > coinTradeStart) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#411)
+AcunarIEO.transferFrom(address,address,uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#416-419) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(block.timestamp > coinTradeStart) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#417)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+AcunarIEO.coinTradeStart (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#258) is set pre-construction with a non-constant function or state variable:
+	- saleEnd + 15120000
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#function-initializing-state
+
+Pragma version^0.5.12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#5) allows old versions
+solc-0.5.12 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function ERC20Interface.bug_tmstmp25() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#13-15) is not in mixedCase
+Function ERC20Interface.play_tmstmp19(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#18-21) is not in mixedCase
+Function ERC20Interface.play_tmstmp26(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#24-26) is not in mixedCase
+Function ERC20Interface.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#30-38) is not in mixedCase
+Function ERC20Interface.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#40-48) is not in mixedCase
+Function ERC20Interface.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#51-53) is not in mixedCase
+Variable ERC20Interface.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#17) is not in mixedCase
+Variable ERC20Interface.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#23) is not in mixedCase
+Variable ERC20Interface.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#50) is not in mixedCase
+Function AcunarToken.bug_tmstmp24() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#60-68) is not in mixedCase
+Function AcunarToken.bug_tmstmp5() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#70-72) is not in mixedCase
+Function AcunarToken.play_tmstmp15(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#75-78) is not in mixedCase
+Function AcunarToken.bug_tmstmp28() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#81-89) is not in mixedCase
+Function AcunarToken.play_tmstmp34(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#92-94) is not in mixedCase
+Function AcunarToken.bug_tmstmp21() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#97-99) is not in mixedCase
+Function AcunarToken.play_tmstmp10(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#103-105) is not in mixedCase
+Function AcunarToken.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#120-128) is not in mixedCase
+Function AcunarToken.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#135-138) is not in mixedCase
+Function AcunarToken.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#151-154) is not in mixedCase
+Function AcunarToken.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#170-172) is not in mixedCase
+Function AcunarToken.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#178-180) is not in mixedCase
+Function AcunarToken.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#185-193) is not in mixedCase
+Function AcunarToken.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#205-208) is not in mixedCase
+Variable AcunarToken.winner_tmstmp15 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#74) is not in mixedCase
+Variable AcunarToken.winner_tmstmp34 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#91) is not in mixedCase
+Variable AcunarToken.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#102) is not in mixedCase
+Variable AcunarToken.winner_tmstmp7 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#134) is not in mixedCase
+Variable AcunarToken.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#150) is not in mixedCase
+Variable AcunarToken.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#169) is not in mixedCase
+Variable AcunarToken.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#177) is not in mixedCase
+Variable AcunarToken.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#204) is not in mixedCase
+Function AcunarIEO.play_tmstmp22(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#214-216) is not in mixedCase
+Function AcunarIEO.bug_tmstmp12() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#222-230) is not in mixedCase
+Function AcunarIEO.play_tmstmp11(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#235-238) is not in mixedCase
+Function AcunarIEO.bug_tmstmp1() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#242-244) is not in mixedCase
+Function AcunarIEO.play_tmstmp2(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#248-250) is not in mixedCase
+Function AcunarIEO.bug_tmstmp17() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#253-255) is not in mixedCase
+Function AcunarIEO.bug_tmstmp37() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#260-262) is not in mixedCase
+Function AcunarIEO.play_tmstmp3(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#265-268) is not in mixedCase
+Function AcunarIEO.bug_tmstmp9() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#272-274) is not in mixedCase
+Function AcunarIEO.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#294-302) is not in mixedCase
+Function AcunarIEO.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#309-312) is not in mixedCase
+Function AcunarIEO.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#318-326) is not in mixedCase
+Function AcunarIEO.bug_tmstmp33() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#334-336) is not in mixedCase
+Function AcunarIEO.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#352-355) is not in mixedCase
+Function AcunarIEO.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#386-389) is not in mixedCase
+Function AcunarIEO.bug_tmstmp13() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#395-397) is not in mixedCase
+Parameter AcunarIEO.transferFrom(address,address,uint256)._from (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#416) is not in mixedCase
+Parameter AcunarIEO.transferFrom(address,address,uint256)._to (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#416) is not in mixedCase
+Parameter AcunarIEO.transferFrom(address,address,uint256)._value (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#416) is not in mixedCase
+Variable AcunarIEO.winner_tmstmp22 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#213) is not in mixedCase
+Variable AcunarIEO.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#234) is not in mixedCase
+Variable AcunarIEO.winner_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#247) is not in mixedCase
+Variable AcunarIEO.winner_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#264) is not in mixedCase
+Variable AcunarIEO.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#282) is not in mixedCase
+Variable AcunarIEO.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#284) is not in mixedCase
+Variable AcunarIEO.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#308) is not in mixedCase
+Variable AcunarIEO.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#351) is not in mixedCase
+Variable AcunarIEO.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#385) is not in mixedCase
+Variable AcunarIEO.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#407) is not in mixedCase
+Variable AcunarIEO.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#414) is not in mixedCase
+Variable AcunarIEO.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#420) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in AcunarIEO.invest() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#358-384):
+	External calls:
+	- deposit.transfer(msg.value) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#376)
+	Event emitted after the call(s):
+	- Invest(msg.sender,msg.value,tokens) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#379)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable ERC20Interface.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#31) is too similar to ERC20Interface.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#41)
+Variable ERC20Interface.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#31) is too similar to AcunarToken.bug_tmstmp24().pastBlockTime_tmstmp24 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#61)
+Variable AcunarToken.bug_tmstmp24().pastBlockTime_tmstmp24 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#61) is too similar to AcunarToken.bug_tmstmp28().pastBlockTime_tmstmp28 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#82)
+Variable ERC20Interface.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#31) is too similar to AcunarToken.bug_tmstmp28().pastBlockTime_tmstmp28 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#82)
+Variable AcunarToken.bug_tmstmp24().pastBlockTime_tmstmp24 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#61) is too similar to ERC20Interface.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#41)
+Variable AcunarToken.bug_tmstmp28().pastBlockTime_tmstmp28 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#82) is too similar to ERC20Interface.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#41)
+Variable AcunarToken.bug_tmstmp4().pastBlockTime_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#121) is too similar to AcunarToken.bug_tmstmp8().pastBlockTime_tmstmp8 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#186)
+Variable AcunarToken.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#102) is too similar to AcunarToken.winner_tmstmp15 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#74)
+Variable AcunarToken.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#102) is too similar to ERC20Interface.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#17)
+Variable AcunarToken.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#102) is too similar to AcunarToken.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#177)
+Variable AcunarToken.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#102) is too similar to AcunarToken.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#169)
+Variable AcunarToken.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#169) is too similar to AcunarToken.winner_tmstmp15 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#74)
+Variable AcunarToken.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#169) is too similar to ERC20Interface.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#17)
+Variable AcunarToken.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#169) is too similar to AcunarToken.winner_tmstmp34 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#91)
+Variable AcunarToken.winner_tmstmp15 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#74) is too similar to ERC20Interface.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#17)
+Variable AcunarToken.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#150) is too similar to ERC20Interface.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#23)
+Variable AcunarToken.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#150) is too similar to AcunarToken.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#177)
+Variable AcunarToken.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#150) is too similar to AcunarToken.winner_tmstmp34 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#91)
+Variable AcunarToken.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#177) is too similar to AcunarToken.winner_tmstmp34 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#91)
+Variable AcunarToken.winner_tmstmp34 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#91) is too similar to AcunarToken.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#204)
+Variable AcunarToken.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#150) is too similar to ERC20Interface.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#50)
+Variable AcunarToken.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#177) is too similar to ERC20Interface.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#50)
+Variable AcunarToken.winner_tmstmp34 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#91) is too similar to ERC20Interface.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#50)
+Variable ERC20Interface.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#50) is too similar to AcunarToken.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#204)
+Variable ERC20Interface.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#17) is too similar to AcunarToken.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#204)
+Variable AcunarToken.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#150) is too similar to AcunarToken.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#204)
+Variable AcunarToken.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#177) is too similar to AcunarToken.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#204)
+Variable AcunarIEO.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#414) is too similar to AcunarIEO.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#420)
+Variable AcunarIEO.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#414) is too similar to AcunarIEO.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#282)
+Variable AcunarIEO.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#420) is too similar to AcunarIEO.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#282)
+Variable AcunarIEO.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#282) is too similar to AcunarIEO.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#284)
+Variable AcunarIEO.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#282) is too similar to AcunarIEO.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#407)
+Variable AcunarIEO.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#414) is too similar to AcunarIEO.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#284)
+Variable AcunarIEO.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#420) is too similar to AcunarIEO.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#284)
+Variable AcunarIEO.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#284) is too similar to AcunarIEO.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#407)
+Variable AcunarIEO.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#414) is too similar to AcunarIEO.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#407)
+Variable AcunarIEO.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#420) is too similar to AcunarIEO.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#407)
+Variable AcunarIEO.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#223) is too similar to AcunarIEO.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#319)
+Variable AcunarIEO.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#223) is too similar to ERC20Interface.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#31)
+Variable ERC20Interface.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#31) is too similar to AcunarIEO.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#319)
+Variable AcunarIEO.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#223) is too similar to AcunarToken.bug_tmstmp24().pastBlockTime_tmstmp24 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#61)
+Variable AcunarToken.bug_tmstmp24().pastBlockTime_tmstmp24 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#61) is too similar to AcunarIEO.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#319)
+Variable AcunarIEO.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#223) is too similar to AcunarToken.bug_tmstmp28().pastBlockTime_tmstmp28 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#82)
+Variable AcunarToken.bug_tmstmp28().pastBlockTime_tmstmp28 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#82) is too similar to AcunarIEO.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#319)
+Variable AcunarIEO.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#223) is too similar to ERC20Interface.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#41)
+Variable ERC20Interface.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#41) is too similar to AcunarIEO.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#319)
+Variable AcunarIEO.bug_tmstmp12().pastBlockTime_tmstmp12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#223) is too similar to AcunarIEO.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#295)
+Variable ERC20Interface.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#31) is too similar to AcunarIEO.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#295)
+Variable AcunarToken.bug_tmstmp24().pastBlockTime_tmstmp24 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#61) is too similar to AcunarIEO.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#295)
+Variable AcunarToken.bug_tmstmp28().pastBlockTime_tmstmp28 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#82) is too similar to AcunarIEO.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#295)
+Variable ERC20Interface.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#41) is too similar to AcunarIEO.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#295)
+Variable AcunarIEO.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#295) is too similar to AcunarIEO.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#319)
+Variable AcunarToken.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#102) is too similar to AcunarIEO.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#385)
+Variable AcunarToken.winner_tmstmp10 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#102) is too similar to AcunarIEO.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#234)
+Variable AcunarIEO.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#234) is too similar to AcunarToken.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#169)
+Variable AcunarIEO.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#234) is too similar to AcunarToken.winner_tmstmp15 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#74)
+Variable AcunarIEO.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#234) is too similar to AcunarIEO.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#385)
+Variable AcunarToken.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#169) is too similar to AcunarIEO.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#385)
+Variable AcunarIEO.winner_tmstmp11 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#234) is too similar to ERC20Interface.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#17)
+Variable ERC20Interface.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#17) is too similar to AcunarIEO.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#385)
+Variable AcunarIEO.winner_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#247) is too similar to AcunarIEO.winner_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#264)
+Variable AcunarIEO.winner_tmstmp22 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#213) is too similar to AcunarToken.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#150)
+Variable AcunarIEO.winner_tmstmp22 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#213) is too similar to ERC20Interface.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#23)
+Variable AcunarIEO.winner_tmstmp22 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#213) is too similar to AcunarIEO.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#351)
+Variable AcunarToken.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#150) is too similar to AcunarIEO.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#351)
+Variable ERC20Interface.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#23) is too similar to AcunarIEO.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#351)
+Variable AcunarToken.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#177) is too similar to AcunarIEO.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#385)
+Variable AcunarToken.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#177) is too similar to AcunarIEO.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#308)
+Variable AcunarToken.winner_tmstmp15 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#74) is too similar to AcunarIEO.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#385)
+Variable AcunarToken.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#150) is too similar to AcunarIEO.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#385)
+Variable AcunarIEO.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#385) is too similar to AcunarToken.winner_tmstmp34 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#91)
+Variable AcunarToken.winner_tmstmp34 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#91) is too similar to AcunarIEO.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#308)
+Variable AcunarToken.winner_tmstmp15 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#74) is too similar to AcunarIEO.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#308)
+Variable AcunarToken.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#150) is too similar to AcunarIEO.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#308)
+Variable AcunarIEO.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#385) is too similar to AcunarIEO.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#308)
+Variable AcunarIEO.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#385) is too similar to ERC20Interface.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#50)
+Variable AcunarIEO.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#308) is too similar to ERC20Interface.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#50)
+Variable AcunarIEO.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#385) is too similar to AcunarToken.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#204)
+Variable AcunarIEO.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#308) is too similar to AcunarToken.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#204)
+Variable AcunarIEO.winner_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#247) is too similar to AcunarToken.winner_tmstmp7 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#134)
+Variable AcunarIEO.winner_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#264) is too similar to AcunarToken.winner_tmstmp7 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#134)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+AcunarToken.constructor() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#115-119) uses literals with too many digits:
+	- supply = 200000000 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#116)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+AcunarIEO.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#282) is never used in AcunarIEO (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#212-422)
+AcunarIEO.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#284) is never used in AcunarIEO (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#212-422)
+AcunarIEO.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#407) is never used in AcunarIEO (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#212-422)
+AcunarIEO.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#414) is never used in AcunarIEO (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#212-422)
+AcunarIEO.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#420) is never used in AcunarIEO (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#212-422)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+
+AcunarIEO.hardCap (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#245) should be constant
+AcunarIEO.maxInvestment (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#263) should be constant
+AcunarIEO.minInvestment (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#269) should be constant
+AcunarIEO.tokenPrice (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#239) should be constant
+AcunarToken.decimals (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#79) should be constant
+AcunarToken.name (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#69) should be constant
+AcunarToken.symbol (benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol#73) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+benchmarks/SolidiFI/Timestamp-Dependency/buggy_47.sol analyzed (3 contracts with 80 detectors), 255 result(s) found

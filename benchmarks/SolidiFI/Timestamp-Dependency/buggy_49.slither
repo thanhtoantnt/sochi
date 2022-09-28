@@ -1,0 +1,96 @@
+
+TAMC.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#15-23) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#21)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+TAMC.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#15-23) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#20)" 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG
+
+TAMC.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#15-23) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#20)
+TAMC.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#30-33) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#32)
+TAMC.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#61-64) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#63)
+TAMC.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#9-12) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#11)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+TAMC.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#16) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+TAMC.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#9-12) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#11)
+TAMC.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#15-23) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp40) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#18)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#20)
+TAMC.bug_tmstmp33() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#25-27) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#26)
+TAMC.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#30-33) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#32)
+TAMC.bug_tmstmp13() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#44-46) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#45)
+TAMC.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#61-64) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#63)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+TAMC.totalSupply (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#35) is set pre-construction with a non-constant function or state variable:
+	- 1000000000 * (uint256(10) ** decimals)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#function-initializing-state
+
+Pragma version^0.5.12 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#5) allows old versions
+solc-0.5.12 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function TAMC.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#9-12) is not in mixedCase
+Function TAMC.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#15-23) is not in mixedCase
+Function TAMC.bug_tmstmp33() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#25-27) is not in mixedCase
+Function TAMC.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#30-33) is not in mixedCase
+Function TAMC.bug_tmstmp13() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#44-46) is not in mixedCase
+Function TAMC.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#61-64) is not in mixedCase
+Variable TAMC.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#8) is not in mixedCase
+Variable TAMC.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#29) is not in mixedCase
+Variable TAMC.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#37) is not in mixedCase
+Variable TAMC.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#55) is not in mixedCase
+Variable TAMC.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#57) is not in mixedCase
+Variable TAMC.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#60) is not in mixedCase
+Variable TAMC.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#75) is not in mixedCase
+Variable TAMC.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#90) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable TAMC.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#75) is too similar to TAMC.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#90)
+Variable TAMC.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#75) is too similar to TAMC.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#37)
+Variable TAMC.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#75) is too similar to TAMC.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#57)
+Variable TAMC.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#75) is too similar to TAMC.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#55)
+Variable TAMC.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#90) is too similar to TAMC.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#37)
+Variable TAMC.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#90) is too similar to TAMC.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#55)
+Variable TAMC.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#37) is too similar to TAMC.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#55)
+Variable TAMC.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#90) is too similar to TAMC.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#57)
+Variable TAMC.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#37) is too similar to TAMC.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#57)
+Variable TAMC.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#57) is too similar to TAMC.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#55)
+Variable TAMC.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#60) is too similar to TAMC.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#8)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+TAMC.slitherConstructorVariables() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#7-91) uses literals with too many digits:
+	- totalSupply = 1000000000 * (uint256(10) ** decimals) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#35)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+TAMC.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#37) is never used in TAMC (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#7-91)
+TAMC.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#55) is never used in TAMC (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#7-91)
+TAMC.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#57) is never used in TAMC (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#7-91)
+TAMC.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#75) is never used in TAMC (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#7-91)
+TAMC.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#90) is never used in TAMC (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#7-91)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+
+TAMC.decimals (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#34) should be constant
+TAMC.name (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#24) should be constant
+TAMC.symbol (benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol#28) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+benchmarks/SolidiFI/Timestamp-Dependency/buggy_49.sol analyzed (1 contracts with 80 detectors), 50 result(s) found

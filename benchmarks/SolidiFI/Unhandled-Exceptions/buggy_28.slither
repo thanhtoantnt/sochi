@@ -1,0 +1,312 @@
+Compilation warnings/errors on benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol:
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol:61:9: Warning: Return value of low-level calls not used.
+        dst.call.value(msg.value)("");
+        ^---------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol:66:2: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+	msg.sender.send(Balances_unchk17);}
+	^-------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol:80:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk32.send(winAmount_unchk32);
+        ^------------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol:88:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol:96:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk46.send(subpot_unchk46);  //bug
+        ^---------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol:122:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (42 ether); }
+       ^------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol:129:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol:143:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol:152:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk20.send(winAmount_unchk20);
+        ^------------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol:170:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol:177:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol:203:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk8.send(winAmount_unchk8);
+        ^----------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol:224:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (4 ether); }
+       ^-----------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol:232:9: Warning: Return value of low-level calls not used.
+        dst.call.value(msg.value)("");
+        ^---------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol:242:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol:271:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk44.send(winAmount_unchk44);
+        ^------------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol:301:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol:310:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (42 ether); }
+       ^------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol:332:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol:94:23: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                      ^-------------^
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol:94:40: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                                       ^--------------^
+
+
+ERC20Detailed.withdrawBal_unchk17() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#64-66) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(Balances_unchk17) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#66)
+ERC20Detailed.unhandledsend_unchk38(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#87-89) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#88)
+ERC20Detailed.cash_unchk46(uint256,uint256,address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#94-98) sends eth to arbitrary user
+	Dangerous calls:
+	- winner_unchk46.send(subpot_unchk46) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#96)
+HYDROGEN.bug_unchk3(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#121-122) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(42000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#122)
+HYDROGEN.withdrawLeftOver_unchk9() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#127-130) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#129)
+HYDROGEN.unhandledsend_unchk26(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#142-144) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#143)
+HYDROGEN.unhandledsend_unchk14(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#176-178) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#177)
+HYDROGEN.bug_unchk39(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#223-224) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(4000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#224)
+HYDROGEN.withdrawLeftOver_unchk33() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#299-302) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#301)
+HYDROGEN.bug_unchk27(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#309-310) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(42000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#310)
+HYDROGEN.withdrawLeftOver_unchk45() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#330-333) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#332)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+ERC20Detailed.winner_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#75) is never initialized. It is used in:
+	- ERC20Detailed.sendToWinner_unchk32() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#78-82)
+ERC20Detailed.winAmount_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#76) is never initialized. It is used in:
+	- ERC20Detailed.sendToWinner_unchk32() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#78-82)
+HYDROGEN.winner_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#147) is never initialized. It is used in:
+	- HYDROGEN.sendToWinner_unchk20() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#150-154)
+HYDROGEN.winAmount_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#148) is never initialized. It is used in:
+	- HYDROGEN.sendToWinner_unchk20() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#150-154)
+HYDROGEN.winner_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#198) is never initialized. It is used in:
+	- HYDROGEN.sendToWinner_unchk8() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#201-205)
+HYDROGEN.winAmount_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#199) is never initialized. It is used in:
+	- HYDROGEN.sendToWinner_unchk8() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#201-205)
+HYDROGEN.winner_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#266) is never initialized. It is used in:
+	- HYDROGEN.sendToWinner_unchk44() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#269-273)
+HYDROGEN.winAmount_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#267) is never initialized. It is used in:
+	- HYDROGEN.sendToWinner_unchk44() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#269-273)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+
+ERC20Detailed.my_func_uncheck48(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#60-62) ignores return value by dst.call.value(msg.value)() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#61)
+HYDROGEN.my_func_uncheck36(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#231-233) ignores return value by dst.call.value(msg.value)() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#232)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-low-level-calls
+
+ERC20Detailed.withdrawBal_unchk17() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#64-66) ignores return value by msg.sender.send(Balances_unchk17) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#66)
+ERC20Detailed.sendToWinner_unchk32() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#78-82) ignores return value by winner_unchk32.send(winAmount_unchk32) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#80)
+ERC20Detailed.unhandledsend_unchk38(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#87-89) ignores return value by callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#88)
+ERC20Detailed.cash_unchk46(uint256,uint256,address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#94-98) ignores return value by winner_unchk46.send(subpot_unchk46) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#96)
+HYDROGEN.bug_unchk3(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#121-122) ignores return value by addr.send(42000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#122)
+HYDROGEN.withdrawLeftOver_unchk9() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#127-130) ignores return value by msg.sender.send(address(this).balance) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#129)
+HYDROGEN.unhandledsend_unchk26(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#142-144) ignores return value by callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#143)
+HYDROGEN.sendToWinner_unchk20() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#150-154) ignores return value by winner_unchk20.send(winAmount_unchk20) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#152)
+HYDROGEN.my_func_unchk23(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#169-171) ignores return value by dst.send(msg.value) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#170)
+HYDROGEN.unhandledsend_unchk14(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#176-178) ignores return value by callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#177)
+HYDROGEN.sendToWinner_unchk8() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#201-205) ignores return value by winner_unchk8.send(winAmount_unchk8) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#203)
+HYDROGEN.bug_unchk39(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#223-224) ignores return value by addr.send(4000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#224)
+HYDROGEN.my_func_unchk35(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#241-243) ignores return value by dst.send(msg.value) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#242)
+HYDROGEN.sendToWinner_unchk44() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#269-273) ignores return value by winner_unchk44.send(winAmount_unchk44) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#271)
+HYDROGEN.withdrawLeftOver_unchk33() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#299-302) ignores return value by msg.sender.send(address(this).balance) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#301)
+HYDROGEN.bug_unchk27(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#309-310) ignores return value by addr.send(42000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#310)
+HYDROGEN.withdrawLeftOver_unchk45() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#330-333) ignores return value by msg.sender.send(address(this).balance) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#332)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-send
+
+HYDROGEN.bug_unchk7().addr_unchk7 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#161) is a local variable never initialized
+ERC20Detailed.UncheckedExternalCall_unchk4().addr_unchk4 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#104) is a local variable never initialized
+HYDROGEN.bug_unchk30().addr_unchk30 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#185) is a local variable never initialized
+HYDROGEN.bug_unchk31().addr_unchk31 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#316) is a local variable never initialized
+HYDROGEN.bug_unchk30().receivers_unchk30 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#184) is a local variable never initialized
+HYDROGEN.bug_unchk19().addr_unchk19 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#137) is a local variable never initialized
+HYDROGEN.UncheckedExternalCall_unchk40().addr_unchk40 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#282) is a local variable never initialized
+ERC20Detailed.bug_unchk43().addr_unchk43 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#55) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+ERC20Detailed.constructor(string,string,uint8).name (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#69) shadows:
+	- ERC20Detailed.name() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#84-86) (function)
+ERC20Detailed.constructor(string,string,uint8).symbol (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#69) shadows:
+	- ERC20Detailed.symbol() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#91-93) (function)
+ERC20Detailed.constructor(string,string,uint8).decimals (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#69) shadows:
+	- ERC20Detailed.decimals() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#100-102) (function)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#local-variable-shadowing
+
+ERC20Detailed.my_func_uncheck48(address).dst (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#60) lacks a zero-check on :
+		- dst.call.value(msg.value)() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#61)
+ERC20Detailed.unhandledsend_unchk38(address).callee (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#87) lacks a zero-check on :
+		- callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#88)
+ERC20Detailed.cash_unchk46(uint256,uint256,address).winner_unchk46 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#94) lacks a zero-check on :
+		- winner_unchk46.send(subpot_unchk46) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#96)
+HYDROGEN.bug_unchk3(address).addr (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#121) lacks a zero-check on :
+		- addr.send(42000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#122)
+HYDROGEN.unhandledsend_unchk26(address).callee (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#142) lacks a zero-check on :
+		- callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#143)
+HYDROGEN.my_func_unchk23(address).dst (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#169) lacks a zero-check on :
+		- dst.send(msg.value) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#170)
+HYDROGEN.unhandledsend_unchk14(address).callee (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#176) lacks a zero-check on :
+		- callee.send(5000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#177)
+HYDROGEN.bug_unchk39(address).addr (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#223) lacks a zero-check on :
+		- addr.send(4000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#224)
+HYDROGEN.my_func_uncheck36(address).dst (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#231) lacks a zero-check on :
+		- dst.call.value(msg.value)() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#232)
+HYDROGEN.my_func_unchk35(address).dst (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#241) lacks a zero-check on :
+		- dst.send(msg.value) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#242)
+HYDROGEN.bug_unchk27(address).addr (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#309) lacks a zero-check on :
+		- addr.send(42000000000000000000) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#310)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+HYDROGEN.transfer(address,uint256) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#207-222) has costly operations inside a loop:
+	- _totalSupply = _totalSupply.sub(tokensToBurn) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#217)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#costly-operations-inside-a-loop
+
+Pragma version^0.5.0 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#5) allows old versions
+solc-0.5.0 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in ERC20Detailed.my_func_uncheck48(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#60-62):
+	- dst.call.value(msg.value)() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#61)
+Low level call in HYDROGEN.my_func_uncheck36(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#231-233):
+	- dst.call.value(msg.value)() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#232)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Function ERC20Detailed.bug_unchk43() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#54-58) is not in mixedCase
+Function ERC20Detailed.my_func_uncheck48(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#60-62) is not in mixedCase
+Function ERC20Detailed.withdrawBal_unchk17() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#64-66) is not in mixedCase
+Function ERC20Detailed.sendToWinner_unchk32() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#78-82) is not in mixedCase
+Function ERC20Detailed.unhandledsend_unchk38(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#87-89) is not in mixedCase
+Function ERC20Detailed.cash_unchk46(uint256,uint256,address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#94-98) is not in mixedCase
+Parameter ERC20Detailed.cash_unchk46(uint256,uint256,address).winner_unchk46 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#94) is not in mixedCase
+Function ERC20Detailed.UncheckedExternalCall_unchk4() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#103-111) is not in mixedCase
+Variable ERC20Detailed.payedOut_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#74) is not in mixedCase
+Variable ERC20Detailed.winner_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#75) is not in mixedCase
+Variable ERC20Detailed.winAmount_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#76) is not in mixedCase
+Function HYDROGEN.callnotchecked_unchk37(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#117-119) is not in mixedCase
+Function HYDROGEN.bug_unchk3(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#121-122) is not in mixedCase
+Function HYDROGEN.withdrawLeftOver_unchk9() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#127-130) is not in mixedCase
+Function HYDROGEN.callnotchecked_unchk25(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#132-134) is not in mixedCase
+Function HYDROGEN.bug_unchk19() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#136-140) is not in mixedCase
+Function HYDROGEN.unhandledsend_unchk26(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#142-144) is not in mixedCase
+Function HYDROGEN.sendToWinner_unchk20() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#150-154) is not in mixedCase
+Function HYDROGEN.bug_unchk7() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#160-164) is not in mixedCase
+Function HYDROGEN.my_func_unchk23(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#169-171) is not in mixedCase
+Function HYDROGEN.unhandledsend_unchk14(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#176-178) is not in mixedCase
+Function HYDROGEN.bug_unchk30() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#183-190) is not in mixedCase
+Function HYDROGEN.sendToWinner_unchk8() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#201-205) is not in mixedCase
+Function HYDROGEN.bug_unchk39(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#223-224) is not in mixedCase
+Function HYDROGEN.my_func_uncheck36(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#231-233) is not in mixedCase
+Function HYDROGEN.my_func_unchk35(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#241-243) is not in mixedCase
+Function HYDROGEN.sendToWinner_unchk44() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#269-273) is not in mixedCase
+Function HYDROGEN.UncheckedExternalCall_unchk40() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#281-289) is not in mixedCase
+Function HYDROGEN.withdrawLeftOver_unchk33() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#299-302) is not in mixedCase
+Function HYDROGEN.bug_unchk27(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#309-310) is not in mixedCase
+Function HYDROGEN.bug_unchk31() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#315-319) is not in mixedCase
+Function HYDROGEN.withdrawLeftOver_unchk45() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#330-333) is not in mixedCase
+Function HYDROGEN.callnotchecked_unchk13(address) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#340-342) is not in mixedCase
+Variable HYDROGEN.payedOut_unchk9 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#125) is not in mixedCase
+Constant HYDROGEN.tokenName (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#131) is not in UPPER_CASE_WITH_UNDERSCORES
+Constant HYDROGEN.tokenSymbol (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#135) is not in UPPER_CASE_WITH_UNDERSCORES
+Constant HYDROGEN.tokenDecimals (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#141) is not in UPPER_CASE_WITH_UNDERSCORES
+Variable HYDROGEN._totalSupply (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#145) is not in mixedCase
+Variable HYDROGEN.payedOut_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#146) is not in mixedCase
+Variable HYDROGEN.winner_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#147) is not in mixedCase
+Variable HYDROGEN.winAmount_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#148) is not in mixedCase
+Variable HYDROGEN.payedOut_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#197) is not in mixedCase
+Variable HYDROGEN.winner_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#198) is not in mixedCase
+Variable HYDROGEN.winAmount_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#199) is not in mixedCase
+Variable HYDROGEN.payedOut_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#265) is not in mixedCase
+Variable HYDROGEN.winner_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#266) is not in mixedCase
+Variable HYDROGEN.winAmount_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#267) is not in mixedCase
+Variable HYDROGEN.payedOut_unchk33 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#297) is not in mixedCase
+Variable HYDROGEN.payedOut_unchk45 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#328) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in HYDROGEN.sendToWinner_unchk20() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#150-154):
+	External calls:
+	- winner_unchk20.send(winAmount_unchk20) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#152)
+	State variables written after the call(s):
+	- payedOut_unchk20 = true (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#153)
+Reentrancy in ERC20Detailed.sendToWinner_unchk32() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#78-82):
+	External calls:
+	- winner_unchk32.send(winAmount_unchk32) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#80)
+	State variables written after the call(s):
+	- payedOut_unchk32 = true (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#81)
+Reentrancy in HYDROGEN.sendToWinner_unchk44() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#269-273):
+	External calls:
+	- winner_unchk44.send(winAmount_unchk44) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#271)
+	State variables written after the call(s):
+	- payedOut_unchk44 = true (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#272)
+Reentrancy in HYDROGEN.sendToWinner_unchk8() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#201-205):
+	External calls:
+	- winner_unchk8.send(winAmount_unchk8) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#203)
+	State variables written after the call(s):
+	- payedOut_unchk8 = true (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#204)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable HYDROGEN.bug_unchk19().addr_unchk19 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#137) is too similar to HYDROGEN.bug_unchk31().addr_unchk31 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#316)
+Variable HYDROGEN.bug_unchk30().addr_unchk30 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#185) is too similar to HYDROGEN.bug_unchk31().addr_unchk31 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#316)
+Variable HYDROGEN.bug_unchk30().addr_unchk30 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#185) is too similar to HYDROGEN.UncheckedExternalCall_unchk40().addr_unchk40 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#282)
+Variable HYDROGEN.bug_unchk30().addr_unchk30 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#185) is too similar to ERC20Detailed.bug_unchk43().addr_unchk43 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#55)
+Variable HYDROGEN.bug_unchk31().addr_unchk31 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#316) is too similar to ERC20Detailed.bug_unchk43().addr_unchk43 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#55)
+Variable HYDROGEN.UncheckedExternalCall_unchk40().addr_unchk40 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#282) is too similar to ERC20Detailed.bug_unchk43().addr_unchk43 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#55)
+Variable ERC20Detailed.UncheckedExternalCall_unchk4().addr_unchk4 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#104) is too similar to HYDROGEN.bug_unchk7().addr_unchk7 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#161)
+Variable HYDROGEN.payedOut_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#146) is too similar to ERC20Detailed.payedOut_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#74)
+Variable ERC20Detailed.payedOut_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#74) is too similar to HYDROGEN.payedOut_unchk33 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#297)
+Variable HYDROGEN.payedOut_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#265) is too similar to HYDROGEN.payedOut_unchk45 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#328)
+Variable HYDROGEN.payedOut_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#197) is too similar to HYDROGEN.payedOut_unchk9 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#125)
+Variable HYDROGEN.winAmount_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#148) is too similar to ERC20Detailed.winAmount_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#76)
+Variable HYDROGEN.winner_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#147) is too similar to ERC20Detailed.winner_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#75)
+Variable HYDROGEN.winner_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#266) is too similar to ERC20Detailed.cash_unchk46(uint256,uint256,address).winner_unchk46 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#94)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+HYDROGEN.slitherConstructorVariables() (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#114-343) uses literals with too many digits:
+	- _totalSupply = 8000000000 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#145)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+ERC20Detailed.winAmount_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#76) should be constant
+ERC20Detailed.winner_unchk32 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#75) should be constant
+HYDROGEN.basePercent (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#155) should be constant
+HYDROGEN.payedOut_unchk33 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#297) should be constant
+HYDROGEN.payedOut_unchk45 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#328) should be constant
+HYDROGEN.payedOut_unchk9 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#125) should be constant
+HYDROGEN.winAmount_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#148) should be constant
+HYDROGEN.winAmount_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#267) should be constant
+HYDROGEN.winAmount_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#199) should be constant
+HYDROGEN.winner_unchk20 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#147) should be constant
+HYDROGEN.winner_unchk44 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#266) should be constant
+HYDROGEN.winner_unchk8 (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#198) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+multiTransfer(address[],uint256[]) should be declared external:
+	- HYDROGEN.multiTransfer(address[],uint256[]) (benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol#226-230)
+Moreover, the following function parameters should change its data location:
+receivers location should be calldata
+amounts location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+benchmarks/SolidiFI/Unhandled-Exceptions/buggy_28.sol analyzed (4 contracts with 80 detectors), 146 result(s) found

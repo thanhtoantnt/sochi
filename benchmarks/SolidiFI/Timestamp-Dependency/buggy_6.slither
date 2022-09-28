@@ -1,0 +1,262 @@
+
+Ownable.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#99-107) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#105)
+Ownable.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#113-121) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#119)
+Ownable.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#136-144) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#142)
+Ownable.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#193-201) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#199)
+ChannelWallet.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#235-243) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#241)
+ChannelWallet.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#263-271) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#269)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Ownable.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#99-107) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#104)" 
+Ownable.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#113-121) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#118)" 
+Ownable.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#136-144) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#141)" 
+Ownable.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#193-201) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#198)" 
+ChannelWallet.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#235-243) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#240)" 
+ChannelWallet.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#263-271) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#268)" 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG
+
+Ownable.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#99-107) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#104)
+Ownable.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#113-121) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#118)
+ChannelWallet.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#235-243) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#240)
+Ownable.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#136-144) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#141)
+ChannelWallet.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#263-271) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#268)
+Ownable.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#193-201) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#198)
+Ownable.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#173-175) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#174)
+Ownable.play_tmstmp19(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#63-66) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#65)
+Ownable.play_tmstmp2(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#10-12) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#11)
+Ownable.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#161-164) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#163)
+Ownable.play_tmstmp26(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#91-93) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#92)
+ChannelWallet.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#298-301) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#300)
+ChannelWallet.play_tmstmp3(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#218-221) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#220)
+Ownable.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#184-186) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#185)
+Ownable.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#24-27) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#26)
+ChannelWallet.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#250-253) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#252)
+Ownable.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#128-130) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#129)
+Ownable.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#209-212) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#211)
+Ownable.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#151-154) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#153)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+Ownable.bug_tmstmp8().pastBlockTime_tmstmp8 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#194) is a local variable never initialized
+Ownable.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#100) is a local variable never initialized
+Ownable.bug_tmstmp4().pastBlockTime_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#137) is a local variable never initialized
+ChannelWallet.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#236) is a local variable never initialized
+Ownable.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#114) is a local variable never initialized
+ChannelWallet.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#264) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+Ownable.play_tmstmp2(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#10-12) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#11)
+Ownable.bug_tmstmp17() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#14-16) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#15)
+Ownable.bug_tmstmp37() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#18-20) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#19)
+Ownable.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#24-27) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#26)
+Ownable.bug_tmstmp13() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#29-31) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#30)
+Ownable.bug_tmstmp9() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#46-48) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#47)
+Ownable.bug_tmstmp25() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#54-56) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#55)
+Ownable.play_tmstmp19(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#63-66) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#65)
+Ownable.play_tmstmp26(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#91-93) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#92)
+Ownable.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#99-107) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp20) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#102)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#104)
+Ownable.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#113-121) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp32) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#116)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#118)
+Ownable.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#128-130) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#129)
+Ownable.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#136-144) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp4) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#139)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#141)
+Ownable.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#151-154) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#153)
+Ownable.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#161-164) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#163)
+Ownable.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#173-175) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#174)
+Ownable.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#184-186) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#185)
+Ownable.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#193-201) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp8) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#196)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#198)
+Ownable.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#209-212) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#211)
+ChannelWallet.play_tmstmp3(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#218-221) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#220)
+ChannelWallet.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#235-243) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp36) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#238)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#240)
+ChannelWallet.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#250-253) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#252)
+ChannelWallet.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#263-271) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp40) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#266)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#268)
+ChannelWallet.bug_tmstmp33() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#285-287) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#286)
+ChannelWallet.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#298-301) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#300)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+Pragma version^0.5.8 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#5) allows old versions
+solc-0.5.8 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function Ownable.play_tmstmp2(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#10-12) is not in mixedCase
+Function Ownable.bug_tmstmp17() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#14-16) is not in mixedCase
+Function Ownable.bug_tmstmp37() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#18-20) is not in mixedCase
+Function Ownable.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#24-27) is not in mixedCase
+Function Ownable.bug_tmstmp13() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#29-31) is not in mixedCase
+Function Ownable.bug_tmstmp9() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#46-48) is not in mixedCase
+Function Ownable.bug_tmstmp25() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#54-56) is not in mixedCase
+Function Ownable.play_tmstmp19(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#63-66) is not in mixedCase
+Function Ownable.play_tmstmp26(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#91-93) is not in mixedCase
+Function Ownable.bug_tmstmp20() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#99-107) is not in mixedCase
+Function Ownable.bug_tmstmp32() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#113-121) is not in mixedCase
+Function Ownable.play_tmstmp38(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#128-130) is not in mixedCase
+Function Ownable.bug_tmstmp4() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#136-144) is not in mixedCase
+Function Ownable.play_tmstmp7(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#151-154) is not in mixedCase
+Function Ownable.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#161-164) is not in mixedCase
+Function Ownable.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#173-175) is not in mixedCase
+Function Ownable.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#184-186) is not in mixedCase
+Function Ownable.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#193-201) is not in mixedCase
+Function Ownable.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#209-212) is not in mixedCase
+Variable Ownable.winner_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#9) is not in mixedCase
+Variable Ownable.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#23) is not in mixedCase
+Variable Ownable.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#33) is not in mixedCase
+Variable Ownable.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#35) is not in mixedCase
+Variable Ownable.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#62) is not in mixedCase
+Variable Ownable.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#90) is not in mixedCase
+Variable Ownable.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#127) is not in mixedCase
+Variable Ownable.winner_tmstmp7 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#150) is not in mixedCase
+Variable Ownable.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#160) is not in mixedCase
+Variable Ownable.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#172) is not in mixedCase
+Variable Ownable.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#183) is not in mixedCase
+Variable Ownable.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#208) is not in mixedCase
+Function ChannelWallet.play_tmstmp3(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#218-221) is not in mixedCase
+Function ChannelWallet.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#235-243) is not in mixedCase
+Function ChannelWallet.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#250-253) is not in mixedCase
+Parameter ChannelWallet.setAddress(string,address)._address (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#255) is not in mixedCase
+Function ChannelWallet.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#263-271) is not in mixedCase
+Parameter ChannelWallet.updateChannel(string,string,address)._address (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#273) is not in mixedCase
+Function ChannelWallet.bug_tmstmp33() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#285-287) is not in mixedCase
+Function ChannelWallet.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#298-301) is not in mixedCase
+Variable ChannelWallet.winner_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#217) is not in mixedCase
+Variable ChannelWallet.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#224) is not in mixedCase
+Variable ChannelWallet.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#226) is not in mixedCase
+Variable ChannelWallet.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#228) is not in mixedCase
+Variable ChannelWallet.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#249) is not in mixedCase
+Variable ChannelWallet.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#297) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable Ownable.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#35) is too similar to Ownable.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#33)
+Variable Ownable.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#100) is too similar to Ownable.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#114)
+Variable Ownable.bug_tmstmp4().pastBlockTime_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#137) is too similar to Ownable.bug_tmstmp8().pastBlockTime_tmstmp8 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#194)
+Variable Ownable.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#172) is too similar to Ownable.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#62)
+Variable Ownable.winner_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#9) is too similar to Ownable.winner_tmstmp7 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#150)
+Variable Ownable.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#160) is too similar to Ownable.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#90)
+Variable Ownable.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#160) is too similar to Ownable.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#183)
+Variable Ownable.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#160) is too similar to Ownable.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#127)
+Variable Ownable.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#160) is too similar to Ownable.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#208)
+Variable Ownable.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#172) is too similar to Ownable.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#23)
+Variable Ownable.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#62) is too similar to Ownable.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#23)
+Variable Ownable.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#160) is too similar to Ownable.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#23)
+Variable Ownable.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#183) is too similar to Ownable.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#23)
+Variable Ownable.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#23) is too similar to Ownable.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#127)
+Variable Ownable.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#23) is too similar to Ownable.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#208)
+Variable Ownable.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#183) is too similar to Ownable.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#127)
+Variable Ownable.winner_tmstmp19 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#62) is too similar to Ownable.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#208)
+Variable Ownable.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#183) is too similar to Ownable.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#208)
+Variable Ownable.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#127) is too similar to Ownable.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#208)
+Variable Ownable.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#35) is too similar to ChannelWallet.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#226)
+Variable Ownable.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#35) is too similar to ChannelWallet.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#228)
+Variable Ownable.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#35) is too similar to ChannelWallet.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#224)
+Variable ChannelWallet.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#224) is too similar to ChannelWallet.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#226)
+Variable ChannelWallet.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#224) is too similar to ChannelWallet.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#228)
+Variable ChannelWallet.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#224) is too similar to Ownable.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#33)
+Variable ChannelWallet.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#226) is too similar to ChannelWallet.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#228)
+Variable ChannelWallet.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#226) is too similar to Ownable.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#33)
+Variable ChannelWallet.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#228) is too similar to Ownable.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#33)
+Variable Ownable.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#100) is too similar to ChannelWallet.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#236)
+Variable Ownable.bug_tmstmp20().pastBlockTime_tmstmp20 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#100) is too similar to ChannelWallet.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#264)
+Variable Ownable.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#114) is too similar to ChannelWallet.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#236)
+Variable Ownable.bug_tmstmp32().pastBlockTime_tmstmp32 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#114) is too similar to ChannelWallet.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#264)
+Variable ChannelWallet.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#236) is too similar to ChannelWallet.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#264)
+Variable Ownable.winner_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#9) is too similar to ChannelWallet.winner_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#217)
+Variable Ownable.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#160) is too similar to ChannelWallet.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#297)
+Variable Ownable.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#160) is too similar to ChannelWallet.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#249)
+Variable Ownable.winner_tmstmp26 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#90) is too similar to ChannelWallet.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#297)
+Variable ChannelWallet.winner_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#217) is too similar to Ownable.winner_tmstmp7 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#150)
+Variable Ownable.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#23) is too similar to ChannelWallet.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#249)
+Variable Ownable.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#183) is too similar to ChannelWallet.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#249)
+Variable ChannelWallet.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#249) is too similar to Ownable.winner_tmstmp38 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#127)
+Variable ChannelWallet.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#249) is too similar to Ownable.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#208)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+Ownable.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#33) is never used in ChannelWallet (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#215-303)
+Ownable.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#35) is never used in ChannelWallet (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#215-303)
+ChannelWallet.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#224) is never used in ChannelWallet (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#215-303)
+ChannelWallet.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#226) is never used in ChannelWallet (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#215-303)
+ChannelWallet.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#228) is never used in ChannelWallet (benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol#215-303)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+benchmarks/SolidiFI/Timestamp-Dependency/buggy_6.sol analyzed (2 contracts with 80 detectors), 156 result(s) found

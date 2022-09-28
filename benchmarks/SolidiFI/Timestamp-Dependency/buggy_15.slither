@@ -1,0 +1,170 @@
+
+MD.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#30-38) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#36)
+MD.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#48-56) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#54)
+MD.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#112-120) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#118)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+MD.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#30-38) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#35)" 
+MD.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#48-56) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#53)" 
+MD.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#112-120) uses a weak PRNG: "now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#117)" 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG
+
+MD.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#48-56) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#53)
+MD.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#112-120) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#117)
+MD.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#30-38) uses a dangerous strict equality:
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#35)
+MD.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#20-22) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#21)
+MD.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#14-17) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#16)
+MD.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#154-157) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#156)
+MD.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#25-27) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#26)
+MD.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#174-177) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#176)
+MD.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#87-90) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#89)
+MD.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#43-46) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#45)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+MD.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#49) is a local variable never initialized
+MD.bug_tmstmp8().pastBlockTime_tmstmp8 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#31) is a local variable never initialized
+MD.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#113) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+MD.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#14-17) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#16)
+MD.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#20-22) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#21)
+MD.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#25-27) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#26)
+MD.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#30-38) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp8) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#33)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#35)
+MD.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#43-46) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#45)
+MD.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#48-56) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp36) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#51)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#53)
+MD.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#87-90) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#89)
+MD.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#112-120) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp40) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#115)
+	- now % 15 == 0 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#117)
+MD.bug_tmstmp33() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#134-136) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#135)
+MD.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#154-157) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#156)
+MD.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#174-177) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#176)
+MD.bug_tmstmp13() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#197-199) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#198)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+Pragma version^0.5.7 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#5) allows old versions
+solc-0.5.7 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Contract tokenRecipient (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#7-9) is not in CapWords
+Function MD.play_tmstmp23(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#14-17) is not in mixedCase
+Function MD.play_tmstmp14(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#20-22) is not in mixedCase
+Function MD.play_tmstmp30(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#25-27) is not in mixedCase
+Function MD.bug_tmstmp8() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#30-38) is not in mixedCase
+Function MD.play_tmstmp39(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#43-46) is not in mixedCase
+Function MD.bug_tmstmp36() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#48-56) is not in mixedCase
+Function MD.play_tmstmp35(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#87-90) is not in mixedCase
+Function MD.bug_tmstmp40() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#112-120) is not in mixedCase
+Parameter MD.transfer(address,uint256)._to (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#130) is not in mixedCase
+Parameter MD.transfer(address,uint256)._value (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#130) is not in mixedCase
+Function MD.bug_tmstmp33() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#134-136) is not in mixedCase
+Parameter MD.transferFrom(address,address,uint256)._from (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#147) is not in mixedCase
+Parameter MD.transferFrom(address,address,uint256)._to (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#147) is not in mixedCase
+Parameter MD.transferFrom(address,address,uint256)._value (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#147) is not in mixedCase
+Function MD.play_tmstmp27(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#154-157) is not in mixedCase
+Parameter MD.approve(address,uint256)._spender (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#167) is not in mixedCase
+Parameter MD.approve(address,uint256)._value (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#167) is not in mixedCase
+Function MD.play_tmstmp31(uint256) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#174-177) is not in mixedCase
+Parameter MD.approveAndCall(address,uint256,bytes)._spender (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#188) is not in mixedCase
+Parameter MD.approveAndCall(address,uint256,bytes)._value (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#188) is not in mixedCase
+Parameter MD.approveAndCall(address,uint256,bytes)._extraData (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#188) is not in mixedCase
+Function MD.bug_tmstmp13() (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#197-199) is not in mixedCase
+Parameter MD.burn(uint256)._value (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#208) is not in mixedCase
+Parameter MD.burnFrom(address,uint256)._from (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#225) is not in mixedCase
+Parameter MD.burnFrom(address,uint256)._value (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#225) is not in mixedCase
+Variable MD.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#13) is not in mixedCase
+Variable MD.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#19) is not in mixedCase
+Variable MD.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#24) is not in mixedCase
+Variable MD.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#42) is not in mixedCase
+Variable MD.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#60) is not in mixedCase
+Variable MD.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#64) is not in mixedCase
+Variable MD.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#68) is not in mixedCase
+Variable MD.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#86) is not in mixedCase
+Variable MD.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#153) is not in mixedCase
+Variable MD.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#173) is not in mixedCase
+Variable MD.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#215) is not in mixedCase
+Variable MD.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#234) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable MD.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#234) is too similar to MD.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#60)
+Variable MD.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#234) is too similar to MD.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#64)
+Variable MD.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#60) is too similar to MD.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#64)
+Variable MD.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#234) is too similar to MD.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#68)
+Variable MD.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#60) is too similar to MD.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#68)
+Variable MD.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#64) is too similar to MD.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#68)
+Variable MD.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#68) is too similar to MD.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#215)
+Variable MD.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#234) is too similar to MD.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#215)
+Variable MD.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#60) is too similar to MD.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#215)
+Variable MD.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#64) is too similar to MD.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#215)
+Variable MD.bug_tmstmp36().pastBlockTime_tmstmp36 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#49) is too similar to MD.bug_tmstmp40().pastBlockTime_tmstmp40 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#113)
+Variable MD.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#13) is too similar to MD.winner_tmstmp27 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#153)
+Variable MD.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#13) is too similar to MD.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#24)
+Variable MD.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#13) is too similar to MD.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#173)
+Variable MD.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#13) is too similar to MD.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#86)
+Variable MD.winner_tmstmp23 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#13) is too similar to MD.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#42)
+Variable MD.winner_tmstmp14 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#19) is too similar to MD.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#173)
+Variable MD.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#24) is too similar to MD.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#173)
+Variable MD.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#173) is too similar to MD.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#86)
+Variable MD.winner_tmstmp31 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#173) is too similar to MD.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#42)
+Variable MD.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#24) is too similar to MD.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#86)
+Variable MD.winner_tmstmp30 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#24) is too similar to MD.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#42)
+Variable MD.winner_tmstmp35 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#86) is too similar to MD.winner_tmstmp39 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#42)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+MD.bugv_tmstmp2 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#60) is never used in MD (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#11-236)
+MD.bugv_tmstmp3 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#64) is never used in MD (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#11-236)
+MD.bugv_tmstmp4 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#68) is never used in MD (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#11-236)
+MD.bugv_tmstmp5 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#215) is never used in MD (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#11-236)
+MD.bugv_tmstmp1 (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#234) is never used in MD (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#11-236)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+
+MD.decimals (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#28) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+approveAndCall(address,uint256,bytes) should be declared external:
+	- MD.approveAndCall(address,uint256,bytes) (benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol#188-196)
+Moreover, the following function parameters should change its data location:
+_extraData location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+benchmarks/SolidiFI/Timestamp-Dependency/buggy_15.sol analyzed (2 contracts with 80 detectors), 101 result(s) found

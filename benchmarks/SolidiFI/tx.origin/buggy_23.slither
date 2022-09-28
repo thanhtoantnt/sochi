@@ -1,0 +1,319 @@
+Compilation warnings/errors on benchmarks/SolidiFI/tx.origin/buggy_23.sol:
+benchmarks/SolidiFI/tx.origin/buggy_23.sol:185:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin20(address owner_txorigin20) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_23.sol:202:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin32(  address owner_txorigin32) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_23.sol:238:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin4(address owner_txorigin4) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_23.sol:329:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin8(address owner_txorigin8) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_23.sol:368:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin36(  address owner_txorigin36) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_23.sol:419:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin40(address owner_txorigin40) public{
+^ (Relevant source part starts here and spans across multiple lines).
+
+
+ERC20.sendto_txorigin1(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#120-123) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#122)
+ERC20.withdrawAll_txorigin2(address,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#126-129) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#128)
+ERC20.sendto_txorigin17(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#132-135) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#134)
+ERC20.sendto_txorigin25(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#144-147) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#146)
+ERC20.withdrawAll_txorigin26(address,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#171-174) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#173)
+ERC20.withdrawAll_txorigin38(address,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#219-222) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#221)
+ERC20.withdrawAll_txorigin14(address,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#293-296) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#295)
+ERC20.withdrawAll_txorigin30(address,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#311-314) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#313)
+ERC20Detailed.sendto_txorigin37(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#398-401) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#400)
+ERC20Detailed.sendto_txorigin9(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#408-411) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#410)
+ERC20Detailed.sendto_txorigin33(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#429-432) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#431)
+AGR.sendto_txorigin13(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#468-471) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#470)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+ERC20.sendto_txorigin1(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#120-123) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin1) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#121)
+ERC20.withdrawAll_txorigin2(address,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#126-129) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin2) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#127)
+ERC20.sendto_txorigin17(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#132-135) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin17) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#133)
+ERC20.sendto_txorigin25(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#144-147) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin25) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#145)
+ERC20.transferTo_txorigin19(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#157-160) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin19) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#158)
+ERC20.withdrawAll_txorigin26(address,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#171-174) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin26) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#172)
+ERC20.bug_txorigin20(address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#185-187) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin20) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#186)
+ERC20.bug_txorigin32(address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#202-204) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin32) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#203)
+ERC20.withdrawAll_txorigin38(address,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#219-222) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin38) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#220)
+ERC20.bug_txorigin4(address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#238-240) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin4) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#239)
+ERC20.transferTo_txorigin7(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#256-259) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin7) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#257)
+ERC20.transferTo_txorigin23(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#274-277) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin23) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#275)
+ERC20.withdrawAll_txorigin14(address,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#293-296) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin14) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#294)
+ERC20.withdrawAll_txorigin30(address,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#311-314) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin30) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#312)
+ERC20.bug_txorigin8(address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#329-331) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin8) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#330)
+ERC20.transferTo_txorigin39(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#345-348) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin39) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#346)
+ERC20Burnable.bug_txorigin36(address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#368-370) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin36) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#369)
+ERC20Burnable.transferTo_txorigin35(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#380-383) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin35) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#381)
+ERC20Detailed.sendto_txorigin37(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#398-401) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin37) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#399)
+ERC20Detailed.transferTo_txorigin3(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#403-406) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin3) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#404)
+ERC20Detailed.sendto_txorigin9(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#408-411) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin9) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#409)
+ERC20Detailed.bug_txorigin40(address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#419-421) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin40) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#420)
+ERC20Detailed.sendto_txorigin33(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#429-432) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin33) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#430)
+ERC20Detailed.transferTo_txorigin27(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#440-443) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin27) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#441)
+ERC20Detailed.transferTo_txorigin31(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#451-454) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin31) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#452)
+AGR.sendto_txorigin13(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#468-471) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin13) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#469)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-usage-of-txorigin
+
+ERC20Detailed.constructor(string,string,uint8).name (benchmarks/SolidiFI/tx.origin/buggy_23.sol#414) shadows:
+	- ERC20Detailed.name() (benchmarks/SolidiFI/tx.origin/buggy_23.sol#426-428) (function)
+ERC20Detailed.constructor(string,string,uint8).symbol (benchmarks/SolidiFI/tx.origin/buggy_23.sol#414) shadows:
+	- ERC20Detailed.symbol() (benchmarks/SolidiFI/tx.origin/buggy_23.sol#437-439) (function)
+ERC20Detailed.constructor(string,string,uint8).decimals (benchmarks/SolidiFI/tx.origin/buggy_23.sol#414) shadows:
+	- ERC20Detailed.decimals() (benchmarks/SolidiFI/tx.origin/buggy_23.sol#448-450) (function)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#local-variable-shadowing
+
+ERC20.sendto_txorigin1(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_23.sol#120) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#122)
+ERC20.withdrawAll_txorigin2(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_23.sol#126) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#128)
+ERC20.sendto_txorigin17(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_23.sol#132) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#134)
+ERC20.sendto_txorigin25(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_23.sol#144) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#146)
+ERC20.withdrawAll_txorigin26(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_23.sol#171) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#173)
+ERC20.withdrawAll_txorigin38(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_23.sol#219) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#221)
+ERC20.withdrawAll_txorigin14(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_23.sol#293) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#295)
+ERC20.withdrawAll_txorigin30(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_23.sol#311) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#313)
+ERC20Detailed.sendto_txorigin37(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_23.sol#398) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#400)
+ERC20Detailed.sendto_txorigin9(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_23.sol#408) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#410)
+ERC20Detailed.sendto_txorigin33(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_23.sol#429) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#431)
+AGR.sendto_txorigin13(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_23.sol#468) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#470)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Different versions of Solidity are used:
+	- Version used: ['^0.5.0', '^0.5.2']
+	- ^0.5.2 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#7)
+	- ^0.5.2 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#33)
+	- ^0.5.2 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#101)
+	- ^0.5.2 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#353)
+	- ^0.5.2 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#388)
+	- ^0.5.0 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#459)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#different-pragma-directives-are-used
+
+SafeMath.div(uint256,uint256) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#60-67) is never used and should be removed
+SafeMath.mod(uint256,uint256) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#93-96) is never used and should be removed
+SafeMath.mul(uint256,uint256) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#43-55) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.5.2 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#7) allows old versions
+Pragma version^0.5.2 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#33) allows old versions
+Pragma version^0.5.2 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#101) allows old versions
+Pragma version^0.5.2 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#353) allows old versions
+Pragma version^0.5.2 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#388) allows old versions
+Pragma version^0.5.0 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#459) allows old versions
+solc-0.5.2 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function ERC20.sendto_txorigin1(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#120-123) is not in mixedCase
+Parameter ERC20.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#120) is not in mixedCase
+Function ERC20.withdrawAll_txorigin2(address,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#126-129) is not in mixedCase
+Parameter ERC20.withdrawAll_txorigin2(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_23.sol#126) is not in mixedCase
+Parameter ERC20.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#126) is not in mixedCase
+Function ERC20.sendto_txorigin17(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#132-135) is not in mixedCase
+Parameter ERC20.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#132) is not in mixedCase
+Function ERC20.sendto_txorigin25(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#144-147) is not in mixedCase
+Parameter ERC20.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#144) is not in mixedCase
+Function ERC20.transferTo_txorigin19(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#157-160) is not in mixedCase
+Parameter ERC20.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#157) is not in mixedCase
+Function ERC20.withdrawAll_txorigin26(address,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#171-174) is not in mixedCase
+Parameter ERC20.withdrawAll_txorigin26(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_23.sol#171) is not in mixedCase
+Parameter ERC20.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#171) is not in mixedCase
+Function ERC20.bug_txorigin20(address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#185-187) is not in mixedCase
+Parameter ERC20.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#185) is not in mixedCase
+Function ERC20.bug_txorigin32(address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#202-204) is not in mixedCase
+Parameter ERC20.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#202) is not in mixedCase
+Function ERC20.withdrawAll_txorigin38(address,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#219-222) is not in mixedCase
+Parameter ERC20.withdrawAll_txorigin38(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_23.sol#219) is not in mixedCase
+Parameter ERC20.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#219) is not in mixedCase
+Function ERC20.bug_txorigin4(address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#238-240) is not in mixedCase
+Parameter ERC20.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#238) is not in mixedCase
+Function ERC20.transferTo_txorigin7(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#256-259) is not in mixedCase
+Parameter ERC20.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#256) is not in mixedCase
+Function ERC20.transferTo_txorigin23(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#274-277) is not in mixedCase
+Parameter ERC20.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#274) is not in mixedCase
+Function ERC20.withdrawAll_txorigin14(address,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#293-296) is not in mixedCase
+Parameter ERC20.withdrawAll_txorigin14(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_23.sol#293) is not in mixedCase
+Parameter ERC20.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#293) is not in mixedCase
+Function ERC20.withdrawAll_txorigin30(address,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#311-314) is not in mixedCase
+Parameter ERC20.withdrawAll_txorigin30(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_23.sol#311) is not in mixedCase
+Parameter ERC20.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#311) is not in mixedCase
+Function ERC20.bug_txorigin8(address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#329-331) is not in mixedCase
+Parameter ERC20.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#329) is not in mixedCase
+Function ERC20.transferTo_txorigin39(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#345-348) is not in mixedCase
+Parameter ERC20.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#345) is not in mixedCase
+Function ERC20Burnable.bug_txorigin36(address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#368-370) is not in mixedCase
+Parameter ERC20Burnable.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#368) is not in mixedCase
+Function ERC20Burnable.transferTo_txorigin35(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#380-383) is not in mixedCase
+Parameter ERC20Burnable.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#380) is not in mixedCase
+Function ERC20Detailed.sendto_txorigin37(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#398-401) is not in mixedCase
+Parameter ERC20Detailed.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#398) is not in mixedCase
+Function ERC20Detailed.transferTo_txorigin3(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#403-406) is not in mixedCase
+Parameter ERC20Detailed.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#403) is not in mixedCase
+Function ERC20Detailed.sendto_txorigin9(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#408-411) is not in mixedCase
+Parameter ERC20Detailed.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#408) is not in mixedCase
+Function ERC20Detailed.bug_txorigin40(address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#419-421) is not in mixedCase
+Parameter ERC20Detailed.bug_txorigin40(address).owner_txorigin40 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#419) is not in mixedCase
+Function ERC20Detailed.sendto_txorigin33(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#429-432) is not in mixedCase
+Parameter ERC20Detailed.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#429) is not in mixedCase
+Function ERC20Detailed.transferTo_txorigin27(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#440-443) is not in mixedCase
+Parameter ERC20Detailed.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#440) is not in mixedCase
+Function ERC20Detailed.transferTo_txorigin31(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#451-454) is not in mixedCase
+Parameter ERC20Detailed.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#451) is not in mixedCase
+Function AGR.sendto_txorigin13(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#468-471) is not in mixedCase
+Parameter AGR.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#468) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable ERC20.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#293) is too similar to ERC20.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#132)
+Variable ERC20.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#132) is too similar to ERC20.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#157)
+Variable ERC20.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#293) is too similar to ERC20.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#157)
+Variable ERC20.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#120) is too similar to ERC20.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#126)
+Variable ERC20.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#126) is too similar to ERC20.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#238)
+Variable ERC20.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#126) is too similar to ERC20.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#256)
+Variable ERC20.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#126) is too similar to ERC20.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#329)
+Variable ERC20.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#185) is too similar to ERC20.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#311)
+Variable ERC20.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#185) is too similar to ERC20.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#202)
+Variable ERC20.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#185) is too similar to ERC20.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#274)
+Variable ERC20.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#274) is too similar to ERC20.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#311)
+Variable ERC20.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#274) is too similar to ERC20.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#202)
+Variable ERC20.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#185) is too similar to ERC20.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#144)
+Variable ERC20.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#274) is too similar to ERC20.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#144)
+Variable ERC20.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#144) is too similar to ERC20.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#171)
+Variable ERC20.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#144) is too similar to ERC20.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#202)
+Variable ERC20.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#185) is too similar to ERC20.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#171)
+Variable ERC20.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#274) is too similar to ERC20.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#171)
+Variable ERC20.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#171) is too similar to ERC20.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#202)
+Variable ERC20.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#311) is too similar to ERC20.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#202)
+Variable ERC20.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#274) is too similar to ERC20.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#219)
+Variable ERC20.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#311) is too similar to ERC20.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#219)
+Variable ERC20.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#202) is too similar to ERC20.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#219)
+Variable ERC20.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#219) is too similar to ERC20.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#345)
+Variable ERC20.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#157) is too similar to ERC20.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#345)
+Variable ERC20.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#274) is too similar to ERC20.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#345)
+Variable ERC20.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#311) is too similar to ERC20.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#345)
+Variable ERC20.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#202) is too similar to ERC20.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#345)
+Variable ERC20.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#120) is too similar to ERC20.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#238)
+Variable ERC20.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#238) is too similar to ERC20.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#256)
+Variable ERC20.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#120) is too similar to ERC20.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#256)
+Variable ERC20.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#120) is too similar to ERC20.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#329)
+Variable ERC20.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#238) is too similar to ERC20.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#329)
+Variable ERC20.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#256) is too similar to ERC20.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#329)
+Variable ERC20.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#274) is too similar to ERC20Burnable.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#380)
+Variable ERC20.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#144) is too similar to ERC20Burnable.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#380)
+Variable ERC20.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#311) is too similar to ERC20Burnable.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#380)
+Variable ERC20.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#202) is too similar to ERC20Burnable.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#380)
+Variable ERC20.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#274) is too similar to ERC20Burnable.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#368)
+Variable ERC20.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#171) is too similar to ERC20Burnable.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#368)
+Variable ERC20.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#311) is too similar to ERC20Burnable.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#368)
+Variable ERC20.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#202) is too similar to ERC20Burnable.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#368)
+Variable ERC20Burnable.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#380) is too similar to ERC20Burnable.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#368)
+Variable ERC20Burnable.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#368) is too similar to ERC20.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#219)
+Variable ERC20Burnable.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#368) is too similar to ERC20.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#345)
+Variable ERC20Burnable.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#380) is too similar to ERC20.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#219)
+Variable ERC20Burnable.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#380) is too similar to ERC20.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#345)
+Variable ERC20Detailed.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#451) is too similar to ERC20Detailed.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#429)
+Variable ERC20Detailed.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#429) is too similar to ERC20Detailed.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#398)
+Variable ERC20Detailed.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#440) is too similar to ERC20Detailed.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#398)
+Variable ERC20Detailed.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#451) is too similar to ERC20Detailed.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#398)
+Variable ERC20Detailed.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#403) is too similar to ERC20Detailed.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#408)
+Variable ERC20.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#120) is too similar to ERC20Detailed.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#403)
+Variable ERC20.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#120) is too similar to ERC20Detailed.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#408)
+Variable AGR.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#468) is too similar to ERC20.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#132)
+Variable AGR.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#468) is too similar to ERC20.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#157)
+Variable AGR.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#468) is too similar to ERC20.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#274)
+Variable AGR.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#468) is too similar to ERC20.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#311)
+Variable AGR.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#468) is too similar to ERC20.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#202)
+Variable AGR.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#468) is too similar to ERC20Detailed.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#429)
+Variable AGR.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#468) is too similar to ERC20Burnable.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#380)
+Variable AGR.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#468) is too similar to ERC20Burnable.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#368)
+Variable AGR.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#468) is too similar to ERC20Detailed.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#398)
+Variable AGR.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#468) is too similar to ERC20.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#219)
+Variable AGR.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#468) is too similar to ERC20.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#345)
+Variable AGR.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#468) is too similar to ERC20.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#293)
+Variable ERC20.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#293) is too similar to ERC20Detailed.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#451)
+Variable ERC20.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#293) is too similar to ERC20Detailed.bug_txorigin40(address).owner_txorigin40 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#419)
+Variable ERC20.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#132) is too similar to ERC20Detailed.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#440)
+Variable ERC20.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#132) is too similar to ERC20Detailed.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#398)
+Variable ERC20.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#126) is too similar to ERC20Detailed.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#408)
+Variable ERC20.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#185) is too similar to ERC20Detailed.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#440)
+Variable ERC20.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#185) is too similar to ERC20Detailed.bug_txorigin40(address).owner_txorigin40 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#419)
+Variable ERC20.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#274) is too similar to ERC20Detailed.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#440)
+Variable ERC20.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#274) is too similar to ERC20Detailed.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#398)
+Variable ERC20.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#144) is too similar to ERC20Detailed.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#440)
+Variable ERC20.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#171) is too similar to ERC20Detailed.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#440)
+Variable ERC20.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#126) is too similar to ERC20Detailed.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#403)
+Variable ERC20Detailed.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#403) is too similar to ERC20.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#238)
+Variable ERC20Detailed.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#403) is too similar to ERC20.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#256)
+Variable ERC20Detailed.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#403) is too similar to ERC20.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#329)
+Variable ERC20.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#311) is too similar to ERC20Detailed.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#429)
+Variable ERC20.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#311) is too similar to ERC20Detailed.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#398)
+Variable ERC20.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#311) is too similar to ERC20Detailed.bug_txorigin40(address).owner_txorigin40 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#419)
+Variable AGR.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#468) is too similar to ERC20Detailed.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#451)
+Variable ERC20.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#132) is too similar to ERC20Detailed.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#451)
+Variable ERC20.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#157) is too similar to ERC20Detailed.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#451)
+Variable ERC20.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#274) is too similar to ERC20Detailed.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#451)
+Variable ERC20.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#311) is too similar to ERC20Detailed.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#451)
+Variable ERC20Detailed.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#451) is too similar to ERC20.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#202)
+Variable ERC20Detailed.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#451) is too similar to ERC20Burnable.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#380)
+Variable ERC20Detailed.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#451) is too similar to ERC20Burnable.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#368)
+Variable ERC20Detailed.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#451) is too similar to ERC20.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#219)
+Variable ERC20Detailed.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#451) is too similar to ERC20.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#345)
+Variable ERC20Detailed.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#440) is too similar to ERC20.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#202)
+Variable ERC20.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#202) is too similar to ERC20Detailed.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#429)
+Variable ERC20.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#202) is too similar to ERC20Detailed.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#398)
+Variable ERC20.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#274) is too similar to ERC20Detailed.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#429)
+Variable ERC20Detailed.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#429) is too similar to ERC20Burnable.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#380)
+Variable ERC20Detailed.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#429) is too similar to ERC20.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#219)
+Variable ERC20Detailed.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#429) is too similar to ERC20.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#345)
+Variable ERC20Burnable.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#380) is too similar to ERC20Detailed.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#398)
+Variable ERC20Detailed.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#429) is too similar to ERC20Burnable.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#368)
+Variable ERC20Burnable.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#368) is too similar to ERC20Detailed.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#398)
+Variable ERC20Detailed.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#398) is too similar to ERC20.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#219)
+Variable ERC20Detailed.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#398) is too similar to ERC20.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#345)
+Variable ERC20.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#238) is too similar to ERC20Detailed.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#408)
+Variable ERC20.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#256) is too similar to ERC20Detailed.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#408)
+Variable ERC20.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#329) is too similar to ERC20Detailed.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_23.sol#408)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+AGR.constructor() (benchmarks/SolidiFI/tx.origin/buggy_23.sol#465-467) uses literals with too many digits:
+	- super._mint(msg.sender,30000000000000) (benchmarks/SolidiFI/tx.origin/buggy_23.sol#466)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+benchmarks/SolidiFI/tx.origin/buggy_23.sol analyzed (6 contracts with 80 detectors), 231 result(s) found

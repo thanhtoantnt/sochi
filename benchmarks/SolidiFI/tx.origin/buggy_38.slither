@@ -1,0 +1,359 @@
+Compilation warnings/errors on benchmarks/SolidiFI/tx.origin/buggy_38.sol:
+benchmarks/SolidiFI/tx.origin/buggy_38.sol:59:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin12(address owner_txorigin12) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_38.sol:90:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin20(address owner_txorigin20) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_38.sol:97:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin32(  address owner_txorigin32) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_38.sol:153:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin4(address owner_txorigin4) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_38.sol:209:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin8(address owner_txorigin8) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_38.sol:244:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin36(  address owner_txorigin36) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_38.sol:265:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin40(address owner_txorigin40) public{
+^ (Relevant source part starts here and spans across multiple lines).
+
+
+ERC20Detailed.withdrawAll_txorigin22(address,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#54-57) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#56)
+ERC20Detailed.withdrawAll_txorigin26(address,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#82-85) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#84)
+BIGBOMBv2.sendto_txorigin1(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#105-108) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#107)
+BIGBOMBv2.withdrawAll_txorigin2(address,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#110-113) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#112)
+BIGBOMBv2.sendto_txorigin17(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#116-119) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#118)
+BIGBOMBv2.sendto_txorigin37(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#121-124) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#123)
+BIGBOMBv2.sendto_txorigin9(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#131-134) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#133)
+BIGBOMBv2.sendto_txorigin25(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#136-139) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#138)
+BIGBOMBv2.withdrawAll_txorigin38(address,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#145-148) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#147)
+BIGBOMBv2.withdrawAll_txorigin14(address,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#178-181) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#180)
+BIGBOMBv2.withdrawAll_txorigin30(address,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#199-202) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#201)
+BIGBOMBv2.sendto_txorigin33(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#274-277) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#276)
+BIGBOMBv2.sendto_txorigin13(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#304-307) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#306)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+ERC20Detailed.withdrawAll_txorigin22(address,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#54-57) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin22) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#55)
+ERC20Detailed.bug_txorigin12(address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#59-61) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin12) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#60)
+ERC20Detailed.transferTo_txorigin11(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#63-66) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin11) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#64)
+ERC20Detailed.transferTo_txorigin19(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#74-77) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin19) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#75)
+ERC20Detailed.withdrawAll_txorigin26(address,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#82-85) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin26) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#83)
+ERC20Detailed.bug_txorigin20(address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#90-92) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin20) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#91)
+ERC20Detailed.bug_txorigin32(address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#97-99) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin32) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#98)
+BIGBOMBv2.sendto_txorigin1(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#105-108) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin1) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#106)
+BIGBOMBv2.withdrawAll_txorigin2(address,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#110-113) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin2) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#111)
+BIGBOMBv2.sendto_txorigin17(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#116-119) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin17) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#117)
+BIGBOMBv2.sendto_txorigin37(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#121-124) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin37) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#122)
+BIGBOMBv2.transferTo_txorigin3(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#126-129) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin3) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#127)
+BIGBOMBv2.sendto_txorigin9(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#131-134) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin9) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#132)
+BIGBOMBv2.sendto_txorigin25(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#136-139) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin25) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#137)
+BIGBOMBv2.withdrawAll_txorigin38(address,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#145-148) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin38) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#146)
+BIGBOMBv2.bug_txorigin4(address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#153-155) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin4) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#154)
+BIGBOMBv2.transferTo_txorigin7(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#160-163) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin7) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#161)
+BIGBOMBv2.transferTo_txorigin23(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#168-171) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin23) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#169)
+BIGBOMBv2.withdrawAll_txorigin14(address,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#178-181) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin14) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#179)
+BIGBOMBv2.withdrawAll_txorigin30(address,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#199-202) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin30) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#200)
+BIGBOMBv2.bug_txorigin8(address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#209-211) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin8) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#210)
+BIGBOMBv2.transferTo_txorigin39(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#219-222) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin39) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#220)
+BIGBOMBv2.bug_txorigin36(address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#244-246) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin36) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#245)
+BIGBOMBv2.transferTo_txorigin35(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#254-257) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin35) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#255)
+BIGBOMBv2.bug_txorigin40(address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#265-267) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin40) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#266)
+BIGBOMBv2.sendto_txorigin33(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#274-277) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin33) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#275)
+BIGBOMBv2.transferTo_txorigin27(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#282-285) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin27) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#283)
+BIGBOMBv2.transferTo_txorigin31(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#294-297) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin31) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#295)
+BIGBOMBv2.sendto_txorigin13(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#304-307) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin13) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#305)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-usage-of-txorigin
+
+ERC20Detailed.constructor(string,string,uint8).name (benchmarks/SolidiFI/tx.origin/buggy_38.sol#69) shadows:
+	- ERC20Detailed.name() (benchmarks/SolidiFI/tx.origin/buggy_38.sol#79-81) (function)
+ERC20Detailed.constructor(string,string,uint8).symbol (benchmarks/SolidiFI/tx.origin/buggy_38.sol#69) shadows:
+	- ERC20Detailed.symbol() (benchmarks/SolidiFI/tx.origin/buggy_38.sol#87-89) (function)
+ERC20Detailed.constructor(string,string,uint8).decimals (benchmarks/SolidiFI/tx.origin/buggy_38.sol#69) shadows:
+	- ERC20Detailed.decimals() (benchmarks/SolidiFI/tx.origin/buggy_38.sol#94-96) (function)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#local-variable-shadowing
+
+ERC20Detailed.withdrawAll_txorigin22(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_38.sol#54) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#56)
+ERC20Detailed.withdrawAll_txorigin26(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_38.sol#82) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#84)
+BIGBOMBv2.sendto_txorigin1(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_38.sol#105) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#107)
+BIGBOMBv2.withdrawAll_txorigin2(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_38.sol#110) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#112)
+BIGBOMBv2.sendto_txorigin17(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_38.sol#116) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#118)
+BIGBOMBv2.sendto_txorigin37(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_38.sol#121) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#123)
+BIGBOMBv2.sendto_txorigin9(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_38.sol#131) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#133)
+BIGBOMBv2.sendto_txorigin25(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_38.sol#136) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#138)
+BIGBOMBv2.withdrawAll_txorigin38(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_38.sol#145) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#147)
+BIGBOMBv2.withdrawAll_txorigin14(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_38.sol#178) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#180)
+BIGBOMBv2.withdrawAll_txorigin30(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_38.sol#199) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#201)
+BIGBOMBv2.sendto_txorigin33(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_38.sol#274) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#276)
+BIGBOMBv2.sendto_txorigin13(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_38.sol#304) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#306)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+BIGBOMBv2.transfer(address,uint256) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#183-198) has costly operations inside a loop:
+	- _totalSupply = _totalSupply.sub(tokensToBurn) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#193)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#costly-operations-inside-a-loop
+
+Pragma version^0.5.0 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#5) allows old versions
+solc-0.5.0 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function ERC20Detailed.withdrawAll_txorigin22(address,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#54-57) is not in mixedCase
+Parameter ERC20Detailed.withdrawAll_txorigin22(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_38.sol#54) is not in mixedCase
+Parameter ERC20Detailed.withdrawAll_txorigin22(address,address).owner_txorigin22 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#54) is not in mixedCase
+Function ERC20Detailed.bug_txorigin12(address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#59-61) is not in mixedCase
+Parameter ERC20Detailed.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#59) is not in mixedCase
+Function ERC20Detailed.transferTo_txorigin11(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#63-66) is not in mixedCase
+Parameter ERC20Detailed.transferTo_txorigin11(address,uint256,address).owner_txorigin11 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#63) is not in mixedCase
+Function ERC20Detailed.transferTo_txorigin19(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#74-77) is not in mixedCase
+Parameter ERC20Detailed.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#74) is not in mixedCase
+Function ERC20Detailed.withdrawAll_txorigin26(address,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#82-85) is not in mixedCase
+Parameter ERC20Detailed.withdrawAll_txorigin26(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_38.sol#82) is not in mixedCase
+Parameter ERC20Detailed.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#82) is not in mixedCase
+Function ERC20Detailed.bug_txorigin20(address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#90-92) is not in mixedCase
+Parameter ERC20Detailed.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#90) is not in mixedCase
+Function ERC20Detailed.bug_txorigin32(address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#97-99) is not in mixedCase
+Parameter ERC20Detailed.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#97) is not in mixedCase
+Function BIGBOMBv2.sendto_txorigin1(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#105-108) is not in mixedCase
+Parameter BIGBOMBv2.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#105) is not in mixedCase
+Function BIGBOMBv2.withdrawAll_txorigin2(address,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#110-113) is not in mixedCase
+Parameter BIGBOMBv2.withdrawAll_txorigin2(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_38.sol#110) is not in mixedCase
+Parameter BIGBOMBv2.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#110) is not in mixedCase
+Function BIGBOMBv2.sendto_txorigin17(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#116-119) is not in mixedCase
+Parameter BIGBOMBv2.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#116) is not in mixedCase
+Function BIGBOMBv2.sendto_txorigin37(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#121-124) is not in mixedCase
+Parameter BIGBOMBv2.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#121) is not in mixedCase
+Function BIGBOMBv2.transferTo_txorigin3(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#126-129) is not in mixedCase
+Parameter BIGBOMBv2.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#126) is not in mixedCase
+Function BIGBOMBv2.sendto_txorigin9(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#131-134) is not in mixedCase
+Parameter BIGBOMBv2.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#131) is not in mixedCase
+Function BIGBOMBv2.sendto_txorigin25(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#136-139) is not in mixedCase
+Parameter BIGBOMBv2.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#136) is not in mixedCase
+Function BIGBOMBv2.withdrawAll_txorigin38(address,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#145-148) is not in mixedCase
+Parameter BIGBOMBv2.withdrawAll_txorigin38(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_38.sol#145) is not in mixedCase
+Parameter BIGBOMBv2.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#145) is not in mixedCase
+Function BIGBOMBv2.bug_txorigin4(address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#153-155) is not in mixedCase
+Parameter BIGBOMBv2.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#153) is not in mixedCase
+Function BIGBOMBv2.transferTo_txorigin7(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#160-163) is not in mixedCase
+Parameter BIGBOMBv2.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#160) is not in mixedCase
+Function BIGBOMBv2.transferTo_txorigin23(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#168-171) is not in mixedCase
+Parameter BIGBOMBv2.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#168) is not in mixedCase
+Function BIGBOMBv2.withdrawAll_txorigin14(address,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#178-181) is not in mixedCase
+Parameter BIGBOMBv2.withdrawAll_txorigin14(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_38.sol#178) is not in mixedCase
+Parameter BIGBOMBv2.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#178) is not in mixedCase
+Function BIGBOMBv2.withdrawAll_txorigin30(address,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#199-202) is not in mixedCase
+Parameter BIGBOMBv2.withdrawAll_txorigin30(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_38.sol#199) is not in mixedCase
+Parameter BIGBOMBv2.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#199) is not in mixedCase
+Function BIGBOMBv2.bug_txorigin8(address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#209-211) is not in mixedCase
+Parameter BIGBOMBv2.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#209) is not in mixedCase
+Function BIGBOMBv2.transferTo_txorigin39(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#219-222) is not in mixedCase
+Parameter BIGBOMBv2.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#219) is not in mixedCase
+Function BIGBOMBv2.bug_txorigin36(address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#244-246) is not in mixedCase
+Parameter BIGBOMBv2.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#244) is not in mixedCase
+Function BIGBOMBv2.transferTo_txorigin35(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#254-257) is not in mixedCase
+Parameter BIGBOMBv2.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#254) is not in mixedCase
+Function BIGBOMBv2.bug_txorigin40(address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#265-267) is not in mixedCase
+Parameter BIGBOMBv2.bug_txorigin40(address).owner_txorigin40 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#265) is not in mixedCase
+Function BIGBOMBv2.sendto_txorigin33(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#274-277) is not in mixedCase
+Parameter BIGBOMBv2.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#274) is not in mixedCase
+Function BIGBOMBv2.transferTo_txorigin27(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#282-285) is not in mixedCase
+Parameter BIGBOMBv2.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#282) is not in mixedCase
+Function BIGBOMBv2.transferTo_txorigin31(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#294-297) is not in mixedCase
+Parameter BIGBOMBv2.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#294) is not in mixedCase
+Function BIGBOMBv2.sendto_txorigin13(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#304-307) is not in mixedCase
+Parameter BIGBOMBv2.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#304) is not in mixedCase
+Constant BIGBOMBv2.tokenName (benchmarks/SolidiFI/tx.origin/buggy_38.sol#120) is not in UPPER_CASE_WITH_UNDERSCORES
+Constant BIGBOMBv2.tokenSymbol (benchmarks/SolidiFI/tx.origin/buggy_38.sol#125) is not in UPPER_CASE_WITH_UNDERSCORES
+Constant BIGBOMBv2.tokenDecimals (benchmarks/SolidiFI/tx.origin/buggy_38.sol#130) is not in UPPER_CASE_WITH_UNDERSCORES
+Variable BIGBOMBv2._totalSupply (benchmarks/SolidiFI/tx.origin/buggy_38.sol#135) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable ERC20Detailed.transferTo_txorigin11(address,uint256,address).owner_txorigin11 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#63) is too similar to ERC20Detailed.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#59)
+Variable ERC20Detailed.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#59) is too similar to ERC20Detailed.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#74)
+Variable ERC20Detailed.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#59) is too similar to ERC20Detailed.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#97)
+Variable ERC20Detailed.transferTo_txorigin11(address,uint256,address).owner_txorigin11 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#63) is too similar to ERC20Detailed.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#74)
+Variable ERC20Detailed.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#59) is too similar to ERC20Detailed.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#90)
+Variable ERC20Detailed.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#90) is too similar to ERC20Detailed.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#97)
+Variable ERC20Detailed.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#59) is too similar to ERC20Detailed.withdrawAll_txorigin22(address,address).owner_txorigin22 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#54)
+Variable ERC20Detailed.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#90) is too similar to ERC20Detailed.withdrawAll_txorigin22(address,address).owner_txorigin22 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#54)
+Variable ERC20Detailed.withdrawAll_txorigin22(address,address).owner_txorigin22 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#54) is too similar to ERC20Detailed.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#97)
+Variable ERC20Detailed.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#59) is too similar to ERC20Detailed.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#82)
+Variable ERC20Detailed.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#90) is too similar to ERC20Detailed.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#82)
+Variable ERC20Detailed.withdrawAll_txorigin22(address,address).owner_txorigin22 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#54) is too similar to ERC20Detailed.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#82)
+Variable ERC20Detailed.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#82) is too similar to ERC20Detailed.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#97)
+Variable BIGBOMBv2.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#105) is too similar to BIGBOMBv2.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#110)
+Variable BIGBOMBv2.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#105) is too similar to BIGBOMBv2.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#126)
+Variable BIGBOMBv2.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#105) is too similar to BIGBOMBv2.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#153)
+Variable BIGBOMBv2.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#105) is too similar to BIGBOMBv2.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#209)
+Variable BIGBOMBv2.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#105) is too similar to BIGBOMBv2.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#131)
+Variable ERC20Detailed.transferTo_txorigin11(address,uint256,address).owner_txorigin11 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#63) is too similar to BIGBOMBv2.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#178)
+Variable ERC20Detailed.transferTo_txorigin11(address,uint256,address).owner_txorigin11 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#63) is too similar to BIGBOMBv2.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#116)
+Variable ERC20Detailed.transferTo_txorigin11(address,uint256,address).owner_txorigin11 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#63) is too similar to BIGBOMBv2.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#294)
+Variable ERC20Detailed.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#59) is too similar to BIGBOMBv2.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#178)
+Variable ERC20Detailed.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#59) is too similar to BIGBOMBv2.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#116)
+Variable ERC20Detailed.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#59) is too similar to BIGBOMBv2.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#168)
+Variable ERC20Detailed.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#59) is too similar to BIGBOMBv2.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#136)
+Variable ERC20Detailed.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#59) is too similar to BIGBOMBv2.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#282)
+Variable ERC20Detailed.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#59) is too similar to BIGBOMBv2.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#294)
+Variable ERC20Detailed.transferTo_txorigin11(address,uint256,address).owner_txorigin11 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#63) is too similar to BIGBOMBv2.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#304)
+Variable ERC20Detailed.bug_txorigin12(address).owner_txorigin12 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#59) is too similar to BIGBOMBv2.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#304)
+Variable BIGBOMBv2.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#304) is too similar to BIGBOMBv2.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#178)
+Variable BIGBOMBv2.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#304) is too similar to BIGBOMBv2.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#116)
+Variable BIGBOMBv2.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#304) is too similar to ERC20Detailed.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#74)
+Variable BIGBOMBv2.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#304) is too similar to BIGBOMBv2.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#168)
+Variable BIGBOMBv2.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#304) is too similar to BIGBOMBv2.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#199)
+Variable BIGBOMBv2.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#304) is too similar to BIGBOMBv2.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#294)
+Variable BIGBOMBv2.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#304) is too similar to ERC20Detailed.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#97)
+Variable BIGBOMBv2.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#304) is too similar to BIGBOMBv2.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#274)
+Variable BIGBOMBv2.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#304) is too similar to BIGBOMBv2.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#254)
+Variable BIGBOMBv2.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#304) is too similar to BIGBOMBv2.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#121)
+Variable BIGBOMBv2.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#304) is too similar to BIGBOMBv2.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#145)
+Variable BIGBOMBv2.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#304) is too similar to BIGBOMBv2.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#219)
+Variable BIGBOMBv2.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#178) is too similar to ERC20Detailed.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#74)
+Variable BIGBOMBv2.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#178) is too similar to BIGBOMBv2.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#294)
+Variable BIGBOMBv2.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#178) is too similar to BIGBOMBv2.bug_txorigin40(address).owner_txorigin40 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#265)
+Variable BIGBOMBv2.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#178) is too similar to BIGBOMBv2.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#116)
+Variable BIGBOMBv2.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#116) is too similar to ERC20Detailed.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#74)
+Variable BIGBOMBv2.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#116) is too similar to BIGBOMBv2.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#282)
+Variable BIGBOMBv2.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#116) is too similar to BIGBOMBv2.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#294)
+Variable BIGBOMBv2.sendto_txorigin17(address,uint256,address).owner_txorigin17 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#116) is too similar to BIGBOMBv2.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#121)
+Variable ERC20Detailed.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#74) is too similar to BIGBOMBv2.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#219)
+Variable BIGBOMBv2.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#110) is too similar to BIGBOMBv2.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#126)
+Variable BIGBOMBv2.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#110) is too similar to BIGBOMBv2.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#153)
+Variable BIGBOMBv2.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#110) is too similar to BIGBOMBv2.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#209)
+Variable BIGBOMBv2.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#110) is too similar to BIGBOMBv2.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#131)
+Variable ERC20Detailed.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#90) is too similar to BIGBOMBv2.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#168)
+Variable ERC20Detailed.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#90) is too similar to BIGBOMBv2.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#136)
+Variable ERC20Detailed.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#90) is too similar to BIGBOMBv2.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#282)
+Variable ERC20Detailed.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#90) is too similar to BIGBOMBv2.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#199)
+Variable ERC20Detailed.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#90) is too similar to BIGBOMBv2.bug_txorigin40(address).owner_txorigin40 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#265)
+Variable ERC20Detailed.withdrawAll_txorigin22(address,address).owner_txorigin22 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#54) is too similar to BIGBOMBv2.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#168)
+Variable ERC20Detailed.withdrawAll_txorigin22(address,address).owner_txorigin22 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#54) is too similar to BIGBOMBv2.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#136)
+Variable ERC20Detailed.withdrawAll_txorigin22(address,address).owner_txorigin22 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#54) is too similar to BIGBOMBv2.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#282)
+Variable BIGBOMBv2.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#168) is too similar to BIGBOMBv2.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#136)
+Variable BIGBOMBv2.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#168) is too similar to ERC20Detailed.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#82)
+Variable BIGBOMBv2.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#168) is too similar to BIGBOMBv2.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#282)
+Variable BIGBOMBv2.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#168) is too similar to BIGBOMBv2.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#199)
+Variable BIGBOMBv2.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#168) is too similar to BIGBOMBv2.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#294)
+Variable BIGBOMBv2.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#168) is too similar to BIGBOMBv2.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#274)
+Variable BIGBOMBv2.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#168) is too similar to BIGBOMBv2.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#254)
+Variable BIGBOMBv2.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#168) is too similar to BIGBOMBv2.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#121)
+Variable BIGBOMBv2.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#168) is too similar to BIGBOMBv2.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#145)
+Variable BIGBOMBv2.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#168) is too similar to BIGBOMBv2.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#219)
+Variable BIGBOMBv2.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#136) is too similar to ERC20Detailed.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#82)
+Variable BIGBOMBv2.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#136) is too similar to BIGBOMBv2.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#282)
+Variable ERC20Detailed.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#82) is too similar to BIGBOMBv2.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#282)
+Variable BIGBOMBv2.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#126) is too similar to BIGBOMBv2.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#153)
+Variable BIGBOMBv2.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#126) is too similar to BIGBOMBv2.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#209)
+Variable BIGBOMBv2.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#126) is too similar to BIGBOMBv2.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#131)
+Variable BIGBOMBv2.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#199) is too similar to BIGBOMBv2.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#274)
+Variable BIGBOMBv2.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#199) is too similar to BIGBOMBv2.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#145)
+Variable BIGBOMBv2.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#199) is too similar to BIGBOMBv2.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#219)
+Variable ERC20Detailed.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#74) is too similar to BIGBOMBv2.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#294)
+Variable BIGBOMBv2.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#199) is too similar to BIGBOMBv2.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#294)
+Variable BIGBOMBv2.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#294) is too similar to BIGBOMBv2.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#274)
+Variable BIGBOMBv2.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#294) is too similar to BIGBOMBv2.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#145)
+Variable BIGBOMBv2.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#294) is too similar to BIGBOMBv2.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#219)
+Variable BIGBOMBv2.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#168) is too similar to ERC20Detailed.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#97)
+Variable BIGBOMBv2.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#136) is too similar to ERC20Detailed.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#97)
+Variable BIGBOMBv2.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#282) is too similar to ERC20Detailed.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#97)
+Variable BIGBOMBv2.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#199) is too similar to ERC20Detailed.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#97)
+Variable BIGBOMBv2.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#294) is too similar to ERC20Detailed.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#97)
+Variable ERC20Detailed.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#97) is too similar to BIGBOMBv2.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#274)
+Variable ERC20Detailed.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#97) is too similar to BIGBOMBv2.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#254)
+Variable ERC20Detailed.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#97) is too similar to BIGBOMBv2.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#121)
+Variable ERC20Detailed.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#97) is too similar to BIGBOMBv2.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#145)
+Variable ERC20Detailed.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#97) is too similar to BIGBOMBv2.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#219)
+Variable BIGBOMBv2.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#274) is too similar to BIGBOMBv2.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#145)
+Variable BIGBOMBv2.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#274) is too similar to BIGBOMBv2.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#219)
+Variable BIGBOMBv2.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#136) is too similar to BIGBOMBv2.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#254)
+Variable BIGBOMBv2.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#199) is too similar to BIGBOMBv2.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#254)
+Variable BIGBOMBv2.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#294) is too similar to BIGBOMBv2.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#254)
+Variable BIGBOMBv2.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#274) is too similar to BIGBOMBv2.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#254)
+Variable BIGBOMBv2.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#254) is too similar to BIGBOMBv2.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#121)
+Variable BIGBOMBv2.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#254) is too similar to BIGBOMBv2.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#145)
+Variable BIGBOMBv2.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#254) is too similar to BIGBOMBv2.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#219)
+Variable BIGBOMBv2.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#304) is too similar to BIGBOMBv2.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#244)
+Variable BIGBOMBv2.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#168) is too similar to BIGBOMBv2.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#244)
+Variable ERC20Detailed.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#82) is too similar to BIGBOMBv2.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#244)
+Variable BIGBOMBv2.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#199) is too similar to BIGBOMBv2.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#244)
+Variable BIGBOMBv2.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#294) is too similar to BIGBOMBv2.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#244)
+Variable ERC20Detailed.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#97) is too similar to BIGBOMBv2.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#244)
+Variable BIGBOMBv2.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#274) is too similar to BIGBOMBv2.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#244)
+Variable BIGBOMBv2.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#254) is too similar to BIGBOMBv2.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#244)
+Variable BIGBOMBv2.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#244) is too similar to BIGBOMBv2.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#121)
+Variable BIGBOMBv2.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#244) is too similar to BIGBOMBv2.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#145)
+Variable BIGBOMBv2.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#244) is too similar to BIGBOMBv2.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#219)
+Variable BIGBOMBv2.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#282) is too similar to BIGBOMBv2.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#121)
+Variable BIGBOMBv2.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#199) is too similar to BIGBOMBv2.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#121)
+Variable BIGBOMBv2.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#294) is too similar to BIGBOMBv2.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#121)
+Variable BIGBOMBv2.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#274) is too similar to BIGBOMBv2.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#121)
+Variable BIGBOMBv2.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#121) is too similar to BIGBOMBv2.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#145)
+Variable BIGBOMBv2.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#121) is too similar to BIGBOMBv2.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#219)
+Variable BIGBOMBv2.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#145) is too similar to BIGBOMBv2.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#219)
+Variable BIGBOMBv2.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#199) is too similar to BIGBOMBv2.bug_txorigin40(address).owner_txorigin40 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#265)
+Variable BIGBOMBv2.sendto_txorigin1(address,uint256,address).owner_txorigin1 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#105) is too similar to BIGBOMBv2.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#160)
+Variable BIGBOMBv2.withdrawAll_txorigin2(address,address).owner_txorigin2 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#110) is too similar to BIGBOMBv2.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#160)
+Variable BIGBOMBv2.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#126) is too similar to BIGBOMBv2.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#160)
+Variable BIGBOMBv2.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#153) is too similar to BIGBOMBv2.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#160)
+Variable BIGBOMBv2.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#160) is too similar to BIGBOMBv2.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#209)
+Variable BIGBOMBv2.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#160) is too similar to BIGBOMBv2.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#131)
+Variable BIGBOMBv2.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#153) is too similar to BIGBOMBv2.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#209)
+Variable BIGBOMBv2.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#153) is too similar to BIGBOMBv2.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#131)
+Variable BIGBOMBv2.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#209) is too similar to BIGBOMBv2.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#131)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+BIGBOMBv2.slitherConstructorVariables() (benchmarks/SolidiFI/tx.origin/buggy_38.sol#102-308) uses literals with too many digits:
+	- _totalSupply = 800000000000000000000000 (benchmarks/SolidiFI/tx.origin/buggy_38.sol#135)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+BIGBOMBv2.basePercent (benchmarks/SolidiFI/tx.origin/buggy_38.sol#140) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+multiTransfer(address[],uint256[]) should be declared external:
+	- BIGBOMBv2.multiTransfer(address[],uint256[]) (benchmarks/SolidiFI/tx.origin/buggy_38.sol#204-208)
+Moreover, the following function parameters should change its data location:
+receivers location should be calldata
+amounts location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+benchmarks/SolidiFI/tx.origin/buggy_38.sol analyzed (4 contracts with 80 detectors), 265 result(s) found

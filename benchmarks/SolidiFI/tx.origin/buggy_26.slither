@@ -1,0 +1,260 @@
+Compilation warnings/errors on benchmarks/SolidiFI/tx.origin/buggy_26.sol:
+benchmarks/SolidiFI/tx.origin/buggy_26.sol:100:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin20(address owner_txorigin20) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_26.sol:118:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin32(  address owner_txorigin32) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_26.sol:132:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin4(address owner_txorigin4) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_26.sol:173:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin8(address owner_txorigin8) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_26.sol:191:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin36(  address owner_txorigin36) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_26.sol:212:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin40(address owner_txorigin40) public{
+^ (Relevant source part starts here and spans across multiple lines).
+
+
+UBBCToken.sendto_txorigin37(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#63-66) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#65)
+UBBCToken.sendto_txorigin9(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#73-76) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#75)
+UBBCToken.sendto_txorigin25(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#78-81) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#80)
+UBBCToken.withdrawAll_txorigin26(address,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#88-91) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#90)
+UBBCToken.sendto_txorigin13(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#109-112) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#111)
+UBBCToken.withdrawAll_txorigin38(address,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#125-128) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#127)
+UBBCToken.withdrawAll_txorigin14(address,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#156-159) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#158)
+UBBCToken.withdrawAll_txorigin30(address,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#164-167) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#166)
+UBBCToken.sendto_txorigin33(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#222-225) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#224)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+UBBCToken.sendto_txorigin37(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#63-66) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin37) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#64)
+UBBCToken.transferTo_txorigin3(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#68-71) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin3) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#69)
+UBBCToken.sendto_txorigin9(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#73-76) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin9) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#74)
+UBBCToken.sendto_txorigin25(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#78-81) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin25) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#79)
+UBBCToken.transferTo_txorigin19(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#83-86) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin19) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#84)
+UBBCToken.withdrawAll_txorigin26(address,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#88-91) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin26) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#89)
+UBBCToken.bug_txorigin20(address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#100-102) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin20) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#101)
+UBBCToken.transferTo_txorigin31(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#103-106) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin31) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#104)
+UBBCToken.sendto_txorigin13(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#109-112) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin13) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#110)
+UBBCToken.bug_txorigin32(address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#118-120) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin32) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#119)
+UBBCToken.withdrawAll_txorigin38(address,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#125-128) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin38) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#126)
+UBBCToken.bug_txorigin4(address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#132-134) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin4) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#133)
+UBBCToken.transferTo_txorigin7(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#139-142) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin7) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#140)
+UBBCToken.transferTo_txorigin23(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#147-150) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin23) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#148)
+UBBCToken.withdrawAll_txorigin14(address,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#156-159) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin14) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#157)
+UBBCToken.withdrawAll_txorigin30(address,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#164-167) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin30) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#165)
+UBBCToken.bug_txorigin8(address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#173-175) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin8) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#174)
+UBBCToken.transferTo_txorigin39(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#182-185) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin39) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#183)
+UBBCToken.bug_txorigin36(address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#191-193) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin36) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#192)
+UBBCToken.transferTo_txorigin35(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#199-202) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin35) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#200)
+UBBCToken.bug_txorigin40(address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#212-214) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin40) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#213)
+UBBCToken.sendto_txorigin33(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#222-225) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin33) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#223)
+UBBCToken.transferTo_txorigin27(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#229-232) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin27) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#230)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-usage-of-txorigin
+
+UBBCToken.sendto_txorigin37(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_26.sol#63) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#65)
+UBBCToken.sendto_txorigin9(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_26.sol#73) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#75)
+UBBCToken.sendto_txorigin25(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_26.sol#78) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#80)
+UBBCToken.withdrawAll_txorigin26(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_26.sol#88) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#90)
+UBBCToken.sendto_txorigin13(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_26.sol#109) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#111)
+UBBCToken.withdrawAll_txorigin38(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_26.sol#125) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#127)
+UBBCToken.withdrawAll_txorigin14(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_26.sol#156) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#158)
+UBBCToken.withdrawAll_txorigin30(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_26.sol#164) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#166)
+UBBCToken.sendto_txorigin33(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_26.sol#222) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#224)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+SafeMath.div(uint256,uint256) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#35-42) is never used and should be removed
+SafeMath.mod(uint256,uint256) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#44-47) is never used and should be removed
+SafeMath.mul(uint256,uint256) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#21-33) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.5.2 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#5) allows old versions
+solc-0.5.2 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function UBBCToken.sendto_txorigin37(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#63-66) is not in mixedCase
+Parameter UBBCToken.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#63) is not in mixedCase
+Function UBBCToken.transferTo_txorigin3(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#68-71) is not in mixedCase
+Parameter UBBCToken.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#68) is not in mixedCase
+Function UBBCToken.sendto_txorigin9(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#73-76) is not in mixedCase
+Parameter UBBCToken.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#73) is not in mixedCase
+Function UBBCToken.sendto_txorigin25(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#78-81) is not in mixedCase
+Parameter UBBCToken.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#78) is not in mixedCase
+Function UBBCToken.transferTo_txorigin19(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#83-86) is not in mixedCase
+Parameter UBBCToken.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#83) is not in mixedCase
+Function UBBCToken.withdrawAll_txorigin26(address,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#88-91) is not in mixedCase
+Parameter UBBCToken.withdrawAll_txorigin26(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_26.sol#88) is not in mixedCase
+Parameter UBBCToken.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#88) is not in mixedCase
+Function UBBCToken.bug_txorigin20(address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#100-102) is not in mixedCase
+Parameter UBBCToken.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#100) is not in mixedCase
+Function UBBCToken.transferTo_txorigin31(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#103-106) is not in mixedCase
+Parameter UBBCToken.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#103) is not in mixedCase
+Function UBBCToken.sendto_txorigin13(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#109-112) is not in mixedCase
+Parameter UBBCToken.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#109) is not in mixedCase
+Function UBBCToken.bug_txorigin32(address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#118-120) is not in mixedCase
+Parameter UBBCToken.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#118) is not in mixedCase
+Function UBBCToken.withdrawAll_txorigin38(address,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#125-128) is not in mixedCase
+Parameter UBBCToken.withdrawAll_txorigin38(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_26.sol#125) is not in mixedCase
+Parameter UBBCToken.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#125) is not in mixedCase
+Function UBBCToken.bug_txorigin4(address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#132-134) is not in mixedCase
+Parameter UBBCToken.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#132) is not in mixedCase
+Function UBBCToken.transferTo_txorigin7(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#139-142) is not in mixedCase
+Parameter UBBCToken.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#139) is not in mixedCase
+Function UBBCToken.transferTo_txorigin23(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#147-150) is not in mixedCase
+Parameter UBBCToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#147) is not in mixedCase
+Function UBBCToken.withdrawAll_txorigin14(address,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#156-159) is not in mixedCase
+Parameter UBBCToken.withdrawAll_txorigin14(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_26.sol#156) is not in mixedCase
+Parameter UBBCToken.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#156) is not in mixedCase
+Function UBBCToken.withdrawAll_txorigin30(address,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#164-167) is not in mixedCase
+Parameter UBBCToken.withdrawAll_txorigin30(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_26.sol#164) is not in mixedCase
+Parameter UBBCToken.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#164) is not in mixedCase
+Function UBBCToken.bug_txorigin8(address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#173-175) is not in mixedCase
+Parameter UBBCToken.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#173) is not in mixedCase
+Function UBBCToken.transferTo_txorigin39(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#182-185) is not in mixedCase
+Parameter UBBCToken.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#182) is not in mixedCase
+Function UBBCToken.bug_txorigin36(address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#191-193) is not in mixedCase
+Parameter UBBCToken.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#191) is not in mixedCase
+Function UBBCToken.transferTo_txorigin35(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#199-202) is not in mixedCase
+Parameter UBBCToken.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#199) is not in mixedCase
+Function UBBCToken.bug_txorigin40(address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#212-214) is not in mixedCase
+Parameter UBBCToken.bug_txorigin40(address).owner_txorigin40 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#212) is not in mixedCase
+Function UBBCToken.sendto_txorigin33(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#222-225) is not in mixedCase
+Parameter UBBCToken.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#222) is not in mixedCase
+Function UBBCToken.transferTo_txorigin27(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#229-232) is not in mixedCase
+Parameter UBBCToken.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#229) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable UBBCToken.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#109) is too similar to UBBCToken.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#118)
+Variable UBBCToken.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#109) is too similar to UBBCToken.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#222)
+Variable UBBCToken.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#109) is too similar to UBBCToken.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#63)
+Variable UBBCToken.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#109) is too similar to UBBCToken.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#125)
+Variable UBBCToken.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#109) is too similar to UBBCToken.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#182)
+Variable UBBCToken.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#109) is too similar to UBBCToken.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#156)
+Variable UBBCToken.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#156) is too similar to UBBCToken.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#103)
+Variable UBBCToken.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#156) is too similar to UBBCToken.bug_txorigin40(address).owner_txorigin40 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#212)
+Variable UBBCToken.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#109) is too similar to UBBCToken.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#83)
+Variable UBBCToken.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#156) is too similar to UBBCToken.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#83)
+Variable UBBCToken.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#83) is too similar to UBBCToken.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#103)
+Variable UBBCToken.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#83) is too similar to UBBCToken.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#182)
+Variable UBBCToken.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#100) is too similar to UBBCToken.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#229)
+Variable UBBCToken.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#100) is too similar to UBBCToken.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#164)
+Variable UBBCToken.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#100) is too similar to UBBCToken.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#118)
+Variable UBBCToken.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#100) is too similar to UBBCToken.bug_txorigin40(address).owner_txorigin40 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#212)
+Variable UBBCToken.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#109) is too similar to UBBCToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#147)
+Variable UBBCToken.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#100) is too similar to UBBCToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#147)
+Variable UBBCToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#147) is too similar to UBBCToken.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#78)
+Variable UBBCToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#147) is too similar to UBBCToken.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#88)
+Variable UBBCToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#147) is too similar to UBBCToken.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#229)
+Variable UBBCToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#147) is too similar to UBBCToken.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#164)
+Variable UBBCToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#147) is too similar to UBBCToken.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#103)
+Variable UBBCToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#147) is too similar to UBBCToken.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#118)
+Variable UBBCToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#147) is too similar to UBBCToken.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#222)
+Variable UBBCToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#147) is too similar to UBBCToken.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#199)
+Variable UBBCToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#147) is too similar to UBBCToken.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#63)
+Variable UBBCToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#147) is too similar to UBBCToken.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#125)
+Variable UBBCToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#147) is too similar to UBBCToken.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#182)
+Variable UBBCToken.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#100) is too similar to UBBCToken.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#78)
+Variable UBBCToken.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#78) is too similar to UBBCToken.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#88)
+Variable UBBCToken.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#78) is too similar to UBBCToken.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#229)
+Variable UBBCToken.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#78) is too similar to UBBCToken.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#118)
+Variable UBBCToken.sendto_txorigin25(address,uint256,address).owner_txorigin25 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#78) is too similar to UBBCToken.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#199)
+Variable UBBCToken.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#100) is too similar to UBBCToken.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#88)
+Variable UBBCToken.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#88) is too similar to UBBCToken.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#229)
+Variable UBBCToken.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#88) is too similar to UBBCToken.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#118)
+Variable UBBCToken.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#229) is too similar to UBBCToken.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#63)
+Variable UBBCToken.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#68) is too similar to UBBCToken.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#139)
+Variable UBBCToken.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#109) is too similar to UBBCToken.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#164)
+Variable UBBCToken.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#164) is too similar to UBBCToken.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#118)
+Variable UBBCToken.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#164) is too similar to UBBCToken.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#222)
+Variable UBBCToken.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#164) is too similar to UBBCToken.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#63)
+Variable UBBCToken.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#164) is too similar to UBBCToken.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#125)
+Variable UBBCToken.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#164) is too similar to UBBCToken.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#182)
+Variable UBBCToken.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#109) is too similar to UBBCToken.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#103)
+Variable UBBCToken.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#164) is too similar to UBBCToken.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#103)
+Variable UBBCToken.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#103) is too similar to UBBCToken.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#118)
+Variable UBBCToken.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#103) is too similar to UBBCToken.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#222)
+Variable UBBCToken.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#103) is too similar to UBBCToken.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#63)
+Variable UBBCToken.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#103) is too similar to UBBCToken.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#125)
+Variable UBBCToken.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#103) is too similar to UBBCToken.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#182)
+Variable UBBCToken.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#229) is too similar to UBBCToken.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#118)
+Variable UBBCToken.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#118) is too similar to UBBCToken.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#63)
+Variable UBBCToken.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#118) is too similar to UBBCToken.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#125)
+Variable UBBCToken.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#118) is too similar to UBBCToken.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#182)
+Variable UBBCToken.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#118) is too similar to UBBCToken.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#222)
+Variable UBBCToken.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#222) is too similar to UBBCToken.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#63)
+Variable UBBCToken.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#222) is too similar to UBBCToken.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#125)
+Variable UBBCToken.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#222) is too similar to UBBCToken.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#182)
+Variable UBBCToken.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#109) is too similar to UBBCToken.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#199)
+Variable UBBCToken.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#164) is too similar to UBBCToken.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#199)
+Variable UBBCToken.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#103) is too similar to UBBCToken.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#199)
+Variable UBBCToken.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#118) is too similar to UBBCToken.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#199)
+Variable UBBCToken.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#222) is too similar to UBBCToken.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#199)
+Variable UBBCToken.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#199) is too similar to UBBCToken.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#63)
+Variable UBBCToken.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#199) is too similar to UBBCToken.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#125)
+Variable UBBCToken.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#199) is too similar to UBBCToken.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#182)
+Variable UBBCToken.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#109) is too similar to UBBCToken.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#191)
+Variable UBBCToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#147) is too similar to UBBCToken.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#191)
+Variable UBBCToken.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#88) is too similar to UBBCToken.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#191)
+Variable UBBCToken.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#164) is too similar to UBBCToken.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#191)
+Variable UBBCToken.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#103) is too similar to UBBCToken.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#191)
+Variable UBBCToken.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#118) is too similar to UBBCToken.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#191)
+Variable UBBCToken.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#222) is too similar to UBBCToken.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#191)
+Variable UBBCToken.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#199) is too similar to UBBCToken.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#191)
+Variable UBBCToken.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#191) is too similar to UBBCToken.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#63)
+Variable UBBCToken.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#191) is too similar to UBBCToken.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#125)
+Variable UBBCToken.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#191) is too similar to UBBCToken.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#182)
+Variable UBBCToken.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#63) is too similar to UBBCToken.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#182)
+Variable UBBCToken.sendto_txorigin37(address,uint256,address).owner_txorigin37 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#63) is too similar to UBBCToken.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#125)
+Variable UBBCToken.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#125) is too similar to UBBCToken.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#182)
+Variable UBBCToken.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#68) is too similar to UBBCToken.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#132)
+Variable UBBCToken.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#132) is too similar to UBBCToken.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#139)
+Variable UBBCToken.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#164) is too similar to UBBCToken.bug_txorigin40(address).owner_txorigin40 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#212)
+Variable UBBCToken.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#68) is too similar to UBBCToken.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#173)
+Variable UBBCToken.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#132) is too similar to UBBCToken.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#173)
+Variable UBBCToken.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#139) is too similar to UBBCToken.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#173)
+Variable UBBCToken.transferTo_txorigin3(address,uint256,address).owner_txorigin3 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#68) is too similar to UBBCToken.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#73)
+Variable UBBCToken.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#132) is too similar to UBBCToken.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#73)
+Variable UBBCToken.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#139) is too similar to UBBCToken.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#73)
+Variable UBBCToken.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#173) is too similar to UBBCToken.sendto_txorigin9(address,uint256,address).owner_txorigin9 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#73)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+UBBCToken.constructor() (benchmarks/SolidiFI/tx.origin/buggy_26.sol#93-99) uses literals with too many digits:
+	- _totalSupply = 260000000000000000000000000 (benchmarks/SolidiFI/tx.origin/buggy_26.sol#97)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+ERC20 event UBBCTokenTransfer(address,address,uint256) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#107)does not index parameter sender
+ERC20 event UBBCTokenTransfer(address,address,uint256) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#107)does not index parameter to
+ERC20 event UBBCTokenApproval(address,address,uint256) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#113)does not index parameter owner
+ERC20 event UBBCTokenApproval(address,address,uint256) (benchmarks/SolidiFI/tx.origin/buggy_26.sol#113)does not index parameter spender
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unindexed-erc20-event-parameters
+benchmarks/SolidiFI/tx.origin/buggy_26.sol analyzed (3 contracts with 80 detectors), 193 result(s) found

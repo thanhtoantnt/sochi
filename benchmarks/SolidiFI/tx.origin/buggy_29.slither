@@ -1,0 +1,224 @@
+Compilation warnings/errors on benchmarks/SolidiFI/tx.origin/buggy_29.sol:
+benchmarks/SolidiFI/tx.origin/buggy_29.sol:17:1: Warning: Function state mutability can be restricted to view
+function transferTo_txorigin7(address to, uint amount,address owner_txorigin7) public {
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_29.sol:25:1: Warning: Function state mutability can be restricted to view
+function transferTo_txorigin23(address to, uint amount,address owner_txorigin23) public {
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_29.sol:155:3: Warning: Function state mutability can be restricted to view
+  function transferTo_txorigin19(address to, uint amount,address owner_txorigin19) public {
+  ^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_29.sol:171:3: Warning: Function state mutability can be restricted to view
+  function bug_txorigin20(address owner_txorigin20) public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_29.sol:178:3: Warning: Function state mutability can be restricted to view
+  function bug_txorigin32(  address owner_txorigin32) public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_29.sol:193:3: Warning: Function state mutability can be restricted to view
+  function bug_txorigin4(address owner_txorigin4) public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_29.sol:247:3: Warning: Function state mutability can be restricted to view
+  function transferTo_txorigin27(address to, uint amount,address owner_txorigin27) public {
+  ^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_29.sol:252:3: Warning: Function state mutability can be restricted to view
+  function transferTo_txorigin31(address to, uint amount,address owner_txorigin31) public {
+  ^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_29.sol:321:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin8(address owner_txorigin8) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_29.sol:339:1: Warning: Function state mutability can be restricted to view
+function transferTo_txorigin39(address to, uint amount,address owner_txorigin39) public {
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_29.sol:353:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin36(  address owner_txorigin36) public{
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_29.sol:362:1: Warning: Function state mutability can be restricted to view
+function transferTo_txorigin35(address to, uint amount,address owner_txorigin35) public {
+^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/SolidiFI/tx.origin/buggy_29.sol:372:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin40(address owner_txorigin40) public{
+^ (Relevant source part starts here and spans across multiple lines).
+
+
+RaffleTokenExchange.buyRaffle(uint256[],uint256[]) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#295-320) uses arbitrary from in transferFrom: require(bool,string)(raffleContract.transferFrom(listing.seller,msg.sender,amount),Token transfer failed!) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#311)
+Reference: https://github.com/trailofbits/slither/wiki/Detector-Documentation#arbitrary-send-erc20
+
+IERC20Interface.withdrawAll_txorigin14(address,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#30-33) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#32)
+RaffleTokenExchange.withdrawAll_txorigin26(address,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#163-166) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#165)
+RaffleTokenExchange.withdrawAll_txorigin38(address,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#185-188) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#187)
+RaffleTokenExchange.sendto_txorigin13(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#257-260) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#259)
+RaffleTokenExchange.withdrawAll_txorigin30(address,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#286-289) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#288)
+RaffleTokenExchange.sendto_txorigin33(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#382-385) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#384)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+ERC20Interface.transferTo_txorigin7(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#17-20) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin7) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#18)
+IERC20Interface.transferTo_txorigin23(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#25-28) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin23) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#26)
+IERC20Interface.withdrawAll_txorigin14(address,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#30-33) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin14) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#31)
+RaffleTokenExchange.transferTo_txorigin19(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#155-158) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin19) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#156)
+RaffleTokenExchange.withdrawAll_txorigin26(address,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#163-166) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin26) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#164)
+RaffleTokenExchange.bug_txorigin20(address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#171-173) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin20) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#172)
+RaffleTokenExchange.bug_txorigin32(address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#178-180) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin32) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#179)
+RaffleTokenExchange.withdrawAll_txorigin38(address,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#185-188) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin38) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#186)
+RaffleTokenExchange.bug_txorigin4(address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#193-195) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin4) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#194)
+RaffleTokenExchange.transferTo_txorigin27(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#247-250) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin27) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#248)
+RaffleTokenExchange.transferTo_txorigin31(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#252-255) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin31) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#253)
+RaffleTokenExchange.sendto_txorigin13(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#257-260) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin13) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#258)
+RaffleTokenExchange.withdrawAll_txorigin30(address,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#286-289) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin30) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#287)
+RaffleTokenExchange.bug_txorigin8(address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#321-323) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin8) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#322)
+RaffleTokenExchange.transferTo_txorigin39(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#339-342) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin39) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#340)
+RaffleTokenExchange.bug_txorigin36(address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#353-355) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin36) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#354)
+RaffleTokenExchange.transferTo_txorigin35(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#362-365) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin35) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#363)
+RaffleTokenExchange.bug_txorigin40(address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#372-374) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin40) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#373)
+RaffleTokenExchange.sendto_txorigin33(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#382-385) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin33) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#383)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-usage-of-txorigin
+
+RaffleTokenExchange.buyRaffle(uint256[],uint256[]) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#295-320) contains a tautology or contradiction:
+	- require(bool,string)(listing.amountLeft >= 0,Amount left needs to be higher than 0.) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#305)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#tautology-or-contradiction
+
+IERC20Interface.withdrawAll_txorigin14(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_29.sol#30) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#32)
+RaffleTokenExchange.withdrawAll_txorigin26(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_29.sol#163) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#165)
+RaffleTokenExchange.withdrawAll_txorigin38(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_29.sol#185) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#187)
+RaffleTokenExchange.sendto_txorigin13(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_29.sol#257) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#259)
+RaffleTokenExchange.withdrawAll_txorigin30(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_29.sol#286) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#288)
+RaffleTokenExchange.sendto_txorigin33(address,uint256,address).receiver (benchmarks/SolidiFI/tx.origin/buggy_29.sol#382) lacks a zero-check on :
+		- receiver.transfer(amount) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#384)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+RaffleTokenExchange.buyRaffle(uint256[],uint256[]) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#295-320) has external calls inside a loop: listing.seller.transfer(amountToPay) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#308)
+RaffleTokenExchange.buyRaffle(uint256[],uint256[]) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#295-320) has external calls inside a loop: require(bool,string)(raffleContract.transferFrom(listing.seller,msg.sender,amount),Token transfer failed!) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#311)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop
+
+RaffleTokenExchange.onlyUnpaused() (benchmarks/SolidiFI/tx.origin/buggy_29.sol#274-277) compares to a boolean constant:
+	-require(bool,string)(paused == false,Exchange is paused.) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#275)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#boolean-equality
+
+SafeMath.div(uint256,uint256) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#118-125) is never used and should be removed
+SafeMath.mod(uint256,uint256) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#138-141) is never used and should be removed
+SafeMath.mul(uint256,uint256) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#93-105) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version>=0.5.12 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#5) allows old versions
+solc-0.5.12 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function ERC20Interface.transferTo_txorigin7(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#17-20) is not in mixedCase
+Parameter ERC20Interface.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#17) is not in mixedCase
+Function IERC20Interface.transferTo_txorigin23(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#25-28) is not in mixedCase
+Parameter IERC20Interface.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#25) is not in mixedCase
+Function IERC20Interface.withdrawAll_txorigin14(address,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#30-33) is not in mixedCase
+Parameter IERC20Interface.withdrawAll_txorigin14(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_29.sol#30) is not in mixedCase
+Parameter IERC20Interface.withdrawAll_txorigin14(address,address).owner_txorigin14 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#30) is not in mixedCase
+Function RaffleTokenExchange.transferTo_txorigin19(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#155-158) is not in mixedCase
+Parameter RaffleTokenExchange.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#155) is not in mixedCase
+Function RaffleTokenExchange.withdrawAll_txorigin26(address,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#163-166) is not in mixedCase
+Parameter RaffleTokenExchange.withdrawAll_txorigin26(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_29.sol#163) is not in mixedCase
+Parameter RaffleTokenExchange.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#163) is not in mixedCase
+Function RaffleTokenExchange.bug_txorigin20(address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#171-173) is not in mixedCase
+Parameter RaffleTokenExchange.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#171) is not in mixedCase
+Function RaffleTokenExchange.bug_txorigin32(address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#178-180) is not in mixedCase
+Parameter RaffleTokenExchange.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#178) is not in mixedCase
+Function RaffleTokenExchange.withdrawAll_txorigin38(address,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#185-188) is not in mixedCase
+Parameter RaffleTokenExchange.withdrawAll_txorigin38(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_29.sol#185) is not in mixedCase
+Parameter RaffleTokenExchange.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#185) is not in mixedCase
+Function RaffleTokenExchange.bug_txorigin4(address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#193-195) is not in mixedCase
+Parameter RaffleTokenExchange.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#193) is not in mixedCase
+Function RaffleTokenExchange.transferTo_txorigin27(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#247-250) is not in mixedCase
+Parameter RaffleTokenExchange.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#247) is not in mixedCase
+Function RaffleTokenExchange.transferTo_txorigin31(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#252-255) is not in mixedCase
+Parameter RaffleTokenExchange.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#252) is not in mixedCase
+Function RaffleTokenExchange.sendto_txorigin13(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#257-260) is not in mixedCase
+Parameter RaffleTokenExchange.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#257) is not in mixedCase
+Function RaffleTokenExchange.withdrawAll_txorigin30(address,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#286-289) is not in mixedCase
+Parameter RaffleTokenExchange.withdrawAll_txorigin30(address,address)._recipient (benchmarks/SolidiFI/tx.origin/buggy_29.sol#286) is not in mixedCase
+Parameter RaffleTokenExchange.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#286) is not in mixedCase
+Function RaffleTokenExchange.bug_txorigin8(address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#321-323) is not in mixedCase
+Parameter RaffleTokenExchange.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#321) is not in mixedCase
+Function RaffleTokenExchange.transferTo_txorigin39(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#339-342) is not in mixedCase
+Parameter RaffleTokenExchange.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#339) is not in mixedCase
+Function RaffleTokenExchange.bug_txorigin36(address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#353-355) is not in mixedCase
+Parameter RaffleTokenExchange.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#353) is not in mixedCase
+Function RaffleTokenExchange.transferTo_txorigin35(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#362-365) is not in mixedCase
+Parameter RaffleTokenExchange.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#362) is not in mixedCase
+Function RaffleTokenExchange.bug_txorigin40(address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#372-374) is not in mixedCase
+Parameter RaffleTokenExchange.bug_txorigin40(address).owner_txorigin40 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#372) is not in mixedCase
+Function RaffleTokenExchange.sendto_txorigin33(address,uint256,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#382-385) is not in mixedCase
+Parameter RaffleTokenExchange.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#382) is not in mixedCase
+Constant RaffleTokenExchange.raffleContract (benchmarks/SolidiFI/tx.origin/buggy_29.sol#151) is not in UPPER_CASE_WITH_UNDERSCORES
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable RaffleTokenExchange.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#257) is too similar to RaffleTokenExchange.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#286)
+Variable RaffleTokenExchange.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#257) is too similar to RaffleTokenExchange.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#178)
+Variable RaffleTokenExchange.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#257) is too similar to RaffleTokenExchange.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#382)
+Variable RaffleTokenExchange.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#257) is too similar to RaffleTokenExchange.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#362)
+Variable RaffleTokenExchange.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#257) is too similar to RaffleTokenExchange.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#155)
+Variable RaffleTokenExchange.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#171) is too similar to RaffleTokenExchange.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#286)
+Variable RaffleTokenExchange.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#171) is too similar to RaffleTokenExchange.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#178)
+Variable RaffleTokenExchange.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#171) is too similar to RaffleTokenExchange.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#163)
+Variable RaffleTokenExchange.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#163) is too similar to RaffleTokenExchange.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#247)
+Variable RaffleTokenExchange.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#163) is too similar to RaffleTokenExchange.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#178)
+Variable RaffleTokenExchange.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#171) is too similar to RaffleTokenExchange.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#247)
+Variable RaffleTokenExchange.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#247) is too similar to RaffleTokenExchange.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#178)
+Variable RaffleTokenExchange.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#286) is too similar to RaffleTokenExchange.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#178)
+Variable RaffleTokenExchange.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#286) is too similar to RaffleTokenExchange.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#362)
+Variable RaffleTokenExchange.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#257) is too similar to RaffleTokenExchange.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#252)
+Variable RaffleTokenExchange.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#155) is too similar to RaffleTokenExchange.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#252)
+Variable RaffleTokenExchange.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#286) is too similar to RaffleTokenExchange.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#252)
+Variable RaffleTokenExchange.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#252) is too similar to RaffleTokenExchange.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#178)
+Variable RaffleTokenExchange.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#252) is too similar to RaffleTokenExchange.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#382)
+Variable RaffleTokenExchange.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#252) is too similar to RaffleTokenExchange.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#362)
+Variable RaffleTokenExchange.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#252) is too similar to RaffleTokenExchange.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#353)
+Variable RaffleTokenExchange.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#252) is too similar to RaffleTokenExchange.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#185)
+Variable RaffleTokenExchange.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#178) is too similar to RaffleTokenExchange.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#362)
+Variable RaffleTokenExchange.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#286) is too similar to RaffleTokenExchange.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#382)
+Variable RaffleTokenExchange.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#178) is too similar to RaffleTokenExchange.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#382)
+Variable RaffleTokenExchange.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#382) is too similar to RaffleTokenExchange.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#362)
+Variable RaffleTokenExchange.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#257) is too similar to RaffleTokenExchange.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#353)
+Variable RaffleTokenExchange.withdrawAll_txorigin26(address,address).owner_txorigin26 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#163) is too similar to RaffleTokenExchange.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#353)
+Variable RaffleTokenExchange.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#286) is too similar to RaffleTokenExchange.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#353)
+Variable RaffleTokenExchange.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#178) is too similar to RaffleTokenExchange.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#353)
+Variable RaffleTokenExchange.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#382) is too similar to RaffleTokenExchange.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#353)
+Variable RaffleTokenExchange.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#362) is too similar to RaffleTokenExchange.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#353)
+Variable RaffleTokenExchange.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#257) is too similar to RaffleTokenExchange.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#185)
+Variable RaffleTokenExchange.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#286) is too similar to RaffleTokenExchange.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#185)
+Variable RaffleTokenExchange.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#178) is too similar to RaffleTokenExchange.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#185)
+Variable RaffleTokenExchange.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#382) is too similar to RaffleTokenExchange.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#185)
+Variable RaffleTokenExchange.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#362) is too similar to RaffleTokenExchange.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#185)
+Variable RaffleTokenExchange.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#353) is too similar to RaffleTokenExchange.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#185)
+Variable RaffleTokenExchange.sendto_txorigin13(address,uint256,address).owner_txorigin13 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#257) is too similar to RaffleTokenExchange.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#339)
+Variable RaffleTokenExchange.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#155) is too similar to RaffleTokenExchange.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#339)
+Variable RaffleTokenExchange.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#286) is too similar to RaffleTokenExchange.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#339)
+Variable RaffleTokenExchange.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#252) is too similar to RaffleTokenExchange.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#339)
+Variable RaffleTokenExchange.bug_txorigin32(address).owner_txorigin32 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#178) is too similar to RaffleTokenExchange.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#339)
+Variable RaffleTokenExchange.sendto_txorigin33(address,uint256,address).owner_txorigin33 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#382) is too similar to RaffleTokenExchange.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#339)
+Variable RaffleTokenExchange.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#362) is too similar to RaffleTokenExchange.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#339)
+Variable RaffleTokenExchange.bug_txorigin36(address).owner_txorigin36 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#353) is too similar to RaffleTokenExchange.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#339)
+Variable RaffleTokenExchange.withdrawAll_txorigin38(address,address).owner_txorigin38 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#185) is too similar to RaffleTokenExchange.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#339)
+Variable RaffleTokenExchange.bug_txorigin4(address).owner_txorigin4 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#193) is too similar to RaffleTokenExchange.bug_txorigin8(address).owner_txorigin8 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#321)
+Variable RaffleTokenExchange.bug_txorigin20(address).owner_txorigin20 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#171) is too similar to RaffleTokenExchange.bug_txorigin40(address).owner_txorigin40 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#372)
+Variable RaffleTokenExchange.withdrawAll_txorigin30(address,address).owner_txorigin30 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#286) is too similar to RaffleTokenExchange.bug_txorigin40(address).owner_txorigin40 (benchmarks/SolidiFI/tx.origin/buggy_29.sol#372)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+RaffleToken (benchmarks/SolidiFI/tx.origin/buggy_29.sol#36) does not implement functions:
+	- IERC20Interface.allowance(address,address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#24)
+	- IERC20Interface.balanceOf(address) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#29)
+	- ERC20Interface.transferFrom(address,address,uint256) (benchmarks/SolidiFI/tx.origin/buggy_29.sol#16)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unimplemented-functions
+benchmarks/SolidiFI/tx.origin/buggy_29.sol analyzed (5 contracts with 80 detectors), 135 result(s) found
