@@ -15,13 +15,13 @@ require(tx.origin == owner_txorigin4)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
 
 Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
-Caller: [SOMEGUY], function: bug_txorigin4(address), txdata: 0xb9e312580000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000',), value: 0x0
+Caller: [ATTACKER], function: bug_txorigin4(address), txdata: 0xb9e312580000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000',), value: 0x0
 
 ==== Dependence on tx.origin ====
 SWC ID: 115
@@ -65,13 +65,13 @@ require(tx.origin == owner_txorigin38)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x4000000000000000, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
 
 Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
-Caller: [SOMEGUY], function: withdrawAll_txorigin38(address,address), txdata: 0xbff2792800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', '0x0000000000000000000000000000000000000000'), value: 0x0
+Caller: [ATTACKER], function: withdrawAll_txorigin38(address,address), txdata: 0xbff2792800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', '0x0000000000000000000000000000000000000000'), value: 0x0
 
 ==== Dependence on tx.origin ====
 SWC ID: 115
@@ -115,7 +115,7 @@ require(tx.origin == owner_txorigin32)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x9c05c2800000000, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
@@ -140,7 +140,7 @@ require(tx.origin == owner_txorigin31)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x845000000000000, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x200000000000000, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
@@ -165,13 +165,13 @@ require(tx.origin == owner_txorigin27)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x945000000000000, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
 
 Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
-Caller: [ATTACKER], function: transferTo_txorigin27(address,uint256,address), txdata: 0x0ccb9a12000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
+Caller: [SOMEGUY], function: transferTo_txorigin27(address,uint256,address), txdata: 0x0ccb9a12000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
 
 ==== Dependence on tx.origin ====
 SWC ID: 115
@@ -196,7 +196,7 @@ Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 Transaction Sequence:
 
 Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
-Caller: [ATTACKER], function: bug_txorigin20(address), txdata: 0x5119e0000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000',), value: 0x0
+Caller: [CREATOR], function: bug_txorigin20(address), txdata: 0x5119e0000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000',), value: 0x0
 
 ==== Dependence on tx.origin ====
 SWC ID: 115
@@ -215,13 +215,13 @@ require(tx.origin == owner_txorigin7)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x40000000001, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
 
 Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
-Caller: [SOMEGUY], function: transferTo_txorigin7(address,uint256,address), txdata: 0x3373f9d0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
+Caller: [ATTACKER], function: transferTo_txorigin7(address,uint256,address), txdata: 0x3373f9d0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
 
 ==== Dependence on tx.origin ====
 SWC ID: 115
@@ -240,7 +240,7 @@ require(tx.origin == owner_txorigin12)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x200000000000000, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
@@ -265,7 +265,7 @@ require(tx.origin == owner_txorigin14)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x4000000000000000, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
@@ -290,13 +290,13 @@ require(tx.origin == owner_txorigin23)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x943022000800000, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
 
 Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
-Caller: [CREATOR], function: transferTo_txorigin23(address,uint256,address), txdata: 0xfffdba83000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
+Caller: [ATTACKER], function: transferTo_txorigin23(address,uint256,address), txdata: 0xfffdba83000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
 
 ==== Dependence on tx.origin ====
 SWC ID: 115
@@ -315,7 +315,7 @@ require(tx.origin == owner_txorigin22)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x9c11c0000000000, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x80000000001, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
@@ -340,13 +340,13 @@ require(tx.origin == owner_txorigin19)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x800000000000000, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
 
 Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
-Caller: [ATTACKER], function: transferTo_txorigin19(address,uint256,address), txdata: 0x5d7585b8000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
+Caller: [SOMEGUY], function: transferTo_txorigin19(address,uint256,address), txdata: 0x5d7585b8000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
 
 ==== Dependence on tx.origin ====
 SWC ID: 115
@@ -371,7 +371,7 @@ Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 Transaction Sequence:
 
 Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
-Caller: [CREATOR], function: transferTo_txorigin3(address,uint256,address), txdata: 0x61f4e670000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
+Caller: [ATTACKER], function: transferTo_txorigin3(address,uint256,address), txdata: 0x61f4e670000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
 
 ==== Dependence on tx.origin ====
 SWC ID: 115
@@ -390,13 +390,13 @@ require (tx.origin == owner_txorigin1)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
 
 Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
-Caller: [CREATOR], function: sendto_txorigin1(address,uint256,address), txdata: 0x64acbadd000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
+Caller: [SOMEGUY], function: sendto_txorigin1(address,uint256,address), txdata: 0x64acbadd000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
 
 ==== Dependence on tx.origin ====
 SWC ID: 115
@@ -415,7 +415,7 @@ require (tx.origin == owner_txorigin25)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x800000000000000, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
@@ -465,13 +465,13 @@ require(tx.origin == owner_txorigin2)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x100, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
 
 Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
-Caller: [SOMEGUY], function: withdrawAll_txorigin2(address,address), txdata: 0xb736900700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', '0x0000000000000000000000000000000000000000'), value: 0x0
+Caller: [ATTACKER], function: withdrawAll_txorigin2(address,address), txdata: 0xb736900700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', '0x0000000000000000000000000000000000000000'), value: 0x0
 
 ==== Dependence on tx.origin ====
 SWC ID: 115
@@ -515,13 +515,13 @@ require (tx.origin == owner_txorigin9)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
 
 Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
-Caller: [SOMEGUY], function: sendto_txorigin9(address,uint256,address), txdata: 0xf6292d59000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
+Caller: [ATTACKER], function: sendto_txorigin9(address,uint256,address), txdata: 0xf6292d59000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
 
 ==== Dependence on tx.origin ====
 SWC ID: 115
@@ -540,13 +540,13 @@ require (tx.origin == owner_txorigin33)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x10000000000000000, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
 
 Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
-Caller: [SOMEGUY], function: sendto_txorigin33(address,uint256,address), txdata: 0xf7ae6cde000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
+Caller: [ATTACKER], function: sendto_txorigin33(address,uint256,address), txdata: 0xf7ae6cde000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
 
 ==== Dependence on tx.origin ====
 SWC ID: 115
@@ -565,13 +565,13 @@ require (tx.origin == owner_txorigin37)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x41180000000000, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x1000000000001, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
 
 Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
-Caller: [SOMEGUY], function: sendto_txorigin37(address,uint256,address), txdata: 0xfb44fdd1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
+Caller: [ATTACKER], function: sendto_txorigin37(address,uint256,address), txdata: 0xfb44fdd1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
 
 ==== Dependence on tx.origin ====
 SWC ID: 115
@@ -590,7 +590,7 @@ require(tx.origin == owner_txorigin10)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x100000000, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
@@ -640,7 +640,7 @@ require(tx.origin == owner_txorigin31)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x947000020000000, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x944400001000001, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
@@ -665,13 +665,13 @@ require(tx.origin == owner_txorigin39)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x947002000000000, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
 
 Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
-Caller: [ATTACKER], function: transferTo_txorigin39(address,uint256,address), txdata: 0x0a20e74e000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
+Caller: [SOMEGUY], function: transferTo_txorigin39(address,uint256,address), txdata: 0x0a20e74e000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
 
 ==== Dependence on tx.origin ====
 SWC ID: 115
@@ -690,13 +690,13 @@ require(tx.origin == owner_txorigin27)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x4000000000000000, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
 
 Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
-Caller: [SOMEGUY], function: transferTo_txorigin27(address,uint256,address), txdata: 0x0ccb9a12000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
+Caller: [CREATOR], function: transferTo_txorigin27(address,uint256,address), txdata: 0x0ccb9a12000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
 
 ==== Dependence on tx.origin ====
 SWC ID: 115
@@ -740,7 +740,7 @@ require(Operated.isActiveOperator(msg.sender), "only active operator")
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0xc0000000001, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
@@ -815,13 +815,13 @@ require(tx.origin == owner_txorigin7)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x800000000000000, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x400000000000, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
 
 Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
-Caller: [SOMEGUY], function: transferTo_txorigin7(address,uint256,address), txdata: 0x3373f9d0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
+Caller: [ATTACKER], function: transferTo_txorigin7(address,uint256,address), txdata: 0x3373f9d0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
 
 ==== Dependence on tx.origin ====
 SWC ID: 115
@@ -871,7 +871,7 @@ Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 Transaction Sequence:
 
 Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
-Caller: [CREATOR], function: sendto_txorigin13(address,uint256,address), txdata: 0x520aba35000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
+Caller: [ATTACKER], function: sendto_txorigin13(address,uint256,address), txdata: 0x520aba35000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
 
 ==== Dependence on tx.origin ====
 SWC ID: 115
@@ -890,7 +890,7 @@ require(tx.origin == owner_txorigin12)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x4000000000000000, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
@@ -915,7 +915,7 @@ require(tx.origin == owner_txorigin19)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x4000000000000000, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x80000000000, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
@@ -965,7 +965,7 @@ require (tx.origin == owner_txorigin1)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x800000000000000, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
@@ -1021,7 +1021,7 @@ Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 Transaction Sequence:
 
 Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
-Caller: [CREATOR], function: transferTo_txorigin35(address,uint256,address), txdata: 0x8376964d000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
+Caller: [ATTACKER], function: transferTo_txorigin35(address,uint256,address), txdata: 0x8376964d000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
 
 ==== Dependence on tx.origin ====
 SWC ID: 115
@@ -1040,13 +1040,13 @@ require(tx.origin == owner_txorigin26)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
 
 Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
-Caller: [ATTACKER], function: withdrawAll_txorigin26(address,address), txdata: 0x8fecc3f900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', '0x0000000000000000000000000000000000000000'), value: 0x0
+Caller: [SOMEGUY], function: withdrawAll_txorigin26(address,address), txdata: 0x8fecc3f900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', '0x0000000000000000000000000000000000000000'), value: 0x0
 
 ==== Dependence on tx.origin ====
 SWC ID: 115
@@ -1065,7 +1065,7 @@ require(tx.origin == owner_txorigin36)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x4000000000000, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x4000000000000000, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
@@ -1090,13 +1090,13 @@ require(tx.origin == owner_txorigin2)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x200000000000000, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
 
 Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
-Caller: [ATTACKER], function: withdrawAll_txorigin2(address,address), txdata: 0xb736900700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', '0x0000000000000000000000000000000000000000'), value: 0x0
+Caller: [SOMEGUY], function: withdrawAll_txorigin2(address,address), txdata: 0xb736900700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', '0x0000000000000000000000000000000000000000'), value: 0x0
 
 ==== Dependence on tx.origin ====
 SWC ID: 115
@@ -1115,37 +1115,12 @@ require(tx.origin == owner_txorigin4)
 --------------------
 Initial State:
 
-Account: [CREATOR], balance: 0x2000000000000, nonce:0, storage:{}
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
 Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
 
 Transaction Sequence:
 
 Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
-Caller: [SOMEGUY], function: bug_txorigin4(address), txdata: 0xb9e312580000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000',), value: 0x0
-
-==== Dependence on tx.origin ====
-SWC ID: 115
-Severity: Low
-Contract: Feed
-Function name: withdrawAll_txorigin38(address,address)
-PC address: 7724
-Estimated Gas Usage: 846 - 941
-Use of tx.origin as a part of authorization control.
-The tx.origin environment variable has been found to influence a control flow decision. Note that using tx.origin as a security control might cause a situation where a user inadvertently authorizes a smart contract to perform an action on their behalf. It is recommended to use msg.sender instead.
---------------------
-In file: tx.origin/buggy_44.sol:206
-
-require(tx.origin == owner_txorigin38)
-
---------------------
-Initial State:
-
-Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
-Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
-
-Transaction Sequence:
-
-Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
-Caller: [SOMEGUY], function: withdrawAll_txorigin38(address,address), txdata: 0xbff2792800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', '0x0000000000000000000000000000000000000000'), value: 0x0
+Caller: [ATTACKER], function: bug_txorigin4(address), txdata: 0xb9e312580000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000',), value: 0x0
 
 
