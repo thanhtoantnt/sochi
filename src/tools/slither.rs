@@ -51,11 +51,6 @@ fn run_slither(input_file_path: PathBuf) -> Result<PathBuf, String> {
 
 /// Interpret Slither results
 fn interpret_slither_results(file: &Path) -> Summary {
-    // Note: Slither can find bugs in the following types:
-    // Re-entrancy
-    // Timestamp dependency
-    // Unhandled exceptions
-    // Use of tx.origin
     let contents =
         fs::read_to_string(file.to_str().unwrap()).expect("Should have been able to read the file");
 
@@ -130,7 +125,7 @@ pub fn generate_results(dir: &str) {
         let file = path.path();
         let extension = file.extension().and_then(OsStr::to_str);
 
-        if extension.unwrap() == "sol" {
+        if extension.unwrap() == super::SOL {
             println!("Input file: {}", file.display());
             let output = run_slither(file);
             match output {

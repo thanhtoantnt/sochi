@@ -70,8 +70,8 @@ fn generate_command(input_file_path: PathBuf) -> String {
     format!("echo \"{0} {1}\"\n{0} {1}\n", super::MYTHRIL, mythril_args)
 }
 
-/// Run mythril using options
-pub fn run_directory(dir: &str) -> Summary {
+/// Interpret mythril results
+pub fn interpret_results(dir: &str) -> Summary {
     // List all files in the repository
     let path = Path::new(&dir);
     let mut paths: Vec<_> = fs::read_dir(path).unwrap().map(|r| r.unwrap()).collect();

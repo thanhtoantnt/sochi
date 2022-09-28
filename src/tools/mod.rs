@@ -19,6 +19,9 @@ pub const CONFUZZIUS: &str = "confuzzius";
 /// Executable file name of the Solc compiler
 pub const SOLC: &str = "solc";
 
+/// Extension of Solidity files
+pub const SOL: &str = "sol";
+
 /// Executable file name of `python3`
 pub const PYTHON3: &str = "python3";
 

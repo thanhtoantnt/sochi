@@ -57,48 +57,53 @@ fn run_confuzzius(input_file_path: PathBuf) -> Result<PathBuf, String> {
 
 /// Interpret Confuzzius results
 fn interpret_confuzzius_results(file: &Path) -> Summary {
-    // Note: Confuzzius can find bugs in the following types:
-    // Re-entrancy
-    // Timestamp dependency
-    // Unhandled exceptions
-    // Use of tx.origin
     let contents =
         fs::read_to_string(file.to_str().unwrap()).expect("Should have been able to read the file");
 
-    let reentrancy_regex = Regex::new(r"Reentrancy in ").unwrap();
-    let timestamp_dep_regex = Regex::new(r" uses timestamp ").unwrap();
-    let unhandled_exceptions_regex = Regex::new(r"Failure condition of ").unwrap();
-    let tx_origin_regex = Regex::new(r" uses tx.origin for authorization").unwrap();
+    let reentrancy_regex = Regex::new(r"Reentrancy detected").unwrap();
+    let timestamp_dep_regex = Regex::new(r"Block dependency detected").unwrap();
+    let unchecked_send_regex = Regex::new(r"Leaking ether detected").unwrap();
+    let unhandled_exceptions_regex = Regex::new(r"Unchecked return value detected").unwrap();
+    let tod_regex = Regex::new(r"Transaction order dependency detected").unwrap();
+    let integer_overflow_regex = Regex::new(r"Integer overflow detected").unwrap();
+    let integer_underflow_regex = Regex::new(r"Integer underflow detected").unwrap();
+
     let reentrancy = reentrancy_regex.captures_iter(contents.as_str()).count();
     let timestamp_dep = timestamp_dep_regex.captures_iter(contents.as_str()).count();
+    let unchecked_send = unchecked_send_regex
+        .captures_iter(contents.as_str())
+        .count();
     let unhandled_exceptions = unhandled_exceptions_regex
         .captures_iter(contents.as_str())
         .count();
-    let tx_origin = tx_origin_regex.captures_iter(contents.as_str()).count();
+    let tod = tod_regex.captures_iter(contents.as_str()).count();
+    let integer_overflow = integer_overflow_regex
+        .captures_iter(contents.as_str())
+        .count();
+    let integer_underflow = integer_underflow_regex
+        .captures_iter(contents.as_str())
+        .count();
 
     Summary::new(
         reentrancy,
         timestamp_dep,
+        unchecked_send,
+        unhandled_exceptions + unchecked_send,
+        tod,
+        integer_overflow + integer_underflow,
         0,
-        unhandled_exceptions,
-        0,
-        0,
-        tx_origin,
     )
 }
 
-/// Run confuzzius using options
-pub fn run_directory(dir: &str) -> Summary {
+/// Run Confuzzius and get results
+pub fn generate_results(dir: &str) {
     // List all files in the repository
     let path = Path::new(&dir);
-    let files = fs::read_dir(path).unwrap();
+    let mut paths: Vec<_> = fs::read_dir(path).unwrap().map(|r| r.unwrap()).collect();
+    paths.sort_by_key(|dir| dir.path());
 
-    let mut reentrancy = 0;
-    let mut timestamp = 0;
-    let mut tx_origin = 0;
-    let mut unhanled_exceptions = 0;
-    for file in files {
-        let file = file.unwrap().path();
+    for path in paths {
+        let file = path.path();
         let extension = file.extension().and_then(OsStr::to_str);
 
         if extension.unwrap() == "sol" {
@@ -106,18 +111,40 @@ pub fn run_directory(dir: &str) -> Summary {
             let output = run_confuzzius(file);
             match output {
                 Ok(result) => {
-                    debug!("The output is written to: {}", result.display());
-                    let result = interpret_confuzzius_results(&result);
-                    reentrancy += result.re_entrancy;
-                    timestamp += result.timestamp;
-                    unhanled_exceptions += result.unhandled_exceptions;
-                    tx_origin += result.tx_origin;
-                    debug!("bugs: {}", result);
+                    println!("The output is written to: {}", result.display());
                 }
                 Err(msg) => {
                     println!("err: {}", msg);
                 }
             }
+        }
+    }
+}
+
+/// Run confuzzius using options
+pub fn interpret_results(dir: &str) -> Summary {
+    // List all files in the repository
+    let path = Path::new(&dir);
+    let mut paths: Vec<_> = fs::read_dir(path).unwrap().map(|r| r.unwrap()).collect();
+    paths.sort_by_key(|dir| dir.path());
+
+    let mut reentrancy = 0;
+    let mut timestamp = 0;
+    let mut tx_origin = 0;
+    let mut unhanled_exceptions = 0;
+
+    for path in paths {
+        let file = path.path();
+        let extension = file.extension().and_then(OsStr::to_str);
+
+        if extension.unwrap() == super::CONFUZZIUS {
+            println!("Input file: {}", file.display());
+            let result = interpret_confuzzius_results(&file);
+            reentrancy += result.re_entrancy;
+            timestamp += result.timestamp;
+            unhanled_exceptions += result.unhandled_exceptions;
+            tx_origin += result.tx_origin;
+            debug!("bugs: {}", result);
         }
     }
 

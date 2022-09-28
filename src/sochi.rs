@@ -60,15 +60,21 @@ fn main() {
     }
 
     if tools.contains(&cli::ToolName::Confuzzius) {
-        let result = confuzzius::run_directory(opts.input_dir);
-        println!("Slither results: {}", result);
+        if opts.printer_options.generate_results {
+            confuzzius::generate_results(opts.input_dir);
+        } else {
+            let result = confuzzius::interpret_results(opts.input_dir);
+            println!("Slither results: {}", result);
+        }
     }
 
+    // Note: For mythril, the running has to be done manually.
+    // There is an error we cannot fix to run mythril automatically.
     if tools.contains(&cli::ToolName::Mythril) {
         if opts.printer_options.generate_commands {
             mythril::generate_commands(opts.input_dir);
         } else {
-            let result = mythril::run_directory(opts.input_dir);
+            let result = mythril::interpret_results(opts.input_dir);
             println!("Slither results: {}", result);
         }
     }
