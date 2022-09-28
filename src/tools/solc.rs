@@ -33,18 +33,22 @@ fn install_solc_version(version: Version) -> Result<String, String> {
     match check_solc_select_path() {
         Ok(_) => {
             // Install solc
-            let args = " install".to_owned() + &version.to_string();
+            let args = " install ".to_owned() + &version.to_string();
             Command::new(super::SOLC_SELECT)
                 .args(args.split_whitespace())
                 .output()
                 .unwrap();
 
+            debug!("Running command: {} {}", super::SOLC_SELECT, args);
+
             // Use solc version
-            let args = " use".to_owned() + &version.to_string();
+            let args = " use ".to_owned() + &version.to_string();
             Command::new(super::SOLC_SELECT)
                 .args(args.split_whitespace())
                 .output()
                 .unwrap();
+
+            debug!("Running command: {} {}", super::SOLC_SELECT, args);
 
             Ok(version.to_string())
         }

@@ -16,6 +16,9 @@ fn run_slither(input_file_path: PathBuf) -> Result<PathBuf, String> {
         return Err(msg);
     }
 
+    let solc = check_results.unwrap();
+    debug!("solc version: {}", solc);
+
     let slither_args = input_file_path.to_str().unwrap().to_string();
 
     let slither_output = Command::new(super::SLITHER)
@@ -117,10 +120,11 @@ pub fn interpret_results(dir: &str) -> Summary {
 pub fn generate_results(dir: &str) {
     // List all files in the repository
     let path = Path::new(&dir);
-    let files = fs::read_dir(path).unwrap();
+    let mut paths: Vec<_> = fs::read_dir(path).unwrap().map(|r| r.unwrap()).collect();
+    paths.sort_by_key(|dir| dir.path());
 
-    for file in files {
-        let file = file.unwrap().path();
+    for path in paths {
+        let file = path.path();
         let extension = file.extension().and_then(OsStr::to_str);
 
         if extension.unwrap() == "sol" {

@@ -51,7 +51,7 @@ fn main() {
 
     let tools = opts.printer_options.tools;
     if tools.contains(&cli::ToolName::Slither) {
-        if opts.printer_options.generate_commands {
+        if opts.printer_options.generate_results {
             slither::generate_results(opts.input_dir);
         } else {
             let result = slither::interpret_results(opts.input_dir);

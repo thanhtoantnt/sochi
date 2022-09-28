@@ -1,0 +1,231 @@
+
+CareerOnToken.bug_re_ent27() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#9-15) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#11)
+CareerOnToken.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#26-33) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#28)
+CareerOnToken.bug_re_ent20() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#67-73) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#69)
+CareerOnToken.callme_re_ent7() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#104-110) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#106)
+CareerOnToken.buyTicket_re_ent23() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#135-140) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#136)
+CareerOnToken.callme_re_ent14() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#163-169) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#165)
+CareerOnToken.buyTicket_re_ent30() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#196-201) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#197)
+CareerOnToken.callme_re_ent35() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#253-259) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#255)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Reentrancy in CareerOnToken.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#26-33):
+	External calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#28)
+	State variables written after the call(s):
+	- not_called_re_ent13 = false (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#32)
+Reentrancy in CareerOnToken.withdrawBalance_re_ent26() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#56-64):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#59)
+	State variables written after the call(s):
+	- userBalance_re_ent26[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#63)
+Reentrancy in CareerOnToken.withdrawBalance_re_ent33() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#283-291):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#286)
+	State variables written after the call(s):
+	- userBalance_re_ent33[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#290)
+Reentrancy in CareerOnToken.withdrawBalance_re_ent40() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#268-276):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#271)
+	State variables written after the call(s):
+	- userBalance_re_ent40[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#275)
+Reentrancy in CareerOnToken.withdraw_balances_re_ent8() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#211-215):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#212)
+	State variables written after the call(s):
+	- balances_re_ent8[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#214)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
+
+Pragma version^0.5.1 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#5) allows old versions
+solc-0.5.1 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in CareerOnToken.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#26-33):
+	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#28)
+Low level call in CareerOnToken.withdrawBalance_re_ent26() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#56-64):
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#59)
+Low level call in CareerOnToken.withdraw_balances_re_ent8() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#211-215):
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#212)
+Low level call in CareerOnToken.withdrawBalance_re_ent40() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#268-276):
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#271)
+Low level call in CareerOnToken.withdrawBalance_re_ent33() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#283-291):
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#286)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Function CareerOnToken.bug_re_ent27() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#9-15) is not in mixedCase
+Function CareerOnToken.withdrawFunds_re_ent31(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#18-23) is not in mixedCase
+Parameter CareerOnToken.withdrawFunds_re_ent31(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#18) is not in mixedCase
+Function CareerOnToken.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#26-33) is not in mixedCase
+Function CareerOnToken.claimReward_re_ent25() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#37-43) is not in mixedCase
+Function CareerOnToken.withdrawBalance_re_ent19() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#46-53) is not in mixedCase
+Function CareerOnToken.withdrawBalance_re_ent26() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#56-64) is not in mixedCase
+Function CareerOnToken.bug_re_ent20() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#67-73) is not in mixedCase
+Function CareerOnToken.claimReward_re_ent32() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#76-82) is not in mixedCase
+Function CareerOnToken.withdrawFunds_re_ent38(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#85-90) is not in mixedCase
+Parameter CareerOnToken.withdrawFunds_re_ent38(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#85) is not in mixedCase
+Function CareerOnToken.claimReward_re_ent4() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#93-99) is not in mixedCase
+Function CareerOnToken.callme_re_ent7() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#104-110) is not in mixedCase
+Function CareerOnToken.buyTicket_re_ent23() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#135-140) is not in mixedCase
+Parameter CareerOnToken.transfer(address,uint256)._to (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#144) is not in mixedCase
+Parameter CareerOnToken.transfer(address,uint256)._value (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#145) is not in mixedCase
+Function CareerOnToken.callme_re_ent14() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#163-169) is not in mixedCase
+Parameter CareerOnToken.transferFrom(address,address,uint256)._from (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#173) is not in mixedCase
+Parameter CareerOnToken.transferFrom(address,address,uint256)._to (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#174) is not in mixedCase
+Parameter CareerOnToken.transferFrom(address,address,uint256)._value (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#175) is not in mixedCase
+Function CareerOnToken.buyTicket_re_ent30() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#196-201) is not in mixedCase
+Parameter CareerOnToken.approve(address,uint256)._spender (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#203) is not in mixedCase
+Parameter CareerOnToken.approve(address,uint256)._value (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#203) is not in mixedCase
+Function CareerOnToken.withdraw_balances_re_ent8() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#211-215) is not in mixedCase
+Parameter CareerOnToken.allowance(address,address)._owner (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#218) is not in mixedCase
+Parameter CareerOnToken.allowance(address,address)._spender (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#219) is not in mixedCase
+Function CareerOnToken.claimReward_re_ent39() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#224-230) is not in mixedCase
+Function CareerOnToken.withdraw_balances_re_ent36() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#242-245) is not in mixedCase
+Function CareerOnToken.callme_re_ent35() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#253-259) is not in mixedCase
+Parameter CareerOnToken.changeContractName(string,string)._newName (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#262) is not in mixedCase
+Parameter CareerOnToken.changeContractName(string,string)._newSymbol (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#262) is not in mixedCase
+Function CareerOnToken.withdrawBalance_re_ent40() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#268-276) is not in mixedCase
+Function CareerOnToken.withdrawBalance_re_ent33() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#283-291) is not in mixedCase
+Variable CareerOnToken.not_called_re_ent27 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#8) is not in mixedCase
+Variable CareerOnToken.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#17) is not in mixedCase
+Variable CareerOnToken.not_called_re_ent13 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#25) is not in mixedCase
+Variable CareerOnToken.redeemableEther_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#36) is not in mixedCase
+Variable CareerOnToken.userBalance_re_ent19 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#45) is not in mixedCase
+Variable CareerOnToken.userBalance_re_ent26 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#55) is not in mixedCase
+Variable CareerOnToken.not_called_re_ent20 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#66) is not in mixedCase
+Variable CareerOnToken.redeemableEther_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#75) is not in mixedCase
+Variable CareerOnToken.balances_re_ent38 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#84) is not in mixedCase
+Variable CareerOnToken.redeemableEther_re_ent4 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#92) is not in mixedCase
+Variable CareerOnToken.counter_re_ent7 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#103) is not in mixedCase
+Variable CareerOnToken.lastPlayer_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#133) is not in mixedCase
+Variable CareerOnToken.jackpot_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#134) is not in mixedCase
+Variable CareerOnToken.counter_re_ent14 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#162) is not in mixedCase
+Variable CareerOnToken.lastPlayer_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#194) is not in mixedCase
+Variable CareerOnToken.jackpot_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#195) is not in mixedCase
+Variable CareerOnToken.balances_re_ent8 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#210) is not in mixedCase
+Variable CareerOnToken.redeemableEther_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#223) is not in mixedCase
+Variable CareerOnToken.balances_re_ent36 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#241) is not in mixedCase
+Variable CareerOnToken.counter_re_ent35 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#252) is not in mixedCase
+Variable CareerOnToken.userBalance_re_ent40 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#267) is not in mixedCase
+Variable CareerOnToken.userBalance_re_ent33 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#282) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in CareerOnToken.bug_re_ent20() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#67-73):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#69)
+	State variables written after the call(s):
+	- not_called_re_ent20 = false (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#72)
+Reentrancy in CareerOnToken.bug_re_ent27() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#9-15):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#11)
+	State variables written after the call(s):
+	- not_called_re_ent27 = false (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#14)
+Reentrancy in CareerOnToken.buyTicket_re_ent23() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#135-140):
+	External calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#136)
+	State variables written after the call(s):
+	- jackpot_re_ent23 = address(this).balance (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#139)
+	- lastPlayer_re_ent23 = msg.sender (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#138)
+Reentrancy in CareerOnToken.buyTicket_re_ent30() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#196-201):
+	External calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#197)
+	State variables written after the call(s):
+	- jackpot_re_ent30 = address(this).balance (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#200)
+	- lastPlayer_re_ent30 = msg.sender (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#199)
+Reentrancy in CareerOnToken.callme_re_ent14() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#163-169):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#165)
+	State variables written after the call(s):
+	- counter_re_ent14 += 1 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#168)
+Reentrancy in CareerOnToken.callme_re_ent35() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#253-259):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#255)
+	State variables written after the call(s):
+	- counter_re_ent35 += 1 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#258)
+Reentrancy in CareerOnToken.callme_re_ent7() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#104-110):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#106)
+	State variables written after the call(s):
+	- counter_re_ent7 += 1 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#109)
+Reentrancy in CareerOnToken.claimReward_re_ent25() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#37-43):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent25) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#41)
+	State variables written after the call(s):
+	- redeemableEther_re_ent25[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#42)
+Reentrancy in CareerOnToken.claimReward_re_ent32() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#76-82):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent32) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#80)
+	State variables written after the call(s):
+	- redeemableEther_re_ent32[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#81)
+Reentrancy in CareerOnToken.claimReward_re_ent39() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#224-230):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent39) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#228)
+	State variables written after the call(s):
+	- redeemableEther_re_ent39[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#229)
+Reentrancy in CareerOnToken.claimReward_re_ent4() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#93-99):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent4) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#97)
+	State variables written after the call(s):
+	- redeemableEther_re_ent4[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#98)
+Reentrancy in CareerOnToken.withdrawBalance_re_ent19() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#46-53):
+	External calls:
+	- ! (msg.sender.send(userBalance_re_ent19[msg.sender])) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#49)
+	State variables written after the call(s):
+	- userBalance_re_ent19[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#52)
+Reentrancy in CareerOnToken.withdrawFunds_re_ent31(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#18-23):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#21)
+	State variables written after the call(s):
+	- balances_re_ent31[msg.sender] -= _weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#22)
+Reentrancy in CareerOnToken.withdrawFunds_re_ent38(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#85-90):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#88)
+	State variables written after the call(s):
+	- balances_re_ent38[msg.sender] -= _weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#89)
+Reentrancy in CareerOnToken.withdraw_balances_re_ent36() (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#242-245):
+	External calls:
+	- msg.sender.send(balances_re_ent36[msg.sender]) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#243)
+	State variables written after the call(s):
+	- balances_re_ent36[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#244)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable CareerOnToken.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#17) is too similar to CareerOnToken.balances_re_ent36 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#241)
+Variable CareerOnToken.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#17) is too similar to CareerOnToken.balances_re_ent38 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#84)
+Variable CareerOnToken.balances_re_ent36 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#241) is too similar to CareerOnToken.balances_re_ent38 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#84)
+Variable CareerOnToken.jackpot_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#134) is too similar to CareerOnToken.jackpot_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#195)
+Variable CareerOnToken.lastPlayer_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#133) is too similar to CareerOnToken.lastPlayer_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#194)
+Variable CareerOnToken.not_called_re_ent20 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#66) is too similar to CareerOnToken.not_called_re_ent27 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#8)
+Variable CareerOnToken.redeemableEther_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#36) is too similar to CareerOnToken.redeemableEther_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#75)
+Variable CareerOnToken.redeemableEther_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#75) is too similar to CareerOnToken.redeemableEther_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#223)
+Variable CareerOnToken.redeemableEther_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#36) is too similar to CareerOnToken.redeemableEther_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#223)
+Variable CareerOnToken.claimReward_re_ent25().transferValue_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#40) is too similar to CareerOnToken.claimReward_re_ent32().transferValue_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#79)
+Variable CareerOnToken.claimReward_re_ent25().transferValue_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#40) is too similar to CareerOnToken.claimReward_re_ent39().transferValue_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#227)
+Variable CareerOnToken.claimReward_re_ent32().transferValue_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#79) is too similar to CareerOnToken.claimReward_re_ent39().transferValue_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#227)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+CareerOnToken.constructor(uint256,uint8) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#113-132) uses literals with too many digits:
+	- totalSupply = 100000000000000000 (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#119)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+changeContractName(string,string) should be declared external:
+	- CareerOnToken.changeContractName(string,string) (benchmarks/SolidiFI/Re-entrancy/buggy_2.sol#262-266)
+Moreover, the following function parameters should change its data location:
+_newName location should be calldata
+_newSymbol location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+benchmarks/SolidiFI/Re-entrancy/buggy_2.sol analyzed (1 contracts with 80 detectors), 104 result(s) found

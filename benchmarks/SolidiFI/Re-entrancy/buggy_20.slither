@@ -1,0 +1,372 @@
+
+Ownable.buyTicket_re_ent37() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#75-80) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent37.send(jackpot_re_ent37)) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#76)
+RampInstantEscrowsPoolInterface.buyTicket_re_ent9() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#165-171) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#166)
+RampInstantPool.bug_re_ent41() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#229-235) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#231)
+RampInstantPool.callme_re_ent42() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#238-244) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#240)
+RampInstantPool.bug_re_ent27() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#253-259) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#255)
+RampInstantPool.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#270-277) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#272)
+RampInstantPool.bug_re_ent20() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#322-328) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#324)
+RampInstantPool.callme_re_ent7() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#392-398) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#394)
+RampInstantPool.buyTicket_re_ent23() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#416-421) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#417)
+RampInstantPool.callme_re_ent14() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#431-437) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#433)
+RampInstantEthPool.buyTicket_re_ent2() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#475-480) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent2.send(jackpot_re_ent2)) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#476)
+RampInstantEthPool.buyTicket_re_ent30() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#496-501) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#497)
+RampInstantEthPool.callme_re_ent35() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#551-557) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#553)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Reentrancy in RampInstantPool.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#270-277):
+	External calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#272)
+	State variables written after the call(s):
+	- not_called_re_ent13 = false (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#276)
+Reentrancy in RampInstantEscrowsPoolInterface.buyTicket_re_ent9() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#165-171):
+	External calls:
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#166)
+	State variables written after the call(s):
+	- jackpot_re_ent9 = address(this).balance (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#170)
+	- lastPlayer_re_ent9 = msg.sender (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#169)
+Reentrancy in RampInstantPool.withdrawBalance_re_ent26() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#309-317):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#312)
+	State variables written after the call(s):
+	- userBalance_re_ent26[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#316)
+Reentrancy in Stoppable.withdrawBalance_re_ent33() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#102-110):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#105)
+	State variables written after the call(s):
+	- userBalance_re_ent33[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#109)
+Reentrancy in Ownable.withdrawBalance_re_ent40() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#41-49):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#44)
+	State variables written after the call(s):
+	- userBalance_re_ent40[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#48)
+Reentrancy in Ownable.withdrawFunds_re_ent17(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#56-62):
+	External calls:
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#59)
+	State variables written after the call(s):
+	- balances_re_ent17[msg.sender] -= _weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#61)
+Reentrancy in Stoppable.withdrawFunds_re_ent3(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#124-130):
+	External calls:
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#127)
+	State variables written after the call(s):
+	- balances_re_ent3[msg.sender] -= _weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#129)
+Reentrancy in RampInstantPool.withdraw_balances_re_ent1() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#222-226):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent1[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#223)
+	State variables written after the call(s):
+	- balances_re_ent1[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#225)
+Reentrancy in Ownable.withdraw_balances_re_ent21() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#33-37):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent21[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#34)
+	State variables written after the call(s):
+	- balances_re_ent21[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#36)
+Reentrancy in RampInstantEthPool.withdraw_balances_re_ent8() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#507-511):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#508)
+	State variables written after the call(s):
+	- balances_re_ent8[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#510)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
+
+RampInstantPool.ASSET_TYPE (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#210) shadows:
+	- RampInstantPoolInterface.ASSET_TYPE (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#140)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variable-shadowing-from-abstract-contracts
+
+Ownable.changeOwner(address)._newOwner (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#69) lacks a zero-check on :
+		- owner = _newOwner (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#70)
+RampInstantEthPool.withdrawFunds(address,uint256)._to (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#514) lacks a zero-check on :
+		- _to.transfer(_amount) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#517)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Pragma version^0.5.10 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#5) allows old versions
+solc-0.5.10 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in Ownable.withdraw_balances_re_ent21() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#33-37):
+	- (success) = msg.sender.call.value(balances_re_ent21[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#34)
+Low level call in Ownable.withdrawBalance_re_ent40() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#41-49):
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#44)
+Low level call in Ownable.withdrawFunds_re_ent17(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#56-62):
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#59)
+Low level call in Stoppable.withdrawBalance_re_ent33() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#102-110):
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#105)
+Low level call in Stoppable.withdrawFunds_re_ent3(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#124-130):
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#127)
+Low level call in RampInstantEscrowsPoolInterface.buyTicket_re_ent9() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#165-171):
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#166)
+Low level call in RampInstantPool.withdraw_balances_re_ent1() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#222-226):
+	- (success) = msg.sender.call.value(balances_re_ent1[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#223)
+Low level call in RampInstantPool.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#270-277):
+	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#272)
+Low level call in RampInstantPool.withdrawBalance_re_ent26() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#309-317):
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#312)
+Low level call in RampInstantEthPool.withdraw_balances_re_ent8() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#507-511):
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#508)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Function Ownable.withdraw_balances_re_ent21() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#33-37) is not in mixedCase
+Function Ownable.withdrawBalance_re_ent40() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#41-49) is not in mixedCase
+Function Ownable.withdrawFunds_re_ent17(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#56-62) is not in mixedCase
+Parameter Ownable.withdrawFunds_re_ent17(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#56) is not in mixedCase
+Parameter Ownable.changeOwner(address)._newOwner (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#69) is not in mixedCase
+Function Ownable.buyTicket_re_ent37() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#75-80) is not in mixedCase
+Variable Ownable.balances_re_ent21 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#32) is not in mixedCase
+Variable Ownable.userBalance_re_ent40 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#40) is not in mixedCase
+Variable Ownable.balances_re_ent17 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#55) is not in mixedCase
+Variable Ownable.lastPlayer_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#73) is not in mixedCase
+Variable Ownable.jackpot_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#74) is not in mixedCase
+Function Stoppable.withdrawBalance_re_ent12() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#91-98) is not in mixedCase
+Function Stoppable.withdrawBalance_re_ent33() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#102-110) is not in mixedCase
+Parameter Stoppable.setIsActive(bool)._isActive (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#118) is not in mixedCase
+Function Stoppable.withdrawFunds_re_ent3(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#124-130) is not in mixedCase
+Parameter Stoppable.withdrawFunds_re_ent3(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#124) is not in mixedCase
+Variable Stoppable.userBalance_re_ent12 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#90) is not in mixedCase
+Variable Stoppable.userBalance_re_ent33 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#101) is not in mixedCase
+Variable Stoppable.balances_re_ent3 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#123) is not in mixedCase
+Variable RampInstantPoolInterface.ASSET_TYPE (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#140) is not in mixedCase
+Function RampInstantEscrowsPoolInterface.buyTicket_re_ent9() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#165-171) is not in mixedCase
+Function RampInstantEscrowsPoolInterface.claimReward_re_ent25() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#182-188) is not in mixedCase
+Variable RampInstantEscrowsPoolInterface.ASSET_TYPE (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#153) is not in mixedCase
+Variable RampInstantEscrowsPoolInterface.lastPlayer_re_ent9 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#163) is not in mixedCase
+Variable RampInstantEscrowsPoolInterface.jackpot_re_ent9 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#164) is not in mixedCase
+Variable RampInstantEscrowsPoolInterface.redeemableEther_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#181) is not in mixedCase
+Function RampInstantPool.claimReward_re_ent11() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#213-219) is not in mixedCase
+Function RampInstantPool.withdraw_balances_re_ent1() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#222-226) is not in mixedCase
+Function RampInstantPool.bug_re_ent41() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#229-235) is not in mixedCase
+Function RampInstantPool.callme_re_ent42() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#238-244) is not in mixedCase
+Function RampInstantPool.bug_re_ent27() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#253-259) is not in mixedCase
+Function RampInstantPool.withdrawFunds_re_ent31(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#262-267) is not in mixedCase
+Parameter RampInstantPool.withdrawFunds_re_ent31(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#262) is not in mixedCase
+Function RampInstantPool.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#270-277) is not in mixedCase
+Function RampInstantPool.withdrawBalance_re_ent19() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#298-305) is not in mixedCase
+Function RampInstantPool.withdrawBalance_re_ent26() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#309-317) is not in mixedCase
+Function RampInstantPool.bug_re_ent20() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#322-328) is not in mixedCase
+Parameter RampInstantPool.withdrawAllFunds(address)._to (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#330) is not in mixedCase
+Function RampInstantPool.claimReward_re_ent32() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#334-340) is not in mixedCase
+Parameter RampInstantPool.setLimits(uint256,uint256)._minAmount (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#343) is not in mixedCase
+Parameter RampInstantPool.setLimits(uint256,uint256)._maxAmount (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#344) is not in mixedCase
+Function RampInstantPool.withdrawFunds_re_ent38(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#351-356) is not in mixedCase
+Parameter RampInstantPool.withdrawFunds_re_ent38(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#351) is not in mixedCase
+Parameter RampInstantPool.setSwapsContract(address)._swapsContract (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#359) is not in mixedCase
+Function RampInstantPool.claimReward_re_ent4() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#366-372) is not in mixedCase
+Parameter RampInstantPool.releaseSwap(address,address,bytes,bytes32)._receiver (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#378) is not in mixedCase
+Parameter RampInstantPool.releaseSwap(address,address,bytes,bytes32)._oracle (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#379) is not in mixedCase
+Parameter RampInstantPool.releaseSwap(address,address,bytes,bytes32)._assetData (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#380) is not in mixedCase
+Parameter RampInstantPool.releaseSwap(address,address,bytes,bytes32)._paymentDetailsHash (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#381) is not in mixedCase
+Function RampInstantPool.callme_re_ent7() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#392-398) is not in mixedCase
+Parameter RampInstantPool.returnSwap(address,address,bytes,bytes32)._receiver (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#401) is not in mixedCase
+Parameter RampInstantPool.returnSwap(address,address,bytes,bytes32)._oracle (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#402) is not in mixedCase
+Parameter RampInstantPool.returnSwap(address,address,bytes,bytes32)._assetData (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#403) is not in mixedCase
+Parameter RampInstantPool.returnSwap(address,address,bytes,bytes32)._paymentDetailsHash (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#404) is not in mixedCase
+Function RampInstantPool.buyTicket_re_ent23() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#416-421) is not in mixedCase
+Function RampInstantPool.callme_re_ent14() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#431-437) is not in mixedCase
+Variable RampInstantPool.ASSET_TYPE (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#210) is not in mixedCase
+Variable RampInstantPool.redeemableEther_re_ent11 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#212) is not in mixedCase
+Variable RampInstantPool.balances_re_ent1 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#221) is not in mixedCase
+Variable RampInstantPool.not_called_re_ent41 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#228) is not in mixedCase
+Variable RampInstantPool.counter_re_ent42 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#237) is not in mixedCase
+Variable RampInstantPool.not_called_re_ent27 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#252) is not in mixedCase
+Variable RampInstantPool.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#261) is not in mixedCase
+Variable RampInstantPool.not_called_re_ent13 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#269) is not in mixedCase
+Variable RampInstantPool.userBalance_re_ent19 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#297) is not in mixedCase
+Variable RampInstantPool.userBalance_re_ent26 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#308) is not in mixedCase
+Variable RampInstantPool.not_called_re_ent20 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#321) is not in mixedCase
+Variable RampInstantPool.redeemableEther_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#333) is not in mixedCase
+Variable RampInstantPool.balances_re_ent38 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#350) is not in mixedCase
+Variable RampInstantPool.redeemableEther_re_ent4 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#365) is not in mixedCase
+Variable RampInstantPool.counter_re_ent7 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#391) is not in mixedCase
+Variable RampInstantPool.lastPlayer_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#414) is not in mixedCase
+Variable RampInstantPool.jackpot_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#415) is not in mixedCase
+Variable RampInstantPool.counter_re_ent14 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#430) is not in mixedCase
+Function RampInstantEthPool.buyTicket_re_ent2() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#475-480) is not in mixedCase
+Function RampInstantEthPool.buyTicket_re_ent30() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#496-501) is not in mixedCase
+Function RampInstantEthPool.withdraw_balances_re_ent8() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#507-511) is not in mixedCase
+Parameter RampInstantEthPool.withdrawFunds(address,uint256)._to (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#514) is not in mixedCase
+Parameter RampInstantEthPool.withdrawFunds(address,uint256)._amount (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#515) is not in mixedCase
+Function RampInstantEthPool.claimReward_re_ent39() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#521-527) is not in mixedCase
+Parameter RampInstantEthPool.sendFundsToSwap(uint256)._amount (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#530) is not in mixedCase
+Function RampInstantEthPool.withdraw_balances_re_ent36() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#536-539) is not in mixedCase
+Function RampInstantEthPool.callme_re_ent35() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#551-557) is not in mixedCase
+Variable RampInstantEthPool.lastPlayer_re_ent2 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#473) is not in mixedCase
+Variable RampInstantEthPool.jackpot_re_ent2 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#474) is not in mixedCase
+Variable RampInstantEthPool.lastPlayer_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#494) is not in mixedCase
+Variable RampInstantEthPool.jackpot_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#495) is not in mixedCase
+Variable RampInstantEthPool.balances_re_ent8 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#506) is not in mixedCase
+Variable RampInstantEthPool.redeemableEther_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#520) is not in mixedCase
+Variable RampInstantEthPool.balances_re_ent36 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#535) is not in mixedCase
+Variable RampInstantEthPool.counter_re_ent35 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#550) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in RampInstantPool.bug_re_ent20() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#322-328):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#324)
+	State variables written after the call(s):
+	- not_called_re_ent20 = false (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#327)
+Reentrancy in RampInstantPool.bug_re_ent27() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#253-259):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#255)
+	State variables written after the call(s):
+	- not_called_re_ent27 = false (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#258)
+Reentrancy in RampInstantPool.bug_re_ent41() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#229-235):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#231)
+	State variables written after the call(s):
+	- not_called_re_ent41 = false (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#234)
+Reentrancy in RampInstantEthPool.buyTicket_re_ent2() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#475-480):
+	External calls:
+	- ! (lastPlayer_re_ent2.send(jackpot_re_ent2)) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#476)
+	State variables written after the call(s):
+	- jackpot_re_ent2 = address(this).balance (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#479)
+	- lastPlayer_re_ent2 = msg.sender (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#478)
+Reentrancy in RampInstantPool.buyTicket_re_ent23() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#416-421):
+	External calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#417)
+	State variables written after the call(s):
+	- jackpot_re_ent23 = address(this).balance (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#420)
+	- lastPlayer_re_ent23 = msg.sender (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#419)
+Reentrancy in RampInstantEthPool.buyTicket_re_ent30() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#496-501):
+	External calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#497)
+	State variables written after the call(s):
+	- jackpot_re_ent30 = address(this).balance (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#500)
+	- lastPlayer_re_ent30 = msg.sender (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#499)
+Reentrancy in Ownable.buyTicket_re_ent37() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#75-80):
+	External calls:
+	- ! (lastPlayer_re_ent37.send(jackpot_re_ent37)) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#76)
+	State variables written after the call(s):
+	- jackpot_re_ent37 = address(this).balance (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#79)
+	- lastPlayer_re_ent37 = msg.sender (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#78)
+Reentrancy in RampInstantPool.callme_re_ent14() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#431-437):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#433)
+	State variables written after the call(s):
+	- counter_re_ent14 += 1 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#436)
+Reentrancy in RampInstantEthPool.callme_re_ent35() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#551-557):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#553)
+	State variables written after the call(s):
+	- counter_re_ent35 += 1 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#556)
+Reentrancy in RampInstantPool.callme_re_ent42() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#238-244):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#240)
+	State variables written after the call(s):
+	- counter_re_ent42 += 1 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#243)
+Reentrancy in RampInstantPool.callme_re_ent7() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#392-398):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#394)
+	State variables written after the call(s):
+	- counter_re_ent7 += 1 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#397)
+Reentrancy in RampInstantPool.claimReward_re_ent11() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#213-219):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent11) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#217)
+	State variables written after the call(s):
+	- redeemableEther_re_ent11[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#218)
+Reentrancy in RampInstantEscrowsPoolInterface.claimReward_re_ent25() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#182-188):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent25) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#186)
+	State variables written after the call(s):
+	- redeemableEther_re_ent25[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#187)
+Reentrancy in RampInstantPool.claimReward_re_ent32() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#334-340):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent32) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#338)
+	State variables written after the call(s):
+	- redeemableEther_re_ent32[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#339)
+Reentrancy in RampInstantEthPool.claimReward_re_ent39() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#521-527):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent39) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#525)
+	State variables written after the call(s):
+	- redeemableEther_re_ent39[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#526)
+Reentrancy in RampInstantPool.claimReward_re_ent4() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#366-372):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent4) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#370)
+	State variables written after the call(s):
+	- redeemableEther_re_ent4[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#371)
+Reentrancy in Stoppable.withdrawBalance_re_ent12() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#91-98):
+	External calls:
+	- ! (msg.sender.send(userBalance_re_ent12[msg.sender])) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#94)
+	State variables written after the call(s):
+	- userBalance_re_ent12[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#97)
+Reentrancy in RampInstantPool.withdrawBalance_re_ent19() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#298-305):
+	External calls:
+	- ! (msg.sender.send(userBalance_re_ent19[msg.sender])) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#301)
+	State variables written after the call(s):
+	- userBalance_re_ent19[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#304)
+Reentrancy in RampInstantPool.withdrawFunds_re_ent31(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#262-267):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#265)
+	State variables written after the call(s):
+	- balances_re_ent31[msg.sender] -= _weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#266)
+Reentrancy in RampInstantPool.withdrawFunds_re_ent38(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#351-356):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#354)
+	State variables written after the call(s):
+	- balances_re_ent38[msg.sender] -= _weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#355)
+Reentrancy in RampInstantEthPool.withdraw_balances_re_ent36() (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#536-539):
+	External calls:
+	- msg.sender.send(balances_re_ent36[msg.sender]) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#537)
+	State variables written after the call(s):
+	- balances_re_ent36[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#538)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable Ownable.balances_re_ent17 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#55) is too similar to Ownable.balances_re_ent21 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#32)
+Variable Ownable.balances_re_ent17 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#55) is too similar to RampInstantPool.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#261)
+Variable RampInstantPool.balances_re_ent1 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#221) is too similar to Stoppable.balances_re_ent3 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#123)
+Variable Ownable.balances_re_ent21 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#32) is too similar to RampInstantPool.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#261)
+Variable RampInstantPool.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#261) is too similar to RampInstantPool.balances_re_ent38 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#350)
+Variable RampInstantPool.counter_re_ent14 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#430) is too similar to RampInstantPool.counter_re_ent42 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#237)
+Variable RampInstantPool.jackpot_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#415) is too similar to Ownable.jackpot_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#74)
+Variable RampInstantPool.lastPlayer_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#414) is too similar to Ownable.lastPlayer_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#73)
+Variable RampInstantPool.not_called_re_ent20 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#321) is too similar to RampInstantPool.not_called_re_ent27 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#252)
+Variable RampInstantPool.not_called_re_ent13 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#269) is too similar to RampInstantPool.not_called_re_ent41 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#228)
+Variable RampInstantPool.redeemableEther_re_ent11 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#212) is too similar to RampInstantPool.redeemableEther_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#333)
+Variable RampInstantPool.claimReward_re_ent11().transferValue_re_ent11 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#216) is too similar to RampInstantPool.claimReward_re_ent32().transferValue_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#337)
+Variable Stoppable.userBalance_re_ent12 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#90) is too similar to RampInstantPool.userBalance_re_ent19 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#297)
+Variable Stoppable.userBalance_re_ent12 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#90) is too similar to RampInstantPool.userBalance_re_ent26 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#308)
+Variable RampInstantPool.balances_re_ent1 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#221) is too similar to RampInstantEthPool.balances_re_ent8 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#506)
+Variable Stoppable.balances_re_ent3 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#123) is too similar to RampInstantEthPool.balances_re_ent8 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#506)
+Variable RampInstantPool.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#261) is too similar to RampInstantEthPool.balances_re_ent36 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#535)
+Variable RampInstantEthPool.balances_re_ent36 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#535) is too similar to RampInstantPool.balances_re_ent38 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#350)
+Variable RampInstantPool.jackpot_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#415) is too similar to RampInstantEthPool.jackpot_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#495)
+Variable RampInstantEthPool.jackpot_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#495) is too similar to Ownable.jackpot_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#74)
+Variable RampInstantPool.lastPlayer_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#414) is too similar to RampInstantEthPool.lastPlayer_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#494)
+Variable RampInstantEthPool.lastPlayer_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#494) is too similar to Ownable.lastPlayer_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#73)
+Variable RampInstantPool.redeemableEther_re_ent11 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#212) is too similar to RampInstantEthPool.redeemableEther_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#520)
+Variable RampInstantPool.redeemableEther_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#333) is too similar to RampInstantEthPool.redeemableEther_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#520)
+Variable RampInstantPool.claimReward_re_ent32().transferValue_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#337) is too similar to RampInstantEthPool.claimReward_re_ent39().transferValue_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#524)
+Variable RampInstantPool.claimReward_re_ent11().transferValue_re_ent11 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#216) is too similar to RampInstantEthPool.claimReward_re_ent39().transferValue_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#524)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+RampInstantEscrowsPoolInterface (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#151-190) does not implement functions:
+	- RampInstantEscrowsPoolInterface.release(address,address,address,bytes,bytes32) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#155-162)
+	- RampInstantEscrowsPoolInterface.returnFunds(address,address,address,bytes,bytes32) (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#173-180)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unimplemented-functions
+
+RampInstantEscrowsPoolInterface.ASSET_TYPE (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#153) should be constant
+RampInstantPoolInterface.ASSET_TYPE (benchmarks/SolidiFI/Re-entrancy/buggy_20.sol#140) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+benchmarks/SolidiFI/Re-entrancy/buggy_20.sol analyzed (6 contracts with 80 detectors), 179 result(s) found

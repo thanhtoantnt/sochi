@@ -1,0 +1,502 @@
+
+ERC20Interface.callme_re_ent21() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#63-69) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#65)
+ERC20Interface.bug_re_ent27() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#123-129) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#125)
+ApproveAndCallFallBack.bug_re_ent41() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#144-150) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#146)
+Owned.callme_re_ent42() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#176-182) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#178)
+Owned.buyTicket_re_ent2() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#194-199) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent2.send(jackpot_re_ent2)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#195)
+_Yesbuzz.bug_re_ent6() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#261-267) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#263)
+_Yesbuzz.buyTicket_re_ent16() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#271-276) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent16.send(jackpot_re_ent16)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#272)
+_Yesbuzz.callme_re_ent28() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#304-310) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#306)
+_Yesbuzz.bug_re_ent34() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#313-319) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#315)
+_Yesbuzz.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#323-330) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#325)
+_Yesbuzz.buyTicket_re_ent37() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#360-365) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent37.send(jackpot_re_ent37)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#361)
+_Yesbuzz.buyTicket_re_ent9() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#422-428) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#423)
+_Yesbuzz.bug_re_ent20() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#503-509) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#505)
+_Yesbuzz.callme_re_ent7() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#563-569) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#565)
+_Yesbuzz.buyTicket_re_ent23() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#580-585) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#581)
+_Yesbuzz.callme_re_ent14() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#610-616) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#612)
+_Yesbuzz.buyTicket_re_ent30() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#634-639) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#635)
+_Yesbuzz.callme_re_ent35() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#712-718) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#714)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Reentrancy in _Yesbuzz.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#323-330):
+	External calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#325)
+	State variables written after the call(s):
+	- not_called_re_ent13 = false (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#329)
+Reentrancy in _Yesbuzz.buyTicket_re_ent9() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#422-428):
+	External calls:
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#423)
+	State variables written after the call(s):
+	- jackpot_re_ent9 = address(this).balance (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#427)
+	- lastPlayer_re_ent9 = msg.sender (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#426)
+Reentrancy in _Yesbuzz.withdrawBalance_re_ent26() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#489-497):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#492)
+	State variables written after the call(s):
+	- userBalance_re_ent26[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#496)
+Reentrancy in ERC20Interface.withdrawBalance_re_ent33() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#112-120):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#115)
+	State variables written after the call(s):
+	- userBalance_re_ent33[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#119)
+Reentrancy in _Yesbuzz.withdrawBalance_re_ent40() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#728-736):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#731)
+	State variables written after the call(s):
+	- userBalance_re_ent40[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#735)
+Reentrancy in Owned.withdrawFunds_re_ent17(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#208-214):
+	External calls:
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#211)
+	State variables written after the call(s):
+	- balances_re_ent17[msg.sender] -= _weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#213)
+Reentrancy in _Yesbuzz.withdrawFunds_re_ent3(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#392-398):
+	External calls:
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#395)
+	State variables written after the call(s):
+	- balances_re_ent3[msg.sender] -= _weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#397)
+Reentrancy in ERC20Interface.withdraw_balances_re_ent1() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#106-110):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent1[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#107)
+	State variables written after the call(s):
+	- balances_re_ent1[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#109)
+Reentrancy in ERC20Interface.withdraw_balances_re_ent21() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#80-84):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent21[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#81)
+	State variables written after the call(s):
+	- balances_re_ent21[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#83)
+Reentrancy in _Yesbuzz.withdraw_balances_re_ent8() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#663-667):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#664)
+	State variables written after the call(s):
+	- balances_re_ent8[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#666)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
+
+_Yesbuzz._reAdjustDifficulty() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#432-460) performs a multiplication on the result of a division:
+	-miningTarget = miningTarget.sub(miningTarget.div(2000).mul(excess_block_pct_extra)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#444)
+_Yesbuzz._reAdjustDifficulty() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#432-460) performs a multiplication on the result of a division:
+	-miningTarget = miningTarget.add(miningTarget.div(2000).mul(shortage_block_pct_extra)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#449)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+
+Owned.transferOwnership(address)._newOwner (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#189) lacks a zero-check on :
+		- newOwner = _newOwner (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#190)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Pragma version>=0.5.9 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#5) allows old versions
+solc-0.5.9 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in ERC20Interface.withdraw_balances_re_ent21() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#80-84):
+	- (success) = msg.sender.call.value(balances_re_ent21[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#81)
+Low level call in ERC20Interface.withdraw_balances_re_ent1() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#106-110):
+	- (success) = msg.sender.call.value(balances_re_ent1[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#107)
+Low level call in ERC20Interface.withdrawBalance_re_ent33() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#112-120):
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#115)
+Low level call in Owned.withdrawFunds_re_ent17(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#208-214):
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#211)
+Low level call in _Yesbuzz.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#323-330):
+	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#325)
+Low level call in _Yesbuzz.withdrawFunds_re_ent3(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#392-398):
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#395)
+Low level call in _Yesbuzz.buyTicket_re_ent9() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#422-428):
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#423)
+Low level call in _Yesbuzz.withdrawBalance_re_ent26() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#489-497):
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#492)
+Low level call in _Yesbuzz.withdraw_balances_re_ent8() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#663-667):
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#664)
+Low level call in _Yesbuzz.withdrawBalance_re_ent40() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#728-736):
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#731)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Function ERC20Interface.callme_re_ent21() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#63-69) is not in mixedCase
+Function ERC20Interface.withdrawFunds_re_ent10(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#72-77) is not in mixedCase
+Parameter ERC20Interface.withdrawFunds_re_ent10(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#72) is not in mixedCase
+Function ERC20Interface.withdraw_balances_re_ent21() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#80-84) is not in mixedCase
+Function ERC20Interface.withdrawBalance_re_ent12() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#87-94) is not in mixedCase
+Function ERC20Interface.claimReward_re_ent11() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#97-103) is not in mixedCase
+Function ERC20Interface.withdraw_balances_re_ent1() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#106-110) is not in mixedCase
+Function ERC20Interface.withdrawBalance_re_ent33() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#112-120) is not in mixedCase
+Function ERC20Interface.bug_re_ent27() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#123-129) is not in mixedCase
+Variable ERC20Interface.counter_re_ent21 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#62) is not in mixedCase
+Variable ERC20Interface.balances_re_ent10 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#71) is not in mixedCase
+Variable ERC20Interface.balances_re_ent21 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#79) is not in mixedCase
+Variable ERC20Interface.userBalance_re_ent12 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#86) is not in mixedCase
+Variable ERC20Interface.redeemableEther_re_ent11 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#96) is not in mixedCase
+Variable ERC20Interface.balances_re_ent1 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#105) is not in mixedCase
+Variable ERC20Interface.userBalance_re_ent33 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#111) is not in mixedCase
+Variable ERC20Interface.not_called_re_ent27 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#122) is not in mixedCase
+Function ApproveAndCallFallBack.bug_re_ent41() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#144-150) is not in mixedCase
+Variable ApproveAndCallFallBack.not_called_re_ent41 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#143) is not in mixedCase
+Function Owned.withdrawFunds_re_ent31(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#164-169) is not in mixedCase
+Parameter Owned.withdrawFunds_re_ent31(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#164) is not in mixedCase
+Function Owned.callme_re_ent42() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#176-182) is not in mixedCase
+Parameter Owned.transferOwnership(address)._newOwner (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#189) is not in mixedCase
+Function Owned.buyTicket_re_ent2() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#194-199) is not in mixedCase
+Function Owned.withdrawFunds_re_ent17(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#208-214) is not in mixedCase
+Parameter Owned.withdrawFunds_re_ent17(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#208) is not in mixedCase
+Variable Owned.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#163) is not in mixedCase
+Variable Owned.counter_re_ent42 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#175) is not in mixedCase
+Variable Owned.lastPlayer_re_ent2 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#192) is not in mixedCase
+Variable Owned.jackpot_re_ent2 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#193) is not in mixedCase
+Variable Owned.balances_re_ent17 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#207) is not in mixedCase
+Contract _Yesbuzz (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#223-738) is not in CapWords
+Function _Yesbuzz.claimReward_re_ent18() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#246-252) is not in mixedCase
+Function _Yesbuzz.withdraw_balances_re_ent29() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#255-258) is not in mixedCase
+Function _Yesbuzz.bug_re_ent6() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#261-267) is not in mixedCase
+Function _Yesbuzz.buyTicket_re_ent16() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#271-276) is not in mixedCase
+Function _Yesbuzz.withdrawFunds_re_ent24(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#279-284) is not in mixedCase
+Parameter _Yesbuzz.withdrawFunds_re_ent24(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#279) is not in mixedCase
+Function _Yesbuzz.withdrawBalance_re_ent5() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#287-294) is not in mixedCase
+Function _Yesbuzz.withdraw_balances_re_ent15() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#297-300) is not in mixedCase
+Function _Yesbuzz.callme_re_ent28() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#304-310) is not in mixedCase
+Function _Yesbuzz.bug_re_ent34() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#313-319) is not in mixedCase
+Function _Yesbuzz.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#323-330) is not in mixedCase
+Function _Yesbuzz.buyTicket_re_ent37() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#360-365) is not in mixedCase
+Parameter _Yesbuzz.mint(uint256,bytes32).challenge_digest (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#367) is not in mixedCase
+Function _Yesbuzz.withdrawFunds_re_ent3(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#392-398) is not in mixedCase
+Parameter _Yesbuzz.withdrawFunds_re_ent3(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#392) is not in mixedCase
+Function _Yesbuzz.buyTicket_re_ent9() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#422-428) is not in mixedCase
+Function _Yesbuzz.claimReward_re_ent25() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#462-468) is not in mixedCase
+Function _Yesbuzz.withdrawBalance_re_ent19() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#475-482) is not in mixedCase
+Function _Yesbuzz.withdrawBalance_re_ent26() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#489-497) is not in mixedCase
+Function _Yesbuzz.bug_re_ent20() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#503-509) is not in mixedCase
+Function _Yesbuzz.claimReward_re_ent32() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#519-525) is not in mixedCase
+Parameter _Yesbuzz.getMintDigest(uint256,bytes32).challenge_number (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#528) is not in mixedCase
+Function _Yesbuzz.withdrawFunds_re_ent38(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#533-538) is not in mixedCase
+Parameter _Yesbuzz.withdrawFunds_re_ent38(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#533) is not in mixedCase
+Parameter _Yesbuzz.checkMintSolution(uint256,bytes32,bytes32,uint256).challenge_digest (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#541) is not in mixedCase
+Parameter _Yesbuzz.checkMintSolution(uint256,bytes32,bytes32,uint256).challenge_number (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#541) is not in mixedCase
+Function _Yesbuzz.claimReward_re_ent4() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#547-553) is not in mixedCase
+Function _Yesbuzz.callme_re_ent7() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#563-569) is not in mixedCase
+Function _Yesbuzz.buyTicket_re_ent23() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#580-585) is not in mixedCase
+Function _Yesbuzz.callme_re_ent14() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#610-616) is not in mixedCase
+Function _Yesbuzz.buyTicket_re_ent30() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#634-639) is not in mixedCase
+Function _Yesbuzz.withdraw_balances_re_ent8() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#663-667) is not in mixedCase
+Function _Yesbuzz.claimReward_re_ent39() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#678-684) is not in mixedCase
+Function _Yesbuzz.withdraw_balances_re_ent36() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#699-702) is not in mixedCase
+Function _Yesbuzz.callme_re_ent35() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#712-718) is not in mixedCase
+Function _Yesbuzz.withdrawBalance_re_ent40() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#728-736) is not in mixedCase
+Variable _Yesbuzz._totalSupply (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#231) is not in mixedCase
+Variable _Yesbuzz._BLOCKS_PER_READJUSTMENT (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#234) is not in mixedCase
+Variable _Yesbuzz._MINIMUM_TARGET (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#237) is not in mixedCase
+Variable _Yesbuzz._MAXIMUM_TARGET (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#241) is not in mixedCase
+Variable _Yesbuzz.redeemableEther_re_ent18 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#245) is not in mixedCase
+Variable _Yesbuzz.balances_re_ent29 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#254) is not in mixedCase
+Variable _Yesbuzz.not_called_re_ent6 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#260) is not in mixedCase
+Variable _Yesbuzz.lastPlayer_re_ent16 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#269) is not in mixedCase
+Variable _Yesbuzz.jackpot_re_ent16 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#270) is not in mixedCase
+Variable _Yesbuzz.balances_re_ent24 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#278) is not in mixedCase
+Variable _Yesbuzz.userBalance_re_ent5 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#286) is not in mixedCase
+Variable _Yesbuzz.balances_re_ent15 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#296) is not in mixedCase
+Variable _Yesbuzz.counter_re_ent28 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#303) is not in mixedCase
+Variable _Yesbuzz.not_called_re_ent34 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#312) is not in mixedCase
+Variable _Yesbuzz.not_called_re_ent13 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#322) is not in mixedCase
+Variable _Yesbuzz.lastPlayer_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#358) is not in mixedCase
+Variable _Yesbuzz.jackpot_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#359) is not in mixedCase
+Variable _Yesbuzz.balances_re_ent3 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#391) is not in mixedCase
+Variable _Yesbuzz.lastPlayer_re_ent9 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#420) is not in mixedCase
+Variable _Yesbuzz.jackpot_re_ent9 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#421) is not in mixedCase
+Variable _Yesbuzz.redeemableEther_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#461) is not in mixedCase
+Variable _Yesbuzz.userBalance_re_ent19 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#474) is not in mixedCase
+Variable _Yesbuzz.userBalance_re_ent26 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#488) is not in mixedCase
+Variable _Yesbuzz.not_called_re_ent20 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#502) is not in mixedCase
+Variable _Yesbuzz.redeemableEther_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#518) is not in mixedCase
+Variable _Yesbuzz.balances_re_ent38 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#532) is not in mixedCase
+Variable _Yesbuzz.redeemableEther_re_ent4 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#546) is not in mixedCase
+Variable _Yesbuzz.counter_re_ent7 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#562) is not in mixedCase
+Variable _Yesbuzz.lastPlayer_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#578) is not in mixedCase
+Variable _Yesbuzz.jackpot_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#579) is not in mixedCase
+Variable _Yesbuzz.counter_re_ent14 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#609) is not in mixedCase
+Variable _Yesbuzz.lastPlayer_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#632) is not in mixedCase
+Variable _Yesbuzz.jackpot_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#633) is not in mixedCase
+Variable _Yesbuzz.balances_re_ent8 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#662) is not in mixedCase
+Variable _Yesbuzz.redeemableEther_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#677) is not in mixedCase
+Variable _Yesbuzz.balances_re_ent36 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#698) is not in mixedCase
+Variable _Yesbuzz.counter_re_ent35 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#711) is not in mixedCase
+Variable _Yesbuzz.userBalance_re_ent40 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#727) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in _Yesbuzz.bug_re_ent20() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#503-509):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#505)
+	State variables written after the call(s):
+	- not_called_re_ent20 = false (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#508)
+Reentrancy in ERC20Interface.bug_re_ent27() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#123-129):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#125)
+	State variables written after the call(s):
+	- not_called_re_ent27 = false (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#128)
+Reentrancy in _Yesbuzz.bug_re_ent34() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#313-319):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#315)
+	State variables written after the call(s):
+	- not_called_re_ent34 = false (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#318)
+Reentrancy in ApproveAndCallFallBack.bug_re_ent41() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#144-150):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#146)
+	State variables written after the call(s):
+	- not_called_re_ent41 = false (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#149)
+Reentrancy in _Yesbuzz.bug_re_ent6() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#261-267):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#263)
+	State variables written after the call(s):
+	- not_called_re_ent6 = false (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#266)
+Reentrancy in _Yesbuzz.buyTicket_re_ent16() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#271-276):
+	External calls:
+	- ! (lastPlayer_re_ent16.send(jackpot_re_ent16)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#272)
+	State variables written after the call(s):
+	- jackpot_re_ent16 = address(this).balance (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#275)
+	- lastPlayer_re_ent16 = msg.sender (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#274)
+Reentrancy in Owned.buyTicket_re_ent2() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#194-199):
+	External calls:
+	- ! (lastPlayer_re_ent2.send(jackpot_re_ent2)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#195)
+	State variables written after the call(s):
+	- jackpot_re_ent2 = address(this).balance (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#198)
+	- lastPlayer_re_ent2 = msg.sender (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#197)
+Reentrancy in _Yesbuzz.buyTicket_re_ent23() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#580-585):
+	External calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#581)
+	State variables written after the call(s):
+	- jackpot_re_ent23 = address(this).balance (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#584)
+	- lastPlayer_re_ent23 = msg.sender (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#583)
+Reentrancy in _Yesbuzz.buyTicket_re_ent30() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#634-639):
+	External calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#635)
+	State variables written after the call(s):
+	- jackpot_re_ent30 = address(this).balance (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#638)
+	- lastPlayer_re_ent30 = msg.sender (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#637)
+Reentrancy in _Yesbuzz.buyTicket_re_ent37() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#360-365):
+	External calls:
+	- ! (lastPlayer_re_ent37.send(jackpot_re_ent37)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#361)
+	State variables written after the call(s):
+	- jackpot_re_ent37 = address(this).balance (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#364)
+	- lastPlayer_re_ent37 = msg.sender (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#363)
+Reentrancy in _Yesbuzz.callme_re_ent14() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#610-616):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#612)
+	State variables written after the call(s):
+	- counter_re_ent14 += 1 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#615)
+Reentrancy in ERC20Interface.callme_re_ent21() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#63-69):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#65)
+	State variables written after the call(s):
+	- counter_re_ent21 += 1 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#68)
+Reentrancy in _Yesbuzz.callme_re_ent28() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#304-310):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#306)
+	State variables written after the call(s):
+	- counter_re_ent28 += 1 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#309)
+Reentrancy in _Yesbuzz.callme_re_ent35() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#712-718):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#714)
+	State variables written after the call(s):
+	- counter_re_ent35 += 1 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#717)
+Reentrancy in Owned.callme_re_ent42() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#176-182):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#178)
+	State variables written after the call(s):
+	- counter_re_ent42 += 1 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#181)
+Reentrancy in _Yesbuzz.callme_re_ent7() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#563-569):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#565)
+	State variables written after the call(s):
+	- counter_re_ent7 += 1 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#568)
+Reentrancy in ERC20Interface.claimReward_re_ent11() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#97-103):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent11) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#101)
+	State variables written after the call(s):
+	- redeemableEther_re_ent11[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#102)
+Reentrancy in _Yesbuzz.claimReward_re_ent18() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#246-252):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent18) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#250)
+	State variables written after the call(s):
+	- redeemableEther_re_ent18[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#251)
+Reentrancy in _Yesbuzz.claimReward_re_ent25() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#462-468):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent25) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#466)
+	State variables written after the call(s):
+	- redeemableEther_re_ent25[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#467)
+Reentrancy in _Yesbuzz.claimReward_re_ent32() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#519-525):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent32) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#523)
+	State variables written after the call(s):
+	- redeemableEther_re_ent32[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#524)
+Reentrancy in _Yesbuzz.claimReward_re_ent39() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#678-684):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent39) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#682)
+	State variables written after the call(s):
+	- redeemableEther_re_ent39[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#683)
+Reentrancy in _Yesbuzz.claimReward_re_ent4() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#547-553):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent4) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#551)
+	State variables written after the call(s):
+	- redeemableEther_re_ent4[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#552)
+Reentrancy in ERC20Interface.withdrawBalance_re_ent12() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#87-94):
+	External calls:
+	- ! (msg.sender.send(userBalance_re_ent12[msg.sender])) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#90)
+	State variables written after the call(s):
+	- userBalance_re_ent12[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#93)
+Reentrancy in _Yesbuzz.withdrawBalance_re_ent19() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#475-482):
+	External calls:
+	- ! (msg.sender.send(userBalance_re_ent19[msg.sender])) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#478)
+	State variables written after the call(s):
+	- userBalance_re_ent19[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#481)
+Reentrancy in _Yesbuzz.withdrawBalance_re_ent5() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#287-294):
+	External calls:
+	- ! (msg.sender.send(userBalance_re_ent5[msg.sender])) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#290)
+	State variables written after the call(s):
+	- userBalance_re_ent5[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#293)
+Reentrancy in ERC20Interface.withdrawFunds_re_ent10(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#72-77):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#75)
+	State variables written after the call(s):
+	- balances_re_ent10[msg.sender] -= _weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#76)
+Reentrancy in _Yesbuzz.withdrawFunds_re_ent24(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#279-284):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#282)
+	State variables written after the call(s):
+	- balances_re_ent24[msg.sender] -= _weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#283)
+Reentrancy in Owned.withdrawFunds_re_ent31(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#164-169):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#167)
+	State variables written after the call(s):
+	- balances_re_ent31[msg.sender] -= _weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#168)
+Reentrancy in _Yesbuzz.withdrawFunds_re_ent38(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#533-538):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#536)
+	State variables written after the call(s):
+	- balances_re_ent38[msg.sender] -= _weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#537)
+Reentrancy in _Yesbuzz.withdraw_balances_re_ent15() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#297-300):
+	External calls:
+	- msg.sender.send(balances_re_ent15[msg.sender]) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#298)
+	State variables written after the call(s):
+	- balances_re_ent15[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#299)
+Reentrancy in _Yesbuzz.withdraw_balances_re_ent29() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#255-258):
+	External calls:
+	- msg.sender.send(balances_re_ent29[msg.sender]) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#256)
+	State variables written after the call(s):
+	- balances_re_ent29[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#257)
+Reentrancy in _Yesbuzz.withdraw_balances_re_ent36() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#699-702):
+	External calls:
+	- msg.sender.send(balances_re_ent36[msg.sender]) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#700)
+	State variables written after the call(s):
+	- balances_re_ent36[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#701)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable ERC20Interface.balances_re_ent10 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#71) is too similar to ERC20Interface.balances_re_ent21 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#79)
+Variable Owned.balances_re_ent17 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#207) is too similar to Owned.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#163)
+Variable ERC20Interface.balances_re_ent1 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#105) is too similar to _Yesbuzz.balances_re_ent3 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#391)
+Variable ERC20Interface.balances_re_ent10 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#71) is too similar to _Yesbuzz.balances_re_ent15 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#296)
+Variable ERC20Interface.balances_re_ent10 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#71) is too similar to Owned.balances_re_ent17 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#207)
+Variable _Yesbuzz.balances_re_ent15 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#296) is too similar to Owned.balances_re_ent17 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#207)
+Variable Owned.balances_re_ent17 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#207) is too similar to ERC20Interface.balances_re_ent21 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#79)
+Variable _Yesbuzz.balances_re_ent15 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#296) is too similar to ERC20Interface.balances_re_ent21 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#79)
+Variable ERC20Interface.balances_re_ent21 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#79) is too similar to _Yesbuzz.balances_re_ent24 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#278)
+Variable ERC20Interface.balances_re_ent21 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#79) is too similar to _Yesbuzz.balances_re_ent29 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#254)
+Variable _Yesbuzz.balances_re_ent24 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#278) is too similar to _Yesbuzz.balances_re_ent29 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#254)
+Variable ERC20Interface.balances_re_ent10 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#71) is too similar to Owned.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#163)
+Variable _Yesbuzz.balances_re_ent15 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#296) is too similar to Owned.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#163)
+Variable ERC20Interface.balances_re_ent21 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#79) is too similar to Owned.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#163)
+Variable Owned.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#163) is too similar to _Yesbuzz.balances_re_ent38 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#532)
+Variable Owned.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#163) is too similar to _Yesbuzz.balances_re_ent36 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#698)
+Variable _Yesbuzz.balances_re_ent36 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#698) is too similar to _Yesbuzz.balances_re_ent38 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#532)
+Variable ERC20Interface.balances_re_ent1 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#105) is too similar to _Yesbuzz.balances_re_ent8 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#662)
+Variable _Yesbuzz.balances_re_ent3 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#391) is too similar to _Yesbuzz.balances_re_ent8 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#662)
+Variable _Yesbuzz.counter_re_ent14 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#609) is too similar to ERC20Interface.counter_re_ent21 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#62)
+Variable _Yesbuzz.counter_re_ent14 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#609) is too similar to Owned.counter_re_ent42 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#175)
+Variable ERC20Interface.counter_re_ent21 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#62) is too similar to _Yesbuzz.counter_re_ent28 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#303)
+Variable ERC20Interface.counter_re_ent21 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#62) is too similar to Owned.counter_re_ent42 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#175)
+Variable _Yesbuzz.counter_re_ent28 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#303) is too similar to Owned.counter_re_ent42 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#175)
+Variable Owned.jackpot_re_ent2 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#193) is too similar to _Yesbuzz.jackpot_re_ent9 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#421)
+Variable _Yesbuzz.jackpot_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#579) is too similar to _Yesbuzz.jackpot_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#633)
+Variable _Yesbuzz.jackpot_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#579) is too similar to _Yesbuzz.jackpot_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#359)
+Variable _Yesbuzz.jackpot_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#633) is too similar to _Yesbuzz.jackpot_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#359)
+Variable Owned.lastPlayer_re_ent2 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#192) is too similar to _Yesbuzz.lastPlayer_re_ent9 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#420)
+Variable _Yesbuzz.lastPlayer_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#578) is too similar to _Yesbuzz.lastPlayer_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#632)
+Variable _Yesbuzz.lastPlayer_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#632) is too similar to _Yesbuzz.lastPlayer_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#358)
+Variable _Yesbuzz.lastPlayer_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#578) is too similar to _Yesbuzz.lastPlayer_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#358)
+Variable _Yesbuzz.not_called_re_ent20 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#502) is too similar to ERC20Interface.not_called_re_ent27 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#122)
+Variable _Yesbuzz.not_called_re_ent13 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#322) is too similar to _Yesbuzz.not_called_re_ent34 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#312)
+Variable ERC20Interface.redeemableEther_re_ent11 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#96) is too similar to _Yesbuzz.redeemableEther_re_ent18 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#245)
+Variable ERC20Interface.redeemableEther_re_ent11 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#96) is too similar to _Yesbuzz.redeemableEther_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#461)
+Variable ERC20Interface.redeemableEther_re_ent11 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#96) is too similar to _Yesbuzz.redeemableEther_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#518)
+Variable _Yesbuzz.redeemableEther_re_ent18 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#245) is too similar to _Yesbuzz.redeemableEther_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#461)
+Variable _Yesbuzz.redeemableEther_re_ent18 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#245) is too similar to _Yesbuzz.redeemableEther_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#518)
+Variable _Yesbuzz.redeemableEther_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#461) is too similar to _Yesbuzz.redeemableEther_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#518)
+Variable ERC20Interface.redeemableEther_re_ent11 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#96) is too similar to _Yesbuzz.redeemableEther_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#677)
+Variable _Yesbuzz.redeemableEther_re_ent18 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#245) is too similar to _Yesbuzz.redeemableEther_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#677)
+Variable _Yesbuzz.redeemableEther_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#461) is too similar to _Yesbuzz.redeemableEther_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#677)
+Variable _Yesbuzz.redeemableEther_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#518) is too similar to _Yesbuzz.redeemableEther_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#677)
+Variable ERC20Interface.claimReward_re_ent11().transferValue_re_ent11 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#100) is too similar to _Yesbuzz.claimReward_re_ent32().transferValue_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#522)
+Variable ERC20Interface.claimReward_re_ent11().transferValue_re_ent11 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#100) is too similar to _Yesbuzz.claimReward_re_ent18().transferValue_re_ent18 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#249)
+Variable _Yesbuzz.claimReward_re_ent18().transferValue_re_ent18 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#249) is too similar to _Yesbuzz.claimReward_re_ent25().transferValue_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#465)
+Variable _Yesbuzz.claimReward_re_ent18().transferValue_re_ent18 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#249) is too similar to _Yesbuzz.claimReward_re_ent32().transferValue_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#522)
+Variable _Yesbuzz.claimReward_re_ent18().transferValue_re_ent18 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#249) is too similar to _Yesbuzz.claimReward_re_ent39().transferValue_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#681)
+Variable ERC20Interface.claimReward_re_ent11().transferValue_re_ent11 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#100) is too similar to _Yesbuzz.claimReward_re_ent25().transferValue_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#465)
+Variable _Yesbuzz.claimReward_re_ent25().transferValue_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#465) is too similar to _Yesbuzz.claimReward_re_ent32().transferValue_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#522)
+Variable _Yesbuzz.claimReward_re_ent25().transferValue_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#465) is too similar to _Yesbuzz.claimReward_re_ent39().transferValue_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#681)
+Variable ERC20Interface.claimReward_re_ent11().transferValue_re_ent11 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#100) is too similar to _Yesbuzz.claimReward_re_ent39().transferValue_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#681)
+Variable _Yesbuzz.claimReward_re_ent32().transferValue_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#522) is too similar to _Yesbuzz.claimReward_re_ent39().transferValue_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#681)
+Variable ERC20Interface.userBalance_re_ent12 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#86) is too similar to _Yesbuzz.userBalance_re_ent19 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#474)
+Variable ERC20Interface.userBalance_re_ent12 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#86) is too similar to _Yesbuzz.userBalance_re_ent26 (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#488)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+_Yesbuzz.constructor() (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#337-357) uses literals with too many digits:
+	- _totalSupply = 21000000 * 10 ** uint256(decimals) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#342)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+ApproveAndCallFallBack (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#140-152) does not implement functions:
+	- ApproveAndCallFallBack.receiveApproval(address,uint256,address,bytes) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#142)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unimplemented-functions
+
+_Yesbuzz._BLOCKS_PER_READJUSTMENT (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#234) should be constant
+_Yesbuzz._MAXIMUM_TARGET (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#241) should be constant
+_Yesbuzz._MINIMUM_TARGET (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#237) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+receiveApproval(address,uint256,address,bytes) should be declared external:
+	- ApproveAndCallFallBack.receiveApproval(address,uint256,address,bytes) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#142)
+Moreover, the following function parameters should change its data location:
+data location should be calldata
+approveAndCall(address,uint256,bytes) should be declared external:
+	- _Yesbuzz.approveAndCall(address,uint256,bytes) (benchmarks/SolidiFI/Re-entrancy/buggy_18.sol#692-697)
+Moreover, the following function parameters should change its data location:
+data location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+benchmarks/SolidiFI/Re-entrancy/buggy_18.sol analyzed (6 contracts with 80 detectors), 244 result(s) found

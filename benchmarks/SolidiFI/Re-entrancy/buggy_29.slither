@@ -1,0 +1,223 @@
+
+RaffleTokenExchange.buyRaffle(uint256[],uint256[]) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#352-377) uses arbitrary from in transferFrom: require(bool,string)(raffleContract.transferFrom(listing.seller,msg.sender,amount),Token transfer failed!) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#368)
+Reference: https://github.com/trailofbits/slither/wiki/Detector-Documentation#arbitrary-send-erc20
+
+ERC20Interface.callme_re_ent7() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#18-24) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#20)
+IERC20Interface.buyTicket_re_ent23() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#31-36) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#32)
+IERC20Interface.callme_re_ent14() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#39-45) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#41)
+RaffleTokenExchange.bug_re_ent20() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#195-201) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#197)
+RaffleTokenExchange.bug_re_ent27() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#289-295) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#291)
+RaffleTokenExchange.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#306-313) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#308)
+RaffleTokenExchange.buyTicket_re_ent30() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#341-346) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#342)
+RaffleTokenExchange.callme_re_ent35() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#429-435) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#431)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Reentrancy in RaffleTokenExchange.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#306-313):
+	External calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#308)
+	State variables written after the call(s):
+	- not_called_re_ent13 = false (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#312)
+Reentrancy in RaffleTokenExchange.withdrawBalance_re_ent26() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#181-189):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#184)
+	State variables written after the call(s):
+	- userBalance_re_ent26[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#188)
+Reentrancy in RaffleTokenExchange.withdrawBalance_re_ent33() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#460-468):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#463)
+	State variables written after the call(s):
+	- userBalance_re_ent33[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#467)
+Reentrancy in RaffleTokenExchange.withdrawBalance_re_ent40() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#443-451):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#446)
+	State variables written after the call(s):
+	- userBalance_re_ent40[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#450)
+Reentrancy in RaffleTokenExchange.withdraw_balances_re_ent8() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#379-383):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#380)
+	State variables written after the call(s):
+	- balances_re_ent8[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#382)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
+
+RaffleTokenExchange.buyRaffle(uint256[],uint256[]) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#352-377) contains a tautology or contradiction:
+	- require(bool,string)(listing.amountLeft >= 0,Amount left needs to be higher than 0.) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#362)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#tautology-or-contradiction
+
+RaffleTokenExchange.buyRaffle(uint256[],uint256[]) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#352-377) has external calls inside a loop: listing.seller.transfer(amountToPay) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#365)
+RaffleTokenExchange.buyRaffle(uint256[],uint256[]) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#352-377) has external calls inside a loop: require(bool,string)(raffleContract.transferFrom(listing.seller,msg.sender,amount),Token transfer failed!) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#368)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop
+
+RaffleTokenExchange.onlyUnpaused() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#327-330) compares to a boolean constant:
+	-require(bool,string)(paused == false,Exchange is paused.) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#328)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#boolean-equality
+
+SafeMath.div(uint256,uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#130-137) is never used and should be removed
+SafeMath.mod(uint256,uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#150-153) is never used and should be removed
+SafeMath.mul(uint256,uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#105-117) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version>=0.5.12 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#5) allows old versions
+solc-0.5.12 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in RaffleTokenExchange.withdrawBalance_re_ent26() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#181-189):
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#184)
+Low level call in RaffleTokenExchange.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#306-313):
+	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#308)
+Low level call in RaffleTokenExchange.withdraw_balances_re_ent8() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#379-383):
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#380)
+Low level call in RaffleTokenExchange.withdrawBalance_re_ent40() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#443-451):
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#446)
+Low level call in RaffleTokenExchange.withdrawBalance_re_ent33() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#460-468):
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#463)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Function ERC20Interface.callme_re_ent7() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#18-24) is not in mixedCase
+Variable ERC20Interface.counter_re_ent7 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#17) is not in mixedCase
+Function IERC20Interface.buyTicket_re_ent23() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#31-36) is not in mixedCase
+Function IERC20Interface.callme_re_ent14() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#39-45) is not in mixedCase
+Variable IERC20Interface.lastPlayer_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#29) is not in mixedCase
+Variable IERC20Interface.jackpot_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#30) is not in mixedCase
+Variable IERC20Interface.counter_re_ent14 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#38) is not in mixedCase
+Function RaffleTokenExchange.withdrawBalance_re_ent19() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#168-175) is not in mixedCase
+Function RaffleTokenExchange.withdrawBalance_re_ent26() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#181-189) is not in mixedCase
+Function RaffleTokenExchange.bug_re_ent20() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#195-201) is not in mixedCase
+Function RaffleTokenExchange.claimReward_re_ent32() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#207-213) is not in mixedCase
+Function RaffleTokenExchange.withdrawFunds_re_ent38(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#219-224) is not in mixedCase
+Parameter RaffleTokenExchange.withdrawFunds_re_ent38(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#219) is not in mixedCase
+Function RaffleTokenExchange.claimReward_re_ent4() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#230-236) is not in mixedCase
+Function RaffleTokenExchange.bug_re_ent27() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#289-295) is not in mixedCase
+Function RaffleTokenExchange.withdrawFunds_re_ent31(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#298-303) is not in mixedCase
+Parameter RaffleTokenExchange.withdrawFunds_re_ent31(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#298) is not in mixedCase
+Function RaffleTokenExchange.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#306-313) is not in mixedCase
+Function RaffleTokenExchange.buyTicket_re_ent30() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#341-346) is not in mixedCase
+Function RaffleTokenExchange.withdraw_balances_re_ent8() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#379-383) is not in mixedCase
+Function RaffleTokenExchange.claimReward_re_ent39() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#400-406) is not in mixedCase
+Function RaffleTokenExchange.withdraw_balances_re_ent36() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#418-421) is not in mixedCase
+Function RaffleTokenExchange.callme_re_ent35() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#429-435) is not in mixedCase
+Function RaffleTokenExchange.withdrawBalance_re_ent40() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#443-451) is not in mixedCase
+Function RaffleTokenExchange.withdrawBalance_re_ent33() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#460-468) is not in mixedCase
+Constant RaffleTokenExchange.raffleContract (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#163) is not in UPPER_CASE_WITH_UNDERSCORES
+Variable RaffleTokenExchange.userBalance_re_ent19 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#167) is not in mixedCase
+Variable RaffleTokenExchange.userBalance_re_ent26 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#180) is not in mixedCase
+Variable RaffleTokenExchange.not_called_re_ent20 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#194) is not in mixedCase
+Variable RaffleTokenExchange.redeemableEther_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#206) is not in mixedCase
+Variable RaffleTokenExchange.balances_re_ent38 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#218) is not in mixedCase
+Variable RaffleTokenExchange.redeemableEther_re_ent4 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#229) is not in mixedCase
+Variable RaffleTokenExchange.not_called_re_ent27 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#288) is not in mixedCase
+Variable RaffleTokenExchange.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#297) is not in mixedCase
+Variable RaffleTokenExchange.not_called_re_ent13 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#305) is not in mixedCase
+Variable RaffleTokenExchange.lastPlayer_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#339) is not in mixedCase
+Variable RaffleTokenExchange.jackpot_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#340) is not in mixedCase
+Variable RaffleTokenExchange.balances_re_ent8 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#378) is not in mixedCase
+Variable RaffleTokenExchange.redeemableEther_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#399) is not in mixedCase
+Variable RaffleTokenExchange.balances_re_ent36 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#417) is not in mixedCase
+Variable RaffleTokenExchange.counter_re_ent35 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#428) is not in mixedCase
+Variable RaffleTokenExchange.userBalance_re_ent40 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#442) is not in mixedCase
+Variable RaffleTokenExchange.userBalance_re_ent33 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#459) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in RaffleTokenExchange.bug_re_ent20() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#195-201):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#197)
+	State variables written after the call(s):
+	- not_called_re_ent20 = false (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#200)
+Reentrancy in RaffleTokenExchange.bug_re_ent27() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#289-295):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#291)
+	State variables written after the call(s):
+	- not_called_re_ent27 = false (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#294)
+Reentrancy in IERC20Interface.buyTicket_re_ent23() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#31-36):
+	External calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#32)
+	State variables written after the call(s):
+	- jackpot_re_ent23 = address(this).balance (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#35)
+	- lastPlayer_re_ent23 = msg.sender (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#34)
+Reentrancy in RaffleTokenExchange.buyTicket_re_ent30() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#341-346):
+	External calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#342)
+	State variables written after the call(s):
+	- jackpot_re_ent30 = address(this).balance (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#345)
+	- lastPlayer_re_ent30 = msg.sender (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#344)
+Reentrancy in IERC20Interface.callme_re_ent14() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#39-45):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#41)
+	State variables written after the call(s):
+	- counter_re_ent14 += 1 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#44)
+Reentrancy in RaffleTokenExchange.callme_re_ent35() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#429-435):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#431)
+	State variables written after the call(s):
+	- counter_re_ent35 += 1 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#434)
+Reentrancy in ERC20Interface.callme_re_ent7() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#18-24):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#20)
+	State variables written after the call(s):
+	- counter_re_ent7 += 1 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#23)
+Reentrancy in RaffleTokenExchange.claimReward_re_ent32() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#207-213):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent32) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#211)
+	State variables written after the call(s):
+	- redeemableEther_re_ent32[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#212)
+Reentrancy in RaffleTokenExchange.claimReward_re_ent39() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#400-406):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent39) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#404)
+	State variables written after the call(s):
+	- redeemableEther_re_ent39[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#405)
+Reentrancy in RaffleTokenExchange.claimReward_re_ent4() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#230-236):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent4) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#234)
+	State variables written after the call(s):
+	- redeemableEther_re_ent4[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#235)
+Reentrancy in RaffleTokenExchange.withdrawBalance_re_ent19() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#168-175):
+	External calls:
+	- ! (msg.sender.send(userBalance_re_ent19[msg.sender])) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#171)
+	State variables written after the call(s):
+	- userBalance_re_ent19[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#174)
+Reentrancy in RaffleTokenExchange.withdrawFunds_re_ent31(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#298-303):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#301)
+	State variables written after the call(s):
+	- balances_re_ent31[msg.sender] -= _weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#302)
+Reentrancy in RaffleTokenExchange.withdrawFunds_re_ent38(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#219-224):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#222)
+	State variables written after the call(s):
+	- balances_re_ent38[msg.sender] -= _weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#223)
+Reentrancy in RaffleTokenExchange.withdraw_balances_re_ent36() (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#418-421):
+	External calls:
+	- msg.sender.send(balances_re_ent36[msg.sender]) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#419)
+	State variables written after the call(s):
+	- balances_re_ent36[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#420)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable RaffleTokenExchange.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#297) is too similar to RaffleTokenExchange.balances_re_ent36 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#417)
+Variable RaffleTokenExchange.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#297) is too similar to RaffleTokenExchange.balances_re_ent38 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#218)
+Variable RaffleTokenExchange.balances_re_ent36 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#417) is too similar to RaffleTokenExchange.balances_re_ent38 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#218)
+Variable RaffleTokenExchange.not_called_re_ent20 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#194) is too similar to RaffleTokenExchange.not_called_re_ent27 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#288)
+Variable RaffleTokenExchange.redeemableEther_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#206) is too similar to RaffleTokenExchange.redeemableEther_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#399)
+Variable RaffleTokenExchange.claimReward_re_ent32().transferValue_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#210) is too similar to RaffleTokenExchange.claimReward_re_ent39().transferValue_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#403)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+RaffleToken (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#48) does not implement functions:
+	- IERC20Interface.allowance(address,address) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#28)
+	- IERC20Interface.balanceOf(address) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#37)
+	- ERC20Interface.transferFrom(address,address,uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_29.sol#16)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unimplemented-functions
+benchmarks/SolidiFI/Re-entrancy/buggy_29.sol analyzed (5 contracts with 80 detectors), 92 result(s) found

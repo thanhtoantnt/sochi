@@ -1,0 +1,318 @@
+
+ERC20.callme_re_ent42() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#121-127) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#123)
+ERC20.buyTicket_re_ent2() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#132-137) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent2.send(jackpot_re_ent2)) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#133)
+ERC20.bug_re_ent20() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#213-219) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#215)
+ERC20.callme_re_ent7() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#302-308) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#304)
+ERC20.buyTicket_re_ent23() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#325-330) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#326)
+ERC20.callme_re_ent14() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#347-353) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#349)
+ERC20.buyTicket_re_ent30() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#370-375) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#371)
+ERC20Burnable.callme_re_ent35() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#451-457) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#453)
+ERC20Detailed.buyTicket_re_ent37() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#474-479) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent37.send(jackpot_re_ent37)) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#475)
+ERC20Detailed.buyTicket_re_ent9() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#492-498) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#493)
+ERC20Detailed.bug_re_ent27() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#541-547) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#543)
+AGR.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#576-583) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#578)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Reentrancy in AGR.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#576-583):
+	External calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#578)
+	State variables written after the call(s):
+	- not_called_re_ent13 = false (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#582)
+Reentrancy in ERC20Detailed.buyTicket_re_ent9() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#492-498):
+	External calls:
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#493)
+	State variables written after the call(s):
+	- jackpot_re_ent9 = address(this).balance (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#497)
+	- lastPlayer_re_ent9 = msg.sender (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#496)
+Reentrancy in ERC20.withdrawBalance_re_ent26() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#193-201):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#196)
+	State variables written after the call(s):
+	- userBalance_re_ent26[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#200)
+Reentrancy in ERC20Detailed.withdrawBalance_re_ent33() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#524-532):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#527)
+	State variables written after the call(s):
+	- userBalance_re_ent33[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#531)
+Reentrancy in ERC20Detailed.withdrawBalance_re_ent40() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#507-515):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#510)
+	State variables written after the call(s):
+	- userBalance_re_ent40[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#514)
+Reentrancy in ERC20.withdrawFunds_re_ent17(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#141-147):
+	External calls:
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#144)
+	State variables written after the call(s):
+	- balances_re_ent17[msg.sender] -= _weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#146)
+Reentrancy in ERC20Detailed.withdrawFunds_re_ent3(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#482-488):
+	External calls:
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#485)
+	State variables written after the call(s):
+	- balances_re_ent3[msg.sender] -= _weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#487)
+Reentrancy in ERC20.withdraw_balances_re_ent8() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#391-395):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#392)
+	State variables written after the call(s):
+	- balances_re_ent8[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#394)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
+
+ERC20Detailed.constructor(string,string,uint8).name (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#501) shadows:
+	- ERC20Detailed.name() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#520-522) (function)
+ERC20Detailed.constructor(string,string,uint8).symbol (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#501) shadows:
+	- ERC20Detailed.symbol() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#537-539) (function)
+ERC20Detailed.constructor(string,string,uint8).decimals (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#501) shadows:
+	- ERC20Detailed.decimals() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#552-554) (function)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#local-variable-shadowing
+
+Different versions of Solidity are used:
+	- Version used: ['^0.5.0', '^0.5.2']
+	- ^0.5.2 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#7)
+	- ^0.5.2 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#33)
+	- ^0.5.2 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#101)
+	- ^0.5.2 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#421)
+	- ^0.5.2 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#462)
+	- ^0.5.0 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#566)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#different-pragma-directives-are-used
+
+SafeMath.div(uint256,uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#60-67) is never used and should be removed
+SafeMath.mod(uint256,uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#93-96) is never used and should be removed
+SafeMath.mul(uint256,uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#43-55) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.5.2 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#7) allows old versions
+Pragma version^0.5.2 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#33) allows old versions
+Pragma version^0.5.2 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#101) allows old versions
+Pragma version^0.5.2 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#421) allows old versions
+Pragma version^0.5.2 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#462) allows old versions
+Pragma version^0.5.0 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#566) allows old versions
+solc-0.5.2 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in ERC20.withdrawFunds_re_ent17(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#141-147):
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#144)
+Low level call in ERC20.withdrawBalance_re_ent26() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#193-201):
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#196)
+Low level call in ERC20.withdraw_balances_re_ent8() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#391-395):
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#392)
+Low level call in ERC20Detailed.withdrawFunds_re_ent3(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#482-488):
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#485)
+Low level call in ERC20Detailed.buyTicket_re_ent9() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#492-498):
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#493)
+Low level call in ERC20Detailed.withdrawBalance_re_ent40() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#507-515):
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#510)
+Low level call in ERC20Detailed.withdrawBalance_re_ent33() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#524-532):
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#527)
+Low level call in AGR.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#576-583):
+	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#578)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Function ERC20.callme_re_ent42() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#121-127) is not in mixedCase
+Function ERC20.buyTicket_re_ent2() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#132-137) is not in mixedCase
+Function ERC20.withdrawFunds_re_ent17(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#141-147) is not in mixedCase
+Parameter ERC20.withdrawFunds_re_ent17(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#141) is not in mixedCase
+Function ERC20.claimReward_re_ent25() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#157-163) is not in mixedCase
+Function ERC20.withdrawBalance_re_ent19() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#174-181) is not in mixedCase
+Function ERC20.withdrawBalance_re_ent26() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#193-201) is not in mixedCase
+Function ERC20.bug_re_ent20() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#213-219) is not in mixedCase
+Function ERC20.claimReward_re_ent32() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#235-241) is not in mixedCase
+Function ERC20.withdrawFunds_re_ent38(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#257-262) is not in mixedCase
+Parameter ERC20.withdrawFunds_re_ent38(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#257) is not in mixedCase
+Function ERC20.claimReward_re_ent4() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#279-285) is not in mixedCase
+Function ERC20.callme_re_ent7() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#302-308) is not in mixedCase
+Function ERC20.buyTicket_re_ent23() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#325-330) is not in mixedCase
+Function ERC20.callme_re_ent14() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#347-353) is not in mixedCase
+Function ERC20.buyTicket_re_ent30() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#370-375) is not in mixedCase
+Function ERC20.withdraw_balances_re_ent8() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#391-395) is not in mixedCase
+Function ERC20.claimReward_re_ent39() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#410-416) is not in mixedCase
+Variable ERC20.counter_re_ent42 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#120) is not in mixedCase
+Variable ERC20.lastPlayer_re_ent2 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#130) is not in mixedCase
+Variable ERC20.jackpot_re_ent2 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#131) is not in mixedCase
+Variable ERC20.balances_re_ent17 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#140) is not in mixedCase
+Variable ERC20.redeemableEther_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#156) is not in mixedCase
+Variable ERC20.userBalance_re_ent19 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#173) is not in mixedCase
+Variable ERC20.userBalance_re_ent26 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#192) is not in mixedCase
+Variable ERC20.not_called_re_ent20 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#212) is not in mixedCase
+Variable ERC20.redeemableEther_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#234) is not in mixedCase
+Variable ERC20.balances_re_ent38 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#256) is not in mixedCase
+Variable ERC20.redeemableEther_re_ent4 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#278) is not in mixedCase
+Variable ERC20.counter_re_ent7 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#301) is not in mixedCase
+Variable ERC20.lastPlayer_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#323) is not in mixedCase
+Variable ERC20.jackpot_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#324) is not in mixedCase
+Variable ERC20.counter_re_ent14 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#346) is not in mixedCase
+Variable ERC20.lastPlayer_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#368) is not in mixedCase
+Variable ERC20.jackpot_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#369) is not in mixedCase
+Variable ERC20.balances_re_ent8 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#390) is not in mixedCase
+Variable ERC20.redeemableEther_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#409) is not in mixedCase
+Function ERC20Burnable.withdraw_balances_re_ent36() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#437-440) is not in mixedCase
+Function ERC20Burnable.callme_re_ent35() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#451-457) is not in mixedCase
+Variable ERC20Burnable.balances_re_ent36 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#436) is not in mixedCase
+Variable ERC20Burnable.counter_re_ent35 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#450) is not in mixedCase
+Function ERC20Detailed.buyTicket_re_ent37() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#474-479) is not in mixedCase
+Function ERC20Detailed.withdrawFunds_re_ent3(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#482-488) is not in mixedCase
+Parameter ERC20Detailed.withdrawFunds_re_ent3(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#482) is not in mixedCase
+Function ERC20Detailed.buyTicket_re_ent9() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#492-498) is not in mixedCase
+Function ERC20Detailed.withdrawBalance_re_ent40() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#507-515) is not in mixedCase
+Function ERC20Detailed.withdrawBalance_re_ent33() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#524-532) is not in mixedCase
+Function ERC20Detailed.bug_re_ent27() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#541-547) is not in mixedCase
+Function ERC20Detailed.withdrawFunds_re_ent31(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#556-561) is not in mixedCase
+Parameter ERC20Detailed.withdrawFunds_re_ent31(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#556) is not in mixedCase
+Variable ERC20Detailed.lastPlayer_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#472) is not in mixedCase
+Variable ERC20Detailed.jackpot_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#473) is not in mixedCase
+Variable ERC20Detailed.balances_re_ent3 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#481) is not in mixedCase
+Variable ERC20Detailed.lastPlayer_re_ent9 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#490) is not in mixedCase
+Variable ERC20Detailed.jackpot_re_ent9 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#491) is not in mixedCase
+Variable ERC20Detailed.userBalance_re_ent40 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#506) is not in mixedCase
+Variable ERC20Detailed.userBalance_re_ent33 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#523) is not in mixedCase
+Variable ERC20Detailed.not_called_re_ent27 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#540) is not in mixedCase
+Variable ERC20Detailed.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#555) is not in mixedCase
+Function AGR.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#576-583) is not in mixedCase
+Variable AGR.not_called_re_ent13 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#575) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in ERC20.bug_re_ent20() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#213-219):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#215)
+	State variables written after the call(s):
+	- not_called_re_ent20 = false (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#218)
+Reentrancy in ERC20Detailed.bug_re_ent27() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#541-547):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#543)
+	State variables written after the call(s):
+	- not_called_re_ent27 = false (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#546)
+Reentrancy in ERC20.buyTicket_re_ent2() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#132-137):
+	External calls:
+	- ! (lastPlayer_re_ent2.send(jackpot_re_ent2)) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#133)
+	State variables written after the call(s):
+	- jackpot_re_ent2 = address(this).balance (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#136)
+	- lastPlayer_re_ent2 = msg.sender (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#135)
+Reentrancy in ERC20.buyTicket_re_ent23() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#325-330):
+	External calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#326)
+	State variables written after the call(s):
+	- jackpot_re_ent23 = address(this).balance (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#329)
+	- lastPlayer_re_ent23 = msg.sender (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#328)
+Reentrancy in ERC20.buyTicket_re_ent30() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#370-375):
+	External calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#371)
+	State variables written after the call(s):
+	- jackpot_re_ent30 = address(this).balance (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#374)
+	- lastPlayer_re_ent30 = msg.sender (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#373)
+Reentrancy in ERC20Detailed.buyTicket_re_ent37() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#474-479):
+	External calls:
+	- ! (lastPlayer_re_ent37.send(jackpot_re_ent37)) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#475)
+	State variables written after the call(s):
+	- jackpot_re_ent37 = address(this).balance (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#478)
+	- lastPlayer_re_ent37 = msg.sender (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#477)
+Reentrancy in ERC20.callme_re_ent14() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#347-353):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#349)
+	State variables written after the call(s):
+	- counter_re_ent14 += 1 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#352)
+Reentrancy in ERC20Burnable.callme_re_ent35() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#451-457):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#453)
+	State variables written after the call(s):
+	- counter_re_ent35 += 1 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#456)
+Reentrancy in ERC20.callme_re_ent42() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#121-127):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#123)
+	State variables written after the call(s):
+	- counter_re_ent42 += 1 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#126)
+Reentrancy in ERC20.callme_re_ent7() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#302-308):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#304)
+	State variables written after the call(s):
+	- counter_re_ent7 += 1 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#307)
+Reentrancy in ERC20.claimReward_re_ent25() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#157-163):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent25) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#161)
+	State variables written after the call(s):
+	- redeemableEther_re_ent25[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#162)
+Reentrancy in ERC20.claimReward_re_ent32() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#235-241):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent32) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#239)
+	State variables written after the call(s):
+	- redeemableEther_re_ent32[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#240)
+Reentrancy in ERC20.claimReward_re_ent39() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#410-416):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent39) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#414)
+	State variables written after the call(s):
+	- redeemableEther_re_ent39[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#415)
+Reentrancy in ERC20.claimReward_re_ent4() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#279-285):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent4) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#283)
+	State variables written after the call(s):
+	- redeemableEther_re_ent4[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#284)
+Reentrancy in ERC20.withdrawBalance_re_ent19() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#174-181):
+	External calls:
+	- ! (msg.sender.send(userBalance_re_ent19[msg.sender])) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#177)
+	State variables written after the call(s):
+	- userBalance_re_ent19[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#180)
+Reentrancy in ERC20Detailed.withdrawFunds_re_ent31(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#556-561):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#559)
+	State variables written after the call(s):
+	- balances_re_ent31[msg.sender] -= _weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#560)
+Reentrancy in ERC20.withdrawFunds_re_ent38(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#257-262):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#260)
+	State variables written after the call(s):
+	- balances_re_ent38[msg.sender] -= _weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#261)
+Reentrancy in ERC20Burnable.withdraw_balances_re_ent36() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#437-440):
+	External calls:
+	- msg.sender.send(balances_re_ent36[msg.sender]) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#438)
+	State variables written after the call(s):
+	- balances_re_ent36[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#439)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable ERC20.counter_re_ent14 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#346) is too similar to ERC20.counter_re_ent42 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#120)
+Variable ERC20.jackpot_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#324) is too similar to ERC20.jackpot_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#369)
+Variable ERC20.lastPlayer_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#323) is too similar to ERC20.lastPlayer_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#368)
+Variable ERC20.redeemableEther_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#156) is too similar to ERC20.redeemableEther_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#409)
+Variable ERC20.redeemableEther_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#156) is too similar to ERC20.redeemableEther_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#234)
+Variable ERC20.redeemableEther_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#234) is too similar to ERC20.redeemableEther_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#409)
+Variable ERC20.claimReward_re_ent25().transferValue_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#160) is too similar to ERC20.claimReward_re_ent32().transferValue_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#238)
+Variable ERC20.claimReward_re_ent25().transferValue_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#160) is too similar to ERC20.claimReward_re_ent39().transferValue_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#413)
+Variable ERC20.claimReward_re_ent32().transferValue_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#238) is too similar to ERC20.claimReward_re_ent39().transferValue_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#413)
+Variable ERC20Burnable.balances_re_ent36 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#436) is too similar to ERC20.balances_re_ent38 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#256)
+Variable ERC20.balances_re_ent17 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#140) is too similar to ERC20Detailed.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#555)
+Variable ERC20Detailed.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#555) is too similar to ERC20Burnable.balances_re_ent36 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#436)
+Variable ERC20Detailed.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#555) is too similar to ERC20.balances_re_ent38 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#256)
+Variable ERC20Detailed.balances_re_ent3 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#481) is too similar to ERC20.balances_re_ent8 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#390)
+Variable ERC20.jackpot_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#324) is too similar to ERC20Detailed.jackpot_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#473)
+Variable ERC20.jackpot_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#369) is too similar to ERC20Detailed.jackpot_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#473)
+Variable ERC20.jackpot_re_ent2 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#131) is too similar to ERC20Detailed.jackpot_re_ent9 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#491)
+Variable ERC20.lastPlayer_re_ent2 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#130) is too similar to ERC20Detailed.lastPlayer_re_ent9 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#490)
+Variable ERC20.lastPlayer_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#323) is too similar to ERC20Detailed.lastPlayer_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#472)
+Variable ERC20.lastPlayer_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#368) is too similar to ERC20Detailed.lastPlayer_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#472)
+Variable ERC20.not_called_re_ent20 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#212) is too similar to ERC20Detailed.not_called_re_ent27 (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#540)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+AGR.constructor() (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#572-574) uses literals with too many digits:
+	- super._mint(msg.sender,30000000000000) (benchmarks/SolidiFI/Re-entrancy/buggy_23.sol#573)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+benchmarks/SolidiFI/Re-entrancy/buggy_23.sol analyzed (6 contracts with 80 detectors), 143 result(s) found

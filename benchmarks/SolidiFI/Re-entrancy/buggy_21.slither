@@ -1,0 +1,408 @@
+
+Token.bug_re_ent20() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#6-12) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#8)
+StableDEX.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#76-83) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#78)
+StableDEX.bug_re_ent41() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#87-93) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#89)
+StableDEX.callme_re_ent42() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#97-103) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#99)
+StableDEX.buyTicket_re_ent2() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#108-113) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent2.send(jackpot_re_ent2)) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#109)
+StableDEX.callme_re_ent7() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#154-160) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#156)
+StableDEX.buyTicket_re_ent37() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#165-170) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent37.send(jackpot_re_ent37)) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#166)
+StableDEX.buyTicket_re_ent9() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#185-191) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#186)
+StableDEX.buyTicket_re_ent23() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#239-244) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#240)
+StableDEX.callme_re_ent14() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#254-260) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#256)
+StableDEX.buyTicket_re_ent30() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#270-275) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#271)
+StableDEX.callme_re_ent35() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#359-365) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#361)
+StableDEX.bug_re_ent27() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#552-558) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#554)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Reentrancy in StableDEX.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#76-83):
+	External calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#78)
+	State variables written after the call(s):
+	- not_called_re_ent13 = false (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#82)
+Reentrancy in StableDEX.buyTicket_re_ent9() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#185-191):
+	External calls:
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#186)
+	State variables written after the call(s):
+	- jackpot_re_ent9 = address(this).balance (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#190)
+	- lastPlayer_re_ent9 = msg.sender (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#189)
+Reentrancy in StableDEX.withdrawBalance_re_ent26() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#216-224):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#219)
+	State variables written after the call(s):
+	- userBalance_re_ent26[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#223)
+Reentrancy in StableDEX.withdrawBalance_re_ent33() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#537-545):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#540)
+	State variables written after the call(s):
+	- userBalance_re_ent33[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#544)
+Reentrancy in StableDEX.withdrawBalance_re_ent40() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#514-522):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#517)
+	State variables written after the call(s):
+	- userBalance_re_ent40[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#521)
+Reentrancy in StableDEX.withdrawFunds_re_ent17(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#117-123):
+	External calls:
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#120)
+	State variables written after the call(s):
+	- balances_re_ent17[msg.sender] -= _weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#122)
+Reentrancy in StableDEX.withdrawFunds_re_ent3(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#174-180):
+	External calls:
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#177)
+	State variables written after the call(s):
+	- balances_re_ent3[msg.sender] -= _weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#179)
+Reentrancy in StableDEX.withdraw_balances_re_ent8() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#288-292):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#289)
+	State variables written after the call(s):
+	- balances_re_ent8[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#291)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
+
+StableDEX.tokenDeposit(address,uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#277-286) ignores return value by Token(tokenaddr).transferFrom(msg.sender,address(this),tokenAmount) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#282)
+StableDEX.withdraw(uint8,address,uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#294-314) ignores return value by Token(tokenaddr).transfer(msg.sender,(amount.sub(withdrawfee[tokenaddr]))) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#308)
+StableDEX.adminProfitWithdraw(uint8,address) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#324-340) ignores return value by Token(tokenAddr).transfer(admin,feeAmount[admin][tokenAddr]) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#334)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-transfer
+
+StableDEX.verify(string,uint8,bytes32,bytes32) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#369-408) performs a multiplication on the result of a division:
+	-digit = length.div(divisor) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#381)
+	-length = length.sub(digit.mul(divisor)) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#390)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+
+Reentrancy in StableDEX.adminProfitWithdraw(uint8,address) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#324-340):
+	External calls:
+	- Token(tokenAddr).transfer(admin,feeAmount[admin][tokenAddr]) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#334)
+	State variables written after the call(s):
+	- feeAmount[admin][tokenAddr] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#335)
+Reentrancy in StableDEX.withdraw(uint8,address,uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#294-314):
+	External calls:
+	- Token(tokenaddr).transfer(msg.sender,(amount.sub(withdrawfee[tokenaddr]))) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#308)
+	State variables written after the call(s):
+	- userDetails[msg.sender][tokenaddr] = userDetails[msg.sender][tokenaddr].sub(amount) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#309)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
+
+StableDEX.makeOrder(uint256[9],address[2],string,uint8,bytes32,bytes32).amount__ (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#436) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+StableDEX.constructor(address,address)._admin (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#148) lacks a zero-check on :
+		- admin = _admin (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#149)
+StableDEX.constructor(address,address).feeAddress_ (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#148) lacks a zero-check on :
+		- feeAddress = feeAddress_ (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#150)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Reentrancy in StableDEX.withdraw(uint8,address,uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#294-314):
+	External calls:
+	- Token(tokenaddr).transfer(msg.sender,(amount.sub(withdrawfee[tokenaddr]))) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#308)
+	State variables written after the call(s):
+	- feeAmount[admin][tokenaddr] = feeAmount[admin][tokenaddr].add(withdrawfee[tokenaddr]) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#310)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-2
+
+Reentrancy in StableDEX.tokenDeposit(address,uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#277-286):
+	External calls:
+	- Token(tokenaddr).transferFrom(msg.sender,address(this),tokenAmount) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#282)
+	Event emitted after the call(s):
+	- DepositandWithdraw(msg.sender,tokenaddr,tokenAmount,0) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#283)
+Reentrancy in StableDEX.withdraw(uint8,address,uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#294-314):
+	External calls:
+	- Token(tokenaddr).transfer(msg.sender,(amount.sub(withdrawfee[tokenaddr]))) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#308)
+	External calls sending eth:
+	- msg.sender.transfer(amount.sub(withdrawfee[address(0)])) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#300)
+	Event emitted after the call(s):
+	- DepositandWithdraw(msg.sender,tokenaddr,amount,1) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#312)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+
+StableDEX.verify(string,uint8,bytes32,bytes32) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#369-408) uses assembly
+	- INLINE ASM (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#373-376)
+	- INLINE ASM (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#394-396)
+	- INLINE ASM (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#403-405)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#assembly-usage
+
+StableDEX.addToken(address,string,uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#246-252) compares to a boolean constant:
+	-require(bool)(msg.sender == feeAddress && tokendetails[tokenAddress].status == false) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#247)
+StableDEX.tokenDeposit(address,uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#277-286) compares to a boolean constant:
+	-require(bool)(tokenAmount > 0 && tokendetails[tokenaddr].status == true) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#279)
+StableDEX.withdraw(uint8,address,uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#294-314) compares to a boolean constant:
+	-require(bool)(tokenaddr != address(0) && tokendetails[tokenaddr].status == true) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#306)
+StableDEX.dexstatuscheck() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#227-230) compares to a boolean constant:
+	-require(bool)(dexStatus == true) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#228)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#boolean-equality
+
+Pragma version^0.5.12 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#1) allows old versions
+solc-0.5.12 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in StableDEX.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#76-83):
+	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#78)
+Low level call in StableDEX.withdrawFunds_re_ent17(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#117-123):
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#120)
+Low level call in StableDEX.withdrawFunds_re_ent3(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#174-180):
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#177)
+Low level call in StableDEX.buyTicket_re_ent9() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#185-191):
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#186)
+Low level call in StableDEX.withdrawBalance_re_ent26() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#216-224):
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#219)
+Low level call in StableDEX.withdraw_balances_re_ent8() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#288-292):
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#289)
+Low level call in StableDEX.withdrawBalance_re_ent40() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#514-522):
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#517)
+Low level call in StableDEX.withdrawBalance_re_ent33() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#537-545):
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#540)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Function Token.bug_re_ent20() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#6-12) is not in mixedCase
+Function Token.claimReward_re_ent32() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#15-21) is not in mixedCase
+Function Token.withdrawFunds_re_ent38(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#24-29) is not in mixedCase
+Parameter Token.withdrawFunds_re_ent38(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#24) is not in mixedCase
+Function Token.claimReward_re_ent4() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#32-38) is not in mixedCase
+Variable Token.not_called_re_ent20 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#5) is not in mixedCase
+Variable Token.redeemableEther_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#14) is not in mixedCase
+Variable Token.balances_re_ent38 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#23) is not in mixedCase
+Variable Token.redeemableEther_re_ent4 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#31) is not in mixedCase
+Struct StableDEX.orders (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#126-138) is not in CapWords
+Struct StableDEX.tokens (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#140-145) is not in CapWords
+Function StableDEX.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#76-83) is not in mixedCase
+Function StableDEX.bug_re_ent41() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#87-93) is not in mixedCase
+Function StableDEX.callme_re_ent42() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#97-103) is not in mixedCase
+Function StableDEX.buyTicket_re_ent2() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#108-113) is not in mixedCase
+Function StableDEX.withdrawFunds_re_ent17(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#117-123) is not in mixedCase
+Parameter StableDEX.withdrawFunds_re_ent17(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#117) is not in mixedCase
+Function StableDEX.callme_re_ent7() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#154-160) is not in mixedCase
+Function StableDEX.buyTicket_re_ent37() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#165-170) is not in mixedCase
+Function StableDEX.withdrawFunds_re_ent3(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#174-180) is not in mixedCase
+Parameter StableDEX.withdrawFunds_re_ent3(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#174) is not in mixedCase
+Function StableDEX.buyTicket_re_ent9() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#185-191) is not in mixedCase
+Function StableDEX.claimReward_re_ent25() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#195-201) is not in mixedCase
+Function StableDEX.withdrawBalance_re_ent19() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#205-212) is not in mixedCase
+Function StableDEX.withdrawBalance_re_ent26() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#216-224) is not in mixedCase
+Function StableDEX.buyTicket_re_ent23() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#239-244) is not in mixedCase
+Function StableDEX.callme_re_ent14() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#254-260) is not in mixedCase
+Function StableDEX.buyTicket_re_ent30() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#270-275) is not in mixedCase
+Function StableDEX.withdraw_balances_re_ent8() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#288-292) is not in mixedCase
+Function StableDEX.claimReward_re_ent39() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#316-322) is not in mixedCase
+Function StableDEX.withdraw_balances_re_ent36() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#342-345) is not in mixedCase
+Function StableDEX.callme_re_ent35() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#359-365) is not in mixedCase
+Function StableDEX.withdrawBalance_re_ent40() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#514-522) is not in mixedCase
+Function StableDEX.withdrawBalance_re_ent33() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#537-545) is not in mixedCase
+Function StableDEX.bug_re_ent27() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#552-558) is not in mixedCase
+Function StableDEX.withdrawFunds_re_ent31(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#564-569) is not in mixedCase
+Parameter StableDEX.withdrawFunds_re_ent31(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#564) is not in mixedCase
+Variable StableDEX.not_called_re_ent13 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#75) is not in mixedCase
+Variable StableDEX.not_called_re_ent41 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#86) is not in mixedCase
+Variable StableDEX.counter_re_ent42 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#96) is not in mixedCase
+Variable StableDEX.lastPlayer_re_ent2 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#106) is not in mixedCase
+Variable StableDEX.jackpot_re_ent2 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#107) is not in mixedCase
+Variable StableDEX.balances_re_ent17 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#116) is not in mixedCase
+Variable StableDEX.counter_re_ent7 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#153) is not in mixedCase
+Variable StableDEX.lastPlayer_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#163) is not in mixedCase
+Variable StableDEX.jackpot_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#164) is not in mixedCase
+Variable StableDEX.Order (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#171) is not in mixedCase
+Variable StableDEX.balances_re_ent3 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#173) is not in mixedCase
+Variable StableDEX.lastPlayer_re_ent9 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#183) is not in mixedCase
+Variable StableDEX.jackpot_re_ent9 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#184) is not in mixedCase
+Variable StableDEX.redeemableEther_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#194) is not in mixedCase
+Variable StableDEX.userBalance_re_ent19 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#204) is not in mixedCase
+Variable StableDEX.userBalance_re_ent26 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#215) is not in mixedCase
+Variable StableDEX.lastPlayer_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#237) is not in mixedCase
+Variable StableDEX.jackpot_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#238) is not in mixedCase
+Variable StableDEX.counter_re_ent14 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#253) is not in mixedCase
+Variable StableDEX.lastPlayer_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#268) is not in mixedCase
+Variable StableDEX.jackpot_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#269) is not in mixedCase
+Variable StableDEX.balances_re_ent8 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#287) is not in mixedCase
+Variable StableDEX.redeemableEther_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#315) is not in mixedCase
+Variable StableDEX.balances_re_ent36 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#341) is not in mixedCase
+Variable StableDEX.counter_re_ent35 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#358) is not in mixedCase
+Variable StableDEX.userBalance_re_ent40 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#513) is not in mixedCase
+Variable StableDEX.userBalance_re_ent33 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#536) is not in mixedCase
+Variable StableDEX.not_called_re_ent27 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#551) is not in mixedCase
+Variable StableDEX.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#563) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in StableDEX.adminProfitWithdraw(uint8,address) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#324-340):
+	External calls:
+	- admin.transfer(feeAmount[admin][address(0)]) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#328)
+	State variables written after the call(s):
+	- feeAmount[admin][address(0)] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#329)
+Reentrancy in Token.bug_re_ent20() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#6-12):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#8)
+	State variables written after the call(s):
+	- not_called_re_ent20 = false (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#11)
+Reentrancy in StableDEX.bug_re_ent27() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#552-558):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#554)
+	State variables written after the call(s):
+	- not_called_re_ent27 = false (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#557)
+Reentrancy in StableDEX.bug_re_ent41() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#87-93):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#89)
+	State variables written after the call(s):
+	- not_called_re_ent41 = false (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#92)
+Reentrancy in StableDEX.buyTicket_re_ent2() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#108-113):
+	External calls:
+	- ! (lastPlayer_re_ent2.send(jackpot_re_ent2)) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#109)
+	State variables written after the call(s):
+	- jackpot_re_ent2 = address(this).balance (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#112)
+	- lastPlayer_re_ent2 = msg.sender (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#111)
+Reentrancy in StableDEX.buyTicket_re_ent23() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#239-244):
+	External calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#240)
+	State variables written after the call(s):
+	- jackpot_re_ent23 = address(this).balance (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#243)
+	- lastPlayer_re_ent23 = msg.sender (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#242)
+Reentrancy in StableDEX.buyTicket_re_ent30() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#270-275):
+	External calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#271)
+	State variables written after the call(s):
+	- jackpot_re_ent30 = address(this).balance (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#274)
+	- lastPlayer_re_ent30 = msg.sender (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#273)
+Reentrancy in StableDEX.buyTicket_re_ent37() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#165-170):
+	External calls:
+	- ! (lastPlayer_re_ent37.send(jackpot_re_ent37)) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#166)
+	State variables written after the call(s):
+	- jackpot_re_ent37 = address(this).balance (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#169)
+	- lastPlayer_re_ent37 = msg.sender (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#168)
+Reentrancy in StableDEX.callme_re_ent14() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#254-260):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#256)
+	State variables written after the call(s):
+	- counter_re_ent14 += 1 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#259)
+Reentrancy in StableDEX.callme_re_ent35() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#359-365):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#361)
+	State variables written after the call(s):
+	- counter_re_ent35 += 1 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#364)
+Reentrancy in StableDEX.callme_re_ent42() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#97-103):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#99)
+	State variables written after the call(s):
+	- counter_re_ent42 += 1 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#102)
+Reentrancy in StableDEX.callme_re_ent7() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#154-160):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#156)
+	State variables written after the call(s):
+	- counter_re_ent7 += 1 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#159)
+Reentrancy in StableDEX.claimReward_re_ent25() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#195-201):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent25) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#199)
+	State variables written after the call(s):
+	- redeemableEther_re_ent25[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#200)
+Reentrancy in Token.claimReward_re_ent32() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#15-21):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent32) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#19)
+	State variables written after the call(s):
+	- redeemableEther_re_ent32[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#20)
+Reentrancy in StableDEX.claimReward_re_ent39() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#316-322):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent39) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#320)
+	State variables written after the call(s):
+	- redeemableEther_re_ent39[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#321)
+Reentrancy in Token.claimReward_re_ent4() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#32-38):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent4) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#36)
+	State variables written after the call(s):
+	- redeemableEther_re_ent4[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#37)
+Reentrancy in StableDEX.withdraw(uint8,address,uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#294-314):
+	External calls:
+	- msg.sender.transfer(amount.sub(withdrawfee[address(0)])) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#300)
+	State variables written after the call(s):
+	- feeAmount[admin][address(0)] = feeAmount[admin][address(0)].add(withdrawfee[address(0)]) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#302)
+	- userDetails[msg.sender][address(0)] = userDetails[msg.sender][address(0)].sub(amount) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#301)
+	Event emitted after the call(s):
+	- DepositandWithdraw(msg.sender,tokenaddr,amount,1) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#312)
+Reentrancy in StableDEX.withdrawBalance_re_ent19() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#205-212):
+	External calls:
+	- ! (msg.sender.send(userBalance_re_ent19[msg.sender])) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#208)
+	State variables written after the call(s):
+	- userBalance_re_ent19[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#211)
+Reentrancy in StableDEX.withdrawFunds_re_ent31(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#564-569):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#567)
+	State variables written after the call(s):
+	- balances_re_ent31[msg.sender] -= _weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#568)
+Reentrancy in Token.withdrawFunds_re_ent38(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#24-29):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#27)
+	State variables written after the call(s):
+	- balances_re_ent38[msg.sender] -= _weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#28)
+Reentrancy in StableDEX.withdraw_balances_re_ent36() (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#342-345):
+	External calls:
+	- msg.sender.send(balances_re_ent36[msg.sender]) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#343)
+	State variables written after the call(s):
+	- balances_re_ent36[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#344)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable StableDEX.balances_re_ent17 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#116) is too similar to StableDEX.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#563)
+Variable StableDEX.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#563) is too similar to StableDEX.balances_re_ent36 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#341)
+Variable StableDEX.balances_re_ent3 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#173) is too similar to StableDEX.balances_re_ent8 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#287)
+Variable StableDEX.counter_re_ent14 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#253) is too similar to StableDEX.counter_re_ent42 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#96)
+Variable StableDEX.jackpot_re_ent2 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#107) is too similar to StableDEX.jackpot_re_ent9 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#184)
+Variable StableDEX.jackpot_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#238) is too similar to StableDEX.jackpot_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#269)
+Variable StableDEX.jackpot_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#238) is too similar to StableDEX.jackpot_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#164)
+Variable StableDEX.jackpot_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#269) is too similar to StableDEX.jackpot_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#164)
+Variable StableDEX.lastPlayer_re_ent2 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#106) is too similar to StableDEX.lastPlayer_re_ent9 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#183)
+Variable StableDEX.lastPlayer_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#237) is too similar to StableDEX.lastPlayer_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#268)
+Variable StableDEX.lastPlayer_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#268) is too similar to StableDEX.lastPlayer_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#163)
+Variable StableDEX.lastPlayer_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#237) is too similar to StableDEX.lastPlayer_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#163)
+Variable StableDEX.not_called_re_ent13 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#75) is too similar to StableDEX.not_called_re_ent41 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#86)
+Variable StableDEX.redeemableEther_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#194) is too similar to StableDEX.redeemableEther_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#315)
+Variable StableDEX.claimReward_re_ent25().transferValue_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#198) is too similar to StableDEX.claimReward_re_ent39().transferValue_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#319)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+StableDEX.verify(string,uint8,bytes32,bytes32) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#369-408) uses literals with too many digits:
+	- header = Ethereum Signed Message:
+000000 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#370)
+StableDEX.verify(string,uint8,bytes32,bytes32) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#369-408) uses literals with too many digits:
+	- divisor = 100000 (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#379)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+Token (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#3-39) does not implement functions:
+	- Token.allowance(address,address) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#30)
+	- Token.balanceOf(address) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#22)
+	- Token.transfer(address,uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#4)
+	- Token.transferFrom(address,address,uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#13)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unimplemented-functions
+
+StableDEX.tokenId (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#124) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+addToken(address,string,uint256) should be declared external:
+	- StableDEX.addToken(address,string,uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#246-252)
+Moreover, the following function parameters should change its data location:
+tokenSymbol location should be calldata
+setwithdrawfee(address[],uint256[]) should be declared external:
+	- StableDEX.setwithdrawfee(address[],uint256[]) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#348-357)
+Moreover, the following function parameters should change its data location:
+addr location should be calldata
+feeamount location should be calldata
+makeOrder(uint256[9],address[2],string,uint8,bytes32,bytes32) should be declared external:
+	- StableDEX.makeOrder(uint256[9],address[2],string,uint8,bytes32,bytes32) (benchmarks/SolidiFI/Re-entrancy/buggy_21.sol#414-512)
+Moreover, the following function parameters should change its data location:
+tradeDetails location should be calldata
+traderAddresses location should be calldata
+message location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+benchmarks/SolidiFI/Re-entrancy/buggy_21.sol analyzed (3 contracts with 80 detectors), 157 result(s) found
