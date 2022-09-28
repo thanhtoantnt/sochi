@@ -1,0 +1,52 @@
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: Ownable
+Function name: withdraw_intou17()
+PC address: 452
+Estimated Gas Usage: 1035 - 1320
+A control flow decision is made based on The block.timestamp environment variable.
+The block.timestamp environment variable is used to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables as sources of randomness and be aware that use of these variables introduces a certain level of trust into miners.
+--------------------
+In file: Overflow-Underflow/buggy_9.sol:61
+
+require(now > lockTime_intou17[msg.sender])
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x202, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x1, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [ATTACKER], function: withdraw_intou17(), txdata: 0x24243846, value: 0x0
+
+==== Integer Arithmetic Bugs ====
+SWC ID: 101
+Severity: High
+Contract: Ownable
+Function name: increaseLockTime_intou17(uint256)
+PC address: 644
+Estimated Gas Usage: 6194 - 26479
+The arithmetic operator can overflow.
+It is possible to cause an integer overflow or underflow in the arithmetic operation. 
+--------------------
+In file: Overflow-Underflow/buggy_9.sol:58
+
+lockTime_intou17[msg.sender] += _secondsToIncrease
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x400, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [SOMEGUY], function: increaseLockTime_intou17(uint256), txdata: 0xb55c75200002c40000000000000000000000000000000000000000000000000000000000, decoded_data: (4886436413527719161503807150492134020335385152296633681055067150449901568,), value: 0x0
+Caller: [SOMEGUY], function: increaseLockTime_intou17(uint256), txdata: 0xb55c7520fffd3f86bae280001ffc74840000000000000000000000000000000000000000, decoded_data: (115787227138455824420980824195843759419518655555507032686273343092216431640576,), value: 0x0
+
+
