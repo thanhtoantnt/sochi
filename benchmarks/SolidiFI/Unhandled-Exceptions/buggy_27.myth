@@ -1,0 +1,51 @@
+==== Unchecked return value from external call. ====
+SWC ID: 104
+Severity: Medium
+Contract: Ownable
+Function name: withdrawBal_unchk41()
+PC address: 703
+Estimated Gas Usage: 976 - 35257
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee halts with an exception, 'false' is returned and execution continues in the caller. The caller should check whether an exception happened and react accordingly to avoid unexpected behavior. For example it is often desirable to wrap external calls in require() so the transaction is reverted if the call fails.
+--------------------
+In file: Unhandled-Exceptions/buggy_27.sol:71
+
+msg.sender.send(Balances_unchk41)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x3, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [SOMEGUY], function: withdrawBal_unchk41(), txdata: 0x240987ad, value: 0x0
+
+==== Unchecked return value from external call. ====
+SWC ID: 104
+Severity: Medium
+Contract: Ownable
+Function name: withdrawBal_unchk29()
+PC address: 802
+Estimated Gas Usage: 1014 - 35295
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee halts with an exception, 'false' is returned and execution continues in the caller. The caller should check whether an exception happened and react accordingly to avoid unexpected behavior. For example it is often desirable to wrap external calls in require() so the transaction is reverted if the call fails.
+--------------------
+In file: Unhandled-Exceptions/buggy_27.sol:55
+
+msg.sender.send(Balances_unchk29)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x3, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [SOMEGUY], function: withdrawBal_unchk29(), txdata: 0xe44b92c3, value: 0x0
+
+

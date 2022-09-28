@@ -1,0 +1,26 @@
+==== Unchecked return value from external call. ====
+SWC ID: 104
+Severity: Medium
+Contract: Owned
+Function name: my_func_unchk23(address)
+PC address: 888
+Estimated Gas Usage: 1023 - 35304
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee halts with an exception, 'false' is returned and execution continues in the caller. The caller should check whether an exception happened and react accordingly to avoid unexpected behavior. For example it is often desirable to wrap external calls in require() so the transaction is reverted if the call fails.
+--------------------
+In file: Unhandled-Exceptions/buggy_11.sol:146
+
+dst.send(msg.value)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x3, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [CREATOR], function: my_func_unchk23(address), txdata: 0x3e153b710000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000',), value: 0x0
+
+
