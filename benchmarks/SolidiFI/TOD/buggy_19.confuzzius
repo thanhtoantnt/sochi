@@ -1,0 +1,107 @@
+2022-09-28 10:45:37,776 - Main     - INFO - [1mInitializing seed to 0.9284293201469173[0m
+2022-09-28 10:45:37,937 - Fuzzer   - INFO - [1mFuzzing contract [1methBank[0m[0m
+2022-09-28 10:45:39,500 - Analysis - INFO - [1mGeneration number 0 	 Code coverage: 71.09% (4449/6258) 	 Branch coverage: 68.68% (364/530) 	 Transactions: 167 (166 unique)   	 Time: 1.5401780605316162[0m
+2022-09-28 10:45:41,554 - Analysis - INFO - [1mGeneration number 1 	 Code coverage: 72.21% (4519/6258) 	 Branch coverage: 70.57% (374/530) 	 Transactions: 330 (234 unique)   	 Time: 3.594069719314575[0m
+2022-09-28 10:45:45,113 - Analysis - INFO - [1mGeneration number 2 	 Code coverage: 73.04% (4571/6258) 	 Branch coverage: 71.32% (378/530) 	 Transactions: 594 (318 unique)   	 Time: 7.153525352478027[0m
+2022-09-28 10:45:50,927 - Analysis - INFO - [1mGeneration number 3 	 Code coverage: 73.94% (4627/6258) 	 Branch coverage: 72.45% (384/530) 	 Transactions: 999 (419 unique)   	 Time: 12.967894554138184[0m
+2022-09-28 10:45:57,653 - Analysis - INFO - [1mGeneration number 4 	 Code coverage: 73.99% (4630/6258) 	 Branch coverage: 72.64% (385/530) 	 Transactions: 1456 (515 unique)   	 Time: 19.69311213493347[0m
+2022-09-28 10:45:59,924 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33m    !!! Transaction order dependency detected !!!    [0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mSWC-ID:   114[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mSource code line:[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mbenchmarks/SolidiFI/TOD/buggy_19.sol:111:1[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mowner = newOwner[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mTransaction 1 - transferOwnership(address):[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mInput:     0xf2fde38b000000000000000000000000deadbeef[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33m           deadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mTransaction 2 - activeBonusCacl_4():[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mInput:     0x46f201b1[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mTransaction 3 - moveBrickContracts():[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mInput:     0xf8f34531[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mTransaction 4 - releaStaticBonus():[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33mInput:     0xa23c133a[0m
+2022-09-28 10:45:59,925 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 10:46:05,851 - Analysis - INFO - [1mGeneration number 5 	 Code coverage: 73.99% (4630/6258) 	 Branch coverage: 72.64% (385/530) 	 Transactions: 1997 (610 unique)   	 Time: 27.891388177871704[0m
+2022-09-28 10:46:14,735 - Analysis - INFO - [1mGeneration number 6 	 Code coverage: 74.03% (4633/6258) 	 Branch coverage: 72.83% (386/530) 	 Transactions: 2570 (717 unique)   	 Time: 36.77566313743591[0m
+2022-09-28 10:46:23,279 - Analysis - INFO - [1mGeneration number 7 	 Code coverage: 74.08% (4636/6258) 	 Branch coverage: 73.02% (387/530) 	 Transactions: 3135 (805 unique)   	 Time: 45.31967258453369[0m
+2022-09-28 10:46:31,416 - Analysis - INFO - [1mGeneration number 8 	 Code coverage: 74.08% (4636/6258) 	 Branch coverage: 73.02% (387/530) 	 Transactions: 3672 (864 unique)   	 Time: 53.45691442489624[0m
+2022-09-28 10:46:39,675 - Analysis - INFO - [1mGeneration number 9 	 Code coverage: 74.08% (4636/6258) 	 Branch coverage: 73.02% (387/530) 	 Transactions: 4197 (928 unique)   	 Time: 61.71547865867615[0m
+2022-09-28 10:46:48,419 - Analysis - INFO - [1mGeneration number 10 	 Code coverage: 74.08% (4636/6258) 	 Branch coverage: 73.02% (387/530) 	 Transactions: 4752 (990 unique)   	 Time: 70.45987701416016[0m
+2022-09-28 10:46:57,555 - Analysis - INFO - [1mGeneration number 11 	 Code coverage: 74.08% (4636/6258) 	 Branch coverage: 73.02% (387/530) 	 Transactions: 5294 (1049 unique)   	 Time: 79.59566402435303[0m
+2022-09-28 10:47:08,542 - Analysis - INFO - [1mGeneration number 12 	 Code coverage: 74.08% (4636/6258) 	 Branch coverage: 73.02% (387/530) 	 Transactions: 5969 (1155 unique)   	 Time: 90.58262324333191[0m
+2022-09-28 10:47:18,329 - Analysis - INFO - [1mGeneration number 13 	 Code coverage: 74.08% (4636/6258) 	 Branch coverage: 73.02% (387/530) 	 Transactions: 6533 (1228 unique)   	 Time: 100.36944150924683[0m
+2022-09-28 10:47:29,216 - Analysis - INFO - [1mGeneration number 14 	 Code coverage: 74.08% (4636/6258) 	 Branch coverage: 73.02% (387/530) 	 Transactions: 7175 (1320 unique)   	 Time: 111.25624537467957[0m
+2022-09-28 10:47:40,186 - Analysis - INFO - [1mGeneration number 15 	 Code coverage: 74.08% (4636/6258) 	 Branch coverage: 73.02% (387/530) 	 Transactions: 7803 (1401 unique)   	 Time: 122.2260410785675[0m
+2022-09-28 10:47:51,601 - Analysis - INFO - [1mGeneration number 16 	 Code coverage: 74.08% (4636/6258) 	 Branch coverage: 73.02% (387/530) 	 Transactions: 8465 (1506 unique)   	 Time: 133.64166641235352[0m
+2022-09-28 10:48:03,094 - Analysis - INFO - [1mGeneration number 17 	 Code coverage: 74.08% (4636/6258) 	 Branch coverage: 73.02% (387/530) 	 Transactions: 9133 (1606 unique)   	 Time: 145.13471627235413[0m
+2022-09-28 10:48:15,392 - Analysis - INFO - [1mGeneration number 18 	 Code coverage: 74.08% (4636/6258) 	 Branch coverage: 73.02% (387/530) 	 Transactions: 9797 (1699 unique)   	 Time: 157.4327893257141[0m
+2022-09-28 10:48:19,426 - Analysis - INFO - [1mGeneration number 19 	 Code coverage: 77.47% (4848/6258) 	 Branch coverage: 78.49% (416/530) 	 Transactions: 10126 (1885 unique)   	 Time: 161.46671175956726[0m
+2022-09-28 10:48:23,516 - Analysis - INFO - [1mGeneration number 20 	 Code coverage: 78.54% (4915/6258) 	 Branch coverage: 79.81% (423/530) 	 Transactions: 10434 (1983 unique)   	 Time: 165.55689072608948[0m
+2022-09-28 10:48:23,516 - Analysis - INFO - [1m-----------------------------------------------------[0m
+2022-09-28 10:48:23,516 - Analysis - INFO - Number of generations: 	 20
+2022-09-28 10:48:23,517 - Analysis - INFO - Number of transactions: 	 10434 (1983 unique)
+2022-09-28 10:48:23,517 - Analysis - INFO - Transactions per second: 	 63
+2022-09-28 10:48:23,517 - Analysis - INFO - Total code coverage: 	 78.54% (4915/6258)
+2022-09-28 10:48:23,517 - Analysis - INFO - Total branch coverage: 	 79.81% (423/530)
+2022-09-28 10:48:23,517 - Analysis - INFO - Total execution time: 	 165.56 seconds
+2022-09-28 10:48:23,517 - Analysis - INFO - Total memory consumption: 	 93.29 MB
+2022-09-28 10:48:23,519 - Fuzzer   - INFO - [1mFuzzing contract [1mowned[0m[0m
+2022-09-28 10:48:23,588 - Analysis - INFO - [1mGeneration number 0 	 Code coverage: 76.85% (561/730) 	 Branch coverage: 68.33% (41/60) 	 Transactions: 19 (18 unique)   	 Time: 0.0650777816772461[0m
+2022-09-28 10:48:23,653 - Analysis - INFO - [1mGeneration number 1 	 Code coverage: 76.85% (561/730) 	 Branch coverage: 68.33% (41/60) 	 Transactions: 35 (26 unique)   	 Time: 0.13019704818725586[0m
+2022-09-28 10:48:23,783 - Analysis - INFO - [1mGeneration number 2 	 Code coverage: 76.85% (561/730) 	 Branch coverage: 68.33% (41/60) 	 Transactions: 55 (33 unique)   	 Time: 0.2596895694732666[0m
+2022-09-28 10:48:23,941 - Analysis - INFO - [1mGeneration number 3 	 Code coverage: 76.85% (561/730) 	 Branch coverage: 68.33% (41/60) 	 Transactions: 83 (42 unique)   	 Time: 0.41738176345825195[0m
+2022-09-28 10:48:24,116 - Analysis - INFO - [1mGeneration number 4 	 Code coverage: 76.85% (561/730) 	 Branch coverage: 70.00% (42/60) 	 Transactions: 113 (50 unique)   	 Time: 0.5926754474639893[0m
+2022-09-28 10:48:24,302 - Analysis - INFO - [1mGeneration number 5 	 Code coverage: 76.85% (561/730) 	 Branch coverage: 70.00% (42/60) 	 Transactions: 146 (60 unique)   	 Time: 0.7790451049804688[0m
+2022-09-28 10:48:24,466 - Analysis - INFO - [1mGeneration number 6 	 Code coverage: 77.26% (564/730) 	 Branch coverage: 71.67% (43/60) 	 Transactions: 171 (68 unique)   	 Time: 0.9428317546844482[0m
+2022-09-28 10:48:24,628 - Analysis - INFO - [1mGeneration number 7 	 Code coverage: 77.26% (564/730) 	 Branch coverage: 71.67% (43/60) 	 Transactions: 210 (80 unique)   	 Time: 1.1047437191009521[0m
+2022-09-28 10:48:24,880 - Analysis - INFO - [1mGeneration number 8 	 Code coverage: 77.67% (567/730) 	 Branch coverage: 73.33% (44/60) 	 Transactions: 261 (89 unique)   	 Time: 1.356386423110962[0m
+2022-09-28 10:48:25,167 - Analysis - INFO - [1mGeneration number 9 	 Code coverage: 77.67% (567/730) 	 Branch coverage: 73.33% (44/60) 	 Transactions: 325 (96 unique)   	 Time: 1.6438887119293213[0m
+2022-09-28 10:48:25,484 - Analysis - INFO - [1mGeneration number 10 	 Code coverage: 77.67% (567/730) 	 Branch coverage: 73.33% (44/60) 	 Transactions: 392 (100 unique)   	 Time: 1.960731029510498[0m
+2022-09-28 10:48:25,768 - Analysis - INFO - [1mGeneration number 11 	 Code coverage: 77.67% (567/730) 	 Branch coverage: 73.33% (44/60) 	 Transactions: 449 (104 unique)   	 Time: 2.2450013160705566[0m
+2022-09-28 10:48:26,096 - Analysis - INFO - [1mGeneration number 12 	 Code coverage: 77.67% (567/730) 	 Branch coverage: 73.33% (44/60) 	 Transactions: 514 (107 unique)   	 Time: 2.5727720260620117[0m
+2022-09-28 10:48:26,359 - Analysis - INFO - [1mGeneration number 13 	 Code coverage: 77.67% (567/730) 	 Branch coverage: 73.33% (44/60) 	 Transactions: 564 (109 unique)   	 Time: 2.835782527923584[0m
+2022-09-28 10:48:26,610 - Analysis - INFO - [1mGeneration number 14 	 Code coverage: 77.67% (567/730) 	 Branch coverage: 73.33% (44/60) 	 Transactions: 609 (109 unique)   	 Time: 3.087096691131592[0m
+2022-09-28 10:48:26,889 - Analysis - INFO - [1mGeneration number 15 	 Code coverage: 77.67% (567/730) 	 Branch coverage: 73.33% (44/60) 	 Transactions: 659 (113 unique)   	 Time: 3.366110324859619[0m
+2022-09-28 10:48:27,173 - Analysis - INFO - [1mGeneration number 16 	 Code coverage: 77.67% (567/730) 	 Branch coverage: 73.33% (44/60) 	 Transactions: 709 (116 unique)   	 Time: 3.650217294692993[0m
+2022-09-28 10:48:27,462 - Analysis - INFO - [1mGeneration number 17 	 Code coverage: 77.67% (567/730) 	 Branch coverage: 73.33% (44/60) 	 Transactions: 759 (118 unique)   	 Time: 3.938725471496582[0m
+2022-09-28 10:48:27,829 - Analysis - INFO - [1mGeneration number 18 	 Code coverage: 77.67% (567/730) 	 Branch coverage: 73.33% (44/60) 	 Transactions: 824 (120 unique)   	 Time: 4.30571174621582[0m
+2022-09-28 10:48:28,147 - Analysis - INFO - [1mGeneration number 19 	 Code coverage: 77.67% (567/730) 	 Branch coverage: 73.33% (44/60) 	 Transactions: 879 (121 unique)   	 Time: 4.623979091644287[0m
+2022-09-28 10:48:28,323 - Analysis - INFO - [1mGeneration number 20 	 Code coverage: 86.03% (628/730) 	 Branch coverage: 81.67% (49/60) 	 Transactions: 909 (136 unique)   	 Time: 4.800055980682373[0m
+2022-09-28 10:48:28,323 - Analysis - INFO - [1m-----------------------------------------------------[0m
+2022-09-28 10:48:28,323 - Analysis - INFO - Number of generations: 	 20
+2022-09-28 10:48:28,323 - Analysis - INFO - Number of transactions: 	 909 (136 unique)
+2022-09-28 10:48:28,323 - Analysis - INFO - Transactions per second: 	 189
+2022-09-28 10:48:28,323 - Analysis - INFO - Total code coverage: 	 86.03% (628/730)
+2022-09-28 10:48:28,323 - Analysis - INFO - Total branch coverage: 	 81.67% (49/60)
+2022-09-28 10:48:28,323 - Analysis - INFO - Total execution time: 	 4.80 seconds
+2022-09-28 10:48:28,324 - Analysis - INFO - Total memory consumption: 	 92.05 MB

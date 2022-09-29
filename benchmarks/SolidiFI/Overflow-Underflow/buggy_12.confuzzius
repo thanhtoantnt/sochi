@@ -1,0 +1,1125 @@
+2022-09-28 11:52:33,870 - Main     - INFO - [1mInitializing seed to 0.1568227885357012[0m
+2022-09-28 11:52:34,017 - Fuzzer   - INFO - [1mFuzzing contract [1mERC223Token[0m[0m
+2022-09-28 11:52:34,080 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,080 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-09-28 11:52:34,080 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,080 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-09-28 11:52:34,080 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-09-28 11:52:34,081 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,081 - Detector - INFO - [1m[31mSource code line:[0m
+2022-09-28 11:52:34,081 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,081 - Detector - INFO - [1m[31mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:298:1[0m
+2022-09-28 11:52:34,081 - Detector - INFO - [1m[31mbalances_intou26[msg.sender] -= _value[0m
+2022-09-28 11:52:34,081 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,081 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-09-28 11:52:34,081 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,081 - Detector - INFO - [1m[31mTransaction - transfer_intou26(address,uint256):[0m
+2022-09-28 11:52:34,081 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,081 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:34,081 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:34,081 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:34,081 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:34,081 - Detector - INFO - [1m[31mInput:     0x46aa9243000000000000000000000000deadbeef[0m
+2022-09-28 11:52:34,081 - Detector - INFO - [1m[31m           deadbeefdeadbeefdeadbeefdeadbeefffffffffff[0m
+2022-09-28 11:52:34,081 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:52:34,081 - Detector - INFO - [1m[31m           fffffffffffe[0m
+2022-09-28 11:52:34,081 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,178 - Analysis - INFO - [1mGeneration number 0 	 Code coverage: 54.73% (954/1743) 	 Branch coverage: 53.08% (69/130) 	 Transactions: 41 (40 unique)   	 Time: 0.15228056907653809[0m
+2022-09-28 11:52:34,224 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,224 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-09-28 11:52:34,225 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,225 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-09-28 11:52:34,225 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-09-28 11:52:34,225 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,225 - Detector - INFO - [1m[31mSource code line:[0m
+2022-09-28 11:52:34,225 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,225 - Detector - INFO - [1m[31mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:299:1[0m
+2022-09-28 11:52:34,225 - Detector - INFO - [1m[31mbalances_intou26[_to] += _value[0m
+2022-09-28 11:52:34,225 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,225 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-09-28 11:52:34,225 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,225 - Detector - INFO - [1m[31mTransaction - transfer_intou26(address,uint256):[0m
+2022-09-28 11:52:34,225 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,225 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:34,225 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:34,225 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:34,225 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:34,225 - Detector - INFO - [1m[31mInput:     0x46aa9243000000000000000000000000cafebabe[0m
+2022-09-28 11:52:34,225 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabeffffffffff[0m
+2022-09-28 11:52:34,225 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:52:34,225 - Detector - INFO - [1m[31m           fffffffffffe[0m
+2022-09-28 11:52:34,225 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,400 - Analysis - INFO - [1mGeneration number 1 	 Code coverage: 54.91% (957/1743) 	 Branch coverage: 54.62% (71/130) 	 Transactions: 88 (69 unique)   	 Time: 0.37403035163879395[0m
+2022-09-28 11:52:34,662 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32m          !!! Block dependency detected !!!          [0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32mSWC-ID:   120[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32mSeverity: Low[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32mSource code line:[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:206:1[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32mnow[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32mTransaction sequence:[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32mTransaction 1 - increaseLockTime_intou13(uint256):[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32mValue:     1 Wei[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32mInput:     0xb21d31b6945792fee00e039dbd48b3342e3f8602[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32m           bc23fffe78dd4a402627507c31f452b3[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32mTransaction 2 - withdraw_intou13():[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32mInput:     0x5c03b626[0m
+2022-09-28 11:52:34,663 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,686 - Analysis - INFO - [1mGeneration number 2 	 Code coverage: 55.42% (966/1743) 	 Branch coverage: 57.69% (75/130) 	 Transactions: 149 (92 unique)   	 Time: 0.6595399379730225[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31mSource code line:[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:193:1[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31mlockTime_intou9[msg.sender] += _secondsToIncrease[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31mTransaction 1 - increaseLockTime_intou9(uint256):[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31mInput:     0x4d3608ddffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31m           fffffffffffffffffffffffffffffffe[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31mTransaction 2 - lockTime_intou9(address):[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31mInput:     0x407609f1000000000000000000000000cafebabe[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31mTransaction 3 - increaseLockTime_intou9(uint256):[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,770 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:34,771 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:34,771 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:34,771 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:34,771 - Detector - INFO - [1m[31mInput:     0x4d3608ddffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:52:34,771 - Detector - INFO - [1m[31m           fffffffffffffffffffffffffffffffe[0m
+2022-09-28 11:52:34,771 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,802 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,802 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-09-28 11:52:34,802 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,802 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-09-28 11:52:34,802 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-09-28 11:52:34,802 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,802 - Detector - INFO - [1m[31mSource code line:[0m
+2022-09-28 11:52:34,802 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,802 - Detector - INFO - [1m[31mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:177:1[0m
+2022-09-28 11:52:34,802 - Detector - INFO - [1m[31mlockTime_intou37[msg.sender] += _secondsToIncrease[0m
+2022-09-28 11:52:34,802 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,802 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-09-28 11:52:34,802 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,802 - Detector - INFO - [1m[31mTransaction 1 - increaseLockTime_intou37(uint256):[0m
+2022-09-28 11:52:34,802 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,802 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:34,802 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:34,802 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:34,802 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:34,802 - Detector - INFO - [1m[31mInput:     0xdd3871efffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:52:34,802 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31mTransaction 2 - lockTime_intou37(address):[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31mInput:     0x68d8d1b7000000000000000000000000deadbeef[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31m           deadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31mTransaction 3 - withdraw_intou37():[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31mInput:     0xc2bc6798[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31mTransaction 4 - increaseLockTime_intou37(uint256):[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31mInput:     0xdd3871efffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32m          !!! Block dependency detected !!!          [0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32mSWC-ID:   120[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32mSeverity: Low[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32mSource code line:[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:180:1[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32mnow[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32mTransaction sequence:[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32mTransaction 1 - increaseLockTime_intou37(uint256):[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32mInput:     0xdd3871efffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32m           ffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32mTransaction 2 - lockTime_intou37(address):[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-09-28 11:52:34,803 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-09-28 11:52:34,804 - Detector - INFO - [1m[32mInput:     0x68d8d1b7000000000000000000000000deadbeef[0m
+2022-09-28 11:52:34,804 - Detector - INFO - [1m[32m           deadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:34,804 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,804 - Detector - INFO - [1m[32mTransaction 3 - withdraw_intou37():[0m
+2022-09-28 11:52:34,804 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,804 - Detector - INFO - [1m[32mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:34,804 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:34,804 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-09-28 11:52:34,804 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-09-28 11:52:34,804 - Detector - INFO - [1m[32mInput:     0xc2bc6798[0m
+2022-09-28 11:52:34,804 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,865 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32m          !!! Block dependency detected !!!          [0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32mSWC-ID:   120[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32mSeverity: Low[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32mSource code line:[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:196:1[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32mnow[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32mTransaction sequence:[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32mTransaction 1 - increaseLockTime_intou9(uint256):[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32mInput:     0x4d3608dded8a518a38dd6644de1ec37a4820bbc3[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32m           3535acca355ffe21b610aa4c1860733d[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32mTransaction 2 - withdraw_intou9():[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32mInput:     0x1cbdc87d[0m
+2022-09-28 11:52:34,866 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:35,236 - Analysis - INFO - [1mGeneration number 3 	 Code coverage: 55.42% (966/1743) 	 Branch coverage: 57.69% (75/130) 	 Transactions: 265 (122 unique)   	 Time: 1.210400104522705[0m
+2022-09-28 11:52:35,762 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:35,762 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-09-28 11:52:35,762 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:35,762 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-09-28 11:52:35,762 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-09-28 11:52:35,762 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31mSource code line:[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:203:1[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31mlockTime_intou13[msg.sender] += _secondsToIncrease[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31mTransaction 1 - increaseLockTime_intou13(uint256):[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31mInput:     0xb21d31b6fbc1929618fb55325599def21a3e6dbb[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31m           c747409a61667dabcbc5ad318be24f91[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31mTransaction 2 - lockTime_intou13(address):[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31mInput:     0xcd71ee0b000000000000000000000000deadbeef[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31m           deadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31mTransaction 3 - increaseLockTime_intou13(uint256):[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31mInput:     0xb21d31b6fd3df437eb0d2cd18579ba69a28ec091[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31m           7264423018a8f2a7fbff2b38a017e491[0m
+2022-09-28 11:52:35,763 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:35,940 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:35,940 - Detector - INFO - [1m[33m    !!! Transaction order dependency detected !!!    [0m
+2022-09-28 11:52:35,940 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:35,940 - Detector - INFO - [1m[33mSWC-ID:   114[0m
+2022-09-28 11:52:35,940 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-09-28 11:52:35,940 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:35,940 - Detector - INFO - [1m[33mSource code line:[0m
+2022-09-28 11:52:35,940 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:177:1[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33mlockTime_intou37[msg.sender] += _secondsToIncrease[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33mTransaction 1 - increaseLockTime_intou37(uint256):[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33mInput:     0xdd3871efffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33m           fffffffffffffffffffffffffffffffd[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33mTransaction 2 - lockTime_intou37(address):[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33mInput:     0x68d8d1b7000000000000000000000000deadbeef[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33m           deadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33mTransaction 3 - withdraw_intou37():[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33mInput:     0xc2bc6798[0m
+2022-09-28 11:52:35,941 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:35,960 - Analysis - INFO - [1mGeneration number 4 	 Code coverage: 55.42% (966/1743) 	 Branch coverage: 57.69% (75/130) 	 Transactions: 394 (153 unique)   	 Time: 1.9337239265441895[0m
+2022-09-28 11:52:36,657 - Analysis - INFO - [1mGeneration number 5 	 Code coverage: 55.42% (966/1743) 	 Branch coverage: 57.69% (75/130) 	 Transactions: 521 (184 unique)   	 Time: 2.6311397552490234[0m
+2022-09-28 11:52:37,471 - Analysis - INFO - [1mGeneration number 6 	 Code coverage: 55.42% (966/1743) 	 Branch coverage: 57.69% (75/130) 	 Transactions: 661 (220 unique)   	 Time: 3.4445998668670654[0m
+2022-09-28 11:52:38,363 - Analysis - INFO - [1mGeneration number 7 	 Code coverage: 55.42% (966/1743) 	 Branch coverage: 57.69% (75/130) 	 Transactions: 806 (253 unique)   	 Time: 4.336482286453247[0m
+2022-09-28 11:52:39,003 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:39,003 - Detector - INFO - [1m[33m    !!! Transaction order dependency detected !!!    [0m
+2022-09-28 11:52:39,003 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:39,003 - Detector - INFO - [1m[33mSWC-ID:   114[0m
+2022-09-28 11:52:39,003 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-09-28 11:52:39,003 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:39,003 - Detector - INFO - [1m[33mSource code line:[0m
+2022-09-28 11:52:39,003 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:39,003 - Detector - INFO - [1m[33mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:203:1[0m
+2022-09-28 11:52:39,003 - Detector - INFO - [1m[33mlockTime_intou13[msg.sender] += _secondsToIncrease[0m
+2022-09-28 11:52:39,004 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:39,004 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-09-28 11:52:39,004 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:39,004 - Detector - INFO - [1m[33mTransaction 1 - increaseLockTime_intou13(uint256):[0m
+2022-09-28 11:52:39,004 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:39,004 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:39,004 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:39,004 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-09-28 11:52:39,004 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-09-28 11:52:39,004 - Detector - INFO - [1m[33mInput:     0xb21d31b63d69403ed412a203c4f7dd9d5783c362[0m
+2022-09-28 11:52:39,004 - Detector - INFO - [1m[33m           930f942f942d585b30743c35a384fcb9[0m
+2022-09-28 11:52:39,004 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:39,004 - Detector - INFO - [1m[33mTransaction 2 - withdraw_intou13():[0m
+2022-09-28 11:52:39,004 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:39,004 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:39,004 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:39,004 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-09-28 11:52:39,004 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-09-28 11:52:39,004 - Detector - INFO - [1m[33mInput:     0x5c03b626[0m
+2022-09-28 11:52:39,004 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:39,297 - Analysis - INFO - [1mGeneration number 8 	 Code coverage: 55.42% (966/1743) 	 Branch coverage: 57.69% (75/130) 	 Transactions: 948 (286 unique)   	 Time: 5.270898818969727[0m
+2022-09-28 11:52:40,193 - Analysis - INFO - [1mGeneration number 9 	 Code coverage: 55.42% (966/1743) 	 Branch coverage: 57.69% (75/130) 	 Transactions: 1079 (317 unique)   	 Time: 6.16667628288269[0m
+2022-09-28 11:52:41,117 - Analysis - INFO - [1mGeneration number 10 	 Code coverage: 55.42% (966/1743) 	 Branch coverage: 57.69% (75/130) 	 Transactions: 1210 (341 unique)   	 Time: 7.090773344039917[0m
+2022-09-28 11:52:41,932 - Analysis - INFO - [1mGeneration number 11 	 Code coverage: 55.42% (966/1743) 	 Branch coverage: 57.69% (75/130) 	 Transactions: 1330 (362 unique)   	 Time: 7.905610084533691[0m
+2022-09-28 11:52:42,868 - Analysis - INFO - [1mGeneration number 12 	 Code coverage: 55.42% (966/1743) 	 Branch coverage: 57.69% (75/130) 	 Transactions: 1471 (387 unique)   	 Time: 8.842333316802979[0m
+2022-09-28 11:52:43,827 - Analysis - INFO - [1mGeneration number 13 	 Code coverage: 55.42% (966/1743) 	 Branch coverage: 57.69% (75/130) 	 Transactions: 1613 (406 unique)   	 Time: 9.80068588256836[0m
+2022-09-28 11:52:44,019 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:44,019 - Detector - INFO - [1m[31m           !!! Leaking ether detected !!!            [0m
+2022-09-28 11:52:44,019 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:44,019 - Detector - INFO - [1m[31mSWC-ID:   105[0m
+2022-09-28 11:52:44,019 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-09-28 11:52:44,019 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:44,019 - Detector - INFO - [1m[31mSource code line:[0m
+2022-09-28 11:52:44,019 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:44,019 - Detector - INFO - [1m[31mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:198:1[0m
+2022-09-28 11:52:44,019 - Detector - INFO - [1m[31mmsg.sender.transfer(transferValue_intou9)[0m
+2022-09-28 11:52:44,020 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:44,020 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-09-28 11:52:44,020 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:44,020 - Detector - INFO - [1m[31mTransaction - withdraw_intou37():[0m
+2022-09-28 11:52:44,020 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:44,020 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:44,020 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:44,020 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:44,020 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:44,020 - Detector - INFO - [1m[31mInput:     0xc2bc6798[0m
+2022-09-28 11:52:44,020 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:44,471 - Analysis - INFO - [1mGeneration number 14 	 Code coverage: 55.82% (973/1743) 	 Branch coverage: 63.85% (83/130) 	 Transactions: 1693 (454 unique)   	 Time: 10.445120811462402[0m
+2022-09-28 11:52:44,607 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:44,607 - Detector - INFO - [1m[32m          !!! Block dependency detected !!!          [0m
+2022-09-28 11:52:44,607 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:44,607 - Detector - INFO - [1m[32mSWC-ID:   120[0m
+2022-09-28 11:52:44,607 - Detector - INFO - [1m[32mSeverity: Low[0m
+2022-09-28 11:52:44,607 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:44,607 - Detector - INFO - [1m[32mSource code line:[0m
+2022-09-28 11:52:44,607 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:44,607 - Detector - INFO - [1m[32mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:255:1[0m
+2022-09-28 11:52:44,607 - Detector - INFO - [1m[32mnow[0m
+2022-09-28 11:52:44,607 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:44,607 - Detector - INFO - [1m[32mTransaction sequence:[0m
+2022-09-28 11:52:44,607 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:44,607 - Detector - INFO - [1m[32mTransaction 1 - increaseLockTime_intou25(uint256):[0m
+2022-09-28 11:52:44,607 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:44,607 - Detector - INFO - [1m[32mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:44,607 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:44,607 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-09-28 11:52:44,607 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-09-28 11:52:44,607 - Detector - INFO - [1m[32mInput:     0xb106982400000000000000000000000000000000[0m
+2022-09-28 11:52:44,608 - Detector - INFO - [1m[32m           00000000000000000000000000000000[0m
+2022-09-28 11:52:44,608 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:44,608 - Detector - INFO - [1m[32mTransaction 2 - withdraw_intou25():[0m
+2022-09-28 11:52:44,608 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:44,608 - Detector - INFO - [1m[32mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:44,608 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:44,608 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-09-28 11:52:44,608 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-09-28 11:52:44,608 - Detector - INFO - [1m[32mInput:     0x835185a4[0m
+2022-09-28 11:52:44,608 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31mSource code line:[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:252:1[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31mlockTime_intou25[msg.sender] += _secondsToIncrease[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31mTransaction 1 - increaseLockTime_intou25(uint256):[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31mInput:     0xb1069824ffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31mTransaction 2 - lockTime_intou25(address):[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31mInput:     0xedc7e281000000000000000000000000deadbeef[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31m           deadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31mTransaction 3 - increaseLockTime_intou25(uint256):[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31mInput:     0xb106982480e28539d09c4ce7a270cfd09e82b78b[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31m           e22981921a33fe47d37b1035b5bda79d[0m
+2022-09-28 11:52:44,701 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:45,006 - Analysis - INFO - [1mGeneration number 15 	 Code coverage: 56.00% (976/1743) 	 Branch coverage: 69.23% (90/130) 	 Transactions: 1767 (487 unique)   	 Time: 10.980411529541016[0m
+2022-09-28 11:52:45,684 - Analysis - INFO - [1mGeneration number 16 	 Code coverage: 56.00% (976/1743) 	 Branch coverage: 70.00% (91/130) 	 Transactions: 1886 (522 unique)   	 Time: 11.658048868179321[0m
+2022-09-28 11:52:46,486 - Analysis - INFO - [1mGeneration number 17 	 Code coverage: 56.00% (976/1743) 	 Branch coverage: 70.00% (91/130) 	 Transactions: 2019 (557 unique)   	 Time: 12.460295915603638[0m
+2022-09-28 11:52:47,320 - Analysis - INFO - [1mGeneration number 18 	 Code coverage: 56.00% (976/1743) 	 Branch coverage: 70.00% (91/130) 	 Transactions: 2160 (595 unique)   	 Time: 13.293548107147217[0m
+2022-09-28 11:52:48,191 - Analysis - INFO - [1mGeneration number 19 	 Code coverage: 56.00% (976/1743) 	 Branch coverage: 70.00% (91/130) 	 Transactions: 2306 (634 unique)   	 Time: 14.165077924728394[0m
+2022-09-28 11:52:49,069 - Analysis - INFO - [1mGeneration number 20 	 Code coverage: 56.00% (976/1743) 	 Branch coverage: 70.00% (91/130) 	 Transactions: 2456 (671 unique)   	 Time: 15.043259620666504[0m
+2022-09-28 11:52:49,165 - Analysis - INFO - [1m-----------------------------------------------------[0m
+2022-09-28 11:52:49,165 - Analysis - INFO - Number of generations: 	 20
+2022-09-28 11:52:49,165 - Analysis - INFO - Number of transactions: 	 2456 (671 unique)
+2022-09-28 11:52:49,165 - Analysis - INFO - Transactions per second: 	 162
+2022-09-28 11:52:49,165 - Analysis - INFO - Total code coverage: 	 56.00% (976/1743)
+2022-09-28 11:52:49,165 - Analysis - INFO - Total branch coverage: 	 70.00% (91/130)
+2022-09-28 11:52:49,165 - Analysis - INFO - Total execution time: 	 15.14 seconds
+2022-09-28 11:52:49,165 - Analysis - INFO - Total memory consumption: 	 77.98 MB
+2022-09-28 11:52:49,168 - Fuzzer   - INFO - [1mFuzzing contract [1mGrand[0m[0m
+2022-09-28 11:52:49,292 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,292 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-09-28 11:52:49,292 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,292 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-09-28 11:52:49,292 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-09-28 11:52:49,292 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,292 - Detector - INFO - [1m[31mSource code line:[0m
+2022-09-28 11:52:49,292 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,292 - Detector - INFO - [1m[31mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:399:1[0m
+2022-09-28 11:52:49,292 - Detector - INFO - [1m[31mbalances_intou38[msg.sender] -= _value[0m
+2022-09-28 11:52:49,292 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,292 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-09-28 11:52:49,292 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,292 - Detector - INFO - [1m[31mTransaction - transfer_intou38(address,uint256):[0m
+2022-09-28 11:52:49,292 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,292 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:49,292 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:49,292 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:49,292 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:49,292 - Detector - INFO - [1m[31mInput:     0x7daba891000000000000000000000000deadbeef[0m
+2022-09-28 11:52:49,292 - Detector - INFO - [1m[31m           deadbeefdeadbeefdeadbeefdeadbeefffffffffff[0m
+2022-09-28 11:52:49,292 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:52:49,292 - Detector - INFO - [1m[31m           fffffffffffd[0m
+2022-09-28 11:52:49,292 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,317 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,317 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-09-28 11:52:49,317 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,317 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-09-28 11:52:49,317 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-09-28 11:52:49,317 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,318 - Detector - INFO - [1m[31mSource code line:[0m
+2022-09-28 11:52:49,318 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,318 - Detector - INFO - [1m[31mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:437:1[0m
+2022-09-28 11:52:49,318 - Detector - INFO - [1m[31mbalances_intou14[msg.sender] -= _value[0m
+2022-09-28 11:52:49,318 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,318 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-09-28 11:52:49,318 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,318 - Detector - INFO - [1m[31mTransaction - transfer_intou14(address,uint256):[0m
+2022-09-28 11:52:49,318 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,318 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:49,318 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:49,318 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:49,318 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:49,318 - Detector - INFO - [1m[31mInput:     0xaefa5519000000000000000000000000cafebabe[0m
+2022-09-28 11:52:49,318 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabe25aef2c0c4[0m
+2022-09-28 11:52:49,318 - Detector - INFO - [1m[31m           2030a1b1c230537138d890902916cefd93c058fbb0[0m
+2022-09-28 11:52:49,318 - Detector - INFO - [1m[31m           d51dc53d6de6[0m
+2022-09-28 11:52:49,318 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,480 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,480 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-09-28 11:52:49,480 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,480 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-09-28 11:52:49,480 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-09-28 11:52:49,480 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,480 - Detector - INFO - [1m[31mSource code line:[0m
+2022-09-28 11:52:49,480 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,480 - Detector - INFO - [1m[31mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:362:1[0m
+2022-09-28 11:52:49,480 - Detector - INFO - [1m[31mbalances_intou34[msg.sender] -= _value[0m
+2022-09-28 11:52:49,480 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,480 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-09-28 11:52:49,480 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,480 - Detector - INFO - [1m[31mTransaction - transfer_intou34(address,uint256):[0m
+2022-09-28 11:52:49,480 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,480 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:49,480 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:49,480 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:49,480 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:49,480 - Detector - INFO - [1m[31mInput:     0x46852dfc000000000000000000000000cafebabe[0m
+2022-09-28 11:52:49,480 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabe3d666eed69[0m
+2022-09-28 11:52:49,480 - Detector - INFO - [1m[31m           7939fccd6d7dec80b6c33b001254a416b1b226d294[0m
+2022-09-28 11:52:49,480 - Detector - INFO - [1m[31m           0f4a6ea02859[0m
+2022-09-28 11:52:49,480 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,483 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,483 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-09-28 11:52:49,483 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,483 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-09-28 11:52:49,483 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-09-28 11:52:49,483 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,483 - Detector - INFO - [1m[31mSource code line:[0m
+2022-09-28 11:52:49,483 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,483 - Detector - INFO - [1m[31mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:363:1[0m
+2022-09-28 11:52:49,483 - Detector - INFO - [1m[31mbalances_intou34[_to] += _value[0m
+2022-09-28 11:52:49,483 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,483 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-09-28 11:52:49,483 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,483 - Detector - INFO - [1m[31mTransaction - transfer_intou34(address,uint256):[0m
+2022-09-28 11:52:49,483 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,483 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:49,483 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:49,483 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:49,483 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:49,483 - Detector - INFO - [1m[31mInput:     0x46852dfc000000000000000000000000cafebabe[0m
+2022-09-28 11:52:49,483 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabe3d666eed69[0m
+2022-09-28 11:52:49,483 - Detector - INFO - [1m[31m           7939fccd6d7dec80b6c33b001254a416b1b226d294[0m
+2022-09-28 11:52:49,483 - Detector - INFO - [1m[31m           0f4a6ea02859[0m
+2022-09-28 11:52:49,483 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,631 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,631 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-09-28 11:52:49,631 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,631 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-09-28 11:52:49,631 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-09-28 11:52:49,631 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,631 - Detector - INFO - [1m[31mSource code line:[0m
+2022-09-28 11:52:49,631 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,631 - Detector - INFO - [1m[31mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:449:1[0m
+2022-09-28 11:52:49,631 - Detector - INFO - [1m[31mbalances_intou30[msg.sender] -= _value[0m
+2022-09-28 11:52:49,631 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,631 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-09-28 11:52:49,631 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,631 - Detector - INFO - [1m[31mTransaction - transfer_intou30(address,uint256):[0m
+2022-09-28 11:52:49,631 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,631 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:49,631 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:49,631 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:49,631 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:49,631 - Detector - INFO - [1m[31mInput:     0xc036563e000000000000000000000000deadbeef[0m
+2022-09-28 11:52:49,631 - Detector - INFO - [1m[31m           deadbeefdeadbeefdeadbeefdeadbeefffffffffff[0m
+2022-09-28 11:52:49,631 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:52:49,631 - Detector - INFO - [1m[31m           fffffffffffd[0m
+2022-09-28 11:52:49,631 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,635 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,635 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-09-28 11:52:49,635 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,635 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-09-28 11:52:49,635 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-09-28 11:52:49,635 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,635 - Detector - INFO - [1m[31mSource code line:[0m
+2022-09-28 11:52:49,635 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,635 - Detector - INFO - [1m[31mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:450:1[0m
+2022-09-28 11:52:49,635 - Detector - INFO - [1m[31mbalances_intou30[_to] += _value[0m
+2022-09-28 11:52:49,635 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,635 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-09-28 11:52:49,635 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,635 - Detector - INFO - [1m[31mTransaction - transfer_intou30(address,uint256):[0m
+2022-09-28 11:52:49,635 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,635 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:49,635 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:49,635 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:49,635 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:49,635 - Detector - INFO - [1m[31mInput:     0xc036563e000000000000000000000000deadbeef[0m
+2022-09-28 11:52:49,635 - Detector - INFO - [1m[31m           deadbeefdeadbeefdeadbeefdeadbeefffffffffff[0m
+2022-09-28 11:52:49,635 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:52:49,635 - Detector - INFO - [1m[31m           fffffffffffd[0m
+2022-09-28 11:52:49,635 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,683 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,683 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-09-28 11:52:49,683 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,683 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-09-28 11:52:49,683 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-09-28 11:52:49,683 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,683 - Detector - INFO - [1m[31mSource code line:[0m
+2022-09-28 11:52:49,683 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,683 - Detector - INFO - [1m[31mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:298:1[0m
+2022-09-28 11:52:49,683 - Detector - INFO - [1m[31mbalances_intou26[msg.sender] -= _value[0m
+2022-09-28 11:52:49,683 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,683 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-09-28 11:52:49,683 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,683 - Detector - INFO - [1m[31mTransaction - transfer_intou26(address,uint256):[0m
+2022-09-28 11:52:49,683 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,683 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:49,683 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:49,683 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:49,683 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:49,683 - Detector - INFO - [1m[31mInput:     0x46aa9243000000000000000000000000deadbeef[0m
+2022-09-28 11:52:49,683 - Detector - INFO - [1m[31m           deadbeefdeadbeefdeadbeefdeadbeefffffffffff[0m
+2022-09-28 11:52:49,683 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:52:49,683 - Detector - INFO - [1m[31m           ffffffffffff[0m
+2022-09-28 11:52:49,683 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,686 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,687 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-09-28 11:52:49,687 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,687 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-09-28 11:52:49,687 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-09-28 11:52:49,687 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,687 - Detector - INFO - [1m[31mSource code line:[0m
+2022-09-28 11:52:49,687 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,687 - Detector - INFO - [1m[31mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:299:1[0m
+2022-09-28 11:52:49,687 - Detector - INFO - [1m[31mbalances_intou26[_to] += _value[0m
+2022-09-28 11:52:49,687 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,687 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-09-28 11:52:49,687 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,687 - Detector - INFO - [1m[31mTransaction - transfer_intou26(address,uint256):[0m
+2022-09-28 11:52:49,687 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,687 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:49,687 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:49,687 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:49,687 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:49,687 - Detector - INFO - [1m[31mInput:     0x46aa9243000000000000000000000000deadbeef[0m
+2022-09-28 11:52:49,687 - Detector - INFO - [1m[31m           deadbeefdeadbeefdeadbeefdeadbeefffffffffff[0m
+2022-09-28 11:52:49,687 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:52:49,687 - Detector - INFO - [1m[31m           ffffffffffff[0m
+2022-09-28 11:52:49,687 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:49,710 - Analysis - INFO - [1mGeneration number 0 	 Code coverage: 71.66% (2888/4030) 	 Branch coverage: 71.78% (290/404) 	 Transactions: 125 (124 unique)   	 Time: 0.5252089500427246[0m
+2022-09-28 11:52:50,451 - Analysis - INFO - [1mGeneration number 1 	 Code coverage: 71.74% (2891/4030) 	 Branch coverage: 73.51% (297/404) 	 Transactions: 248 (188 unique)   	 Time: 1.2665212154388428[0m
+2022-09-28 11:52:50,579 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:50,579 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-09-28 11:52:50,579 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:50,579 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-09-28 11:52:50,579 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-09-28 11:52:50,580 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:50,580 - Detector - INFO - [1m[31mSource code line:[0m
+2022-09-28 11:52:50,580 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:50,580 - Detector - INFO - [1m[31mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:252:1[0m
+2022-09-28 11:52:50,580 - Detector - INFO - [1m[31mlockTime_intou25[msg.sender] += _secondsToIncrease[0m
+2022-09-28 11:52:50,580 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:50,580 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-09-28 11:52:50,580 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:50,580 - Detector - INFO - [1m[31mTransaction 1 - increaseLockTime_intou25(uint256):[0m
+2022-09-28 11:52:50,580 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:50,580 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:50,580 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:50,580 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:50,580 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:50,580 - Detector - INFO - [1m[31mInput:     0xb1069824ffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:52:50,580 - Detector - INFO - [1m[31m           fffffffffffffffffffffffffffffffd[0m
+2022-09-28 11:52:50,580 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:50,580 - Detector - INFO - [1m[31mTransaction 2 - increaseLockTime_intou25(uint256):[0m
+2022-09-28 11:52:50,580 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:50,580 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:50,580 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:50,580 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:50,580 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:50,580 - Detector - INFO - [1m[31mInput:     0xb10698245b46cd089df69c45788e9b6c57234411[0m
+2022-09-28 11:52:50,580 - Detector - INFO - [1m[31m           97161003dabc686c3cd8d0b119757d68[0m
+2022-09-28 11:52:50,580 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32m          !!! Block dependency detected !!!          [0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32mSWC-ID:   120[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32mSeverity: Low[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32mSource code line:[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:255:1[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32mnow[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32mTransaction sequence:[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32mTransaction 1 - increaseLockTime_intou25(uint256):[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32mInput:     0xb1069824a5b466b25dca2f5e37dcffc6a1ba5516[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32m           beeb9d1dfbe0ed6686f7a77f55779ab4[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32mTransaction 2 - withdraw_intou25():[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32mInput:     0x835185a4[0m
+2022-09-28 11:52:50,607 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:50,729 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:50,729 - Detector - INFO - [1m[32m          !!! Block dependency detected !!!          [0m
+2022-09-28 11:52:50,729 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:50,729 - Detector - INFO - [1m[32mSWC-ID:   120[0m
+2022-09-28 11:52:50,729 - Detector - INFO - [1m[32mSeverity: Low[0m
+2022-09-28 11:52:50,729 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:50,729 - Detector - INFO - [1m[32mSource code line:[0m
+2022-09-28 11:52:50,729 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:50,729 - Detector - INFO - [1m[32mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:196:1[0m
+2022-09-28 11:52:50,729 - Detector - INFO - [1m[32mnow[0m
+2022-09-28 11:52:50,729 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:50,729 - Detector - INFO - [1m[32mTransaction sequence:[0m
+2022-09-28 11:52:50,729 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:50,730 - Detector - INFO - [1m[32mTransaction 1 - increaseLockTime_intou9(uint256):[0m
+2022-09-28 11:52:50,730 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:50,730 - Detector - INFO - [1m[32mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:50,730 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:50,730 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-09-28 11:52:50,730 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-09-28 11:52:50,730 - Detector - INFO - [1m[32mInput:     0x4d3608dd90b863e04fbe2677d78def84ae6e5b52[0m
+2022-09-28 11:52:50,730 - Detector - INFO - [1m[32m           8ec051fa844613b95b5a1b223b6db108[0m
+2022-09-28 11:52:50,730 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:50,730 - Detector - INFO - [1m[32mTransaction 2 - withdraw_intou9():[0m
+2022-09-28 11:52:50,730 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:50,730 - Detector - INFO - [1m[32mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:50,730 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:50,730 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-09-28 11:52:50,730 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-09-28 11:52:50,730 - Detector - INFO - [1m[32mInput:     0x1cbdc87d[0m
+2022-09-28 11:52:50,730 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:50,781 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:50,781 - Detector - INFO - [1m[33m    !!! Transaction order dependency detected !!!    [0m
+2022-09-28 11:52:50,781 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:50,781 - Detector - INFO - [1m[33mSWC-ID:   114[0m
+2022-09-28 11:52:50,781 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-09-28 11:52:50,782 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:50,782 - Detector - INFO - [1m[33mSource code line:[0m
+2022-09-28 11:52:50,782 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:50,782 - Detector - INFO - [1m[33mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:252:1[0m
+2022-09-28 11:52:50,782 - Detector - INFO - [1m[33mlockTime_intou25[msg.sender] += _secondsToIncrease[0m
+2022-09-28 11:52:50,782 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:50,782 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-09-28 11:52:50,782 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:50,782 - Detector - INFO - [1m[33mTransaction 1 - increaseLockTime_intou25(uint256):[0m
+2022-09-28 11:52:50,782 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:50,782 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:50,782 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:50,782 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-09-28 11:52:50,782 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-09-28 11:52:50,782 - Detector - INFO - [1m[33mInput:     0xb10698241901b2b9aae9b25eefa580d5a512d44c[0m
+2022-09-28 11:52:50,782 - Detector - INFO - [1m[33m           4bc7b38e2f084282637a18965553fafe[0m
+2022-09-28 11:52:50,782 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:50,782 - Detector - INFO - [1m[33mTransaction 2 - withdraw_intou25():[0m
+2022-09-28 11:52:50,782 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:50,782 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:50,782 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:50,782 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-09-28 11:52:50,782 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-09-28 11:52:50,782 - Detector - INFO - [1m[33mInput:     0x835185a4[0m
+2022-09-28 11:52:50,782 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:51,079 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:51,079 - Detector - INFO - [1m[32m          !!! Block dependency detected !!!          [0m
+2022-09-28 11:52:51,079 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:51,079 - Detector - INFO - [1m[32mSWC-ID:   120[0m
+2022-09-28 11:52:51,079 - Detector - INFO - [1m[32mSeverity: Low[0m
+2022-09-28 11:52:51,079 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:51,079 - Detector - INFO - [1m[32mSource code line:[0m
+2022-09-28 11:52:51,079 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:51,079 - Detector - INFO - [1m[32mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:515:1[0m
+2022-09-28 11:52:51,079 - Detector - INFO - [1m[32mnow[0m
+2022-09-28 11:52:51,079 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:51,079 - Detector - INFO - [1m[32mTransaction sequence:[0m
+2022-09-28 11:52:51,079 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:51,079 - Detector - INFO - [1m[32mTransaction 1 - increaseLockTime_intou33(uint256):[0m
+2022-09-28 11:52:51,079 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:51,079 - Detector - INFO - [1m[32mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:51,079 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:51,079 - Detector - INFO - [1m[32mValue:     1 Wei[0m
+2022-09-28 11:52:51,079 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-09-28 11:52:51,079 - Detector - INFO - [1m[32mInput:     0x7d75697100000000000000000000000000000000[0m
+2022-09-28 11:52:51,079 - Detector - INFO - [1m[32m           00000000000000000000000000000002[0m
+2022-09-28 11:52:51,080 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:51,080 - Detector - INFO - [1m[32mTransaction 2 - withdraw_intou33():[0m
+2022-09-28 11:52:51,080 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:51,080 - Detector - INFO - [1m[32mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:51,080 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:51,080 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-09-28 11:52:51,080 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-09-28 11:52:51,080 - Detector - INFO - [1m[32mInput:     0xb1f09e89[0m
+2022-09-28 11:52:51,080 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31mSource code line:[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:512:1[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31mlockTime_intou33[msg.sender] += _secondsToIncrease[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31mTransaction 1 - increaseLockTime_intou33(uint256):[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31mInput:     0x7d756971ffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31mTransaction 2 - withdraw_intou33():[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31mInput:     0xb1f09e89[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31mTransaction 3 - increaseLockTime_intou33(uint256):[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31mInput:     0x7d756971ffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31m           fffffffffffffffffffffffffffffffe[0m
+2022-09-28 11:52:51,285 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:51,467 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:51,467 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-09-28 11:52:51,467 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:51,467 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-09-28 11:52:51,467 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-09-28 11:52:51,467 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:51,467 - Detector - INFO - [1m[31mSource code line:[0m
+2022-09-28 11:52:51,467 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:193:1[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31mlockTime_intou9[msg.sender] += _secondsToIncrease[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31mTransaction 1 - increaseLockTime_intou9(uint256):[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31mInput:     0x4d3608ddffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31mTransaction 2 - lockTime_intou9(address):[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31mInput:     0x407609f1000000000000000000000000deadbeef[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31m           deadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31mTransaction 3 - increaseLockTime_intou9(uint256):[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31mInput:     0x4d3608ddbe4f8c57016e67998a1edadd44418285[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31m           3ece66fe4af3e0f618d011013a8b0079[0m
+2022-09-28 11:52:51,468 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:52:51,543 - Analysis - INFO - [1mGeneration number 2 	 Code coverage: 71.89% (2897/4030) 	 Branch coverage: 75.99% (307/404) 	 Transactions: 422 (257 unique)   	 Time: 2.358574628829956[0m
+2022-09-28 11:52:52,938 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:52,938 - Detector - INFO - [1m[33m    !!! Transaction order dependency detected !!!    [0m
+2022-09-28 11:52:52,938 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:52,938 - Detector - INFO - [1m[33mSWC-ID:   114[0m
+2022-09-28 11:52:52,938 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-09-28 11:52:52,938 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:52,938 - Detector - INFO - [1m[33mSource code line:[0m
+2022-09-28 11:52:52,938 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:52,938 - Detector - INFO - [1m[33mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:512:1[0m
+2022-09-28 11:52:52,938 - Detector - INFO - [1m[33mlockTime_intou33[msg.sender] += _secondsToIncrease[0m
+2022-09-28 11:52:52,938 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:52,938 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-09-28 11:52:52,938 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:52,938 - Detector - INFO - [1m[33mTransaction 1 - increaseLockTime_intou33(uint256):[0m
+2022-09-28 11:52:52,938 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:52,938 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:52,938 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:52,938 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-09-28 11:52:52,938 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-09-28 11:52:52,938 - Detector - INFO - [1m[33mInput:     0x7d756971d7267128fcbb2c38dd6c15c8f0918bed[0m
+2022-09-28 11:52:52,939 - Detector - INFO - [1m[33m           485f51473ae1385aedc1f1bfd6d7e638[0m
+2022-09-28 11:52:52,939 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:52,939 - Detector - INFO - [1m[33mTransaction 2 - withdraw_intou33():[0m
+2022-09-28 11:52:52,939 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:52,939 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:52,939 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:52,939 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-09-28 11:52:52,939 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-09-28 11:52:52,939 - Detector - INFO - [1m[33mInput:     0xb1f09e89[0m
+2022-09-28 11:52:52,939 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:53,412 - Analysis - INFO - [1mGeneration number 3 	 Code coverage: 71.96% (2900/4030) 	 Branch coverage: 77.48% (313/404) 	 Transactions: 709 (341 unique)   	 Time: 4.226638555526733[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33m    !!! Transaction order dependency detected !!!    [0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33mSWC-ID:   114[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33mSource code line:[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:336:1[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33mlockTime_intou5[msg.sender] += _secondsToIncrease[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33mTransaction 1 - increaseLockTime_intou5(uint256):[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33mInput:     0xe4a2d07fffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33m           ffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33mTransaction 2 - lockTime_intou5(address):[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33mInput:     0x0c0249ba000000000000000000000000cafebabe[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33m           cafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33mTransaction 3 - withdraw_intou5():[0m
+2022-09-28 11:52:54,622 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:54,623 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:54,623 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:54,623 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-09-28 11:52:54,623 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-09-28 11:52:54,623 - Detector - INFO - [1m[33mInput:     0xc017a750[0m
+2022-09-28 11:52:54,623 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:54,870 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:54,870 - Detector - INFO - [1m[33m    !!! Transaction order dependency detected !!!    [0m
+2022-09-28 11:52:54,870 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:54,870 - Detector - INFO - [1m[33mSWC-ID:   114[0m
+2022-09-28 11:52:54,870 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-09-28 11:52:54,870 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:54,870 - Detector - INFO - [1m[33mSource code line:[0m
+2022-09-28 11:52:54,870 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:54,870 - Detector - INFO - [1m[33mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:371:1[0m
+2022-09-28 11:52:54,870 - Detector - INFO - [1m[33mlockTime_intou21[msg.sender] += _secondsToIncrease[0m
+2022-09-28 11:52:54,870 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:54,870 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-09-28 11:52:54,870 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:54,870 - Detector - INFO - [1m[33mTransaction 1 - increaseLockTime_intou21(uint256):[0m
+2022-09-28 11:52:54,870 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:54,870 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:54,870 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:54,870 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-09-28 11:52:54,870 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-09-28 11:52:54,870 - Detector - INFO - [1m[33mInput:     0xa3af6a7000000000000000000000000000000000[0m
+2022-09-28 11:52:54,870 - Detector - INFO - [1m[33m           00000000000000000000000000000002[0m
+2022-09-28 11:52:54,870 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:54,870 - Detector - INFO - [1m[33mTransaction 2 - withdraw_intou21():[0m
+2022-09-28 11:52:54,870 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:54,871 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:52:54,871 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:54,871 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-09-28 11:52:54,871 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-09-28 11:52:54,871 - Detector - INFO - [1m[33mInput:     0x81bb4758[0m
+2022-09-28 11:52:54,871 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:55,708 - Analysis - INFO - [1mGeneration number 4 	 Code coverage: 72.11% (2906/4030) 	 Branch coverage: 79.21% (320/404) 	 Transactions: 1062 (430 unique)   	 Time: 6.523051500320435[0m
+2022-09-28 11:52:58,167 - Analysis - INFO - [1mGeneration number 5 	 Code coverage: 72.11% (2906/4030) 	 Branch coverage: 79.70% (322/404) 	 Transactions: 1453 (509 unique)   	 Time: 8.981764078140259[0m
+2022-09-28 11:52:58,989 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:58,989 - Detector - INFO - [1m[33m    !!! Transaction order dependency detected !!!    [0m
+2022-09-28 11:52:58,989 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:58,989 - Detector - INFO - [1m[33mSWC-ID:   114[0m
+2022-09-28 11:52:58,989 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-09-28 11:52:58,989 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:58,989 - Detector - INFO - [1m[33mSource code line:[0m
+2022-09-28 11:52:58,989 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:58,989 - Detector - INFO - [1m[33mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:193:1[0m
+2022-09-28 11:52:58,989 - Detector - INFO - [1m[33mlockTime_intou9[msg.sender] += _secondsToIncrease[0m
+2022-09-28 11:52:58,989 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:58,989 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-09-28 11:52:58,989 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:58,989 - Detector - INFO - [1m[33mTransaction 1 - increaseLockTime_intou9(uint256):[0m
+2022-09-28 11:52:58,989 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:58,989 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:58,989 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:58,989 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-09-28 11:52:58,989 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-09-28 11:52:58,989 - Detector - INFO - [1m[33mInput:     0x4d3608dd00000000000000000000000000000000[0m
+2022-09-28 11:52:58,989 - Detector - INFO - [1m[33m           00000000000000000000000000000001[0m
+2022-09-28 11:52:58,990 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:58,990 - Detector - INFO - [1m[33mTransaction 2 - withdraw_intou9():[0m
+2022-09-28 11:52:58,990 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:52:58,990 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:52:58,990 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:52:58,990 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-09-28 11:52:58,990 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-09-28 11:52:58,990 - Detector - INFO - [1m[33mInput:     0x1cbdc87d[0m
+2022-09-28 11:52:58,990 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32m          !!! Block dependency detected !!!          [0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32mSWC-ID:   120[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32mSeverity: Low[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32mSource code line:[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:374:1[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32mnow[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32mTransaction sequence:[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32mTransaction 1 - increaseLockTime_intou21(uint256):[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32mValue:     1 Wei[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32mInput:     0xa3af6a70ffffffffffffffffffffffffffffffff[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32m           fffffffffffffffffffffffffffffffd[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32mTransaction 2 - withdraw_intou21():[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32mInput:     0x81bb4758[0m
+2022-09-28 11:53:01,012 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-09-28 11:53:01,125 - Analysis - INFO - [1mGeneration number 6 	 Code coverage: 72.11% (2906/4030) 	 Branch coverage: 79.95% (323/404) 	 Transactions: 1904 (607 unique)   	 Time: 11.94011640548706[0m
+2022-09-28 11:53:04,311 - Analysis - INFO - [1mGeneration number 7 	 Code coverage: 72.11% (2906/4030) 	 Branch coverage: 80.45% (325/404) 	 Transactions: 2398 (715 unique)   	 Time: 15.126354932785034[0m
+2022-09-28 11:53:07,702 - Analysis - INFO - [1mGeneration number 8 	 Code coverage: 72.18% (2909/4030) 	 Branch coverage: 80.94% (327/404) 	 Transactions: 2938 (820 unique)   	 Time: 18.516484022140503[0m
+2022-09-28 11:53:10,921 - Analysis - INFO - [1mGeneration number 9 	 Code coverage: 72.18% (2909/4030) 	 Branch coverage: 81.19% (328/404) 	 Transactions: 3484 (937 unique)   	 Time: 21.73648738861084[0m
+2022-09-28 11:53:14,218 - Analysis - INFO - [1mGeneration number 10 	 Code coverage: 72.18% (2909/4030) 	 Branch coverage: 81.19% (328/404) 	 Transactions: 4013 (1054 unique)   	 Time: 25.03301453590393[0m
+2022-09-28 11:53:17,574 - Analysis - INFO - [1mGeneration number 11 	 Code coverage: 72.18% (2909/4030) 	 Branch coverage: 81.19% (328/404) 	 Transactions: 4555 (1168 unique)   	 Time: 28.389244556427002[0m
+2022-09-28 11:53:21,126 - Analysis - INFO - [1mGeneration number 12 	 Code coverage: 72.18% (2909/4030) 	 Branch coverage: 81.19% (328/404) 	 Transactions: 5118 (1286 unique)   	 Time: 31.941582441329956[0m
+2022-09-28 11:53:24,710 - Analysis - INFO - [1mGeneration number 13 	 Code coverage: 72.18% (2909/4030) 	 Branch coverage: 81.19% (328/404) 	 Transactions: 5688 (1405 unique)   	 Time: 35.52490162849426[0m
+2022-09-28 11:53:28,475 - Analysis - INFO - [1mGeneration number 14 	 Code coverage: 72.18% (2909/4030) 	 Branch coverage: 81.19% (328/404) 	 Transactions: 6280 (1522 unique)   	 Time: 39.290377140045166[0m
+2022-09-28 11:53:32,282 - Analysis - INFO - [1mGeneration number 15 	 Code coverage: 72.18% (2909/4030) 	 Branch coverage: 81.19% (328/404) 	 Transactions: 6869 (1640 unique)   	 Time: 43.09724521636963[0m
+2022-09-28 11:53:36,133 - Analysis - INFO - [1mGeneration number 16 	 Code coverage: 72.18% (2909/4030) 	 Branch coverage: 81.19% (328/404) 	 Transactions: 7459 (1744 unique)   	 Time: 46.948137283325195[0m
+2022-09-28 11:53:39,872 - Analysis - INFO - [1mGeneration number 17 	 Code coverage: 72.18% (2909/4030) 	 Branch coverage: 81.19% (328/404) 	 Transactions: 8045 (1859 unique)   	 Time: 50.686704874038696[0m
+2022-09-28 11:53:43,704 - Analysis - INFO - [1mGeneration number 18 	 Code coverage: 72.18% (2909/4030) 	 Branch coverage: 81.19% (328/404) 	 Transactions: 8645 (1969 unique)   	 Time: 54.518699645996094[0m
+2022-09-28 11:53:47,535 - Analysis - INFO - [1mGeneration number 19 	 Code coverage: 72.18% (2909/4030) 	 Branch coverage: 81.19% (328/404) 	 Transactions: 9243 (2077 unique)   	 Time: 58.3497154712677[0m
+2022-09-28 11:53:47,802 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:53:47,802 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-09-28 11:53:47,802 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:53:47,802 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-09-28 11:53:47,802 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-09-28 11:53:47,802 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:53:47,802 - Detector - INFO - [1m[31mSource code line:[0m
+2022-09-28 11:53:47,802 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:53:47,802 - Detector - INFO - [1m[31mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:400:1[0m
+2022-09-28 11:53:47,802 - Detector - INFO - [1m[31mbalances_intou38[_to] += _value[0m
+2022-09-28 11:53:47,802 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:53:47,802 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-09-28 11:53:47,802 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:53:47,802 - Detector - INFO - [1m[31mTransaction - transfer_intou38(address,uint256):[0m
+2022-09-28 11:53:47,802 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:53:47,802 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-28 11:53:47,802 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:53:47,802 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:53:47,802 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:53:47,802 - Detector - INFO - [1m[31mInput:     0x7daba891000000000000000000000000deadbeef[0m
+2022-09-28 11:53:47,802 - Detector - INFO - [1m[31m           deadbeefdeadbeefdeadbeefdeadbeef610455f0cb[0m
+2022-09-28 11:53:47,802 - Detector - INFO - [1m[31m           a7dd5d6ab290c5d4157e33596905ed824c0470c870[0m
+2022-09-28 11:53:47,802 - Detector - INFO - [1m[31m           420dfc0cd3bd[0m
+2022-09-28 11:53:47,802 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:53:47,831 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:53:47,831 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-09-28 11:53:47,831 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:53:47,831 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-09-28 11:53:47,831 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-09-28 11:53:47,831 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:53:47,831 - Detector - INFO - [1m[31mSource code line:[0m
+2022-09-28 11:53:47,831 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:53:47,831 - Detector - INFO - [1m[31mbenchmarks/SolidiFI/Overflow-Underflow/buggy_12.sol:438:1[0m
+2022-09-28 11:53:47,831 - Detector - INFO - [1m[31mbalances_intou14[_to] += _value[0m
+2022-09-28 11:53:47,831 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:53:47,831 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-09-28 11:53:47,832 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:53:47,832 - Detector - INFO - [1m[31mTransaction - transfer_intou14(address,uint256):[0m
+2022-09-28 11:53:47,832 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:53:47,832 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-28 11:53:47,832 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-28 11:53:47,832 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-28 11:53:47,832 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-28 11:53:47,832 - Detector - INFO - [1m[31mInput:     0xaefa5519000000000000000000000000cafebabe[0m
+2022-09-28 11:53:47,832 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabe297bec5400[0m
+2022-09-28 11:53:47,832 - Detector - INFO - [1m[31m           b73c7f559402d8593f00fcc763e1c55fd885a095b8[0m
+2022-09-28 11:53:47,832 - Detector - INFO - [1m[31m           7fda89560c73[0m
+2022-09-28 11:53:47,832 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-28 11:53:49,129 - Analysis - INFO - [1mGeneration number 20 	 Code coverage: 74.09% (2986/4030) 	 Branch coverage: 84.41% (341/404) 	 Transactions: 9490 (2217 unique)   	 Time: 59.94434452056885[0m
+2022-09-28 11:53:49,129 - Analysis - INFO - [1m-----------------------------------------------------[0m
+2022-09-28 11:53:49,129 - Analysis - INFO - Number of generations: 	 20
+2022-09-28 11:53:49,129 - Analysis - INFO - Number of transactions: 	 9490 (2217 unique)
+2022-09-28 11:53:49,129 - Analysis - INFO - Transactions per second: 	 158
+2022-09-28 11:53:49,129 - Analysis - INFO - Total code coverage: 	 74.09% (2986/4030)
+2022-09-28 11:53:49,129 - Analysis - INFO - Total branch coverage: 	 84.41% (341/404)
+2022-09-28 11:53:49,129 - Analysis - INFO - Total execution time: 	 59.94 seconds
+2022-09-28 11:53:49,130 - Analysis - INFO - Total memory consumption: 	 85.11 MB
