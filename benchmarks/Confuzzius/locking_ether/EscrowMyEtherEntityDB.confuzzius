@@ -1,0 +1,278 @@
+2022-09-29 02:51:23,906 - Main     - INFO - [1mInitializing seed to 0.5356183784278196[0m
+2022-09-29 02:51:23,996 - Fuzzer   - INFO - [1mFuzzing contract [1mEscrowMyEtherEntityDB[0m[0m
+2022-09-29 02:51:24,080 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:51:24,080 - Detector - INFO - [1m[33m           !!! Locking ether detected !!!            [0m
+2022-09-29 02:51:24,080 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:51:24,080 - Detector - INFO - [1m[33mSWC-ID:   132[0m
+2022-09-29 02:51:24,080 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-09-29 02:51:24,080 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:51:24,080 - Detector - INFO - [1m[33mSource code line:[0m
+2022-09-29 02:51:24,080 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:51:24,080 - Detector - INFO - [1m[33mbenchmarks/Confuzzius/locking_ether/EscrowMyEtherEntityDB.sol:6:1[0m
+2022-09-29 02:51:24,080 - Detector - INFO - [1m[33mcontract EscrowMyEtherEntityDB  {
+
+        //Author: Cheung Ka Yin
+        //Date: 11 Jul 2017
+        //Version: EscrowMyEtherEntityDB v1.0
+
+        address public owner;
+
+
+        //Entity struct, used to store the Buyer, Seller or Escrow Agent's info.
+        //It is optional, Entities can choose not to register their info/name on the blockchain.
+
+
+        struct Entity{
+            string name;
+            string info;
+        }
+
+
+
+
+        mapping(address => Entity) public buyerList;
+        mapping(address => Entity) public sellerList;
+        mapping(address => Entity) public escrowList;
+
+
+        //Run once the moment contract is created. Set contract creator
+        function EscrowMyEtherEntityDB() {
+            owner = msg.sender;
+
+
+        }
+
+
+
+        function() payable
+        {
+            //LogFundsReceived(msg.sender, msg.value);
+        }
+
+
+        function registerBuyer(string _name, string _info)
+        {
+
+            buyerList[msg.sender].name = _name;
+            buyerList[msg.sender].info = _info;
+
+        }
+
+
+
+        function registerSeller(string _name, string _info)
+        {
+            sellerList[msg.sender].name = _name;
+            sellerList[msg.sender].info = _info;
+
+        }
+
+        function registerEscrow(string _name, string _info)
+        {
+            escrowList[msg.sender].name = _name;
+            escrowList[msg.sender].info = _info;
+
+        }
+
+        function getBuyerFullInfo(address buyerAddress) constant returns (string, string)
+        {
+            return (buyerList[buyerAddress].name, buyerList[buyerAddress].info);
+        }
+
+        function getSellerFullInfo(address sellerAddress) constant returns (string, string)
+        {
+            return (sellerList[sellerAddress].name, sellerList[sellerAddress].info);
+        }
+
+        function getEscrowFullInfo(address escrowAddress) constant returns (string, string)
+        {
+            return (escrowList[escrowAddress].name, escrowList[escrowAddress].info);
+        }
+
+    }[0m
+2022-09-29 02:51:24,080 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:51:24,080 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-09-29 02:51:24,080 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:51:24,080 - Detector - INFO - [1m[33mTransaction:[0m
+2022-09-29 02:51:24,080 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:51:24,080 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-29 02:51:24,080 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-29 02:51:24,080 - Detector - INFO - [1m[33mValue:     1 Wei[0m
+2022-09-29 02:51:24,080 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-09-29 02:51:24,080 - Detector - INFO - [1m[33mInput:     0x[0m
+2022-09-29 02:51:24,080 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:51:24,184 - Analysis - INFO - [1mGeneration number 0 	 Code coverage: 51.52% (1588/3082) 	 Branch coverage: 39.04% (57/146) 	 Transactions: 23 (22 unique)   	 Time: 0.1752028465270996[0m
+2022-09-29 02:51:24,734 - Analysis - INFO - [1mGeneration number 1 	 Code coverage: 58.21% (1794/3082) 	 Branch coverage: 50.68% (74/146) 	 Transactions: 55 (37 unique)   	 Time: 0.7251579761505127[0m
+2022-09-29 02:51:25,458 - Analysis - INFO - [1mGeneration number 2 	 Code coverage: 60.45% (1863/3082) 	 Branch coverage: 54.11% (79/146) 	 Transactions: 100 (51 unique)   	 Time: 1.449563980102539[0m
+2022-09-29 02:51:26,475 - Analysis - INFO - [1mGeneration number 3 	 Code coverage: 61.06% (1882/3082) 	 Branch coverage: 57.53% (84/146) 	 Transactions: 152 (65 unique)   	 Time: 2.466602325439453[0m
+2022-09-29 02:51:27,808 - Analysis - INFO - [1mGeneration number 4 	 Code coverage: 61.52% (1896/3082) 	 Branch coverage: 58.22% (85/146) 	 Transactions: 215 (80 unique)   	 Time: 3.7997546195983887[0m
+2022-09-29 02:51:29,453 - Analysis - INFO - [1mGeneration number 5 	 Code coverage: 61.52% (1896/3082) 	 Branch coverage: 58.22% (85/146) 	 Transactions: 291 (97 unique)   	 Time: 5.444332599639893[0m
+2022-09-29 02:51:30,856 - Analysis - INFO - [1mGeneration number 6 	 Code coverage: 61.52% (1896/3082) 	 Branch coverage: 58.22% (85/146) 	 Transactions: 367 (113 unique)   	 Time: 6.847872972488403[0m
+2022-09-29 02:51:33,140 - Analysis - INFO - [1mGeneration number 7 	 Code coverage: 61.52% (1896/3082) 	 Branch coverage: 58.22% (85/146) 	 Transactions: 455 (131 unique)   	 Time: 9.132097721099854[0m
+2022-09-29 02:51:35,216 - Analysis - INFO - [1mGeneration number 8 	 Code coverage: 61.52% (1896/3082) 	 Branch coverage: 58.22% (85/146) 	 Transactions: 538 (147 unique)   	 Time: 11.207450866699219[0m
+2022-09-29 02:51:37,423 - Analysis - INFO - [1mGeneration number 9 	 Code coverage: 61.52% (1896/3082) 	 Branch coverage: 58.22% (85/146) 	 Transactions: 619 (163 unique)   	 Time: 13.4150390625[0m
+2022-09-29 02:51:39,620 - Analysis - INFO - [1mGeneration number 10 	 Code coverage: 61.52% (1896/3082) 	 Branch coverage: 58.22% (85/146) 	 Transactions: 699 (178 unique)   	 Time: 15.611591577529907[0m
+2022-09-29 02:51:42,148 - Analysis - INFO - [1mGeneration number 11 	 Code coverage: 61.52% (1896/3082) 	 Branch coverage: 58.22% (85/146) 	 Transactions: 797 (193 unique)   	 Time: 18.13958168029785[0m
+2022-09-29 02:51:44,485 - Analysis - INFO - [1mGeneration number 12 	 Code coverage: 61.52% (1896/3082) 	 Branch coverage: 58.22% (85/146) 	 Transactions: 884 (206 unique)   	 Time: 20.477046966552734[0m
+2022-09-29 02:51:47,557 - Analysis - INFO - [1mGeneration number 13 	 Code coverage: 61.52% (1896/3082) 	 Branch coverage: 58.22% (85/146) 	 Transactions: 994 (224 unique)   	 Time: 23.548252820968628[0m
+2022-09-29 02:51:50,282 - Analysis - INFO - [1mGeneration number 14 	 Code coverage: 61.52% (1896/3082) 	 Branch coverage: 58.22% (85/146) 	 Transactions: 1094 (235 unique)   	 Time: 26.27343487739563[0m
+2022-09-29 02:51:53,678 - Analysis - INFO - [1mGeneration number 15 	 Code coverage: 61.52% (1896/3082) 	 Branch coverage: 58.22% (85/146) 	 Transactions: 1204 (250 unique)   	 Time: 29.669363737106323[0m
+2022-09-29 02:51:54,749 - Analysis - INFO - [1mGeneration number 16 	 Code coverage: 61.52% (1896/3082) 	 Branch coverage: 58.90% (86/146) 	 Transactions: 1249 (272 unique)   	 Time: 30.740466594696045[0m
+2022-09-29 02:51:55,863 - Analysis - INFO - [1mGeneration number 17 	 Code coverage: 62.13% (1915/3082) 	 Branch coverage: 60.27% (88/146) 	 Transactions: 1283 (282 unique)   	 Time: 31.85466980934143[0m
+2022-09-29 02:51:57,635 - Analysis - INFO - [1mGeneration number 18 	 Code coverage: 62.13% (1915/3082) 	 Branch coverage: 60.96% (89/146) 	 Transactions: 1340 (294 unique)   	 Time: 33.626625776290894[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31mSource code line:[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31mbenchmarks/Confuzzius/locking_ether/EscrowMyEtherEntityDB.sol:6:1[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31mcontract EscrowMyEtherEntityDB  {
+
+        //Author: Cheung Ka Yin
+        //Date: 11 Jul 2017
+        //Version: EscrowMyEtherEntityDB v1.0
+
+        address public owner;
+
+
+        //Entity struct, used to store the Buyer, Seller or Escrow Agent's info.
+        //It is optional, Entities can choose not to register their info/name on the blockchain.
+
+
+        struct Entity{
+            string name;
+            string info;
+        }
+
+
+
+
+        mapping(address => Entity) public buyerList;
+        mapping(address => Entity) public sellerList;
+        mapping(address => Entity) public escrowList;
+
+
+        //Run once the moment contract is created. Set contract creator
+        function EscrowMyEtherEntityDB() {
+            owner = msg.sender;
+
+
+        }
+
+
+
+        function() payable
+        {
+            //LogFundsReceived(msg.sender, msg.value);
+        }
+
+
+        function registerBuyer(string _name, string _info)
+        {
+
+            buyerList[msg.sender].name = _name;
+            buyerList[msg.sender].info = _info;
+
+        }
+
+
+
+        function registerSeller(string _name, string _info)
+        {
+            sellerList[msg.sender].name = _name;
+            sellerList[msg.sender].info = _info;
+
+        }
+
+        function registerEscrow(string _name, string _info)
+        {
+            escrowList[msg.sender].name = _name;
+            escrowList[msg.sender].info = _info;
+
+        }
+
+        function getBuyerFullInfo(address buyerAddress) constant returns (string, string)
+        {
+            return (buyerList[buyerAddress].name, buyerList[buyerAddress].info);
+        }
+
+        function getSellerFullInfo(address sellerAddress) constant returns (string, string)
+        {
+            return (sellerList[sellerAddress].name, sellerList[sellerAddress].info);
+        }
+
+        function getEscrowFullInfo(address escrowAddress) constant returns (string, string)
+        {
+            return (escrowList[escrowAddress].name, escrowList[escrowAddress].info);
+        }
+
+    }[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31mTransaction 1 - registerEscrow(string,string):[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31mInput:     0xe283d1ec00000000000000000000000000000000[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31m           000000000000000000000000000000400000000000[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31m           000000000000000000000000000000000000000000[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31m           000000000080000000000000000000000000000000[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31m           000000000000000000000000000000000141000000[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31m           000000000000000000000000000000000000000000[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31m           000000000000000000000000000000000000000000[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31m           000000000000000000000000000000000021414141[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31m           414141414141414141414141414141414141414141[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31m           414141414141414141000000000000000000000000[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31m           00000000000000000000000000000000000000[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31mTransaction 2 - getEscrowFullInfo(address):[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-29 02:51:58,043 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31mInput:     0x391efaf2000000000000000000000000deadbeef[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31m           deadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31mTransaction 3 - getEscrowFullInfo(address):[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31mInput:     0x391efaf2000000000000000000000000deadbeef[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31m           deadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31mTransaction 4 - registerEscrow(string,string):[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31mInput:     0xe283d1ec00000000000000000000000000000000[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31m           000000000000000000000000000000400000000000[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31m           000000000000000000000000000000000000000000[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31m           000000000080000000000000000000000000000000[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31m           000000000000000000000000000000002041414141[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31m           414141414141414141414141414141414141414141[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31m           414141414141410000000000000000000000000000[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31m           000000000000000000000000000000000001410000[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31m           000000000000000000000000000000000000000000[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31m           0000000000000000[0m
+2022-09-29 02:51:58,044 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:51:59,706 - Analysis - INFO - [1mGeneration number 19 	 Code coverage: 62.13% (1915/3082) 	 Branch coverage: 60.96% (89/146) 	 Transactions: 1403 (304 unique)   	 Time: 35.69810748100281[0m
+2022-09-29 02:52:02,489 - Analysis - INFO - [1mGeneration number 20 	 Code coverage: 62.13% (1915/3082) 	 Branch coverage: 60.96% (89/146) 	 Transactions: 1467 (316 unique)   	 Time: 38.480449199676514[0m
+2022-09-29 02:52:02,497 - Analysis - INFO - [1m-----------------------------------------------------[0m
+2022-09-29 02:52:02,497 - Analysis - INFO - Number of generations: 	 20
+2022-09-29 02:52:02,497 - Analysis - INFO - Number of transactions: 	 1467 (316 unique)
+2022-09-29 02:52:02,497 - Analysis - INFO - Transactions per second: 	 38
+2022-09-29 02:52:02,497 - Analysis - INFO - Total code coverage: 	 62.13% (1915/3082)
+2022-09-29 02:52:02,497 - Analysis - INFO - Total branch coverage: 	 60.96% (89/146)
+2022-09-29 02:52:02,497 - Analysis - INFO - Total execution time: 	 38.49 seconds
+2022-09-29 02:52:02,498 - Analysis - INFO - Total memory consumption: 	 74.89 MB

@@ -1,0 +1,145 @@
+2022-09-29 02:50:34,957 - Main     - INFO - [1mInitializing seed to 0.6439260590089436[0m
+2022-09-29 02:50:35,037 - Fuzzer   - INFO - [1mFuzzing contract [1mBitway[0m[0m
+2022-09-29 02:50:35,091 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:50:35,091 - Detector - INFO - [1m[33m           !!! Locking ether detected !!!            [0m
+2022-09-29 02:50:35,091 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:50:35,091 - Detector - INFO - [1m[33mSWC-ID:   132[0m
+2022-09-29 02:50:35,091 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-09-29 02:50:35,091 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:50:35,091 - Detector - INFO - [1m[33mSource code line:[0m
+2022-09-29 02:50:35,091 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:50:35,091 - Detector - INFO - [1m[33mbenchmarks/Confuzzius/locking_ether/Bitway.sol:49:1[0m
+2022-09-29 02:50:35,091 - Detector - INFO - [1m[33mcontract Bitway is ERC20 {
+
+    using SafeMath for uint256;
+
+
+    uint256 public totalSupply = 0;
+    uint256 public maxSupply = 22000000 * 10 ** uint256(decimals);
+
+    string public constant symbol = "BTW";
+    string public constant name = "Bitway";
+    uint256 public constant decimals = 18;
+
+
+
+    uint256 public constant RATE = 10000;
+    address public owner;
+
+
+    mapping(address => uint256) balances;
+    mapping(address => mapping(address => uint256)) allowed;
+
+
+
+    function () public payable {
+        createTokens();
+
+    }
+
+    function Bitway() public {
+        owner = msg.sender;
+
+    }
+
+
+    function createTokens() public payable {
+        require(msg.value > 0);
+        require(totalSupply < maxSupply);
+        uint256 tokens = msg.value.mul(RATE);
+        balances[msg.sender] = balances[msg.sender].add(tokens);
+        totalSupply = totalSupply.add(tokens);
+
+    }
+
+
+
+    function totalSupply() public constant returns (uint256){
+        return totalSupply;
+    }
+
+
+    function balanceOf(address _owner) public view returns (uint256 balance) {
+        return balances[_owner];
+    }
+
+    function transfer(address _to, uint256 _value) public returns (bool) {
+        require(_to != address(0));
+        require(_value <= balances[msg.sender]);
+
+        // SafeMath.sub will throw if there is not enough balance.
+        balances[msg.sender] = balances[msg.sender].sub(_value);
+        balances[_to] = balances[_to].add(_value);
+        Transfer(msg.sender, _to, _value);
+        return true;
+    }
+
+    function transferFrom(address _from, address _to, uint256 _value) public returns (bool) {
+        require(
+        allowed[_from][msg.sender] >= _value
+        && balances[_from] >= _value
+        && _value > 0
+        );
+
+        balances[_from] = balances[_from].sub(_value);
+        balances[_to] = balances[_to].add(_value);
+        allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_value);
+        Transfer(_from, _to, _value);
+        return true;
+    }
+
+    function approve(address _spender, uint256 _value) public returns (bool) {
+        allowed[msg.sender][_spender] = _value;
+        Approval(msg.sender, _spender, _value);
+        return true;
+    }
+
+    function allowance(address _owner, address _spender) public view returns (uint256) {
+        return allowed[_owner][_spender];
+    }
+
+    event Transfer(address indexed _from, address indexed _to, uint256 _value);
+
+    event Approval(address indexed _owner, address indexed _spender, uint256 _value);
+
+}[0m
+2022-09-29 02:50:35,091 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:50:35,091 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-09-29 02:50:35,091 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:50:35,091 - Detector - INFO - [1m[33mTransaction - createTokens():[0m
+2022-09-29 02:50:35,091 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:50:35,091 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-29 02:50:35,091 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-29 02:50:35,091 - Detector - INFO - [1m[33mValue:     1 Wei[0m
+2022-09-29 02:50:35,091 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-09-29 02:50:35,091 - Detector - INFO - [1m[33mInput:     0xb4427263[0m
+2022-09-29 02:50:35,091 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:50:35,166 - Analysis - INFO - [1mGeneration number 0 	 Code coverage: 70.39% (863/1226) 	 Branch coverage: 82.50% (66/80) 	 Transactions: 29 (28 unique)   	 Time: 0.1217494010925293[0m
+2022-09-29 02:50:35,345 - Analysis - INFO - [1mGeneration number 1 	 Code coverage: 70.39% (863/1226) 	 Branch coverage: 83.75% (67/80) 	 Transactions: 66 (46 unique)   	 Time: 0.30048513412475586[0m
+2022-09-29 02:50:35,802 - Analysis - INFO - [1mGeneration number 2 	 Code coverage: 83.44% (1023/1226) 	 Branch coverage: 88.75% (71/80) 	 Transactions: 112 (66 unique)   	 Time: 0.7574722766876221[0m
+2022-09-29 02:50:36,175 - Analysis - INFO - [1mGeneration number 3 	 Code coverage: 83.69% (1026/1226) 	 Branch coverage: 90.00% (72/80) 	 Transactions: 178 (90 unique)   	 Time: 1.1309356689453125[0m
+2022-09-29 02:50:36,801 - Analysis - INFO - [1mGeneration number 4 	 Code coverage: 83.69% (1026/1226) 	 Branch coverage: 90.00% (72/80) 	 Transactions: 272 (116 unique)   	 Time: 1.757270336151123[0m
+2022-09-29 02:50:37,747 - Analysis - INFO - [1mGeneration number 5 	 Code coverage: 83.69% (1026/1226) 	 Branch coverage: 90.00% (72/80) 	 Transactions: 385 (143 unique)   	 Time: 2.7029967308044434[0m
+2022-09-29 02:50:38,741 - Analysis - INFO - [1mGeneration number 6 	 Code coverage: 83.69% (1026/1226) 	 Branch coverage: 90.00% (72/80) 	 Transactions: 508 (169 unique)   	 Time: 3.696502447128296[0m
+2022-09-29 02:50:39,927 - Analysis - INFO - [1mGeneration number 7 	 Code coverage: 83.69% (1026/1226) 	 Branch coverage: 90.00% (72/80) 	 Transactions: 644 (196 unique)   	 Time: 4.8831117153167725[0m
+2022-09-29 02:50:41,065 - Analysis - INFO - [1mGeneration number 8 	 Code coverage: 83.69% (1026/1226) 	 Branch coverage: 90.00% (72/80) 	 Transactions: 771 (222 unique)   	 Time: 6.020882844924927[0m
+2022-09-29 02:50:42,143 - Analysis - INFO - [1mGeneration number 9 	 Code coverage: 83.69% (1026/1226) 	 Branch coverage: 90.00% (72/80) 	 Transactions: 894 (246 unique)   	 Time: 7.098683834075928[0m
+2022-09-29 02:50:43,269 - Analysis - INFO - [1mGeneration number 10 	 Code coverage: 83.69% (1026/1226) 	 Branch coverage: 90.00% (72/80) 	 Transactions: 1021 (271 unique)   	 Time: 8.224920988082886[0m
+2022-09-29 02:50:44,493 - Analysis - INFO - [1mGeneration number 11 	 Code coverage: 83.69% (1026/1226) 	 Branch coverage: 90.00% (72/80) 	 Transactions: 1147 (296 unique)   	 Time: 9.44851565361023[0m
+2022-09-29 02:50:45,560 - Analysis - INFO - [1mGeneration number 12 	 Code coverage: 83.69% (1026/1226) 	 Branch coverage: 90.00% (72/80) 	 Transactions: 1260 (318 unique)   	 Time: 10.515825748443604[0m
+2022-09-29 02:50:46,506 - Analysis - INFO - [1mGeneration number 13 	 Code coverage: 83.69% (1026/1226) 	 Branch coverage: 90.00% (72/80) 	 Transactions: 1363 (339 unique)   	 Time: 11.462059020996094[0m
+2022-09-29 02:50:47,567 - Analysis - INFO - [1mGeneration number 14 	 Code coverage: 83.69% (1026/1226) 	 Branch coverage: 90.00% (72/80) 	 Transactions: 1467 (359 unique)   	 Time: 12.5227689743042[0m
+2022-09-29 02:50:48,185 - Analysis - INFO - [1mGeneration number 15 	 Code coverage: 83.69% (1026/1226) 	 Branch coverage: 90.00% (72/80) 	 Transactions: 1526 (395 unique)   	 Time: 13.14053726196289[0m
+2022-09-29 02:50:49,068 - Analysis - INFO - [1mGeneration number 16 	 Code coverage: 83.69% (1026/1226) 	 Branch coverage: 90.00% (72/80) 	 Transactions: 1599 (420 unique)   	 Time: 14.024169921875[0m
+2022-09-29 02:50:50,219 - Analysis - INFO - [1mGeneration number 17 	 Code coverage: 83.69% (1026/1226) 	 Branch coverage: 90.00% (72/80) 	 Transactions: 1693 (445 unique)   	 Time: 15.175048589706421[0m
+2022-09-29 02:50:51,739 - Analysis - INFO - [1mGeneration number 18 	 Code coverage: 83.69% (1026/1226) 	 Branch coverage: 90.00% (72/80) 	 Transactions: 1804 (470 unique)   	 Time: 16.69452667236328[0m
+2022-09-29 02:50:53,356 - Analysis - INFO - [1mGeneration number 19 	 Code coverage: 83.69% (1026/1226) 	 Branch coverage: 90.00% (72/80) 	 Transactions: 1914 (492 unique)   	 Time: 18.311704635620117[0m
+2022-09-29 02:50:54,902 - Analysis - INFO - [1mGeneration number 20 	 Code coverage: 83.69% (1026/1226) 	 Branch coverage: 90.00% (72/80) 	 Transactions: 2018 (515 unique)   	 Time: 19.858289003372192[0m
+2022-09-29 02:50:55,178 - Analysis - INFO - [1m-----------------------------------------------------[0m
+2022-09-29 02:50:55,178 - Analysis - INFO - Number of generations: 	 20
+2022-09-29 02:50:55,178 - Analysis - INFO - Number of transactions: 	 2018 (515 unique)
+2022-09-29 02:50:55,178 - Analysis - INFO - Transactions per second: 	 100
+2022-09-29 02:50:55,178 - Analysis - INFO - Total code coverage: 	 83.69% (1026/1226)
+2022-09-29 02:50:55,178 - Analysis - INFO - Total branch coverage: 	 90.00% (72/80)
+2022-09-29 02:50:55,178 - Analysis - INFO - Total execution time: 	 20.13 seconds
+2022-09-29 02:50:55,179 - Analysis - INFO - Total memory consumption: 	 148.32 MB

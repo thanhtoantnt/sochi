@@ -1,0 +1,149 @@
+2022-09-29 02:52:04,277 - Main     - INFO - [1mInitializing seed to 0.40802508572197926[0m
+2022-09-29 02:52:04,338 - Fuzzer   - INFO - [1mFuzzing contract [1mIWCEToken[0m[0m
+2022-09-29 02:52:04,476 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:52:04,476 - Detector - INFO - [1m[33m           !!! Locking ether detected !!!            [0m
+2022-09-29 02:52:04,476 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:52:04,476 - Detector - INFO - [1m[33mSWC-ID:   132[0m
+2022-09-29 02:52:04,476 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-09-29 02:52:04,476 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:52:04,476 - Detector - INFO - [1m[33mSource code line:[0m
+2022-09-29 02:52:04,476 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:52:04,476 - Detector - INFO - [1m[33mbenchmarks/Confuzzius/locking_ether/IWCEToken.sol:31:1[0m
+2022-09-29 02:52:04,476 - Detector - INFO - [1m[33mcontract IWCEToken {
+
+    using SafeMath for uint256;
+    address owner = msg.sender;
+
+    mapping(address => uint256) balances;
+    mapping(address => mapping(address => uint256)) allowed;
+    mapping(address => bool) public airDroppedList;
+
+    string public constant name = "IWC ecosystem";
+    string public constant symbol = "IWCE";
+    uint public constant decimals = 18;
+
+    uint256 public totalSupply = 500000000 ether;
+
+    uint256 public totalAirDropNum = 5000004 ether;
+
+    uint256 public airDropNum = 18 ether;
+
+    event Transfer(address indexed _from, address indexed _to, uint256 _value);
+    event Approval(address indexed from, address indexed to, uint256 value);
+
+    event AirDrop(address indexed to, uint256 amount);
+
+    modifier onlyOwner() {
+        require(msg.sender == owner);
+        _;
+    }
+
+    function IWCEToken() public {
+        owner = msg.sender;
+        balances[owner] = totalSupply.sub(totalAirDropNum);
+    }
+
+    function transferOwnership(address newOwner) onlyOwner public {
+        if (newOwner != address(0)) {
+            owner = newOwner;
+        }
+    }
+
+    function airDrop(address _to, uint256 _amount) private returns (bool) {
+        totalAirDropNum = totalAirDropNum.sub(_amount);
+        balances[_to] = balances[_to].add(_amount);
+
+        emit AirDrop(_to, _amount);
+        emit Transfer(address(0), _to, _amount);
+
+        return true;
+    }
+
+    function() external payable {
+        getTokens();
+    }
+
+    function getTokens() internal {
+        if (totalAirDropNum > 0 && airDroppedList[msg.sender] != true) {
+            airDrop(msg.sender, airDropNum);
+            airDroppedList[msg.sender] = true;
+        }
+    }
+
+    function balanceOf(address _owner) constant public returns (uint256) {
+        return balances[_owner];
+    }
+
+    function transfer(address _to, uint256 _amount) public returns (bool success) {
+        require(_to != address(0));
+        require(_amount <= balances[msg.sender]);
+
+        balances[msg.sender] = balances[msg.sender].sub(_amount);
+        balances[_to] = balances[_to].add(_amount);
+        emit Transfer(msg.sender, _to, _amount);
+        return true;
+    }
+
+    function transferFrom(address _from, address _to, uint256 _amount) public returns (bool success) {
+        require(_to != address(0));
+        require(_amount <= balances[_from]);
+        require(_amount <= allowed[_from][msg.sender]);
+
+        balances[_from] = balances[_from].sub(_amount);
+        allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_amount);
+        balances[_to] = balances[_to].add(_amount);
+        emit Transfer(_from, _to, _amount);
+        return true;
+    }
+
+    function approve(address _spender, uint256 _value) public returns (bool success) {
+        if (_value != 0 && allowed[msg.sender][_spender] != 0) {return false;}
+        allowed[msg.sender][_spender] = _value;
+        emit Approval(msg.sender, _spender, _value);
+        return true;
+    }
+
+    function allowance(address _owner, address _spender) constant public returns (uint256) {
+        return allowed[_owner][_spender];
+    }
+}[0m
+2022-09-29 02:52:04,476 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:52:04,476 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-09-29 02:52:04,476 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:52:04,476 - Detector - INFO - [1m[33mTransaction:[0m
+2022-09-29 02:52:04,476 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:52:04,476 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-29 02:52:04,476 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-29 02:52:04,476 - Detector - INFO - [1m[33mValue:     1 Wei[0m
+2022-09-29 02:52:04,476 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-09-29 02:52:04,476 - Detector - INFO - [1m[33mInput:     0x00000000[0m
+2022-09-29 02:52:04,476 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:52:04,487 - Analysis - INFO - [1mGeneration number 0 	 Code coverage: 96.37% (1380/1432) 	 Branch coverage: 80.95% (68/84) 	 Transactions: 29 (28 unique)   	 Time: 0.1399848461151123[0m
+2022-09-29 02:52:04,645 - Analysis - INFO - [1mGeneration number 1 	 Code coverage: 96.58% (1383/1432) 	 Branch coverage: 83.33% (70/84) 	 Transactions: 59 (39 unique)   	 Time: 0.29792022705078125[0m
+2022-09-29 02:52:05,044 - Analysis - INFO - [1mGeneration number 2 	 Code coverage: 97.00% (1389/1432) 	 Branch coverage: 85.71% (72/84) 	 Transactions: 129 (58 unique)   	 Time: 0.6964027881622314[0m
+2022-09-29 02:52:05,575 - Analysis - INFO - [1mGeneration number 3 	 Code coverage: 97.00% (1389/1432) 	 Branch coverage: 86.90% (73/84) 	 Transactions: 221 (82 unique)   	 Time: 1.2276694774627686[0m
+2022-09-29 02:52:06,105 - Analysis - INFO - [1mGeneration number 4 	 Code coverage: 97.42% (1395/1432) 	 Branch coverage: 90.48% (76/84) 	 Transactions: 315 (107 unique)   	 Time: 1.7579243183135986[0m
+2022-09-29 02:52:06,668 - Analysis - INFO - [1mGeneration number 5 	 Code coverage: 97.42% (1395/1432) 	 Branch coverage: 90.48% (76/84) 	 Transactions: 412 (131 unique)   	 Time: 2.320645570755005[0m
+2022-09-29 02:52:07,259 - Analysis - INFO - [1mGeneration number 6 	 Code coverage: 97.42% (1395/1432) 	 Branch coverage: 90.48% (76/84) 	 Transactions: 509 (155 unique)   	 Time: 2.91200590133667[0m
+2022-09-29 02:52:07,930 - Analysis - INFO - [1mGeneration number 7 	 Code coverage: 97.42% (1395/1432) 	 Branch coverage: 90.48% (76/84) 	 Transactions: 624 (182 unique)   	 Time: 3.5829379558563232[0m
+2022-09-29 02:52:08,641 - Analysis - INFO - [1mGeneration number 8 	 Code coverage: 97.42% (1395/1432) 	 Branch coverage: 90.48% (76/84) 	 Transactions: 744 (209 unique)   	 Time: 4.293328046798706[0m
+2022-09-29 02:52:09,423 - Analysis - INFO - [1mGeneration number 9 	 Code coverage: 97.42% (1395/1432) 	 Branch coverage: 90.48% (76/84) 	 Transactions: 871 (236 unique)   	 Time: 5.07562518119812[0m
+2022-09-29 02:52:10,149 - Analysis - INFO - [1mGeneration number 10 	 Code coverage: 97.42% (1395/1432) 	 Branch coverage: 90.48% (76/84) 	 Transactions: 1000 (264 unique)   	 Time: 5.801342248916626[0m
+2022-09-29 02:52:10,915 - Analysis - INFO - [1mGeneration number 11 	 Code coverage: 97.42% (1395/1432) 	 Branch coverage: 90.48% (76/84) 	 Transactions: 1131 (292 unique)   	 Time: 6.568053722381592[0m
+2022-09-29 02:52:11,713 - Analysis - INFO - [1mGeneration number 12 	 Code coverage: 97.42% (1395/1432) 	 Branch coverage: 90.48% (76/84) 	 Transactions: 1263 (320 unique)   	 Time: 7.366052150726318[0m
+2022-09-29 02:52:12,528 - Analysis - INFO - [1mGeneration number 13 	 Code coverage: 97.42% (1395/1432) 	 Branch coverage: 90.48% (76/84) 	 Transactions: 1396 (348 unique)   	 Time: 8.180291175842285[0m
+2022-09-29 02:52:13,304 - Analysis - INFO - [1mGeneration number 14 	 Code coverage: 97.42% (1395/1432) 	 Branch coverage: 90.48% (76/84) 	 Transactions: 1527 (375 unique)   	 Time: 8.956843137741089[0m
+2022-09-29 02:52:14,064 - Analysis - INFO - [1mGeneration number 15 	 Code coverage: 97.42% (1395/1432) 	 Branch coverage: 90.48% (76/84) 	 Transactions: 1657 (402 unique)   	 Time: 9.717047452926636[0m
+2022-09-29 02:52:14,412 - Analysis - INFO - [1mGeneration number 16 	 Code coverage: 99.51% (1425/1432) 	 Branch coverage: 92.86% (78/84) 	 Transactions: 1717 (435 unique)   	 Time: 10.06444263458252[0m
+2022-09-29 02:52:14,831 - Analysis - INFO - [1mGeneration number 17 	 Code coverage: 99.79% (1429/1432) 	 Branch coverage: 94.05% (79/84) 	 Transactions: 1782 (453 unique)   	 Time: 10.484037399291992[0m
+2022-09-29 02:52:15,456 - Analysis - INFO - [1mGeneration number 18 	 Code coverage: 99.79% (1429/1432) 	 Branch coverage: 94.05% (79/84) 	 Transactions: 1875 (477 unique)   	 Time: 11.108362436294556[0m
+2022-09-29 02:52:16,123 - Analysis - INFO - [1mGeneration number 19 	 Code coverage: 99.79% (1429/1432) 	 Branch coverage: 94.05% (79/84) 	 Transactions: 1973 (501 unique)   	 Time: 11.775393962860107[0m
+2022-09-29 02:52:16,809 - Analysis - INFO - [1mGeneration number 20 	 Code coverage: 99.79% (1429/1432) 	 Branch coverage: 94.05% (79/84) 	 Transactions: 2078 (527 unique)   	 Time: 12.461352586746216[0m
+2022-09-29 02:52:16,816 - Analysis - INFO - [1m-----------------------------------------------------[0m
+2022-09-29 02:52:16,816 - Analysis - INFO - Number of generations: 	 20
+2022-09-29 02:52:16,817 - Analysis - INFO - Number of transactions: 	 2078 (527 unique)
+2022-09-29 02:52:16,817 - Analysis - INFO - Transactions per second: 	 167
+2022-09-29 02:52:16,817 - Analysis - INFO - Total code coverage: 	 99.79% (1429/1432)
+2022-09-29 02:52:16,817 - Analysis - INFO - Total branch coverage: 	 94.05% (79/84)
+2022-09-29 02:52:16,817 - Analysis - INFO - Total execution time: 	 12.47 seconds
+2022-09-29 02:52:16,817 - Analysis - INFO - Total memory consumption: 	 76.53 MB

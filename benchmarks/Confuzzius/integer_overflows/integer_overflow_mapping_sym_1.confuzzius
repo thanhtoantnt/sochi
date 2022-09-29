@@ -1,0 +1,134 @@
+2022-09-29 02:49:29,791 - Main     - INFO - [1mInitializing seed to 0.33421877306202197[0m
+2022-09-29 02:49:31,803 - Fuzzer   - INFO - [1mFuzzing contract [1mIntegerOverflowMappingSym1[0m[0m
+2022-09-29 02:49:31,811 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:49:31,811 - Detector - INFO - [1m[33m          !!! Assertion failure detected !!!         [0m
+2022-09-29 02:49:31,811 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:49:31,811 - Detector - INFO - [1m[33mSWC-ID:   110[0m
+2022-09-29 02:49:31,811 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-09-29 02:49:31,811 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:49:31,811 - Detector - INFO - [1m[33mSource code line:[0m
+2022-09-29 02:49:31,812 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:49:31,812 - Detector - INFO - [1m[33mbenchmarks/Confuzzius/integer_overflows/integer_overflow_mapping_sym_1.sol:11:1[0m
+2022-09-29 02:49:31,812 - Detector - INFO - [1m[33mcontract IntegerOverflowMappingSym1 {
+    mapping(uint256 => uint256) map;
+
+    function init(uint256 k, uint256 v) public {
+        // <yes> <report> ARITHMETIC
+        map[k] -= v;
+    }
+}[0m
+2022-09-29 02:49:31,812 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:49:31,812 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-09-29 02:49:31,812 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:49:31,812 - Detector - INFO - [1m[33mTransaction:[0m
+2022-09-29 02:49:31,812 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:49:31,812 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-29 02:49:31,812 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-29 02:49:31,812 - Detector - INFO - [1m[33mValue:     1 Wei[0m
+2022-09-29 02:49:31,812 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-09-29 02:49:31,812 - Detector - INFO - [1m[33mInput:     0x00000000[0m
+2022-09-29 02:49:31,812 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:49:31,818 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:49:31,818 - Detector - INFO - [1m[31m      !!! Arbitrary memory access detected !!!       [0m
+2022-09-29 02:49:31,818 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:49:31,818 - Detector - INFO - [1m[31mSWC-ID:   124[0m
+2022-09-29 02:49:31,818 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-09-29 02:49:31,818 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:49:31,818 - Detector - INFO - [1m[31mSource code line:[0m
+2022-09-29 02:49:31,818 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:49:31,818 - Detector - INFO - [1m[31mbenchmarks/Confuzzius/integer_overflows/integer_overflow_mapping_sym_1.sol:16:1[0m
+2022-09-29 02:49:31,818 - Detector - INFO - [1m[31mmap[k] -= v[0m
+2022-09-29 02:49:31,818 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:49:31,818 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-09-29 02:49:31,818 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:49:31,818 - Detector - INFO - [1m[31mTransaction - init(uint256,uint256):[0m
+2022-09-29 02:49:31,818 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:49:31,818 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-29 02:49:31,818 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-29 02:49:31,818 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-29 02:49:31,818 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-29 02:49:31,818 - Detector - INFO - [1m[31mInput:     0xa5843f08d680c48489316cd4c0b70d58bb5a225c[0m
+2022-09-29 02:49:31,818 - Detector - INFO - [1m[31m           e58f83228b18a0a5f54457b5527957b3ffffffffff[0m
+2022-09-29 02:49:31,818 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffffffffffffff[0m
+2022-09-29 02:49:31,818 - Detector - INFO - [1m[31m           fffffffffffe[0m
+2022-09-29 02:49:31,818 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:49:31,819 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:49:31,819 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-09-29 02:49:31,819 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:49:31,819 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-09-29 02:49:31,819 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-09-29 02:49:31,819 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:49:31,819 - Detector - INFO - [1m[31mSource code line:[0m
+2022-09-29 02:49:31,819 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:49:31,819 - Detector - INFO - [1m[31mbenchmarks/Confuzzius/integer_overflows/integer_overflow_mapping_sym_1.sol:16:1[0m
+2022-09-29 02:49:31,819 - Detector - INFO - [1m[31mmap[k] -= v[0m
+2022-09-29 02:49:31,819 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:49:31,819 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-09-29 02:49:31,819 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:49:31,819 - Detector - INFO - [1m[31mTransaction - init(uint256,uint256):[0m
+2022-09-29 02:49:31,819 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:49:31,819 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-09-29 02:49:31,819 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-29 02:49:31,819 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-09-29 02:49:31,819 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-09-29 02:49:31,819 - Detector - INFO - [1m[31mInput:     0xa5843f08d680c48489316cd4c0b70d58bb5a225c[0m
+2022-09-29 02:49:31,819 - Detector - INFO - [1m[31m           e58f83228b18a0a5f54457b5527957b3ffffffffff[0m
+2022-09-29 02:49:31,819 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffffffffffffff[0m
+2022-09-29 02:49:31,820 - Detector - INFO - [1m[31m           fffffffffffe[0m
+2022-09-29 02:49:31,820 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-09-29 02:49:31,823 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:49:31,823 - Detector - INFO - [1m[33m          !!! Assertion failure detected !!!         [0m
+2022-09-29 02:49:31,823 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:49:31,823 - Detector - INFO - [1m[33mSWC-ID:   110[0m
+2022-09-29 02:49:31,823 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-09-29 02:49:31,823 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:49:31,823 - Detector - INFO - [1m[33mSource code line:[0m
+2022-09-29 02:49:31,823 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:49:31,823 - Detector - INFO - [1m[33mbenchmarks/Confuzzius/integer_overflows/integer_overflow_mapping_sym_1.sol:14:1[0m
+2022-09-29 02:49:31,823 - Detector - INFO - [1m[33mfunction init(uint256 k, uint256 v) public {
+        // <yes> <report> ARITHMETIC
+        map[k] -= v;
+    }[0m
+2022-09-29 02:49:31,823 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:49:31,823 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-09-29 02:49:31,823 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:49:31,823 - Detector - INFO - [1m[33mTransaction - init(uint256,uint256):[0m
+2022-09-29 02:49:31,823 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:49:31,823 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-09-29 02:49:31,823 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-09-29 02:49:31,823 - Detector - INFO - [1m[33mValue:     1 Wei[0m
+2022-09-29 02:49:31,823 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-09-29 02:49:31,823 - Detector - INFO - [1m[33mInput:     0xa5843f0800000000000000000000000000000000[0m
+2022-09-29 02:49:31,823 - Detector - INFO - [1m[33m           00000000000000000000000000000000ffffffffff[0m
+2022-09-29 02:49:31,823 - Detector - INFO - [1m[33m           ffffffffffffffffffffffffffffffffffffffffff[0m
+2022-09-29 02:49:31,823 - Detector - INFO - [1m[33m           fffffffffffd[0m
+2022-09-29 02:49:31,823 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-09-29 02:49:31,824 - Analysis - INFO - [1mGeneration number 0 	 Code coverage: 98.21% (55/56) 	 Branch coverage: 100.00% (4/4) 	 Transactions: 5 (4 unique)   	 Time: 0.014868497848510742[0m
+2022-09-29 02:49:31,830 - Analysis - INFO - [1mGeneration number 1 	 Code coverage: 98.21% (55/56) 	 Branch coverage: 100.00% (4/4) 	 Transactions: 9 (7 unique)   	 Time: 0.02048969268798828[0m
+2022-09-29 02:49:31,836 - Analysis - INFO - [1mGeneration number 2 	 Code coverage: 98.21% (55/56) 	 Branch coverage: 100.00% (4/4) 	 Transactions: 13 (10 unique)   	 Time: 0.027220487594604492[0m
+2022-09-29 02:49:31,841 - Analysis - INFO - [1mGeneration number 3 	 Code coverage: 98.21% (55/56) 	 Branch coverage: 100.00% (4/4) 	 Transactions: 16 (11 unique)   	 Time: 0.03177189826965332[0m
+2022-09-29 02:49:31,845 - Analysis - INFO - [1mGeneration number 4 	 Code coverage: 98.21% (55/56) 	 Branch coverage: 100.00% (4/4) 	 Transactions: 18 (12 unique)   	 Time: 0.035497188568115234[0m
+2022-09-29 02:49:31,849 - Analysis - INFO - [1mGeneration number 5 	 Code coverage: 98.21% (55/56) 	 Branch coverage: 100.00% (4/4) 	 Transactions: 21 (13 unique)   	 Time: 0.03997468948364258[0m
+2022-09-29 02:49:31,857 - Analysis - INFO - [1mGeneration number 6 	 Code coverage: 98.21% (55/56) 	 Branch coverage: 100.00% (4/4) 	 Transactions: 25 (15 unique)   	 Time: 0.0476222038269043[0m
+2022-09-29 02:49:31,865 - Analysis - INFO - [1mGeneration number 7 	 Code coverage: 98.21% (55/56) 	 Branch coverage: 100.00% (4/4) 	 Transactions: 29 (18 unique)   	 Time: 0.05605745315551758[0m
+2022-09-29 02:49:31,874 - Analysis - INFO - [1mGeneration number 8 	 Code coverage: 98.21% (55/56) 	 Branch coverage: 100.00% (4/4) 	 Transactions: 33 (21 unique)   	 Time: 0.06465315818786621[0m
+2022-09-29 02:49:31,882 - Analysis - INFO - [1mGeneration number 9 	 Code coverage: 98.21% (55/56) 	 Branch coverage: 100.00% (4/4) 	 Transactions: 37 (23 unique)   	 Time: 0.07295346260070801[0m
+2022-09-29 02:49:31,896 - Analysis - INFO - [1mGeneration number 10 	 Code coverage: 98.21% (55/56) 	 Branch coverage: 100.00% (4/4) 	 Transactions: 43 (25 unique)   	 Time: 0.08712959289550781[0m
+2022-09-29 02:49:31,927 - Analysis - INFO - [1mGeneration number 11 	 Code coverage: 98.21% (55/56) 	 Branch coverage: 100.00% (4/4) 	 Transactions: 54 (28 unique)   	 Time: 0.11809873580932617[0m
+2022-09-29 02:49:31,944 - Analysis - INFO - [1mGeneration number 12 	 Code coverage: 98.21% (55/56) 	 Branch coverage: 100.00% (4/4) 	 Transactions: 62 (32 unique)   	 Time: 0.13466238975524902[0m
+2022-09-29 02:49:31,949 - Analysis - INFO - [1mGeneration number 13 	 Code coverage: 98.21% (55/56) 	 Branch coverage: 100.00% (4/4) 	 Transactions: 65 (33 unique)   	 Time: 0.14009475708007812[0m
+2022-09-29 02:49:31,956 - Analysis - INFO - [1mGeneration number 14 	 Code coverage: 98.21% (55/56) 	 Branch coverage: 100.00% (4/4) 	 Transactions: 69 (34 unique)   	 Time: 0.14662814140319824[0m
+2022-09-29 02:49:31,961 - Analysis - INFO - [1mGeneration number 15 	 Code coverage: 98.21% (55/56) 	 Branch coverage: 100.00% (4/4) 	 Transactions: 72 (34 unique)   	 Time: 0.15207147598266602[0m
+2022-09-29 02:49:31,970 - Analysis - INFO - [1mGeneration number 16 	 Code coverage: 98.21% (55/56) 	 Branch coverage: 100.00% (4/4) 	 Transactions: 76 (35 unique)   	 Time: 0.16055655479431152[0m
+2022-09-29 02:49:31,975 - Analysis - INFO - [1mGeneration number 17 	 Code coverage: 98.21% (55/56) 	 Branch coverage: 100.00% (4/4) 	 Transactions: 79 (36 unique)   	 Time: 0.16603541374206543[0m
+2022-09-29 02:49:31,983 - Analysis - INFO - [1mGeneration number 18 	 Code coverage: 98.21% (55/56) 	 Branch coverage: 100.00% (4/4) 	 Transactions: 82 (36 unique)   	 Time: 0.17375922203063965[0m
+2022-09-29 02:49:31,991 - Analysis - INFO - [1mGeneration number 19 	 Code coverage: 98.21% (55/56) 	 Branch coverage: 100.00% (4/4) 	 Transactions: 86 (38 unique)   	 Time: 0.1819920539855957[0m
+2022-09-29 02:49:32,007 - Analysis - INFO - [1mGeneration number 20 	 Code coverage: 98.21% (55/56) 	 Branch coverage: 100.00% (4/4) 	 Transactions: 92 (41 unique)   	 Time: 0.19823980331420898[0m
+2022-09-29 02:49:32,007 - Analysis - INFO - [1m-----------------------------------------------------[0m
+2022-09-29 02:49:32,008 - Analysis - INFO - Number of generations: 	 20
+2022-09-29 02:49:32,008 - Analysis - INFO - Number of transactions: 	 92 (41 unique)
+2022-09-29 02:49:32,008 - Analysis - INFO - Transactions per second: 	 464
+2022-09-29 02:49:32,008 - Analysis - INFO - Total code coverage: 	 98.21% (55/56)
+2022-09-29 02:49:32,008 - Analysis - INFO - Total branch coverage: 	 100.00% (4/4)
+2022-09-29 02:49:32,008 - Analysis - INFO - Total execution time: 	 0.20 seconds
+2022-09-29 02:49:32,008 - Analysis - INFO - Total memory consumption: 	 62.65 MB
