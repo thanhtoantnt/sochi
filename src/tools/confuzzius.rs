@@ -135,8 +135,10 @@ pub fn interpret_results(dir: &str) -> Summary {
 
     let mut reentrancy = 0;
     let mut timestamp = 0;
-    let mut tx_origin = 0;
+    let mut tod = 0;
     let mut unhanled_exceptions = 0;
+    let mut unchecked_send = 0;
+    let mut integer_bugs = 0;
 
     for path in paths {
         let file = path.path();
@@ -148,7 +150,9 @@ pub fn interpret_results(dir: &str) -> Summary {
             reentrancy += result.re_entrancy;
             timestamp += result.timestamp;
             unhanled_exceptions += result.unhandled_exceptions;
-            tx_origin += result.tx_origin;
+            tod += result.trans_ordering_dep;
+            integer_bugs += result.integer_flow;
+            unchecked_send += result.unchecked_send;
             debug!("bugs: {}", result);
         }
     }
@@ -156,10 +160,10 @@ pub fn interpret_results(dir: &str) -> Summary {
     Summary::new(
         reentrancy,
         timestamp,
-        0,
+        unchecked_send,
         unhanled_exceptions,
+        tod,
+        integer_bugs,
         0,
-        0,
-        tx_origin,
     )
 }
