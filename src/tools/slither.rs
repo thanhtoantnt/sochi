@@ -10,6 +10,18 @@ use std::{ffi::OsStr, fs, fs::File, path::Path, process::Command};
 
 /// Run slither for each file
 fn run_slither(input_file_path: PathBuf) -> Result<PathBuf, String> {
+    let file_stem_name = input_file_path
+        .file_stem()
+        .and_then(OsStr::to_str)
+        .unwrap_or("");
+
+    let parent_dir = input_file_path.parent().unwrap_or_else(|| Path::new(""));
+    let output_file_path = parent_dir.join(file_stem_name.to_owned() + "." + super::SLITHER);
+
+    if output_file_path.exists() {
+        return Ok(output_file_path);
+    }
+
     let check_results = solc::check_solc_settings(&input_file_path);
 
     if let Err(msg) = check_results {
@@ -34,14 +46,6 @@ fn run_slither(input_file_path: PathBuf) -> Result<PathBuf, String> {
         report::print_message("Slither error message:", error_msg.as_str());
         panic!("Failed to run: {}", input_file_path.display());
     }
-
-    let file_stem_name = input_file_path
-        .file_stem()
-        .and_then(OsStr::to_str)
-        .unwrap_or("");
-
-    let parent_dir = input_file_path.parent().unwrap_or_else(|| Path::new(""));
-    let output_file_path = parent_dir.join(file_stem_name.to_owned() + "." + super::SLITHER);
 
     let mut output_file = File::create(&output_file_path).unwrap();
     output_file.write_all(&slither_output.stderr).unwrap();
@@ -125,7 +129,7 @@ pub fn generate_results(dir: &str) {
         let file = path.path();
         let extension = file.extension().and_then(OsStr::to_str);
 
-        if extension.unwrap() == super::SOL {
+        if let Some(super::SOL) = extension {
             println!("Input file: {}", file.display());
             let output = run_slither(file);
             match output {

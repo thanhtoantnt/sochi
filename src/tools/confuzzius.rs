@@ -111,7 +111,7 @@ pub fn generate_results(dir: &str) {
         let file = path.path();
         let extension = file.extension().and_then(OsStr::to_str);
 
-        if extension.unwrap() == "sol" {
+        if let Some(super::SOL) = extension {
             println!("Input file: {}", file.display());
             let output = run_confuzzius(file);
             match output {
