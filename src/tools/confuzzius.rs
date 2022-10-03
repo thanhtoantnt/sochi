@@ -7,6 +7,7 @@ use rutil::report;
 use std::io::prelude::*;
 use std::path::PathBuf;
 use std::{ffi::OsStr, fs, fs::File, path::Path, process::Command};
+use walkdir::WalkDir;
 
 /// Run confuzzius for each file
 fn run_confuzzius(input_file_path: PathBuf) -> Result<PathBuf, String> {
@@ -104,8 +105,8 @@ fn interpret_confuzzius_results(file: &Path) -> Summary {
 pub fn generate_results(dir: &str) {
     // List all files in the repository
     let path = Path::new(&dir);
-    let mut paths: Vec<_> = fs::read_dir(path).unwrap().map(|r| r.unwrap()).collect();
-    paths.sort_by_key(|dir| dir.path());
+    let paths = WalkDir::new(path).into_iter().filter_map(|e| e.ok());
+    // paths.sort_by_key(|dir| dir.path());
 
     for path in paths {
         let file = path.path();
@@ -113,7 +114,7 @@ pub fn generate_results(dir: &str) {
 
         if let Some(super::SOL) = extension {
             println!("Input file: {}", file.display());
-            let output = run_confuzzius(file);
+            let output = run_confuzzius(file.to_path_buf());
             match output {
                 Ok(result) => {
                     println!("The output is written to: {}", result.display());
@@ -130,8 +131,9 @@ pub fn generate_results(dir: &str) {
 pub fn interpret_results(dir: &str) -> Summary {
     // List all files in the repository
     let path = Path::new(&dir);
-    let mut paths: Vec<_> = fs::read_dir(path).unwrap().map(|r| r.unwrap()).collect();
-    paths.sort_by_key(|dir| dir.path());
+    let paths = WalkDir::new(path).into_iter().filter_map(|e| e.ok());
+    // let mut paths: Vec<_> = fs::read_dir(path).unwrap().map(|r| r.unwrap()).collect();
+    // paths.sort_by_key(|dir| dir.path());
 
     let mut reentrancy = 0;
     let mut timestamp = 0;
@@ -146,7 +148,7 @@ pub fn interpret_results(dir: &str) -> Summary {
 
         if extension.unwrap() == super::CONFUZZIUS {
             println!("Input file: {}", file.display());
-            let result = interpret_confuzzius_results(&file);
+            let result = interpret_confuzzius_results(file);
             reentrancy += result.re_entrancy;
             timestamp += result.timestamp;
             unhanled_exceptions += result.unhandled_exceptions;
