@@ -3,7 +3,6 @@
 use super::solc;
 use super::Summary;
 use regex::Regex;
-use rutil::report;
 use std::io::prelude::*;
 use std::path::PathBuf;
 use std::{ffi::OsStr, fs, fs::File, path::Path, process::Command};
@@ -43,8 +42,7 @@ fn run_slither(input_file_path: PathBuf) -> Result<PathBuf, String> {
     if !slither_output.status.success() {
         let error_msg =
             String::from_utf8(slither_output.stderr.to_vec()).expect("Slither: unknown error!");
-        report::print_message("Slither error message:", error_msg.as_str());
-        panic!("Failed to run: {}", input_file_path.display());
+        return Err(error_msg);
     }
 
     let mut output_file = File::create(&output_file_path).unwrap();

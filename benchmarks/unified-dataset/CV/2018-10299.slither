@@ -1,0 +1,44 @@
+
+SafeMath.div(uint256,uint256) (CV/2018-10299.sol#14-19) is never used and should be removed
+SafeMath.mul(uint256,uint256) (CV/2018-10299.sol#8-12) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.4.16 (CV/2018-10299.sol#1) allows old versions
+solc-0.4.16 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Parameter BasicToken.transfer(address,uint256)._to (CV/2018-10299.sol#59) is not in mixedCase
+Parameter BasicToken.transfer(address,uint256)._value (CV/2018-10299.sol#59) is not in mixedCase
+Parameter BasicToken.balanceOf(address)._owner (CV/2018-10299.sol#75) is not in mixedCase
+Parameter StandardToken.transferFrom(address,address,uint256)._from (CV/2018-10299.sol#110) is not in mixedCase
+Parameter StandardToken.transferFrom(address,address,uint256)._to (CV/2018-10299.sol#110) is not in mixedCase
+Parameter StandardToken.transferFrom(address,address,uint256)._value (CV/2018-10299.sol#110) is not in mixedCase
+Parameter StandardToken.approve(address,uint256)._spender (CV/2018-10299.sol#132) is not in mixedCase
+Parameter StandardToken.approve(address,uint256)._value (CV/2018-10299.sol#132) is not in mixedCase
+Parameter StandardToken.allowance(address,address)._owner (CV/2018-10299.sol#144) is not in mixedCase
+Parameter StandardToken.allowance(address,address)._spender (CV/2018-10299.sol#144) is not in mixedCase
+Parameter PausableToken.transfer(address,uint256)._to (CV/2018-10299.sol#243) is not in mixedCase
+Parameter PausableToken.transfer(address,uint256)._value (CV/2018-10299.sol#243) is not in mixedCase
+Parameter PausableToken.transferFrom(address,address,uint256)._from (CV/2018-10299.sol#247) is not in mixedCase
+Parameter PausableToken.transferFrom(address,address,uint256)._to (CV/2018-10299.sol#247) is not in mixedCase
+Parameter PausableToken.transferFrom(address,address,uint256)._value (CV/2018-10299.sol#247) is not in mixedCase
+Parameter PausableToken.approve(address,uint256)._spender (CV/2018-10299.sol#251) is not in mixedCase
+Parameter PausableToken.approve(address,uint256)._value (CV/2018-10299.sol#251) is not in mixedCase
+Parameter PausableToken.batchTransfer(address[],uint256)._receivers (CV/2018-10299.sol#255) is not in mixedCase
+Parameter PausableToken.batchTransfer(address[],uint256)._value (CV/2018-10299.sol#255) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+BecToken.BecToken() (CV/2018-10299.sol#290-293) uses literals with too many digits:
+	- totalSupply = 7000000000 * (10 ** (uint256(decimals))) (CV/2018-10299.sol#291)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+BecToken.decimals (CV/2018-10299.sol#285) should be constant
+BecToken.name (CV/2018-10299.sol#282) should be constant
+BecToken.symbol (CV/2018-10299.sol#283) should be constant
+BecToken.version (CV/2018-10299.sol#284) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+batchTransfer(address[],uint256) should be declared external:
+	- PausableToken.batchTransfer(address[],uint256) (CV/2018-10299.sol#255-267)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+CV/2018-10299.sol analyzed (9 contracts with 80 detectors), 29 result(s) found

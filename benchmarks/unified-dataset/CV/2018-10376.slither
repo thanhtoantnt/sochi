@@ -1,0 +1,74 @@
+
+SMT.allocateTokens(address[],uint256[]) (CV/2018-10376.sol#281-293) uses timestamp for comparisons
+	Dangerous comparisons:
+	- allocateEndTime < now (CV/2018-10376.sol#283)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+SMT.allocateTokens(address[],uint256[]) (CV/2018-10376.sol#281-293) has costly operations inside a loop:
+	- totalSupply += value (CV/2018-10376.sol#290)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#costly-operations-inside-a-loop
+
+Pragma version^0.4.15 (CV/2018-10376.sol#3) allows old versions
+solc-0.4.15 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in SMT.approveAndCall(address,uint256,bytes) (CV/2018-10376.sol#257-266):
+	- ! _spender.call(bytes4(bytes32(keccak256()(receiveApproval(address,uint256,address,bytes)))),msg.sender,_value,this,_extraData) (CV/2018-10376.sol#264)
+Low level call in SMT.approveAndCallcode(address,uint256,bytes) (CV/2018-10376.sol#269-276):
+	- ! _spender.call(_extraData) (CV/2018-10376.sol#274)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Parameter Owned.changeOwner(address)._newOwner (CV/2018-10376.sol#63) is not in mixedCase
+Parameter Controlled.enableTransfer(bool)._enable (CV/2018-10376.sol#91) is not in mixedCase
+Parameter Controlled.disableLock(bool)._enable (CV/2018-10376.sol#95) is not in mixedCase
+Parameter Controlled.addLock(address)._addr (CV/2018-10376.sol#100) is not in mixedCase
+Parameter Controlled.setExclude(address)._addr (CV/2018-10376.sol#106) is not in mixedCase
+Parameter Controlled.removeLock(address)._addr (CV/2018-10376.sol#111) is not in mixedCase
+Parameter StandardToken.transfer(address,uint256)._to (CV/2018-10376.sol#131) is not in mixedCase
+Parameter StandardToken.transfer(address,uint256)._value (CV/2018-10376.sol#131) is not in mixedCase
+Parameter StandardToken.transferFrom(address,address,uint256)._from (CV/2018-10376.sol#143) is not in mixedCase
+Parameter StandardToken.transferFrom(address,address,uint256)._to (CV/2018-10376.sol#143) is not in mixedCase
+Parameter StandardToken.transferFrom(address,address,uint256)._value (CV/2018-10376.sol#143) is not in mixedCase
+Parameter StandardToken.balanceOf(address)._owner (CV/2018-10376.sol#154) is not in mixedCase
+Parameter StandardToken.approve(address,uint256)._spender (CV/2018-10376.sol#158) is not in mixedCase
+Parameter StandardToken.approve(address,uint256)._value (CV/2018-10376.sol#158) is not in mixedCase
+Parameter StandardToken.allowance(address,address)._owner (CV/2018-10376.sol#164) is not in mixedCase
+Parameter StandardToken.allowance(address,address)._spender (CV/2018-10376.sol#164) is not in mixedCase
+Parameter SMT.transferProxy(address,address,uint256,uint256,uint8,bytes32,bytes32)._from (CV/2018-10376.sol#203) is not in mixedCase
+Parameter SMT.transferProxy(address,address,uint256,uint256,uint8,bytes32,bytes32)._to (CV/2018-10376.sol#203) is not in mixedCase
+Parameter SMT.transferProxy(address,address,uint256,uint256,uint8,bytes32,bytes32)._value (CV/2018-10376.sol#203) is not in mixedCase
+Parameter SMT.transferProxy(address,address,uint256,uint256,uint8,bytes32,bytes32)._feeSmt (CV/2018-10376.sol#203) is not in mixedCase
+Parameter SMT.transferProxy(address,address,uint256,uint256,uint8,bytes32,bytes32)._v (CV/2018-10376.sol#204) is not in mixedCase
+Parameter SMT.transferProxy(address,address,uint256,uint256,uint8,bytes32,bytes32)._r (CV/2018-10376.sol#204) is not in mixedCase
+Parameter SMT.transferProxy(address,address,uint256,uint256,uint8,bytes32,bytes32)._s (CV/2018-10376.sol#204) is not in mixedCase
+Parameter SMT.approveProxy(address,address,uint256,uint8,bytes32,bytes32)._from (CV/2018-10376.sol#235) is not in mixedCase
+Parameter SMT.approveProxy(address,address,uint256,uint8,bytes32,bytes32)._spender (CV/2018-10376.sol#235) is not in mixedCase
+Parameter SMT.approveProxy(address,address,uint256,uint8,bytes32,bytes32)._value (CV/2018-10376.sol#235) is not in mixedCase
+Parameter SMT.approveProxy(address,address,uint256,uint8,bytes32,bytes32)._v (CV/2018-10376.sol#236) is not in mixedCase
+Parameter SMT.approveProxy(address,address,uint256,uint8,bytes32,bytes32)._r (CV/2018-10376.sol#236) is not in mixedCase
+Parameter SMT.approveProxy(address,address,uint256,uint8,bytes32,bytes32)._s (CV/2018-10376.sol#236) is not in mixedCase
+Parameter SMT.getNonce(address)._addr (CV/2018-10376.sol#252) is not in mixedCase
+Parameter SMT.approveAndCall(address,uint256,bytes)._spender (CV/2018-10376.sol#257) is not in mixedCase
+Parameter SMT.approveAndCall(address,uint256,bytes)._value (CV/2018-10376.sol#257) is not in mixedCase
+Parameter SMT.approveAndCall(address,uint256,bytes)._extraData (CV/2018-10376.sol#257) is not in mixedCase
+Parameter SMT.approveAndCallcode(address,uint256,bytes)._spender (CV/2018-10376.sol#269) is not in mixedCase
+Parameter SMT.approveAndCallcode(address,uint256,bytes)._value (CV/2018-10376.sol#269) is not in mixedCase
+Parameter SMT.approveAndCallcode(address,uint256,bytes)._extraData (CV/2018-10376.sol#269) is not in mixedCase
+Parameter SMT.allocateTokens(address[],uint256[])._owners (CV/2018-10376.sol#281) is not in mixedCase
+Parameter SMT.allocateTokens(address[],uint256[])._values (CV/2018-10376.sol#281) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+SMT.decimals (CV/2018-10376.sol#179) should be constant
+SMT.name (CV/2018-10376.sol#178) should be constant
+SMT.symbol (CV/2018-10376.sol#180) should be constant
+SMT.version (CV/2018-10376.sol#181) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+approveAndCall(address,uint256,bytes) should be declared external:
+	- SMT.approveAndCall(address,uint256,bytes) (CV/2018-10376.sol#257-266)
+approveAndCallcode(address,uint256,bytes) should be declared external:
+	- SMT.approveAndCallcode(address,uint256,bytes) (CV/2018-10376.sol#269-276)
+allocateTokens(address[],uint256[]) should be declared external:
+	- SMT.allocateTokens(address[],uint256[]) (CV/2018-10376.sol#281-293)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+CV/2018-10376.sol analyzed (5 contracts with 80 detectors), 51 result(s) found

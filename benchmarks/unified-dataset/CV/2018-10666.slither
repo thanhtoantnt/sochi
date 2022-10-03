@@ -1,0 +1,154 @@
+Compilation warnings/errors on CV/2018-10666.sol:
+CV/2018-10666.sol:16:3: Warning: No visibility specified. Defaulting to "public".
+  function safeMul(uint256 a, uint256 b) returns (uint256) {
+  ^
+Spanning multiple lines.
+CV/2018-10666.sol:21:3: Warning: No visibility specified. Defaulting to "public".
+  function safeSub(uint256 a, uint256 b) returns (uint256) {
+  ^
+Spanning multiple lines.
+CV/2018-10666.sol:25:3: Warning: No visibility specified. Defaulting to "public".
+  function safeAdd(uint256 a, uint256 b) returns (uint256) {
+  ^
+Spanning multiple lines.
+CV/2018-10666.sol:34:3: Warning: No visibility specified. Defaulting to "public".
+  function Owned() {
+  ^
+Spanning multiple lines.
+CV/2018-10666.sol:37:3: Warning: No visibility specified. Defaulting to "public".
+  function setOwner(address _owner) returns (bool success) {
+  ^
+Spanning multiple lines.
+CV/2018-10666.sol:66:5: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+    throw;
+    ^---^
+CV/2018-10666.sol:84:3: Warning: No visibility specified. Defaulting to "public".
+  function IDXM() {
+  ^
+Spanning multiple lines.
+CV/2018-10666.sol:93:3: Warning: No visibility specified. Defaulting to "public".
+  function uploadBalances(address[] addresses, uint256[] balances) onlyOwner {
+  ^
+Spanning multiple lines.
+CV/2018-10666.sol:104:3: Warning: No visibility specified. Defaulting to "public".
+  function lockBalances() onlyOwner {
+  ^
+Spanning multiple lines.
+CV/2018-10666.sol:114:3: Warning: No visibility specified. Defaulting to "public".
+  function transfer(address _to, uint256 _amount) returns (bool success) {
+  ^
+Spanning multiple lines.
+CV/2018-10666.sol:139:3: Warning: No visibility specified. Defaulting to "public".
+  function transferFrom(address _from, address _to, uint256 _amount) returns (bool success) {
+  ^
+Spanning multiple lines.
+CV/2018-10666.sol:166:3: Warning: No visibility specified. Defaulting to "public".
+  function approveAndCall(address _spender, uint256 _amount, bytes _extraData) returns (bool success) {
+  ^
+Spanning multiple lines.
+CV/2018-10666.sol:181:3: Warning: No visibility specified. Defaulting to "public".
+  function approve(address _spender, uint256 _amount) returns (bool success) {
+  ^
+Spanning multiple lines.
+CV/2018-10666.sol:188:3: Warning: No visibility specified. Defaulting to "public".
+  function setExportFee(address addr, uint256 fee) onlyOwner {
+  ^
+Spanning multiple lines.
+CV/2018-10666.sol:193:3: Warning: No visibility specified. Defaulting to "public".
+  function setHoldingPeriod(uint256 ts) onlyOwner {
+  ^
+Spanning multiple lines.
+CV/2018-10666.sol:232:3: Warning: No visibility specified. Defaulting to "public".
+  function unlockToken() onlyOwner {
+  ^
+Spanning multiple lines.
+CV/2018-10666.sol:236:45: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+  function precalculate() internal returns (bool success) {
+                                            ^----------^
+CV/2018-10666.sol:16:3: Warning: Function state mutability can be restricted to pure
+  function safeMul(uint256 a, uint256 b) returns (uint256) {
+  ^
+Spanning multiple lines.
+CV/2018-10666.sol:21:3: Warning: Function state mutability can be restricted to pure
+  function safeSub(uint256 a, uint256 b) returns (uint256) {
+  ^
+Spanning multiple lines.
+CV/2018-10666.sol:25:3: Warning: Function state mutability can be restricted to pure
+  function safeAdd(uint256 a, uint256 b) returns (uint256) {
+  ^
+Spanning multiple lines.
+CV/2018-10666.sol:241:3: Warning: Function state mutability can be restricted to pure
+  function div10(uint256 a, uint8 b) internal returns (uint256 result) {
+  ^
+Spanning multiple lines.
+CV/2018-10666.sol:247:3: Warning: Function state mutability can be restricted to pure
+  function pow10(uint256 a, uint8 b) internal returns (uint256 result) {
+  ^
+Spanning multiple lines.
+
+
+IDXM.setHoldingPeriod(uint256) (CV/2018-10666.sol#193-195) should emit an event for: 
+	- mustHoldFor = ts (CV/2018-10666.sol#194) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+
+Owned.setOwner(address)._owner (CV/2018-10666.sol#37) lacks a zero-check on :
+		- owner = _owner (CV/2018-10666.sol#38)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+IDXM.transfer(address,uint256) (CV/2018-10666.sol#114-129) uses timestamp for comparisons
+	Dangerous comparisons:
+	- now >= validAfter[_to].ts + mustHoldFor (CV/2018-10666.sol#123)
+IDXM.transferFrom(address,address,uint256) (CV/2018-10666.sol#139-156) uses timestamp for comparisons
+	Dangerous comparisons:
+	- now >= validAfter[_to].ts + mustHoldFor (CV/2018-10666.sol#150)
+IDXM.feeFor(address,address,uint256) (CV/2018-10666.sol#218-228) uses timestamp for comparisons
+	Dangerous comparisons:
+	- validAfter[to].ts + mustHoldFor < now (CV/2018-10666.sol#223)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+IDXM.div10(uint256,uint8) (CV/2018-10666.sol#241-246) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Deprecated standard detected THROW (CV/2018-10666.sol#66):
+	- Usage of "throw" should be replaced with "revert()"
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#deprecated-standards
+
+Pragma version^0.4.19 (CV/2018-10666.sol#5) allows old versions
+solc-0.4.19 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Contract tokenRecipient (CV/2018-10666.sol#13) is not in CapWords
+Parameter Owned.setOwner(address)._owner (CV/2018-10666.sol#37) is not in mixedCase
+Parameter IDXM.transfer(address,uint256)._to (CV/2018-10666.sol#114) is not in mixedCase
+Parameter IDXM.transfer(address,uint256)._amount (CV/2018-10666.sol#114) is not in mixedCase
+Parameter IDXM.transferFrom(address,address,uint256)._from (CV/2018-10666.sol#139) is not in mixedCase
+Parameter IDXM.transferFrom(address,address,uint256)._to (CV/2018-10666.sol#139) is not in mixedCase
+Parameter IDXM.transferFrom(address,address,uint256)._amount (CV/2018-10666.sol#139) is not in mixedCase
+Parameter IDXM.approveAndCall(address,uint256,bytes)._spender (CV/2018-10666.sol#166) is not in mixedCase
+Parameter IDXM.approveAndCall(address,uint256,bytes)._amount (CV/2018-10666.sol#166) is not in mixedCase
+Parameter IDXM.approveAndCall(address,uint256,bytes)._extraData (CV/2018-10666.sol#166) is not in mixedCase
+Parameter IDXM.approve(address,uint256)._spender (CV/2018-10666.sol#181) is not in mixedCase
+Parameter IDXM.approve(address,uint256)._amount (CV/2018-10666.sol#181) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+IDXM.IDXM() (CV/2018-10666.sol#84-89) uses literals with too many digits:
+	- totalSupply = 200000000000 (CV/2018-10666.sol#85)
+IDXM.IDXM() (CV/2018-10666.sol#84-89) uses literals with too many digits:
+	- exportFee[0x00000000000000000000000000000000000000ff] = 100000000 (CV/2018-10666.sol#87)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+IDXM.decimals (CV/2018-10666.sol#48) should be constant
+IDXM.feeDecimals (CV/2018-10666.sol#69) should be constant
+IDXM.name (CV/2018-10666.sol#50) should be constant
+IDXM.standard (CV/2018-10666.sol#49) should be constant
+IDXM.symbol (CV/2018-10666.sol#51) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+receiveApproval(address,uint256,address,bytes) should be declared external:
+	- tokenRecipient.receiveApproval(address,uint256,address,bytes) (CV/2018-10666.sol#13)
+uploadBalances(address[],uint256[]) should be declared external:
+	- IDXM.uploadBalances(address[],uint256[]) (CV/2018-10666.sol#93-102)
+approveAndCall(address,uint256,bytes) should be declared external:
+	- IDXM.approveAndCall(address,uint256,bytes) (CV/2018-10666.sol#166-172)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+CV/2018-10666.sol analyzed (4 contracts with 80 detectors), 31 result(s) found
