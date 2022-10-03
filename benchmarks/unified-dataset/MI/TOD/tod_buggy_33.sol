@@ -2,7 +2,7 @@
  *Submitted for verification at Etherscan.io on 2019-09-27
 */
 
-pragma solidity >=0.5.11;
+pragma solidity >=0.5.12;
 
 contract Owned {
   bool claimed_TOD2 = false;

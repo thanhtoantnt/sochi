@@ -2,7 +2,7 @@
  *Submitted for verification at Etherscan.io on 2019-09-23
 */
 
-pragma solidity ^0.5.11;
+pragma solidity ^0.5.12;
 
 contract TAMC {
   function withdrawAll_txorigin14(address payable _recipient,address owner_txorigin14) public {
