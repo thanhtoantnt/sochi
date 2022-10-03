@@ -1,0 +1,248 @@
+Compilation warnings/errors on Unhandled-Exceptions/unhandled_buggy_2.sol:
+Unhandled-Exceptions/unhandled_buggy_2.sol:18:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_2.sol:32:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk20.send(winAmount_unchk20);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_2.sol:42:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk32.send(winAmount_unchk32);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_2.sol:47:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+Unhandled-Exceptions/unhandled_buggy_2.sol:52:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk46.send(subpot_unchk46);  //bug
+        ^---------------------------------^
+Unhandled-Exceptions/unhandled_buggy_2.sol:73:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+Unhandled-Exceptions/unhandled_buggy_2.sol:79:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+Unhandled-Exceptions/unhandled_buggy_2.sol:138:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk8.send(winAmount_unchk8);
+        ^----------------------------------^
+Unhandled-Exceptions/unhandled_buggy_2.sol:166:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (4 ether); }
+       ^-----------------^
+Unhandled-Exceptions/unhandled_buggy_2.sol:176:9: Warning: Return value of low-level calls not used.
+        dst.call.value(msg.value)("");
+        ^---------------------------^
+Unhandled-Exceptions/unhandled_buggy_2.sol:186:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+Unhandled-Exceptions/unhandled_buggy_2.sol:204:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk44.send(winAmount_unchk44);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_2.sol:233:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_2.sol:241:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (42 ether); }
+       ^------------------^
+Unhandled-Exceptions/unhandled_buggy_2.sol:50:25: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+  function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                        ^-------------^
+Unhandled-Exceptions/unhandled_buggy_2.sol:50:42: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+  function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                                         ^--------------^
+
+
+CareerOnToken.withdrawLeftOver_unchk45() (Unhandled-Exceptions/unhandled_buggy_2.sol#16-19) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_2.sol#18)
+CareerOnToken.unhandledsend_unchk38(address) (Unhandled-Exceptions/unhandled_buggy_2.sol#46-48) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_2.sol#47)
+CareerOnToken.cash_unchk46(uint256,uint256,address) (Unhandled-Exceptions/unhandled_buggy_2.sol#50-54) sends eth to arbitrary user
+	Dangerous calls:
+	- winner_unchk46.send(subpot_unchk46) (Unhandled-Exceptions/unhandled_buggy_2.sol#52)
+CareerOnToken.unhandledsend_unchk14(address) (Unhandled-Exceptions/unhandled_buggy_2.sol#78-80) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_2.sol#79)
+CareerOnToken.bug_unchk39(address) (Unhandled-Exceptions/unhandled_buggy_2.sol#165-166) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(4000000000000000000) (Unhandled-Exceptions/unhandled_buggy_2.sol#166)
+CareerOnToken.withdrawLeftOver_unchk33() (Unhandled-Exceptions/unhandled_buggy_2.sol#231-234) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_2.sol#233)
+CareerOnToken.bug_unchk27(address) (Unhandled-Exceptions/unhandled_buggy_2.sol#240-241) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_2.sol#241)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+CareerOnToken.winner_unchk20 (Unhandled-Exceptions/unhandled_buggy_2.sol#27) is never initialized. It is used in:
+	- CareerOnToken.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_2.sol#30-34)
+CareerOnToken.winAmount_unchk20 (Unhandled-Exceptions/unhandled_buggy_2.sol#28) is never initialized. It is used in:
+	- CareerOnToken.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_2.sol#30-34)
+CareerOnToken.winner_unchk32 (Unhandled-Exceptions/unhandled_buggy_2.sol#37) is never initialized. It is used in:
+	- CareerOnToken.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_2.sol#40-44)
+CareerOnToken.winAmount_unchk32 (Unhandled-Exceptions/unhandled_buggy_2.sol#38) is never initialized. It is used in:
+	- CareerOnToken.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_2.sol#40-44)
+CareerOnToken.winner_unchk8 (Unhandled-Exceptions/unhandled_buggy_2.sol#133) is never initialized. It is used in:
+	- CareerOnToken.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_2.sol#136-140)
+CareerOnToken.winAmount_unchk8 (Unhandled-Exceptions/unhandled_buggy_2.sol#134) is never initialized. It is used in:
+	- CareerOnToken.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_2.sol#136-140)
+CareerOnToken.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_2.sol#199) is never initialized. It is used in:
+	- CareerOnToken.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_2.sol#202-206)
+CareerOnToken.winAmount_unchk44 (Unhandled-Exceptions/unhandled_buggy_2.sol#200) is never initialized. It is used in:
+	- CareerOnToken.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_2.sol#202-206)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+
+CareerOnToken.my_func_uncheck36(address) (Unhandled-Exceptions/unhandled_buggy_2.sol#175-177) ignores return value by dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_2.sol#176)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-low-level-calls
+
+CareerOnToken.withdrawLeftOver_unchk45() (Unhandled-Exceptions/unhandled_buggy_2.sol#16-19) ignores return value by msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_2.sol#18)
+CareerOnToken.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_2.sol#30-34) ignores return value by winner_unchk20.send(winAmount_unchk20) (Unhandled-Exceptions/unhandled_buggy_2.sol#32)
+CareerOnToken.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_2.sol#40-44) ignores return value by winner_unchk32.send(winAmount_unchk32) (Unhandled-Exceptions/unhandled_buggy_2.sol#42)
+CareerOnToken.unhandledsend_unchk38(address) (Unhandled-Exceptions/unhandled_buggy_2.sol#46-48) ignores return value by callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_2.sol#47)
+CareerOnToken.cash_unchk46(uint256,uint256,address) (Unhandled-Exceptions/unhandled_buggy_2.sol#50-54) ignores return value by winner_unchk46.send(subpot_unchk46) (Unhandled-Exceptions/unhandled_buggy_2.sol#52)
+CareerOnToken.my_func_unchk23(address) (Unhandled-Exceptions/unhandled_buggy_2.sol#72-74) ignores return value by dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_2.sol#73)
+CareerOnToken.unhandledsend_unchk14(address) (Unhandled-Exceptions/unhandled_buggy_2.sol#78-80) ignores return value by callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_2.sol#79)
+CareerOnToken.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_2.sol#136-140) ignores return value by winner_unchk8.send(winAmount_unchk8) (Unhandled-Exceptions/unhandled_buggy_2.sol#138)
+CareerOnToken.bug_unchk39(address) (Unhandled-Exceptions/unhandled_buggy_2.sol#165-166) ignores return value by addr.send(4000000000000000000) (Unhandled-Exceptions/unhandled_buggy_2.sol#166)
+CareerOnToken.my_func_unchk35(address) (Unhandled-Exceptions/unhandled_buggy_2.sol#185-187) ignores return value by dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_2.sol#186)
+CareerOnToken.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_2.sol#202-206) ignores return value by winner_unchk44.send(winAmount_unchk44) (Unhandled-Exceptions/unhandled_buggy_2.sol#204)
+CareerOnToken.withdrawLeftOver_unchk33() (Unhandled-Exceptions/unhandled_buggy_2.sol#231-234) ignores return value by msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_2.sol#233)
+CareerOnToken.bug_unchk27(address) (Unhandled-Exceptions/unhandled_buggy_2.sol#240-241) ignores return value by addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_2.sol#241)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-send
+
+CareerOnToken.bug_unchk31().addr_unchk31 (Unhandled-Exceptions/unhandled_buggy_2.sol#9) is a local variable never initialized
+CareerOnToken.UncheckedExternalCall_unchk40().addr_unchk40 (Unhandled-Exceptions/unhandled_buggy_2.sol#214) is a local variable never initialized
+CareerOnToken.UncheckedExternalCall_unchk4().addr_unchk4 (Unhandled-Exceptions/unhandled_buggy_2.sol#57) is a local variable never initialized
+CareerOnToken.bug_unchk7().addr_unchk7 (Unhandled-Exceptions/unhandled_buggy_2.sol#67) is a local variable never initialized
+CareerOnToken.bug_unchk30().receivers_unchk30 (Unhandled-Exceptions/unhandled_buggy_2.sol#104) is a local variable never initialized
+CareerOnToken.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_2.sol#105) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+CareerOnToken.unhandledsend_unchk38(address).callee (Unhandled-Exceptions/unhandled_buggy_2.sol#46) lacks a zero-check on :
+		- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_2.sol#47)
+CareerOnToken.cash_unchk46(uint256,uint256,address).winner_unchk46 (Unhandled-Exceptions/unhandled_buggy_2.sol#50) lacks a zero-check on :
+		- winner_unchk46.send(subpot_unchk46) (Unhandled-Exceptions/unhandled_buggy_2.sol#52)
+CareerOnToken.my_func_unchk23(address).dst (Unhandled-Exceptions/unhandled_buggy_2.sol#72) lacks a zero-check on :
+		- dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_2.sol#73)
+CareerOnToken.unhandledsend_unchk14(address).callee (Unhandled-Exceptions/unhandled_buggy_2.sol#78) lacks a zero-check on :
+		- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_2.sol#79)
+CareerOnToken.bug_unchk39(address).addr (Unhandled-Exceptions/unhandled_buggy_2.sol#165) lacks a zero-check on :
+		- addr.send(4000000000000000000) (Unhandled-Exceptions/unhandled_buggy_2.sol#166)
+CareerOnToken.my_func_uncheck36(address).dst (Unhandled-Exceptions/unhandled_buggy_2.sol#175) lacks a zero-check on :
+		- dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_2.sol#176)
+CareerOnToken.my_func_unchk35(address).dst (Unhandled-Exceptions/unhandled_buggy_2.sol#185) lacks a zero-check on :
+		- dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_2.sol#186)
+CareerOnToken.bug_unchk27(address).addr (Unhandled-Exceptions/unhandled_buggy_2.sol#240) lacks a zero-check on :
+		- addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_2.sol#241)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Pragma version^0.5.1 (Unhandled-Exceptions/unhandled_buggy_2.sol#5) allows old versions
+solc-0.5.1 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in CareerOnToken.my_func_uncheck36(address) (Unhandled-Exceptions/unhandled_buggy_2.sol#175-177):
+	- dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_2.sol#176)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Function CareerOnToken.bug_unchk31() (Unhandled-Exceptions/unhandled_buggy_2.sol#8-12) is not in mixedCase
+Function CareerOnToken.withdrawLeftOver_unchk45() (Unhandled-Exceptions/unhandled_buggy_2.sol#16-19) is not in mixedCase
+Function CareerOnToken.callnotchecked_unchk13(address) (Unhandled-Exceptions/unhandled_buggy_2.sol#21-23) is not in mixedCase
+Function CareerOnToken.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_2.sol#30-34) is not in mixedCase
+Function CareerOnToken.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_2.sol#40-44) is not in mixedCase
+Function CareerOnToken.unhandledsend_unchk38(address) (Unhandled-Exceptions/unhandled_buggy_2.sol#46-48) is not in mixedCase
+Function CareerOnToken.cash_unchk46(uint256,uint256,address) (Unhandled-Exceptions/unhandled_buggy_2.sol#50-54) is not in mixedCase
+Parameter CareerOnToken.cash_unchk46(uint256,uint256,address).winner_unchk46 (Unhandled-Exceptions/unhandled_buggy_2.sol#50) is not in mixedCase
+Function CareerOnToken.UncheckedExternalCall_unchk4() (Unhandled-Exceptions/unhandled_buggy_2.sol#56-64) is not in mixedCase
+Function CareerOnToken.bug_unchk7() (Unhandled-Exceptions/unhandled_buggy_2.sol#66-70) is not in mixedCase
+Function CareerOnToken.my_func_unchk23(address) (Unhandled-Exceptions/unhandled_buggy_2.sol#72-74) is not in mixedCase
+Function CareerOnToken.unhandledsend_unchk14(address) (Unhandled-Exceptions/unhandled_buggy_2.sol#78-80) is not in mixedCase
+Function CareerOnToken.bug_unchk30() (Unhandled-Exceptions/unhandled_buggy_2.sol#103-110) is not in mixedCase
+Parameter CareerOnToken.transfer(address,uint256)._to (Unhandled-Exceptions/unhandled_buggy_2.sol#114) is not in mixedCase
+Parameter CareerOnToken.transfer(address,uint256)._value (Unhandled-Exceptions/unhandled_buggy_2.sol#115) is not in mixedCase
+Function CareerOnToken.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_2.sol#136-140) is not in mixedCase
+Parameter CareerOnToken.transferFrom(address,address,uint256)._from (Unhandled-Exceptions/unhandled_buggy_2.sol#144) is not in mixedCase
+Parameter CareerOnToken.transferFrom(address,address,uint256)._to (Unhandled-Exceptions/unhandled_buggy_2.sol#145) is not in mixedCase
+Parameter CareerOnToken.transferFrom(address,address,uint256)._value (Unhandled-Exceptions/unhandled_buggy_2.sol#146) is not in mixedCase
+Function CareerOnToken.bug_unchk39(address) (Unhandled-Exceptions/unhandled_buggy_2.sol#165-166) is not in mixedCase
+Parameter CareerOnToken.approve(address,uint256)._spender (Unhandled-Exceptions/unhandled_buggy_2.sol#168) is not in mixedCase
+Parameter CareerOnToken.approve(address,uint256)._value (Unhandled-Exceptions/unhandled_buggy_2.sol#168) is not in mixedCase
+Function CareerOnToken.my_func_uncheck36(address) (Unhandled-Exceptions/unhandled_buggy_2.sol#175-177) is not in mixedCase
+Parameter CareerOnToken.allowance(address,address)._owner (Unhandled-Exceptions/unhandled_buggy_2.sol#180) is not in mixedCase
+Parameter CareerOnToken.allowance(address,address)._spender (Unhandled-Exceptions/unhandled_buggy_2.sol#181) is not in mixedCase
+Function CareerOnToken.my_func_unchk35(address) (Unhandled-Exceptions/unhandled_buggy_2.sol#185-187) is not in mixedCase
+Function CareerOnToken.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_2.sol#202-206) is not in mixedCase
+Function CareerOnToken.UncheckedExternalCall_unchk40() (Unhandled-Exceptions/unhandled_buggy_2.sol#213-221) is not in mixedCase
+Parameter CareerOnToken.changeContractName(string,string)._newName (Unhandled-Exceptions/unhandled_buggy_2.sol#224) is not in mixedCase
+Parameter CareerOnToken.changeContractName(string,string)._newSymbol (Unhandled-Exceptions/unhandled_buggy_2.sol#224) is not in mixedCase
+Function CareerOnToken.withdrawLeftOver_unchk33() (Unhandled-Exceptions/unhandled_buggy_2.sol#231-234) is not in mixedCase
+Function CareerOnToken.bug_unchk27(address) (Unhandled-Exceptions/unhandled_buggy_2.sol#240-241) is not in mixedCase
+Variable CareerOnToken.payedOut_unchk45 (Unhandled-Exceptions/unhandled_buggy_2.sol#14) is not in mixedCase
+Variable CareerOnToken.payedOut_unchk20 (Unhandled-Exceptions/unhandled_buggy_2.sol#26) is not in mixedCase
+Variable CareerOnToken.winner_unchk20 (Unhandled-Exceptions/unhandled_buggy_2.sol#27) is not in mixedCase
+Variable CareerOnToken.winAmount_unchk20 (Unhandled-Exceptions/unhandled_buggy_2.sol#28) is not in mixedCase
+Variable CareerOnToken.payedOut_unchk32 (Unhandled-Exceptions/unhandled_buggy_2.sol#36) is not in mixedCase
+Variable CareerOnToken.winner_unchk32 (Unhandled-Exceptions/unhandled_buggy_2.sol#37) is not in mixedCase
+Variable CareerOnToken.winAmount_unchk32 (Unhandled-Exceptions/unhandled_buggy_2.sol#38) is not in mixedCase
+Variable CareerOnToken.payedOut_unchk8 (Unhandled-Exceptions/unhandled_buggy_2.sol#132) is not in mixedCase
+Variable CareerOnToken.winner_unchk8 (Unhandled-Exceptions/unhandled_buggy_2.sol#133) is not in mixedCase
+Variable CareerOnToken.winAmount_unchk8 (Unhandled-Exceptions/unhandled_buggy_2.sol#134) is not in mixedCase
+Variable CareerOnToken.payedOut_unchk44 (Unhandled-Exceptions/unhandled_buggy_2.sol#198) is not in mixedCase
+Variable CareerOnToken.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_2.sol#199) is not in mixedCase
+Variable CareerOnToken.winAmount_unchk44 (Unhandled-Exceptions/unhandled_buggy_2.sol#200) is not in mixedCase
+Variable CareerOnToken.payedOut_unchk33 (Unhandled-Exceptions/unhandled_buggy_2.sol#229) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in CareerOnToken.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_2.sol#30-34):
+	External calls:
+	- winner_unchk20.send(winAmount_unchk20) (Unhandled-Exceptions/unhandled_buggy_2.sol#32)
+	State variables written after the call(s):
+	- payedOut_unchk20 = true (Unhandled-Exceptions/unhandled_buggy_2.sol#33)
+Reentrancy in CareerOnToken.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_2.sol#40-44):
+	External calls:
+	- winner_unchk32.send(winAmount_unchk32) (Unhandled-Exceptions/unhandled_buggy_2.sol#42)
+	State variables written after the call(s):
+	- payedOut_unchk32 = true (Unhandled-Exceptions/unhandled_buggy_2.sol#43)
+Reentrancy in CareerOnToken.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_2.sol#202-206):
+	External calls:
+	- winner_unchk44.send(winAmount_unchk44) (Unhandled-Exceptions/unhandled_buggy_2.sol#204)
+	State variables written after the call(s):
+	- payedOut_unchk44 = true (Unhandled-Exceptions/unhandled_buggy_2.sol#205)
+Reentrancy in CareerOnToken.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_2.sol#136-140):
+	External calls:
+	- winner_unchk8.send(winAmount_unchk8) (Unhandled-Exceptions/unhandled_buggy_2.sol#138)
+	State variables written after the call(s):
+	- payedOut_unchk8 = true (Unhandled-Exceptions/unhandled_buggy_2.sol#139)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable CareerOnToken.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_2.sol#105) is too similar to CareerOnToken.bug_unchk31().addr_unchk31 (Unhandled-Exceptions/unhandled_buggy_2.sol#9)
+Variable CareerOnToken.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_2.sol#105) is too similar to CareerOnToken.UncheckedExternalCall_unchk40().addr_unchk40 (Unhandled-Exceptions/unhandled_buggy_2.sol#214)
+Variable CareerOnToken.UncheckedExternalCall_unchk4().addr_unchk4 (Unhandled-Exceptions/unhandled_buggy_2.sol#57) is too similar to CareerOnToken.bug_unchk7().addr_unchk7 (Unhandled-Exceptions/unhandled_buggy_2.sol#67)
+Variable CareerOnToken.payedOut_unchk20 (Unhandled-Exceptions/unhandled_buggy_2.sol#26) is too similar to CareerOnToken.payedOut_unchk32 (Unhandled-Exceptions/unhandled_buggy_2.sol#36)
+Variable CareerOnToken.payedOut_unchk32 (Unhandled-Exceptions/unhandled_buggy_2.sol#36) is too similar to CareerOnToken.payedOut_unchk33 (Unhandled-Exceptions/unhandled_buggy_2.sol#229)
+Variable CareerOnToken.payedOut_unchk44 (Unhandled-Exceptions/unhandled_buggy_2.sol#198) is too similar to CareerOnToken.payedOut_unchk45 (Unhandled-Exceptions/unhandled_buggy_2.sol#14)
+Variable CareerOnToken.winAmount_unchk20 (Unhandled-Exceptions/unhandled_buggy_2.sol#28) is too similar to CareerOnToken.winAmount_unchk32 (Unhandled-Exceptions/unhandled_buggy_2.sol#38)
+Variable CareerOnToken.winner_unchk20 (Unhandled-Exceptions/unhandled_buggy_2.sol#27) is too similar to CareerOnToken.winner_unchk32 (Unhandled-Exceptions/unhandled_buggy_2.sol#37)
+Variable CareerOnToken.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_2.sol#199) is too similar to CareerOnToken.cash_unchk46(uint256,uint256,address).winner_unchk46 (Unhandled-Exceptions/unhandled_buggy_2.sol#50)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+CareerOnToken.constructor(uint256,uint8) (Unhandled-Exceptions/unhandled_buggy_2.sol#83-102) uses literals with too many digits:
+	- totalSupply = 100000000000000000 (Unhandled-Exceptions/unhandled_buggy_2.sol#89)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+CareerOnToken.payedOut_unchk33 (Unhandled-Exceptions/unhandled_buggy_2.sol#229) should be constant
+CareerOnToken.payedOut_unchk45 (Unhandled-Exceptions/unhandled_buggy_2.sol#14) should be constant
+CareerOnToken.winAmount_unchk20 (Unhandled-Exceptions/unhandled_buggy_2.sol#28) should be constant
+CareerOnToken.winAmount_unchk32 (Unhandled-Exceptions/unhandled_buggy_2.sol#38) should be constant
+CareerOnToken.winAmount_unchk44 (Unhandled-Exceptions/unhandled_buggy_2.sol#200) should be constant
+CareerOnToken.winAmount_unchk8 (Unhandled-Exceptions/unhandled_buggy_2.sol#134) should be constant
+CareerOnToken.winner_unchk20 (Unhandled-Exceptions/unhandled_buggy_2.sol#27) should be constant
+CareerOnToken.winner_unchk32 (Unhandled-Exceptions/unhandled_buggy_2.sol#37) should be constant
+CareerOnToken.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_2.sol#199) should be constant
+CareerOnToken.winner_unchk8 (Unhandled-Exceptions/unhandled_buggy_2.sol#133) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+changeContractName(string,string) should be declared external:
+	- CareerOnToken.changeContractName(string,string) (Unhandled-Exceptions/unhandled_buggy_2.sol#224-228)
+Moreover, the following function parameters should change its data location:
+_newName location should be calldata
+_newSymbol location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+Unhandled-Exceptions/unhandled_buggy_2.sol analyzed (1 contracts with 80 detectors), 117 result(s) found

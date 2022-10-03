@@ -1,0 +1,110 @@
+
+PHO.bug_unchk_send2() (Unchecked-Send/unchecked_buggy_4.sol#29-30) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_4.sol#30)
+PHO.bug_unchk_send17() (Unchecked-Send/unchecked_buggy_4.sol#32-33) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_4.sol#33)
+PHO.bug_unchk_send3() (Unchecked-Send/unchecked_buggy_4.sol#35-36) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_4.sol#36)
+PHO.bug_unchk_send9() (Unchecked-Send/unchecked_buggy_4.sol#39-40) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_4.sol#40)
+PHO.bug_unchk_send25() (Unchecked-Send/unchecked_buggy_4.sol#42-43) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_4.sol#43)
+PHO.bug_unchk_send19() (Unchecked-Send/unchecked_buggy_4.sol#45-46) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_4.sol#46)
+PHO.bug_unchk_send26() (Unchecked-Send/unchecked_buggy_4.sol#49-50) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_4.sol#50)
+PHO.bug_unchk_send20() (Unchecked-Send/unchecked_buggy_4.sol#52-53) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_4.sol#53)
+PHO.bug_unchk_send32() (Unchecked-Send/unchecked_buggy_4.sol#56-57) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_4.sol#57)
+PHO.bug_unchk_send4() (Unchecked-Send/unchecked_buggy_4.sol#59-60) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_4.sol#60)
+PHO.bug_unchk_send7() (Unchecked-Send/unchecked_buggy_4.sol#62-63) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_4.sol#63)
+PHO.bug_unchk_send23() (Unchecked-Send/unchecked_buggy_4.sol#65-66) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_4.sol#66)
+PHO.bug_unchk_send14() (Unchecked-Send/unchecked_buggy_4.sol#95-96) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_4.sol#96)
+PHO.bug_unchk_send30() (Unchecked-Send/unchecked_buggy_4.sol#101-102) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_4.sol#102)
+PHO.bug_unchk_send8() (Unchecked-Send/unchecked_buggy_4.sol#107-108) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_4.sol#108)
+PHO.bug_unchk_send27() (Unchecked-Send/unchecked_buggy_4.sol#133-134) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_4.sol#134)
+PHO.bug_unchk_send31() (Unchecked-Send/unchecked_buggy_4.sol#145-146) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_4.sol#146)
+PHO.bug_unchk_send13() (Unchecked-Send/unchecked_buggy_4.sol#155-156) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_4.sol#156)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+PHO.transfer(address,uint256) (Unchecked-Send/unchecked_buggy_4.sol#110-132) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now >= 1589036400) (Unchecked-Send/unchecked_buggy_4.sol#118)
+	- require(bool)(now >= 1620572400) (Unchecked-Send/unchecked_buggy_4.sol#120)
+	- require(bool)(now >= 1652108400) (Unchecked-Send/unchecked_buggy_4.sol#122)
+	- require(bool)(now >= 1683644400) (Unchecked-Send/unchecked_buggy_4.sol#124)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+Pragma version>=0.5.0<0.6.0 (Unchecked-Send/unchecked_buggy_4.sol#5) allows old versions
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function PHO.bug_unchk_send2() (Unchecked-Send/unchecked_buggy_4.sol#29-30) is not in mixedCase
+Function PHO.bug_unchk_send17() (Unchecked-Send/unchecked_buggy_4.sol#32-33) is not in mixedCase
+Function PHO.bug_unchk_send3() (Unchecked-Send/unchecked_buggy_4.sol#35-36) is not in mixedCase
+Function PHO.bug_unchk_send9() (Unchecked-Send/unchecked_buggy_4.sol#39-40) is not in mixedCase
+Function PHO.bug_unchk_send25() (Unchecked-Send/unchecked_buggy_4.sol#42-43) is not in mixedCase
+Function PHO.bug_unchk_send19() (Unchecked-Send/unchecked_buggy_4.sol#45-46) is not in mixedCase
+Function PHO.bug_unchk_send26() (Unchecked-Send/unchecked_buggy_4.sol#49-50) is not in mixedCase
+Function PHO.bug_unchk_send20() (Unchecked-Send/unchecked_buggy_4.sol#52-53) is not in mixedCase
+Function PHO.bug_unchk_send32() (Unchecked-Send/unchecked_buggy_4.sol#56-57) is not in mixedCase
+Function PHO.bug_unchk_send4() (Unchecked-Send/unchecked_buggy_4.sol#59-60) is not in mixedCase
+Function PHO.bug_unchk_send7() (Unchecked-Send/unchecked_buggy_4.sol#62-63) is not in mixedCase
+Function PHO.bug_unchk_send23() (Unchecked-Send/unchecked_buggy_4.sol#65-66) is not in mixedCase
+Function PHO.bug_unchk_send14() (Unchecked-Send/unchecked_buggy_4.sol#95-96) is not in mixedCase
+Function PHO.bug_unchk_send30() (Unchecked-Send/unchecked_buggy_4.sol#101-102) is not in mixedCase
+Function PHO.bug_unchk_send8() (Unchecked-Send/unchecked_buggy_4.sol#107-108) is not in mixedCase
+Function PHO.bug_unchk_send27() (Unchecked-Send/unchecked_buggy_4.sol#133-134) is not in mixedCase
+Function PHO.bug_unchk_send31() (Unchecked-Send/unchecked_buggy_4.sol#145-146) is not in mixedCase
+Function PHO.bug_unchk_send13() (Unchecked-Send/unchecked_buggy_4.sol#155-156) is not in mixedCase
+Variable PHO._totalSupply (Unchecked-Send/unchecked_buggy_4.sol#51) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+PHO.constructor() (Unchecked-Send/unchecked_buggy_4.sol#74-94) uses literals with too many digits:
+	- saleAmount = toWei(1000000000) (Unchecked-Send/unchecked_buggy_4.sol#80)
+PHO.constructor() (Unchecked-Send/unchecked_buggy_4.sol#74-94) uses literals with too many digits:
+	- evtAmount = toWei(200000000) (Unchecked-Send/unchecked_buggy_4.sol#81)
+PHO.constructor() (Unchecked-Send/unchecked_buggy_4.sol#74-94) uses literals with too many digits:
+	- teamAmount = toWei(800000000) (Unchecked-Send/unchecked_buggy_4.sol#82)
+PHO.constructor() (Unchecked-Send/unchecked_buggy_4.sol#74-94) uses literals with too many digits:
+	- _totalSupply = toWei(2000000000) (Unchecked-Send/unchecked_buggy_4.sol#83)
+PHO.transfer(address,uint256) (Unchecked-Send/unchecked_buggy_4.sol#110-132) uses literals with too many digits:
+	- balances[msg.sender] - value < toWei(600000000) (Unchecked-Send/unchecked_buggy_4.sol#119)
+PHO.transfer(address,uint256) (Unchecked-Send/unchecked_buggy_4.sol#110-132) uses literals with too many digits:
+	- balances[msg.sender] - value < toWei(400000000) (Unchecked-Send/unchecked_buggy_4.sol#121)
+PHO.transfer(address,uint256) (Unchecked-Send/unchecked_buggy_4.sol#110-132) uses literals with too many digits:
+	- balances[msg.sender] - value < toWei(200000000) (Unchecked-Send/unchecked_buggy_4.sol#123)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+PHO.decimals (Unchecked-Send/unchecked_buggy_4.sol#37) should be constant
+PHO.name (Unchecked-Send/unchecked_buggy_4.sol#31) should be constant
+PHO.symbol (Unchecked-Send/unchecked_buggy_4.sol#34) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+Unchecked-Send/unchecked_buggy_4.sol analyzed (2 contracts with 80 detectors), 49 result(s) found

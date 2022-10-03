@@ -1,0 +1,255 @@
+Compilation warnings/errors on Unhandled-Exceptions/unhandled_buggy_26.sol:
+Unhandled-Exceptions/unhandled_buggy_26.sol:74:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+Unhandled-Exceptions/unhandled_buggy_26.sol:83:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk20.send(winAmount_unchk20);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_26.sol:93:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk32.send(winAmount_unchk32);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_26.sol:98:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+Unhandled-Exceptions/unhandled_buggy_26.sol:110:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk46.send(subpot_unchk46);  //bug
+        ^---------------------------------^
+Unhandled-Exceptions/unhandled_buggy_26.sol:117:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_26.sol:151:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+Unhandled-Exceptions/unhandled_buggy_26.sol:158:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+Unhandled-Exceptions/unhandled_buggy_26.sol:183:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk8.send(winAmount_unchk8);
+        ^----------------------------------^
+Unhandled-Exceptions/unhandled_buggy_26.sol:191:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (4 ether); }
+       ^-----------------^
+Unhandled-Exceptions/unhandled_buggy_26.sol:198:9: Warning: Return value of low-level calls not used.
+        dst.call.value(msg.value)("");
+        ^---------------------------^
+Unhandled-Exceptions/unhandled_buggy_26.sol:207:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+Unhandled-Exceptions/unhandled_buggy_26.sol:220:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk44.send(winAmount_unchk44);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_26.sol:250:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_26.sol:260:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (42 ether); }
+       ^------------------^
+Unhandled-Exceptions/unhandled_buggy_26.sol:108:23: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                      ^-------------^
+Unhandled-Exceptions/unhandled_buggy_26.sol:108:40: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                                       ^--------------^
+
+
+UBBCToken.unhandledsend_unchk26(address) (Unhandled-Exceptions/unhandled_buggy_26.sol#73-75) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_26.sol#74)
+UBBCToken.unhandledsend_unchk38(address) (Unhandled-Exceptions/unhandled_buggy_26.sol#97-99) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_26.sol#98)
+UBBCToken.cash_unchk46(uint256,uint256,address) (Unhandled-Exceptions/unhandled_buggy_26.sol#108-112) sends eth to arbitrary user
+	Dangerous calls:
+	- winner_unchk46.send(subpot_unchk46) (Unhandled-Exceptions/unhandled_buggy_26.sol#110)
+UBBCToken.withdrawLeftOver_unchk45() (Unhandled-Exceptions/unhandled_buggy_26.sol#115-118) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_26.sol#117)
+UBBCToken.unhandledsend_unchk14(address) (Unhandled-Exceptions/unhandled_buggy_26.sol#157-159) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_26.sol#158)
+UBBCToken.bug_unchk39(address) (Unhandled-Exceptions/unhandled_buggy_26.sol#190-191) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(4000000000000000000) (Unhandled-Exceptions/unhandled_buggy_26.sol#191)
+UBBCToken.withdrawLeftOver_unchk33() (Unhandled-Exceptions/unhandled_buggy_26.sol#248-251) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_26.sol#250)
+UBBCToken.bug_unchk27(address) (Unhandled-Exceptions/unhandled_buggy_26.sol#259-260) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_26.sol#260)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+UBBCToken.winner_unchk20 (Unhandled-Exceptions/unhandled_buggy_26.sol#78) is never initialized. It is used in:
+	- UBBCToken.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_26.sol#81-85)
+UBBCToken.winAmount_unchk20 (Unhandled-Exceptions/unhandled_buggy_26.sol#79) is never initialized. It is used in:
+	- UBBCToken.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_26.sol#81-85)
+UBBCToken.winner_unchk32 (Unhandled-Exceptions/unhandled_buggy_26.sol#88) is never initialized. It is used in:
+	- UBBCToken.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_26.sol#91-95)
+UBBCToken.winAmount_unchk32 (Unhandled-Exceptions/unhandled_buggy_26.sol#89) is never initialized. It is used in:
+	- UBBCToken.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_26.sol#91-95)
+UBBCToken.winner_unchk8 (Unhandled-Exceptions/unhandled_buggy_26.sol#178) is never initialized. It is used in:
+	- UBBCToken.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_26.sol#181-185)
+UBBCToken.winAmount_unchk8 (Unhandled-Exceptions/unhandled_buggy_26.sol#179) is never initialized. It is used in:
+	- UBBCToken.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_26.sol#181-185)
+UBBCToken.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_26.sol#215) is never initialized. It is used in:
+	- UBBCToken.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_26.sol#218-222)
+UBBCToken.winAmount_unchk44 (Unhandled-Exceptions/unhandled_buggy_26.sol#216) is never initialized. It is used in:
+	- UBBCToken.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_26.sol#218-222)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+
+UBBCToken.my_func_uncheck36(address) (Unhandled-Exceptions/unhandled_buggy_26.sol#197-199) ignores return value by dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_26.sol#198)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-low-level-calls
+
+UBBCToken.unhandledsend_unchk26(address) (Unhandled-Exceptions/unhandled_buggy_26.sol#73-75) ignores return value by callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_26.sol#74)
+UBBCToken.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_26.sol#81-85) ignores return value by winner_unchk20.send(winAmount_unchk20) (Unhandled-Exceptions/unhandled_buggy_26.sol#83)
+UBBCToken.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_26.sol#91-95) ignores return value by winner_unchk32.send(winAmount_unchk32) (Unhandled-Exceptions/unhandled_buggy_26.sol#93)
+UBBCToken.unhandledsend_unchk38(address) (Unhandled-Exceptions/unhandled_buggy_26.sol#97-99) ignores return value by callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_26.sol#98)
+UBBCToken.cash_unchk46(uint256,uint256,address) (Unhandled-Exceptions/unhandled_buggy_26.sol#108-112) ignores return value by winner_unchk46.send(subpot_unchk46) (Unhandled-Exceptions/unhandled_buggy_26.sol#110)
+UBBCToken.withdrawLeftOver_unchk45() (Unhandled-Exceptions/unhandled_buggy_26.sol#115-118) ignores return value by msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_26.sol#117)
+UBBCToken.my_func_unchk23(address) (Unhandled-Exceptions/unhandled_buggy_26.sol#150-152) ignores return value by dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_26.sol#151)
+UBBCToken.unhandledsend_unchk14(address) (Unhandled-Exceptions/unhandled_buggy_26.sol#157-159) ignores return value by callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_26.sol#158)
+UBBCToken.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_26.sol#181-185) ignores return value by winner_unchk8.send(winAmount_unchk8) (Unhandled-Exceptions/unhandled_buggy_26.sol#183)
+UBBCToken.bug_unchk39(address) (Unhandled-Exceptions/unhandled_buggy_26.sol#190-191) ignores return value by addr.send(4000000000000000000) (Unhandled-Exceptions/unhandled_buggy_26.sol#191)
+UBBCToken.my_func_unchk35(address) (Unhandled-Exceptions/unhandled_buggy_26.sol#206-208) ignores return value by dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_26.sol#207)
+UBBCToken.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_26.sol#218-222) ignores return value by winner_unchk44.send(winAmount_unchk44) (Unhandled-Exceptions/unhandled_buggy_26.sol#220)
+UBBCToken.withdrawLeftOver_unchk33() (Unhandled-Exceptions/unhandled_buggy_26.sol#248-251) ignores return value by msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_26.sol#250)
+UBBCToken.bug_unchk27(address) (Unhandled-Exceptions/unhandled_buggy_26.sol#259-260) ignores return value by addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_26.sol#260)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-send
+
+UBBCToken.bug_unchk31().addr_unchk31 (Unhandled-Exceptions/unhandled_buggy_26.sol#265) is a local variable never initialized
+UBBCToken.bug_unchk30().receivers_unchk30 (Unhandled-Exceptions/unhandled_buggy_26.sol#165) is a local variable never initialized
+UBBCToken.bug_unchk19().addr_unchk19 (Unhandled-Exceptions/unhandled_buggy_26.sol#68) is a local variable never initialized
+UBBCToken.UncheckedExternalCall_unchk40().addr_unchk40 (Unhandled-Exceptions/unhandled_buggy_26.sol#229) is a local variable never initialized
+UBBCToken.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_26.sol#166) is a local variable never initialized
+UBBCToken.UncheckedExternalCall_unchk4().addr_unchk4 (Unhandled-Exceptions/unhandled_buggy_26.sol#130) is a local variable never initialized
+UBBCToken.bug_unchk7().addr_unchk7 (Unhandled-Exceptions/unhandled_buggy_26.sol#143) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+UBBCToken.unhandledsend_unchk26(address).callee (Unhandled-Exceptions/unhandled_buggy_26.sol#73) lacks a zero-check on :
+		- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_26.sol#74)
+UBBCToken.unhandledsend_unchk38(address).callee (Unhandled-Exceptions/unhandled_buggy_26.sol#97) lacks a zero-check on :
+		- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_26.sol#98)
+UBBCToken.cash_unchk46(uint256,uint256,address).winner_unchk46 (Unhandled-Exceptions/unhandled_buggy_26.sol#108) lacks a zero-check on :
+		- winner_unchk46.send(subpot_unchk46) (Unhandled-Exceptions/unhandled_buggy_26.sol#110)
+UBBCToken.my_func_unchk23(address).dst (Unhandled-Exceptions/unhandled_buggy_26.sol#150) lacks a zero-check on :
+		- dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_26.sol#151)
+UBBCToken.unhandledsend_unchk14(address).callee (Unhandled-Exceptions/unhandled_buggy_26.sol#157) lacks a zero-check on :
+		- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_26.sol#158)
+UBBCToken.bug_unchk39(address).addr (Unhandled-Exceptions/unhandled_buggy_26.sol#190) lacks a zero-check on :
+		- addr.send(4000000000000000000) (Unhandled-Exceptions/unhandled_buggy_26.sol#191)
+UBBCToken.my_func_uncheck36(address).dst (Unhandled-Exceptions/unhandled_buggy_26.sol#197) lacks a zero-check on :
+		- dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_26.sol#198)
+UBBCToken.my_func_unchk35(address).dst (Unhandled-Exceptions/unhandled_buggy_26.sol#206) lacks a zero-check on :
+		- dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_26.sol#207)
+UBBCToken.bug_unchk27(address).addr (Unhandled-Exceptions/unhandled_buggy_26.sol#259) lacks a zero-check on :
+		- addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_26.sol#260)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+SafeMath.div(uint256,uint256) (Unhandled-Exceptions/unhandled_buggy_26.sol#35-42) is never used and should be removed
+SafeMath.mod(uint256,uint256) (Unhandled-Exceptions/unhandled_buggy_26.sol#44-47) is never used and should be removed
+SafeMath.mul(uint256,uint256) (Unhandled-Exceptions/unhandled_buggy_26.sol#21-33) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.5.2 (Unhandled-Exceptions/unhandled_buggy_26.sol#5) allows old versions
+solc-0.5.2 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in UBBCToken.my_func_uncheck36(address) (Unhandled-Exceptions/unhandled_buggy_26.sol#197-199):
+	- dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_26.sol#198)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Function UBBCToken.callnotchecked_unchk25(address) (Unhandled-Exceptions/unhandled_buggy_26.sol#63-65) is not in mixedCase
+Function UBBCToken.bug_unchk19() (Unhandled-Exceptions/unhandled_buggy_26.sol#67-71) is not in mixedCase
+Function UBBCToken.unhandledsend_unchk26(address) (Unhandled-Exceptions/unhandled_buggy_26.sol#73-75) is not in mixedCase
+Function UBBCToken.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_26.sol#81-85) is not in mixedCase
+Function UBBCToken.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_26.sol#91-95) is not in mixedCase
+Function UBBCToken.unhandledsend_unchk38(address) (Unhandled-Exceptions/unhandled_buggy_26.sol#97-99) is not in mixedCase
+Function UBBCToken.cash_unchk46(uint256,uint256,address) (Unhandled-Exceptions/unhandled_buggy_26.sol#108-112) is not in mixedCase
+Parameter UBBCToken.cash_unchk46(uint256,uint256,address).winner_unchk46 (Unhandled-Exceptions/unhandled_buggy_26.sol#108) is not in mixedCase
+Function UBBCToken.withdrawLeftOver_unchk45() (Unhandled-Exceptions/unhandled_buggy_26.sol#115-118) is not in mixedCase
+Function UBBCToken.callnotchecked_unchk13(address) (Unhandled-Exceptions/unhandled_buggy_26.sol#121-123) is not in mixedCase
+Function UBBCToken.UncheckedExternalCall_unchk4() (Unhandled-Exceptions/unhandled_buggy_26.sol#129-137) is not in mixedCase
+Function UBBCToken.bug_unchk7() (Unhandled-Exceptions/unhandled_buggy_26.sol#142-146) is not in mixedCase
+Function UBBCToken.my_func_unchk23(address) (Unhandled-Exceptions/unhandled_buggy_26.sol#150-152) is not in mixedCase
+Function UBBCToken.unhandledsend_unchk14(address) (Unhandled-Exceptions/unhandled_buggy_26.sol#157-159) is not in mixedCase
+Function UBBCToken.bug_unchk30() (Unhandled-Exceptions/unhandled_buggy_26.sol#164-171) is not in mixedCase
+Function UBBCToken.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_26.sol#181-185) is not in mixedCase
+Function UBBCToken.bug_unchk39(address) (Unhandled-Exceptions/unhandled_buggy_26.sol#190-191) is not in mixedCase
+Function UBBCToken.my_func_uncheck36(address) (Unhandled-Exceptions/unhandled_buggy_26.sol#197-199) is not in mixedCase
+Function UBBCToken.my_func_unchk35(address) (Unhandled-Exceptions/unhandled_buggy_26.sol#206-208) is not in mixedCase
+Function UBBCToken.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_26.sol#218-222) is not in mixedCase
+Function UBBCToken.UncheckedExternalCall_unchk40() (Unhandled-Exceptions/unhandled_buggy_26.sol#228-236) is not in mixedCase
+Function UBBCToken.withdrawLeftOver_unchk33() (Unhandled-Exceptions/unhandled_buggy_26.sol#248-251) is not in mixedCase
+Function UBBCToken.bug_unchk27(address) (Unhandled-Exceptions/unhandled_buggy_26.sol#259-260) is not in mixedCase
+Function UBBCToken.bug_unchk31() (Unhandled-Exceptions/unhandled_buggy_26.sol#264-268) is not in mixedCase
+Variable UBBCToken.payedOut_unchk20 (Unhandled-Exceptions/unhandled_buggy_26.sol#77) is not in mixedCase
+Variable UBBCToken.winner_unchk20 (Unhandled-Exceptions/unhandled_buggy_26.sol#78) is not in mixedCase
+Variable UBBCToken.winAmount_unchk20 (Unhandled-Exceptions/unhandled_buggy_26.sol#79) is not in mixedCase
+Variable UBBCToken.payedOut_unchk32 (Unhandled-Exceptions/unhandled_buggy_26.sol#87) is not in mixedCase
+Variable UBBCToken.winner_unchk32 (Unhandled-Exceptions/unhandled_buggy_26.sol#88) is not in mixedCase
+Variable UBBCToken.winAmount_unchk32 (Unhandled-Exceptions/unhandled_buggy_26.sol#89) is not in mixedCase
+Variable UBBCToken.payedOut_unchk45 (Unhandled-Exceptions/unhandled_buggy_26.sol#113) is not in mixedCase
+Variable UBBCToken.payedOut_unchk8 (Unhandled-Exceptions/unhandled_buggy_26.sol#177) is not in mixedCase
+Variable UBBCToken.winner_unchk8 (Unhandled-Exceptions/unhandled_buggy_26.sol#178) is not in mixedCase
+Variable UBBCToken.winAmount_unchk8 (Unhandled-Exceptions/unhandled_buggy_26.sol#179) is not in mixedCase
+Variable UBBCToken.payedOut_unchk44 (Unhandled-Exceptions/unhandled_buggy_26.sol#214) is not in mixedCase
+Variable UBBCToken.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_26.sol#215) is not in mixedCase
+Variable UBBCToken.winAmount_unchk44 (Unhandled-Exceptions/unhandled_buggy_26.sol#216) is not in mixedCase
+Variable UBBCToken.payedOut_unchk33 (Unhandled-Exceptions/unhandled_buggy_26.sol#246) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in UBBCToken.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_26.sol#81-85):
+	External calls:
+	- winner_unchk20.send(winAmount_unchk20) (Unhandled-Exceptions/unhandled_buggy_26.sol#83)
+	State variables written after the call(s):
+	- payedOut_unchk20 = true (Unhandled-Exceptions/unhandled_buggy_26.sol#84)
+Reentrancy in UBBCToken.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_26.sol#91-95):
+	External calls:
+	- winner_unchk32.send(winAmount_unchk32) (Unhandled-Exceptions/unhandled_buggy_26.sol#93)
+	State variables written after the call(s):
+	- payedOut_unchk32 = true (Unhandled-Exceptions/unhandled_buggy_26.sol#94)
+Reentrancy in UBBCToken.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_26.sol#218-222):
+	External calls:
+	- winner_unchk44.send(winAmount_unchk44) (Unhandled-Exceptions/unhandled_buggy_26.sol#220)
+	State variables written after the call(s):
+	- payedOut_unchk44 = true (Unhandled-Exceptions/unhandled_buggy_26.sol#221)
+Reentrancy in UBBCToken.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_26.sol#181-185):
+	External calls:
+	- winner_unchk8.send(winAmount_unchk8) (Unhandled-Exceptions/unhandled_buggy_26.sol#183)
+	State variables written after the call(s):
+	- payedOut_unchk8 = true (Unhandled-Exceptions/unhandled_buggy_26.sol#184)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable UBBCToken.bug_unchk19().addr_unchk19 (Unhandled-Exceptions/unhandled_buggy_26.sol#68) is too similar to UBBCToken.bug_unchk31().addr_unchk31 (Unhandled-Exceptions/unhandled_buggy_26.sol#265)
+Variable UBBCToken.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_26.sol#166) is too similar to UBBCToken.bug_unchk31().addr_unchk31 (Unhandled-Exceptions/unhandled_buggy_26.sol#265)
+Variable UBBCToken.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_26.sol#166) is too similar to UBBCToken.UncheckedExternalCall_unchk40().addr_unchk40 (Unhandled-Exceptions/unhandled_buggy_26.sol#229)
+Variable UBBCToken.UncheckedExternalCall_unchk4().addr_unchk4 (Unhandled-Exceptions/unhandled_buggy_26.sol#130) is too similar to UBBCToken.bug_unchk7().addr_unchk7 (Unhandled-Exceptions/unhandled_buggy_26.sol#143)
+Variable UBBCToken.payedOut_unchk20 (Unhandled-Exceptions/unhandled_buggy_26.sol#77) is too similar to UBBCToken.payedOut_unchk32 (Unhandled-Exceptions/unhandled_buggy_26.sol#87)
+Variable UBBCToken.payedOut_unchk32 (Unhandled-Exceptions/unhandled_buggy_26.sol#87) is too similar to UBBCToken.payedOut_unchk33 (Unhandled-Exceptions/unhandled_buggy_26.sol#246)
+Variable UBBCToken.payedOut_unchk44 (Unhandled-Exceptions/unhandled_buggy_26.sol#214) is too similar to UBBCToken.payedOut_unchk45 (Unhandled-Exceptions/unhandled_buggy_26.sol#113)
+Variable UBBCToken.winAmount_unchk20 (Unhandled-Exceptions/unhandled_buggy_26.sol#79) is too similar to UBBCToken.winAmount_unchk32 (Unhandled-Exceptions/unhandled_buggy_26.sol#89)
+Variable UBBCToken.winner_unchk20 (Unhandled-Exceptions/unhandled_buggy_26.sol#78) is too similar to UBBCToken.winner_unchk32 (Unhandled-Exceptions/unhandled_buggy_26.sol#88)
+Variable UBBCToken.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_26.sol#215) is too similar to UBBCToken.cash_unchk46(uint256,uint256,address).winner_unchk46 (Unhandled-Exceptions/unhandled_buggy_26.sol#108)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+UBBCToken.constructor() (Unhandled-Exceptions/unhandled_buggy_26.sol#101-107) uses literals with too many digits:
+	- _totalSupply = 260000000000000000000000000 (Unhandled-Exceptions/unhandled_buggy_26.sol#105)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+ERC20 event UBBCTokenTransfer(address,address,uint256) (Unhandled-Exceptions/unhandled_buggy_26.sol#119)does not index parameter sender
+ERC20 event UBBCTokenTransfer(address,address,uint256) (Unhandled-Exceptions/unhandled_buggy_26.sol#119)does not index parameter to
+ERC20 event UBBCTokenApproval(address,address,uint256) (Unhandled-Exceptions/unhandled_buggy_26.sol#124)does not index parameter owner
+ERC20 event UBBCTokenApproval(address,address,uint256) (Unhandled-Exceptions/unhandled_buggy_26.sol#124)does not index parameter spender
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unindexed-erc20-event-parameters
+
+UBBCToken.payedOut_unchk33 (Unhandled-Exceptions/unhandled_buggy_26.sol#246) should be constant
+UBBCToken.payedOut_unchk45 (Unhandled-Exceptions/unhandled_buggy_26.sol#113) should be constant
+UBBCToken.winAmount_unchk20 (Unhandled-Exceptions/unhandled_buggy_26.sol#79) should be constant
+UBBCToken.winAmount_unchk32 (Unhandled-Exceptions/unhandled_buggy_26.sol#89) should be constant
+UBBCToken.winAmount_unchk44 (Unhandled-Exceptions/unhandled_buggy_26.sol#216) should be constant
+UBBCToken.winAmount_unchk8 (Unhandled-Exceptions/unhandled_buggy_26.sol#179) should be constant
+UBBCToken.winner_unchk20 (Unhandled-Exceptions/unhandled_buggy_26.sol#78) should be constant
+UBBCToken.winner_unchk32 (Unhandled-Exceptions/unhandled_buggy_26.sol#88) should be constant
+UBBCToken.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_26.sol#215) should be constant
+UBBCToken.winner_unchk8 (Unhandled-Exceptions/unhandled_buggy_26.sol#178) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+Unhandled-Exceptions/unhandled_buggy_26.sol analyzed (3 contracts with 80 detectors), 120 result(s) found

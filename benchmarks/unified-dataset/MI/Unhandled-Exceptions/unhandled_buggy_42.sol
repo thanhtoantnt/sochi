@@ -2,7 +2,7 @@
  *Submitted for verification at Etherscan.io on 2019-09-24
 */
 
-pragma solidity ^0.5.11;
+pragma solidity ^0.5.12;
 
 contract Owned {
   function bug_unchk3(address payable addr) public

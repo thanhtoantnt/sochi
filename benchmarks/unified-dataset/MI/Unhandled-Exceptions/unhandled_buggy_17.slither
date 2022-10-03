@@ -1,0 +1,350 @@
+Compilation warnings/errors on Unhandled-Exceptions/unhandled_buggy_17.sol:
+Unhandled-Exceptions/unhandled_buggy_17.sol:50:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+Unhandled-Exceptions/unhandled_buggy_17.sol:59:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk46.send(subpot_unchk46);  //bug
+        ^---------------------------------^
+Unhandled-Exceptions/unhandled_buggy_17.sol:96:9: Warning: Return value of low-level calls not used.
+        dst.call.value(msg.value)("");
+        ^---------------------------^
+Unhandled-Exceptions/unhandled_buggy_17.sol:101:2: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+	msg.sender.send(Balances_unchk17);}
+	^-------------------------------^
+Unhandled-Exceptions/unhandled_buggy_17.sol:109:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (42 ether); }
+       ^------------------^
+Unhandled-Exceptions/unhandled_buggy_17.sol:115:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_17.sol:130:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_17.sol:158:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+Unhandled-Exceptions/unhandled_buggy_17.sol:166:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+Unhandled-Exceptions/unhandled_buggy_17.sol:196:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk8.send(winAmount_unchk8);
+        ^----------------------------------^
+Unhandled-Exceptions/unhandled_buggy_17.sol:209:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (4 ether); }
+       ^-----------------^
+Unhandled-Exceptions/unhandled_buggy_17.sol:231:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+Unhandled-Exceptions/unhandled_buggy_17.sol:241:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk20.send(winAmount_unchk20);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_17.sol:251:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk32.send(winAmount_unchk32);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_17.sol:264:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+Unhandled-Exceptions/unhandled_buggy_17.sol:287:9: Warning: Return value of low-level calls not used.
+        dst.call.value(msg.value)("");
+        ^---------------------------^
+Unhandled-Exceptions/unhandled_buggy_17.sol:298:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+Unhandled-Exceptions/unhandled_buggy_17.sol:316:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk44.send(winAmount_unchk44);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_17.sol:348:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_17.sol:355:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (42 ether); }
+       ^------------------^
+Unhandled-Exceptions/unhandled_buggy_17.sol:57:23: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                      ^-------------^
+Unhandled-Exceptions/unhandled_buggy_17.sol:57:40: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                                       ^--------------^
+
+
+owned.unhandledsend_unchk2(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#49-51) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_17.sol#50)
+owned.cash_unchk46(uint256,uint256,address) (Unhandled-Exceptions/unhandled_buggy_17.sol#57-61) sends eth to arbitrary user
+	Dangerous calls:
+	- winner_unchk46.send(subpot_unchk46) (Unhandled-Exceptions/unhandled_buggy_17.sol#59)
+TokenERC20.withdrawBal_unchk17() (Unhandled-Exceptions/unhandled_buggy_17.sol#99-101) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(Balances_unchk17) (Unhandled-Exceptions/unhandled_buggy_17.sol#101)
+TokenERC20.bug_unchk3(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#108-109) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_17.sol#109)
+TokenERC20.withdrawLeftOver_unchk9() (Unhandled-Exceptions/unhandled_buggy_17.sol#113-116) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_17.sol#115)
+TokenERC20.withdrawLeftOver_unchk45() (Unhandled-Exceptions/unhandled_buggy_17.sol#128-131) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_17.sol#130)
+TokenERC20.unhandledsend_unchk14(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#165-167) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_17.sol#166)
+TokenERC20.bug_unchk39(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#208-209) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(4000000000000000000) (Unhandled-Exceptions/unhandled_buggy_17.sol#209)
+AZT.unhandledsend_unchk26(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#230-232) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_17.sol#231)
+AZT.unhandledsend_unchk38(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#263-265) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_17.sol#264)
+AZT.withdrawLeftOver_unchk33() (Unhandled-Exceptions/unhandled_buggy_17.sol#346-349) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_17.sol#348)
+AZT.bug_unchk27(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#354-355) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_17.sol#355)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+TokenERC20.winner_unchk8 (Unhandled-Exceptions/unhandled_buggy_17.sol#191) is never initialized. It is used in:
+	- TokenERC20.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_17.sol#194-198)
+TokenERC20.winAmount_unchk8 (Unhandled-Exceptions/unhandled_buggy_17.sol#192) is never initialized. It is used in:
+	- TokenERC20.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_17.sol#194-198)
+AZT.winner_unchk20 (Unhandled-Exceptions/unhandled_buggy_17.sol#236) is never initialized. It is used in:
+	- AZT.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_17.sol#239-243)
+AZT.winAmount_unchk20 (Unhandled-Exceptions/unhandled_buggy_17.sol#237) is never initialized. It is used in:
+	- AZT.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_17.sol#239-243)
+AZT.winner_unchk32 (Unhandled-Exceptions/unhandled_buggy_17.sol#246) is never initialized. It is used in:
+	- AZT.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_17.sol#249-253)
+AZT.winAmount_unchk32 (Unhandled-Exceptions/unhandled_buggy_17.sol#247) is never initialized. It is used in:
+	- AZT.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_17.sol#249-253)
+AZT.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_17.sol#311) is never initialized. It is used in:
+	- AZT.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_17.sol#314-318)
+AZT.winAmount_unchk44 (Unhandled-Exceptions/unhandled_buggy_17.sol#312) is never initialized. It is used in:
+	- AZT.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_17.sol#314-318)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+
+TokenERC20.my_func_uncheck48(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#95-97) ignores return value by dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_17.sol#96)
+AZT.my_func_uncheck36(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#286-288) ignores return value by dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_17.sol#287)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-low-level-calls
+
+owned.unhandledsend_unchk2(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#49-51) ignores return value by callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_17.sol#50)
+owned.cash_unchk46(uint256,uint256,address) (Unhandled-Exceptions/unhandled_buggy_17.sol#57-61) ignores return value by winner_unchk46.send(subpot_unchk46) (Unhandled-Exceptions/unhandled_buggy_17.sol#59)
+TokenERC20.withdrawBal_unchk17() (Unhandled-Exceptions/unhandled_buggy_17.sol#99-101) ignores return value by msg.sender.send(Balances_unchk17) (Unhandled-Exceptions/unhandled_buggy_17.sol#101)
+TokenERC20.bug_unchk3(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#108-109) ignores return value by addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_17.sol#109)
+TokenERC20.withdrawLeftOver_unchk9() (Unhandled-Exceptions/unhandled_buggy_17.sol#113-116) ignores return value by msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_17.sol#115)
+TokenERC20.withdrawLeftOver_unchk45() (Unhandled-Exceptions/unhandled_buggy_17.sol#128-131) ignores return value by msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_17.sol#130)
+TokenERC20.my_func_unchk23(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#157-159) ignores return value by dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_17.sol#158)
+TokenERC20.unhandledsend_unchk14(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#165-167) ignores return value by callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_17.sol#166)
+TokenERC20.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_17.sol#194-198) ignores return value by winner_unchk8.send(winAmount_unchk8) (Unhandled-Exceptions/unhandled_buggy_17.sol#196)
+TokenERC20.bug_unchk39(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#208-209) ignores return value by addr.send(4000000000000000000) (Unhandled-Exceptions/unhandled_buggy_17.sol#209)
+AZT.unhandledsend_unchk26(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#230-232) ignores return value by callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_17.sol#231)
+AZT.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_17.sol#239-243) ignores return value by winner_unchk20.send(winAmount_unchk20) (Unhandled-Exceptions/unhandled_buggy_17.sol#241)
+AZT.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_17.sol#249-253) ignores return value by winner_unchk32.send(winAmount_unchk32) (Unhandled-Exceptions/unhandled_buggy_17.sol#251)
+AZT.unhandledsend_unchk38(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#263-265) ignores return value by callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_17.sol#264)
+AZT.my_func_unchk35(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#297-299) ignores return value by dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_17.sol#298)
+AZT.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_17.sol#314-318) ignores return value by winner_unchk44.send(winAmount_unchk44) (Unhandled-Exceptions/unhandled_buggy_17.sol#316)
+AZT.withdrawLeftOver_unchk33() (Unhandled-Exceptions/unhandled_buggy_17.sol#346-349) ignores return value by msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_17.sol#348)
+AZT.bug_unchk27(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#354-355) ignores return value by addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_17.sol#355)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-send
+
+TokenERC20.bug_unchk31().addr_unchk31 (Unhandled-Exceptions/unhandled_buggy_17.sol#120) is a local variable never initialized
+AZT.bug_unchk19().addr_unchk19 (Unhandled-Exceptions/unhandled_buggy_17.sol#224) is a local variable never initialized
+TokenERC20.bug_unchk7().addr_unchk7 (Unhandled-Exceptions/unhandled_buggy_17.sol#146) is a local variable never initialized
+TokenERC20.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_17.sol#177) is a local variable never initialized
+owned.UncheckedExternalCall_unchk4().addr_unchk4 (Unhandled-Exceptions/unhandled_buggy_17.sol#72) is a local variable never initialized
+AZT.UncheckedExternalCall_unchk40().addr_unchk40 (Unhandled-Exceptions/unhandled_buggy_17.sol#328) is a local variable never initialized
+TokenERC20.bug_unchk43().addr_unchk43 (Unhandled-Exceptions/unhandled_buggy_17.sol#90) is a local variable never initialized
+TokenERC20.bug_unchk30().receivers_unchk30 (Unhandled-Exceptions/unhandled_buggy_17.sol#176) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+owned.transferOwnership(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#68-70) should emit an event for: 
+	- owner = newOwner (Unhandled-Exceptions/unhandled_buggy_17.sol#69) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+TokenERC20.my_func_uncheck48(address).dst (Unhandled-Exceptions/unhandled_buggy_17.sol#95) lacks a zero-check on :
+		- dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_17.sol#96)
+TokenERC20.bug_unchk3(address).addr (Unhandled-Exceptions/unhandled_buggy_17.sol#108) lacks a zero-check on :
+		- addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_17.sol#109)
+TokenERC20.my_func_unchk23(address).dst (Unhandled-Exceptions/unhandled_buggy_17.sol#157) lacks a zero-check on :
+		- dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_17.sol#158)
+TokenERC20.unhandledsend_unchk14(address).callee (Unhandled-Exceptions/unhandled_buggy_17.sol#165) lacks a zero-check on :
+		- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_17.sol#166)
+TokenERC20.bug_unchk39(address).addr (Unhandled-Exceptions/unhandled_buggy_17.sol#208) lacks a zero-check on :
+		- addr.send(4000000000000000000) (Unhandled-Exceptions/unhandled_buggy_17.sol#209)
+owned.unhandledsend_unchk2(address).callee (Unhandled-Exceptions/unhandled_buggy_17.sol#49) lacks a zero-check on :
+		- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_17.sol#50)
+owned.cash_unchk46(uint256,uint256,address).winner_unchk46 (Unhandled-Exceptions/unhandled_buggy_17.sol#57) lacks a zero-check on :
+		- winner_unchk46.send(subpot_unchk46) (Unhandled-Exceptions/unhandled_buggy_17.sol#59)
+owned.transferOwnership(address).newOwner (Unhandled-Exceptions/unhandled_buggy_17.sol#68) lacks a zero-check on :
+		- owner = newOwner (Unhandled-Exceptions/unhandled_buggy_17.sol#69)
+AZT.unhandledsend_unchk26(address).callee (Unhandled-Exceptions/unhandled_buggy_17.sol#230) lacks a zero-check on :
+		- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_17.sol#231)
+AZT.unhandledsend_unchk38(address).callee (Unhandled-Exceptions/unhandled_buggy_17.sol#263) lacks a zero-check on :
+		- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_17.sol#264)
+AZT.my_func_uncheck36(address).dst (Unhandled-Exceptions/unhandled_buggy_17.sol#286) lacks a zero-check on :
+		- dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_17.sol#287)
+AZT.my_func_unchk35(address).dst (Unhandled-Exceptions/unhandled_buggy_17.sol#297) lacks a zero-check on :
+		- dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_17.sol#298)
+AZT.bug_unchk27(address).addr (Unhandled-Exceptions/unhandled_buggy_17.sol#354) lacks a zero-check on :
+		- addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_17.sol#355)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+AZT.checkFrozenWallet(address,uint256) (Unhandled-Exceptions/unhandled_buggy_17.sol#301-309) uses timestamp for comparisons
+	Dangerous comparisons:
+	- (_from == owner || (! tokenFrozen && (! frozenWallets[_from].isFrozen || now >= frozenWallets[_from].frozenTime || balanceOf[_from].sub(_value) >= frozenWallets[_from].frozenAmount))) (Unhandled-Exceptions/unhandled_buggy_17.sol#302-308)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+AZT.constructor() (Unhandled-Exceptions/unhandled_buggy_17.sol#270-285) has costly operations inside a loop:
+	- totalSupply = totalSupply.add(frozenWallets[frozenAddresses[i]].rewardedAmount) (Unhandled-Exceptions/unhandled_buggy_17.sol#283)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#costly-operations-inside-a-loop
+
+SafeMath.div(uint256,uint256) (Unhandled-Exceptions/unhandled_buggy_17.sol#17-21) is never used and should be removed
+SafeMath.max256(uint256,uint256) (Unhandled-Exceptions/unhandled_buggy_17.sol#36-38) is never used and should be removed
+SafeMath.min256(uint256,uint256) (Unhandled-Exceptions/unhandled_buggy_17.sol#39-41) is never used and should be removed
+SafeMath.mod(uint256,uint256) (Unhandled-Exceptions/unhandled_buggy_17.sol#32-35) is never used and should be removed
+SafeMath.mul(uint256,uint256) (Unhandled-Exceptions/unhandled_buggy_17.sol#9-16) is never used and should be removed
+TokenERC20._transfer(address,address,uint256) (Unhandled-Exceptions/unhandled_buggy_17.sol#151-156) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.5.6 (Unhandled-Exceptions/unhandled_buggy_17.sol#5) is known to contain severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+solc-0.5.6 is known to contain severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in TokenERC20.my_func_uncheck48(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#95-97):
+	- dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_17.sol#96)
+Low level call in AZT.my_func_uncheck36(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#286-288):
+	- dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_17.sol#287)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Contract owned (Unhandled-Exceptions/unhandled_buggy_17.sol#48-80) is not in CapWords
+Function owned.unhandledsend_unchk2(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#49-51) is not in mixedCase
+Function owned.cash_unchk46(uint256,uint256,address) (Unhandled-Exceptions/unhandled_buggy_17.sol#57-61) is not in mixedCase
+Parameter owned.cash_unchk46(uint256,uint256,address).winner_unchk46 (Unhandled-Exceptions/unhandled_buggy_17.sol#57) is not in mixedCase
+Function owned.UncheckedExternalCall_unchk4() (Unhandled-Exceptions/unhandled_buggy_17.sol#71-79) is not in mixedCase
+Contract tokenRecipient (Unhandled-Exceptions/unhandled_buggy_17.sol#82-84) is not in CapWords
+Function TokenERC20.bug_unchk43() (Unhandled-Exceptions/unhandled_buggy_17.sol#89-93) is not in mixedCase
+Function TokenERC20.my_func_uncheck48(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#95-97) is not in mixedCase
+Function TokenERC20.withdrawBal_unchk17() (Unhandled-Exceptions/unhandled_buggy_17.sol#99-101) is not in mixedCase
+Function TokenERC20.callnotchecked_unchk37(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#103-105) is not in mixedCase
+Function TokenERC20.bug_unchk3(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#108-109) is not in mixedCase
+Function TokenERC20.withdrawLeftOver_unchk9() (Unhandled-Exceptions/unhandled_buggy_17.sol#113-116) is not in mixedCase
+Function TokenERC20.bug_unchk31() (Unhandled-Exceptions/unhandled_buggy_17.sol#119-123) is not in mixedCase
+Function TokenERC20.withdrawLeftOver_unchk45() (Unhandled-Exceptions/unhandled_buggy_17.sol#128-131) is not in mixedCase
+Function TokenERC20.callnotchecked_unchk13(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#134-136) is not in mixedCase
+Function TokenERC20.bug_unchk7() (Unhandled-Exceptions/unhandled_buggy_17.sol#145-149) is not in mixedCase
+Function TokenERC20.my_func_unchk23(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#157-159) is not in mixedCase
+Parameter TokenERC20.transfer(address,uint256)._to (Unhandled-Exceptions/unhandled_buggy_17.sol#161) is not in mixedCase
+Parameter TokenERC20.transfer(address,uint256)._value (Unhandled-Exceptions/unhandled_buggy_17.sol#161) is not in mixedCase
+Function TokenERC20.unhandledsend_unchk14(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#165-167) is not in mixedCase
+Parameter TokenERC20.transferFrom(address,address,uint256)._from (Unhandled-Exceptions/unhandled_buggy_17.sol#170) is not in mixedCase
+Parameter TokenERC20.transferFrom(address,address,uint256)._to (Unhandled-Exceptions/unhandled_buggy_17.sol#170) is not in mixedCase
+Parameter TokenERC20.transferFrom(address,address,uint256)._value (Unhandled-Exceptions/unhandled_buggy_17.sol#170) is not in mixedCase
+Function TokenERC20.bug_unchk30() (Unhandled-Exceptions/unhandled_buggy_17.sol#175-182) is not in mixedCase
+Parameter TokenERC20.approve(address,uint256)._spender (Unhandled-Exceptions/unhandled_buggy_17.sol#185) is not in mixedCase
+Parameter TokenERC20.approve(address,uint256)._value (Unhandled-Exceptions/unhandled_buggy_17.sol#185) is not in mixedCase
+Function TokenERC20.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_17.sol#194-198) is not in mixedCase
+Parameter TokenERC20.approveAndCall(address,uint256,bytes)._spender (Unhandled-Exceptions/unhandled_buggy_17.sol#201) is not in mixedCase
+Parameter TokenERC20.approveAndCall(address,uint256,bytes)._value (Unhandled-Exceptions/unhandled_buggy_17.sol#201) is not in mixedCase
+Parameter TokenERC20.approveAndCall(address,uint256,bytes)._extraData (Unhandled-Exceptions/unhandled_buggy_17.sol#201) is not in mixedCase
+Function TokenERC20.bug_unchk39(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#208-209) is not in mixedCase
+Variable TokenERC20.payedOut_unchk9 (Unhandled-Exceptions/unhandled_buggy_17.sol#111) is not in mixedCase
+Variable TokenERC20.payedOut_unchk45 (Unhandled-Exceptions/unhandled_buggy_17.sol#126) is not in mixedCase
+Variable TokenERC20.payedOut_unchk8 (Unhandled-Exceptions/unhandled_buggy_17.sol#190) is not in mixedCase
+Variable TokenERC20.winner_unchk8 (Unhandled-Exceptions/unhandled_buggy_17.sol#191) is not in mixedCase
+Variable TokenERC20.winAmount_unchk8 (Unhandled-Exceptions/unhandled_buggy_17.sol#192) is not in mixedCase
+Struct AZT.frozenWallet (Unhandled-Exceptions/unhandled_buggy_17.sol#256-261) is not in CapWords
+Function AZT.callnotchecked_unchk25(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#219-221) is not in mixedCase
+Function AZT.bug_unchk19() (Unhandled-Exceptions/unhandled_buggy_17.sol#223-227) is not in mixedCase
+Function AZT.unhandledsend_unchk26(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#230-232) is not in mixedCase
+Function AZT.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_17.sol#239-243) is not in mixedCase
+Function AZT.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_17.sol#249-253) is not in mixedCase
+Function AZT.unhandledsend_unchk38(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#263-265) is not in mixedCase
+Function AZT.my_func_uncheck36(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#286-288) is not in mixedCase
+Function AZT.my_func_unchk35(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#297-299) is not in mixedCase
+Parameter AZT.checkFrozenWallet(address,uint256)._from (Unhandled-Exceptions/unhandled_buggy_17.sol#301) is not in mixedCase
+Parameter AZT.checkFrozenWallet(address,uint256)._value (Unhandled-Exceptions/unhandled_buggy_17.sol#301) is not in mixedCase
+Function AZT.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_17.sol#314-318) is not in mixedCase
+Parameter AZT.burn(uint256)._value (Unhandled-Exceptions/unhandled_buggy_17.sol#321) is not in mixedCase
+Function AZT.UncheckedExternalCall_unchk40() (Unhandled-Exceptions/unhandled_buggy_17.sol#327-335) is not in mixedCase
+Parameter AZT.burnFrom(address,uint256)._from (Unhandled-Exceptions/unhandled_buggy_17.sol#337) is not in mixedCase
+Parameter AZT.burnFrom(address,uint256)._value (Unhandled-Exceptions/unhandled_buggy_17.sol#337) is not in mixedCase
+Function AZT.withdrawLeftOver_unchk33() (Unhandled-Exceptions/unhandled_buggy_17.sol#346-349) is not in mixedCase
+Function AZT.bug_unchk27(address) (Unhandled-Exceptions/unhandled_buggy_17.sol#354-355) is not in mixedCase
+Variable AZT._tokenName (Unhandled-Exceptions/unhandled_buggy_17.sol#223) is not in mixedCase
+Variable AZT._tokenSymbol (Unhandled-Exceptions/unhandled_buggy_17.sol#229) is not in mixedCase
+Variable AZT._decimals (Unhandled-Exceptions/unhandled_buggy_17.sol#233) is not in mixedCase
+Variable AZT.payedOut_unchk20 (Unhandled-Exceptions/unhandled_buggy_17.sol#235) is not in mixedCase
+Variable AZT.winner_unchk20 (Unhandled-Exceptions/unhandled_buggy_17.sol#236) is not in mixedCase
+Variable AZT.winAmount_unchk20 (Unhandled-Exceptions/unhandled_buggy_17.sol#237) is not in mixedCase
+Variable AZT.payedOut_unchk32 (Unhandled-Exceptions/unhandled_buggy_17.sol#245) is not in mixedCase
+Variable AZT.winner_unchk32 (Unhandled-Exceptions/unhandled_buggy_17.sol#246) is not in mixedCase
+Variable AZT.winAmount_unchk32 (Unhandled-Exceptions/unhandled_buggy_17.sol#247) is not in mixedCase
+Variable AZT.payedOut_unchk44 (Unhandled-Exceptions/unhandled_buggy_17.sol#310) is not in mixedCase
+Variable AZT.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_17.sol#311) is not in mixedCase
+Variable AZT.winAmount_unchk44 (Unhandled-Exceptions/unhandled_buggy_17.sol#312) is not in mixedCase
+Variable AZT.payedOut_unchk33 (Unhandled-Exceptions/unhandled_buggy_17.sol#344) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in AZT.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_17.sol#239-243):
+	External calls:
+	- winner_unchk20.send(winAmount_unchk20) (Unhandled-Exceptions/unhandled_buggy_17.sol#241)
+	State variables written after the call(s):
+	- payedOut_unchk20 = true (Unhandled-Exceptions/unhandled_buggy_17.sol#242)
+Reentrancy in AZT.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_17.sol#249-253):
+	External calls:
+	- winner_unchk32.send(winAmount_unchk32) (Unhandled-Exceptions/unhandled_buggy_17.sol#251)
+	State variables written after the call(s):
+	- payedOut_unchk32 = true (Unhandled-Exceptions/unhandled_buggy_17.sol#252)
+Reentrancy in AZT.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_17.sol#314-318):
+	External calls:
+	- winner_unchk44.send(winAmount_unchk44) (Unhandled-Exceptions/unhandled_buggy_17.sol#316)
+	State variables written after the call(s):
+	- payedOut_unchk44 = true (Unhandled-Exceptions/unhandled_buggy_17.sol#317)
+Reentrancy in TokenERC20.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_17.sol#194-198):
+	External calls:
+	- winner_unchk8.send(winAmount_unchk8) (Unhandled-Exceptions/unhandled_buggy_17.sol#196)
+	State variables written after the call(s):
+	- payedOut_unchk8 = true (Unhandled-Exceptions/unhandled_buggy_17.sol#197)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable TokenERC20.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_17.sol#177) is too similar to TokenERC20.bug_unchk31().addr_unchk31 (Unhandled-Exceptions/unhandled_buggy_17.sol#120)
+Variable TokenERC20.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_17.sol#177) is too similar to TokenERC20.bug_unchk43().addr_unchk43 (Unhandled-Exceptions/unhandled_buggy_17.sol#90)
+Variable TokenERC20.bug_unchk31().addr_unchk31 (Unhandled-Exceptions/unhandled_buggy_17.sol#120) is too similar to TokenERC20.bug_unchk43().addr_unchk43 (Unhandled-Exceptions/unhandled_buggy_17.sol#90)
+Variable TokenERC20.payedOut_unchk8 (Unhandled-Exceptions/unhandled_buggy_17.sol#190) is too similar to TokenERC20.payedOut_unchk9 (Unhandled-Exceptions/unhandled_buggy_17.sol#111)
+Variable AZT.bug_unchk19().addr_unchk19 (Unhandled-Exceptions/unhandled_buggy_17.sol#224) is too similar to TokenERC20.bug_unchk31().addr_unchk31 (Unhandled-Exceptions/unhandled_buggy_17.sol#120)
+Variable TokenERC20.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_17.sol#177) is too similar to AZT.UncheckedExternalCall_unchk40().addr_unchk40 (Unhandled-Exceptions/unhandled_buggy_17.sol#328)
+Variable AZT.UncheckedExternalCall_unchk40().addr_unchk40 (Unhandled-Exceptions/unhandled_buggy_17.sol#328) is too similar to TokenERC20.bug_unchk43().addr_unchk43 (Unhandled-Exceptions/unhandled_buggy_17.sol#90)
+Variable owned.UncheckedExternalCall_unchk4().addr_unchk4 (Unhandled-Exceptions/unhandled_buggy_17.sol#72) is too similar to TokenERC20.bug_unchk7().addr_unchk7 (Unhandled-Exceptions/unhandled_buggy_17.sol#146)
+Variable AZT.payedOut_unchk20 (Unhandled-Exceptions/unhandled_buggy_17.sol#235) is too similar to AZT.payedOut_unchk32 (Unhandled-Exceptions/unhandled_buggy_17.sol#245)
+Variable AZT.payedOut_unchk32 (Unhandled-Exceptions/unhandled_buggy_17.sol#245) is too similar to AZT.payedOut_unchk33 (Unhandled-Exceptions/unhandled_buggy_17.sol#344)
+Variable AZT.payedOut_unchk44 (Unhandled-Exceptions/unhandled_buggy_17.sol#310) is too similar to TokenERC20.payedOut_unchk45 (Unhandled-Exceptions/unhandled_buggy_17.sol#126)
+Variable AZT.winAmount_unchk20 (Unhandled-Exceptions/unhandled_buggy_17.sol#237) is too similar to AZT.winAmount_unchk32 (Unhandled-Exceptions/unhandled_buggy_17.sol#247)
+Variable AZT.winner_unchk20 (Unhandled-Exceptions/unhandled_buggy_17.sol#236) is too similar to AZT.winner_unchk32 (Unhandled-Exceptions/unhandled_buggy_17.sol#246)
+Variable AZT.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_17.sol#311) is too similar to owned.cash_unchk46(uint256,uint256,address).winner_unchk46 (Unhandled-Exceptions/unhandled_buggy_17.sol#57)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+AZT.constructor() (Unhandled-Exceptions/unhandled_buggy_17.sol#270-285) uses literals with too many digits:
+	- frozenWallets[frozenAddresses[0]] = frozenWallet(true,30000000 * 10 ** uint256(decimals),0 * 10 ** uint256(decimals),now + 1 * 3600) (Unhandled-Exceptions/unhandled_buggy_17.sol#274-279)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+AZT._decimals (Unhandled-Exceptions/unhandled_buggy_17.sol#233) should be constant
+AZT._tokenName (Unhandled-Exceptions/unhandled_buggy_17.sol#223) should be constant
+AZT._tokenSymbol (Unhandled-Exceptions/unhandled_buggy_17.sol#229) should be constant
+AZT.payedOut_unchk33 (Unhandled-Exceptions/unhandled_buggy_17.sol#344) should be constant
+AZT.winAmount_unchk20 (Unhandled-Exceptions/unhandled_buggy_17.sol#237) should be constant
+AZT.winAmount_unchk32 (Unhandled-Exceptions/unhandled_buggy_17.sol#247) should be constant
+AZT.winAmount_unchk44 (Unhandled-Exceptions/unhandled_buggy_17.sol#312) should be constant
+AZT.winner_unchk20 (Unhandled-Exceptions/unhandled_buggy_17.sol#236) should be constant
+AZT.winner_unchk32 (Unhandled-Exceptions/unhandled_buggy_17.sol#246) should be constant
+AZT.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_17.sol#311) should be constant
+TokenERC20.payedOut_unchk45 (Unhandled-Exceptions/unhandled_buggy_17.sol#126) should be constant
+TokenERC20.payedOut_unchk9 (Unhandled-Exceptions/unhandled_buggy_17.sol#111) should be constant
+TokenERC20.winAmount_unchk8 (Unhandled-Exceptions/unhandled_buggy_17.sol#192) should be constant
+TokenERC20.winner_unchk8 (Unhandled-Exceptions/unhandled_buggy_17.sol#191) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+approveAndCall(address,uint256,bytes) should be declared external:
+	- TokenERC20.approveAndCall(address,uint256,bytes) (Unhandled-Exceptions/unhandled_buggy_17.sol#201-207)
+Moreover, the following function parameters should change its data location:
+_extraData location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+Unhandled-Exceptions/unhandled_buggy_17.sol analyzed (5 contracts with 80 detectors), 175 result(s) found

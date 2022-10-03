@@ -1,0 +1,76 @@
+
+ProofOfExistence.bug_unchk_send23() (Unchecked-Send/unchecked_buggy_46.sol#19-20) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_46.sol#20)
+ProofOfExistence.bug_unchk_send14() (Unchecked-Send/unchecked_buggy_46.sol#45-46) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_46.sol#46)
+ProofOfExistence.bug_unchk_send30() (Unchecked-Send/unchecked_buggy_46.sol#69-70) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_46.sol#70)
+ProofOfExistence.bug_unchk_send8() (Unchecked-Send/unchecked_buggy_46.sol#84-85) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_46.sol#85)
+ProofOfExistence.bug_unchk_send27() (Unchecked-Send/unchecked_buggy_46.sol#96-97) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_46.sol#97)
+ProofOfExistence.bug_unchk_send31() (Unchecked-Send/unchecked_buggy_46.sol#118-119) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_46.sol#119)
+ProofOfExistence.bug_unchk_send13() (Unchecked-Send/unchecked_buggy_46.sol#139-140) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_46.sol#140)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+ProofOfExistence (Unchecked-Send/unchecked_buggy_46.sol#7-143) contract sets array length with a user-controlled value:
+	- fileExistenceProofs[dappBoxOrigin].push(newInfo) (Unchecked-Send/unchecked_buggy_46.sol#42)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#array-length-assignment
+
+ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification).newInfo (Unchecked-Send/unchecked_buggy_46.sol#31) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+ProofOfExistence.GetFileExistenceProof(address,string,string) (Unchecked-Send/unchecked_buggy_46.sol#52-68) compares to a boolean constant:
+	-res == true (Unchecked-Send/unchecked_buggy_46.sol#59)
+ProofOfExistence.getQRCode(address,string,string) (Unchecked-Send/unchecked_buggy_46.sol#104-117) compares to a boolean constant:
+	-res == true (Unchecked-Send/unchecked_buggy_46.sol#111)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#boolean-equality
+
+Pragma version>=0.4.21<0.6.0 (Unchecked-Send/unchecked_buggy_46.sol#5) allows old versions
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function ProofOfExistence.bug_unchk_send23() (Unchecked-Send/unchecked_buggy_46.sol#19-20) is not in mixedCase
+Function ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification) (Unchecked-Send/unchecked_buggy_46.sol#29-44) is not in mixedCase
+Parameter ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification)._fileHash (Unchecked-Send/unchecked_buggy_46.sol#29) is not in mixedCase
+Parameter ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification)._filePathHash (Unchecked-Send/unchecked_buggy_46.sol#29) is not in mixedCase
+Parameter ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification)._contractAddress (Unchecked-Send/unchecked_buggy_46.sol#29) is not in mixedCase
+Parameter ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification)._identifier (Unchecked-Send/unchecked_buggy_46.sol#29) is not in mixedCase
+Function ProofOfExistence.bug_unchk_send14() (Unchecked-Send/unchecked_buggy_46.sol#45-46) is not in mixedCase
+Function ProofOfExistence.GetFileExistenceProof(address,string,string) (Unchecked-Send/unchecked_buggy_46.sol#52-68) is not in mixedCase
+Function ProofOfExistence.bug_unchk_send30() (Unchecked-Send/unchecked_buggy_46.sol#69-70) is not in mixedCase
+Function ProofOfExistence.bug_unchk_send8() (Unchecked-Send/unchecked_buggy_46.sol#84-85) is not in mixedCase
+Parameter ProofOfExistence.generateQRCodeForFile(address,string,string,address,ProofOfExistence.BlockchainIdentification)._fileHash (Unchecked-Send/unchecked_buggy_46.sol#90) is not in mixedCase
+Parameter ProofOfExistence.generateQRCodeForFile(address,string,string,address,ProofOfExistence.BlockchainIdentification)._contractAddress (Unchecked-Send/unchecked_buggy_46.sol#90) is not in mixedCase
+Parameter ProofOfExistence.generateQRCodeForFile(address,string,string,address,ProofOfExistence.BlockchainIdentification)._identifier (Unchecked-Send/unchecked_buggy_46.sol#90) is not in mixedCase
+Function ProofOfExistence.bug_unchk_send27() (Unchecked-Send/unchecked_buggy_46.sol#96-97) is not in mixedCase
+Function ProofOfExistence.bug_unchk_send31() (Unchecked-Send/unchecked_buggy_46.sol#118-119) is not in mixedCase
+Parameter ProofOfExistence.searchExistenceProoUsngQRf(address,bytes32).QRCodeHash (Unchecked-Send/unchecked_buggy_46.sol#125) is not in mixedCase
+Function ProofOfExistence.bug_unchk_send13() (Unchecked-Send/unchecked_buggy_46.sol#139-140) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification) should be declared external:
+	- ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification) (Unchecked-Send/unchecked_buggy_46.sol#29-44)
+Moreover, the following function parameters should change its data location:
+_fileHash location should be calldata
+_filePathHash location should be calldata
+GetFileExistenceProof(address,string,string) should be declared external:
+	- ProofOfExistence.GetFileExistenceProof(address,string,string) (Unchecked-Send/unchecked_buggy_46.sol#52-68)
+Moreover, the following function parameters should change its data location:
+fileHash location should be calldata
+filePathHash location should be calldata
+getQRCode(address,string,string) should be declared external:
+	- ProofOfExistence.getQRCode(address,string,string) (Unchecked-Send/unchecked_buggy_46.sol#104-117)
+Moreover, the following function parameters should change its data location:
+fileHash location should be calldata
+filePathHash location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+Unchecked-Send/unchecked_buggy_46.sol analyzed (1 contracts with 80 detectors), 32 result(s) found

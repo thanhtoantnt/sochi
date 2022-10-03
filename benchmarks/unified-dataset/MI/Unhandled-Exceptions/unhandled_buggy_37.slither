@@ -1,0 +1,346 @@
+Compilation warnings/errors on Unhandled-Exceptions/unhandled_buggy_37.sol:
+Unhandled-Exceptions/unhandled_buggy_37.sol:32:2: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+	msg.sender.send(Balances_unchk17);}
+	^-------------------------------^
+Unhandled-Exceptions/unhandled_buggy_37.sol:45:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (42 ether); }
+       ^------------------^
+Unhandled-Exceptions/unhandled_buggy_37.sol:54:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_37.sol:76:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+Unhandled-Exceptions/unhandled_buggy_37.sol:85:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk20.send(winAmount_unchk20);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_37.sol:95:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk32.send(winAmount_unchk32);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_37.sol:100:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+Unhandled-Exceptions/unhandled_buggy_37.sol:113:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_37.sol:128:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk46.send(subpot_unchk46);  //bug
+        ^---------------------------------^
+Unhandled-Exceptions/unhandled_buggy_37.sol:139:9: Warning: Return value of low-level calls not used.
+        dst.call.value(msg.value)("");
+        ^---------------------------^
+Unhandled-Exceptions/unhandled_buggy_37.sol:143:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+Unhandled-Exceptions/unhandled_buggy_37.sol:185:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+Unhandled-Exceptions/unhandled_buggy_37.sol:201:2: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+	msg.sender.send(Balances_unchk41);}
+	^-------------------------------^
+Unhandled-Exceptions/unhandled_buggy_37.sol:213:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+Unhandled-Exceptions/unhandled_buggy_37.sol:224:9: Warning: Return value of low-level calls not used.
+        dst.call.value(msg.value)("");
+        ^---------------------------^
+Unhandled-Exceptions/unhandled_buggy_37.sol:241:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+Unhandled-Exceptions/unhandled_buggy_37.sol:273:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk8.send(winAmount_unchk8);
+        ^----------------------------------^
+Unhandled-Exceptions/unhandled_buggy_37.sol:290:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (4 ether); }
+       ^-----------------^
+Unhandled-Exceptions/unhandled_buggy_37.sol:307:9: Warning: Return value of low-level calls not used.
+        dst.call.value(msg.value)("");
+        ^---------------------------^
+Unhandled-Exceptions/unhandled_buggy_37.sol:328:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+Unhandled-Exceptions/unhandled_buggy_37.sol:345:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk44.send(winAmount_unchk44);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_37.sol:382:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_37.sol:393:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (42 ether); }
+       ^------------------^
+Unhandled-Exceptions/unhandled_buggy_37.sol:126:23: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                      ^-------------^
+Unhandled-Exceptions/unhandled_buggy_37.sol:126:40: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                                       ^--------------^
+
+
+SafeMath.withdrawBal_unchk17() (Unhandled-Exceptions/unhandled_buggy_37.sol#30-32) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(Balances_unchk17) (Unhandled-Exceptions/unhandled_buggy_37.sol#32)
+SafeMath.bug_unchk3(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#44-45) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_37.sol#45)
+SafeMath.withdrawLeftOver_unchk9() (Unhandled-Exceptions/unhandled_buggy_37.sol#52-55) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_37.sol#54)
+ERC20Interface.unhandledsend_unchk26(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#75-77) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_37.sol#76)
+ERC20Interface.unhandledsend_unchk38(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#99-101) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_37.sol#100)
+ERC20Interface.withdrawLeftOver_unchk45() (Unhandled-Exceptions/unhandled_buggy_37.sol#111-114) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_37.sol#113)
+ApproveAndCallFallBack.cash_unchk46(uint256,uint256,address) (Unhandled-Exceptions/unhandled_buggy_37.sol#126-130) sends eth to arbitrary user
+	Dangerous calls:
+	- winner_unchk46.send(subpot_unchk46) (Unhandled-Exceptions/unhandled_buggy_37.sol#128)
+AugustCoin.withdrawBal_unchk41() (Unhandled-Exceptions/unhandled_buggy_37.sol#199-201) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(Balances_unchk41) (Unhandled-Exceptions/unhandled_buggy_37.sol#201)
+AugustCoin.unhandledsend_unchk2(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#212-214) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_37.sol#213)
+AugustCoin.unhandledsend_unchk14(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#240-242) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_37.sol#241)
+AugustCoin.bug_unchk39(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#289-290) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(4000000000000000000) (Unhandled-Exceptions/unhandled_buggy_37.sol#290)
+AugustCoin.withdrawLeftOver_unchk33() (Unhandled-Exceptions/unhandled_buggy_37.sol#380-383) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_37.sol#382)
+AugustCoin.bug_unchk27(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#392-393) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_37.sol#393)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+ERC20Interface.winner_unchk20 (Unhandled-Exceptions/unhandled_buggy_37.sol#80) is never initialized. It is used in:
+	- ERC20Interface.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_37.sol#83-87)
+ERC20Interface.winAmount_unchk20 (Unhandled-Exceptions/unhandled_buggy_37.sol#81) is never initialized. It is used in:
+	- ERC20Interface.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_37.sol#83-87)
+ERC20Interface.winner_unchk32 (Unhandled-Exceptions/unhandled_buggy_37.sol#90) is never initialized. It is used in:
+	- ERC20Interface.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_37.sol#93-97)
+ERC20Interface.winAmount_unchk32 (Unhandled-Exceptions/unhandled_buggy_37.sol#91) is never initialized. It is used in:
+	- ERC20Interface.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_37.sol#93-97)
+AugustCoin.winner_unchk8 (Unhandled-Exceptions/unhandled_buggy_37.sol#268) is never initialized. It is used in:
+	- AugustCoin.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_37.sol#271-275)
+AugustCoin.winAmount_unchk8 (Unhandled-Exceptions/unhandled_buggy_37.sol#269) is never initialized. It is used in:
+	- AugustCoin.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_37.sol#271-275)
+AugustCoin.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_37.sol#340) is never initialized. It is used in:
+	- AugustCoin.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_37.sol#343-347)
+AugustCoin.winAmount_unchk44 (Unhandled-Exceptions/unhandled_buggy_37.sol#341) is never initialized. It is used in:
+	- AugustCoin.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_37.sol#343-347)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+
+Owned.my_func_uncheck12(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#138-140) ignores return value by dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_37.sol#139)
+AugustCoin.my_func_uncheck48(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#223-225) ignores return value by dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_37.sol#224)
+AugustCoin.my_func_uncheck36(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#306-308) ignores return value by dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_37.sol#307)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-low-level-calls
+
+SafeMath.withdrawBal_unchk17() (Unhandled-Exceptions/unhandled_buggy_37.sol#30-32) ignores return value by msg.sender.send(Balances_unchk17) (Unhandled-Exceptions/unhandled_buggy_37.sol#32)
+SafeMath.bug_unchk3(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#44-45) ignores return value by addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_37.sol#45)
+SafeMath.withdrawLeftOver_unchk9() (Unhandled-Exceptions/unhandled_buggy_37.sol#52-55) ignores return value by msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_37.sol#54)
+ERC20Interface.unhandledsend_unchk26(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#75-77) ignores return value by callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_37.sol#76)
+ERC20Interface.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_37.sol#83-87) ignores return value by winner_unchk20.send(winAmount_unchk20) (Unhandled-Exceptions/unhandled_buggy_37.sol#85)
+ERC20Interface.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_37.sol#93-97) ignores return value by winner_unchk32.send(winAmount_unchk32) (Unhandled-Exceptions/unhandled_buggy_37.sol#95)
+ERC20Interface.unhandledsend_unchk38(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#99-101) ignores return value by callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_37.sol#100)
+ERC20Interface.withdrawLeftOver_unchk45() (Unhandled-Exceptions/unhandled_buggy_37.sol#111-114) ignores return value by msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_37.sol#113)
+ApproveAndCallFallBack.cash_unchk46(uint256,uint256,address) (Unhandled-Exceptions/unhandled_buggy_37.sol#126-130) ignores return value by winner_unchk46.send(subpot_unchk46) (Unhandled-Exceptions/unhandled_buggy_37.sol#128)
+Owned.my_func_unchk11(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#142-144) ignores return value by dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_37.sol#143)
+Owned.my_func_unchk23(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#184-186) ignores return value by dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_37.sol#185)
+AugustCoin.withdrawBal_unchk41() (Unhandled-Exceptions/unhandled_buggy_37.sol#199-201) ignores return value by msg.sender.send(Balances_unchk41) (Unhandled-Exceptions/unhandled_buggy_37.sol#201)
+AugustCoin.unhandledsend_unchk2(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#212-214) ignores return value by callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_37.sol#213)
+AugustCoin.unhandledsend_unchk14(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#240-242) ignores return value by callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_37.sol#241)
+AugustCoin.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_37.sol#271-275) ignores return value by winner_unchk8.send(winAmount_unchk8) (Unhandled-Exceptions/unhandled_buggy_37.sol#273)
+AugustCoin.bug_unchk39(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#289-290) ignores return value by addr.send(4000000000000000000) (Unhandled-Exceptions/unhandled_buggy_37.sol#290)
+AugustCoin.my_func_unchk35(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#327-329) ignores return value by dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_37.sol#328)
+AugustCoin.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_37.sol#343-347) ignores return value by winner_unchk44.send(winAmount_unchk44) (Unhandled-Exceptions/unhandled_buggy_37.sol#345)
+AugustCoin.withdrawLeftOver_unchk33() (Unhandled-Exceptions/unhandled_buggy_37.sol#380-383) ignores return value by msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_37.sol#382)
+AugustCoin.bug_unchk27(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#392-393) ignores return value by addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_37.sol#393)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-send
+
+AugustCoin.bug_unchk43().addr_unchk43 (Unhandled-Exceptions/unhandled_buggy_37.sol#218) is a local variable never initialized
+AugustCoin.bug_unchk42().receivers_unchk42 (Unhandled-Exceptions/unhandled_buggy_37.sol#204) is a local variable never initialized
+AugustCoin.bug_unchk30().receivers_unchk30 (Unhandled-Exceptions/unhandled_buggy_37.sol#252) is a local variable never initialized
+ERC20Interface.bug_unchk19().addr_unchk19 (Unhandled-Exceptions/unhandled_buggy_37.sol#70) is a local variable never initialized
+Owned.UncheckedExternalCall_unchk4().addr_unchk4 (Unhandled-Exceptions/unhandled_buggy_37.sol#156) is a local variable never initialized
+AugustCoin.bug_unchk42().addr_unchk42 (Unhandled-Exceptions/unhandled_buggy_37.sol#205) is a local variable never initialized
+AugustCoin.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_37.sol#253) is a local variable never initialized
+AugustCoin.UncheckedExternalCall_unchk40().addr_unchk40 (Unhandled-Exceptions/unhandled_buggy_37.sol#362) is a local variable never initialized
+ERC20Interface.bug_unchk31().addr_unchk31 (Unhandled-Exceptions/unhandled_buggy_37.sol#104) is a local variable never initialized
+Owned.bug_unchk7().addr_unchk7 (Unhandled-Exceptions/unhandled_buggy_37.sol#174) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+ApproveAndCallFallBack.cash_unchk46(uint256,uint256,address).winner_unchk46 (Unhandled-Exceptions/unhandled_buggy_37.sol#126) lacks a zero-check on :
+		- winner_unchk46.send(subpot_unchk46) (Unhandled-Exceptions/unhandled_buggy_37.sol#128)
+SafeMath.bug_unchk3(address).addr (Unhandled-Exceptions/unhandled_buggy_37.sol#44) lacks a zero-check on :
+		- addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_37.sol#45)
+Owned.my_func_uncheck12(address).dst (Unhandled-Exceptions/unhandled_buggy_37.sol#138) lacks a zero-check on :
+		- dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_37.sol#139)
+Owned.my_func_unchk11(address).dst (Unhandled-Exceptions/unhandled_buggy_37.sol#142) lacks a zero-check on :
+		- dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_37.sol#143)
+Owned.transferOwnership(address)._newOwner (Unhandled-Exceptions/unhandled_buggy_37.sol#170) lacks a zero-check on :
+		- newOwner = _newOwner (Unhandled-Exceptions/unhandled_buggy_37.sol#171)
+Owned.my_func_unchk23(address).dst (Unhandled-Exceptions/unhandled_buggy_37.sol#184) lacks a zero-check on :
+		- dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_37.sol#185)
+ERC20Interface.unhandledsend_unchk26(address).callee (Unhandled-Exceptions/unhandled_buggy_37.sol#75) lacks a zero-check on :
+		- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_37.sol#76)
+ERC20Interface.unhandledsend_unchk38(address).callee (Unhandled-Exceptions/unhandled_buggy_37.sol#99) lacks a zero-check on :
+		- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_37.sol#100)
+AugustCoin.unhandledsend_unchk2(address).callee (Unhandled-Exceptions/unhandled_buggy_37.sol#212) lacks a zero-check on :
+		- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_37.sol#213)
+AugustCoin.my_func_uncheck48(address).dst (Unhandled-Exceptions/unhandled_buggy_37.sol#223) lacks a zero-check on :
+		- dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_37.sol#224)
+AugustCoin.unhandledsend_unchk14(address).callee (Unhandled-Exceptions/unhandled_buggy_37.sol#240) lacks a zero-check on :
+		- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_37.sol#241)
+AugustCoin.bug_unchk39(address).addr (Unhandled-Exceptions/unhandled_buggy_37.sol#289) lacks a zero-check on :
+		- addr.send(4000000000000000000) (Unhandled-Exceptions/unhandled_buggy_37.sol#290)
+AugustCoin.my_func_uncheck36(address).dst (Unhandled-Exceptions/unhandled_buggy_37.sol#306) lacks a zero-check on :
+		- dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_37.sol#307)
+AugustCoin.my_func_unchk35(address).dst (Unhandled-Exceptions/unhandled_buggy_37.sol#327) lacks a zero-check on :
+		- dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_37.sol#328)
+AugustCoin.bug_unchk27(address).addr (Unhandled-Exceptions/unhandled_buggy_37.sol#392) lacks a zero-check on :
+		- addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_37.sol#393)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Pragma version^0.5.0 (Unhandled-Exceptions/unhandled_buggy_37.sol#5) allows old versions
+solc-0.5.0 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in Owned.my_func_uncheck12(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#138-140):
+	- dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_37.sol#139)
+Low level call in AugustCoin.my_func_uncheck48(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#223-225):
+	- dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_37.sol#224)
+Low level call in AugustCoin.my_func_uncheck36(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#306-308):
+	- dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_37.sol#307)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Function SafeMath.withdrawBal_unchk17() (Unhandled-Exceptions/unhandled_buggy_37.sol#30-32) is not in mixedCase
+Function SafeMath.callnotchecked_unchk37(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#37-39) is not in mixedCase
+Function SafeMath.bug_unchk3(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#44-45) is not in mixedCase
+Function SafeMath.withdrawLeftOver_unchk9() (Unhandled-Exceptions/unhandled_buggy_37.sol#52-55) is not in mixedCase
+Variable SafeMath.payedOut_unchk9 (Unhandled-Exceptions/unhandled_buggy_37.sol#50) is not in mixedCase
+Function ERC20Interface.callnotchecked_unchk25(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#65-67) is not in mixedCase
+Function ERC20Interface.bug_unchk19() (Unhandled-Exceptions/unhandled_buggy_37.sol#69-73) is not in mixedCase
+Function ERC20Interface.unhandledsend_unchk26(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#75-77) is not in mixedCase
+Function ERC20Interface.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_37.sol#83-87) is not in mixedCase
+Function ERC20Interface.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_37.sol#93-97) is not in mixedCase
+Function ERC20Interface.unhandledsend_unchk38(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#99-101) is not in mixedCase
+Function ERC20Interface.bug_unchk31() (Unhandled-Exceptions/unhandled_buggy_37.sol#103-107) is not in mixedCase
+Function ERC20Interface.withdrawLeftOver_unchk45() (Unhandled-Exceptions/unhandled_buggy_37.sol#111-114) is not in mixedCase
+Variable ERC20Interface.payedOut_unchk20 (Unhandled-Exceptions/unhandled_buggy_37.sol#79) is not in mixedCase
+Variable ERC20Interface.winner_unchk20 (Unhandled-Exceptions/unhandled_buggy_37.sol#80) is not in mixedCase
+Variable ERC20Interface.winAmount_unchk20 (Unhandled-Exceptions/unhandled_buggy_37.sol#81) is not in mixedCase
+Variable ERC20Interface.payedOut_unchk32 (Unhandled-Exceptions/unhandled_buggy_37.sol#89) is not in mixedCase
+Variable ERC20Interface.winner_unchk32 (Unhandled-Exceptions/unhandled_buggy_37.sol#90) is not in mixedCase
+Variable ERC20Interface.winAmount_unchk32 (Unhandled-Exceptions/unhandled_buggy_37.sol#91) is not in mixedCase
+Variable ERC20Interface.payedOut_unchk45 (Unhandled-Exceptions/unhandled_buggy_37.sol#109) is not in mixedCase
+Function ApproveAndCallFallBack.cash_unchk46(uint256,uint256,address) (Unhandled-Exceptions/unhandled_buggy_37.sol#126-130) is not in mixedCase
+Parameter ApproveAndCallFallBack.cash_unchk46(uint256,uint256,address).winner_unchk46 (Unhandled-Exceptions/unhandled_buggy_37.sol#126) is not in mixedCase
+Function Owned.my_func_uncheck12(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#138-140) is not in mixedCase
+Function Owned.my_func_unchk11(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#142-144) is not in mixedCase
+Function Owned.callnotchecked_unchk13(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#147-149) is not in mixedCase
+Function Owned.UncheckedExternalCall_unchk4() (Unhandled-Exceptions/unhandled_buggy_37.sol#155-163) is not in mixedCase
+Parameter Owned.transferOwnership(address)._newOwner (Unhandled-Exceptions/unhandled_buggy_37.sol#170) is not in mixedCase
+Function Owned.bug_unchk7() (Unhandled-Exceptions/unhandled_buggy_37.sol#173-177) is not in mixedCase
+Function Owned.my_func_unchk23(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#184-186) is not in mixedCase
+Function AugustCoin.callnotchecked_unchk1(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#195-197) is not in mixedCase
+Function AugustCoin.withdrawBal_unchk41() (Unhandled-Exceptions/unhandled_buggy_37.sol#199-201) is not in mixedCase
+Function AugustCoin.bug_unchk42() (Unhandled-Exceptions/unhandled_buggy_37.sol#203-210) is not in mixedCase
+Function AugustCoin.unhandledsend_unchk2(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#212-214) is not in mixedCase
+Function AugustCoin.bug_unchk43() (Unhandled-Exceptions/unhandled_buggy_37.sol#217-221) is not in mixedCase
+Function AugustCoin.my_func_uncheck48(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#223-225) is not in mixedCase
+Function AugustCoin.unhandledsend_unchk14(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#240-242) is not in mixedCase
+Function AugustCoin.bug_unchk30() (Unhandled-Exceptions/unhandled_buggy_37.sol#251-258) is not in mixedCase
+Function AugustCoin.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_37.sol#271-275) is not in mixedCase
+Function AugustCoin.bug_unchk39(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#289-290) is not in mixedCase
+Function AugustCoin.my_func_uncheck36(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#306-308) is not in mixedCase
+Function AugustCoin.my_func_unchk35(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#327-329) is not in mixedCase
+Function AugustCoin.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_37.sol#343-347) is not in mixedCase
+Function AugustCoin.UncheckedExternalCall_unchk40() (Unhandled-Exceptions/unhandled_buggy_37.sol#361-369) is not in mixedCase
+Function AugustCoin.withdrawLeftOver_unchk33() (Unhandled-Exceptions/unhandled_buggy_37.sol#380-383) is not in mixedCase
+Function AugustCoin.bug_unchk27(address) (Unhandled-Exceptions/unhandled_buggy_37.sol#392-393) is not in mixedCase
+Variable AugustCoin._totalSupply (Unhandled-Exceptions/unhandled_buggy_37.sol#215) is not in mixedCase
+Variable AugustCoin.payedOut_unchk8 (Unhandled-Exceptions/unhandled_buggy_37.sol#267) is not in mixedCase
+Variable AugustCoin.winner_unchk8 (Unhandled-Exceptions/unhandled_buggy_37.sol#268) is not in mixedCase
+Variable AugustCoin.winAmount_unchk8 (Unhandled-Exceptions/unhandled_buggy_37.sol#269) is not in mixedCase
+Variable AugustCoin.payedOut_unchk44 (Unhandled-Exceptions/unhandled_buggy_37.sol#339) is not in mixedCase
+Variable AugustCoin.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_37.sol#340) is not in mixedCase
+Variable AugustCoin.winAmount_unchk44 (Unhandled-Exceptions/unhandled_buggy_37.sol#341) is not in mixedCase
+Variable AugustCoin.payedOut_unchk33 (Unhandled-Exceptions/unhandled_buggy_37.sol#378) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in ERC20Interface.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_37.sol#83-87):
+	External calls:
+	- winner_unchk20.send(winAmount_unchk20) (Unhandled-Exceptions/unhandled_buggy_37.sol#85)
+	State variables written after the call(s):
+	- payedOut_unchk20 = true (Unhandled-Exceptions/unhandled_buggy_37.sol#86)
+Reentrancy in ERC20Interface.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_37.sol#93-97):
+	External calls:
+	- winner_unchk32.send(winAmount_unchk32) (Unhandled-Exceptions/unhandled_buggy_37.sol#95)
+	State variables written after the call(s):
+	- payedOut_unchk32 = true (Unhandled-Exceptions/unhandled_buggy_37.sol#96)
+Reentrancy in AugustCoin.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_37.sol#343-347):
+	External calls:
+	- winner_unchk44.send(winAmount_unchk44) (Unhandled-Exceptions/unhandled_buggy_37.sol#345)
+	State variables written after the call(s):
+	- payedOut_unchk44 = true (Unhandled-Exceptions/unhandled_buggy_37.sol#346)
+Reentrancy in AugustCoin.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_37.sol#271-275):
+	External calls:
+	- winner_unchk8.send(winAmount_unchk8) (Unhandled-Exceptions/unhandled_buggy_37.sol#273)
+	State variables written after the call(s):
+	- payedOut_unchk8 = true (Unhandled-Exceptions/unhandled_buggy_37.sol#274)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable ERC20Interface.bug_unchk19().addr_unchk19 (Unhandled-Exceptions/unhandled_buggy_37.sol#70) is too similar to ERC20Interface.bug_unchk31().addr_unchk31 (Unhandled-Exceptions/unhandled_buggy_37.sol#104)
+Variable ERC20Interface.payedOut_unchk20 (Unhandled-Exceptions/unhandled_buggy_37.sol#79) is too similar to ERC20Interface.payedOut_unchk32 (Unhandled-Exceptions/unhandled_buggy_37.sol#89)
+Variable ERC20Interface.winAmount_unchk20 (Unhandled-Exceptions/unhandled_buggy_37.sol#81) is too similar to ERC20Interface.winAmount_unchk32 (Unhandled-Exceptions/unhandled_buggy_37.sol#91)
+Variable ERC20Interface.winner_unchk20 (Unhandled-Exceptions/unhandled_buggy_37.sol#80) is too similar to ERC20Interface.winner_unchk32 (Unhandled-Exceptions/unhandled_buggy_37.sol#90)
+Variable Owned.UncheckedExternalCall_unchk4().addr_unchk4 (Unhandled-Exceptions/unhandled_buggy_37.sol#156) is too similar to Owned.bug_unchk7().addr_unchk7 (Unhandled-Exceptions/unhandled_buggy_37.sol#174)
+Variable SafeMath.withdrawBal_unchk17().Balances_unchk17 (Unhandled-Exceptions/unhandled_buggy_37.sol#31) is too similar to AugustCoin.withdrawBal_unchk41().Balances_unchk41 (Unhandled-Exceptions/unhandled_buggy_37.sol#200)
+Variable AugustCoin.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_37.sol#253) is too similar to ERC20Interface.bug_unchk31().addr_unchk31 (Unhandled-Exceptions/unhandled_buggy_37.sol#104)
+Variable AugustCoin.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_37.sol#253) is too similar to AugustCoin.UncheckedExternalCall_unchk40().addr_unchk40 (Unhandled-Exceptions/unhandled_buggy_37.sol#362)
+Variable AugustCoin.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_37.sol#253) is too similar to AugustCoin.bug_unchk43().addr_unchk43 (Unhandled-Exceptions/unhandled_buggy_37.sol#218)
+Variable ERC20Interface.bug_unchk31().addr_unchk31 (Unhandled-Exceptions/unhandled_buggy_37.sol#104) is too similar to AugustCoin.bug_unchk43().addr_unchk43 (Unhandled-Exceptions/unhandled_buggy_37.sol#218)
+Variable AugustCoin.UncheckedExternalCall_unchk40().addr_unchk40 (Unhandled-Exceptions/unhandled_buggy_37.sol#362) is too similar to AugustCoin.bug_unchk42().addr_unchk42 (Unhandled-Exceptions/unhandled_buggy_37.sol#205)
+Variable AugustCoin.bug_unchk42().addr_unchk42 (Unhandled-Exceptions/unhandled_buggy_37.sol#205) is too similar to AugustCoin.bug_unchk43().addr_unchk43 (Unhandled-Exceptions/unhandled_buggy_37.sol#218)
+Variable AugustCoin.UncheckedExternalCall_unchk40().addr_unchk40 (Unhandled-Exceptions/unhandled_buggy_37.sol#362) is too similar to AugustCoin.bug_unchk43().addr_unchk43 (Unhandled-Exceptions/unhandled_buggy_37.sol#218)
+Variable ERC20Interface.payedOut_unchk32 (Unhandled-Exceptions/unhandled_buggy_37.sol#89) is too similar to AugustCoin.payedOut_unchk33 (Unhandled-Exceptions/unhandled_buggy_37.sol#378)
+Variable AugustCoin.payedOut_unchk44 (Unhandled-Exceptions/unhandled_buggy_37.sol#339) is too similar to ERC20Interface.payedOut_unchk45 (Unhandled-Exceptions/unhandled_buggy_37.sol#109)
+Variable AugustCoin.payedOut_unchk8 (Unhandled-Exceptions/unhandled_buggy_37.sol#267) is too similar to SafeMath.payedOut_unchk9 (Unhandled-Exceptions/unhandled_buggy_37.sol#50)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+AugustCoin.constructor() (Unhandled-Exceptions/unhandled_buggy_37.sol#232-239) uses literals with too many digits:
+	- _totalSupply = 100000000000000000000000000 (Unhandled-Exceptions/unhandled_buggy_37.sol#236)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+ApproveAndCallFallBack (Unhandled-Exceptions/unhandled_buggy_37.sol#124-131) does not implement functions:
+	- ApproveAndCallFallBack.receiveApproval(address,uint256,address,bytes) (Unhandled-Exceptions/unhandled_buggy_37.sol#125)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unimplemented-functions
+
+AugustCoin.payedOut_unchk33 (Unhandled-Exceptions/unhandled_buggy_37.sol#378) should be constant
+AugustCoin.winAmount_unchk44 (Unhandled-Exceptions/unhandled_buggy_37.sol#341) should be constant
+AugustCoin.winAmount_unchk8 (Unhandled-Exceptions/unhandled_buggy_37.sol#269) should be constant
+AugustCoin.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_37.sol#340) should be constant
+AugustCoin.winner_unchk8 (Unhandled-Exceptions/unhandled_buggy_37.sol#268) should be constant
+ERC20Interface.payedOut_unchk45 (Unhandled-Exceptions/unhandled_buggy_37.sol#109) should be constant
+ERC20Interface.winAmount_unchk20 (Unhandled-Exceptions/unhandled_buggy_37.sol#81) should be constant
+ERC20Interface.winAmount_unchk32 (Unhandled-Exceptions/unhandled_buggy_37.sol#91) should be constant
+ERC20Interface.winner_unchk20 (Unhandled-Exceptions/unhandled_buggy_37.sol#80) should be constant
+ERC20Interface.winner_unchk32 (Unhandled-Exceptions/unhandled_buggy_37.sol#90) should be constant
+SafeMath.payedOut_unchk9 (Unhandled-Exceptions/unhandled_buggy_37.sol#50) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+receiveApproval(address,uint256,address,bytes) should be declared external:
+	- ApproveAndCallFallBack.receiveApproval(address,uint256,address,bytes) (Unhandled-Exceptions/unhandled_buggy_37.sol#125)
+Moreover, the following function parameters should change its data location:
+data location should be calldata
+approveAndCall(address,uint256,bytes) should be declared external:
+	- AugustCoin.approveAndCall(address,uint256,bytes) (Unhandled-Exceptions/unhandled_buggy_37.sol#355-360)
+Moreover, the following function parameters should change its data location:
+data location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+Unhandled-Exceptions/unhandled_buggy_37.sol analyzed (5 contracts with 80 detectors), 162 result(s) found

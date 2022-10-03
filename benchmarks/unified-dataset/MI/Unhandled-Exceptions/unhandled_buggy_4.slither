@@ -1,0 +1,214 @@
+Compilation warnings/errors on Unhandled-Exceptions/unhandled_buggy_4.sol:
+Unhandled-Exceptions/unhandled_buggy_4.sol:30:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+Unhandled-Exceptions/unhandled_buggy_4.sol:35:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk46.send(subpot_unchk46);  //bug
+        ^---------------------------------^
+Unhandled-Exceptions/unhandled_buggy_4.sol:57:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+Unhandled-Exceptions/unhandled_buggy_4.sol:61:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+Unhandled-Exceptions/unhandled_buggy_4.sol:80:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk8.send(winAmount_unchk8);
+        ^----------------------------------^
+Unhandled-Exceptions/unhandled_buggy_4.sol:86:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (4 ether); }
+       ^-----------------^
+Unhandled-Exceptions/unhandled_buggy_4.sol:89:9: Warning: Return value of low-level calls not used.
+        dst.call.value(msg.value)("");
+        ^---------------------------^
+Unhandled-Exceptions/unhandled_buggy_4.sol:93:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+Unhandled-Exceptions/unhandled_buggy_4.sol:102:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk44.send(winAmount_unchk44);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_4.sol:150:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_4.sol:157:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (42 ether); }
+       ^------------------^
+Unhandled-Exceptions/unhandled_buggy_4.sol:201:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_4.sol:33:25: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+  function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                        ^-------------^
+Unhandled-Exceptions/unhandled_buggy_4.sol:33:42: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+  function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                                         ^--------------^
+Unhandled-Exceptions/unhandled_buggy_4.sol:211:1: Warning: Function state mutability can be restricted to pure
+function callnotchecked_unchk13(address callee) public {
+^ (Relevant source part starts here and spans across multiple lines).
+
+
+PHO.unhandledsend_unchk38(address) (Unhandled-Exceptions/unhandled_buggy_4.sol#29-31) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_4.sol#30)
+PHO.cash_unchk46(uint256,uint256,address) (Unhandled-Exceptions/unhandled_buggy_4.sol#33-37) sends eth to arbitrary user
+	Dangerous calls:
+	- winner_unchk46.send(subpot_unchk46) (Unhandled-Exceptions/unhandled_buggy_4.sol#35)
+PHO.unhandledsend_unchk14(address) (Unhandled-Exceptions/unhandled_buggy_4.sol#60-62) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_4.sol#61)
+PHO.bug_unchk39(address) (Unhandled-Exceptions/unhandled_buggy_4.sol#85-86) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(4000000000000000000) (Unhandled-Exceptions/unhandled_buggy_4.sol#86)
+PHO.withdrawLeftOver_unchk33() (Unhandled-Exceptions/unhandled_buggy_4.sol#148-151) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_4.sol#150)
+PHO.bug_unchk27(address) (Unhandled-Exceptions/unhandled_buggy_4.sol#156-157) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_4.sol#157)
+PHO.withdrawLeftOver_unchk45() (Unhandled-Exceptions/unhandled_buggy_4.sol#199-202) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_4.sol#201)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+PHO.winner_unchk8 (Unhandled-Exceptions/unhandled_buggy_4.sol#75) is never initialized. It is used in:
+	- PHO.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_4.sol#78-82)
+PHO.winAmount_unchk8 (Unhandled-Exceptions/unhandled_buggy_4.sol#76) is never initialized. It is used in:
+	- PHO.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_4.sol#78-82)
+PHO.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_4.sol#97) is never initialized. It is used in:
+	- PHO.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_4.sol#100-104)
+PHO.winAmount_unchk44 (Unhandled-Exceptions/unhandled_buggy_4.sol#98) is never initialized. It is used in:
+	- PHO.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_4.sol#100-104)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+
+PHO.my_func_uncheck36(address) (Unhandled-Exceptions/unhandled_buggy_4.sol#88-90) ignores return value by dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_4.sol#89)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-low-level-calls
+
+PHO.unhandledsend_unchk38(address) (Unhandled-Exceptions/unhandled_buggy_4.sol#29-31) ignores return value by callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_4.sol#30)
+PHO.cash_unchk46(uint256,uint256,address) (Unhandled-Exceptions/unhandled_buggy_4.sol#33-37) ignores return value by winner_unchk46.send(subpot_unchk46) (Unhandled-Exceptions/unhandled_buggy_4.sol#35)
+PHO.my_func_unchk23(address) (Unhandled-Exceptions/unhandled_buggy_4.sol#56-58) ignores return value by dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_4.sol#57)
+PHO.unhandledsend_unchk14(address) (Unhandled-Exceptions/unhandled_buggy_4.sol#60-62) ignores return value by callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_4.sol#61)
+PHO.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_4.sol#78-82) ignores return value by winner_unchk8.send(winAmount_unchk8) (Unhandled-Exceptions/unhandled_buggy_4.sol#80)
+PHO.bug_unchk39(address) (Unhandled-Exceptions/unhandled_buggy_4.sol#85-86) ignores return value by addr.send(4000000000000000000) (Unhandled-Exceptions/unhandled_buggy_4.sol#86)
+PHO.my_func_unchk35(address) (Unhandled-Exceptions/unhandled_buggy_4.sol#92-94) ignores return value by dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_4.sol#93)
+PHO.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_4.sol#100-104) ignores return value by winner_unchk44.send(winAmount_unchk44) (Unhandled-Exceptions/unhandled_buggy_4.sol#102)
+PHO.withdrawLeftOver_unchk33() (Unhandled-Exceptions/unhandled_buggy_4.sol#148-151) ignores return value by msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_4.sol#150)
+PHO.bug_unchk27(address) (Unhandled-Exceptions/unhandled_buggy_4.sol#156-157) ignores return value by addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_4.sol#157)
+PHO.withdrawLeftOver_unchk45() (Unhandled-Exceptions/unhandled_buggy_4.sol#199-202) ignores return value by msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_4.sol#201)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-send
+
+PHO.bug_unchk7().addr_unchk7 (Unhandled-Exceptions/unhandled_buggy_4.sol#51) is a local variable never initialized
+PHO.bug_unchk31().addr_unchk31 (Unhandled-Exceptions/unhandled_buggy_4.sol#183) is a local variable never initialized
+PHO.UncheckedExternalCall_unchk4().addr_unchk4 (Unhandled-Exceptions/unhandled_buggy_4.sol#40) is a local variable never initialized
+PHO.UncheckedExternalCall_unchk40().addr_unchk40 (Unhandled-Exceptions/unhandled_buggy_4.sol#134) is a local variable never initialized
+PHO.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_4.sol#67) is a local variable never initialized
+PHO.bug_unchk30().receivers_unchk30 (Unhandled-Exceptions/unhandled_buggy_4.sol#66) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+PHO.unhandledsend_unchk38(address).callee (Unhandled-Exceptions/unhandled_buggy_4.sol#29) lacks a zero-check on :
+		- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_4.sol#30)
+PHO.cash_unchk46(uint256,uint256,address).winner_unchk46 (Unhandled-Exceptions/unhandled_buggy_4.sol#33) lacks a zero-check on :
+		- winner_unchk46.send(subpot_unchk46) (Unhandled-Exceptions/unhandled_buggy_4.sol#35)
+PHO.my_func_unchk23(address).dst (Unhandled-Exceptions/unhandled_buggy_4.sol#56) lacks a zero-check on :
+		- dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_4.sol#57)
+PHO.unhandledsend_unchk14(address).callee (Unhandled-Exceptions/unhandled_buggy_4.sol#60) lacks a zero-check on :
+		- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_4.sol#61)
+PHO.bug_unchk39(address).addr (Unhandled-Exceptions/unhandled_buggy_4.sol#85) lacks a zero-check on :
+		- addr.send(4000000000000000000) (Unhandled-Exceptions/unhandled_buggy_4.sol#86)
+PHO.my_func_uncheck36(address).dst (Unhandled-Exceptions/unhandled_buggy_4.sol#88) lacks a zero-check on :
+		- dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_4.sol#89)
+PHO.my_func_unchk35(address).dst (Unhandled-Exceptions/unhandled_buggy_4.sol#92) lacks a zero-check on :
+		- dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_4.sol#93)
+PHO.bug_unchk27(address).addr (Unhandled-Exceptions/unhandled_buggy_4.sol#156) lacks a zero-check on :
+		- addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_4.sol#157)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+PHO.transfer(address,uint256) (Unhandled-Exceptions/unhandled_buggy_4.sol#159-181) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now >= 1589036400) (Unhandled-Exceptions/unhandled_buggy_4.sol#167)
+	- require(bool)(now >= 1620572400) (Unhandled-Exceptions/unhandled_buggy_4.sol#169)
+	- require(bool)(now >= 1652108400) (Unhandled-Exceptions/unhandled_buggy_4.sol#171)
+	- require(bool)(now >= 1683644400) (Unhandled-Exceptions/unhandled_buggy_4.sol#173)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+Pragma version>=0.5.0<0.6.0 (Unhandled-Exceptions/unhandled_buggy_4.sol#5) allows old versions
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in PHO.my_func_uncheck36(address) (Unhandled-Exceptions/unhandled_buggy_4.sol#88-90):
+	- dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_4.sol#89)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Function PHO.unhandledsend_unchk38(address) (Unhandled-Exceptions/unhandled_buggy_4.sol#29-31) is not in mixedCase
+Function PHO.cash_unchk46(uint256,uint256,address) (Unhandled-Exceptions/unhandled_buggy_4.sol#33-37) is not in mixedCase
+Parameter PHO.cash_unchk46(uint256,uint256,address).winner_unchk46 (Unhandled-Exceptions/unhandled_buggy_4.sol#33) is not in mixedCase
+Function PHO.UncheckedExternalCall_unchk4() (Unhandled-Exceptions/unhandled_buggy_4.sol#39-47) is not in mixedCase
+Function PHO.bug_unchk7() (Unhandled-Exceptions/unhandled_buggy_4.sol#50-54) is not in mixedCase
+Function PHO.my_func_unchk23(address) (Unhandled-Exceptions/unhandled_buggy_4.sol#56-58) is not in mixedCase
+Function PHO.unhandledsend_unchk14(address) (Unhandled-Exceptions/unhandled_buggy_4.sol#60-62) is not in mixedCase
+Function PHO.bug_unchk30() (Unhandled-Exceptions/unhandled_buggy_4.sol#65-72) is not in mixedCase
+Function PHO.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_4.sol#78-82) is not in mixedCase
+Function PHO.bug_unchk39(address) (Unhandled-Exceptions/unhandled_buggy_4.sol#85-86) is not in mixedCase
+Function PHO.my_func_uncheck36(address) (Unhandled-Exceptions/unhandled_buggy_4.sol#88-90) is not in mixedCase
+Function PHO.my_func_unchk35(address) (Unhandled-Exceptions/unhandled_buggy_4.sol#92-94) is not in mixedCase
+Function PHO.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_4.sol#100-104) is not in mixedCase
+Function PHO.UncheckedExternalCall_unchk40() (Unhandled-Exceptions/unhandled_buggy_4.sol#133-141) is not in mixedCase
+Function PHO.withdrawLeftOver_unchk33() (Unhandled-Exceptions/unhandled_buggy_4.sol#148-151) is not in mixedCase
+Function PHO.bug_unchk27(address) (Unhandled-Exceptions/unhandled_buggy_4.sol#156-157) is not in mixedCase
+Function PHO.bug_unchk31() (Unhandled-Exceptions/unhandled_buggy_4.sol#182-186) is not in mixedCase
+Function PHO.withdrawLeftOver_unchk45() (Unhandled-Exceptions/unhandled_buggy_4.sol#199-202) is not in mixedCase
+Function PHO.callnotchecked_unchk13(address) (Unhandled-Exceptions/unhandled_buggy_4.sol#211-213) is not in mixedCase
+Variable PHO._totalSupply (Unhandled-Exceptions/unhandled_buggy_4.sol#73) is not in mixedCase
+Variable PHO.payedOut_unchk8 (Unhandled-Exceptions/unhandled_buggy_4.sol#74) is not in mixedCase
+Variable PHO.winner_unchk8 (Unhandled-Exceptions/unhandled_buggy_4.sol#75) is not in mixedCase
+Variable PHO.winAmount_unchk8 (Unhandled-Exceptions/unhandled_buggy_4.sol#76) is not in mixedCase
+Variable PHO.payedOut_unchk44 (Unhandled-Exceptions/unhandled_buggy_4.sol#96) is not in mixedCase
+Variable PHO.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_4.sol#97) is not in mixedCase
+Variable PHO.winAmount_unchk44 (Unhandled-Exceptions/unhandled_buggy_4.sol#98) is not in mixedCase
+Variable PHO.payedOut_unchk33 (Unhandled-Exceptions/unhandled_buggy_4.sol#146) is not in mixedCase
+Variable PHO.payedOut_unchk45 (Unhandled-Exceptions/unhandled_buggy_4.sol#197) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in PHO.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_4.sol#100-104):
+	External calls:
+	- winner_unchk44.send(winAmount_unchk44) (Unhandled-Exceptions/unhandled_buggy_4.sol#102)
+	State variables written after the call(s):
+	- payedOut_unchk44 = true (Unhandled-Exceptions/unhandled_buggy_4.sol#103)
+Reentrancy in PHO.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_4.sol#78-82):
+	External calls:
+	- winner_unchk8.send(winAmount_unchk8) (Unhandled-Exceptions/unhandled_buggy_4.sol#80)
+	State variables written after the call(s):
+	- payedOut_unchk8 = true (Unhandled-Exceptions/unhandled_buggy_4.sol#81)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable PHO.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_4.sol#67) is too similar to PHO.bug_unchk31().addr_unchk31 (Unhandled-Exceptions/unhandled_buggy_4.sol#183)
+Variable PHO.UncheckedExternalCall_unchk4().addr_unchk4 (Unhandled-Exceptions/unhandled_buggy_4.sol#40) is too similar to PHO.bug_unchk7().addr_unchk7 (Unhandled-Exceptions/unhandled_buggy_4.sol#51)
+Variable PHO.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_4.sol#67) is too similar to PHO.UncheckedExternalCall_unchk40().addr_unchk40 (Unhandled-Exceptions/unhandled_buggy_4.sol#134)
+Variable PHO.payedOut_unchk44 (Unhandled-Exceptions/unhandled_buggy_4.sol#96) is too similar to PHO.payedOut_unchk45 (Unhandled-Exceptions/unhandled_buggy_4.sol#197)
+Variable PHO.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_4.sol#97) is too similar to PHO.cash_unchk46(uint256,uint256,address).winner_unchk46 (Unhandled-Exceptions/unhandled_buggy_4.sol#33)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+PHO.constructor() (Unhandled-Exceptions/unhandled_buggy_4.sol#112-132) uses literals with too many digits:
+	- saleAmount = toWei(1000000000) (Unhandled-Exceptions/unhandled_buggy_4.sol#118)
+PHO.constructor() (Unhandled-Exceptions/unhandled_buggy_4.sol#112-132) uses literals with too many digits:
+	- evtAmount = toWei(200000000) (Unhandled-Exceptions/unhandled_buggy_4.sol#119)
+PHO.constructor() (Unhandled-Exceptions/unhandled_buggy_4.sol#112-132) uses literals with too many digits:
+	- teamAmount = toWei(800000000) (Unhandled-Exceptions/unhandled_buggy_4.sol#120)
+PHO.constructor() (Unhandled-Exceptions/unhandled_buggy_4.sol#112-132) uses literals with too many digits:
+	- _totalSupply = toWei(2000000000) (Unhandled-Exceptions/unhandled_buggy_4.sol#121)
+PHO.transfer(address,uint256) (Unhandled-Exceptions/unhandled_buggy_4.sol#159-181) uses literals with too many digits:
+	- balances[msg.sender] - value < toWei(600000000) (Unhandled-Exceptions/unhandled_buggy_4.sol#168)
+PHO.transfer(address,uint256) (Unhandled-Exceptions/unhandled_buggy_4.sol#159-181) uses literals with too many digits:
+	- balances[msg.sender] - value < toWei(400000000) (Unhandled-Exceptions/unhandled_buggy_4.sol#170)
+PHO.transfer(address,uint256) (Unhandled-Exceptions/unhandled_buggy_4.sol#159-181) uses literals with too many digits:
+	- balances[msg.sender] - value < toWei(200000000) (Unhandled-Exceptions/unhandled_buggy_4.sol#172)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+PHO.decimals (Unhandled-Exceptions/unhandled_buggy_4.sol#48) should be constant
+PHO.name (Unhandled-Exceptions/unhandled_buggy_4.sol#32) should be constant
+PHO.payedOut_unchk33 (Unhandled-Exceptions/unhandled_buggy_4.sol#146) should be constant
+PHO.payedOut_unchk45 (Unhandled-Exceptions/unhandled_buggy_4.sol#197) should be constant
+PHO.symbol (Unhandled-Exceptions/unhandled_buggy_4.sol#38) should be constant
+PHO.winAmount_unchk44 (Unhandled-Exceptions/unhandled_buggy_4.sol#98) should be constant
+PHO.winAmount_unchk8 (Unhandled-Exceptions/unhandled_buggy_4.sol#76) should be constant
+PHO.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_4.sol#97) should be constant
+PHO.winner_unchk8 (Unhandled-Exceptions/unhandled_buggy_4.sol#75) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+Unhandled-Exceptions/unhandled_buggy_4.sol analyzed (2 contracts with 80 detectors), 91 result(s) found

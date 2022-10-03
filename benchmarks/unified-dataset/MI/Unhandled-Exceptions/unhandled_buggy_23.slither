@@ -1,0 +1,294 @@
+Compilation warnings/errors on Unhandled-Exceptions/unhandled_buggy_23.sol:
+Unhandled-Exceptions/unhandled_buggy_23.sol:126:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (42 ether); }
+       ^------------------^
+Unhandled-Exceptions/unhandled_buggy_23.sol:133:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_23.sol:149:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk20.send(winAmount_unchk20);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_23.sol:167:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk32.send(winAmount_unchk32);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_23.sol:181:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+Unhandled-Exceptions/unhandled_buggy_23.sol:195:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk46.send(subpot_unchk46);  //bug
+        ^---------------------------------^
+Unhandled-Exceptions/unhandled_buggy_23.sol:256:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+Unhandled-Exceptions/unhandled_buggy_23.sol:274:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+Unhandled-Exceptions/unhandled_buggy_23.sol:319:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk8.send(winAmount_unchk8);
+        ^----------------------------------^
+Unhandled-Exceptions/unhandled_buggy_23.sol:337:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (4 ether); }
+       ^-----------------^
+Unhandled-Exceptions/unhandled_buggy_23.sol:353:9: Warning: Return value of low-level calls not used.
+        dst.call.value(msg.value)("");
+        ^---------------------------^
+Unhandled-Exceptions/unhandled_buggy_23.sol:369:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+Unhandled-Exceptions/unhandled_buggy_23.sol:396:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk44.send(winAmount_unchk44);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_23.sol:442:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+Unhandled-Exceptions/unhandled_buggy_23.sol:455:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_23.sol:465:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (42 ether); }
+       ^------------------^
+Unhandled-Exceptions/unhandled_buggy_23.sol:489:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_23.sol:193:23: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                      ^-------------^
+Unhandled-Exceptions/unhandled_buggy_23.sol:193:40: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                                       ^--------------^
+
+
+ERC20.bug_unchk3(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#125-126) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_23.sol#126)
+ERC20.withdrawLeftOver_unchk9() (Unhandled-Exceptions/unhandled_buggy_23.sol#131-134) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_23.sol#133)
+ERC20.unhandledsend_unchk38(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#180-182) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_23.sol#181)
+ERC20.cash_unchk46(uint256,uint256,address) (Unhandled-Exceptions/unhandled_buggy_23.sol#193-197) sends eth to arbitrary user
+	Dangerous calls:
+	- winner_unchk46.send(subpot_unchk46) (Unhandled-Exceptions/unhandled_buggy_23.sol#195)
+ERC20.unhandledsend_unchk14(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#273-275) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_23.sol#274)
+ERC20.bug_unchk39(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#336-337) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(4000000000000000000) (Unhandled-Exceptions/unhandled_buggy_23.sol#337)
+ERC20Detailed.unhandledsend_unchk26(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#441-443) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_23.sol#442)
+ERC20Detailed.withdrawLeftOver_unchk33() (Unhandled-Exceptions/unhandled_buggy_23.sol#453-456) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_23.sol#455)
+ERC20Detailed.bug_unchk27(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#464-465) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_23.sol#465)
+ERC20Detailed.withdrawLeftOver_unchk45() (Unhandled-Exceptions/unhandled_buggy_23.sol#487-490) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_23.sol#489)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+ERC20.winner_unchk20 (Unhandled-Exceptions/unhandled_buggy_23.sol#144) is never initialized. It is used in:
+	- ERC20.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_23.sol#147-151)
+ERC20.winAmount_unchk20 (Unhandled-Exceptions/unhandled_buggy_23.sol#145) is never initialized. It is used in:
+	- ERC20.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_23.sol#147-151)
+ERC20.winner_unchk32 (Unhandled-Exceptions/unhandled_buggy_23.sol#162) is never initialized. It is used in:
+	- ERC20.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_23.sol#165-169)
+ERC20.winAmount_unchk32 (Unhandled-Exceptions/unhandled_buggy_23.sol#163) is never initialized. It is used in:
+	- ERC20.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_23.sol#165-169)
+ERC20.winner_unchk8 (Unhandled-Exceptions/unhandled_buggy_23.sol#314) is never initialized. It is used in:
+	- ERC20.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_23.sol#317-321)
+ERC20.winAmount_unchk8 (Unhandled-Exceptions/unhandled_buggy_23.sol#315) is never initialized. It is used in:
+	- ERC20.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_23.sol#317-321)
+ERC20Burnable.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_23.sol#391) is never initialized. It is used in:
+	- ERC20Burnable.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_23.sol#394-398)
+ERC20Burnable.winAmount_unchk44 (Unhandled-Exceptions/unhandled_buggy_23.sol#392) is never initialized. It is used in:
+	- ERC20Burnable.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_23.sol#394-398)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+
+ERC20.my_func_uncheck36(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#352-354) ignores return value by dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_23.sol#353)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-low-level-calls
+
+ERC20.bug_unchk3(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#125-126) ignores return value by addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_23.sol#126)
+ERC20.withdrawLeftOver_unchk9() (Unhandled-Exceptions/unhandled_buggy_23.sol#131-134) ignores return value by msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_23.sol#133)
+ERC20.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_23.sol#147-151) ignores return value by winner_unchk20.send(winAmount_unchk20) (Unhandled-Exceptions/unhandled_buggy_23.sol#149)
+ERC20.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_23.sol#165-169) ignores return value by winner_unchk32.send(winAmount_unchk32) (Unhandled-Exceptions/unhandled_buggy_23.sol#167)
+ERC20.unhandledsend_unchk38(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#180-182) ignores return value by callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_23.sol#181)
+ERC20.cash_unchk46(uint256,uint256,address) (Unhandled-Exceptions/unhandled_buggy_23.sol#193-197) ignores return value by winner_unchk46.send(subpot_unchk46) (Unhandled-Exceptions/unhandled_buggy_23.sol#195)
+ERC20.my_func_unchk23(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#255-257) ignores return value by dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_23.sol#256)
+ERC20.unhandledsend_unchk14(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#273-275) ignores return value by callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_23.sol#274)
+ERC20.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_23.sol#317-321) ignores return value by winner_unchk8.send(winAmount_unchk8) (Unhandled-Exceptions/unhandled_buggy_23.sol#319)
+ERC20.bug_unchk39(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#336-337) ignores return value by addr.send(4000000000000000000) (Unhandled-Exceptions/unhandled_buggy_23.sol#337)
+ERC20.my_func_unchk35(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#368-370) ignores return value by dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_23.sol#369)
+ERC20Burnable.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_23.sol#394-398) ignores return value by winner_unchk44.send(winAmount_unchk44) (Unhandled-Exceptions/unhandled_buggy_23.sol#396)
+ERC20Detailed.unhandledsend_unchk26(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#441-443) ignores return value by callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_23.sol#442)
+ERC20Detailed.withdrawLeftOver_unchk33() (Unhandled-Exceptions/unhandled_buggy_23.sol#453-456) ignores return value by msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_23.sol#455)
+ERC20Detailed.bug_unchk27(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#464-465) ignores return value by addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_23.sol#465)
+ERC20Detailed.withdrawLeftOver_unchk45() (Unhandled-Exceptions/unhandled_buggy_23.sol#487-490) ignores return value by msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_23.sol#489)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-send
+
+ERC20.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_23.sol#292) is a local variable never initialized
+ERC20Burnable.UncheckedExternalCall_unchk40().addr_unchk40 (Unhandled-Exceptions/unhandled_buggy_23.sol#409) is a local variable never initialized
+ERC20.bug_unchk7().addr_unchk7 (Unhandled-Exceptions/unhandled_buggy_23.sol#236) is a local variable never initialized
+ERC20.UncheckedExternalCall_unchk4().addr_unchk4 (Unhandled-Exceptions/unhandled_buggy_23.sol#213) is a local variable never initialized
+ERC20.bug_unchk30().receivers_unchk30 (Unhandled-Exceptions/unhandled_buggy_23.sol#291) is a local variable never initialized
+ERC20Detailed.bug_unchk31().addr_unchk31 (Unhandled-Exceptions/unhandled_buggy_23.sol#474) is a local variable never initialized
+ERC20Detailed.bug_unchk19().addr_unchk19 (Unhandled-Exceptions/unhandled_buggy_23.sol#436) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+ERC20Detailed.constructor(string,string,uint8).name (Unhandled-Exceptions/unhandled_buggy_23.sol#446) shadows:
+	- ERC20Detailed.name() (Unhandled-Exceptions/unhandled_buggy_23.sol#461-463) (function)
+ERC20Detailed.constructor(string,string,uint8).symbol (Unhandled-Exceptions/unhandled_buggy_23.sol#446) shadows:
+	- ERC20Detailed.symbol() (Unhandled-Exceptions/unhandled_buggy_23.sol#470-472) (function)
+ERC20Detailed.constructor(string,string,uint8).decimals (Unhandled-Exceptions/unhandled_buggy_23.sol#446) shadows:
+	- ERC20Detailed.decimals() (Unhandled-Exceptions/unhandled_buggy_23.sol#482-484) (function)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#local-variable-shadowing
+
+ERC20.bug_unchk3(address).addr (Unhandled-Exceptions/unhandled_buggy_23.sol#125) lacks a zero-check on :
+		- addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_23.sol#126)
+ERC20.unhandledsend_unchk38(address).callee (Unhandled-Exceptions/unhandled_buggy_23.sol#180) lacks a zero-check on :
+		- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_23.sol#181)
+ERC20.cash_unchk46(uint256,uint256,address).winner_unchk46 (Unhandled-Exceptions/unhandled_buggy_23.sol#193) lacks a zero-check on :
+		- winner_unchk46.send(subpot_unchk46) (Unhandled-Exceptions/unhandled_buggy_23.sol#195)
+ERC20.my_func_unchk23(address).dst (Unhandled-Exceptions/unhandled_buggy_23.sol#255) lacks a zero-check on :
+		- dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_23.sol#256)
+ERC20.unhandledsend_unchk14(address).callee (Unhandled-Exceptions/unhandled_buggy_23.sol#273) lacks a zero-check on :
+		- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_23.sol#274)
+ERC20.bug_unchk39(address).addr (Unhandled-Exceptions/unhandled_buggy_23.sol#336) lacks a zero-check on :
+		- addr.send(4000000000000000000) (Unhandled-Exceptions/unhandled_buggy_23.sol#337)
+ERC20.my_func_uncheck36(address).dst (Unhandled-Exceptions/unhandled_buggy_23.sol#352) lacks a zero-check on :
+		- dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_23.sol#353)
+ERC20.my_func_unchk35(address).dst (Unhandled-Exceptions/unhandled_buggy_23.sol#368) lacks a zero-check on :
+		- dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_23.sol#369)
+ERC20Detailed.unhandledsend_unchk26(address).callee (Unhandled-Exceptions/unhandled_buggy_23.sol#441) lacks a zero-check on :
+		- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_23.sol#442)
+ERC20Detailed.bug_unchk27(address).addr (Unhandled-Exceptions/unhandled_buggy_23.sol#464) lacks a zero-check on :
+		- addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_23.sol#465)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Different versions of Solidity are used:
+	- Version used: ['^0.5.0', '^0.5.2']
+	- ^0.5.2 (Unhandled-Exceptions/unhandled_buggy_23.sol#7)
+	- ^0.5.2 (Unhandled-Exceptions/unhandled_buggy_23.sol#33)
+	- ^0.5.2 (Unhandled-Exceptions/unhandled_buggy_23.sol#101)
+	- ^0.5.2 (Unhandled-Exceptions/unhandled_buggy_23.sol#375)
+	- ^0.5.2 (Unhandled-Exceptions/unhandled_buggy_23.sol#421)
+	- ^0.5.0 (Unhandled-Exceptions/unhandled_buggy_23.sol#495)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#different-pragma-directives-are-used
+
+SafeMath.div(uint256,uint256) (Unhandled-Exceptions/unhandled_buggy_23.sol#60-67) is never used and should be removed
+SafeMath.mod(uint256,uint256) (Unhandled-Exceptions/unhandled_buggy_23.sol#93-96) is never used and should be removed
+SafeMath.mul(uint256,uint256) (Unhandled-Exceptions/unhandled_buggy_23.sol#43-55) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.5.2 (Unhandled-Exceptions/unhandled_buggy_23.sol#7) allows old versions
+Pragma version^0.5.2 (Unhandled-Exceptions/unhandled_buggy_23.sol#33) allows old versions
+Pragma version^0.5.2 (Unhandled-Exceptions/unhandled_buggy_23.sol#101) allows old versions
+Pragma version^0.5.2 (Unhandled-Exceptions/unhandled_buggy_23.sol#375) allows old versions
+Pragma version^0.5.2 (Unhandled-Exceptions/unhandled_buggy_23.sol#421) allows old versions
+Pragma version^0.5.0 (Unhandled-Exceptions/unhandled_buggy_23.sol#495) allows old versions
+solc-0.5.2 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in ERC20.my_func_uncheck36(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#352-354):
+	- dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_23.sol#353)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Function ERC20.callnotchecked_unchk37(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#120-122) is not in mixedCase
+Function ERC20.bug_unchk3(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#125-126) is not in mixedCase
+Function ERC20.withdrawLeftOver_unchk9() (Unhandled-Exceptions/unhandled_buggy_23.sol#131-134) is not in mixedCase
+Function ERC20.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_23.sol#147-151) is not in mixedCase
+Function ERC20.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_23.sol#165-169) is not in mixedCase
+Function ERC20.unhandledsend_unchk38(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#180-182) is not in mixedCase
+Function ERC20.cash_unchk46(uint256,uint256,address) (Unhandled-Exceptions/unhandled_buggy_23.sol#193-197) is not in mixedCase
+Parameter ERC20.cash_unchk46(uint256,uint256,address).winner_unchk46 (Unhandled-Exceptions/unhandled_buggy_23.sol#193) is not in mixedCase
+Function ERC20.UncheckedExternalCall_unchk4() (Unhandled-Exceptions/unhandled_buggy_23.sol#212-220) is not in mixedCase
+Function ERC20.bug_unchk7() (Unhandled-Exceptions/unhandled_buggy_23.sol#235-239) is not in mixedCase
+Function ERC20.my_func_unchk23(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#255-257) is not in mixedCase
+Function ERC20.unhandledsend_unchk14(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#273-275) is not in mixedCase
+Function ERC20.bug_unchk30() (Unhandled-Exceptions/unhandled_buggy_23.sol#290-297) is not in mixedCase
+Function ERC20.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_23.sol#317-321) is not in mixedCase
+Function ERC20.bug_unchk39(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#336-337) is not in mixedCase
+Function ERC20.my_func_uncheck36(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#352-354) is not in mixedCase
+Function ERC20.my_func_unchk35(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#368-370) is not in mixedCase
+Variable ERC20.payedOut_unchk9 (Unhandled-Exceptions/unhandled_buggy_23.sol#129) is not in mixedCase
+Variable ERC20.payedOut_unchk20 (Unhandled-Exceptions/unhandled_buggy_23.sol#143) is not in mixedCase
+Variable ERC20.winner_unchk20 (Unhandled-Exceptions/unhandled_buggy_23.sol#144) is not in mixedCase
+Variable ERC20.winAmount_unchk20 (Unhandled-Exceptions/unhandled_buggy_23.sol#145) is not in mixedCase
+Variable ERC20.payedOut_unchk32 (Unhandled-Exceptions/unhandled_buggy_23.sol#161) is not in mixedCase
+Variable ERC20.winner_unchk32 (Unhandled-Exceptions/unhandled_buggy_23.sol#162) is not in mixedCase
+Variable ERC20.winAmount_unchk32 (Unhandled-Exceptions/unhandled_buggy_23.sol#163) is not in mixedCase
+Variable ERC20.payedOut_unchk8 (Unhandled-Exceptions/unhandled_buggy_23.sol#313) is not in mixedCase
+Variable ERC20.winner_unchk8 (Unhandled-Exceptions/unhandled_buggy_23.sol#314) is not in mixedCase
+Variable ERC20.winAmount_unchk8 (Unhandled-Exceptions/unhandled_buggy_23.sol#315) is not in mixedCase
+Function ERC20Burnable.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_23.sol#394-398) is not in mixedCase
+Function ERC20Burnable.UncheckedExternalCall_unchk40() (Unhandled-Exceptions/unhandled_buggy_23.sol#408-416) is not in mixedCase
+Variable ERC20Burnable.payedOut_unchk44 (Unhandled-Exceptions/unhandled_buggy_23.sol#390) is not in mixedCase
+Variable ERC20Burnable.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_23.sol#391) is not in mixedCase
+Variable ERC20Burnable.winAmount_unchk44 (Unhandled-Exceptions/unhandled_buggy_23.sol#392) is not in mixedCase
+Function ERC20Detailed.callnotchecked_unchk25(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#431-433) is not in mixedCase
+Function ERC20Detailed.bug_unchk19() (Unhandled-Exceptions/unhandled_buggy_23.sol#435-439) is not in mixedCase
+Function ERC20Detailed.unhandledsend_unchk26(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#441-443) is not in mixedCase
+Function ERC20Detailed.withdrawLeftOver_unchk33() (Unhandled-Exceptions/unhandled_buggy_23.sol#453-456) is not in mixedCase
+Function ERC20Detailed.bug_unchk27(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#464-465) is not in mixedCase
+Function ERC20Detailed.bug_unchk31() (Unhandled-Exceptions/unhandled_buggy_23.sol#473-477) is not in mixedCase
+Function ERC20Detailed.withdrawLeftOver_unchk45() (Unhandled-Exceptions/unhandled_buggy_23.sol#487-490) is not in mixedCase
+Variable ERC20Detailed.payedOut_unchk33 (Unhandled-Exceptions/unhandled_buggy_23.sol#451) is not in mixedCase
+Variable ERC20Detailed.payedOut_unchk45 (Unhandled-Exceptions/unhandled_buggy_23.sol#485) is not in mixedCase
+Function AGR.callnotchecked_unchk13(address) (Unhandled-Exceptions/unhandled_buggy_23.sol#504-506) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in ERC20.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_23.sol#147-151):
+	External calls:
+	- winner_unchk20.send(winAmount_unchk20) (Unhandled-Exceptions/unhandled_buggy_23.sol#149)
+	State variables written after the call(s):
+	- payedOut_unchk20 = true (Unhandled-Exceptions/unhandled_buggy_23.sol#150)
+Reentrancy in ERC20.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_23.sol#165-169):
+	External calls:
+	- winner_unchk32.send(winAmount_unchk32) (Unhandled-Exceptions/unhandled_buggy_23.sol#167)
+	State variables written after the call(s):
+	- payedOut_unchk32 = true (Unhandled-Exceptions/unhandled_buggy_23.sol#168)
+Reentrancy in ERC20Burnable.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_23.sol#394-398):
+	External calls:
+	- winner_unchk44.send(winAmount_unchk44) (Unhandled-Exceptions/unhandled_buggy_23.sol#396)
+	State variables written after the call(s):
+	- payedOut_unchk44 = true (Unhandled-Exceptions/unhandled_buggy_23.sol#397)
+Reentrancy in ERC20.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_23.sol#317-321):
+	External calls:
+	- winner_unchk8.send(winAmount_unchk8) (Unhandled-Exceptions/unhandled_buggy_23.sol#319)
+	State variables written after the call(s):
+	- payedOut_unchk8 = true (Unhandled-Exceptions/unhandled_buggy_23.sol#320)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable ERC20.UncheckedExternalCall_unchk4().addr_unchk4 (Unhandled-Exceptions/unhandled_buggy_23.sol#213) is too similar to ERC20.bug_unchk7().addr_unchk7 (Unhandled-Exceptions/unhandled_buggy_23.sol#236)
+Variable ERC20.payedOut_unchk20 (Unhandled-Exceptions/unhandled_buggy_23.sol#143) is too similar to ERC20.payedOut_unchk32 (Unhandled-Exceptions/unhandled_buggy_23.sol#161)
+Variable ERC20.payedOut_unchk8 (Unhandled-Exceptions/unhandled_buggy_23.sol#313) is too similar to ERC20.payedOut_unchk9 (Unhandled-Exceptions/unhandled_buggy_23.sol#129)
+Variable ERC20.winAmount_unchk20 (Unhandled-Exceptions/unhandled_buggy_23.sol#145) is too similar to ERC20.winAmount_unchk32 (Unhandled-Exceptions/unhandled_buggy_23.sol#163)
+Variable ERC20.winner_unchk20 (Unhandled-Exceptions/unhandled_buggy_23.sol#144) is too similar to ERC20.winner_unchk32 (Unhandled-Exceptions/unhandled_buggy_23.sol#162)
+Variable ERC20.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_23.sol#292) is too similar to ERC20Burnable.UncheckedExternalCall_unchk40().addr_unchk40 (Unhandled-Exceptions/unhandled_buggy_23.sol#409)
+Variable ERC20Burnable.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_23.sol#391) is too similar to ERC20.cash_unchk46(uint256,uint256,address).winner_unchk46 (Unhandled-Exceptions/unhandled_buggy_23.sol#193)
+Variable ERC20Detailed.bug_unchk19().addr_unchk19 (Unhandled-Exceptions/unhandled_buggy_23.sol#436) is too similar to ERC20Detailed.bug_unchk31().addr_unchk31 (Unhandled-Exceptions/unhandled_buggy_23.sol#474)
+Variable ERC20.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_23.sol#292) is too similar to ERC20Detailed.bug_unchk31().addr_unchk31 (Unhandled-Exceptions/unhandled_buggy_23.sol#474)
+Variable ERC20.payedOut_unchk32 (Unhandled-Exceptions/unhandled_buggy_23.sol#161) is too similar to ERC20Detailed.payedOut_unchk33 (Unhandled-Exceptions/unhandled_buggy_23.sol#451)
+Variable ERC20Burnable.payedOut_unchk44 (Unhandled-Exceptions/unhandled_buggy_23.sol#390) is too similar to ERC20Detailed.payedOut_unchk45 (Unhandled-Exceptions/unhandled_buggy_23.sol#485)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+AGR.constructor() (Unhandled-Exceptions/unhandled_buggy_23.sol#501-503) uses literals with too many digits:
+	- super._mint(msg.sender,30000000000000) (Unhandled-Exceptions/unhandled_buggy_23.sol#502)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+ERC20.payedOut_unchk9 (Unhandled-Exceptions/unhandled_buggy_23.sol#129) should be constant
+ERC20.winAmount_unchk20 (Unhandled-Exceptions/unhandled_buggy_23.sol#145) should be constant
+ERC20.winAmount_unchk32 (Unhandled-Exceptions/unhandled_buggy_23.sol#163) should be constant
+ERC20.winAmount_unchk8 (Unhandled-Exceptions/unhandled_buggy_23.sol#315) should be constant
+ERC20.winner_unchk20 (Unhandled-Exceptions/unhandled_buggy_23.sol#144) should be constant
+ERC20.winner_unchk32 (Unhandled-Exceptions/unhandled_buggy_23.sol#162) should be constant
+ERC20.winner_unchk8 (Unhandled-Exceptions/unhandled_buggy_23.sol#314) should be constant
+ERC20Burnable.winAmount_unchk44 (Unhandled-Exceptions/unhandled_buggy_23.sol#392) should be constant
+ERC20Burnable.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_23.sol#391) should be constant
+ERC20Detailed.payedOut_unchk33 (Unhandled-Exceptions/unhandled_buggy_23.sol#451) should be constant
+ERC20Detailed.payedOut_unchk45 (Unhandled-Exceptions/unhandled_buggy_23.sol#485) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+Unhandled-Exceptions/unhandled_buggy_23.sol analyzed (6 contracts with 80 detectors), 136 result(s) found

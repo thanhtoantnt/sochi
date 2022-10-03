@@ -1,0 +1,296 @@
+Compilation warnings/errors on Unhandled-Exceptions/unhandled_buggy_6.sol:
+Unhandled-Exceptions/unhandled_buggy_6.sol:10:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+Unhandled-Exceptions/unhandled_buggy_6.sol:20:9: Warning: Return value of low-level calls not used.
+        dst.call.value(msg.value)("");
+        ^---------------------------^
+Unhandled-Exceptions/unhandled_buggy_6.sol:30:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk44.send(winAmount_unchk44);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_6.sol:48:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_6.sol:52:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (42 ether); }
+       ^------------------^
+Unhandled-Exceptions/unhandled_buggy_6.sol:72:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (42 ether); }
+       ^------------------^
+Unhandled-Exceptions/unhandled_buggy_6.sol:82:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_6.sol:126:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+Unhandled-Exceptions/unhandled_buggy_6.sol:139:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk20.send(winAmount_unchk20);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_6.sol:153:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk32.send(winAmount_unchk32);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_6.sol:162:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+Unhandled-Exceptions/unhandled_buggy_6.sol:171:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk46.send(subpot_unchk46);  //bug
+        ^---------------------------------^
+Unhandled-Exceptions/unhandled_buggy_6.sol:209:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+Unhandled-Exceptions/unhandled_buggy_6.sol:218:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+Unhandled-Exceptions/unhandled_buggy_6.sol:226:2: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+	msg.sender.send(Balances_unchk17);}
+	^-------------------------------^
+Unhandled-Exceptions/unhandled_buggy_6.sol:239:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_6.sol:270:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk8.send(winAmount_unchk8);
+        ^----------------------------------^
+Unhandled-Exceptions/unhandled_buggy_6.sol:283:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (4 ether); }
+       ^-----------------^
+Unhandled-Exceptions/unhandled_buggy_6.sol:298:9: Warning: Return value of low-level calls not used.
+        dst.call.value(msg.value)("");
+        ^---------------------------^
+Unhandled-Exceptions/unhandled_buggy_6.sol:310:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+Unhandled-Exceptions/unhandled_buggy_6.sol:169:23: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                      ^-------------^
+Unhandled-Exceptions/unhandled_buggy_6.sol:169:40: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                                       ^--------------^
+
+
+Ownable.unhandledsend_unchk2(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#9-11) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_6.sol#10)
+Ownable.withdrawLeftOver_unchk33() (Unhandled-Exceptions/unhandled_buggy_6.sol#46-49) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_6.sol#48)
+Ownable.bug_unchk27(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#51-52) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_6.sol#52)
+Ownable.bug_unchk3(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#71-72) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_6.sol#72)
+Ownable.withdrawLeftOver_unchk9() (Unhandled-Exceptions/unhandled_buggy_6.sol#80-83) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_6.sol#82)
+Ownable.unhandledsend_unchk26(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#125-127) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_6.sol#126)
+Ownable.unhandledsend_unchk38(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#161-163) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_6.sol#162)
+Ownable.cash_unchk46(uint256,uint256,address) (Unhandled-Exceptions/unhandled_buggy_6.sol#169-173) sends eth to arbitrary user
+	Dangerous calls:
+	- winner_unchk46.send(subpot_unchk46) (Unhandled-Exceptions/unhandled_buggy_6.sol#171)
+Ownable.unhandledsend_unchk14(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#217-219) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_6.sol#218)
+ChannelWallet.withdrawBal_unchk17() (Unhandled-Exceptions/unhandled_buggy_6.sol#224-226) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(Balances_unchk17) (Unhandled-Exceptions/unhandled_buggy_6.sol#226)
+ChannelWallet.withdrawLeftOver_unchk45() (Unhandled-Exceptions/unhandled_buggy_6.sol#237-240) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_6.sol#239)
+ChannelWallet.bug_unchk39(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#282-283) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(4000000000000000000) (Unhandled-Exceptions/unhandled_buggy_6.sol#283)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Ownable.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_6.sol#25) is never initialized. It is used in:
+	- Ownable.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_6.sol#28-32)
+Ownable.winAmount_unchk44 (Unhandled-Exceptions/unhandled_buggy_6.sol#26) is never initialized. It is used in:
+	- Ownable.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_6.sol#28-32)
+Ownable.winner_unchk20 (Unhandled-Exceptions/unhandled_buggy_6.sol#134) is never initialized. It is used in:
+	- Ownable.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_6.sol#137-141)
+Ownable.winAmount_unchk20 (Unhandled-Exceptions/unhandled_buggy_6.sol#135) is never initialized. It is used in:
+	- Ownable.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_6.sol#137-141)
+Ownable.winner_unchk32 (Unhandled-Exceptions/unhandled_buggy_6.sol#148) is never initialized. It is used in:
+	- Ownable.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_6.sol#151-155)
+Ownable.winAmount_unchk32 (Unhandled-Exceptions/unhandled_buggy_6.sol#149) is never initialized. It is used in:
+	- Ownable.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_6.sol#151-155)
+ChannelWallet.winner_unchk8 (Unhandled-Exceptions/unhandled_buggy_6.sol#265) is never initialized. It is used in:
+	- ChannelWallet.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_6.sol#268-272)
+ChannelWallet.winAmount_unchk8 (Unhandled-Exceptions/unhandled_buggy_6.sol#266) is never initialized. It is used in:
+	- ChannelWallet.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_6.sol#268-272)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+
+Ownable.my_func_uncheck48(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#19-21) ignores return value by dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_6.sol#20)
+ChannelWallet.my_func_uncheck36(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#297-299) ignores return value by dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_6.sol#298)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-low-level-calls
+
+Ownable.unhandledsend_unchk2(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#9-11) ignores return value by callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_6.sol#10)
+Ownable.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_6.sol#28-32) ignores return value by winner_unchk44.send(winAmount_unchk44) (Unhandled-Exceptions/unhandled_buggy_6.sol#30)
+Ownable.withdrawLeftOver_unchk33() (Unhandled-Exceptions/unhandled_buggy_6.sol#46-49) ignores return value by msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_6.sol#48)
+Ownable.bug_unchk27(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#51-52) ignores return value by addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_6.sol#52)
+Ownable.bug_unchk3(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#71-72) ignores return value by addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_6.sol#72)
+Ownable.withdrawLeftOver_unchk9() (Unhandled-Exceptions/unhandled_buggy_6.sol#80-83) ignores return value by msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_6.sol#82)
+Ownable.unhandledsend_unchk26(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#125-127) ignores return value by callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_6.sol#126)
+Ownable.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_6.sol#137-141) ignores return value by winner_unchk20.send(winAmount_unchk20) (Unhandled-Exceptions/unhandled_buggy_6.sol#139)
+Ownable.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_6.sol#151-155) ignores return value by winner_unchk32.send(winAmount_unchk32) (Unhandled-Exceptions/unhandled_buggy_6.sol#153)
+Ownable.unhandledsend_unchk38(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#161-163) ignores return value by callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_6.sol#162)
+Ownable.cash_unchk46(uint256,uint256,address) (Unhandled-Exceptions/unhandled_buggy_6.sol#169-173) ignores return value by winner_unchk46.send(subpot_unchk46) (Unhandled-Exceptions/unhandled_buggy_6.sol#171)
+Ownable.my_func_unchk23(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#208-210) ignores return value by dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_6.sol#209)
+Ownable.unhandledsend_unchk14(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#217-219) ignores return value by callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_6.sol#218)
+ChannelWallet.withdrawBal_unchk17() (Unhandled-Exceptions/unhandled_buggy_6.sol#224-226) ignores return value by msg.sender.send(Balances_unchk17) (Unhandled-Exceptions/unhandled_buggy_6.sol#226)
+ChannelWallet.withdrawLeftOver_unchk45() (Unhandled-Exceptions/unhandled_buggy_6.sol#237-240) ignores return value by msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_6.sol#239)
+ChannelWallet.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_6.sol#268-272) ignores return value by winner_unchk8.send(winAmount_unchk8) (Unhandled-Exceptions/unhandled_buggy_6.sol#270)
+ChannelWallet.bug_unchk39(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#282-283) ignores return value by addr.send(4000000000000000000) (Unhandled-Exceptions/unhandled_buggy_6.sol#283)
+ChannelWallet.my_func_unchk35(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#309-311) ignores return value by dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_6.sol#310)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-send
+
+Ownable.bug_unchk7().addr_unchk7 (Unhandled-Exceptions/unhandled_buggy_6.sol#198) is a local variable never initialized
+Ownable.bug_unchk19().addr_unchk19 (Unhandled-Exceptions/unhandled_buggy_6.sol#116) is a local variable never initialized
+ChannelWallet.bug_unchk30().receivers_unchk30 (Unhandled-Exceptions/unhandled_buggy_6.sol#252) is a local variable never initialized
+ChannelWallet.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_6.sol#253) is a local variable never initialized
+Ownable.bug_unchk43().addr_unchk43 (Unhandled-Exceptions/unhandled_buggy_6.sol#14) is a local variable never initialized
+ChannelWallet.bug_unchk31().addr_unchk31 (Unhandled-Exceptions/unhandled_buggy_6.sol#230) is a local variable never initialized
+Ownable.UncheckedExternalCall_unchk40().addr_unchk40 (Unhandled-Exceptions/unhandled_buggy_6.sol#35) is a local variable never initialized
+Ownable.UncheckedExternalCall_unchk4().addr_unchk4 (Unhandled-Exceptions/unhandled_buggy_6.sol#182) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+Ownable.unhandledsend_unchk2(address).callee (Unhandled-Exceptions/unhandled_buggy_6.sol#9) lacks a zero-check on :
+		- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_6.sol#10)
+Ownable.my_func_uncheck48(address).dst (Unhandled-Exceptions/unhandled_buggy_6.sol#19) lacks a zero-check on :
+		- dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_6.sol#20)
+Ownable.bug_unchk27(address).addr (Unhandled-Exceptions/unhandled_buggy_6.sol#51) lacks a zero-check on :
+		- addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_6.sol#52)
+Ownable.bug_unchk3(address).addr (Unhandled-Exceptions/unhandled_buggy_6.sol#71) lacks a zero-check on :
+		- addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_6.sol#72)
+Ownable.unhandledsend_unchk26(address).callee (Unhandled-Exceptions/unhandled_buggy_6.sol#125) lacks a zero-check on :
+		- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_6.sol#126)
+Ownable.unhandledsend_unchk38(address).callee (Unhandled-Exceptions/unhandled_buggy_6.sol#161) lacks a zero-check on :
+		- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_6.sol#162)
+Ownable.cash_unchk46(uint256,uint256,address).winner_unchk46 (Unhandled-Exceptions/unhandled_buggy_6.sol#169) lacks a zero-check on :
+		- winner_unchk46.send(subpot_unchk46) (Unhandled-Exceptions/unhandled_buggy_6.sol#171)
+Ownable.my_func_unchk23(address).dst (Unhandled-Exceptions/unhandled_buggy_6.sol#208) lacks a zero-check on :
+		- dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_6.sol#209)
+Ownable.unhandledsend_unchk14(address).callee (Unhandled-Exceptions/unhandled_buggy_6.sol#217) lacks a zero-check on :
+		- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_6.sol#218)
+ChannelWallet.bug_unchk39(address).addr (Unhandled-Exceptions/unhandled_buggy_6.sol#282) lacks a zero-check on :
+		- addr.send(4000000000000000000) (Unhandled-Exceptions/unhandled_buggy_6.sol#283)
+ChannelWallet.my_func_uncheck36(address).dst (Unhandled-Exceptions/unhandled_buggy_6.sol#297) lacks a zero-check on :
+		- dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_6.sol#298)
+ChannelWallet.my_func_unchk35(address).dst (Unhandled-Exceptions/unhandled_buggy_6.sol#309) lacks a zero-check on :
+		- dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_6.sol#310)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Pragma version^0.5.8 (Unhandled-Exceptions/unhandled_buggy_6.sol#5) allows old versions
+solc-0.5.8 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in Ownable.my_func_uncheck48(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#19-21):
+	- dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_6.sol#20)
+Low level call in ChannelWallet.my_func_uncheck36(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#297-299):
+	- dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_6.sol#298)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Function Ownable.unhandledsend_unchk2(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#9-11) is not in mixedCase
+Function Ownable.bug_unchk43() (Unhandled-Exceptions/unhandled_buggy_6.sol#13-17) is not in mixedCase
+Function Ownable.my_func_uncheck48(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#19-21) is not in mixedCase
+Function Ownable.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_6.sol#28-32) is not in mixedCase
+Function Ownable.UncheckedExternalCall_unchk40() (Unhandled-Exceptions/unhandled_buggy_6.sol#34-42) is not in mixedCase
+Function Ownable.withdrawLeftOver_unchk33() (Unhandled-Exceptions/unhandled_buggy_6.sol#46-49) is not in mixedCase
+Function Ownable.bug_unchk27(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#51-52) is not in mixedCase
+Function Ownable.callnotchecked_unchk37(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#63-65) is not in mixedCase
+Function Ownable.bug_unchk3(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#71-72) is not in mixedCase
+Function Ownable.withdrawLeftOver_unchk9() (Unhandled-Exceptions/unhandled_buggy_6.sol#80-83) is not in mixedCase
+Function Ownable.callnotchecked_unchk25(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#107-109) is not in mixedCase
+Function Ownable.bug_unchk19() (Unhandled-Exceptions/unhandled_buggy_6.sol#115-119) is not in mixedCase
+Function Ownable.unhandledsend_unchk26(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#125-127) is not in mixedCase
+Function Ownable.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_6.sol#137-141) is not in mixedCase
+Function Ownable.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_6.sol#151-155) is not in mixedCase
+Function Ownable.unhandledsend_unchk38(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#161-163) is not in mixedCase
+Function Ownable.cash_unchk46(uint256,uint256,address) (Unhandled-Exceptions/unhandled_buggy_6.sol#169-173) is not in mixedCase
+Parameter Ownable.cash_unchk46(uint256,uint256,address).winner_unchk46 (Unhandled-Exceptions/unhandled_buggy_6.sol#169) is not in mixedCase
+Function Ownable.UncheckedExternalCall_unchk4() (Unhandled-Exceptions/unhandled_buggy_6.sol#181-189) is not in mixedCase
+Function Ownable.bug_unchk7() (Unhandled-Exceptions/unhandled_buggy_6.sol#197-201) is not in mixedCase
+Function Ownable.my_func_unchk23(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#208-210) is not in mixedCase
+Function Ownable.unhandledsend_unchk14(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#217-219) is not in mixedCase
+Variable Ownable.payedOut_unchk44 (Unhandled-Exceptions/unhandled_buggy_6.sol#24) is not in mixedCase
+Variable Ownable.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_6.sol#25) is not in mixedCase
+Variable Ownable.winAmount_unchk44 (Unhandled-Exceptions/unhandled_buggy_6.sol#26) is not in mixedCase
+Variable Ownable.payedOut_unchk33 (Unhandled-Exceptions/unhandled_buggy_6.sol#44) is not in mixedCase
+Variable Ownable.payedOut_unchk9 (Unhandled-Exceptions/unhandled_buggy_6.sol#78) is not in mixedCase
+Variable Ownable.payedOut_unchk20 (Unhandled-Exceptions/unhandled_buggy_6.sol#133) is not in mixedCase
+Variable Ownable.winner_unchk20 (Unhandled-Exceptions/unhandled_buggy_6.sol#134) is not in mixedCase
+Variable Ownable.winAmount_unchk20 (Unhandled-Exceptions/unhandled_buggy_6.sol#135) is not in mixedCase
+Variable Ownable.payedOut_unchk32 (Unhandled-Exceptions/unhandled_buggy_6.sol#147) is not in mixedCase
+Variable Ownable.winner_unchk32 (Unhandled-Exceptions/unhandled_buggy_6.sol#148) is not in mixedCase
+Variable Ownable.winAmount_unchk32 (Unhandled-Exceptions/unhandled_buggy_6.sol#149) is not in mixedCase
+Function ChannelWallet.withdrawBal_unchk17() (Unhandled-Exceptions/unhandled_buggy_6.sol#224-226) is not in mixedCase
+Function ChannelWallet.bug_unchk31() (Unhandled-Exceptions/unhandled_buggy_6.sol#229-233) is not in mixedCase
+Function ChannelWallet.withdrawLeftOver_unchk45() (Unhandled-Exceptions/unhandled_buggy_6.sol#237-240) is not in mixedCase
+Function ChannelWallet.callnotchecked_unchk13(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#242-244) is not in mixedCase
+Function ChannelWallet.bug_unchk30() (Unhandled-Exceptions/unhandled_buggy_6.sol#251-258) is not in mixedCase
+Function ChannelWallet.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_6.sol#268-272) is not in mixedCase
+Parameter ChannelWallet.setAddress(string,address)._address (Unhandled-Exceptions/unhandled_buggy_6.sol#274) is not in mixedCase
+Function ChannelWallet.bug_unchk39(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#282-283) is not in mixedCase
+Parameter ChannelWallet.updateChannel(string,string,address)._address (Unhandled-Exceptions/unhandled_buggy_6.sol#285) is not in mixedCase
+Function ChannelWallet.my_func_uncheck36(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#297-299) is not in mixedCase
+Function ChannelWallet.my_func_unchk35(address) (Unhandled-Exceptions/unhandled_buggy_6.sol#309-311) is not in mixedCase
+Variable ChannelWallet.payedOut_unchk45 (Unhandled-Exceptions/unhandled_buggy_6.sol#235) is not in mixedCase
+Variable ChannelWallet.payedOut_unchk8 (Unhandled-Exceptions/unhandled_buggy_6.sol#264) is not in mixedCase
+Variable ChannelWallet.winner_unchk8 (Unhandled-Exceptions/unhandled_buggy_6.sol#265) is not in mixedCase
+Variable ChannelWallet.winAmount_unchk8 (Unhandled-Exceptions/unhandled_buggy_6.sol#266) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in Ownable.sendToWinner_unchk20() (Unhandled-Exceptions/unhandled_buggy_6.sol#137-141):
+	External calls:
+	- winner_unchk20.send(winAmount_unchk20) (Unhandled-Exceptions/unhandled_buggy_6.sol#139)
+	State variables written after the call(s):
+	- payedOut_unchk20 = true (Unhandled-Exceptions/unhandled_buggy_6.sol#140)
+Reentrancy in Ownable.sendToWinner_unchk32() (Unhandled-Exceptions/unhandled_buggy_6.sol#151-155):
+	External calls:
+	- winner_unchk32.send(winAmount_unchk32) (Unhandled-Exceptions/unhandled_buggy_6.sol#153)
+	State variables written after the call(s):
+	- payedOut_unchk32 = true (Unhandled-Exceptions/unhandled_buggy_6.sol#154)
+Reentrancy in Ownable.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_6.sol#28-32):
+	External calls:
+	- winner_unchk44.send(winAmount_unchk44) (Unhandled-Exceptions/unhandled_buggy_6.sol#30)
+	State variables written after the call(s):
+	- payedOut_unchk44 = true (Unhandled-Exceptions/unhandled_buggy_6.sol#31)
+Reentrancy in ChannelWallet.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_6.sol#268-272):
+	External calls:
+	- winner_unchk8.send(winAmount_unchk8) (Unhandled-Exceptions/unhandled_buggy_6.sol#270)
+	State variables written after the call(s):
+	- payedOut_unchk8 = true (Unhandled-Exceptions/unhandled_buggy_6.sol#271)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable Ownable.UncheckedExternalCall_unchk4().addr_unchk4 (Unhandled-Exceptions/unhandled_buggy_6.sol#182) is too similar to Ownable.bug_unchk7().addr_unchk7 (Unhandled-Exceptions/unhandled_buggy_6.sol#198)
+Variable Ownable.UncheckedExternalCall_unchk40().addr_unchk40 (Unhandled-Exceptions/unhandled_buggy_6.sol#35) is too similar to Ownable.bug_unchk43().addr_unchk43 (Unhandled-Exceptions/unhandled_buggy_6.sol#14)
+Variable Ownable.payedOut_unchk20 (Unhandled-Exceptions/unhandled_buggy_6.sol#133) is too similar to Ownable.payedOut_unchk32 (Unhandled-Exceptions/unhandled_buggy_6.sol#147)
+Variable Ownable.payedOut_unchk32 (Unhandled-Exceptions/unhandled_buggy_6.sol#147) is too similar to Ownable.payedOut_unchk33 (Unhandled-Exceptions/unhandled_buggy_6.sol#44)
+Variable Ownable.winAmount_unchk20 (Unhandled-Exceptions/unhandled_buggy_6.sol#135) is too similar to Ownable.winAmount_unchk32 (Unhandled-Exceptions/unhandled_buggy_6.sol#149)
+Variable Ownable.winner_unchk20 (Unhandled-Exceptions/unhandled_buggy_6.sol#134) is too similar to Ownable.winner_unchk32 (Unhandled-Exceptions/unhandled_buggy_6.sol#148)
+Variable Ownable.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_6.sol#25) is too similar to Ownable.cash_unchk46(uint256,uint256,address).winner_unchk46 (Unhandled-Exceptions/unhandled_buggy_6.sol#169)
+Variable ChannelWallet.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_6.sol#253) is too similar to Ownable.UncheckedExternalCall_unchk40().addr_unchk40 (Unhandled-Exceptions/unhandled_buggy_6.sol#35)
+Variable Ownable.bug_unchk19().addr_unchk19 (Unhandled-Exceptions/unhandled_buggy_6.sol#116) is too similar to ChannelWallet.bug_unchk31().addr_unchk31 (Unhandled-Exceptions/unhandled_buggy_6.sol#230)
+Variable ChannelWallet.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_6.sol#253) is too similar to ChannelWallet.bug_unchk31().addr_unchk31 (Unhandled-Exceptions/unhandled_buggy_6.sol#230)
+Variable ChannelWallet.bug_unchk31().addr_unchk31 (Unhandled-Exceptions/unhandled_buggy_6.sol#230) is too similar to Ownable.bug_unchk43().addr_unchk43 (Unhandled-Exceptions/unhandled_buggy_6.sol#14)
+Variable ChannelWallet.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_6.sol#253) is too similar to Ownable.bug_unchk43().addr_unchk43 (Unhandled-Exceptions/unhandled_buggy_6.sol#14)
+Variable Ownable.payedOut_unchk44 (Unhandled-Exceptions/unhandled_buggy_6.sol#24) is too similar to ChannelWallet.payedOut_unchk45 (Unhandled-Exceptions/unhandled_buggy_6.sol#235)
+Variable ChannelWallet.payedOut_unchk8 (Unhandled-Exceptions/unhandled_buggy_6.sol#264) is too similar to Ownable.payedOut_unchk9 (Unhandled-Exceptions/unhandled_buggy_6.sol#78)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+ChannelWallet.payedOut_unchk45 (Unhandled-Exceptions/unhandled_buggy_6.sol#235) should be constant
+ChannelWallet.winAmount_unchk8 (Unhandled-Exceptions/unhandled_buggy_6.sol#266) should be constant
+ChannelWallet.winner_unchk8 (Unhandled-Exceptions/unhandled_buggy_6.sol#265) should be constant
+Ownable.payedOut_unchk33 (Unhandled-Exceptions/unhandled_buggy_6.sol#44) should be constant
+Ownable.payedOut_unchk9 (Unhandled-Exceptions/unhandled_buggy_6.sol#78) should be constant
+Ownable.winAmount_unchk20 (Unhandled-Exceptions/unhandled_buggy_6.sol#135) should be constant
+Ownable.winAmount_unchk32 (Unhandled-Exceptions/unhandled_buggy_6.sol#149) should be constant
+Ownable.winAmount_unchk44 (Unhandled-Exceptions/unhandled_buggy_6.sol#26) should be constant
+Ownable.winner_unchk20 (Unhandled-Exceptions/unhandled_buggy_6.sol#134) should be constant
+Ownable.winner_unchk32 (Unhandled-Exceptions/unhandled_buggy_6.sol#148) should be constant
+Ownable.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_6.sol#25) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+Unhandled-Exceptions/unhandled_buggy_6.sol analyzed (2 contracts with 80 detectors), 141 result(s) found

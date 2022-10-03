@@ -1,0 +1,197 @@
+Compilation warnings/errors on Unhandled-Exceptions/unhandled_buggy_41.sol:
+Unhandled-Exceptions/unhandled_buggy_41.sol:19:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk46.send(subpot_unchk46);  //bug
+        ^---------------------------------^
+Unhandled-Exceptions/unhandled_buggy_41.sol:41:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+Unhandled-Exceptions/unhandled_buggy_41.sol:47:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+Unhandled-Exceptions/unhandled_buggy_41.sol:73:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_41.sol:104:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk8.send(winAmount_unchk8);
+        ^----------------------------------^
+Unhandled-Exceptions/unhandled_buggy_41.sol:129:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (4 ether); }
+       ^-----------------^
+Unhandled-Exceptions/unhandled_buggy_41.sol:144:9: Warning: Return value of low-level calls not used.
+        dst.call.value(msg.value)("");
+        ^---------------------------^
+Unhandled-Exceptions/unhandled_buggy_41.sol:163:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+Unhandled-Exceptions/unhandled_buggy_41.sol:186:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk44.send(winAmount_unchk44);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_41.sol:236:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+Unhandled-Exceptions/unhandled_buggy_41.sol:257:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (42 ether); }
+       ^------------------^
+Unhandled-Exceptions/unhandled_buggy_41.sol:17:25: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+  function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                        ^-------------^
+Unhandled-Exceptions/unhandled_buggy_41.sol:17:42: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+  function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                                         ^--------------^
+Unhandled-Exceptions/unhandled_buggy_41.sol:78:3: Warning: Function state mutability can be restricted to pure
+  function callnotchecked_unchk13(address callee) public {
+  ^ (Relevant source part starts here and spans across multiple lines).
+
+
+AO.cash_unchk46(uint256,uint256,address) (Unhandled-Exceptions/unhandled_buggy_41.sol#17-21) sends eth to arbitrary user
+	Dangerous calls:
+	- winner_unchk46.send(subpot_unchk46) (Unhandled-Exceptions/unhandled_buggy_41.sol#19)
+AO.unhandledsend_unchk14(address) (Unhandled-Exceptions/unhandled_buggy_41.sol#46-48) sends eth to arbitrary user
+	Dangerous calls:
+	- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_41.sol#47)
+AO.withdrawLeftOver_unchk45() (Unhandled-Exceptions/unhandled_buggy_41.sol#71-74) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_41.sol#73)
+AO.bug_unchk39(address) (Unhandled-Exceptions/unhandled_buggy_41.sol#128-129) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(4000000000000000000) (Unhandled-Exceptions/unhandled_buggy_41.sol#129)
+AO.withdrawLeftOver_unchk33() (Unhandled-Exceptions/unhandled_buggy_41.sol#234-237) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_41.sol#236)
+AO.bug_unchk27(address) (Unhandled-Exceptions/unhandled_buggy_41.sol#256-257) sends eth to arbitrary user
+	Dangerous calls:
+	- addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_41.sol#257)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+AO.winner_unchk8 (Unhandled-Exceptions/unhandled_buggy_41.sol#99) is never initialized. It is used in:
+	- AO.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_41.sol#102-106)
+AO.winAmount_unchk8 (Unhandled-Exceptions/unhandled_buggy_41.sol#100) is never initialized. It is used in:
+	- AO.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_41.sol#102-106)
+AO.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_41.sol#181) is never initialized. It is used in:
+	- AO.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_41.sol#184-188)
+AO.winAmount_unchk44 (Unhandled-Exceptions/unhandled_buggy_41.sol#182) is never initialized. It is used in:
+	- AO.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_41.sol#184-188)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+
+AO.my_func_uncheck36(address) (Unhandled-Exceptions/unhandled_buggy_41.sol#143-145) ignores return value by dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_41.sol#144)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-low-level-calls
+
+AO.cash_unchk46(uint256,uint256,address) (Unhandled-Exceptions/unhandled_buggy_41.sol#17-21) ignores return value by winner_unchk46.send(subpot_unchk46) (Unhandled-Exceptions/unhandled_buggy_41.sol#19)
+AO.my_func_unchk23(address) (Unhandled-Exceptions/unhandled_buggy_41.sol#40-42) ignores return value by dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_41.sol#41)
+AO.unhandledsend_unchk14(address) (Unhandled-Exceptions/unhandled_buggy_41.sol#46-48) ignores return value by callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_41.sol#47)
+AO.withdrawLeftOver_unchk45() (Unhandled-Exceptions/unhandled_buggy_41.sol#71-74) ignores return value by msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_41.sol#73)
+AO.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_41.sol#102-106) ignores return value by winner_unchk8.send(winAmount_unchk8) (Unhandled-Exceptions/unhandled_buggy_41.sol#104)
+AO.bug_unchk39(address) (Unhandled-Exceptions/unhandled_buggy_41.sol#128-129) ignores return value by addr.send(4000000000000000000) (Unhandled-Exceptions/unhandled_buggy_41.sol#129)
+AO.my_func_unchk35(address) (Unhandled-Exceptions/unhandled_buggy_41.sol#162-164) ignores return value by dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_41.sol#163)
+AO.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_41.sol#184-188) ignores return value by winner_unchk44.send(winAmount_unchk44) (Unhandled-Exceptions/unhandled_buggy_41.sol#186)
+AO.withdrawLeftOver_unchk33() (Unhandled-Exceptions/unhandled_buggy_41.sol#234-237) ignores return value by msg.sender.send(address(this).balance) (Unhandled-Exceptions/unhandled_buggy_41.sol#236)
+AO.bug_unchk27(address) (Unhandled-Exceptions/unhandled_buggy_41.sol#256-257) ignores return value by addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_41.sol#257)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-send
+
+AO.UncheckedExternalCall_unchk40().addr_unchk40 (Unhandled-Exceptions/unhandled_buggy_41.sol#209) is a local variable never initialized
+AO.bug_unchk30().receivers_unchk30 (Unhandled-Exceptions/unhandled_buggy_41.sol#51) is a local variable never initialized
+AO.bug_unchk7().addr_unchk7 (Unhandled-Exceptions/unhandled_buggy_41.sol#34) is a local variable never initialized
+AO.bug_unchk31().addr_unchk31 (Unhandled-Exceptions/unhandled_buggy_41.sol#62) is a local variable never initialized
+AO.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_41.sol#52) is a local variable never initialized
+AO.UncheckedExternalCall_unchk4().addr_unchk4 (Unhandled-Exceptions/unhandled_buggy_41.sol#24) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+AO.cash_unchk46(uint256,uint256,address).winner_unchk46 (Unhandled-Exceptions/unhandled_buggy_41.sol#17) lacks a zero-check on :
+		- winner_unchk46.send(subpot_unchk46) (Unhandled-Exceptions/unhandled_buggy_41.sol#19)
+AO.my_func_unchk23(address).dst (Unhandled-Exceptions/unhandled_buggy_41.sol#40) lacks a zero-check on :
+		- dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_41.sol#41)
+AO.unhandledsend_unchk14(address).callee (Unhandled-Exceptions/unhandled_buggy_41.sol#46) lacks a zero-check on :
+		- callee.send(5000000000000000000) (Unhandled-Exceptions/unhandled_buggy_41.sol#47)
+AO.bug_unchk39(address).addr (Unhandled-Exceptions/unhandled_buggy_41.sol#128) lacks a zero-check on :
+		- addr.send(4000000000000000000) (Unhandled-Exceptions/unhandled_buggy_41.sol#129)
+AO.my_func_uncheck36(address).dst (Unhandled-Exceptions/unhandled_buggy_41.sol#143) lacks a zero-check on :
+		- dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_41.sol#144)
+AO.my_func_unchk35(address).dst (Unhandled-Exceptions/unhandled_buggy_41.sol#162) lacks a zero-check on :
+		- dst.send(msg.value) (Unhandled-Exceptions/unhandled_buggy_41.sol#163)
+AO.bug_unchk27(address).addr (Unhandled-Exceptions/unhandled_buggy_41.sol#256) lacks a zero-check on :
+		- addr.send(42000000000000000000) (Unhandled-Exceptions/unhandled_buggy_41.sol#257)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Pragma version>=0.4.22<0.6.0 (Unhandled-Exceptions/unhandled_buggy_41.sol#9) is known to contain severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in AO.my_func_uncheck36(address) (Unhandled-Exceptions/unhandled_buggy_41.sol#143-145):
+	- dst.call.value(msg.value)() (Unhandled-Exceptions/unhandled_buggy_41.sol#144)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Contract tokenRecipient (Unhandled-Exceptions/unhandled_buggy_41.sol#11-13) is not in CapWords
+Function AO.cash_unchk46(uint256,uint256,address) (Unhandled-Exceptions/unhandled_buggy_41.sol#17-21) is not in mixedCase
+Parameter AO.cash_unchk46(uint256,uint256,address).winner_unchk46 (Unhandled-Exceptions/unhandled_buggy_41.sol#17) is not in mixedCase
+Function AO.UncheckedExternalCall_unchk4() (Unhandled-Exceptions/unhandled_buggy_41.sol#23-31) is not in mixedCase
+Function AO.bug_unchk7() (Unhandled-Exceptions/unhandled_buggy_41.sol#33-37) is not in mixedCase
+Function AO.my_func_unchk23(address) (Unhandled-Exceptions/unhandled_buggy_41.sol#40-42) is not in mixedCase
+Function AO.unhandledsend_unchk14(address) (Unhandled-Exceptions/unhandled_buggy_41.sol#46-48) is not in mixedCase
+Function AO.bug_unchk30() (Unhandled-Exceptions/unhandled_buggy_41.sol#50-57) is not in mixedCase
+Function AO.bug_unchk31() (Unhandled-Exceptions/unhandled_buggy_41.sol#61-65) is not in mixedCase
+Function AO.withdrawLeftOver_unchk45() (Unhandled-Exceptions/unhandled_buggy_41.sol#71-74) is not in mixedCase
+Function AO.callnotchecked_unchk13(address) (Unhandled-Exceptions/unhandled_buggy_41.sol#78-80) is not in mixedCase
+Function AO.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_41.sol#102-106) is not in mixedCase
+Function AO.bug_unchk39(address) (Unhandled-Exceptions/unhandled_buggy_41.sol#128-129) is not in mixedCase
+Parameter AO.transfer(address,uint256)._to (Unhandled-Exceptions/unhandled_buggy_41.sol#139) is not in mixedCase
+Parameter AO.transfer(address,uint256)._value (Unhandled-Exceptions/unhandled_buggy_41.sol#139) is not in mixedCase
+Function AO.my_func_uncheck36(address) (Unhandled-Exceptions/unhandled_buggy_41.sol#143-145) is not in mixedCase
+Parameter AO.transferFrom(address,address,uint256)._from (Unhandled-Exceptions/unhandled_buggy_41.sol#156) is not in mixedCase
+Parameter AO.transferFrom(address,address,uint256)._to (Unhandled-Exceptions/unhandled_buggy_41.sol#156) is not in mixedCase
+Parameter AO.transferFrom(address,address,uint256)._value (Unhandled-Exceptions/unhandled_buggy_41.sol#156) is not in mixedCase
+Function AO.my_func_unchk35(address) (Unhandled-Exceptions/unhandled_buggy_41.sol#162-164) is not in mixedCase
+Parameter AO.approve(address,uint256)._spender (Unhandled-Exceptions/unhandled_buggy_41.sol#174) is not in mixedCase
+Parameter AO.approve(address,uint256)._value (Unhandled-Exceptions/unhandled_buggy_41.sol#174) is not in mixedCase
+Function AO.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_41.sol#184-188) is not in mixedCase
+Parameter AO.approveAndCall(address,uint256,bytes)._spender (Unhandled-Exceptions/unhandled_buggy_41.sol#199) is not in mixedCase
+Parameter AO.approveAndCall(address,uint256,bytes)._value (Unhandled-Exceptions/unhandled_buggy_41.sol#199) is not in mixedCase
+Parameter AO.approveAndCall(address,uint256,bytes)._extraData (Unhandled-Exceptions/unhandled_buggy_41.sol#199) is not in mixedCase
+Function AO.UncheckedExternalCall_unchk40() (Unhandled-Exceptions/unhandled_buggy_41.sol#208-216) is not in mixedCase
+Parameter AO.burn(uint256)._value (Unhandled-Exceptions/unhandled_buggy_41.sol#225) is not in mixedCase
+Function AO.withdrawLeftOver_unchk33() (Unhandled-Exceptions/unhandled_buggy_41.sol#234-237) is not in mixedCase
+Parameter AO.burnFrom(address,uint256)._from (Unhandled-Exceptions/unhandled_buggy_41.sol#247) is not in mixedCase
+Parameter AO.burnFrom(address,uint256)._value (Unhandled-Exceptions/unhandled_buggy_41.sol#247) is not in mixedCase
+Function AO.bug_unchk27(address) (Unhandled-Exceptions/unhandled_buggy_41.sol#256-257) is not in mixedCase
+Variable AO.payedOut_unchk45 (Unhandled-Exceptions/unhandled_buggy_41.sol#69) is not in mixedCase
+Variable AO.payedOut_unchk8 (Unhandled-Exceptions/unhandled_buggy_41.sol#98) is not in mixedCase
+Variable AO.winner_unchk8 (Unhandled-Exceptions/unhandled_buggy_41.sol#99) is not in mixedCase
+Variable AO.winAmount_unchk8 (Unhandled-Exceptions/unhandled_buggy_41.sol#100) is not in mixedCase
+Variable AO.payedOut_unchk44 (Unhandled-Exceptions/unhandled_buggy_41.sol#180) is not in mixedCase
+Variable AO.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_41.sol#181) is not in mixedCase
+Variable AO.winAmount_unchk44 (Unhandled-Exceptions/unhandled_buggy_41.sol#182) is not in mixedCase
+Variable AO.payedOut_unchk33 (Unhandled-Exceptions/unhandled_buggy_41.sol#232) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in AO.sendToWinner_unchk44() (Unhandled-Exceptions/unhandled_buggy_41.sol#184-188):
+	External calls:
+	- winner_unchk44.send(winAmount_unchk44) (Unhandled-Exceptions/unhandled_buggy_41.sol#186)
+	State variables written after the call(s):
+	- payedOut_unchk44 = true (Unhandled-Exceptions/unhandled_buggy_41.sol#187)
+Reentrancy in AO.sendToWinner_unchk8() (Unhandled-Exceptions/unhandled_buggy_41.sol#102-106):
+	External calls:
+	- winner_unchk8.send(winAmount_unchk8) (Unhandled-Exceptions/unhandled_buggy_41.sol#104)
+	State variables written after the call(s):
+	- payedOut_unchk8 = true (Unhandled-Exceptions/unhandled_buggy_41.sol#105)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable AO.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_41.sol#52) is too similar to AO.UncheckedExternalCall_unchk40().addr_unchk40 (Unhandled-Exceptions/unhandled_buggy_41.sol#209)
+Variable AO.bug_unchk30().addr_unchk30 (Unhandled-Exceptions/unhandled_buggy_41.sol#52) is too similar to AO.bug_unchk31().addr_unchk31 (Unhandled-Exceptions/unhandled_buggy_41.sol#62)
+Variable AO.UncheckedExternalCall_unchk4().addr_unchk4 (Unhandled-Exceptions/unhandled_buggy_41.sol#24) is too similar to AO.bug_unchk7().addr_unchk7 (Unhandled-Exceptions/unhandled_buggy_41.sol#34)
+Variable AO.payedOut_unchk44 (Unhandled-Exceptions/unhandled_buggy_41.sol#180) is too similar to AO.payedOut_unchk45 (Unhandled-Exceptions/unhandled_buggy_41.sol#69)
+Variable AO.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_41.sol#181) is too similar to AO.cash_unchk46(uint256,uint256,address).winner_unchk46 (Unhandled-Exceptions/unhandled_buggy_41.sol#17)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+AO.decimals (Unhandled-Exceptions/unhandled_buggy_41.sol#38) should be constant
+AO.payedOut_unchk33 (Unhandled-Exceptions/unhandled_buggy_41.sol#232) should be constant
+AO.payedOut_unchk45 (Unhandled-Exceptions/unhandled_buggy_41.sol#69) should be constant
+AO.winAmount_unchk44 (Unhandled-Exceptions/unhandled_buggy_41.sol#182) should be constant
+AO.winAmount_unchk8 (Unhandled-Exceptions/unhandled_buggy_41.sol#100) should be constant
+AO.winner_unchk44 (Unhandled-Exceptions/unhandled_buggy_41.sol#181) should be constant
+AO.winner_unchk8 (Unhandled-Exceptions/unhandled_buggy_41.sol#99) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+approveAndCall(address,uint256,bytes) should be declared external:
+	- AO.approveAndCall(address,uint256,bytes) (Unhandled-Exceptions/unhandled_buggy_41.sol#199-207)
+Moreover, the following function parameters should change its data location:
+_extraData location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+Unhandled-Exceptions/unhandled_buggy_41.sol analyzed (2 contracts with 80 detectors), 91 result(s) found

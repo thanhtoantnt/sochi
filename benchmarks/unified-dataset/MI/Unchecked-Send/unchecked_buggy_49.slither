@@ -1,0 +1,66 @@
+
+TAMC.bug_unchk_send20() (Unchecked-Send/unchecked_buggy_49.sol#8-9) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_49.sol#9)
+TAMC.bug_unchk_send32() (Unchecked-Send/unchecked_buggy_49.sol#12-13) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_49.sol#13)
+TAMC.bug_unchk_send4() (Unchecked-Send/unchecked_buggy_49.sol#15-16) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_49.sol#16)
+TAMC.bug_unchk_send7() (Unchecked-Send/unchecked_buggy_49.sol#18-19) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_49.sol#19)
+TAMC.bug_unchk_send31() (Unchecked-Send/unchecked_buggy_49.sol#23-24) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_49.sol#24)
+TAMC.bug_unchk_send14() (Unchecked-Send/unchecked_buggy_49.sol#31-32) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_49.sol#32)
+TAMC.bug_unchk_send30() (Unchecked-Send/unchecked_buggy_49.sol#41-42) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_49.sol#42)
+TAMC.bug_unchk_send13() (Unchecked-Send/unchecked_buggy_49.sol#44-45) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_49.sol#45)
+TAMC.bug_unchk_send23() (Unchecked-Send/unchecked_buggy_49.sol#48-49) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_49.sol#49)
+TAMC.bug_unchk_send8() (Unchecked-Send/unchecked_buggy_49.sol#60-61) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_49.sol#61)
+TAMC.bug_unchk_send27() (Unchecked-Send/unchecked_buggy_49.sol#76-77) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_49.sol#77)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+TAMC.totalSupply (Unchecked-Send/unchecked_buggy_49.sol#21) is set pre-construction with a non-constant function or state variable:
+	- 1000000000 * (uint256(10) ** decimals)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#function-initializing-state
+
+Pragma version^0.5.12 (Unchecked-Send/unchecked_buggy_49.sol#5) allows old versions
+solc-0.5.12 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function TAMC.bug_unchk_send20() (Unchecked-Send/unchecked_buggy_49.sol#8-9) is not in mixedCase
+Function TAMC.bug_unchk_send32() (Unchecked-Send/unchecked_buggy_49.sol#12-13) is not in mixedCase
+Function TAMC.bug_unchk_send4() (Unchecked-Send/unchecked_buggy_49.sol#15-16) is not in mixedCase
+Function TAMC.bug_unchk_send7() (Unchecked-Send/unchecked_buggy_49.sol#18-19) is not in mixedCase
+Function TAMC.bug_unchk_send31() (Unchecked-Send/unchecked_buggy_49.sol#23-24) is not in mixedCase
+Function TAMC.bug_unchk_send14() (Unchecked-Send/unchecked_buggy_49.sol#31-32) is not in mixedCase
+Function TAMC.bug_unchk_send30() (Unchecked-Send/unchecked_buggy_49.sol#41-42) is not in mixedCase
+Function TAMC.bug_unchk_send13() (Unchecked-Send/unchecked_buggy_49.sol#44-45) is not in mixedCase
+Function TAMC.bug_unchk_send23() (Unchecked-Send/unchecked_buggy_49.sol#48-49) is not in mixedCase
+Function TAMC.bug_unchk_send8() (Unchecked-Send/unchecked_buggy_49.sol#60-61) is not in mixedCase
+Function TAMC.bug_unchk_send27() (Unchecked-Send/unchecked_buggy_49.sol#76-77) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+TAMC.slitherConstructorVariables() (Unchecked-Send/unchecked_buggy_49.sol#7-78) uses literals with too many digits:
+	- totalSupply = 1000000000 * (uint256(10) ** decimals) (Unchecked-Send/unchecked_buggy_49.sol#21)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+TAMC.decimals (Unchecked-Send/unchecked_buggy_49.sol#20) should be constant
+TAMC.name (Unchecked-Send/unchecked_buggy_49.sol#14) should be constant
+TAMC.symbol (Unchecked-Send/unchecked_buggy_49.sol#17) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+Unchecked-Send/unchecked_buggy_49.sol analyzed (1 contracts with 80 detectors), 29 result(s) found
