@@ -1,0 +1,99 @@
+
+DocumentSigner.bug_re_ent13() (Re-entrancy/reentrancy_buggy_10.sol#38-45) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_10.sol#40)
+DocumentSigner.callme_re_ent35() (Re-entrancy/reentrancy_buggy_10.sol#56-62) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_10.sol#58)
+DocumentSigner.bug_re_ent27() (Re-entrancy/reentrancy_buggy_10.sol#101-107) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_10.sol#103)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Reentrancy in DocumentSigner.bug_re_ent13() (Re-entrancy/reentrancy_buggy_10.sol#38-45):
+	External calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_10.sol#40)
+	State variables written after the call(s):
+	- not_called_re_ent13 = false (Re-entrancy/reentrancy_buggy_10.sol#44)
+Reentrancy in DocumentSigner.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_10.sol#87-95):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (Re-entrancy/reentrancy_buggy_10.sol#90)
+	State variables written after the call(s):
+	- userBalance_re_ent33[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_10.sol#94)
+Reentrancy in DocumentSigner.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_10.sol#72-80):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (Re-entrancy/reentrancy_buggy_10.sol#75)
+	State variables written after the call(s):
+	- userBalance_re_ent40[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_10.sol#79)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
+
+Pragma version>=0.4.21<0.6.0 (Re-entrancy/reentrancy_buggy_10.sol#5) allows old versions
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in DocumentSigner.bug_re_ent13() (Re-entrancy/reentrancy_buggy_10.sol#38-45):
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_10.sol#40)
+Low level call in DocumentSigner.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_10.sol#72-80):
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (Re-entrancy/reentrancy_buggy_10.sol#75)
+Low level call in DocumentSigner.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_10.sol#87-95):
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (Re-entrancy/reentrancy_buggy_10.sol#90)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Function DocumentSigner.claimReward_re_ent39() (Re-entrancy/reentrancy_buggy_10.sol#9-15) is not in mixedCase
+Function DocumentSigner.withdraw_balances_re_ent36() (Re-entrancy/reentrancy_buggy_10.sol#18-21) is not in mixedCase
+Function DocumentSigner.withdrawFunds_re_ent31(uint256) (Re-entrancy/reentrancy_buggy_10.sol#30-35) is not in mixedCase
+Parameter DocumentSigner.withdrawFunds_re_ent31(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_10.sol#30) is not in mixedCase
+Function DocumentSigner.bug_re_ent13() (Re-entrancy/reentrancy_buggy_10.sol#38-45) is not in mixedCase
+Parameter DocumentSigner.submitDocument(string)._doc (Re-entrancy/reentrancy_buggy_10.sol#48) is not in mixedCase
+Function DocumentSigner.callme_re_ent35() (Re-entrancy/reentrancy_buggy_10.sol#56-62) is not in mixedCase
+Parameter DocumentSigner.signDocument(bytes32)._docHash (Re-entrancy/reentrancy_buggy_10.sol#64) is not in mixedCase
+Function DocumentSigner.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_10.sol#72-80) is not in mixedCase
+Parameter DocumentSigner.getDetail(bytes32)._docHash (Re-entrancy/reentrancy_buggy_10.sol#82) is not in mixedCase
+Function DocumentSigner.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_10.sol#87-95) is not in mixedCase
+Parameter DocumentSigner.getHash(string)._doc (Re-entrancy/reentrancy_buggy_10.sol#97) is not in mixedCase
+Function DocumentSigner.bug_re_ent27() (Re-entrancy/reentrancy_buggy_10.sol#101-107) is not in mixedCase
+Variable DocumentSigner.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_10.sol#8) is not in mixedCase
+Variable DocumentSigner.balances_re_ent36 (Re-entrancy/reentrancy_buggy_10.sol#17) is not in mixedCase
+Variable DocumentSigner.balances_re_ent31 (Re-entrancy/reentrancy_buggy_10.sol#29) is not in mixedCase
+Variable DocumentSigner.not_called_re_ent13 (Re-entrancy/reentrancy_buggy_10.sol#37) is not in mixedCase
+Variable DocumentSigner.counter_re_ent35 (Re-entrancy/reentrancy_buggy_10.sol#55) is not in mixedCase
+Variable DocumentSigner.userBalance_re_ent40 (Re-entrancy/reentrancy_buggy_10.sol#71) is not in mixedCase
+Variable DocumentSigner.userBalance_re_ent33 (Re-entrancy/reentrancy_buggy_10.sol#86) is not in mixedCase
+Variable DocumentSigner.not_called_re_ent27 (Re-entrancy/reentrancy_buggy_10.sol#100) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in DocumentSigner.bug_re_ent27() (Re-entrancy/reentrancy_buggy_10.sol#101-107):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_10.sol#103)
+	State variables written after the call(s):
+	- not_called_re_ent27 = false (Re-entrancy/reentrancy_buggy_10.sol#106)
+Reentrancy in DocumentSigner.callme_re_ent35() (Re-entrancy/reentrancy_buggy_10.sol#56-62):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_10.sol#58)
+	State variables written after the call(s):
+	- counter_re_ent35 += 1 (Re-entrancy/reentrancy_buggy_10.sol#61)
+Reentrancy in DocumentSigner.claimReward_re_ent39() (Re-entrancy/reentrancy_buggy_10.sol#9-15):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent39) (Re-entrancy/reentrancy_buggy_10.sol#13)
+	State variables written after the call(s):
+	- redeemableEther_re_ent39[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_10.sol#14)
+Reentrancy in DocumentSigner.withdrawFunds_re_ent31(uint256) (Re-entrancy/reentrancy_buggy_10.sol#30-35):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_10.sol#33)
+	State variables written after the call(s):
+	- balances_re_ent31[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_10.sol#34)
+Reentrancy in DocumentSigner.withdraw_balances_re_ent36() (Re-entrancy/reentrancy_buggy_10.sol#18-21):
+	External calls:
+	- msg.sender.send(balances_re_ent36[msg.sender]) (Re-entrancy/reentrancy_buggy_10.sol#19)
+	State variables written after the call(s):
+	- balances_re_ent36[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_10.sol#20)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable DocumentSigner.balances_re_ent31 (Re-entrancy/reentrancy_buggy_10.sol#29) is too similar to DocumentSigner.balances_re_ent36 (Re-entrancy/reentrancy_buggy_10.sol#17)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+submitDocument(string) should be declared external:
+	- DocumentSigner.submitDocument(string) (Re-entrancy/reentrancy_buggy_10.sol#48-54)
+Moreover, the following function parameters should change its data location:
+_doc location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+Re-entrancy/reentrancy_buggy_10.sol analyzed (1 contracts with 80 detectors), 38 result(s) found

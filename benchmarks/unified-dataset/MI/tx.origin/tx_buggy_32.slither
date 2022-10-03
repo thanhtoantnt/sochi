@@ -1,0 +1,239 @@
+Compilation warnings/errors on tx.origin/tx_buggy_32.sol:
+tx.origin/tx_buggy_32.sol:49:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin4(address owner_txorigin4) public{
+^ (Relevant source part starts here and spans across multiple lines).
+tx.origin/tx_buggy_32.sol:104:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin8(address owner_txorigin8) public{
+^ (Relevant source part starts here and spans across multiple lines).
+tx.origin/tx_buggy_32.sol:137:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin36(  address owner_txorigin36) public{
+^ (Relevant source part starts here and spans across multiple lines).
+tx.origin/tx_buggy_32.sol:164:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin40(address owner_txorigin40) public{
+^ (Relevant source part starts here and spans across multiple lines).
+tx.origin/tx_buggy_32.sol:193:3: Warning: Function state mutability can be restricted to view
+  function bug_txorigin20(address owner_txorigin20) public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+tx.origin/tx_buggy_32.sol:197:3: Warning: Function state mutability can be restricted to view
+  function bug_txorigin32(  address owner_txorigin32) public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+
+
+ERC20TokenInterface.withdrawAll_txorigin14(address,address) (tx.origin/tx_buggy_32.sol#63-66) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (tx.origin/tx_buggy_32.sol#65)
+ERC20TokenInterface.withdrawAll_txorigin30(address,address) (tx.origin/tx_buggy_32.sol#68-71) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (tx.origin/tx_buggy_32.sol#70)
+ERC20Token.sendto_txorigin9(address,uint256,address) (tx.origin/tx_buggy_32.sol#81-84) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (tx.origin/tx_buggy_32.sol#83)
+ERC20Token.sendto_txorigin25(address,uint256,address) (tx.origin/tx_buggy_32.sol#86-89) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (tx.origin/tx_buggy_32.sol#88)
+ERC20Token.sendto_txorigin13(address,uint256,address) (tx.origin/tx_buggy_32.sol#176-179) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (tx.origin/tx_buggy_32.sol#178)
+AsseteGram.withdrawAll_txorigin26(address,address) (tx.origin/tx_buggy_32.sol#188-191) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (tx.origin/tx_buggy_32.sol#190)
+AsseteGram.withdrawAll_txorigin38(address,address) (tx.origin/tx_buggy_32.sol#201-204) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (tx.origin/tx_buggy_32.sol#203)
+AsseteGram.sendto_txorigin33(address,uint256,address) (tx.origin/tx_buggy_32.sol#213-216) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (tx.origin/tx_buggy_32.sol#215)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+ERC20TokenInterface.bug_txorigin4(address) (tx.origin/tx_buggy_32.sol#49-51) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin4) (tx.origin/tx_buggy_32.sol#50)
+ERC20TokenInterface.transferTo_txorigin7(address,uint256,address) (tx.origin/tx_buggy_32.sol#53-56) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin7) (tx.origin/tx_buggy_32.sol#54)
+ERC20TokenInterface.transferTo_txorigin23(address,uint256,address) (tx.origin/tx_buggy_32.sol#58-61) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin23) (tx.origin/tx_buggy_32.sol#59)
+ERC20TokenInterface.withdrawAll_txorigin14(address,address) (tx.origin/tx_buggy_32.sol#63-66) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin14) (tx.origin/tx_buggy_32.sol#64)
+ERC20TokenInterface.withdrawAll_txorigin30(address,address) (tx.origin/tx_buggy_32.sol#68-71) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin30) (tx.origin/tx_buggy_32.sol#69)
+ERC20Token.sendto_txorigin9(address,uint256,address) (tx.origin/tx_buggy_32.sol#81-84) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin9) (tx.origin/tx_buggy_32.sol#82)
+ERC20Token.sendto_txorigin25(address,uint256,address) (tx.origin/tx_buggy_32.sol#86-89) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin25) (tx.origin/tx_buggy_32.sol#87)
+ERC20Token.transferTo_txorigin19(address,uint256,address) (tx.origin/tx_buggy_32.sol#91-94) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin19) (tx.origin/tx_buggy_32.sol#92)
+ERC20Token.bug_txorigin8(address) (tx.origin/tx_buggy_32.sol#104-106) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin8) (tx.origin/tx_buggy_32.sol#105)
+ERC20Token.transferTo_txorigin39(address,uint256,address) (tx.origin/tx_buggy_32.sol#119-122) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin39) (tx.origin/tx_buggy_32.sol#120)
+ERC20Token.bug_txorigin36(address) (tx.origin/tx_buggy_32.sol#137-139) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin36) (tx.origin/tx_buggy_32.sol#138)
+ERC20Token.transferTo_txorigin35(address,uint256,address) (tx.origin/tx_buggy_32.sol#151-154) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin35) (tx.origin/tx_buggy_32.sol#152)
+ERC20Token.bug_txorigin40(address) (tx.origin/tx_buggy_32.sol#164-166) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin40) (tx.origin/tx_buggy_32.sol#165)
+ERC20Token.transferTo_txorigin31(address,uint256,address) (tx.origin/tx_buggy_32.sol#171-174) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin31) (tx.origin/tx_buggy_32.sol#172)
+ERC20Token.sendto_txorigin13(address,uint256,address) (tx.origin/tx_buggy_32.sol#176-179) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin13) (tx.origin/tx_buggy_32.sol#177)
+AsseteGram.withdrawAll_txorigin26(address,address) (tx.origin/tx_buggy_32.sol#188-191) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin26) (tx.origin/tx_buggy_32.sol#189)
+AsseteGram.bug_txorigin20(address) (tx.origin/tx_buggy_32.sol#193-195) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin20) (tx.origin/tx_buggy_32.sol#194)
+AsseteGram.bug_txorigin32(address) (tx.origin/tx_buggy_32.sol#197-199) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin32) (tx.origin/tx_buggy_32.sol#198)
+AsseteGram.withdrawAll_txorigin38(address,address) (tx.origin/tx_buggy_32.sol#201-204) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin38) (tx.origin/tx_buggy_32.sol#202)
+AsseteGram.sendto_txorigin33(address,uint256,address) (tx.origin/tx_buggy_32.sol#213-216) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin33) (tx.origin/tx_buggy_32.sol#214)
+AsseteGram.transferTo_txorigin27(address,uint256,address) (tx.origin/tx_buggy_32.sol#224-227) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin27) (tx.origin/tx_buggy_32.sol#225)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-usage-of-txorigin
+
+ERC20Token.sendto_txorigin9(address,uint256,address).receiver (tx.origin/tx_buggy_32.sol#81) lacks a zero-check on :
+		- receiver.transfer(amount) (tx.origin/tx_buggy_32.sol#83)
+ERC20Token.sendto_txorigin25(address,uint256,address).receiver (tx.origin/tx_buggy_32.sol#86) lacks a zero-check on :
+		- receiver.transfer(amount) (tx.origin/tx_buggy_32.sol#88)
+ERC20Token.sendto_txorigin13(address,uint256,address).receiver (tx.origin/tx_buggy_32.sol#176) lacks a zero-check on :
+		- receiver.transfer(amount) (tx.origin/tx_buggy_32.sol#178)
+ERC20TokenInterface.withdrawAll_txorigin14(address,address)._recipient (tx.origin/tx_buggy_32.sol#63) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (tx.origin/tx_buggy_32.sol#65)
+ERC20TokenInterface.withdrawAll_txorigin30(address,address)._recipient (tx.origin/tx_buggy_32.sol#68) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (tx.origin/tx_buggy_32.sol#70)
+AsseteGram.withdrawAll_txorigin26(address,address)._recipient (tx.origin/tx_buggy_32.sol#188) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (tx.origin/tx_buggy_32.sol#190)
+AsseteGram.withdrawAll_txorigin38(address,address)._recipient (tx.origin/tx_buggy_32.sol#201) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (tx.origin/tx_buggy_32.sol#203)
+AsseteGram.sendto_txorigin33(address,uint256,address).receiver (tx.origin/tx_buggy_32.sol#213) lacks a zero-check on :
+		- receiver.transfer(amount) (tx.origin/tx_buggy_32.sol#215)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Pragma version^0.5.7 (tx.origin/tx_buggy_32.sol#5) allows old versions
+solc-0.5.7 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function ERC20TokenInterface.bug_txorigin4(address) (tx.origin/tx_buggy_32.sol#49-51) is not in mixedCase
+Parameter ERC20TokenInterface.bug_txorigin4(address).owner_txorigin4 (tx.origin/tx_buggy_32.sol#49) is not in mixedCase
+Function ERC20TokenInterface.transferTo_txorigin7(address,uint256,address) (tx.origin/tx_buggy_32.sol#53-56) is not in mixedCase
+Parameter ERC20TokenInterface.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (tx.origin/tx_buggy_32.sol#53) is not in mixedCase
+Function ERC20TokenInterface.transferTo_txorigin23(address,uint256,address) (tx.origin/tx_buggy_32.sol#58-61) is not in mixedCase
+Parameter ERC20TokenInterface.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_32.sol#58) is not in mixedCase
+Function ERC20TokenInterface.withdrawAll_txorigin14(address,address) (tx.origin/tx_buggy_32.sol#63-66) is not in mixedCase
+Parameter ERC20TokenInterface.withdrawAll_txorigin14(address,address)._recipient (tx.origin/tx_buggy_32.sol#63) is not in mixedCase
+Parameter ERC20TokenInterface.withdrawAll_txorigin14(address,address).owner_txorigin14 (tx.origin/tx_buggy_32.sol#63) is not in mixedCase
+Function ERC20TokenInterface.withdrawAll_txorigin30(address,address) (tx.origin/tx_buggy_32.sol#68-71) is not in mixedCase
+Parameter ERC20TokenInterface.withdrawAll_txorigin30(address,address)._recipient (tx.origin/tx_buggy_32.sol#68) is not in mixedCase
+Parameter ERC20TokenInterface.withdrawAll_txorigin30(address,address).owner_txorigin30 (tx.origin/tx_buggy_32.sol#68) is not in mixedCase
+Function ERC20Token.sendto_txorigin9(address,uint256,address) (tx.origin/tx_buggy_32.sol#81-84) is not in mixedCase
+Parameter ERC20Token.sendto_txorigin9(address,uint256,address).owner_txorigin9 (tx.origin/tx_buggy_32.sol#81) is not in mixedCase
+Function ERC20Token.sendto_txorigin25(address,uint256,address) (tx.origin/tx_buggy_32.sol#86-89) is not in mixedCase
+Parameter ERC20Token.sendto_txorigin25(address,uint256,address).owner_txorigin25 (tx.origin/tx_buggy_32.sol#86) is not in mixedCase
+Function ERC20Token.transferTo_txorigin19(address,uint256,address) (tx.origin/tx_buggy_32.sol#91-94) is not in mixedCase
+Parameter ERC20Token.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (tx.origin/tx_buggy_32.sol#91) is not in mixedCase
+Parameter ERC20Token.balanceOf(address)._owner (tx.origin/tx_buggy_32.sol#101) is not in mixedCase
+Function ERC20Token.bug_txorigin8(address) (tx.origin/tx_buggy_32.sol#104-106) is not in mixedCase
+Parameter ERC20Token.bug_txorigin8(address).owner_txorigin8 (tx.origin/tx_buggy_32.sol#104) is not in mixedCase
+Parameter ERC20Token.transfer(address,uint256)._to (tx.origin/tx_buggy_32.sol#113) is not in mixedCase
+Parameter ERC20Token.transfer(address,uint256)._value (tx.origin/tx_buggy_32.sol#113) is not in mixedCase
+Function ERC20Token.transferTo_txorigin39(address,uint256,address) (tx.origin/tx_buggy_32.sol#119-122) is not in mixedCase
+Parameter ERC20Token.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (tx.origin/tx_buggy_32.sol#119) is not in mixedCase
+Parameter ERC20Token.transferFrom(address,address,uint256)._from (tx.origin/tx_buggy_32.sol#130) is not in mixedCase
+Parameter ERC20Token.transferFrom(address,address,uint256)._to (tx.origin/tx_buggy_32.sol#130) is not in mixedCase
+Parameter ERC20Token.transferFrom(address,address,uint256)._value (tx.origin/tx_buggy_32.sol#130) is not in mixedCase
+Function ERC20Token.bug_txorigin36(address) (tx.origin/tx_buggy_32.sol#137-139) is not in mixedCase
+Parameter ERC20Token.bug_txorigin36(address).owner_txorigin36 (tx.origin/tx_buggy_32.sol#137) is not in mixedCase
+Parameter ERC20Token.approve(address,uint256)._spender (tx.origin/tx_buggy_32.sol#146) is not in mixedCase
+Parameter ERC20Token.approve(address,uint256)._value (tx.origin/tx_buggy_32.sol#146) is not in mixedCase
+Function ERC20Token.transferTo_txorigin35(address,uint256,address) (tx.origin/tx_buggy_32.sol#151-154) is not in mixedCase
+Parameter ERC20Token.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (tx.origin/tx_buggy_32.sol#151) is not in mixedCase
+Parameter ERC20Token.allowance(address,address)._owner (tx.origin/tx_buggy_32.sol#161) is not in mixedCase
+Parameter ERC20Token.allowance(address,address)._spender (tx.origin/tx_buggy_32.sol#161) is not in mixedCase
+Function ERC20Token.bug_txorigin40(address) (tx.origin/tx_buggy_32.sol#164-166) is not in mixedCase
+Parameter ERC20Token.bug_txorigin40(address).owner_txorigin40 (tx.origin/tx_buggy_32.sol#164) is not in mixedCase
+Function ERC20Token.transferTo_txorigin31(address,uint256,address) (tx.origin/tx_buggy_32.sol#171-174) is not in mixedCase
+Parameter ERC20Token.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (tx.origin/tx_buggy_32.sol#171) is not in mixedCase
+Function ERC20Token.sendto_txorigin13(address,uint256,address) (tx.origin/tx_buggy_32.sol#176-179) is not in mixedCase
+Parameter ERC20Token.sendto_txorigin13(address,uint256,address).owner_txorigin13 (tx.origin/tx_buggy_32.sol#176) is not in mixedCase
+Function AsseteGram.withdrawAll_txorigin26(address,address) (tx.origin/tx_buggy_32.sol#188-191) is not in mixedCase
+Parameter AsseteGram.withdrawAll_txorigin26(address,address)._recipient (tx.origin/tx_buggy_32.sol#188) is not in mixedCase
+Parameter AsseteGram.withdrawAll_txorigin26(address,address).owner_txorigin26 (tx.origin/tx_buggy_32.sol#188) is not in mixedCase
+Function AsseteGram.bug_txorigin20(address) (tx.origin/tx_buggy_32.sol#193-195) is not in mixedCase
+Parameter AsseteGram.bug_txorigin20(address).owner_txorigin20 (tx.origin/tx_buggy_32.sol#193) is not in mixedCase
+Function AsseteGram.bug_txorigin32(address) (tx.origin/tx_buggy_32.sol#197-199) is not in mixedCase
+Parameter AsseteGram.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_32.sol#197) is not in mixedCase
+Function AsseteGram.withdrawAll_txorigin38(address,address) (tx.origin/tx_buggy_32.sol#201-204) is not in mixedCase
+Parameter AsseteGram.withdrawAll_txorigin38(address,address)._recipient (tx.origin/tx_buggy_32.sol#201) is not in mixedCase
+Parameter AsseteGram.withdrawAll_txorigin38(address,address).owner_txorigin38 (tx.origin/tx_buggy_32.sol#201) is not in mixedCase
+Function AsseteGram.sendto_txorigin33(address,uint256,address) (tx.origin/tx_buggy_32.sol#213-216) is not in mixedCase
+Parameter AsseteGram.sendto_txorigin33(address,uint256,address).owner_txorigin33 (tx.origin/tx_buggy_32.sol#213) is not in mixedCase
+Function AsseteGram.transferTo_txorigin27(address,uint256,address) (tx.origin/tx_buggy_32.sol#224-227) is not in mixedCase
+Parameter AsseteGram.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (tx.origin/tx_buggy_32.sol#224) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable ERC20TokenInterface.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_32.sol#58) is too similar to ERC20TokenInterface.withdrawAll_txorigin30(address,address).owner_txorigin30 (tx.origin/tx_buggy_32.sol#68)
+Variable ERC20TokenInterface.bug_txorigin4(address).owner_txorigin4 (tx.origin/tx_buggy_32.sol#49) is too similar to ERC20TokenInterface.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (tx.origin/tx_buggy_32.sol#53)
+Variable ERC20Token.sendto_txorigin13(address,uint256,address).owner_txorigin13 (tx.origin/tx_buggy_32.sol#176) is too similar to ERC20TokenInterface.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_32.sol#58)
+Variable ERC20Token.sendto_txorigin13(address,uint256,address).owner_txorigin13 (tx.origin/tx_buggy_32.sol#176) is too similar to ERC20Token.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (tx.origin/tx_buggy_32.sol#119)
+Variable ERC20Token.sendto_txorigin13(address,uint256,address).owner_txorigin13 (tx.origin/tx_buggy_32.sol#176) is too similar to ERC20TokenInterface.withdrawAll_txorigin14(address,address).owner_txorigin14 (tx.origin/tx_buggy_32.sol#63)
+Variable ERC20TokenInterface.withdrawAll_txorigin14(address,address).owner_txorigin14 (tx.origin/tx_buggy_32.sol#63) is too similar to ERC20Token.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (tx.origin/tx_buggy_32.sol#91)
+Variable ERC20TokenInterface.withdrawAll_txorigin14(address,address).owner_txorigin14 (tx.origin/tx_buggy_32.sol#63) is too similar to ERC20Token.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (tx.origin/tx_buggy_32.sol#171)
+Variable ERC20TokenInterface.withdrawAll_txorigin14(address,address).owner_txorigin14 (tx.origin/tx_buggy_32.sol#63) is too similar to ERC20Token.bug_txorigin40(address).owner_txorigin40 (tx.origin/tx_buggy_32.sol#164)
+Variable ERC20Token.sendto_txorigin13(address,uint256,address).owner_txorigin13 (tx.origin/tx_buggy_32.sol#176) is too similar to ERC20Token.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (tx.origin/tx_buggy_32.sol#91)
+Variable ERC20Token.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (tx.origin/tx_buggy_32.sol#91) is too similar to ERC20Token.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (tx.origin/tx_buggy_32.sol#119)
+Variable ERC20TokenInterface.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_32.sol#58) is too similar to ERC20Token.sendto_txorigin25(address,uint256,address).owner_txorigin25 (tx.origin/tx_buggy_32.sol#86)
+Variable ERC20Token.sendto_txorigin25(address,uint256,address).owner_txorigin25 (tx.origin/tx_buggy_32.sol#86) is too similar to ERC20Token.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (tx.origin/tx_buggy_32.sol#151)
+Variable ERC20Token.sendto_txorigin13(address,uint256,address).owner_txorigin13 (tx.origin/tx_buggy_32.sol#176) is too similar to ERC20TokenInterface.withdrawAll_txorigin30(address,address).owner_txorigin30 (tx.origin/tx_buggy_32.sol#68)
+Variable ERC20TokenInterface.withdrawAll_txorigin30(address,address).owner_txorigin30 (tx.origin/tx_buggy_32.sol#68) is too similar to ERC20Token.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (tx.origin/tx_buggy_32.sol#171)
+Variable ERC20TokenInterface.withdrawAll_txorigin30(address,address).owner_txorigin30 (tx.origin/tx_buggy_32.sol#68) is too similar to ERC20Token.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (tx.origin/tx_buggy_32.sol#151)
+Variable ERC20TokenInterface.withdrawAll_txorigin30(address,address).owner_txorigin30 (tx.origin/tx_buggy_32.sol#68) is too similar to ERC20Token.bug_txorigin36(address).owner_txorigin36 (tx.origin/tx_buggy_32.sol#137)
+Variable ERC20TokenInterface.withdrawAll_txorigin30(address,address).owner_txorigin30 (tx.origin/tx_buggy_32.sol#68) is too similar to ERC20Token.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (tx.origin/tx_buggy_32.sol#119)
+Variable ERC20TokenInterface.withdrawAll_txorigin30(address,address).owner_txorigin30 (tx.origin/tx_buggy_32.sol#68) is too similar to ERC20Token.bug_txorigin40(address).owner_txorigin40 (tx.origin/tx_buggy_32.sol#164)
+Variable ERC20Token.sendto_txorigin13(address,uint256,address).owner_txorigin13 (tx.origin/tx_buggy_32.sol#176) is too similar to ERC20Token.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (tx.origin/tx_buggy_32.sol#171)
+Variable ERC20Token.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (tx.origin/tx_buggy_32.sol#91) is too similar to ERC20Token.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (tx.origin/tx_buggy_32.sol#171)
+Variable ERC20TokenInterface.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_32.sol#58) is too similar to ERC20Token.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (tx.origin/tx_buggy_32.sol#171)
+Variable ERC20Token.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (tx.origin/tx_buggy_32.sol#171) is too similar to ERC20Token.bug_txorigin36(address).owner_txorigin36 (tx.origin/tx_buggy_32.sol#137)
+Variable ERC20Token.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (tx.origin/tx_buggy_32.sol#171) is too similar to ERC20Token.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (tx.origin/tx_buggy_32.sol#119)
+Variable ERC20Token.sendto_txorigin13(address,uint256,address).owner_txorigin13 (tx.origin/tx_buggy_32.sol#176) is too similar to ERC20Token.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (tx.origin/tx_buggy_32.sol#151)
+Variable ERC20TokenInterface.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_32.sol#58) is too similar to ERC20Token.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (tx.origin/tx_buggy_32.sol#151)
+Variable ERC20Token.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (tx.origin/tx_buggy_32.sol#171) is too similar to ERC20Token.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (tx.origin/tx_buggy_32.sol#151)
+Variable ERC20Token.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (tx.origin/tx_buggy_32.sol#151) is too similar to ERC20Token.bug_txorigin36(address).owner_txorigin36 (tx.origin/tx_buggy_32.sol#137)
+Variable ERC20Token.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (tx.origin/tx_buggy_32.sol#151) is too similar to ERC20Token.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (tx.origin/tx_buggy_32.sol#119)
+Variable ERC20Token.sendto_txorigin13(address,uint256,address).owner_txorigin13 (tx.origin/tx_buggy_32.sol#176) is too similar to ERC20Token.bug_txorigin36(address).owner_txorigin36 (tx.origin/tx_buggy_32.sol#137)
+Variable ERC20TokenInterface.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_32.sol#58) is too similar to ERC20Token.bug_txorigin36(address).owner_txorigin36 (tx.origin/tx_buggy_32.sol#137)
+Variable ERC20Token.bug_txorigin36(address).owner_txorigin36 (tx.origin/tx_buggy_32.sol#137) is too similar to ERC20Token.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (tx.origin/tx_buggy_32.sol#119)
+Variable ERC20TokenInterface.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_32.sol#58) is too similar to ERC20Token.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (tx.origin/tx_buggy_32.sol#119)
+Variable ERC20TokenInterface.bug_txorigin4(address).owner_txorigin4 (tx.origin/tx_buggy_32.sol#49) is too similar to ERC20Token.bug_txorigin8(address).owner_txorigin8 (tx.origin/tx_buggy_32.sol#104)
+Variable ERC20TokenInterface.bug_txorigin4(address).owner_txorigin4 (tx.origin/tx_buggy_32.sol#49) is too similar to ERC20Token.sendto_txorigin9(address,uint256,address).owner_txorigin9 (tx.origin/tx_buggy_32.sol#81)
+Variable ERC20TokenInterface.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (tx.origin/tx_buggy_32.sol#53) is too similar to ERC20Token.bug_txorigin8(address).owner_txorigin8 (tx.origin/tx_buggy_32.sol#104)
+Variable ERC20TokenInterface.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (tx.origin/tx_buggy_32.sol#53) is too similar to ERC20Token.sendto_txorigin9(address,uint256,address).owner_txorigin9 (tx.origin/tx_buggy_32.sol#81)
+Variable ERC20Token.bug_txorigin8(address).owner_txorigin8 (tx.origin/tx_buggy_32.sol#104) is too similar to ERC20Token.sendto_txorigin9(address,uint256,address).owner_txorigin9 (tx.origin/tx_buggy_32.sol#81)
+Variable AsseteGram.bug_txorigin20(address).owner_txorigin20 (tx.origin/tx_buggy_32.sol#193) is too similar to ERC20TokenInterface.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_32.sol#58)
+Variable AsseteGram.bug_txorigin20(address).owner_txorigin20 (tx.origin/tx_buggy_32.sol#193) is too similar to ERC20Token.sendto_txorigin25(address,uint256,address).owner_txorigin25 (tx.origin/tx_buggy_32.sol#86)
+Variable AsseteGram.bug_txorigin20(address).owner_txorigin20 (tx.origin/tx_buggy_32.sol#193) is too similar to AsseteGram.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (tx.origin/tx_buggy_32.sol#224)
+Variable AsseteGram.bug_txorigin20(address).owner_txorigin20 (tx.origin/tx_buggy_32.sol#193) is too similar to ERC20TokenInterface.withdrawAll_txorigin30(address,address).owner_txorigin30 (tx.origin/tx_buggy_32.sol#68)
+Variable AsseteGram.bug_txorigin20(address).owner_txorigin20 (tx.origin/tx_buggy_32.sol#193) is too similar to AsseteGram.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_32.sol#197)
+Variable AsseteGram.bug_txorigin20(address).owner_txorigin20 (tx.origin/tx_buggy_32.sol#193) is too similar to ERC20Token.bug_txorigin40(address).owner_txorigin40 (tx.origin/tx_buggy_32.sol#164)
+Variable AsseteGram.bug_txorigin20(address).owner_txorigin20 (tx.origin/tx_buggy_32.sol#193) is too similar to AsseteGram.withdrawAll_txorigin26(address,address).owner_txorigin26 (tx.origin/tx_buggy_32.sol#188)
+Variable ERC20TokenInterface.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_32.sol#58) is too similar to AsseteGram.withdrawAll_txorigin26(address,address).owner_txorigin26 (tx.origin/tx_buggy_32.sol#188)
+Variable ERC20Token.sendto_txorigin25(address,uint256,address).owner_txorigin25 (tx.origin/tx_buggy_32.sol#86) is too similar to AsseteGram.withdrawAll_txorigin26(address,address).owner_txorigin26 (tx.origin/tx_buggy_32.sol#188)
+Variable AsseteGram.withdrawAll_txorigin26(address,address).owner_txorigin26 (tx.origin/tx_buggy_32.sol#188) is too similar to AsseteGram.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (tx.origin/tx_buggy_32.sol#224)
+Variable AsseteGram.withdrawAll_txorigin26(address,address).owner_txorigin26 (tx.origin/tx_buggy_32.sol#188) is too similar to AsseteGram.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_32.sol#197)
+Variable AsseteGram.withdrawAll_txorigin26(address,address).owner_txorigin26 (tx.origin/tx_buggy_32.sol#188) is too similar to ERC20Token.bug_txorigin36(address).owner_txorigin36 (tx.origin/tx_buggy_32.sol#137)
+Variable ERC20TokenInterface.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_32.sol#58) is too similar to AsseteGram.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (tx.origin/tx_buggy_32.sol#224)
+Variable ERC20Token.sendto_txorigin25(address,uint256,address).owner_txorigin25 (tx.origin/tx_buggy_32.sol#86) is too similar to AsseteGram.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (tx.origin/tx_buggy_32.sol#224)
+Variable ERC20Token.sendto_txorigin13(address,uint256,address).owner_txorigin13 (tx.origin/tx_buggy_32.sol#176) is too similar to AsseteGram.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_32.sol#197)
+Variable ERC20TokenInterface.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_32.sol#58) is too similar to AsseteGram.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_32.sol#197)
+Variable ERC20Token.sendto_txorigin25(address,uint256,address).owner_txorigin25 (tx.origin/tx_buggy_32.sol#86) is too similar to AsseteGram.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_32.sol#197)
+Variable AsseteGram.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (tx.origin/tx_buggy_32.sol#224) is too similar to AsseteGram.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_32.sol#197)
+Variable ERC20TokenInterface.withdrawAll_txorigin30(address,address).owner_txorigin30 (tx.origin/tx_buggy_32.sol#68) is too similar to AsseteGram.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_32.sol#197)
+Variable ERC20Token.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (tx.origin/tx_buggy_32.sol#171) is too similar to AsseteGram.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_32.sol#197)
+Variable AsseteGram.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_32.sol#197) is too similar to AsseteGram.sendto_txorigin33(address,uint256,address).owner_txorigin33 (tx.origin/tx_buggy_32.sol#213)
+Variable AsseteGram.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_32.sol#197) is too similar to ERC20Token.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (tx.origin/tx_buggy_32.sol#151)
+Variable AsseteGram.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_32.sol#197) is too similar to ERC20Token.bug_txorigin36(address).owner_txorigin36 (tx.origin/tx_buggy_32.sol#137)
+Variable AsseteGram.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_32.sol#197) is too similar to AsseteGram.withdrawAll_txorigin38(address,address).owner_txorigin38 (tx.origin/tx_buggy_32.sol#201)
+Variable AsseteGram.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_32.sol#197) is too similar to ERC20Token.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (tx.origin/tx_buggy_32.sol#119)
+Variable ERC20Token.sendto_txorigin13(address,uint256,address).owner_txorigin13 (tx.origin/tx_buggy_32.sol#176) is too similar to AsseteGram.sendto_txorigin33(address,uint256,address).owner_txorigin33 (tx.origin/tx_buggy_32.sol#213)
+Variable ERC20TokenInterface.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_32.sol#58) is too similar to AsseteGram.sendto_txorigin33(address,uint256,address).owner_txorigin33 (tx.origin/tx_buggy_32.sol#213)
+Variable ERC20TokenInterface.withdrawAll_txorigin30(address,address).owner_txorigin30 (tx.origin/tx_buggy_32.sol#68) is too similar to AsseteGram.sendto_txorigin33(address,uint256,address).owner_txorigin33 (tx.origin/tx_buggy_32.sol#213)
+Variable ERC20Token.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (tx.origin/tx_buggy_32.sol#171) is too similar to AsseteGram.sendto_txorigin33(address,uint256,address).owner_txorigin33 (tx.origin/tx_buggy_32.sol#213)
+Variable AsseteGram.sendto_txorigin33(address,uint256,address).owner_txorigin33 (tx.origin/tx_buggy_32.sol#213) is too similar to ERC20Token.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (tx.origin/tx_buggy_32.sol#151)
+Variable AsseteGram.sendto_txorigin33(address,uint256,address).owner_txorigin33 (tx.origin/tx_buggy_32.sol#213) is too similar to ERC20Token.bug_txorigin36(address).owner_txorigin36 (tx.origin/tx_buggy_32.sol#137)
+Variable AsseteGram.sendto_txorigin33(address,uint256,address).owner_txorigin33 (tx.origin/tx_buggy_32.sol#213) is too similar to ERC20Token.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (tx.origin/tx_buggy_32.sol#119)
+Variable ERC20Token.sendto_txorigin13(address,uint256,address).owner_txorigin13 (tx.origin/tx_buggy_32.sol#176) is too similar to AsseteGram.withdrawAll_txorigin38(address,address).owner_txorigin38 (tx.origin/tx_buggy_32.sol#201)
+Variable ERC20TokenInterface.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_32.sol#58) is too similar to AsseteGram.withdrawAll_txorigin38(address,address).owner_txorigin38 (tx.origin/tx_buggy_32.sol#201)
+Variable ERC20TokenInterface.withdrawAll_txorigin30(address,address).owner_txorigin30 (tx.origin/tx_buggy_32.sol#68) is too similar to AsseteGram.withdrawAll_txorigin38(address,address).owner_txorigin38 (tx.origin/tx_buggy_32.sol#201)
+Variable ERC20Token.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (tx.origin/tx_buggy_32.sol#171) is too similar to AsseteGram.withdrawAll_txorigin38(address,address).owner_txorigin38 (tx.origin/tx_buggy_32.sol#201)
+Variable AsseteGram.sendto_txorigin33(address,uint256,address).owner_txorigin33 (tx.origin/tx_buggy_32.sol#213) is too similar to AsseteGram.withdrawAll_txorigin38(address,address).owner_txorigin38 (tx.origin/tx_buggy_32.sol#201)
+Variable ERC20Token.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (tx.origin/tx_buggy_32.sol#151) is too similar to AsseteGram.withdrawAll_txorigin38(address,address).owner_txorigin38 (tx.origin/tx_buggy_32.sol#201)
+Variable ERC20Token.bug_txorigin36(address).owner_txorigin36 (tx.origin/tx_buggy_32.sol#137) is too similar to AsseteGram.withdrawAll_txorigin38(address,address).owner_txorigin38 (tx.origin/tx_buggy_32.sol#201)
+Variable AsseteGram.withdrawAll_txorigin38(address,address).owner_txorigin38 (tx.origin/tx_buggy_32.sol#201) is too similar to ERC20Token.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (tx.origin/tx_buggy_32.sol#119)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+AsseteGram.constructor() (tx.origin/tx_buggy_32.sol#207-212) uses literals with too many digits:
+	- totalSupply = 180000000 * (10 ** uint256(decimals)) (tx.origin/tx_buggy_32.sol#209)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+AsseteGram.decimals (tx.origin/tx_buggy_32.sol#196) should be constant
+AsseteGram.name (tx.origin/tx_buggy_32.sol#192) should be constant
+AsseteGram.symbol (tx.origin/tx_buggy_32.sol#200) should be constant
+AsseteGram.version (tx.origin/tx_buggy_32.sol#205) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+tx.origin/tx_buggy_32.sol analyzed (4 contracts with 80 detectors), 177 result(s) found

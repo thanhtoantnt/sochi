@@ -1,0 +1,428 @@
+
+owned.bug_re_ent34() (Re-entrancy/reentrancy_buggy_35.sol#137-143) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_35.sol#139)
+owned.callme_re_ent21() (Re-entrancy/reentrancy_buggy_35.sol#146-152) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_35.sol#148)
+owned.callme_re_ent42() (Re-entrancy/reentrancy_buggy_35.sol#167-173) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_35.sol#169)
+owned.buyTicket_re_ent2() (Re-entrancy/reentrancy_buggy_35.sol#186-191) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent2.send(jackpot_re_ent2)) (Re-entrancy/reentrancy_buggy_35.sol#187)
+BitpayerDEX.bug_re_ent41() (Re-entrancy/reentrancy_buggy_35.sol#264-270) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_35.sol#266)
+BitpayerDEX.callme_re_ent35() (Re-entrancy/reentrancy_buggy_35.sol#274-280) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_35.sol#276)
+BitpayerDEX.bug_re_ent27() (Re-entrancy/reentrancy_buggy_35.sol#305-311) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_35.sol#307)
+BitpayerDEX.bug_re_ent13() (Re-entrancy/reentrancy_buggy_35.sol#322-329) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_35.sol#324)
+BitpayerDEX.buyTicket_re_ent37() (Re-entrancy/reentrancy_buggy_35.sol#339-344) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent37.send(jackpot_re_ent37)) (Re-entrancy/reentrancy_buggy_35.sol#340)
+BitpayerDEX.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_35.sol#376-382) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_35.sol#377)
+BitpayerDEX.bug_re_ent20() (Re-entrancy/reentrancy_buggy_35.sol#444-450) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_35.sol#446)
+BitpayerDEX.callme_re_ent7() (Re-entrancy/reentrancy_buggy_35.sol#505-511) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_35.sol#507)
+BitpayerDEX.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_35.sol#518-523) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (Re-entrancy/reentrancy_buggy_35.sol#519)
+BitpayerDEX.callme_re_ent14() (Re-entrancy/reentrancy_buggy_35.sol#531-537) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_35.sol#533)
+BitpayerDEX.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_35.sol#565-570) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (Re-entrancy/reentrancy_buggy_35.sol#566)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Reentrancy in BitpayerDEX.bug_re_ent13() (Re-entrancy/reentrancy_buggy_35.sol#322-329):
+	External calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_35.sol#324)
+	State variables written after the call(s):
+	- not_called_re_ent13 = false (Re-entrancy/reentrancy_buggy_35.sol#328)
+Reentrancy in BitpayerDEX.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_35.sol#376-382):
+	External calls:
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_35.sol#377)
+	State variables written after the call(s):
+	- jackpot_re_ent9 = address(this).balance (Re-entrancy/reentrancy_buggy_35.sol#381)
+	- lastPlayer_re_ent9 = msg.sender (Re-entrancy/reentrancy_buggy_35.sol#380)
+Reentrancy in BitpayerDEX.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_35.sol#422-430):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (Re-entrancy/reentrancy_buggy_35.sol#425)
+	State variables written after the call(s):
+	- userBalance_re_ent26[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_35.sol#429)
+Reentrancy in BitpayerDEX.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_35.sol#294-302):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (Re-entrancy/reentrancy_buggy_35.sol#297)
+	State variables written after the call(s):
+	- userBalance_re_ent33[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_35.sol#301)
+Reentrancy in BitpayerDEX.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_35.sol#283-291):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (Re-entrancy/reentrancy_buggy_35.sol#286)
+	State variables written after the call(s):
+	- userBalance_re_ent40[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_35.sol#290)
+Reentrancy in owned.withdrawFunds_re_ent17(uint256) (Re-entrancy/reentrancy_buggy_35.sol#201-207):
+	External calls:
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_35.sol#204)
+	State variables written after the call(s):
+	- balances_re_ent17[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_35.sol#206)
+Reentrancy in BitpayerDEX.withdrawFunds_re_ent3(uint256) (Re-entrancy/reentrancy_buggy_35.sol#358-364):
+	External calls:
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_35.sol#361)
+	State variables written after the call(s):
+	- balances_re_ent3[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_35.sol#363)
+Reentrancy in BitpayerDEX.withdraw_balances_re_ent1() (Re-entrancy/reentrancy_buggy_35.sol#257-261):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent1[msg.sender])() (Re-entrancy/reentrancy_buggy_35.sol#258)
+	State variables written after the call(s):
+	- balances_re_ent1[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_35.sol#260)
+Reentrancy in BitpayerDEX.withdraw_balances_re_ent21() (Re-entrancy/reentrancy_buggy_35.sol#230-234):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent21[msg.sender])() (Re-entrancy/reentrancy_buggy_35.sol#231)
+	State variables written after the call(s):
+	- balances_re_ent21[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_35.sol#233)
+Reentrancy in BitpayerDEX.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_35.sol#581-585):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (Re-entrancy/reentrancy_buggy_35.sol#582)
+	State variables written after the call(s):
+	- balances_re_ent8[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_35.sol#584)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
+
+BitpayerDEX.withdrawToken(address,uint256) (Re-entrancy/reentrancy_buggy_35.sol#496-503) ignores return value by ERC20Essential(token).transfer(msg.sender,amount) (Re-entrancy/reentrancy_buggy_35.sol#501)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-transfer
+
+BitpayerDEX.changetradingFee(uint256) (Re-entrancy/reentrancy_buggy_35.sol#403-406) should emit an event for: 
+	- tradingFee = tradingFee_ (Re-entrancy/reentrancy_buggy_35.sol#405) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+
+owned.onlyOwnerTransferOwnership(address)._newOwner (Re-entrancy/reentrancy_buggy_35.sol#181) lacks a zero-check on :
+		- newOwner = _newOwner (Re-entrancy/reentrancy_buggy_35.sol#182)
+BitpayerDEX.changeFeeAccount(address).feeAccount_ (Re-entrancy/reentrancy_buggy_35.sol#391) lacks a zero-check on :
+		- feeAccount = feeAccount_ (Re-entrancy/reentrancy_buggy_35.sol#392)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Reentrancy in BitpayerDEX.depositToken(address,uint256) (Re-entrancy/reentrancy_buggy_35.sol#480-486):
+	External calls:
+	- require(bool)(ERC20Essential(token).transferFrom(msg.sender,address(this),amount)) (Re-entrancy/reentrancy_buggy_35.sol#483)
+	State variables written after the call(s):
+	- tokens[token][msg.sender] = tokens[token][msg.sender].add(amount) (Re-entrancy/reentrancy_buggy_35.sol#484)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-2
+
+Reentrancy in BitpayerDEX.depositToken(address,uint256) (Re-entrancy/reentrancy_buggy_35.sol#480-486):
+	External calls:
+	- require(bool)(ERC20Essential(token).transferFrom(msg.sender,address(this),amount)) (Re-entrancy/reentrancy_buggy_35.sol#483)
+	Event emitted after the call(s):
+	- Deposit(now,token,msg.sender,amount,tokens[token][msg.sender]) (Re-entrancy/reentrancy_buggy_35.sol#485)
+Reentrancy in BitpayerDEX.withdrawToken(address,uint256) (Re-entrancy/reentrancy_buggy_35.sol#496-503):
+	External calls:
+	- ERC20Essential(token).transfer(msg.sender,amount) (Re-entrancy/reentrancy_buggy_35.sol#501)
+	Event emitted after the call(s):
+	- Withdraw(now,token,msg.sender,amount,tokens[token][msg.sender]) (Re-entrancy/reentrancy_buggy_35.sol#502)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+
+BitpayerDEX.changeSafeguardStatus() (Re-entrancy/reentrancy_buggy_35.sol#346-356) compares to a boolean constant:
+	-safeGuard == false (Re-entrancy/reentrancy_buggy_35.sol#348)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#boolean-equality
+
+SafeMath.mod(uint256,uint256) (Re-entrancy/reentrancy_buggy_35.sol#124-127) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version>=0.5.12 (Re-entrancy/reentrancy_buggy_35.sol#5) allows old versions
+solc-0.5.12 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in owned.withdrawFunds_re_ent17(uint256) (Re-entrancy/reentrancy_buggy_35.sol#201-207):
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_35.sol#204)
+Low level call in BitpayerDEX.withdraw_balances_re_ent21() (Re-entrancy/reentrancy_buggy_35.sol#230-234):
+	- (success) = msg.sender.call.value(balances_re_ent21[msg.sender])() (Re-entrancy/reentrancy_buggy_35.sol#231)
+Low level call in BitpayerDEX.withdraw_balances_re_ent1() (Re-entrancy/reentrancy_buggy_35.sol#257-261):
+	- (success) = msg.sender.call.value(balances_re_ent1[msg.sender])() (Re-entrancy/reentrancy_buggy_35.sol#258)
+Low level call in BitpayerDEX.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_35.sol#283-291):
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (Re-entrancy/reentrancy_buggy_35.sol#286)
+Low level call in BitpayerDEX.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_35.sol#294-302):
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (Re-entrancy/reentrancy_buggy_35.sol#297)
+Low level call in BitpayerDEX.bug_re_ent13() (Re-entrancy/reentrancy_buggy_35.sol#322-329):
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_35.sol#324)
+Low level call in BitpayerDEX.withdrawFunds_re_ent3(uint256) (Re-entrancy/reentrancy_buggy_35.sol#358-364):
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_35.sol#361)
+Low level call in BitpayerDEX.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_35.sol#376-382):
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_35.sol#377)
+Low level call in BitpayerDEX.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_35.sol#422-430):
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (Re-entrancy/reentrancy_buggy_35.sol#425)
+Low level call in BitpayerDEX.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_35.sol#581-585):
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (Re-entrancy/reentrancy_buggy_35.sol#582)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Contract owned (Re-entrancy/reentrancy_buggy_35.sol#135-208) is not in CapWords
+Function owned.bug_re_ent34() (Re-entrancy/reentrancy_buggy_35.sol#137-143) is not in mixedCase
+Function owned.callme_re_ent21() (Re-entrancy/reentrancy_buggy_35.sol#146-152) is not in mixedCase
+Function owned.withdraw_balances_re_ent36() (Re-entrancy/reentrancy_buggy_35.sol#157-160) is not in mixedCase
+Function owned.callme_re_ent42() (Re-entrancy/reentrancy_buggy_35.sol#167-173) is not in mixedCase
+Parameter owned.onlyOwnerTransferOwnership(address)._newOwner (Re-entrancy/reentrancy_buggy_35.sol#181) is not in mixedCase
+Function owned.buyTicket_re_ent2() (Re-entrancy/reentrancy_buggy_35.sol#186-191) is not in mixedCase
+Function owned.withdrawFunds_re_ent17(uint256) (Re-entrancy/reentrancy_buggy_35.sol#201-207) is not in mixedCase
+Parameter owned.withdrawFunds_re_ent17(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_35.sol#201) is not in mixedCase
+Variable owned.not_called_re_ent34 (Re-entrancy/reentrancy_buggy_35.sol#136) is not in mixedCase
+Variable owned.counter_re_ent21 (Re-entrancy/reentrancy_buggy_35.sol#145) is not in mixedCase
+Variable owned.balances_re_ent36 (Re-entrancy/reentrancy_buggy_35.sol#156) is not in mixedCase
+Variable owned.counter_re_ent42 (Re-entrancy/reentrancy_buggy_35.sol#166) is not in mixedCase
+Variable owned.lastPlayer_re_ent2 (Re-entrancy/reentrancy_buggy_35.sol#184) is not in mixedCase
+Variable owned.jackpot_re_ent2 (Re-entrancy/reentrancy_buggy_35.sol#185) is not in mixedCase
+Variable owned.balances_re_ent17 (Re-entrancy/reentrancy_buggy_35.sol#200) is not in mixedCase
+Function BitpayerDEX.withdrawFunds_re_ent10(uint256) (Re-entrancy/reentrancy_buggy_35.sol#222-227) is not in mixedCase
+Parameter BitpayerDEX.withdrawFunds_re_ent10(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_35.sol#222) is not in mixedCase
+Function BitpayerDEX.withdraw_balances_re_ent21() (Re-entrancy/reentrancy_buggy_35.sol#230-234) is not in mixedCase
+Function BitpayerDEX.withdrawBalance_re_ent12() (Re-entrancy/reentrancy_buggy_35.sol#237-244) is not in mixedCase
+Function BitpayerDEX.claimReward_re_ent11() (Re-entrancy/reentrancy_buggy_35.sol#248-254) is not in mixedCase
+Function BitpayerDEX.withdraw_balances_re_ent1() (Re-entrancy/reentrancy_buggy_35.sol#257-261) is not in mixedCase
+Function BitpayerDEX.bug_re_ent41() (Re-entrancy/reentrancy_buggy_35.sol#264-270) is not in mixedCase
+Function BitpayerDEX.callme_re_ent35() (Re-entrancy/reentrancy_buggy_35.sol#274-280) is not in mixedCase
+Function BitpayerDEX.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_35.sol#283-291) is not in mixedCase
+Function BitpayerDEX.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_35.sol#294-302) is not in mixedCase
+Function BitpayerDEX.bug_re_ent27() (Re-entrancy/reentrancy_buggy_35.sol#305-311) is not in mixedCase
+Function BitpayerDEX.withdrawFunds_re_ent31(uint256) (Re-entrancy/reentrancy_buggy_35.sol#314-319) is not in mixedCase
+Parameter BitpayerDEX.withdrawFunds_re_ent31(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_35.sol#314) is not in mixedCase
+Function BitpayerDEX.bug_re_ent13() (Re-entrancy/reentrancy_buggy_35.sol#322-329) is not in mixedCase
+Function BitpayerDEX.buyTicket_re_ent37() (Re-entrancy/reentrancy_buggy_35.sol#339-344) is not in mixedCase
+Function BitpayerDEX.withdrawFunds_re_ent3(uint256) (Re-entrancy/reentrancy_buggy_35.sol#358-364) is not in mixedCase
+Parameter BitpayerDEX.withdrawFunds_re_ent3(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_35.sol#358) is not in mixedCase
+Parameter BitpayerDEX.calculatePercentage(uint256,uint256).PercentOf (Re-entrancy/reentrancy_buggy_35.sol#367) is not in mixedCase
+Function BitpayerDEX.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_35.sol#376-382) is not in mixedCase
+Function BitpayerDEX.claimReward_re_ent25() (Re-entrancy/reentrancy_buggy_35.sol#395-401) is not in mixedCase
+Function BitpayerDEX.withdrawBalance_re_ent19() (Re-entrancy/reentrancy_buggy_35.sol#408-415) is not in mixedCase
+Function BitpayerDEX.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_35.sol#422-430) is not in mixedCase
+Function BitpayerDEX.bug_re_ent20() (Re-entrancy/reentrancy_buggy_35.sol#444-450) is not in mixedCase
+Function BitpayerDEX.claimReward_re_ent32() (Re-entrancy/reentrancy_buggy_35.sol#457-463) is not in mixedCase
+Function BitpayerDEX.withdrawFunds_re_ent38(uint256) (Re-entrancy/reentrancy_buggy_35.sol#473-478) is not in mixedCase
+Parameter BitpayerDEX.withdrawFunds_re_ent38(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_35.sol#473) is not in mixedCase
+Function BitpayerDEX.claimReward_re_ent4() (Re-entrancy/reentrancy_buggy_35.sol#488-494) is not in mixedCase
+Function BitpayerDEX.callme_re_ent7() (Re-entrancy/reentrancy_buggy_35.sol#505-511) is not in mixedCase
+Function BitpayerDEX.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_35.sol#518-523) is not in mixedCase
+Function BitpayerDEX.callme_re_ent14() (Re-entrancy/reentrancy_buggy_35.sol#531-537) is not in mixedCase
+Function BitpayerDEX.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_35.sol#565-570) is not in mixedCase
+Function BitpayerDEX.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_35.sol#581-585) is not in mixedCase
+Function BitpayerDEX.claimReward_re_ent39() (Re-entrancy/reentrancy_buggy_35.sol#606-612) is not in mixedCase
+Variable BitpayerDEX.balances_re_ent10 (Re-entrancy/reentrancy_buggy_35.sol#221) is not in mixedCase
+Variable BitpayerDEX.balances_re_ent21 (Re-entrancy/reentrancy_buggy_35.sol#229) is not in mixedCase
+Variable BitpayerDEX.userBalance_re_ent12 (Re-entrancy/reentrancy_buggy_35.sol#236) is not in mixedCase
+Variable BitpayerDEX.redeemableEther_re_ent11 (Re-entrancy/reentrancy_buggy_35.sol#247) is not in mixedCase
+Variable BitpayerDEX.balances_re_ent1 (Re-entrancy/reentrancy_buggy_35.sol#256) is not in mixedCase
+Variable BitpayerDEX.not_called_re_ent41 (Re-entrancy/reentrancy_buggy_35.sol#263) is not in mixedCase
+Variable BitpayerDEX.counter_re_ent35 (Re-entrancy/reentrancy_buggy_35.sol#273) is not in mixedCase
+Variable BitpayerDEX.userBalance_re_ent40 (Re-entrancy/reentrancy_buggy_35.sol#282) is not in mixedCase
+Variable BitpayerDEX.userBalance_re_ent33 (Re-entrancy/reentrancy_buggy_35.sol#293) is not in mixedCase
+Variable BitpayerDEX.not_called_re_ent27 (Re-entrancy/reentrancy_buggy_35.sol#304) is not in mixedCase
+Variable BitpayerDEX.balances_re_ent31 (Re-entrancy/reentrancy_buggy_35.sol#313) is not in mixedCase
+Variable BitpayerDEX.not_called_re_ent13 (Re-entrancy/reentrancy_buggy_35.sol#321) is not in mixedCase
+Variable BitpayerDEX.lastPlayer_re_ent37 (Re-entrancy/reentrancy_buggy_35.sol#337) is not in mixedCase
+Variable BitpayerDEX.jackpot_re_ent37 (Re-entrancy/reentrancy_buggy_35.sol#338) is not in mixedCase
+Variable BitpayerDEX.balances_re_ent3 (Re-entrancy/reentrancy_buggy_35.sol#357) is not in mixedCase
+Variable BitpayerDEX.lastPlayer_re_ent9 (Re-entrancy/reentrancy_buggy_35.sol#374) is not in mixedCase
+Variable BitpayerDEX.jackpot_re_ent9 (Re-entrancy/reentrancy_buggy_35.sol#375) is not in mixedCase
+Variable BitpayerDEX.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_35.sol#394) is not in mixedCase
+Variable BitpayerDEX.userBalance_re_ent19 (Re-entrancy/reentrancy_buggy_35.sol#407) is not in mixedCase
+Variable BitpayerDEX.userBalance_re_ent26 (Re-entrancy/reentrancy_buggy_35.sol#421) is not in mixedCase
+Variable BitpayerDEX.not_called_re_ent20 (Re-entrancy/reentrancy_buggy_35.sol#443) is not in mixedCase
+Variable BitpayerDEX.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_35.sol#456) is not in mixedCase
+Variable BitpayerDEX.balances_re_ent38 (Re-entrancy/reentrancy_buggy_35.sol#472) is not in mixedCase
+Variable BitpayerDEX.redeemableEther_re_ent4 (Re-entrancy/reentrancy_buggy_35.sol#487) is not in mixedCase
+Variable BitpayerDEX.counter_re_ent7 (Re-entrancy/reentrancy_buggy_35.sol#504) is not in mixedCase
+Variable BitpayerDEX.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_35.sol#516) is not in mixedCase
+Variable BitpayerDEX.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_35.sol#517) is not in mixedCase
+Variable BitpayerDEX.counter_re_ent14 (Re-entrancy/reentrancy_buggy_35.sol#530) is not in mixedCase
+Variable BitpayerDEX.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_35.sol#563) is not in mixedCase
+Variable BitpayerDEX.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_35.sol#564) is not in mixedCase
+Variable BitpayerDEX.balances_re_ent8 (Re-entrancy/reentrancy_buggy_35.sol#580) is not in mixedCase
+Variable BitpayerDEX.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_35.sol#605) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in BitpayerDEX.bug_re_ent20() (Re-entrancy/reentrancy_buggy_35.sol#444-450):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_35.sol#446)
+	State variables written after the call(s):
+	- not_called_re_ent20 = false (Re-entrancy/reentrancy_buggy_35.sol#449)
+Reentrancy in BitpayerDEX.bug_re_ent27() (Re-entrancy/reentrancy_buggy_35.sol#305-311):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_35.sol#307)
+	State variables written after the call(s):
+	- not_called_re_ent27 = false (Re-entrancy/reentrancy_buggy_35.sol#310)
+Reentrancy in owned.bug_re_ent34() (Re-entrancy/reentrancy_buggy_35.sol#137-143):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_35.sol#139)
+	State variables written after the call(s):
+	- not_called_re_ent34 = false (Re-entrancy/reentrancy_buggy_35.sol#142)
+Reentrancy in BitpayerDEX.bug_re_ent41() (Re-entrancy/reentrancy_buggy_35.sol#264-270):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_35.sol#266)
+	State variables written after the call(s):
+	- not_called_re_ent41 = false (Re-entrancy/reentrancy_buggy_35.sol#269)
+Reentrancy in owned.buyTicket_re_ent2() (Re-entrancy/reentrancy_buggy_35.sol#186-191):
+	External calls:
+	- ! (lastPlayer_re_ent2.send(jackpot_re_ent2)) (Re-entrancy/reentrancy_buggy_35.sol#187)
+	State variables written after the call(s):
+	- jackpot_re_ent2 = address(this).balance (Re-entrancy/reentrancy_buggy_35.sol#190)
+	- lastPlayer_re_ent2 = msg.sender (Re-entrancy/reentrancy_buggy_35.sol#189)
+Reentrancy in BitpayerDEX.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_35.sol#518-523):
+	External calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (Re-entrancy/reentrancy_buggy_35.sol#519)
+	State variables written after the call(s):
+	- jackpot_re_ent23 = address(this).balance (Re-entrancy/reentrancy_buggy_35.sol#522)
+	- lastPlayer_re_ent23 = msg.sender (Re-entrancy/reentrancy_buggy_35.sol#521)
+Reentrancy in BitpayerDEX.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_35.sol#565-570):
+	External calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (Re-entrancy/reentrancy_buggy_35.sol#566)
+	State variables written after the call(s):
+	- jackpot_re_ent30 = address(this).balance (Re-entrancy/reentrancy_buggy_35.sol#569)
+	- lastPlayer_re_ent30 = msg.sender (Re-entrancy/reentrancy_buggy_35.sol#568)
+Reentrancy in BitpayerDEX.buyTicket_re_ent37() (Re-entrancy/reentrancy_buggy_35.sol#339-344):
+	External calls:
+	- ! (lastPlayer_re_ent37.send(jackpot_re_ent37)) (Re-entrancy/reentrancy_buggy_35.sol#340)
+	State variables written after the call(s):
+	- jackpot_re_ent37 = address(this).balance (Re-entrancy/reentrancy_buggy_35.sol#343)
+	- lastPlayer_re_ent37 = msg.sender (Re-entrancy/reentrancy_buggy_35.sol#342)
+Reentrancy in BitpayerDEX.callme_re_ent14() (Re-entrancy/reentrancy_buggy_35.sol#531-537):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_35.sol#533)
+	State variables written after the call(s):
+	- counter_re_ent14 += 1 (Re-entrancy/reentrancy_buggy_35.sol#536)
+Reentrancy in owned.callme_re_ent21() (Re-entrancy/reentrancy_buggy_35.sol#146-152):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_35.sol#148)
+	State variables written after the call(s):
+	- counter_re_ent21 += 1 (Re-entrancy/reentrancy_buggy_35.sol#151)
+Reentrancy in BitpayerDEX.callme_re_ent35() (Re-entrancy/reentrancy_buggy_35.sol#274-280):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_35.sol#276)
+	State variables written after the call(s):
+	- counter_re_ent35 += 1 (Re-entrancy/reentrancy_buggy_35.sol#279)
+Reentrancy in owned.callme_re_ent42() (Re-entrancy/reentrancy_buggy_35.sol#167-173):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_35.sol#169)
+	State variables written after the call(s):
+	- counter_re_ent42 += 1 (Re-entrancy/reentrancy_buggy_35.sol#172)
+Reentrancy in BitpayerDEX.callme_re_ent7() (Re-entrancy/reentrancy_buggy_35.sol#505-511):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_35.sol#507)
+	State variables written after the call(s):
+	- counter_re_ent7 += 1 (Re-entrancy/reentrancy_buggy_35.sol#510)
+Reentrancy in BitpayerDEX.claimReward_re_ent11() (Re-entrancy/reentrancy_buggy_35.sol#248-254):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent11) (Re-entrancy/reentrancy_buggy_35.sol#252)
+	State variables written after the call(s):
+	- redeemableEther_re_ent11[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_35.sol#253)
+Reentrancy in BitpayerDEX.claimReward_re_ent25() (Re-entrancy/reentrancy_buggy_35.sol#395-401):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent25) (Re-entrancy/reentrancy_buggy_35.sol#399)
+	State variables written after the call(s):
+	- redeemableEther_re_ent25[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_35.sol#400)
+Reentrancy in BitpayerDEX.claimReward_re_ent32() (Re-entrancy/reentrancy_buggy_35.sol#457-463):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent32) (Re-entrancy/reentrancy_buggy_35.sol#461)
+	State variables written after the call(s):
+	- redeemableEther_re_ent32[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_35.sol#462)
+Reentrancy in BitpayerDEX.claimReward_re_ent39() (Re-entrancy/reentrancy_buggy_35.sol#606-612):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent39) (Re-entrancy/reentrancy_buggy_35.sol#610)
+	State variables written after the call(s):
+	- redeemableEther_re_ent39[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_35.sol#611)
+Reentrancy in BitpayerDEX.claimReward_re_ent4() (Re-entrancy/reentrancy_buggy_35.sol#488-494):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent4) (Re-entrancy/reentrancy_buggy_35.sol#492)
+	State variables written after the call(s):
+	- redeemableEther_re_ent4[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_35.sol#493)
+Reentrancy in BitpayerDEX.withdraw(uint256) (Re-entrancy/reentrancy_buggy_35.sol#465-471):
+	External calls:
+	- msg.sender.transfer(amount) (Re-entrancy/reentrancy_buggy_35.sol#469)
+	Event emitted after the call(s):
+	- Withdraw(now,address(0),msg.sender,amount,tokens[address(0)][msg.sender]) (Re-entrancy/reentrancy_buggy_35.sol#470)
+Reentrancy in BitpayerDEX.withdrawBalance_re_ent12() (Re-entrancy/reentrancy_buggy_35.sol#237-244):
+	External calls:
+	- ! (msg.sender.send(userBalance_re_ent12[msg.sender])) (Re-entrancy/reentrancy_buggy_35.sol#240)
+	State variables written after the call(s):
+	- userBalance_re_ent12[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_35.sol#243)
+Reentrancy in BitpayerDEX.withdrawBalance_re_ent19() (Re-entrancy/reentrancy_buggy_35.sol#408-415):
+	External calls:
+	- ! (msg.sender.send(userBalance_re_ent19[msg.sender])) (Re-entrancy/reentrancy_buggy_35.sol#411)
+	State variables written after the call(s):
+	- userBalance_re_ent19[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_35.sol#414)
+Reentrancy in BitpayerDEX.withdrawFunds_re_ent10(uint256) (Re-entrancy/reentrancy_buggy_35.sol#222-227):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_35.sol#225)
+	State variables written after the call(s):
+	- balances_re_ent10[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_35.sol#226)
+Reentrancy in BitpayerDEX.withdrawFunds_re_ent31(uint256) (Re-entrancy/reentrancy_buggy_35.sol#314-319):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_35.sol#317)
+	State variables written after the call(s):
+	- balances_re_ent31[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_35.sol#318)
+Reentrancy in BitpayerDEX.withdrawFunds_re_ent38(uint256) (Re-entrancy/reentrancy_buggy_35.sol#473-478):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_35.sol#476)
+	State variables written after the call(s):
+	- balances_re_ent38[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_35.sol#477)
+Reentrancy in BitpayerDEX.withdrawTradingFeeOwner() (Re-entrancy/reentrancy_buggy_35.sol#432-442):
+	External calls:
+	- msg.sender.transfer(amount) (Re-entrancy/reentrancy_buggy_35.sol#438)
+	Event emitted after the call(s):
+	- OwnerWithdrawTradingFee(owner,amount) (Re-entrancy/reentrancy_buggy_35.sol#440)
+Reentrancy in owned.withdraw_balances_re_ent36() (Re-entrancy/reentrancy_buggy_35.sol#157-160):
+	External calls:
+	- msg.sender.send(balances_re_ent36[msg.sender]) (Re-entrancy/reentrancy_buggy_35.sol#158)
+	State variables written after the call(s):
+	- balances_re_ent36[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_35.sol#159)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable owned.counter_re_ent21 (Re-entrancy/reentrancy_buggy_35.sol#145) is too similar to owned.counter_re_ent42 (Re-entrancy/reentrancy_buggy_35.sol#166)
+Variable BitpayerDEX.balances_re_ent10 (Re-entrancy/reentrancy_buggy_35.sol#221) is too similar to owned.balances_re_ent17 (Re-entrancy/reentrancy_buggy_35.sol#200)
+Variable owned.balances_re_ent17 (Re-entrancy/reentrancy_buggy_35.sol#200) is too similar to BitpayerDEX.balances_re_ent21 (Re-entrancy/reentrancy_buggy_35.sol#229)
+Variable BitpayerDEX.balances_re_ent10 (Re-entrancy/reentrancy_buggy_35.sol#221) is too similar to BitpayerDEX.balances_re_ent21 (Re-entrancy/reentrancy_buggy_35.sol#229)
+Variable BitpayerDEX.balances_re_ent1 (Re-entrancy/reentrancy_buggy_35.sol#256) is too similar to BitpayerDEX.balances_re_ent3 (Re-entrancy/reentrancy_buggy_35.sol#357)
+Variable BitpayerDEX.balances_re_ent10 (Re-entrancy/reentrancy_buggy_35.sol#221) is too similar to BitpayerDEX.balances_re_ent31 (Re-entrancy/reentrancy_buggy_35.sol#313)
+Variable owned.balances_re_ent17 (Re-entrancy/reentrancy_buggy_35.sol#200) is too similar to BitpayerDEX.balances_re_ent31 (Re-entrancy/reentrancy_buggy_35.sol#313)
+Variable BitpayerDEX.balances_re_ent21 (Re-entrancy/reentrancy_buggy_35.sol#229) is too similar to BitpayerDEX.balances_re_ent31 (Re-entrancy/reentrancy_buggy_35.sol#313)
+Variable BitpayerDEX.balances_re_ent31 (Re-entrancy/reentrancy_buggy_35.sol#313) is too similar to owned.balances_re_ent36 (Re-entrancy/reentrancy_buggy_35.sol#156)
+Variable BitpayerDEX.balances_re_ent31 (Re-entrancy/reentrancy_buggy_35.sol#313) is too similar to BitpayerDEX.balances_re_ent38 (Re-entrancy/reentrancy_buggy_35.sol#472)
+Variable owned.balances_re_ent36 (Re-entrancy/reentrancy_buggy_35.sol#156) is too similar to BitpayerDEX.balances_re_ent38 (Re-entrancy/reentrancy_buggy_35.sol#472)
+Variable BitpayerDEX.balances_re_ent1 (Re-entrancy/reentrancy_buggy_35.sol#256) is too similar to BitpayerDEX.balances_re_ent8 (Re-entrancy/reentrancy_buggy_35.sol#580)
+Variable BitpayerDEX.balances_re_ent3 (Re-entrancy/reentrancy_buggy_35.sol#357) is too similar to BitpayerDEX.balances_re_ent8 (Re-entrancy/reentrancy_buggy_35.sol#580)
+Variable BitpayerDEX.counter_re_ent14 (Re-entrancy/reentrancy_buggy_35.sol#530) is too similar to owned.counter_re_ent21 (Re-entrancy/reentrancy_buggy_35.sol#145)
+Variable BitpayerDEX.counter_re_ent14 (Re-entrancy/reentrancy_buggy_35.sol#530) is too similar to owned.counter_re_ent42 (Re-entrancy/reentrancy_buggy_35.sol#166)
+Variable owned.jackpot_re_ent2 (Re-entrancy/reentrancy_buggy_35.sol#185) is too similar to BitpayerDEX.jackpot_re_ent9 (Re-entrancy/reentrancy_buggy_35.sol#375)
+Variable BitpayerDEX.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_35.sol#517) is too similar to BitpayerDEX.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_35.sol#564)
+Variable BitpayerDEX.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_35.sol#517) is too similar to BitpayerDEX.jackpot_re_ent37 (Re-entrancy/reentrancy_buggy_35.sol#338)
+Variable BitpayerDEX.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_35.sol#564) is too similar to BitpayerDEX.jackpot_re_ent37 (Re-entrancy/reentrancy_buggy_35.sol#338)
+Variable BitpayerDEX.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_35.sol#516) is too similar to BitpayerDEX.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_35.sol#563)
+Variable BitpayerDEX.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_35.sol#516) is too similar to BitpayerDEX.lastPlayer_re_ent37 (Re-entrancy/reentrancy_buggy_35.sol#337)
+Variable BitpayerDEX.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_35.sol#563) is too similar to BitpayerDEX.lastPlayer_re_ent37 (Re-entrancy/reentrancy_buggy_35.sol#337)
+Variable owned.lastPlayer_re_ent2 (Re-entrancy/reentrancy_buggy_35.sol#184) is too similar to BitpayerDEX.lastPlayer_re_ent9 (Re-entrancy/reentrancy_buggy_35.sol#374)
+Variable BitpayerDEX.not_called_re_ent13 (Re-entrancy/reentrancy_buggy_35.sol#321) is too similar to owned.not_called_re_ent34 (Re-entrancy/reentrancy_buggy_35.sol#136)
+Variable BitpayerDEX.not_called_re_ent20 (Re-entrancy/reentrancy_buggy_35.sol#443) is too similar to BitpayerDEX.not_called_re_ent27 (Re-entrancy/reentrancy_buggy_35.sol#304)
+Variable BitpayerDEX.not_called_re_ent13 (Re-entrancy/reentrancy_buggy_35.sol#321) is too similar to BitpayerDEX.not_called_re_ent41 (Re-entrancy/reentrancy_buggy_35.sol#263)
+Variable owned.not_called_re_ent34 (Re-entrancy/reentrancy_buggy_35.sol#136) is too similar to BitpayerDEX.not_called_re_ent41 (Re-entrancy/reentrancy_buggy_35.sol#263)
+Variable BitpayerDEX.redeemableEther_re_ent11 (Re-entrancy/reentrancy_buggy_35.sol#247) is too similar to BitpayerDEX.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_35.sol#394)
+Variable BitpayerDEX.redeemableEther_re_ent11 (Re-entrancy/reentrancy_buggy_35.sol#247) is too similar to BitpayerDEX.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_35.sol#456)
+Variable BitpayerDEX.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_35.sol#394) is too similar to BitpayerDEX.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_35.sol#456)
+Variable BitpayerDEX.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_35.sol#456) is too similar to BitpayerDEX.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_35.sol#605)
+Variable BitpayerDEX.redeemableEther_re_ent11 (Re-entrancy/reentrancy_buggy_35.sol#247) is too similar to BitpayerDEX.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_35.sol#605)
+Variable BitpayerDEX.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_35.sol#394) is too similar to BitpayerDEX.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_35.sol#605)
+Variable BitpayerDEX.claimReward_re_ent11().transferValue_re_ent11 (Re-entrancy/reentrancy_buggy_35.sol#251) is too similar to BitpayerDEX.claimReward_re_ent25().transferValue_re_ent25 (Re-entrancy/reentrancy_buggy_35.sol#398)
+Variable BitpayerDEX.claimReward_re_ent11().transferValue_re_ent11 (Re-entrancy/reentrancy_buggy_35.sol#251) is too similar to BitpayerDEX.claimReward_re_ent32().transferValue_re_ent32 (Re-entrancy/reentrancy_buggy_35.sol#460)
+Variable BitpayerDEX.claimReward_re_ent25().transferValue_re_ent25 (Re-entrancy/reentrancy_buggy_35.sol#398) is too similar to BitpayerDEX.claimReward_re_ent32().transferValue_re_ent32 (Re-entrancy/reentrancy_buggy_35.sol#460)
+Variable BitpayerDEX.claimReward_re_ent11().transferValue_re_ent11 (Re-entrancy/reentrancy_buggy_35.sol#251) is too similar to BitpayerDEX.claimReward_re_ent39().transferValue_re_ent39 (Re-entrancy/reentrancy_buggy_35.sol#609)
+Variable BitpayerDEX.claimReward_re_ent25().transferValue_re_ent25 (Re-entrancy/reentrancy_buggy_35.sol#398) is too similar to BitpayerDEX.claimReward_re_ent39().transferValue_re_ent39 (Re-entrancy/reentrancy_buggy_35.sol#609)
+Variable BitpayerDEX.claimReward_re_ent32().transferValue_re_ent32 (Re-entrancy/reentrancy_buggy_35.sol#460) is too similar to BitpayerDEX.claimReward_re_ent39().transferValue_re_ent39 (Re-entrancy/reentrancy_buggy_35.sol#609)
+Variable BitpayerDEX.userBalance_re_ent12 (Re-entrancy/reentrancy_buggy_35.sol#236) is too similar to BitpayerDEX.userBalance_re_ent19 (Re-entrancy/reentrancy_buggy_35.sol#407)
+Variable BitpayerDEX.userBalance_re_ent12 (Re-entrancy/reentrancy_buggy_35.sol#236) is too similar to BitpayerDEX.userBalance_re_ent26 (Re-entrancy/reentrancy_buggy_35.sol#421)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+Re-entrancy/reentrancy_buggy_35.sol analyzed (4 contracts with 80 detectors), 194 result(s) found

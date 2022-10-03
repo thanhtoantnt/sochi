@@ -1,0 +1,54 @@
+
+sumocoin (CV/2018-13091.sol#52-207) has incorrect ERC20 function interface:sumocoin.transfer(address,uint256) (CV/2018-13091.sol#113-115)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-erc20-interface
+
+owned.transferOwnership(address) (CV/2018-13091.sol#45-47) should emit an event for: 
+	- owner = newOwner (CV/2018-13091.sol#46) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+owned.transferOwnership(address).newOwner (CV/2018-13091.sol#45) lacks a zero-check on :
+		- owner = newOwner (CV/2018-13091.sol#46)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+SafeMath.add(uint256,uint256) (CV/2018-13091.sol#26-30) is never used and should be removed
+SafeMath.div(uint256,uint256) (CV/2018-13091.sol#14-19) is never used and should be removed
+SafeMath.mul(uint256,uint256) (CV/2018-13091.sol#8-12) is never used and should be removed
+SafeMath.sub(uint256,uint256) (CV/2018-13091.sol#21-24) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.4.16 (CV/2018-13091.sol#5) allows old versions
+solc-0.4.16 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Contract owned (CV/2018-13091.sol#33-48) is not in CapWords
+Contract tokenRecipient (CV/2018-13091.sol#50) is not in CapWords
+Contract sumocoin (CV/2018-13091.sol#52-207) is not in CapWords
+Parameter sumocoin.transfer(address,uint256)._to (CV/2018-13091.sol#113) is not in mixedCase
+Parameter sumocoin.transfer(address,uint256)._value (CV/2018-13091.sol#113) is not in mixedCase
+Parameter sumocoin.transferFrom(address,address,uint256)._from (CV/2018-13091.sol#126) is not in mixedCase
+Parameter sumocoin.transferFrom(address,address,uint256)._to (CV/2018-13091.sol#126) is not in mixedCase
+Parameter sumocoin.transferFrom(address,address,uint256)._value (CV/2018-13091.sol#126) is not in mixedCase
+Parameter sumocoin.approve(address,uint256)._spender (CV/2018-13091.sol#141) is not in mixedCase
+Parameter sumocoin.approve(address,uint256)._value (CV/2018-13091.sol#141) is not in mixedCase
+Parameter sumocoin.approveAndCall(address,uint256,bytes)._spender (CV/2018-13091.sol#156) is not in mixedCase
+Parameter sumocoin.approveAndCall(address,uint256,bytes)._value (CV/2018-13091.sol#156) is not in mixedCase
+Parameter sumocoin.approveAndCall(address,uint256,bytes)._extraData (CV/2018-13091.sol#156) is not in mixedCase
+Parameter sumocoin.burn(uint256)._value (CV/2018-13091.sol#173) is not in mixedCase
+Parameter sumocoin.burnFrom(address,uint256)._from (CV/2018-13091.sol#189) is not in mixedCase
+Parameter sumocoin.burnFrom(address,uint256)._value (CV/2018-13091.sol#189) is not in mixedCase
+Parameter sumocoin.distributeToken(address[],uint256)._value (CV/2018-13091.sol#199) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+sumocoin.decimals (CV/2018-13091.sol#59) should be constant
+sumocoin.name (CV/2018-13091.sol#57) should be constant
+sumocoin.symbol (CV/2018-13091.sol#58) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+receiveApproval(address,uint256,address,bytes) should be declared external:
+	- tokenRecipient.receiveApproval(address,uint256,address,bytes) (CV/2018-13091.sol#50)
+approveAndCall(address,uint256,bytes) should be declared external:
+	- sumocoin.approveAndCall(address,uint256,bytes) (CV/2018-13091.sol#156-164)
+distributeToken(address[],uint256) should be declared external:
+	- sumocoin.distributeToken(address[],uint256) (CV/2018-13091.sol#199-205)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+CV/2018-13091.sol analyzed (4 contracts with 80 detectors), 32 result(s) found

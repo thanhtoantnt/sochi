@@ -1,0 +1,221 @@
+Compilation warnings/errors on CV/2018-13073.sol:
+CV/2018-13073.sol:10:5: Warning: No visibility specified. Defaulting to "public".
+    function owned() {
+    ^
+Spanning multiple lines.
+CV/2018-13073.sol:15:34: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (msg.sender != owner) throw;
+                                 ^---^
+CV/2018-13073.sol:19:5: Warning: No visibility specified. Defaulting to "public".
+    function transferOwnership(address newOwner) onlyOwner {
+    ^
+Spanning multiple lines.
+CV/2018-13073.sol:24:27: Warning: No visibility specified. Defaulting to "public".
+contract tokenRecipient { function receiveApproval(address _from, uint256 _value, address _token, bytes _extraData); }
+                          ^----------------------------------------------------------------------------------------^
+CV/2018-13073.sol:42:5: Warning: No visibility specified. Defaulting to "public".
+    function token(
+    ^
+Spanning multiple lines.
+CV/2018-13073.sol:56:5: Warning: No visibility specified. Defaulting to "public".
+    function transfer(address _to, uint256 _value) {
+    ^
+Spanning multiple lines.
+CV/2018-13073.sol:57:45: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (balanceOf[msg.sender] < _value) throw;           // Check if the sender has enough
+                                            ^---^
+CV/2018-13073.sol:58:55: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (balanceOf[_to] + _value < balanceOf[_to]) throw; // Check for overflows
+                                                      ^---^
+CV/2018-13073.sol:65:5: Warning: No visibility specified. Defaulting to "public".
+    function approve(address _spender, uint256 _value)
+    ^
+Spanning multiple lines.
+CV/2018-13073.sol:72:5: Warning: No visibility specified. Defaulting to "public".
+    function approveAndCall(address _spender, uint256 _value, bytes _extraData)
+    ^
+Spanning multiple lines.
+CV/2018-13073.sol:82:5: Warning: No visibility specified. Defaulting to "public".
+    function transferFrom(address _from, address _to, uint256 _value) returns (bool success) {
+    ^
+Spanning multiple lines.
+CV/2018-13073.sol:83:40: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (balanceOf[_from] < _value) throw;                 // Check if the sender has enough
+                                       ^---^
+CV/2018-13073.sol:84:55: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (balanceOf[_to] + _value < balanceOf[_to]) throw;  // Check for overflows
+                                                      ^---^
+CV/2018-13073.sol:85:52: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (_value > allowance[_from][msg.sender]) throw;   // Check allowance
+                                                   ^---^
+CV/2018-13073.sol:94:5: Warning: No visibility specified. Defaulting to "public".
+    function () {
+    ^
+Spanning multiple lines.
+CV/2018-13073.sol:95:9: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        throw;     // Prevents accidental sending of ether
+        ^---^
+CV/2018-13073.sol:115:5: Warning: No visibility specified. Defaulting to "public".
+    function ETHEREUMBLACK() token (initialSupply, tokenName, decimalUnits, tokenSymbol) {}
+    ^-------------------------------------------------------------------------------------^
+CV/2018-13073.sol:117:5: Warning: No visibility specified. Defaulting to "public".
+    function transfer(address _to, uint256 _value) {
+    ^
+Spanning multiple lines.
+CV/2018-13073.sol:118:45: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (balanceOf[msg.sender] < _value) throw;           // Check if the sender has enough
+                                            ^---^
+CV/2018-13073.sol:119:55: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (balanceOf[_to] + _value < balanceOf[_to]) throw; // Check for overflows
+                                                      ^---^
+CV/2018-13073.sol:120:40: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (frozenAccount[msg.sender]) throw;                // Check if frozen
+                                       ^---^
+CV/2018-13073.sol:128:5: Warning: No visibility specified. Defaulting to "public".
+    function transferFrom(address _from, address _to, uint256 _value) returns (bool success) {
+    ^
+Spanning multiple lines.
+CV/2018-13073.sol:129:35: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (frozenAccount[_from]) throw;                        // Check if frozen
+                                  ^---^
+CV/2018-13073.sol:130:40: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (balanceOf[_from] < _value) throw;                 // Check if the sender has enough
+                                       ^---^
+CV/2018-13073.sol:131:55: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (balanceOf[_to] + _value < balanceOf[_to]) throw;  // Check for overflows
+                                                      ^---^
+CV/2018-13073.sol:132:52: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (_value > allowance[_from][msg.sender]) throw;   // Check allowance
+                                                   ^---^
+CV/2018-13073.sol:140:5: Warning: No visibility specified. Defaulting to "public".
+    function mintToken(address target, uint256 mintedAmount) onlyOwner {
+    ^
+Spanning multiple lines.
+CV/2018-13073.sol:147:5: Warning: No visibility specified. Defaulting to "public".
+    function freezeAccount(address target, bool freeze) onlyOwner {
+    ^
+Spanning multiple lines.
+CV/2018-13073.sol:152:5: Warning: No visibility specified. Defaulting to "public".
+    function setPrices(uint256 newSellPrice, uint256 newBuyPrice) onlyOwner {
+    ^
+Spanning multiple lines.
+CV/2018-13073.sol:157:5: Warning: No visibility specified. Defaulting to "public".
+    function buy() payable {
+    ^
+Spanning multiple lines.
+CV/2018-13073.sol:159:39: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (balanceOf[this] < amount) throw;               // checks if it has enough to sell
+                                      ^---^
+CV/2018-13073.sol:165:5: Warning: No visibility specified. Defaulting to "public".
+    function sell(uint256 amount) {
+    ^
+Spanning multiple lines.
+CV/2018-13073.sol:166:46: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (balanceOf[msg.sender] < amount ) throw;        // checks if the sender has enough to sell
+                                             ^---^
+CV/2018-13073.sol:170:13: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+            throw;                                         // to do this last to avoid recursion attacks
+            ^---^
+
+
+ETHEREUMBLACK (CV/2018-13073.sol#99-176) has incorrect ERC20 function interface:token.transfer(address,uint256) (CV/2018-13073.sol#56-62)
+ETHEREUMBLACK (CV/2018-13073.sol#99-176) has incorrect ERC20 function interface:ETHEREUMBLACK.transfer(address,uint256) (CV/2018-13073.sol#117-124)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-erc20-interface
+
+owned.transferOwnership(address) (CV/2018-13073.sol#19-21) should emit an event for: 
+	- owner = newOwner (CV/2018-13073.sol#20) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+ETHEREUMBLACK.setPrices(uint256,uint256) (CV/2018-13073.sol#152-155) should emit an event for: 
+	- sellPrice = newSellPrice (CV/2018-13073.sol#153) 
+	- buyPrice = newBuyPrice (CV/2018-13073.sol#154) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+
+owned.transferOwnership(address).newOwner (CV/2018-13073.sol#19) lacks a zero-check on :
+		- owner = newOwner (CV/2018-13073.sol#20)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Deprecated standard detected THROW (CV/2018-13073.sol#15):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected THROW (CV/2018-13073.sol#57):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected THROW (CV/2018-13073.sol#58):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected THROW (CV/2018-13073.sol#83):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected THROW (CV/2018-13073.sol#84):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected THROW (CV/2018-13073.sol#85):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected THROW (CV/2018-13073.sol#95):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected THROW (CV/2018-13073.sol#118):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected THROW (CV/2018-13073.sol#119):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected THROW (CV/2018-13073.sol#120):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected THROW (CV/2018-13073.sol#129):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected THROW (CV/2018-13073.sol#130):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected THROW (CV/2018-13073.sol#131):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected THROW (CV/2018-13073.sol#132):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected THROW (CV/2018-13073.sol#159):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected THROW (CV/2018-13073.sol#166):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected THROW (CV/2018-13073.sol#170):
+	- Usage of "throw" should be replaced with "revert()"
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#deprecated-standards
+
+Pragma version^0.4.17 (CV/2018-13073.sol#6) allows old versions
+solc-0.4.17 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Contract owned (CV/2018-13073.sol#7-22) is not in CapWords
+Contract tokenRecipient (CV/2018-13073.sol#24) is not in CapWords
+Contract token (CV/2018-13073.sol#26-97) is not in CapWords
+Parameter token.transfer(address,uint256)._to (CV/2018-13073.sol#56) is not in mixedCase
+Parameter token.transfer(address,uint256)._value (CV/2018-13073.sol#56) is not in mixedCase
+Parameter token.approve(address,uint256)._spender (CV/2018-13073.sol#65) is not in mixedCase
+Parameter token.approve(address,uint256)._value (CV/2018-13073.sol#65) is not in mixedCase
+Parameter token.approveAndCall(address,uint256,bytes)._spender (CV/2018-13073.sol#72) is not in mixedCase
+Parameter token.approveAndCall(address,uint256,bytes)._value (CV/2018-13073.sol#72) is not in mixedCase
+Parameter token.approveAndCall(address,uint256,bytes)._extraData (CV/2018-13073.sol#72) is not in mixedCase
+Parameter token.transferFrom(address,address,uint256)._from (CV/2018-13073.sol#82) is not in mixedCase
+Parameter token.transferFrom(address,address,uint256)._to (CV/2018-13073.sol#82) is not in mixedCase
+Parameter token.transferFrom(address,address,uint256)._value (CV/2018-13073.sol#82) is not in mixedCase
+Parameter ETHEREUMBLACK.transfer(address,uint256)._to (CV/2018-13073.sol#117) is not in mixedCase
+Parameter ETHEREUMBLACK.transfer(address,uint256)._value (CV/2018-13073.sol#117) is not in mixedCase
+Parameter ETHEREUMBLACK.transferFrom(address,address,uint256)._from (CV/2018-13073.sol#128) is not in mixedCase
+Parameter ETHEREUMBLACK.transferFrom(address,address,uint256)._to (CV/2018-13073.sol#128) is not in mixedCase
+Parameter ETHEREUMBLACK.transferFrom(address,address,uint256)._value (CV/2018-13073.sol#128) is not in mixedCase
+Constant ETHEREUMBLACK.initialSupply (CV/2018-13073.sol#111) is not in UPPER_CASE_WITH_UNDERSCORES
+Constant ETHEREUMBLACK.decimalUnits (CV/2018-13073.sol#112) is not in UPPER_CASE_WITH_UNDERSCORES
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in ETHEREUMBLACK.sell(uint256) (CV/2018-13073.sol#165-174):
+	External calls:
+	- ! msg.sender.send(amount * sellPrice) (CV/2018-13073.sol#169)
+	Event emitted after the call(s):
+	- Transfer(msg.sender,this,amount) (CV/2018-13073.sol#172)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+ETHEREUMBLACK.slitherConstructorConstantVariables() (CV/2018-13073.sol#99-176) uses literals with too many digits:
+	- initialSupply = 200000000 * 10 ** 18 (CV/2018-13073.sol#111)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+ETHEREUMBLACK.tokenName (CV/2018-13073.sol#113) should be constant
+ETHEREUMBLACK.tokenSymbol (CV/2018-13073.sol#114) should be constant
+token.standard (CV/2018-13073.sol#28) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+receiveApproval(address,uint256,address,bytes) should be declared external:
+	- tokenRecipient.receiveApproval(address,uint256,address,bytes) (CV/2018-13073.sol#24)
+approveAndCall(address,uint256,bytes) should be declared external:
+	- token.approveAndCall(address,uint256,bytes) (CV/2018-13073.sol#72-79)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+CV/2018-13073.sol analyzed (4 contracts with 80 detectors), 51 result(s) found

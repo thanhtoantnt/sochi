@@ -1,0 +1,241 @@
+Compilation warnings/errors on tx.origin/tx_buggy_3.sol:
+tx.origin/tx_buggy_3.sol:44:3: Warning: Function state mutability can be restricted to view
+  function bug_txorigin20(address owner_txorigin20) public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+tx.origin/tx_buggy_3.sol:49:3: Warning: Function state mutability can be restricted to view
+  function bug_txorigin32(  address owner_txorigin32) public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+tx.origin/tx_buggy_3.sol:60:3: Warning: Function state mutability can be restricted to view
+  function bug_txorigin4(address owner_txorigin4) public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+tx.origin/tx_buggy_3.sol:161:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin8(address owner_txorigin8) public{
+^ (Relevant source part starts here and spans across multiple lines).
+tx.origin/tx_buggy_3.sol:182:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin36(  address owner_txorigin36) public{
+^ (Relevant source part starts here and spans across multiple lines).
+tx.origin/tx_buggy_3.sol:202:1: Warning: Function state mutability can be restricted to view
+function bug_txorigin40(address owner_txorigin40) public{
+^ (Relevant source part starts here and spans across multiple lines).
+
+
+CareerOnToken.sendto_txorigin13(address,uint256,address) (tx.origin/tx_buggy_3.sol#18-21) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (tx.origin/tx_buggy_3.sol#20)
+CareerOnToken.sendto_txorigin9(address,uint256,address) (tx.origin/tx_buggy_3.sol#24-27) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (tx.origin/tx_buggy_3.sol#26)
+CareerOnToken.sendto_txorigin25(address,uint256,address) (tx.origin/tx_buggy_3.sol#29-32) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (tx.origin/tx_buggy_3.sol#31)
+CareerOnToken.withdrawAll_txorigin26(address,address) (tx.origin/tx_buggy_3.sol#39-42) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (tx.origin/tx_buggy_3.sol#41)
+CareerOnToken.withdrawAll_txorigin38(address,address) (tx.origin/tx_buggy_3.sol#53-56) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (tx.origin/tx_buggy_3.sol#55)
+CareerOnToken.withdrawAll_txorigin14(address,address) (tx.origin/tx_buggy_3.sol#138-141) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (tx.origin/tx_buggy_3.sol#140)
+CareerOnToken.withdrawAll_txorigin30(address,address) (tx.origin/tx_buggy_3.sol#150-153) sends eth to arbitrary user
+	Dangerous calls:
+	- _recipient.transfer(address(this).balance) (tx.origin/tx_buggy_3.sol#152)
+CareerOnToken.sendto_txorigin33(address,uint256,address) (tx.origin/tx_buggy_3.sol#210-213) sends eth to arbitrary user
+	Dangerous calls:
+	- receiver.transfer(amount) (tx.origin/tx_buggy_3.sol#212)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+CareerOnToken.transferTo_txorigin27(address,uint256,address) (tx.origin/tx_buggy_3.sol#8-11) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin27) (tx.origin/tx_buggy_3.sol#9)
+CareerOnToken.transferTo_txorigin31(address,uint256,address) (tx.origin/tx_buggy_3.sol#13-16) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin31) (tx.origin/tx_buggy_3.sol#14)
+CareerOnToken.sendto_txorigin13(address,uint256,address) (tx.origin/tx_buggy_3.sol#18-21) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin13) (tx.origin/tx_buggy_3.sol#19)
+CareerOnToken.sendto_txorigin9(address,uint256,address) (tx.origin/tx_buggy_3.sol#24-27) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin9) (tx.origin/tx_buggy_3.sol#25)
+CareerOnToken.sendto_txorigin25(address,uint256,address) (tx.origin/tx_buggy_3.sol#29-32) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin25) (tx.origin/tx_buggy_3.sol#30)
+CareerOnToken.transferTo_txorigin19(address,uint256,address) (tx.origin/tx_buggy_3.sol#34-37) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin19) (tx.origin/tx_buggy_3.sol#35)
+CareerOnToken.withdrawAll_txorigin26(address,address) (tx.origin/tx_buggy_3.sol#39-42) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin26) (tx.origin/tx_buggy_3.sol#40)
+CareerOnToken.bug_txorigin20(address) (tx.origin/tx_buggy_3.sol#44-46) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin20) (tx.origin/tx_buggy_3.sol#45)
+CareerOnToken.bug_txorigin32(address) (tx.origin/tx_buggy_3.sol#49-51) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin32) (tx.origin/tx_buggy_3.sol#50)
+CareerOnToken.withdrawAll_txorigin38(address,address) (tx.origin/tx_buggy_3.sol#53-56) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin38) (tx.origin/tx_buggy_3.sol#54)
+CareerOnToken.bug_txorigin4(address) (tx.origin/tx_buggy_3.sol#60-62) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin4) (tx.origin/tx_buggy_3.sol#61)
+CareerOnToken.transferTo_txorigin7(address,uint256,address) (tx.origin/tx_buggy_3.sol#85-88) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin7) (tx.origin/tx_buggy_3.sol#86)
+CareerOnToken.transferTo_txorigin23(address,uint256,address) (tx.origin/tx_buggy_3.sol#110-113) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin23) (tx.origin/tx_buggy_3.sol#111)
+CareerOnToken.withdrawAll_txorigin14(address,address) (tx.origin/tx_buggy_3.sol#138-141) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin14) (tx.origin/tx_buggy_3.sol#139)
+CareerOnToken.withdrawAll_txorigin30(address,address) (tx.origin/tx_buggy_3.sol#150-153) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin30) (tx.origin/tx_buggy_3.sol#151)
+CareerOnToken.bug_txorigin8(address) (tx.origin/tx_buggy_3.sol#161-163) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin8) (tx.origin/tx_buggy_3.sol#162)
+CareerOnToken.transferTo_txorigin39(address,uint256,address) (tx.origin/tx_buggy_3.sol#168-171) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin39) (tx.origin/tx_buggy_3.sol#169)
+CareerOnToken.bug_txorigin36(address) (tx.origin/tx_buggy_3.sol#182-184) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin36) (tx.origin/tx_buggy_3.sol#183)
+CareerOnToken.transferTo_txorigin35(address,uint256,address) (tx.origin/tx_buggy_3.sol#191-194) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin35) (tx.origin/tx_buggy_3.sol#192)
+CareerOnToken.bug_txorigin40(address) (tx.origin/tx_buggy_3.sol#202-204) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin40) (tx.origin/tx_buggy_3.sol#203)
+CareerOnToken.sendto_txorigin33(address,uint256,address) (tx.origin/tx_buggy_3.sol#210-213) uses tx.origin for authorization: require(bool)(tx.origin == owner_txorigin33) (tx.origin/tx_buggy_3.sol#211)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-usage-of-txorigin
+
+CareerOnToken.sendto_txorigin13(address,uint256,address).receiver (tx.origin/tx_buggy_3.sol#18) lacks a zero-check on :
+		- receiver.transfer(amount) (tx.origin/tx_buggy_3.sol#20)
+CareerOnToken.sendto_txorigin9(address,uint256,address).receiver (tx.origin/tx_buggy_3.sol#24) lacks a zero-check on :
+		- receiver.transfer(amount) (tx.origin/tx_buggy_3.sol#26)
+CareerOnToken.sendto_txorigin25(address,uint256,address).receiver (tx.origin/tx_buggy_3.sol#29) lacks a zero-check on :
+		- receiver.transfer(amount) (tx.origin/tx_buggy_3.sol#31)
+CareerOnToken.withdrawAll_txorigin26(address,address)._recipient (tx.origin/tx_buggy_3.sol#39) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (tx.origin/tx_buggy_3.sol#41)
+CareerOnToken.withdrawAll_txorigin38(address,address)._recipient (tx.origin/tx_buggy_3.sol#53) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (tx.origin/tx_buggy_3.sol#55)
+CareerOnToken.withdrawAll_txorigin14(address,address)._recipient (tx.origin/tx_buggy_3.sol#138) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (tx.origin/tx_buggy_3.sol#140)
+CareerOnToken.withdrawAll_txorigin30(address,address)._recipient (tx.origin/tx_buggy_3.sol#150) lacks a zero-check on :
+		- _recipient.transfer(address(this).balance) (tx.origin/tx_buggy_3.sol#152)
+CareerOnToken.sendto_txorigin33(address,uint256,address).receiver (tx.origin/tx_buggy_3.sol#210) lacks a zero-check on :
+		- receiver.transfer(amount) (tx.origin/tx_buggy_3.sol#212)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Pragma version^0.5.1 (tx.origin/tx_buggy_3.sol#5) allows old versions
+solc-0.5.1 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function CareerOnToken.transferTo_txorigin27(address,uint256,address) (tx.origin/tx_buggy_3.sol#8-11) is not in mixedCase
+Parameter CareerOnToken.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (tx.origin/tx_buggy_3.sol#8) is not in mixedCase
+Function CareerOnToken.transferTo_txorigin31(address,uint256,address) (tx.origin/tx_buggy_3.sol#13-16) is not in mixedCase
+Parameter CareerOnToken.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (tx.origin/tx_buggy_3.sol#13) is not in mixedCase
+Function CareerOnToken.sendto_txorigin13(address,uint256,address) (tx.origin/tx_buggy_3.sol#18-21) is not in mixedCase
+Parameter CareerOnToken.sendto_txorigin13(address,uint256,address).owner_txorigin13 (tx.origin/tx_buggy_3.sol#18) is not in mixedCase
+Function CareerOnToken.sendto_txorigin9(address,uint256,address) (tx.origin/tx_buggy_3.sol#24-27) is not in mixedCase
+Parameter CareerOnToken.sendto_txorigin9(address,uint256,address).owner_txorigin9 (tx.origin/tx_buggy_3.sol#24) is not in mixedCase
+Function CareerOnToken.sendto_txorigin25(address,uint256,address) (tx.origin/tx_buggy_3.sol#29-32) is not in mixedCase
+Parameter CareerOnToken.sendto_txorigin25(address,uint256,address).owner_txorigin25 (tx.origin/tx_buggy_3.sol#29) is not in mixedCase
+Function CareerOnToken.transferTo_txorigin19(address,uint256,address) (tx.origin/tx_buggy_3.sol#34-37) is not in mixedCase
+Parameter CareerOnToken.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (tx.origin/tx_buggy_3.sol#34) is not in mixedCase
+Function CareerOnToken.withdrawAll_txorigin26(address,address) (tx.origin/tx_buggy_3.sol#39-42) is not in mixedCase
+Parameter CareerOnToken.withdrawAll_txorigin26(address,address)._recipient (tx.origin/tx_buggy_3.sol#39) is not in mixedCase
+Parameter CareerOnToken.withdrawAll_txorigin26(address,address).owner_txorigin26 (tx.origin/tx_buggy_3.sol#39) is not in mixedCase
+Function CareerOnToken.bug_txorigin20(address) (tx.origin/tx_buggy_3.sol#44-46) is not in mixedCase
+Parameter CareerOnToken.bug_txorigin20(address).owner_txorigin20 (tx.origin/tx_buggy_3.sol#44) is not in mixedCase
+Function CareerOnToken.bug_txorigin32(address) (tx.origin/tx_buggy_3.sol#49-51) is not in mixedCase
+Parameter CareerOnToken.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_3.sol#49) is not in mixedCase
+Function CareerOnToken.withdrawAll_txorigin38(address,address) (tx.origin/tx_buggy_3.sol#53-56) is not in mixedCase
+Parameter CareerOnToken.withdrawAll_txorigin38(address,address)._recipient (tx.origin/tx_buggy_3.sol#53) is not in mixedCase
+Parameter CareerOnToken.withdrawAll_txorigin38(address,address).owner_txorigin38 (tx.origin/tx_buggy_3.sol#53) is not in mixedCase
+Function CareerOnToken.bug_txorigin4(address) (tx.origin/tx_buggy_3.sol#60-62) is not in mixedCase
+Parameter CareerOnToken.bug_txorigin4(address).owner_txorigin4 (tx.origin/tx_buggy_3.sol#60) is not in mixedCase
+Function CareerOnToken.transferTo_txorigin7(address,uint256,address) (tx.origin/tx_buggy_3.sol#85-88) is not in mixedCase
+Parameter CareerOnToken.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (tx.origin/tx_buggy_3.sol#85) is not in mixedCase
+Parameter CareerOnToken.transfer(address,uint256)._to (tx.origin/tx_buggy_3.sol#92) is not in mixedCase
+Parameter CareerOnToken.transfer(address,uint256)._value (tx.origin/tx_buggy_3.sol#93) is not in mixedCase
+Function CareerOnToken.transferTo_txorigin23(address,uint256,address) (tx.origin/tx_buggy_3.sol#110-113) is not in mixedCase
+Parameter CareerOnToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_3.sol#110) is not in mixedCase
+Parameter CareerOnToken.transferFrom(address,address,uint256)._from (tx.origin/tx_buggy_3.sol#117) is not in mixedCase
+Parameter CareerOnToken.transferFrom(address,address,uint256)._to (tx.origin/tx_buggy_3.sol#118) is not in mixedCase
+Parameter CareerOnToken.transferFrom(address,address,uint256)._value (tx.origin/tx_buggy_3.sol#119) is not in mixedCase
+Function CareerOnToken.withdrawAll_txorigin14(address,address) (tx.origin/tx_buggy_3.sol#138-141) is not in mixedCase
+Parameter CareerOnToken.withdrawAll_txorigin14(address,address)._recipient (tx.origin/tx_buggy_3.sol#138) is not in mixedCase
+Parameter CareerOnToken.withdrawAll_txorigin14(address,address).owner_txorigin14 (tx.origin/tx_buggy_3.sol#138) is not in mixedCase
+Parameter CareerOnToken.approve(address,uint256)._spender (tx.origin/tx_buggy_3.sol#143) is not in mixedCase
+Parameter CareerOnToken.approve(address,uint256)._value (tx.origin/tx_buggy_3.sol#143) is not in mixedCase
+Function CareerOnToken.withdrawAll_txorigin30(address,address) (tx.origin/tx_buggy_3.sol#150-153) is not in mixedCase
+Parameter CareerOnToken.withdrawAll_txorigin30(address,address)._recipient (tx.origin/tx_buggy_3.sol#150) is not in mixedCase
+Parameter CareerOnToken.withdrawAll_txorigin30(address,address).owner_txorigin30 (tx.origin/tx_buggy_3.sol#150) is not in mixedCase
+Parameter CareerOnToken.allowance(address,address)._owner (tx.origin/tx_buggy_3.sol#156) is not in mixedCase
+Parameter CareerOnToken.allowance(address,address)._spender (tx.origin/tx_buggy_3.sol#157) is not in mixedCase
+Function CareerOnToken.bug_txorigin8(address) (tx.origin/tx_buggy_3.sol#161-163) is not in mixedCase
+Parameter CareerOnToken.bug_txorigin8(address).owner_txorigin8 (tx.origin/tx_buggy_3.sol#161) is not in mixedCase
+Function CareerOnToken.transferTo_txorigin39(address,uint256,address) (tx.origin/tx_buggy_3.sol#168-171) is not in mixedCase
+Parameter CareerOnToken.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (tx.origin/tx_buggy_3.sol#168) is not in mixedCase
+Function CareerOnToken.bug_txorigin36(address) (tx.origin/tx_buggy_3.sol#182-184) is not in mixedCase
+Parameter CareerOnToken.bug_txorigin36(address).owner_txorigin36 (tx.origin/tx_buggy_3.sol#182) is not in mixedCase
+Function CareerOnToken.transferTo_txorigin35(address,uint256,address) (tx.origin/tx_buggy_3.sol#191-194) is not in mixedCase
+Parameter CareerOnToken.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (tx.origin/tx_buggy_3.sol#191) is not in mixedCase
+Parameter CareerOnToken.changeContractName(string,string)._newName (tx.origin/tx_buggy_3.sol#197) is not in mixedCase
+Parameter CareerOnToken.changeContractName(string,string)._newSymbol (tx.origin/tx_buggy_3.sol#197) is not in mixedCase
+Function CareerOnToken.bug_txorigin40(address) (tx.origin/tx_buggy_3.sol#202-204) is not in mixedCase
+Parameter CareerOnToken.bug_txorigin40(address).owner_txorigin40 (tx.origin/tx_buggy_3.sol#202) is not in mixedCase
+Function CareerOnToken.sendto_txorigin33(address,uint256,address) (tx.origin/tx_buggy_3.sol#210-213) is not in mixedCase
+Parameter CareerOnToken.sendto_txorigin33(address,uint256,address).owner_txorigin33 (tx.origin/tx_buggy_3.sol#210) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable CareerOnToken.sendto_txorigin13(address,uint256,address).owner_txorigin13 (tx.origin/tx_buggy_3.sol#18) is too similar to CareerOnToken.withdrawAll_txorigin14(address,address).owner_txorigin14 (tx.origin/tx_buggy_3.sol#138)
+Variable CareerOnToken.withdrawAll_txorigin14(address,address).owner_txorigin14 (tx.origin/tx_buggy_3.sol#138) is too similar to CareerOnToken.bug_txorigin40(address).owner_txorigin40 (tx.origin/tx_buggy_3.sol#202)
+Variable CareerOnToken.sendto_txorigin13(address,uint256,address).owner_txorigin13 (tx.origin/tx_buggy_3.sol#18) is too similar to CareerOnToken.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (tx.origin/tx_buggy_3.sol#34)
+Variable CareerOnToken.withdrawAll_txorigin14(address,address).owner_txorigin14 (tx.origin/tx_buggy_3.sol#138) is too similar to CareerOnToken.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (tx.origin/tx_buggy_3.sol#34)
+Variable CareerOnToken.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (tx.origin/tx_buggy_3.sol#34) is too similar to CareerOnToken.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (tx.origin/tx_buggy_3.sol#168)
+Variable CareerOnToken.bug_txorigin20(address).owner_txorigin20 (tx.origin/tx_buggy_3.sol#44) is too similar to CareerOnToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_3.sol#110)
+Variable CareerOnToken.bug_txorigin20(address).owner_txorigin20 (tx.origin/tx_buggy_3.sol#44) is too similar to CareerOnToken.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_3.sol#49)
+Variable CareerOnToken.bug_txorigin20(address).owner_txorigin20 (tx.origin/tx_buggy_3.sol#44) is too similar to CareerOnToken.bug_txorigin40(address).owner_txorigin40 (tx.origin/tx_buggy_3.sol#202)
+Variable CareerOnToken.sendto_txorigin13(address,uint256,address).owner_txorigin13 (tx.origin/tx_buggy_3.sol#18) is too similar to CareerOnToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_3.sol#110)
+Variable CareerOnToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_3.sol#110) is too similar to CareerOnToken.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_3.sol#49)
+Variable CareerOnToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_3.sol#110) is too similar to CareerOnToken.bug_txorigin36(address).owner_txorigin36 (tx.origin/tx_buggy_3.sol#182)
+Variable CareerOnToken.bug_txorigin20(address).owner_txorigin20 (tx.origin/tx_buggy_3.sol#44) is too similar to CareerOnToken.sendto_txorigin25(address,uint256,address).owner_txorigin25 (tx.origin/tx_buggy_3.sol#29)
+Variable CareerOnToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_3.sol#110) is too similar to CareerOnToken.sendto_txorigin25(address,uint256,address).owner_txorigin25 (tx.origin/tx_buggy_3.sol#29)
+Variable CareerOnToken.sendto_txorigin25(address,uint256,address).owner_txorigin25 (tx.origin/tx_buggy_3.sol#29) is too similar to CareerOnToken.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (tx.origin/tx_buggy_3.sol#8)
+Variable CareerOnToken.sendto_txorigin25(address,uint256,address).owner_txorigin25 (tx.origin/tx_buggy_3.sol#29) is too similar to CareerOnToken.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_3.sol#49)
+Variable CareerOnToken.bug_txorigin20(address).owner_txorigin20 (tx.origin/tx_buggy_3.sol#44) is too similar to CareerOnToken.withdrawAll_txorigin26(address,address).owner_txorigin26 (tx.origin/tx_buggy_3.sol#39)
+Variable CareerOnToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_3.sol#110) is too similar to CareerOnToken.withdrawAll_txorigin26(address,address).owner_txorigin26 (tx.origin/tx_buggy_3.sol#39)
+Variable CareerOnToken.sendto_txorigin25(address,uint256,address).owner_txorigin25 (tx.origin/tx_buggy_3.sol#29) is too similar to CareerOnToken.withdrawAll_txorigin26(address,address).owner_txorigin26 (tx.origin/tx_buggy_3.sol#39)
+Variable CareerOnToken.withdrawAll_txorigin26(address,address).owner_txorigin26 (tx.origin/tx_buggy_3.sol#39) is too similar to CareerOnToken.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (tx.origin/tx_buggy_3.sol#8)
+Variable CareerOnToken.withdrawAll_txorigin26(address,address).owner_txorigin26 (tx.origin/tx_buggy_3.sol#39) is too similar to CareerOnToken.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_3.sol#49)
+Variable CareerOnToken.withdrawAll_txorigin26(address,address).owner_txorigin26 (tx.origin/tx_buggy_3.sol#39) is too similar to CareerOnToken.bug_txorigin36(address).owner_txorigin36 (tx.origin/tx_buggy_3.sol#182)
+Variable CareerOnToken.bug_txorigin20(address).owner_txorigin20 (tx.origin/tx_buggy_3.sol#44) is too similar to CareerOnToken.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (tx.origin/tx_buggy_3.sol#8)
+Variable CareerOnToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_3.sol#110) is too similar to CareerOnToken.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (tx.origin/tx_buggy_3.sol#8)
+Variable CareerOnToken.transferTo_txorigin27(address,uint256,address).owner_txorigin27 (tx.origin/tx_buggy_3.sol#8) is too similar to CareerOnToken.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_3.sol#49)
+Variable CareerOnToken.sendto_txorigin13(address,uint256,address).owner_txorigin13 (tx.origin/tx_buggy_3.sol#18) is too similar to CareerOnToken.withdrawAll_txorigin30(address,address).owner_txorigin30 (tx.origin/tx_buggy_3.sol#150)
+Variable CareerOnToken.bug_txorigin20(address).owner_txorigin20 (tx.origin/tx_buggy_3.sol#44) is too similar to CareerOnToken.withdrawAll_txorigin30(address,address).owner_txorigin30 (tx.origin/tx_buggy_3.sol#150)
+Variable CareerOnToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_3.sol#110) is too similar to CareerOnToken.withdrawAll_txorigin30(address,address).owner_txorigin30 (tx.origin/tx_buggy_3.sol#150)
+Variable CareerOnToken.withdrawAll_txorigin30(address,address).owner_txorigin30 (tx.origin/tx_buggy_3.sol#150) is too similar to CareerOnToken.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_3.sol#49)
+Variable CareerOnToken.withdrawAll_txorigin30(address,address).owner_txorigin30 (tx.origin/tx_buggy_3.sol#150) is too similar to CareerOnToken.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (tx.origin/tx_buggy_3.sol#191)
+Variable CareerOnToken.withdrawAll_txorigin30(address,address).owner_txorigin30 (tx.origin/tx_buggy_3.sol#150) is too similar to CareerOnToken.bug_txorigin36(address).owner_txorigin36 (tx.origin/tx_buggy_3.sol#182)
+Variable CareerOnToken.withdrawAll_txorigin30(address,address).owner_txorigin30 (tx.origin/tx_buggy_3.sol#150) is too similar to CareerOnToken.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (tx.origin/tx_buggy_3.sol#168)
+Variable CareerOnToken.withdrawAll_txorigin30(address,address).owner_txorigin30 (tx.origin/tx_buggy_3.sol#150) is too similar to CareerOnToken.bug_txorigin40(address).owner_txorigin40 (tx.origin/tx_buggy_3.sol#202)
+Variable CareerOnToken.sendto_txorigin13(address,uint256,address).owner_txorigin13 (tx.origin/tx_buggy_3.sol#18) is too similar to CareerOnToken.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (tx.origin/tx_buggy_3.sol#13)
+Variable CareerOnToken.withdrawAll_txorigin14(address,address).owner_txorigin14 (tx.origin/tx_buggy_3.sol#138) is too similar to CareerOnToken.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (tx.origin/tx_buggy_3.sol#13)
+Variable CareerOnToken.transferTo_txorigin19(address,uint256,address).owner_txorigin19 (tx.origin/tx_buggy_3.sol#34) is too similar to CareerOnToken.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (tx.origin/tx_buggy_3.sol#13)
+Variable CareerOnToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_3.sol#110) is too similar to CareerOnToken.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (tx.origin/tx_buggy_3.sol#13)
+Variable CareerOnToken.withdrawAll_txorigin30(address,address).owner_txorigin30 (tx.origin/tx_buggy_3.sol#150) is too similar to CareerOnToken.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (tx.origin/tx_buggy_3.sol#13)
+Variable CareerOnToken.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (tx.origin/tx_buggy_3.sol#13) is too similar to CareerOnToken.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_3.sol#49)
+Variable CareerOnToken.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (tx.origin/tx_buggy_3.sol#13) is too similar to CareerOnToken.sendto_txorigin33(address,uint256,address).owner_txorigin33 (tx.origin/tx_buggy_3.sol#210)
+Variable CareerOnToken.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (tx.origin/tx_buggy_3.sol#13) is too similar to CareerOnToken.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (tx.origin/tx_buggy_3.sol#191)
+Variable CareerOnToken.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (tx.origin/tx_buggy_3.sol#13) is too similar to CareerOnToken.bug_txorigin36(address).owner_txorigin36 (tx.origin/tx_buggy_3.sol#182)
+Variable CareerOnToken.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (tx.origin/tx_buggy_3.sol#13) is too similar to CareerOnToken.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (tx.origin/tx_buggy_3.sol#168)
+Variable CareerOnToken.sendto_txorigin13(address,uint256,address).owner_txorigin13 (tx.origin/tx_buggy_3.sol#18) is too similar to CareerOnToken.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_3.sol#49)
+Variable CareerOnToken.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_3.sol#49) is too similar to CareerOnToken.bug_txorigin36(address).owner_txorigin36 (tx.origin/tx_buggy_3.sol#182)
+Variable CareerOnToken.sendto_txorigin13(address,uint256,address).owner_txorigin13 (tx.origin/tx_buggy_3.sol#18) is too similar to CareerOnToken.sendto_txorigin33(address,uint256,address).owner_txorigin33 (tx.origin/tx_buggy_3.sol#210)
+Variable CareerOnToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_3.sol#110) is too similar to CareerOnToken.sendto_txorigin33(address,uint256,address).owner_txorigin33 (tx.origin/tx_buggy_3.sol#210)
+Variable CareerOnToken.withdrawAll_txorigin30(address,address).owner_txorigin30 (tx.origin/tx_buggy_3.sol#150) is too similar to CareerOnToken.sendto_txorigin33(address,uint256,address).owner_txorigin33 (tx.origin/tx_buggy_3.sol#210)
+Variable CareerOnToken.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_3.sol#49) is too similar to CareerOnToken.sendto_txorigin33(address,uint256,address).owner_txorigin33 (tx.origin/tx_buggy_3.sol#210)
+Variable CareerOnToken.sendto_txorigin33(address,uint256,address).owner_txorigin33 (tx.origin/tx_buggy_3.sol#210) is too similar to CareerOnToken.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (tx.origin/tx_buggy_3.sol#191)
+Variable CareerOnToken.sendto_txorigin33(address,uint256,address).owner_txorigin33 (tx.origin/tx_buggy_3.sol#210) is too similar to CareerOnToken.bug_txorigin36(address).owner_txorigin36 (tx.origin/tx_buggy_3.sol#182)
+Variable CareerOnToken.sendto_txorigin33(address,uint256,address).owner_txorigin33 (tx.origin/tx_buggy_3.sol#210) is too similar to CareerOnToken.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (tx.origin/tx_buggy_3.sol#168)
+Variable CareerOnToken.sendto_txorigin13(address,uint256,address).owner_txorigin13 (tx.origin/tx_buggy_3.sol#18) is too similar to CareerOnToken.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (tx.origin/tx_buggy_3.sol#191)
+Variable CareerOnToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_3.sol#110) is too similar to CareerOnToken.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (tx.origin/tx_buggy_3.sol#191)
+Variable CareerOnToken.sendto_txorigin25(address,uint256,address).owner_txorigin25 (tx.origin/tx_buggy_3.sol#29) is too similar to CareerOnToken.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (tx.origin/tx_buggy_3.sol#191)
+Variable CareerOnToken.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_3.sol#49) is too similar to CareerOnToken.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (tx.origin/tx_buggy_3.sol#191)
+Variable CareerOnToken.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (tx.origin/tx_buggy_3.sol#191) is too similar to CareerOnToken.bug_txorigin36(address).owner_txorigin36 (tx.origin/tx_buggy_3.sol#182)
+Variable CareerOnToken.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (tx.origin/tx_buggy_3.sol#191) is too similar to CareerOnToken.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (tx.origin/tx_buggy_3.sol#168)
+Variable CareerOnToken.sendto_txorigin13(address,uint256,address).owner_txorigin13 (tx.origin/tx_buggy_3.sol#18) is too similar to CareerOnToken.bug_txorigin36(address).owner_txorigin36 (tx.origin/tx_buggy_3.sol#182)
+Variable CareerOnToken.sendto_txorigin13(address,uint256,address).owner_txorigin13 (tx.origin/tx_buggy_3.sol#18) is too similar to CareerOnToken.withdrawAll_txorigin38(address,address).owner_txorigin38 (tx.origin/tx_buggy_3.sol#53)
+Variable CareerOnToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_3.sol#110) is too similar to CareerOnToken.withdrawAll_txorigin38(address,address).owner_txorigin38 (tx.origin/tx_buggy_3.sol#53)
+Variable CareerOnToken.withdrawAll_txorigin30(address,address).owner_txorigin30 (tx.origin/tx_buggy_3.sol#150) is too similar to CareerOnToken.withdrawAll_txorigin38(address,address).owner_txorigin38 (tx.origin/tx_buggy_3.sol#53)
+Variable CareerOnToken.transferTo_txorigin31(address,uint256,address).owner_txorigin31 (tx.origin/tx_buggy_3.sol#13) is too similar to CareerOnToken.withdrawAll_txorigin38(address,address).owner_txorigin38 (tx.origin/tx_buggy_3.sol#53)
+Variable CareerOnToken.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_3.sol#49) is too similar to CareerOnToken.withdrawAll_txorigin38(address,address).owner_txorigin38 (tx.origin/tx_buggy_3.sol#53)
+Variable CareerOnToken.sendto_txorigin33(address,uint256,address).owner_txorigin33 (tx.origin/tx_buggy_3.sol#210) is too similar to CareerOnToken.withdrawAll_txorigin38(address,address).owner_txorigin38 (tx.origin/tx_buggy_3.sol#53)
+Variable CareerOnToken.transferTo_txorigin35(address,uint256,address).owner_txorigin35 (tx.origin/tx_buggy_3.sol#191) is too similar to CareerOnToken.withdrawAll_txorigin38(address,address).owner_txorigin38 (tx.origin/tx_buggy_3.sol#53)
+Variable CareerOnToken.bug_txorigin36(address).owner_txorigin36 (tx.origin/tx_buggy_3.sol#182) is too similar to CareerOnToken.withdrawAll_txorigin38(address,address).owner_txorigin38 (tx.origin/tx_buggy_3.sol#53)
+Variable CareerOnToken.withdrawAll_txorigin38(address,address).owner_txorigin38 (tx.origin/tx_buggy_3.sol#53) is too similar to CareerOnToken.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (tx.origin/tx_buggy_3.sol#168)
+Variable CareerOnToken.sendto_txorigin13(address,uint256,address).owner_txorigin13 (tx.origin/tx_buggy_3.sol#18) is too similar to CareerOnToken.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (tx.origin/tx_buggy_3.sol#168)
+Variable CareerOnToken.transferTo_txorigin23(address,uint256,address).owner_txorigin23 (tx.origin/tx_buggy_3.sol#110) is too similar to CareerOnToken.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (tx.origin/tx_buggy_3.sol#168)
+Variable CareerOnToken.bug_txorigin32(address).owner_txorigin32 (tx.origin/tx_buggy_3.sol#49) is too similar to CareerOnToken.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (tx.origin/tx_buggy_3.sol#168)
+Variable CareerOnToken.bug_txorigin36(address).owner_txorigin36 (tx.origin/tx_buggy_3.sol#182) is too similar to CareerOnToken.transferTo_txorigin39(address,uint256,address).owner_txorigin39 (tx.origin/tx_buggy_3.sol#168)
+Variable CareerOnToken.bug_txorigin4(address).owner_txorigin4 (tx.origin/tx_buggy_3.sol#60) is too similar to CareerOnToken.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (tx.origin/tx_buggy_3.sol#85)
+Variable CareerOnToken.bug_txorigin4(address).owner_txorigin4 (tx.origin/tx_buggy_3.sol#60) is too similar to CareerOnToken.bug_txorigin8(address).owner_txorigin8 (tx.origin/tx_buggy_3.sol#161)
+Variable CareerOnToken.bug_txorigin4(address).owner_txorigin4 (tx.origin/tx_buggy_3.sol#60) is too similar to CareerOnToken.sendto_txorigin9(address,uint256,address).owner_txorigin9 (tx.origin/tx_buggy_3.sol#24)
+Variable CareerOnToken.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (tx.origin/tx_buggy_3.sol#85) is too similar to CareerOnToken.bug_txorigin8(address).owner_txorigin8 (tx.origin/tx_buggy_3.sol#161)
+Variable CareerOnToken.transferTo_txorigin7(address,uint256,address).owner_txorigin7 (tx.origin/tx_buggy_3.sol#85) is too similar to CareerOnToken.sendto_txorigin9(address,uint256,address).owner_txorigin9 (tx.origin/tx_buggy_3.sol#24)
+Variable CareerOnToken.bug_txorigin8(address).owner_txorigin8 (tx.origin/tx_buggy_3.sol#161) is too similar to CareerOnToken.sendto_txorigin9(address,uint256,address).owner_txorigin9 (tx.origin/tx_buggy_3.sol#24)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+CareerOnToken.constructor(uint256,uint8) (tx.origin/tx_buggy_3.sol#65-84) uses literals with too many digits:
+	- totalSupply = 100000000000000000 (tx.origin/tx_buggy_3.sol#71)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+changeContractName(string,string) should be declared external:
+	- CareerOnToken.changeContractName(string,string) (tx.origin/tx_buggy_3.sol#197-201)
+Moreover, the following function parameters should change its data location:
+_newName location should be calldata
+_newSymbol location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+tx.origin/tx_buggy_3.sol analyzed (1 contracts with 80 detectors), 175 result(s) found

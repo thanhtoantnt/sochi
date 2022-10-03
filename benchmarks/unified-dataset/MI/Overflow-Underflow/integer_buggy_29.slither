@@ -1,0 +1,139 @@
+Compilation warnings/errors on Overflow-Underflow/integer_buggy_29.sol:
+Overflow-Underflow/integer_buggy_29.sol:17:1: Warning: Function state mutability can be restricted to pure
+function bug_intou7() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_29.sol:25:1: Warning: Function state mutability can be restricted to pure
+function bug_intou23() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_29.sol:159:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou19() public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_29.sol:179:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou20(uint8 p_intou20) public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_29.sol:187:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou32(uint8 p_intou32) public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_29.sol:207:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou4(uint8 p_intou4) public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_29.sol:262:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou27() public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_29.sol:267:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou31() public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_29.sol:346:1: Warning: Function state mutability can be restricted to pure
+function bug_intou8(uint8 p_intou8) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_29.sol:365:1: Warning: Function state mutability can be restricted to pure
+function bug_intou39() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_29.sol:379:1: Warning: Function state mutability can be restricted to pure
+function bug_intou36(uint8 p_intou36) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_29.sol:389:1: Warning: Function state mutability can be restricted to pure
+function bug_intou35() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_29.sol:399:1: Warning: Function state mutability can be restricted to pure
+function bug_intou40(uint8 p_intou40) public{
+^ (Relevant source part starts here and spans across multiple lines).
+
+
+RaffleTokenExchange.buyRaffle(uint256[],uint256[]) (Overflow-Underflow/integer_buggy_29.sol#320-345) uses arbitrary from in transferFrom: require(bool,string)(raffleContract.transferFrom(listing.seller,msg.sender,amount),Token transfer failed!) (Overflow-Underflow/integer_buggy_29.sol#336)
+Reference: https://github.com/trailofbits/slither/wiki/Detector-Documentation#arbitrary-send-erc20
+
+IERC20Interface.transfer_intou14(address,uint256) (Overflow-Underflow/integer_buggy_29.sol#32-37) contains a tautology or contradiction:
+	- require(bool)(balances_intou14[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_29.sol#33)
+RaffleTokenExchange.transfer_intou26(address,uint256) (Overflow-Underflow/integer_buggy_29.sol#169-174) contains a tautology or contradiction:
+	- require(bool)(balances_intou26[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_29.sol#170)
+RaffleTokenExchange.transfer_intou38(address,uint256) (Overflow-Underflow/integer_buggy_29.sol#197-202) contains a tautology or contradiction:
+	- require(bool)(balances_intou38[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_29.sol#198)
+RaffleTokenExchange.transfer_intou30(address,uint256) (Overflow-Underflow/integer_buggy_29.sol#309-314) contains a tautology or contradiction:
+	- require(bool)(balances_intou30[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_29.sol#310)
+RaffleTokenExchange.buyRaffle(uint256[],uint256[]) (Overflow-Underflow/integer_buggy_29.sol#320-345) contains a tautology or contradiction:
+	- require(bool,string)(listing.amountLeft >= 0,Amount left needs to be higher than 0.) (Overflow-Underflow/integer_buggy_29.sol#330)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#tautology-or-contradiction
+
+RaffleTokenExchange.buyRaffle(uint256[],uint256[]) (Overflow-Underflow/integer_buggy_29.sol#320-345) has external calls inside a loop: listing.seller.transfer(amountToPay) (Overflow-Underflow/integer_buggy_29.sol#333)
+RaffleTokenExchange.buyRaffle(uint256[],uint256[]) (Overflow-Underflow/integer_buggy_29.sol#320-345) has external calls inside a loop: require(bool,string)(raffleContract.transferFrom(listing.seller,msg.sender,amount),Token transfer failed!) (Overflow-Underflow/integer_buggy_29.sol#336)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop
+
+RaffleTokenExchange.withdraw_intou13() (Overflow-Underflow/integer_buggy_29.sol#277-281) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou13[msg.sender]) (Overflow-Underflow/integer_buggy_29.sol#278)
+RaffleTokenExchange.withdraw_intou33() (Overflow-Underflow/integer_buggy_29.sol#415-419) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou33[msg.sender]) (Overflow-Underflow/integer_buggy_29.sol#416)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+RaffleTokenExchange.onlyUnpaused() (Overflow-Underflow/integer_buggy_29.sol#295-298) compares to a boolean constant:
+	-require(bool,string)(paused == false,Exchange is paused.) (Overflow-Underflow/integer_buggy_29.sol#296)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#boolean-equality
+
+SafeMath.div(uint256,uint256) (Overflow-Underflow/integer_buggy_29.sol#122-129) is never used and should be removed
+SafeMath.mod(uint256,uint256) (Overflow-Underflow/integer_buggy_29.sol#142-145) is never used and should be removed
+SafeMath.mul(uint256,uint256) (Overflow-Underflow/integer_buggy_29.sol#97-109) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version>=0.5.12 (Overflow-Underflow/integer_buggy_29.sol#5) allows old versions
+solc-0.5.12 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function ERC20Interface.bug_intou7() (Overflow-Underflow/integer_buggy_29.sol#17-20) is not in mixedCase
+Function IERC20Interface.bug_intou23() (Overflow-Underflow/integer_buggy_29.sol#25-28) is not in mixedCase
+Function IERC20Interface.transfer_intou14(address,uint256) (Overflow-Underflow/integer_buggy_29.sol#32-37) is not in mixedCase
+Parameter IERC20Interface.transfer_intou14(address,uint256)._to (Overflow-Underflow/integer_buggy_29.sol#32) is not in mixedCase
+Parameter IERC20Interface.transfer_intou14(address,uint256)._value (Overflow-Underflow/integer_buggy_29.sol#32) is not in mixedCase
+Variable IERC20Interface.balances_intou14 (Overflow-Underflow/integer_buggy_29.sol#30) is not in mixedCase
+Function RaffleTokenExchange.bug_intou19() (Overflow-Underflow/integer_buggy_29.sol#159-162) is not in mixedCase
+Function RaffleTokenExchange.transfer_intou26(address,uint256) (Overflow-Underflow/integer_buggy_29.sol#169-174) is not in mixedCase
+Parameter RaffleTokenExchange.transfer_intou26(address,uint256)._to (Overflow-Underflow/integer_buggy_29.sol#169) is not in mixedCase
+Parameter RaffleTokenExchange.transfer_intou26(address,uint256)._value (Overflow-Underflow/integer_buggy_29.sol#169) is not in mixedCase
+Function RaffleTokenExchange.bug_intou20(uint8) (Overflow-Underflow/integer_buggy_29.sol#179-182) is not in mixedCase
+Parameter RaffleTokenExchange.bug_intou20(uint8).p_intou20 (Overflow-Underflow/integer_buggy_29.sol#179) is not in mixedCase
+Function RaffleTokenExchange.bug_intou32(uint8) (Overflow-Underflow/integer_buggy_29.sol#187-190) is not in mixedCase
+Parameter RaffleTokenExchange.bug_intou32(uint8).p_intou32 (Overflow-Underflow/integer_buggy_29.sol#187) is not in mixedCase
+Function RaffleTokenExchange.transfer_intou38(address,uint256) (Overflow-Underflow/integer_buggy_29.sol#197-202) is not in mixedCase
+Parameter RaffleTokenExchange.transfer_intou38(address,uint256)._to (Overflow-Underflow/integer_buggy_29.sol#197) is not in mixedCase
+Parameter RaffleTokenExchange.transfer_intou38(address,uint256)._value (Overflow-Underflow/integer_buggy_29.sol#197) is not in mixedCase
+Function RaffleTokenExchange.bug_intou4(uint8) (Overflow-Underflow/integer_buggy_29.sol#207-210) is not in mixedCase
+Parameter RaffleTokenExchange.bug_intou4(uint8).p_intou4 (Overflow-Underflow/integer_buggy_29.sol#207) is not in mixedCase
+Function RaffleTokenExchange.bug_intou27() (Overflow-Underflow/integer_buggy_29.sol#262-265) is not in mixedCase
+Function RaffleTokenExchange.bug_intou31() (Overflow-Underflow/integer_buggy_29.sol#267-270) is not in mixedCase
+Function RaffleTokenExchange.increaseLockTime_intou13(uint256) (Overflow-Underflow/integer_buggy_29.sol#274-276) is not in mixedCase
+Parameter RaffleTokenExchange.increaseLockTime_intou13(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_29.sol#274) is not in mixedCase
+Function RaffleTokenExchange.withdraw_intou13() (Overflow-Underflow/integer_buggy_29.sol#277-281) is not in mixedCase
+Function RaffleTokenExchange.transfer_intou30(address,uint256) (Overflow-Underflow/integer_buggy_29.sol#309-314) is not in mixedCase
+Parameter RaffleTokenExchange.transfer_intou30(address,uint256)._to (Overflow-Underflow/integer_buggy_29.sol#309) is not in mixedCase
+Parameter RaffleTokenExchange.transfer_intou30(address,uint256)._value (Overflow-Underflow/integer_buggy_29.sol#309) is not in mixedCase
+Function RaffleTokenExchange.bug_intou8(uint8) (Overflow-Underflow/integer_buggy_29.sol#346-349) is not in mixedCase
+Parameter RaffleTokenExchange.bug_intou8(uint8).p_intou8 (Overflow-Underflow/integer_buggy_29.sol#346) is not in mixedCase
+Function RaffleTokenExchange.bug_intou39() (Overflow-Underflow/integer_buggy_29.sol#365-368) is not in mixedCase
+Function RaffleTokenExchange.bug_intou36(uint8) (Overflow-Underflow/integer_buggy_29.sol#379-382) is not in mixedCase
+Parameter RaffleTokenExchange.bug_intou36(uint8).p_intou36 (Overflow-Underflow/integer_buggy_29.sol#379) is not in mixedCase
+Function RaffleTokenExchange.bug_intou35() (Overflow-Underflow/integer_buggy_29.sol#389-392) is not in mixedCase
+Function RaffleTokenExchange.bug_intou40(uint8) (Overflow-Underflow/integer_buggy_29.sol#399-402) is not in mixedCase
+Parameter RaffleTokenExchange.bug_intou40(uint8).p_intou40 (Overflow-Underflow/integer_buggy_29.sol#399) is not in mixedCase
+Function RaffleTokenExchange.increaseLockTime_intou33(uint256) (Overflow-Underflow/integer_buggy_29.sol#412-414) is not in mixedCase
+Parameter RaffleTokenExchange.increaseLockTime_intou33(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_29.sol#412) is not in mixedCase
+Function RaffleTokenExchange.withdraw_intou33() (Overflow-Underflow/integer_buggy_29.sol#415-419) is not in mixedCase
+Constant RaffleTokenExchange.raffleContract (Overflow-Underflow/integer_buggy_29.sol#155) is not in UPPER_CASE_WITH_UNDERSCORES
+Variable RaffleTokenExchange.balances_intou26 (Overflow-Underflow/integer_buggy_29.sol#167) is not in mixedCase
+Variable RaffleTokenExchange.balances_intou38 (Overflow-Underflow/integer_buggy_29.sol#195) is not in mixedCase
+Variable RaffleTokenExchange.lockTime_intou13 (Overflow-Underflow/integer_buggy_29.sol#272) is not in mixedCase
+Variable RaffleTokenExchange.balances_intou30 (Overflow-Underflow/integer_buggy_29.sol#307) is not in mixedCase
+Variable RaffleTokenExchange.lockTime_intou33 (Overflow-Underflow/integer_buggy_29.sol#410) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable RaffleTokenExchange.balances_intou30 (Overflow-Underflow/integer_buggy_29.sol#307) is too similar to RaffleTokenExchange.balances_intou38 (Overflow-Underflow/integer_buggy_29.sol#195)
+Variable RaffleTokenExchange.lockTime_intou13 (Overflow-Underflow/integer_buggy_29.sol#272) is too similar to RaffleTokenExchange.lockTime_intou33 (Overflow-Underflow/integer_buggy_29.sol#410)
+Variable RaffleTokenExchange.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_29.sol#279) is too similar to RaffleTokenExchange.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_29.sol#417)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+RaffleToken (Overflow-Underflow/integer_buggy_29.sol#40) does not implement functions:
+	- IERC20Interface.allowance(address,address) (Overflow-Underflow/integer_buggy_29.sol#24)
+	- IERC20Interface.balanceOf(address) (Overflow-Underflow/integer_buggy_29.sol#29)
+	- ERC20Interface.transferFrom(address,address,uint256) (Overflow-Underflow/integer_buggy_29.sol#16)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unimplemented-functions
+Overflow-Underflow/integer_buggy_29.sol analyzed (5 contracts with 80 detectors), 64 result(s) found

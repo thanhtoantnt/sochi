@@ -1,0 +1,34 @@
+
+Owner.transferOwnership(address) () should emit an event for: 
+	- owner = new_owner () 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+Owner.transferOwnership(address).new_owner () lacks a zero-check on :
+		- owner = new_owner ()
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Deprecated standard detected THROW ():
+	- Usage of "throw" should be replaced with "revert()"
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#deprecated-standards
+
+Pragma version^0.4.2 () allows old versions
+solc-0.4.2 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Parameter Owner.transferOwnership(address).new_owner () is not in mixedCase
+Parameter FuturXe.balanceOf(address)._owner () is not in mixedCase
+Parameter FuturXe.allowance(address,address)._owner () is not in mixedCase
+Parameter FuturXe.allowance(address,address)._spender () is not in mixedCase
+Parameter FuturXe.approve(address,uint256)._spender () is not in mixedCase
+Parameter FuturXe.approve(address,uint256)._amount () is not in mixedCase
+Parameter FuturXe.changeName(string)._name () is not in mixedCase
+Parameter FuturXe.changeSymbol(string)._symbol () is not in mixedCase
+Parameter FuturXe.changeDecimals(uint8)._decimals () is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+changeName(string) should be declared external:
+	- FuturXe.changeName(string) ()
+changeSymbol(string) should be declared external:
+	- FuturXe.changeSymbol(string) ()
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+CV/2018-12025-1.sol analyzed (3 contracts with 80 detectors), 16 result(s) found

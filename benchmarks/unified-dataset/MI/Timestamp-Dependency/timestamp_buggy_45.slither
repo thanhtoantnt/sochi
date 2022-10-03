@@ -1,0 +1,254 @@
+
+StockBet.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_45.sol#84-92) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_45.sol#90)
+StockBet.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_45.sol#94-102) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_45.sol#100)
+StockBet.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_45.sol#110-118) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_45.sol#116)
+StockBet.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_45.sol#200-208) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_45.sol#206)
+StockBet.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_45.sol#248-256) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_45.sol#254)
+StockBet.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_45.sol#273-281) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_45.sol#279)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+StockBet.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_45.sol#84-92) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_45.sol#89)" 
+StockBet.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_45.sol#94-102) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_45.sol#99)" 
+StockBet.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_45.sol#110-118) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_45.sol#115)" 
+StockBet.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_45.sol#200-208) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_45.sol#205)" 
+StockBet.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_45.sol#248-256) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_45.sol#253)" 
+StockBet.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_45.sol#273-281) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_45.sol#278)" 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG
+
+StockBet.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_45.sol#84-92) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_45.sol#89)
+StockBet.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_45.sol#94-102) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_45.sol#99)
+StockBet.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_45.sol#248-256) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_45.sol#253)
+StockBet.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_45.sol#110-118) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_45.sol#115)
+StockBet.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_45.sol#273-281) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_45.sol#278)
+StockBet.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_45.sol#200-208) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_45.sol#205)
+StockBet.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#178-180) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_45.sol#179)
+StockBet.play_tmstmp19(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#73-76) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_45.sol#75)
+StockBet.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#166-169) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_45.sol#168)
+StockBet.play_tmstmp26(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#80-82) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_45.sol#81)
+StockBet.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#10-13) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_45.sol#12)
+StockBet.play_tmstmp3(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#57-60) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_45.sol#59)
+StockBet.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#188-190) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_45.sol#189)
+StockBet.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#16-19) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_45.sol#18)
+StockBet.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#262-265) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_45.sol#264)
+StockBet.play_tmstmp38(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#106-108) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_45.sol#107)
+StockBet.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#219-222) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_45.sol#221)
+StockBet.play_tmstmp7(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#155-158) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_45.sol#157)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+StockBet.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_45.sol#95) is a local variable never initialized
+StockBet.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_45.sol#274) is a local variable never initialized
+StockBet.bug_tmstmp8().pastBlockTime_tmstmp8 (Timestamp-Dependency/timestamp_buggy_45.sol#201) is a local variable never initialized
+StockBet.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_45.sol#85) is a local variable never initialized
+StockBet.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_45.sol#249) is a local variable never initialized
+StockBet.bug_tmstmp4().pastBlockTime_tmstmp4 (Timestamp-Dependency/timestamp_buggy_45.sol#111) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+StockBet.setOracle(address)._oracle (Timestamp-Dependency/timestamp_buggy_45.sol#160) lacks a zero-check on :
+		- oracle = _oracle (Timestamp-Dependency/timestamp_buggy_45.sol#161)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+StockBet.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#10-13) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_45.sol#12)
+StockBet.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#16-19) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_45.sol#18)
+StockBet.bug_tmstmp13() (Timestamp-Dependency/timestamp_buggy_45.sol#21-23) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_45.sol#22)
+StockBet.bug_tmstmp37() (Timestamp-Dependency/timestamp_buggy_45.sol#52-54) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_45.sol#53)
+StockBet.play_tmstmp3(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#57-60) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_45.sol#59)
+StockBet.bug_tmstmp9() (Timestamp-Dependency/timestamp_buggy_45.sol#62-64) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_45.sol#63)
+StockBet.bug_tmstmp25() (Timestamp-Dependency/timestamp_buggy_45.sol#67-69) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_45.sol#68)
+StockBet.play_tmstmp19(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#73-76) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_45.sol#75)
+StockBet.play_tmstmp26(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#80-82) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_45.sol#81)
+StockBet.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_45.sol#84-92) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp20) (Timestamp-Dependency/timestamp_buggy_45.sol#87)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_45.sol#89)
+StockBet.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_45.sol#94-102) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp32) (Timestamp-Dependency/timestamp_buggy_45.sol#97)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_45.sol#99)
+StockBet.play_tmstmp38(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#106-108) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_45.sol#107)
+StockBet.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_45.sol#110-118) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp4) (Timestamp-Dependency/timestamp_buggy_45.sol#113)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_45.sol#115)
+StockBet.play_tmstmp7(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#155-158) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_45.sol#157)
+StockBet.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#166-169) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_45.sol#168)
+StockBet.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#178-180) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_45.sol#179)
+StockBet.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#188-190) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_45.sol#189)
+StockBet.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_45.sol#200-208) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp8) (Timestamp-Dependency/timestamp_buggy_45.sol#203)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_45.sol#205)
+StockBet.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#219-222) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_45.sol#221)
+StockBet.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_45.sol#248-256) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp36) (Timestamp-Dependency/timestamp_buggy_45.sol#251)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_45.sol#253)
+StockBet.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#262-265) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_45.sol#264)
+StockBet.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_45.sol#273-281) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp40) (Timestamp-Dependency/timestamp_buggy_45.sol#276)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_45.sol#278)
+StockBet.bug_tmstmp33() (Timestamp-Dependency/timestamp_buggy_45.sol#286-288) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_45.sol#287)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+Pragma version^0.5.12 (Timestamp-Dependency/timestamp_buggy_45.sol#5) allows old versions
+solc-0.5.12 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function StockBet.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#10-13) is not in mixedCase
+Function StockBet.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#16-19) is not in mixedCase
+Function StockBet.bug_tmstmp13() (Timestamp-Dependency/timestamp_buggy_45.sol#21-23) is not in mixedCase
+Function StockBet.bug_tmstmp37() (Timestamp-Dependency/timestamp_buggy_45.sol#52-54) is not in mixedCase
+Function StockBet.play_tmstmp3(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#57-60) is not in mixedCase
+Function StockBet.bug_tmstmp9() (Timestamp-Dependency/timestamp_buggy_45.sol#62-64) is not in mixedCase
+Function StockBet.bug_tmstmp25() (Timestamp-Dependency/timestamp_buggy_45.sol#67-69) is not in mixedCase
+Function StockBet.play_tmstmp19(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#73-76) is not in mixedCase
+Function StockBet.play_tmstmp26(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#80-82) is not in mixedCase
+Function StockBet.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_45.sol#84-92) is not in mixedCase
+Function StockBet.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_45.sol#94-102) is not in mixedCase
+Function StockBet.play_tmstmp38(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#106-108) is not in mixedCase
+Function StockBet.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_45.sol#110-118) is not in mixedCase
+Function StockBet.play_tmstmp7(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#155-158) is not in mixedCase
+Parameter StockBet.setOracle(address)._oracle (Timestamp-Dependency/timestamp_buggy_45.sol#160) is not in mixedCase
+Function StockBet.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#166-169) is not in mixedCase
+Parameter StockBet.setInitialPrice(uint256)._value (Timestamp-Dependency/timestamp_buggy_45.sol#171) is not in mixedCase
+Function StockBet.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#178-180) is not in mixedCase
+Function StockBet.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#188-190) is not in mixedCase
+Function StockBet.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_45.sol#200-208) is not in mixedCase
+Function StockBet.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#219-222) is not in mixedCase
+Parameter StockBet.setFinalPrice(uint256)._value (Timestamp-Dependency/timestamp_buggy_45.sol#225) is not in mixedCase
+Function StockBet.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_45.sol#248-256) is not in mixedCase
+Function StockBet.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_45.sol#262-265) is not in mixedCase
+Function StockBet.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_45.sol#273-281) is not in mixedCase
+Function StockBet.bug_tmstmp33() (Timestamp-Dependency/timestamp_buggy_45.sol#286-288) is not in mixedCase
+Variable StockBet.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_45.sol#9) is not in mixedCase
+Variable StockBet.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_45.sol#15) is not in mixedCase
+Variable StockBet.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_45.sol#25) is not in mixedCase
+Variable StockBet.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_45.sol#27) is not in mixedCase
+Variable StockBet.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_45.sol#29) is not in mixedCase
+Variable StockBet.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_45.sol#32) is not in mixedCase
+Variable StockBet.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_45.sol#34) is not in mixedCase
+Variable StockBet.winner_tmstmp3 (Timestamp-Dependency/timestamp_buggy_45.sol#56) is not in mixedCase
+Variable StockBet.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_45.sol#72) is not in mixedCase
+Variable StockBet.winner_tmstmp26 (Timestamp-Dependency/timestamp_buggy_45.sol#79) is not in mixedCase
+Variable StockBet.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_45.sol#105) is not in mixedCase
+Variable StockBet.winner_tmstmp7 (Timestamp-Dependency/timestamp_buggy_45.sol#154) is not in mixedCase
+Variable StockBet.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_45.sol#165) is not in mixedCase
+Variable StockBet.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_45.sol#177) is not in mixedCase
+Variable StockBet.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_45.sol#187) is not in mixedCase
+Variable StockBet.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_45.sol#218) is not in mixedCase
+Variable StockBet.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_45.sol#261) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable StockBet.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_45.sol#27) is too similar to StockBet.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_45.sol#32)
+Variable StockBet.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_45.sol#27) is too similar to StockBet.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_45.sol#34)
+Variable StockBet.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_45.sol#27) is too similar to StockBet.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_45.sol#25)
+Variable StockBet.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_45.sol#27) is too similar to StockBet.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_45.sol#29)
+Variable StockBet.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_45.sol#29) is too similar to StockBet.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_45.sol#32)
+Variable StockBet.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_45.sol#29) is too similar to StockBet.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_45.sol#34)
+Variable StockBet.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_45.sol#29) is too similar to StockBet.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_45.sol#25)
+Variable StockBet.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_45.sol#32) is too similar to StockBet.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_45.sol#34)
+Variable StockBet.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_45.sol#34) is too similar to StockBet.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_45.sol#25)
+Variable StockBet.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_45.sol#32) is too similar to StockBet.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_45.sol#25)
+Variable StockBet.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_45.sol#85) is too similar to StockBet.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_45.sol#249)
+Variable StockBet.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_45.sol#85) is too similar to StockBet.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_45.sol#95)
+Variable StockBet.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_45.sol#95) is too similar to StockBet.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_45.sol#249)
+Variable StockBet.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_45.sol#85) is too similar to StockBet.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_45.sol#274)
+Variable StockBet.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_45.sol#95) is too similar to StockBet.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_45.sol#274)
+Variable StockBet.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_45.sol#249) is too similar to StockBet.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_45.sol#274)
+Variable StockBet.bug_tmstmp4().pastBlockTime_tmstmp4 (Timestamp-Dependency/timestamp_buggy_45.sol#111) is too similar to StockBet.bug_tmstmp8().pastBlockTime_tmstmp8 (Timestamp-Dependency/timestamp_buggy_45.sol#201)
+Variable StockBet.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_45.sol#177) is too similar to StockBet.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_45.sol#72)
+Variable StockBet.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_45.sol#165) is too similar to StockBet.winner_tmstmp26 (Timestamp-Dependency/timestamp_buggy_45.sol#79)
+Variable StockBet.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_45.sol#165) is too similar to StockBet.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_45.sol#9)
+Variable StockBet.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_45.sol#165) is too similar to StockBet.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_45.sol#261)
+Variable StockBet.winner_tmstmp26 (Timestamp-Dependency/timestamp_buggy_45.sol#79) is too similar to StockBet.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_45.sol#9)
+Variable StockBet.winner_tmstmp3 (Timestamp-Dependency/timestamp_buggy_45.sol#56) is too similar to StockBet.winner_tmstmp7 (Timestamp-Dependency/timestamp_buggy_45.sol#154)
+Variable StockBet.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_45.sol#165) is too similar to StockBet.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_45.sol#187)
+Variable StockBet.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_45.sol#187) is too similar to StockBet.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_45.sol#261)
+Variable StockBet.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_45.sol#187) is too similar to StockBet.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_45.sol#105)
+Variable StockBet.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_45.sol#177) is too similar to StockBet.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_45.sol#15)
+Variable StockBet.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_45.sol#72) is too similar to StockBet.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_45.sol#15)
+Variable StockBet.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_45.sol#165) is too similar to StockBet.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_45.sol#15)
+Variable StockBet.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_45.sol#187) is too similar to StockBet.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_45.sol#15)
+Variable StockBet.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_45.sol#15) is too similar to StockBet.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_45.sol#261)
+Variable StockBet.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_45.sol#15) is too similar to StockBet.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_45.sol#105)
+Variable StockBet.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_45.sol#165) is too similar to StockBet.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_45.sol#105)
+Variable StockBet.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_45.sol#261) is too similar to StockBet.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_45.sol#105)
+Variable StockBet.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_45.sol#72) is too similar to StockBet.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_45.sol#218)
+Variable StockBet.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_45.sol#165) is too similar to StockBet.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_45.sol#218)
+Variable StockBet.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_45.sol#187) is too similar to StockBet.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_45.sol#218)
+Variable StockBet.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_45.sol#15) is too similar to StockBet.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_45.sol#218)
+Variable StockBet.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_45.sol#261) is too similar to StockBet.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_45.sol#218)
+Variable StockBet.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_45.sol#105) is too similar to StockBet.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_45.sol#218)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+StockBet.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_45.sol#25) is never used in StockBet (Timestamp-Dependency/timestamp_buggy_45.sol#7-290)
+StockBet.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_45.sol#27) is never used in StockBet (Timestamp-Dependency/timestamp_buggy_45.sol#7-290)
+StockBet.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_45.sol#29) is never used in StockBet (Timestamp-Dependency/timestamp_buggy_45.sol#7-290)
+StockBet.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_45.sol#32) is never used in StockBet (Timestamp-Dependency/timestamp_buggy_45.sol#7-290)
+StockBet.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_45.sol#34) is never used in StockBet (Timestamp-Dependency/timestamp_buggy_45.sol#7-290)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+Timestamp-Dependency/timestamp_buggy_45.sol analyzed (1 contracts with 80 detectors), 150 result(s) found

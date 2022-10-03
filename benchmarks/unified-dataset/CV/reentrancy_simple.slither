@@ -1,0 +1,21 @@
+Compilation warnings/errors on CV/reentrancy_simple.sol:
+CV/reentrancy_simple.sol:9:9: Warning: Different number of components on the left hand side (2) than on the right hand side (1).
+ ... (bool success, ) = msg.sender.call.value(amountToWithdraw)("") ... 
+     ^------------------------------------------------------------^
+
+
+Reentrancy in Reentrancy.withdrawBalance() (CV/reentrancy_simple.sol#7-12):
+	External calls:
+	- (success) = msg.sender.call.value(amountToWithdraw)() (CV/reentrancy_simple.sol#9)
+	State variables written after the call(s):
+	- userBalances[msg.sender] = 0 (CV/reentrancy_simple.sol#11)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
+
+Pragma version^0.4.25 (CV/reentrancy_simple.sol#2) allows old versions
+solc-0.4.25 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in Reentrancy.withdrawBalance() (CV/reentrancy_simple.sol#7-12):
+	- (success) = msg.sender.call.value(amountToWithdraw)() (CV/reentrancy_simple.sol#9)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+CV/reentrancy_simple.sol analyzed (1 contracts with 80 detectors), 4 result(s) found

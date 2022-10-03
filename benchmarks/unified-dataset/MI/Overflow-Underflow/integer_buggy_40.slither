@@ -1,0 +1,178 @@
+Compilation warnings/errors on Overflow-Underflow/integer_buggy_40.sol:
+Overflow-Underflow/integer_buggy_40.sol:240:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou3() public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_40.sol:267:1: Warning: Function state mutability can be restricted to pure
+function bug_intou20(uint8 p_intou20) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_40.sol:284:1: Warning: Function state mutability can be restricted to pure
+function bug_intou32(uint8 p_intou32) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_40.sol:315:1: Warning: Function state mutability can be restricted to pure
+function bug_intou4(uint8 p_intou4) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_40.sol:337:1: Warning: Function state mutability can be restricted to pure
+function bug_intou7() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_40.sol:358:1: Warning: Function state mutability can be restricted to pure
+function bug_intou23() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_40.sol:437:1: Warning: Function state mutability can be restricted to pure
+function bug_intou8(uint8 p_intou8) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_40.sol:460:1: Warning: Function state mutability can be restricted to pure
+function bug_intou39() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_40.sol:485:1: Warning: Function state mutability can be restricted to pure
+function bug_intou36(uint8 p_intou36) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_40.sol:500:1: Warning: Function state mutability can be restricted to pure
+function bug_intou35() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_40.sol:532:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou19() public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_40.sol:548:1: Warning: Function state mutability can be restricted to pure
+function bug_intou40(uint8 p_intou40) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_40.sol:577:1: Warning: Function state mutability can be restricted to pure
+function bug_intou27() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_40.sol:597:1: Warning: Function state mutability can be restricted to pure
+function bug_intou31() public{
+^ (Relevant source part starts here and spans across multiple lines).
+
+
+ERC20.transfer_intou26(address,uint256) (Overflow-Underflow/integer_buggy_40.sol#254-259) contains a tautology or contradiction:
+	- require(bool)(balances_intou26[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_40.sol#255)
+ERC20.transfer_intou38(address,uint256) (Overflow-Underflow/integer_buggy_40.sol#297-302) contains a tautology or contradiction:
+	- require(bool)(balances_intou38[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_40.sol#298)
+ERC20.transfer_intou14(address,uint256) (Overflow-Underflow/integer_buggy_40.sol#383-388) contains a tautology or contradiction:
+	- require(bool)(balances_intou14[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_40.sol#384)
+ERC20.transfer_intou30(address,uint256) (Overflow-Underflow/integer_buggy_40.sol#414-419) contains a tautology or contradiction:
+	- require(bool)(balances_intou30[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_40.sol#415)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#tautology-or-contradiction
+
+ERC20Detailed.constructor(string,string,uint8).name (Overflow-Underflow/integer_buggy_40.sol#543) shadows:
+	- ERC20Detailed.name() (Overflow-Underflow/integer_buggy_40.sol#556-558) (function)
+ERC20Detailed.constructor(string,string,uint8).symbol (Overflow-Underflow/integer_buggy_40.sol#543) shadows:
+	- ERC20Detailed.symbol() (Overflow-Underflow/integer_buggy_40.sol#574-576) (function)
+ERC20Detailed.constructor(string,string,uint8).decimals (Overflow-Underflow/integer_buggy_40.sol#543) shadows:
+	- ERC20Detailed.decimals() (Overflow-Underflow/integer_buggy_40.sol#594-596) (function)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#local-variable-shadowing
+
+ERC20.withdraw_intou17() (Overflow-Underflow/integer_buggy_40.sol#221-225) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou17[msg.sender]) (Overflow-Underflow/integer_buggy_40.sol#222)
+ERC20.withdraw_intou37() (Overflow-Underflow/integer_buggy_40.sol#233-237) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou37[msg.sender]) (Overflow-Underflow/integer_buggy_40.sol#234)
+ERC20Detailed.withdraw_intou9() (Overflow-Underflow/integer_buggy_40.sol#515-519) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou9[msg.sender]) (Overflow-Underflow/integer_buggy_40.sol#516)
+ERC20Detailed.withdraw_intou25() (Overflow-Underflow/integer_buggy_40.sol#526-530) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou25[msg.sender]) (Overflow-Underflow/integer_buggy_40.sol#527)
+ERC20Detailed.withdraw_intou33() (Overflow-Underflow/integer_buggy_40.sol#564-568) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou33[msg.sender]) (Overflow-Underflow/integer_buggy_40.sol#565)
+SimpleSwapCoin.withdraw_intou13() (Overflow-Underflow/integer_buggy_40.sol#612-616) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou13[msg.sender]) (Overflow-Underflow/integer_buggy_40.sol#613)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+ERC20._burn(address,uint256) (Overflow-Underflow/integer_buggy_40.sol#453-459) is never used and should be removed
+ERC20._burnFrom(address,uint256) (Overflow-Underflow/integer_buggy_40.sol#496-499) is never used and should be removed
+SafeMath.div(uint256,uint256) (Overflow-Underflow/integer_buggy_40.sol#87-94) is never used and should be removed
+SafeMath.mod(uint256,uint256) (Overflow-Underflow/integer_buggy_40.sol#107-110) is never used and should be removed
+SafeMath.mul(uint256,uint256) (Overflow-Underflow/integer_buggy_40.sol#62-74) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.5.0 (Overflow-Underflow/integer_buggy_40.sol#5) allows old versions
+solc-0.5.0 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function ERC20.increaseLockTime_intou17(uint256) (Overflow-Underflow/integer_buggy_40.sol#218-220) is not in mixedCase
+Parameter ERC20.increaseLockTime_intou17(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_40.sol#218) is not in mixedCase
+Function ERC20.withdraw_intou17() (Overflow-Underflow/integer_buggy_40.sol#221-225) is not in mixedCase
+Function ERC20.increaseLockTime_intou37(uint256) (Overflow-Underflow/integer_buggy_40.sol#230-232) is not in mixedCase
+Parameter ERC20.increaseLockTime_intou37(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_40.sol#230) is not in mixedCase
+Function ERC20.withdraw_intou37() (Overflow-Underflow/integer_buggy_40.sol#233-237) is not in mixedCase
+Function ERC20.bug_intou3() (Overflow-Underflow/integer_buggy_40.sol#240-243) is not in mixedCase
+Function ERC20.transfer_intou26(address,uint256) (Overflow-Underflow/integer_buggy_40.sol#254-259) is not in mixedCase
+Parameter ERC20.transfer_intou26(address,uint256)._to (Overflow-Underflow/integer_buggy_40.sol#254) is not in mixedCase
+Parameter ERC20.transfer_intou26(address,uint256)._value (Overflow-Underflow/integer_buggy_40.sol#254) is not in mixedCase
+Function ERC20.bug_intou20(uint8) (Overflow-Underflow/integer_buggy_40.sol#267-270) is not in mixedCase
+Parameter ERC20.bug_intou20(uint8).p_intou20 (Overflow-Underflow/integer_buggy_40.sol#267) is not in mixedCase
+Function ERC20.bug_intou32(uint8) (Overflow-Underflow/integer_buggy_40.sol#284-287) is not in mixedCase
+Parameter ERC20.bug_intou32(uint8).p_intou32 (Overflow-Underflow/integer_buggy_40.sol#284) is not in mixedCase
+Function ERC20.transfer_intou38(address,uint256) (Overflow-Underflow/integer_buggy_40.sol#297-302) is not in mixedCase
+Parameter ERC20.transfer_intou38(address,uint256)._to (Overflow-Underflow/integer_buggy_40.sol#297) is not in mixedCase
+Parameter ERC20.transfer_intou38(address,uint256)._value (Overflow-Underflow/integer_buggy_40.sol#297) is not in mixedCase
+Function ERC20.bug_intou4(uint8) (Overflow-Underflow/integer_buggy_40.sol#315-318) is not in mixedCase
+Parameter ERC20.bug_intou4(uint8).p_intou4 (Overflow-Underflow/integer_buggy_40.sol#315) is not in mixedCase
+Function ERC20.bug_intou7() (Overflow-Underflow/integer_buggy_40.sol#337-340) is not in mixedCase
+Function ERC20.bug_intou23() (Overflow-Underflow/integer_buggy_40.sol#358-361) is not in mixedCase
+Function ERC20.transfer_intou14(address,uint256) (Overflow-Underflow/integer_buggy_40.sol#383-388) is not in mixedCase
+Parameter ERC20.transfer_intou14(address,uint256)._to (Overflow-Underflow/integer_buggy_40.sol#383) is not in mixedCase
+Parameter ERC20.transfer_intou14(address,uint256)._value (Overflow-Underflow/integer_buggy_40.sol#383) is not in mixedCase
+Function ERC20.transfer_intou30(address,uint256) (Overflow-Underflow/integer_buggy_40.sol#414-419) is not in mixedCase
+Parameter ERC20.transfer_intou30(address,uint256)._to (Overflow-Underflow/integer_buggy_40.sol#414) is not in mixedCase
+Parameter ERC20.transfer_intou30(address,uint256)._value (Overflow-Underflow/integer_buggy_40.sol#414) is not in mixedCase
+Function ERC20.bug_intou8(uint8) (Overflow-Underflow/integer_buggy_40.sol#437-440) is not in mixedCase
+Parameter ERC20.bug_intou8(uint8).p_intou8 (Overflow-Underflow/integer_buggy_40.sol#437) is not in mixedCase
+Function ERC20.bug_intou39() (Overflow-Underflow/integer_buggy_40.sol#460-463) is not in mixedCase
+Function ERC20.bug_intou36(uint8) (Overflow-Underflow/integer_buggy_40.sol#485-488) is not in mixedCase
+Parameter ERC20.bug_intou36(uint8).p_intou36 (Overflow-Underflow/integer_buggy_40.sol#485) is not in mixedCase
+Function ERC20.bug_intou35() (Overflow-Underflow/integer_buggy_40.sol#500-503) is not in mixedCase
+Variable ERC20.lockTime_intou17 (Overflow-Underflow/integer_buggy_40.sol#216) is not in mixedCase
+Variable ERC20.lockTime_intou37 (Overflow-Underflow/integer_buggy_40.sol#228) is not in mixedCase
+Variable ERC20.balances_intou26 (Overflow-Underflow/integer_buggy_40.sol#252) is not in mixedCase
+Variable ERC20.balances_intou38 (Overflow-Underflow/integer_buggy_40.sol#295) is not in mixedCase
+Variable ERC20.balances_intou14 (Overflow-Underflow/integer_buggy_40.sol#381) is not in mixedCase
+Variable ERC20.balances_intou30 (Overflow-Underflow/integer_buggy_40.sol#412) is not in mixedCase
+Function ERC20Detailed.increaseLockTime_intou9(uint256) (Overflow-Underflow/integer_buggy_40.sol#512-514) is not in mixedCase
+Parameter ERC20Detailed.increaseLockTime_intou9(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_40.sol#512) is not in mixedCase
+Function ERC20Detailed.withdraw_intou9() (Overflow-Underflow/integer_buggy_40.sol#515-519) is not in mixedCase
+Function ERC20Detailed.increaseLockTime_intou25(uint256) (Overflow-Underflow/integer_buggy_40.sol#523-525) is not in mixedCase
+Parameter ERC20Detailed.increaseLockTime_intou25(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_40.sol#523) is not in mixedCase
+Function ERC20Detailed.withdraw_intou25() (Overflow-Underflow/integer_buggy_40.sol#526-530) is not in mixedCase
+Function ERC20Detailed.bug_intou19() (Overflow-Underflow/integer_buggy_40.sol#532-535) is not in mixedCase
+Function ERC20Detailed.bug_intou40(uint8) (Overflow-Underflow/integer_buggy_40.sol#548-551) is not in mixedCase
+Parameter ERC20Detailed.bug_intou40(uint8).p_intou40 (Overflow-Underflow/integer_buggy_40.sol#548) is not in mixedCase
+Function ERC20Detailed.increaseLockTime_intou33(uint256) (Overflow-Underflow/integer_buggy_40.sol#561-563) is not in mixedCase
+Parameter ERC20Detailed.increaseLockTime_intou33(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_40.sol#561) is not in mixedCase
+Function ERC20Detailed.withdraw_intou33() (Overflow-Underflow/integer_buggy_40.sol#564-568) is not in mixedCase
+Function ERC20Detailed.bug_intou27() (Overflow-Underflow/integer_buggy_40.sol#577-580) is not in mixedCase
+Function ERC20Detailed.bug_intou31() (Overflow-Underflow/integer_buggy_40.sol#597-600) is not in mixedCase
+Variable ERC20Detailed.lockTime_intou9 (Overflow-Underflow/integer_buggy_40.sol#510) is not in mixedCase
+Variable ERC20Detailed.lockTime_intou25 (Overflow-Underflow/integer_buggy_40.sol#521) is not in mixedCase
+Variable ERC20Detailed.lockTime_intou33 (Overflow-Underflow/integer_buggy_40.sol#559) is not in mixedCase
+Function SimpleSwapCoin.increaseLockTime_intou13(uint256) (Overflow-Underflow/integer_buggy_40.sol#609-611) is not in mixedCase
+Parameter SimpleSwapCoin.increaseLockTime_intou13(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_40.sol#609) is not in mixedCase
+Function SimpleSwapCoin.withdraw_intou13() (Overflow-Underflow/integer_buggy_40.sol#612-616) is not in mixedCase
+Variable SimpleSwapCoin.lockTime_intou13 (Overflow-Underflow/integer_buggy_40.sol#607) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable ERC20.balances_intou30 (Overflow-Underflow/integer_buggy_40.sol#412) is too similar to ERC20.balances_intou38 (Overflow-Underflow/integer_buggy_40.sol#295)
+Variable ERC20.lockTime_intou17 (Overflow-Underflow/integer_buggy_40.sol#216) is too similar to ERC20.lockTime_intou37 (Overflow-Underflow/integer_buggy_40.sol#228)
+Variable ERC20.withdraw_intou17().transferValue_intou17 (Overflow-Underflow/integer_buggy_40.sol#223) is too similar to ERC20.withdraw_intou37().transferValue_intou37 (Overflow-Underflow/integer_buggy_40.sol#235)
+Variable ERC20Detailed.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_40.sol#528) is too similar to ERC20Detailed.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_40.sol#566)
+Variable SimpleSwapCoin.lockTime_intou13 (Overflow-Underflow/integer_buggy_40.sol#607) is too similar to ERC20.lockTime_intou17 (Overflow-Underflow/integer_buggy_40.sol#216)
+Variable SimpleSwapCoin.lockTime_intou13 (Overflow-Underflow/integer_buggy_40.sol#607) is too similar to ERC20Detailed.lockTime_intou33 (Overflow-Underflow/integer_buggy_40.sol#559)
+Variable SimpleSwapCoin.lockTime_intou13 (Overflow-Underflow/integer_buggy_40.sol#607) is too similar to ERC20.lockTime_intou37 (Overflow-Underflow/integer_buggy_40.sol#228)
+Variable ERC20Detailed.lockTime_intou33 (Overflow-Underflow/integer_buggy_40.sol#559) is too similar to ERC20.lockTime_intou37 (Overflow-Underflow/integer_buggy_40.sol#228)
+Variable SimpleSwapCoin.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_40.sol#614) is too similar to ERC20.withdraw_intou17().transferValue_intou17 (Overflow-Underflow/integer_buggy_40.sol#223)
+Variable SimpleSwapCoin.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_40.sol#614) is too similar to ERC20Detailed.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_40.sol#528)
+Variable SimpleSwapCoin.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_40.sol#614) is too similar to ERC20Detailed.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_40.sol#566)
+Variable SimpleSwapCoin.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_40.sol#614) is too similar to ERC20.withdraw_intou37().transferValue_intou37 (Overflow-Underflow/integer_buggy_40.sol#235)
+Variable ERC20.withdraw_intou17().transferValue_intou17 (Overflow-Underflow/integer_buggy_40.sol#223) is too similar to ERC20Detailed.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_40.sol#528)
+Variable ERC20Detailed.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_40.sol#528) is too similar to ERC20.withdraw_intou37().transferValue_intou37 (Overflow-Underflow/integer_buggy_40.sol#235)
+Variable ERC20.withdraw_intou17().transferValue_intou17 (Overflow-Underflow/integer_buggy_40.sol#223) is too similar to ERC20Detailed.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_40.sol#566)
+Variable ERC20Detailed.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_40.sol#566) is too similar to ERC20.withdraw_intou37().transferValue_intou37 (Overflow-Underflow/integer_buggy_40.sol#235)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+SimpleSwapCoin.constructor() (Overflow-Underflow/integer_buggy_40.sol#604-606) uses literals with too many digits:
+	- _mint(msg.sender,100000000 * (10 ** 8)) (Overflow-Underflow/integer_buggy_40.sol#605)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+Overflow-Underflow/integer_buggy_40.sol analyzed (5 contracts with 80 detectors), 97 result(s) found

@@ -1,0 +1,283 @@
+
+WhiteBetting.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_25.sol#15-21) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_25.sol#16)
+WhiteBetting.callme_re_ent35() (Re-entrancy/reentrancy_buggy_25.sol#79-85) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_25.sol#81)
+WhiteBetting.bug_re_ent27() (Re-entrancy/reentrancy_buggy_25.sol#110-116) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_25.sol#112)
+WhiteBetting.bug_re_ent13() (Re-entrancy/reentrancy_buggy_25.sol#127-134) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_25.sol#129)
+WhiteBetting.bug_re_ent20() (Re-entrancy/reentrancy_buggy_25.sol#157-163) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_25.sol#159)
+WhiteBetting.callme_re_ent7() (Re-entrancy/reentrancy_buggy_25.sol#291-297) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_25.sol#293)
+WhiteBetting.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_25.sol#311-316) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (Re-entrancy/reentrancy_buggy_25.sol#312)
+WhiteBetting.callme_re_ent14() (Re-entrancy/reentrancy_buggy_25.sol#323-329) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_25.sol#325)
+WhiteBetting.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_25.sol#337-342) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (Re-entrancy/reentrancy_buggy_25.sol#338)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+WhiteBetting (Re-entrancy/reentrancy_buggy_25.sol#12-370) contract sets array length with a user-controlled value:
+	- betList[_fixtureId].push(BetFixture(msg.sender,stake,_odd,_selectedTeam)) (Re-entrancy/reentrancy_buggy_25.sol#244)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#array-length-assignment
+
+Reentrancy in WhiteBetting.bug_re_ent13() (Re-entrancy/reentrancy_buggy_25.sol#127-134):
+	External calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_25.sol#129)
+	State variables written after the call(s):
+	- not_called_re_ent13 = false (Re-entrancy/reentrancy_buggy_25.sol#133)
+Reentrancy in WhiteBetting.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_25.sol#15-21):
+	External calls:
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_25.sol#16)
+	State variables written after the call(s):
+	- jackpot_re_ent9 = address(this).balance (Re-entrancy/reentrancy_buggy_25.sol#20)
+	- lastPlayer_re_ent9 = msg.sender (Re-entrancy/reentrancy_buggy_25.sol#19)
+Reentrancy in WhiteBetting.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_25.sol#142-150):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (Re-entrancy/reentrancy_buggy_25.sol#145)
+	State variables written after the call(s):
+	- userBalance_re_ent26[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_25.sol#149)
+Reentrancy in WhiteBetting.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_25.sol#99-107):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (Re-entrancy/reentrancy_buggy_25.sol#102)
+	State variables written after the call(s):
+	- userBalance_re_ent33[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_25.sol#106)
+Reentrancy in WhiteBetting.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_25.sol#88-96):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (Re-entrancy/reentrancy_buggy_25.sol#91)
+	State variables written after the call(s):
+	- userBalance_re_ent40[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_25.sol#95)
+Reentrancy in WhiteBetting.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_25.sol#349-353):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (Re-entrancy/reentrancy_buggy_25.sol#350)
+	State variables written after the call(s):
+	- balances_re_ent8[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_25.sol#352)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
+
+WhiteBetting.changeOwner(address) (Re-entrancy/reentrancy_buggy_25.sol#332-334) should emit an event for: 
+	- owner = _newOwner (Re-entrancy/reentrancy_buggy_25.sol#333) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+WhiteBetting.changeOwner(address)._newOwner (Re-entrancy/reentrancy_buggy_25.sol#332) lacks a zero-check on :
+		- owner = _newOwner (Re-entrancy/reentrancy_buggy_25.sol#333)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+WhiteBetting.givePrizeMoney(uint64,uint8,uint8) (Re-entrancy/reentrancy_buggy_25.sol#258-289) has external calls inside a loop: betList[_fixtureId][i].player.transfer(returnEth) (Re-entrancy/reentrancy_buggy_25.sol#279)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop
+
+WhiteBetting.placeBet(uint64,uint16,uint32) (Re-entrancy/reentrancy_buggy_25.sol#210-247) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now < (gameList[_fixtureId].timestamp - 600)) (Re-entrancy/reentrancy_buggy_25.sol#241)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+WhiteBetting.givePrizeMoney(uint64,uint8,uint8) (Re-entrancy/reentrancy_buggy_25.sol#258-289) compares to a boolean constant:
+	-require(bool)(gameList[_fixtureId].isDone == false) (Re-entrancy/reentrancy_buggy_25.sol#262)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#boolean-equality
+
+Pragma version^0.5.12 (Re-entrancy/reentrancy_buggy_25.sol#5) allows old versions
+solc-0.5.12 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in WhiteBetting.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_25.sol#15-21):
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_25.sol#16)
+Low level call in WhiteBetting.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_25.sol#88-96):
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (Re-entrancy/reentrancy_buggy_25.sol#91)
+Low level call in WhiteBetting.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_25.sol#99-107):
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (Re-entrancy/reentrancy_buggy_25.sol#102)
+Low level call in WhiteBetting.bug_re_ent13() (Re-entrancy/reentrancy_buggy_25.sol#127-134):
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_25.sol#129)
+Low level call in WhiteBetting.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_25.sol#142-150):
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (Re-entrancy/reentrancy_buggy_25.sol#145)
+Low level call in WhiteBetting.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_25.sol#349-353):
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (Re-entrancy/reentrancy_buggy_25.sol#350)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Function WhiteBetting.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_25.sol#15-21) is not in mixedCase
+Function WhiteBetting.claimReward_re_ent25() (Re-entrancy/reentrancy_buggy_25.sol#43-49) is not in mixedCase
+Function WhiteBetting.withdrawBalance_re_ent19() (Re-entrancy/reentrancy_buggy_25.sol#61-68) is not in mixedCase
+Function WhiteBetting.withdraw_balances_re_ent36() (Re-entrancy/reentrancy_buggy_25.sol#73-76) is not in mixedCase
+Function WhiteBetting.callme_re_ent35() (Re-entrancy/reentrancy_buggy_25.sol#79-85) is not in mixedCase
+Function WhiteBetting.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_25.sol#88-96) is not in mixedCase
+Function WhiteBetting.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_25.sol#99-107) is not in mixedCase
+Function WhiteBetting.bug_re_ent27() (Re-entrancy/reentrancy_buggy_25.sol#110-116) is not in mixedCase
+Function WhiteBetting.withdrawFunds_re_ent31(uint256) (Re-entrancy/reentrancy_buggy_25.sol#119-124) is not in mixedCase
+Parameter WhiteBetting.withdrawFunds_re_ent31(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_25.sol#119) is not in mixedCase
+Function WhiteBetting.bug_re_ent13() (Re-entrancy/reentrancy_buggy_25.sol#127-134) is not in mixedCase
+Function WhiteBetting.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_25.sol#142-150) is not in mixedCase
+Parameter WhiteBetting.setOpenStatus(uint64,uint8)._fixtureId (Re-entrancy/reentrancy_buggy_25.sol#153) is not in mixedCase
+Parameter WhiteBetting.setOpenStatus(uint64,uint8)._open_status (Re-entrancy/reentrancy_buggy_25.sol#153) is not in mixedCase
+Function WhiteBetting.bug_re_ent20() (Re-entrancy/reentrancy_buggy_25.sol#157-163) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._fixtureId (Re-entrancy/reentrancy_buggy_25.sol#166) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._odd_homeTeam (Re-entrancy/reentrancy_buggy_25.sol#166) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._odd_drawTeam (Re-entrancy/reentrancy_buggy_25.sol#166) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._odd_awayTeam (Re-entrancy/reentrancy_buggy_25.sol#166) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._odd_over (Re-entrancy/reentrancy_buggy_25.sol#166) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._odd_under (Re-entrancy/reentrancy_buggy_25.sol#166) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._odd_homeTeamAndDraw (Re-entrancy/reentrancy_buggy_25.sol#166) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._odd_homeAndAwayTeam (Re-entrancy/reentrancy_buggy_25.sol#166) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._odd_awayTeamAndDraw (Re-entrancy/reentrancy_buggy_25.sol#166) is not in mixedCase
+Function WhiteBetting.claimReward_re_ent32() (Re-entrancy/reentrancy_buggy_25.sol#178-184) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._fixtureId (Re-entrancy/reentrancy_buggy_25.sol#187) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._timestamp (Re-entrancy/reentrancy_buggy_25.sol#187) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._odd_homeTeam (Re-entrancy/reentrancy_buggy_25.sol#187) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._odd_drawTeam (Re-entrancy/reentrancy_buggy_25.sol#187) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._odd_awayTeam (Re-entrancy/reentrancy_buggy_25.sol#187) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._odd_over (Re-entrancy/reentrancy_buggy_25.sol#187) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._odd_under (Re-entrancy/reentrancy_buggy_25.sol#187) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._odd_homeTeamAndDraw (Re-entrancy/reentrancy_buggy_25.sol#187) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._odd_homeAndAwayTeam (Re-entrancy/reentrancy_buggy_25.sol#187) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._odd_awayTeamAndDraw (Re-entrancy/reentrancy_buggy_25.sol#187) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._open_status (Re-entrancy/reentrancy_buggy_25.sol#187) is not in mixedCase
+Function WhiteBetting.withdrawFunds_re_ent38(uint256) (Re-entrancy/reentrancy_buggy_25.sol#202-207) is not in mixedCase
+Parameter WhiteBetting.withdrawFunds_re_ent38(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_25.sol#202) is not in mixedCase
+Parameter WhiteBetting.placeBet(uint64,uint16,uint32)._fixtureId (Re-entrancy/reentrancy_buggy_25.sol#210) is not in mixedCase
+Parameter WhiteBetting.placeBet(uint64,uint16,uint32)._selectedTeam (Re-entrancy/reentrancy_buggy_25.sol#210) is not in mixedCase
+Parameter WhiteBetting.placeBet(uint64,uint16,uint32)._odd (Re-entrancy/reentrancy_buggy_25.sol#210) is not in mixedCase
+Function WhiteBetting.claimReward_re_ent4() (Re-entrancy/reentrancy_buggy_25.sol#249-255) is not in mixedCase
+Parameter WhiteBetting.givePrizeMoney(uint64,uint8,uint8)._fixtureId (Re-entrancy/reentrancy_buggy_25.sol#258) is not in mixedCase
+Parameter WhiteBetting.givePrizeMoney(uint64,uint8,uint8)._homeDrawAway (Re-entrancy/reentrancy_buggy_25.sol#258) is not in mixedCase
+Parameter WhiteBetting.givePrizeMoney(uint64,uint8,uint8)._overUnder (Re-entrancy/reentrancy_buggy_25.sol#258) is not in mixedCase
+Function WhiteBetting.callme_re_ent7() (Re-entrancy/reentrancy_buggy_25.sol#291-297) is not in mixedCase
+Function WhiteBetting.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_25.sol#311-316) is not in mixedCase
+Parameter WhiteBetting.deposit(uint256)._eth (Re-entrancy/reentrancy_buggy_25.sol#319) is not in mixedCase
+Function WhiteBetting.callme_re_ent14() (Re-entrancy/reentrancy_buggy_25.sol#323-329) is not in mixedCase
+Parameter WhiteBetting.changeOwner(address)._newOwner (Re-entrancy/reentrancy_buggy_25.sol#332) is not in mixedCase
+Function WhiteBetting.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_25.sol#337-342) is not in mixedCase
+Function WhiteBetting.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_25.sol#349-353) is not in mixedCase
+Parameter WhiteBetting.withdraw(uint256)._amount (Re-entrancy/reentrancy_buggy_25.sol#356) is not in mixedCase
+Function WhiteBetting.claimReward_re_ent39() (Re-entrancy/reentrancy_buggy_25.sol#362-368) is not in mixedCase
+Variable WhiteBetting.lastPlayer_re_ent9 (Re-entrancy/reentrancy_buggy_25.sol#13) is not in mixedCase
+Variable WhiteBetting.jackpot_re_ent9 (Re-entrancy/reentrancy_buggy_25.sol#14) is not in mixedCase
+Variable WhiteBetting.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_25.sol#42) is not in mixedCase
+Variable WhiteBetting.userBalance_re_ent19 (Re-entrancy/reentrancy_buggy_25.sol#60) is not in mixedCase
+Variable WhiteBetting.balances_re_ent36 (Re-entrancy/reentrancy_buggy_25.sol#72) is not in mixedCase
+Variable WhiteBetting.counter_re_ent35 (Re-entrancy/reentrancy_buggy_25.sol#78) is not in mixedCase
+Variable WhiteBetting.userBalance_re_ent40 (Re-entrancy/reentrancy_buggy_25.sol#87) is not in mixedCase
+Variable WhiteBetting.userBalance_re_ent33 (Re-entrancy/reentrancy_buggy_25.sol#98) is not in mixedCase
+Variable WhiteBetting.not_called_re_ent27 (Re-entrancy/reentrancy_buggy_25.sol#109) is not in mixedCase
+Variable WhiteBetting.balances_re_ent31 (Re-entrancy/reentrancy_buggy_25.sol#118) is not in mixedCase
+Variable WhiteBetting.not_called_re_ent13 (Re-entrancy/reentrancy_buggy_25.sol#126) is not in mixedCase
+Variable WhiteBetting.userBalance_re_ent26 (Re-entrancy/reentrancy_buggy_25.sol#141) is not in mixedCase
+Variable WhiteBetting.not_called_re_ent20 (Re-entrancy/reentrancy_buggy_25.sol#156) is not in mixedCase
+Variable WhiteBetting.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_25.sol#177) is not in mixedCase
+Variable WhiteBetting.balances_re_ent38 (Re-entrancy/reentrancy_buggy_25.sol#201) is not in mixedCase
+Variable WhiteBetting.redeemableEther_re_ent4 (Re-entrancy/reentrancy_buggy_25.sol#248) is not in mixedCase
+Variable WhiteBetting.counter_re_ent7 (Re-entrancy/reentrancy_buggy_25.sol#290) is not in mixedCase
+Variable WhiteBetting.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_25.sol#309) is not in mixedCase
+Variable WhiteBetting.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_25.sol#310) is not in mixedCase
+Variable WhiteBetting.counter_re_ent14 (Re-entrancy/reentrancy_buggy_25.sol#322) is not in mixedCase
+Variable WhiteBetting.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_25.sol#335) is not in mixedCase
+Variable WhiteBetting.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_25.sol#336) is not in mixedCase
+Variable WhiteBetting.balances_re_ent8 (Re-entrancy/reentrancy_buggy_25.sol#348) is not in mixedCase
+Variable WhiteBetting.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_25.sol#361) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in WhiteBetting.bug_re_ent20() (Re-entrancy/reentrancy_buggy_25.sol#157-163):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_25.sol#159)
+	State variables written after the call(s):
+	- not_called_re_ent20 = false (Re-entrancy/reentrancy_buggy_25.sol#162)
+Reentrancy in WhiteBetting.bug_re_ent27() (Re-entrancy/reentrancy_buggy_25.sol#110-116):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_25.sol#112)
+	State variables written after the call(s):
+	- not_called_re_ent27 = false (Re-entrancy/reentrancy_buggy_25.sol#115)
+Reentrancy in WhiteBetting.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_25.sol#311-316):
+	External calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (Re-entrancy/reentrancy_buggy_25.sol#312)
+	State variables written after the call(s):
+	- jackpot_re_ent23 = address(this).balance (Re-entrancy/reentrancy_buggy_25.sol#315)
+	- lastPlayer_re_ent23 = msg.sender (Re-entrancy/reentrancy_buggy_25.sol#314)
+Reentrancy in WhiteBetting.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_25.sol#337-342):
+	External calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (Re-entrancy/reentrancy_buggy_25.sol#338)
+	State variables written after the call(s):
+	- jackpot_re_ent30 = address(this).balance (Re-entrancy/reentrancy_buggy_25.sol#341)
+	- lastPlayer_re_ent30 = msg.sender (Re-entrancy/reentrancy_buggy_25.sol#340)
+Reentrancy in WhiteBetting.callme_re_ent14() (Re-entrancy/reentrancy_buggy_25.sol#323-329):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_25.sol#325)
+	State variables written after the call(s):
+	- counter_re_ent14 += 1 (Re-entrancy/reentrancy_buggy_25.sol#328)
+Reentrancy in WhiteBetting.callme_re_ent35() (Re-entrancy/reentrancy_buggy_25.sol#79-85):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_25.sol#81)
+	State variables written after the call(s):
+	- counter_re_ent35 += 1 (Re-entrancy/reentrancy_buggy_25.sol#84)
+Reentrancy in WhiteBetting.callme_re_ent7() (Re-entrancy/reentrancy_buggy_25.sol#291-297):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_25.sol#293)
+	State variables written after the call(s):
+	- counter_re_ent7 += 1 (Re-entrancy/reentrancy_buggy_25.sol#296)
+Reentrancy in WhiteBetting.claimReward_re_ent25() (Re-entrancy/reentrancy_buggy_25.sol#43-49):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent25) (Re-entrancy/reentrancy_buggy_25.sol#47)
+	State variables written after the call(s):
+	- redeemableEther_re_ent25[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_25.sol#48)
+Reentrancy in WhiteBetting.claimReward_re_ent32() (Re-entrancy/reentrancy_buggy_25.sol#178-184):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent32) (Re-entrancy/reentrancy_buggy_25.sol#182)
+	State variables written after the call(s):
+	- redeemableEther_re_ent32[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_25.sol#183)
+Reentrancy in WhiteBetting.claimReward_re_ent39() (Re-entrancy/reentrancy_buggy_25.sol#362-368):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent39) (Re-entrancy/reentrancy_buggy_25.sol#366)
+	State variables written after the call(s):
+	- redeemableEther_re_ent39[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_25.sol#367)
+Reentrancy in WhiteBetting.claimReward_re_ent4() (Re-entrancy/reentrancy_buggy_25.sol#249-255):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent4) (Re-entrancy/reentrancy_buggy_25.sol#253)
+	State variables written after the call(s):
+	- redeemableEther_re_ent4[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_25.sol#254)
+Reentrancy in WhiteBetting.withdraw(uint256) (Re-entrancy/reentrancy_buggy_25.sol#356-360):
+	External calls:
+	- owner.transfer(_amount) (Re-entrancy/reentrancy_buggy_25.sol#358)
+	Event emitted after the call(s):
+	- Withdraw(owner,_amount) (Re-entrancy/reentrancy_buggy_25.sol#359)
+Reentrancy in WhiteBetting.withdrawBalance_re_ent19() (Re-entrancy/reentrancy_buggy_25.sol#61-68):
+	External calls:
+	- ! (msg.sender.send(userBalance_re_ent19[msg.sender])) (Re-entrancy/reentrancy_buggy_25.sol#64)
+	State variables written after the call(s):
+	- userBalance_re_ent19[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_25.sol#67)
+Reentrancy in WhiteBetting.withdrawFunds_re_ent31(uint256) (Re-entrancy/reentrancy_buggy_25.sol#119-124):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_25.sol#122)
+	State variables written after the call(s):
+	- balances_re_ent31[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_25.sol#123)
+Reentrancy in WhiteBetting.withdrawFunds_re_ent38(uint256) (Re-entrancy/reentrancy_buggy_25.sol#202-207):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_25.sol#205)
+	State variables written after the call(s):
+	- balances_re_ent38[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_25.sol#206)
+Reentrancy in WhiteBetting.withdraw_balances_re_ent36() (Re-entrancy/reentrancy_buggy_25.sol#73-76):
+	External calls:
+	- msg.sender.send(balances_re_ent36[msg.sender]) (Re-entrancy/reentrancy_buggy_25.sol#74)
+	State variables written after the call(s):
+	- balances_re_ent36[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_25.sol#75)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable WhiteBetting.balances_re_ent31 (Re-entrancy/reentrancy_buggy_25.sol#118) is too similar to WhiteBetting.balances_re_ent36 (Re-entrancy/reentrancy_buggy_25.sol#72)
+Variable WhiteBetting.balances_re_ent31 (Re-entrancy/reentrancy_buggy_25.sol#118) is too similar to WhiteBetting.balances_re_ent38 (Re-entrancy/reentrancy_buggy_25.sol#201)
+Variable WhiteBetting.balances_re_ent36 (Re-entrancy/reentrancy_buggy_25.sol#72) is too similar to WhiteBetting.balances_re_ent38 (Re-entrancy/reentrancy_buggy_25.sol#201)
+Variable WhiteBetting.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_25.sol#310) is too similar to WhiteBetting.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_25.sol#336)
+Variable WhiteBetting.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_25.sol#309) is too similar to WhiteBetting.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_25.sol#335)
+Variable WhiteBetting.not_called_re_ent20 (Re-entrancy/reentrancy_buggy_25.sol#156) is too similar to WhiteBetting.not_called_re_ent27 (Re-entrancy/reentrancy_buggy_25.sol#109)
+Variable WhiteBetting.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_25.sol#42) is too similar to WhiteBetting.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_25.sol#177)
+Variable WhiteBetting.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_25.sol#42) is too similar to WhiteBetting.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_25.sol#361)
+Variable WhiteBetting.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_25.sol#177) is too similar to WhiteBetting.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_25.sol#361)
+Variable WhiteBetting.claimReward_re_ent25().transferValue_re_ent25 (Re-entrancy/reentrancy_buggy_25.sol#46) is too similar to WhiteBetting.claimReward_re_ent32().transferValue_re_ent32 (Re-entrancy/reentrancy_buggy_25.sol#181)
+Variable WhiteBetting.claimReward_re_ent32().transferValue_re_ent32 (Re-entrancy/reentrancy_buggy_25.sol#181) is too similar to WhiteBetting.claimReward_re_ent39().transferValue_re_ent39 (Re-entrancy/reentrancy_buggy_25.sol#365)
+Variable WhiteBetting.claimReward_re_ent25().transferValue_re_ent25 (Re-entrancy/reentrancy_buggy_25.sol#46) is too similar to WhiteBetting.claimReward_re_ent39().transferValue_re_ent39 (Re-entrancy/reentrancy_buggy_25.sol#365)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+Re-entrancy/reentrancy_buggy_25.sol analyzed (1 contracts with 80 detectors), 135 result(s) found

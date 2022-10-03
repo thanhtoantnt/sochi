@@ -1,0 +1,117 @@
+
+ProofOfExistence (TOD/tod_buggy_46.sol#7-230) contract sets array length with a user-controlled value:
+	- fileExistenceProofs[dappBoxOrigin].push(newInfo) (TOD/tod_buggy_46.sol#58)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#array-length-assignment
+
+ProofOfExistence.owner_TOD36 (TOD/tod_buggy_46.sol#20) is never initialized. It is used in:
+	- ProofOfExistence.setReward_TOD36() (TOD/tod_buggy_46.sol#22-28)
+ProofOfExistence.owner_TOD40 (TOD/tod_buggy_46.sol#97) is never initialized. It is used in:
+	- ProofOfExistence.setReward_TOD40() (TOD/tod_buggy_46.sol#99-105)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+
+ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification).newInfo (TOD/tod_buggy_46.sol#47) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+ProofOfExistence.setReward_TOD36() (TOD/tod_buggy_46.sol#22-28) should emit an event for: 
+	- reward_TOD36 = msg.value (TOD/tod_buggy_46.sol#27) 
+ProofOfExistence.setReward_TOD40() (TOD/tod_buggy_46.sol#99-105) should emit an event for: 
+	- reward_TOD40 = msg.value (TOD/tod_buggy_46.sol#104) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+
+ProofOfExistence.GetFileExistenceProof(address,string,string) (TOD/tod_buggy_46.sol#79-95) compares to a boolean constant:
+	-res == true (TOD/tod_buggy_46.sol#86)
+ProofOfExistence.getQRCode(address,string,string) (TOD/tod_buggy_46.sol#169-182) compares to a boolean constant:
+	-res == true (TOD/tod_buggy_46.sol#176)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#boolean-equality
+
+Pragma version>=0.4.21<0.6.0 (TOD/tod_buggy_46.sol#5) allows old versions
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function ProofOfExistence.setReward_TOD36() (TOD/tod_buggy_46.sol#22-28) is not in mixedCase
+Function ProofOfExistence.claimReward_TOD36(uint256) (TOD/tod_buggy_46.sol#30-36) is not in mixedCase
+Function ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification) (TOD/tod_buggy_46.sol#45-60) is not in mixedCase
+Parameter ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification)._fileHash (TOD/tod_buggy_46.sol#45) is not in mixedCase
+Parameter ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification)._filePathHash (TOD/tod_buggy_46.sol#45) is not in mixedCase
+Parameter ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification)._contractAddress (TOD/tod_buggy_46.sol#45) is not in mixedCase
+Parameter ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification)._identifier (TOD/tod_buggy_46.sol#45) is not in mixedCase
+Function ProofOfExistence.play_TOD35(bytes32) (TOD/tod_buggy_46.sol#62-68) is not in mixedCase
+Function ProofOfExistence.getReward_TOD35() (TOD/tod_buggy_46.sol#70-73) is not in mixedCase
+Function ProofOfExistence.GetFileExistenceProof(address,string,string) (TOD/tod_buggy_46.sol#79-95) is not in mixedCase
+Function ProofOfExistence.setReward_TOD40() (TOD/tod_buggy_46.sol#99-105) is not in mixedCase
+Function ProofOfExistence.claimReward_TOD40(uint256) (TOD/tod_buggy_46.sol#107-113) is not in mixedCase
+Function ProofOfExistence.play_TOD33(bytes32) (TOD/tod_buggy_46.sol#128-134) is not in mixedCase
+Function ProofOfExistence.getReward_TOD33() (TOD/tod_buggy_46.sol#136-139) is not in mixedCase
+Parameter ProofOfExistence.generateQRCodeForFile(address,string,string,address,ProofOfExistence.BlockchainIdentification)._fileHash (TOD/tod_buggy_46.sol#144) is not in mixedCase
+Parameter ProofOfExistence.generateQRCodeForFile(address,string,string,address,ProofOfExistence.BlockchainIdentification)._contractAddress (TOD/tod_buggy_46.sol#144) is not in mixedCase
+Parameter ProofOfExistence.generateQRCodeForFile(address,string,string,address,ProofOfExistence.BlockchainIdentification)._identifier (TOD/tod_buggy_46.sol#144) is not in mixedCase
+Function ProofOfExistence.play_TOD27(bytes32) (TOD/tod_buggy_46.sol#151-157) is not in mixedCase
+Function ProofOfExistence.getReward_TOD27() (TOD/tod_buggy_46.sol#159-162) is not in mixedCase
+Function ProofOfExistence.play_TOD31(bytes32) (TOD/tod_buggy_46.sol#184-190) is not in mixedCase
+Function ProofOfExistence.getReward_TOD31() (TOD/tod_buggy_46.sol#192-195) is not in mixedCase
+Parameter ProofOfExistence.searchExistenceProoUsngQRf(address,bytes32).QRCodeHash (TOD/tod_buggy_46.sol#201) is not in mixedCase
+Function ProofOfExistence.play_TOD13(bytes32) (TOD/tod_buggy_46.sol#216-222) is not in mixedCase
+Function ProofOfExistence.getReward_TOD13() (TOD/tod_buggy_46.sol#224-227) is not in mixedCase
+Variable ProofOfExistence.claimed_TOD36 (TOD/tod_buggy_46.sol#19) is not in mixedCase
+Variable ProofOfExistence.owner_TOD36 (TOD/tod_buggy_46.sol#20) is not in mixedCase
+Variable ProofOfExistence.reward_TOD36 (TOD/tod_buggy_46.sol#21) is not in mixedCase
+Variable ProofOfExistence.winner_TOD35 (TOD/tod_buggy_46.sol#61) is not in mixedCase
+Variable ProofOfExistence.claimed_TOD40 (TOD/tod_buggy_46.sol#96) is not in mixedCase
+Variable ProofOfExistence.owner_TOD40 (TOD/tod_buggy_46.sol#97) is not in mixedCase
+Variable ProofOfExistence.reward_TOD40 (TOD/tod_buggy_46.sol#98) is not in mixedCase
+Variable ProofOfExistence.winner_TOD33 (TOD/tod_buggy_46.sol#127) is not in mixedCase
+Variable ProofOfExistence.winner_TOD27 (TOD/tod_buggy_46.sol#150) is not in mixedCase
+Variable ProofOfExistence.winner_TOD31 (TOD/tod_buggy_46.sol#183) is not in mixedCase
+Variable ProofOfExistence.winner_TOD13 (TOD/tod_buggy_46.sol#215) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in ProofOfExistence.claimReward_TOD36(uint256) (TOD/tod_buggy_46.sol#30-36):
+	External calls:
+	- msg.sender.transfer(reward_TOD36) (TOD/tod_buggy_46.sol#34)
+	State variables written after the call(s):
+	- claimed_TOD36 = true (TOD/tod_buggy_46.sol#35)
+Reentrancy in ProofOfExistence.claimReward_TOD40(uint256) (TOD/tod_buggy_46.sol#107-113):
+	External calls:
+	- msg.sender.transfer(reward_TOD40) (TOD/tod_buggy_46.sol#111)
+	State variables written after the call(s):
+	- claimed_TOD40 = true (TOD/tod_buggy_46.sol#112)
+Reentrancy in ProofOfExistence.setReward_TOD36() (TOD/tod_buggy_46.sol#22-28):
+	External calls:
+	- owner_TOD36.transfer(reward_TOD36) (TOD/tod_buggy_46.sol#26)
+	State variables written after the call(s):
+	- reward_TOD36 = msg.value (TOD/tod_buggy_46.sol#27)
+Reentrancy in ProofOfExistence.setReward_TOD40() (TOD/tod_buggy_46.sol#99-105):
+	External calls:
+	- owner_TOD40.transfer(reward_TOD40) (TOD/tod_buggy_46.sol#103)
+	State variables written after the call(s):
+	- reward_TOD40 = msg.value (TOD/tod_buggy_46.sol#104)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable ProofOfExistence.winner_TOD13 (TOD/tod_buggy_46.sol#215) is too similar to ProofOfExistence.winner_TOD31 (TOD/tod_buggy_46.sol#183)
+Variable ProofOfExistence.winner_TOD13 (TOD/tod_buggy_46.sol#215) is too similar to ProofOfExistence.winner_TOD33 (TOD/tod_buggy_46.sol#127)
+Variable ProofOfExistence.winner_TOD13 (TOD/tod_buggy_46.sol#215) is too similar to ProofOfExistence.winner_TOD35 (TOD/tod_buggy_46.sol#61)
+Variable ProofOfExistence.winner_TOD31 (TOD/tod_buggy_46.sol#183) is too similar to ProofOfExistence.winner_TOD33 (TOD/tod_buggy_46.sol#127)
+Variable ProofOfExistence.winner_TOD31 (TOD/tod_buggy_46.sol#183) is too similar to ProofOfExistence.winner_TOD35 (TOD/tod_buggy_46.sol#61)
+Variable ProofOfExistence.winner_TOD33 (TOD/tod_buggy_46.sol#127) is too similar to ProofOfExistence.winner_TOD35 (TOD/tod_buggy_46.sol#61)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+ProofOfExistence.owner_TOD36 (TOD/tod_buggy_46.sol#20) should be constant
+ProofOfExistence.owner_TOD40 (TOD/tod_buggy_46.sol#97) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification) should be declared external:
+	- ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification) (TOD/tod_buggy_46.sol#45-60)
+Moreover, the following function parameters should change its data location:
+_fileHash location should be calldata
+_filePathHash location should be calldata
+GetFileExistenceProof(address,string,string) should be declared external:
+	- ProofOfExistence.GetFileExistenceProof(address,string,string) (TOD/tod_buggy_46.sol#79-95)
+Moreover, the following function parameters should change its data location:
+fileHash location should be calldata
+filePathHash location should be calldata
+getQRCode(address,string,string) should be declared external:
+	- ProofOfExistence.getQRCode(address,string,string) (TOD/tod_buggy_46.sol#169-182)
+Moreover, the following function parameters should change its data location:
+fileHash location should be calldata
+filePathHash location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+TOD/tod_buggy_46.sol analyzed (1 contracts with 80 detectors), 59 result(s) found

@@ -1,0 +1,45 @@
+
+MyAdvancedToken (CV/2018-13087.sol#165-234) has incorrect ERC20 function interface:TokenERC20.transfer(address,uint256) (CV/2018-13087.sol#83-85)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-erc20-interface
+
+owned.transferOwnership(address) (CV/2018-13087.sol#19-21) should emit an event for: 
+	- owner = newOwner (CV/2018-13087.sol#20) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+owned.transferOwnership(address).newOwner (CV/2018-13087.sol#19) lacks a zero-check on :
+		- owner = newOwner (CV/2018-13087.sol#20)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+TokenERC20._transfer(address,address,uint256) (CV/2018-13087.sol#56-74) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.4.16 (CV/2018-13087.sol#5) allows old versions
+solc-0.4.16 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Contract owned (CV/2018-13087.sol#7-22) is not in CapWords
+Contract tokenRecipient (CV/2018-13087.sol#24) is not in CapWords
+Parameter TokenERC20.transfer(address,uint256)._to (CV/2018-13087.sol#83) is not in mixedCase
+Parameter TokenERC20.transfer(address,uint256)._value (CV/2018-13087.sol#83) is not in mixedCase
+Parameter TokenERC20.transferFrom(address,address,uint256)._from (CV/2018-13087.sol#93) is not in mixedCase
+Parameter TokenERC20.transferFrom(address,address,uint256)._to (CV/2018-13087.sol#93) is not in mixedCase
+Parameter TokenERC20.transferFrom(address,address,uint256)._value (CV/2018-13087.sol#93) is not in mixedCase
+Parameter TokenERC20.approve(address,uint256)._spender (CV/2018-13087.sol#108) is not in mixedCase
+Parameter TokenERC20.approve(address,uint256)._value (CV/2018-13087.sol#108) is not in mixedCase
+Parameter TokenERC20.approveAndCall(address,uint256,bytes)._spender (CV/2018-13087.sol#121) is not in mixedCase
+Parameter TokenERC20.approveAndCall(address,uint256,bytes)._value (CV/2018-13087.sol#121) is not in mixedCase
+Parameter TokenERC20.approveAndCall(address,uint256,bytes)._extraData (CV/2018-13087.sol#121) is not in mixedCase
+Parameter TokenERC20.burn(uint256)._value (CV/2018-13087.sol#134) is not in mixedCase
+Parameter TokenERC20.burnFrom(address,uint256)._from (CV/2018-13087.sol#150) is not in mixedCase
+Parameter TokenERC20.burnFrom(address,uint256)._value (CV/2018-13087.sol#150) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+TokenERC20.decimals (CV/2018-13087.sol#29) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+receiveApproval(address,uint256,address,bytes) should be declared external:
+	- tokenRecipient.receiveApproval(address,uint256,address,bytes) (CV/2018-13087.sol#24)
+approveAndCall(address,uint256,bytes) should be declared external:
+	- TokenERC20.approveAndCall(address,uint256,bytes) (CV/2018-13087.sol#121-129)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+CV/2018-13087.sol analyzed (4 contracts with 80 detectors), 24 result(s) found

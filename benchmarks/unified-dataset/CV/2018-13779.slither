@@ -1,0 +1,58 @@
+
+YLCToken (CV/2018-13779.sol#93-181) has incorrect ERC20 function interface:token.transfer(address,uint256) (CV/2018-13779.sol#50-56)
+YLCToken (CV/2018-13779.sol#93-181) has incorrect ERC20 function interface:YLCToken.transfer(address,uint256) (CV/2018-13779.sol#115-122)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-erc20-interface
+
+owned.transferOwnership(address) (CV/2018-13779.sol#14-16) should emit an event for: 
+	- owner = newOwner (CV/2018-13779.sol#15) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+YLCToken.setPrices(uint256,uint256) (CV/2018-13779.sol#150-153) should emit an event for: 
+	- sellPrice = newSellPrice (CV/2018-13779.sol#151) 
+	- buyPrice = newBuyPrice (CV/2018-13779.sol#152) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+
+owned.transferOwnership(address).newOwner (CV/2018-13779.sol#14) lacks a zero-check on :
+		- owner = newOwner (CV/2018-13779.sol#15)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Pragma version^0.4.13 (CV/2018-13779.sol#1) allows old versions
+solc-0.4.13 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Contract owned (CV/2018-13779.sol#2-17) is not in CapWords
+Contract tokenRecipient (CV/2018-13779.sol#18) is not in CapWords
+Contract token (CV/2018-13779.sol#20-91) is not in CapWords
+Parameter token.transfer(address,uint256)._to (CV/2018-13779.sol#50) is not in mixedCase
+Parameter token.transfer(address,uint256)._value (CV/2018-13779.sol#50) is not in mixedCase
+Parameter token.approve(address,uint256)._spender (CV/2018-13779.sol#59) is not in mixedCase
+Parameter token.approve(address,uint256)._value (CV/2018-13779.sol#59) is not in mixedCase
+Parameter token.approveAndCall(address,uint256,bytes)._spender (CV/2018-13779.sol#66) is not in mixedCase
+Parameter token.approveAndCall(address,uint256,bytes)._value (CV/2018-13779.sol#66) is not in mixedCase
+Parameter token.approveAndCall(address,uint256,bytes)._extraData (CV/2018-13779.sol#66) is not in mixedCase
+Parameter token.transferFrom(address,address,uint256)._from (CV/2018-13779.sol#76) is not in mixedCase
+Parameter token.transferFrom(address,address,uint256)._to (CV/2018-13779.sol#76) is not in mixedCase
+Parameter token.transferFrom(address,address,uint256)._value (CV/2018-13779.sol#76) is not in mixedCase
+Parameter YLCToken.transfer(address,uint256)._to (CV/2018-13779.sol#115) is not in mixedCase
+Parameter YLCToken.transfer(address,uint256)._value (CV/2018-13779.sol#115) is not in mixedCase
+Parameter YLCToken.transferFrom(address,address,uint256)._from (CV/2018-13779.sol#126) is not in mixedCase
+Parameter YLCToken.transferFrom(address,address,uint256)._to (CV/2018-13779.sol#126) is not in mixedCase
+Parameter YLCToken.transferFrom(address,address,uint256)._value (CV/2018-13779.sol#126) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in YLCToken.sell(uint256) (CV/2018-13779.sol#163-170):
+	External calls:
+	- assert(bool)(msg.sender.send(amount * sellPrice)) (CV/2018-13779.sol#167)
+	Event emitted after the call(s):
+	- Transfer(msg.sender,this,amount) (CV/2018-13779.sol#169)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+token.standard (CV/2018-13779.sol#22) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+receiveApproval(address,uint256,address,bytes) should be declared external:
+	- tokenRecipient.receiveApproval(address,uint256,address,bytes) (CV/2018-13779.sol#18)
+approveAndCall(address,uint256,bytes) should be declared external:
+	- token.approveAndCall(address,uint256,bytes) (CV/2018-13779.sol#66-73)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+CV/2018-13779.sol analyzed (4 contracts with 80 detectors), 29 result(s) found

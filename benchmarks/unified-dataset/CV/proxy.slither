@@ -1,0 +1,20 @@
+
+Proxy.forward(address,bytes) (CV/proxy.sol#12-14) uses delegatecall to a input-controlled function id
+	- require(bool)(callee.delegatecall(_data)) (CV/proxy.sol#13)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#controlled-delegatecall
+
+Pragma version^0.4.24 (CV/proxy.sol#2) allows old versions
+solc-0.4.24 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in Proxy.forward(address,bytes) (CV/proxy.sol#12-14):
+	- require(bool)(callee.delegatecall(_data)) (CV/proxy.sol#13)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Parameter Proxy.forward(address,bytes)._data (CV/proxy.sol#12) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+forward(address,bytes) should be declared external:
+	- Proxy.forward(address,bytes) (CV/proxy.sol#12-14)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+CV/proxy.sol analyzed (1 contracts with 80 detectors), 6 result(s) found

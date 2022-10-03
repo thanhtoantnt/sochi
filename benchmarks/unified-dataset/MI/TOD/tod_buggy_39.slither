@@ -1,0 +1,165 @@
+
+TAMCContract.owner_TOD14 (TOD/tod_buggy_39.sol#9) is never initialized. It is used in:
+	- TAMCContract.setReward_TOD14() (TOD/tod_buggy_39.sol#11-17)
+TAMCContract.owner_TOD30 (TOD/tod_buggy_39.sol#29) is never initialized. It is used in:
+	- TAMCContract.setReward_TOD30() (TOD/tod_buggy_39.sol#31-37)
+TAMCContract.owner_TOD8 (TOD/tod_buggy_39.sol#48) is never initialized. It is used in:
+	- TAMCContract.setReward_TOD8() (TOD/tod_buggy_39.sol#50-56)
+TAMCContract.owner_TOD40 (TOD/tod_buggy_39.sol#123) is never initialized. It is used in:
+	- TAMCContract.setReward_TOD40() (TOD/tod_buggy_39.sol#125-131)
+TAMCContract.owner_TOD36 (TOD/tod_buggy_39.sol#157) is never initialized. It is used in:
+	- TAMCContract.setReward_TOD36() (TOD/tod_buggy_39.sol#159-165)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+
+TAMCContract.setReward_TOD14() (TOD/tod_buggy_39.sol#11-17) should emit an event for: 
+	- reward_TOD14 = msg.value (TOD/tod_buggy_39.sol#16) 
+TAMCContract.setReward_TOD30() (TOD/tod_buggy_39.sol#31-37) should emit an event for: 
+	- reward_TOD30 = msg.value (TOD/tod_buggy_39.sol#36) 
+TAMCContract.setReward_TOD8() (TOD/tod_buggy_39.sol#50-56) should emit an event for: 
+	- reward_TOD8 = msg.value (TOD/tod_buggy_39.sol#55) 
+TAMCContract.setReward_TOD40() (TOD/tod_buggy_39.sol#125-131) should emit an event for: 
+	- reward_TOD40 = msg.value (TOD/tod_buggy_39.sol#130) 
+TAMCContract.setReward_TOD36() (TOD/tod_buggy_39.sol#159-165) should emit an event for: 
+	- reward_TOD36 = msg.value (TOD/tod_buggy_39.sol#164) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+
+TAMCContract.totalSupply (TOD/tod_buggy_39.sol#80) is set pre-construction with a non-constant function or state variable:
+	- 1000000000 * (uint256(10) ** decimals)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#function-initializing-state
+
+Pragma version^0.5.10 (TOD/tod_buggy_39.sol#5) allows old versions
+solc-0.5.10 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function TAMCContract.setReward_TOD14() (TOD/tod_buggy_39.sol#11-17) is not in mixedCase
+Function TAMCContract.claimReward_TOD14(uint256) (TOD/tod_buggy_39.sol#19-25) is not in mixedCase
+Function TAMCContract.setReward_TOD30() (TOD/tod_buggy_39.sol#31-37) is not in mixedCase
+Function TAMCContract.claimReward_TOD30(uint256) (TOD/tod_buggy_39.sol#39-45) is not in mixedCase
+Function TAMCContract.setReward_TOD8() (TOD/tod_buggy_39.sol#50-56) is not in mixedCase
+Function TAMCContract.claimReward_TOD8(uint256) (TOD/tod_buggy_39.sol#58-64) is not in mixedCase
+Function TAMCContract.play_TOD39(bytes32) (TOD/tod_buggy_39.sol#67-73) is not in mixedCase
+Function TAMCContract.getReward_TOD39() (TOD/tod_buggy_39.sol#75-78) is not in mixedCase
+Function TAMCContract.play_TOD31(bytes32) (TOD/tod_buggy_39.sol#83-89) is not in mixedCase
+Function TAMCContract.getReward_TOD31() (TOD/tod_buggy_39.sol#91-94) is not in mixedCase
+Function TAMCContract.play_TOD35(bytes32) (TOD/tod_buggy_39.sol#102-108) is not in mixedCase
+Function TAMCContract.getReward_TOD35() (TOD/tod_buggy_39.sol#110-113) is not in mixedCase
+Function TAMCContract.setReward_TOD40() (TOD/tod_buggy_39.sol#125-131) is not in mixedCase
+Function TAMCContract.claimReward_TOD40(uint256) (TOD/tod_buggy_39.sol#133-139) is not in mixedCase
+Function TAMCContract.play_TOD13(bytes32) (TOD/tod_buggy_39.sol#142-148) is not in mixedCase
+Function TAMCContract.getReward_TOD13() (TOD/tod_buggy_39.sol#150-153) is not in mixedCase
+Function TAMCContract.setReward_TOD36() (TOD/tod_buggy_39.sol#159-165) is not in mixedCase
+Function TAMCContract.claimReward_TOD36(uint256) (TOD/tod_buggy_39.sol#167-173) is not in mixedCase
+Function TAMCContract.play_TOD33(bytes32) (TOD/tod_buggy_39.sol#185-191) is not in mixedCase
+Function TAMCContract.getReward_TOD33() (TOD/tod_buggy_39.sol#193-196) is not in mixedCase
+Function TAMCContract.play_TOD27(bytes32) (TOD/tod_buggy_39.sol#212-218) is not in mixedCase
+Function TAMCContract.getReward_TOD27() (TOD/tod_buggy_39.sol#220-223) is not in mixedCase
+Variable TAMCContract.claimed_TOD14 (TOD/tod_buggy_39.sol#8) is not in mixedCase
+Variable TAMCContract.owner_TOD14 (TOD/tod_buggy_39.sol#9) is not in mixedCase
+Variable TAMCContract.reward_TOD14 (TOD/tod_buggy_39.sol#10) is not in mixedCase
+Variable TAMCContract.claimed_TOD30 (TOD/tod_buggy_39.sol#28) is not in mixedCase
+Variable TAMCContract.owner_TOD30 (TOD/tod_buggy_39.sol#29) is not in mixedCase
+Variable TAMCContract.reward_TOD30 (TOD/tod_buggy_39.sol#30) is not in mixedCase
+Variable TAMCContract.claimed_TOD8 (TOD/tod_buggy_39.sol#47) is not in mixedCase
+Variable TAMCContract.owner_TOD8 (TOD/tod_buggy_39.sol#48) is not in mixedCase
+Variable TAMCContract.reward_TOD8 (TOD/tod_buggy_39.sol#49) is not in mixedCase
+Variable TAMCContract.winner_TOD39 (TOD/tod_buggy_39.sol#66) is not in mixedCase
+Variable TAMCContract.winner_TOD31 (TOD/tod_buggy_39.sol#82) is not in mixedCase
+Variable TAMCContract.winner_TOD35 (TOD/tod_buggy_39.sol#101) is not in mixedCase
+Variable TAMCContract.claimed_TOD40 (TOD/tod_buggy_39.sol#122) is not in mixedCase
+Variable TAMCContract.owner_TOD40 (TOD/tod_buggy_39.sol#123) is not in mixedCase
+Variable TAMCContract.reward_TOD40 (TOD/tod_buggy_39.sol#124) is not in mixedCase
+Variable TAMCContract.winner_TOD13 (TOD/tod_buggy_39.sol#141) is not in mixedCase
+Variable TAMCContract.claimed_TOD36 (TOD/tod_buggy_39.sol#156) is not in mixedCase
+Variable TAMCContract.owner_TOD36 (TOD/tod_buggy_39.sol#157) is not in mixedCase
+Variable TAMCContract.reward_TOD36 (TOD/tod_buggy_39.sol#158) is not in mixedCase
+Variable TAMCContract.winner_TOD33 (TOD/tod_buggy_39.sol#184) is not in mixedCase
+Variable TAMCContract.winner_TOD27 (TOD/tod_buggy_39.sol#211) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in TAMCContract.claimReward_TOD14(uint256) (TOD/tod_buggy_39.sol#19-25):
+	External calls:
+	- msg.sender.transfer(reward_TOD14) (TOD/tod_buggy_39.sol#23)
+	State variables written after the call(s):
+	- claimed_TOD14 = true (TOD/tod_buggy_39.sol#24)
+Reentrancy in TAMCContract.claimReward_TOD30(uint256) (TOD/tod_buggy_39.sol#39-45):
+	External calls:
+	- msg.sender.transfer(reward_TOD30) (TOD/tod_buggy_39.sol#43)
+	State variables written after the call(s):
+	- claimed_TOD30 = true (TOD/tod_buggy_39.sol#44)
+Reentrancy in TAMCContract.claimReward_TOD36(uint256) (TOD/tod_buggy_39.sol#167-173):
+	External calls:
+	- msg.sender.transfer(reward_TOD36) (TOD/tod_buggy_39.sol#171)
+	State variables written after the call(s):
+	- claimed_TOD36 = true (TOD/tod_buggy_39.sol#172)
+Reentrancy in TAMCContract.claimReward_TOD40(uint256) (TOD/tod_buggy_39.sol#133-139):
+	External calls:
+	- msg.sender.transfer(reward_TOD40) (TOD/tod_buggy_39.sol#137)
+	State variables written after the call(s):
+	- claimed_TOD40 = true (TOD/tod_buggy_39.sol#138)
+Reentrancy in TAMCContract.claimReward_TOD8(uint256) (TOD/tod_buggy_39.sol#58-64):
+	External calls:
+	- msg.sender.transfer(reward_TOD8) (TOD/tod_buggy_39.sol#62)
+	State variables written after the call(s):
+	- claimed_TOD8 = true (TOD/tod_buggy_39.sol#63)
+Reentrancy in TAMCContract.setReward_TOD14() (TOD/tod_buggy_39.sol#11-17):
+	External calls:
+	- owner_TOD14.transfer(reward_TOD14) (TOD/tod_buggy_39.sol#15)
+	State variables written after the call(s):
+	- reward_TOD14 = msg.value (TOD/tod_buggy_39.sol#16)
+Reentrancy in TAMCContract.setReward_TOD30() (TOD/tod_buggy_39.sol#31-37):
+	External calls:
+	- owner_TOD30.transfer(reward_TOD30) (TOD/tod_buggy_39.sol#35)
+	State variables written after the call(s):
+	- reward_TOD30 = msg.value (TOD/tod_buggy_39.sol#36)
+Reentrancy in TAMCContract.setReward_TOD36() (TOD/tod_buggy_39.sol#159-165):
+	External calls:
+	- owner_TOD36.transfer(reward_TOD36) (TOD/tod_buggy_39.sol#163)
+	State variables written after the call(s):
+	- reward_TOD36 = msg.value (TOD/tod_buggy_39.sol#164)
+Reentrancy in TAMCContract.setReward_TOD40() (TOD/tod_buggy_39.sol#125-131):
+	External calls:
+	- owner_TOD40.transfer(reward_TOD40) (TOD/tod_buggy_39.sol#129)
+	State variables written after the call(s):
+	- reward_TOD40 = msg.value (TOD/tod_buggy_39.sol#130)
+Reentrancy in TAMCContract.setReward_TOD8() (TOD/tod_buggy_39.sol#50-56):
+	External calls:
+	- owner_TOD8.transfer(reward_TOD8) (TOD/tod_buggy_39.sol#54)
+	State variables written after the call(s):
+	- reward_TOD8 = msg.value (TOD/tod_buggy_39.sol#55)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable TAMCContract.claimed_TOD14 (TOD/tod_buggy_39.sol#8) is too similar to TAMCContract.claimed_TOD40 (TOD/tod_buggy_39.sol#122)
+Variable TAMCContract.claimed_TOD30 (TOD/tod_buggy_39.sol#28) is too similar to TAMCContract.claimed_TOD36 (TOD/tod_buggy_39.sol#156)
+Variable TAMCContract.claimed_TOD30 (TOD/tod_buggy_39.sol#28) is too similar to TAMCContract.claimed_TOD40 (TOD/tod_buggy_39.sol#122)
+Variable TAMCContract.owner_TOD14 (TOD/tod_buggy_39.sol#9) is too similar to TAMCContract.owner_TOD40 (TOD/tod_buggy_39.sol#123)
+Variable TAMCContract.owner_TOD30 (TOD/tod_buggy_39.sol#29) is too similar to TAMCContract.owner_TOD40 (TOD/tod_buggy_39.sol#123)
+Variable TAMCContract.owner_TOD30 (TOD/tod_buggy_39.sol#29) is too similar to TAMCContract.owner_TOD36 (TOD/tod_buggy_39.sol#157)
+Variable TAMCContract.reward_TOD14 (TOD/tod_buggy_39.sol#10) is too similar to TAMCContract.reward_TOD40 (TOD/tod_buggy_39.sol#124)
+Variable TAMCContract.reward_TOD30 (TOD/tod_buggy_39.sol#30) is too similar to TAMCContract.reward_TOD40 (TOD/tod_buggy_39.sol#124)
+Variable TAMCContract.reward_TOD30 (TOD/tod_buggy_39.sol#30) is too similar to TAMCContract.reward_TOD36 (TOD/tod_buggy_39.sol#158)
+Variable TAMCContract.winner_TOD13 (TOD/tod_buggy_39.sol#141) is too similar to TAMCContract.winner_TOD31 (TOD/tod_buggy_39.sol#82)
+Variable TAMCContract.winner_TOD13 (TOD/tod_buggy_39.sol#141) is too similar to TAMCContract.winner_TOD33 (TOD/tod_buggy_39.sol#184)
+Variable TAMCContract.winner_TOD13 (TOD/tod_buggy_39.sol#141) is too similar to TAMCContract.winner_TOD35 (TOD/tod_buggy_39.sol#101)
+Variable TAMCContract.winner_TOD13 (TOD/tod_buggy_39.sol#141) is too similar to TAMCContract.winner_TOD39 (TOD/tod_buggy_39.sol#66)
+Variable TAMCContract.winner_TOD31 (TOD/tod_buggy_39.sol#82) is too similar to TAMCContract.winner_TOD33 (TOD/tod_buggy_39.sol#184)
+Variable TAMCContract.winner_TOD33 (TOD/tod_buggy_39.sol#184) is too similar to TAMCContract.winner_TOD35 (TOD/tod_buggy_39.sol#101)
+Variable TAMCContract.winner_TOD33 (TOD/tod_buggy_39.sol#184) is too similar to TAMCContract.winner_TOD39 (TOD/tod_buggy_39.sol#66)
+Variable TAMCContract.winner_TOD31 (TOD/tod_buggy_39.sol#82) is too similar to TAMCContract.winner_TOD35 (TOD/tod_buggy_39.sol#101)
+Variable TAMCContract.winner_TOD31 (TOD/tod_buggy_39.sol#82) is too similar to TAMCContract.winner_TOD39 (TOD/tod_buggy_39.sol#66)
+Variable TAMCContract.winner_TOD35 (TOD/tod_buggy_39.sol#101) is too similar to TAMCContract.winner_TOD39 (TOD/tod_buggy_39.sol#66)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+TAMCContract.slitherConstructorVariables() (TOD/tod_buggy_39.sol#7-224) uses literals with too many digits:
+	- totalSupply = 1000000000 * (uint256(10) ** decimals) (TOD/tod_buggy_39.sol#80)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+TAMCContract.decimals (TOD/tod_buggy_39.sol#79) should be constant
+TAMCContract.name (TOD/tod_buggy_39.sol#46) should be constant
+TAMCContract.owner_TOD14 (TOD/tod_buggy_39.sol#9) should be constant
+TAMCContract.owner_TOD30 (TOD/tod_buggy_39.sol#29) should be constant
+TAMCContract.owner_TOD36 (TOD/tod_buggy_39.sol#157) should be constant
+TAMCContract.owner_TOD40 (TOD/tod_buggy_39.sol#123) should be constant
+TAMCContract.owner_TOD8 (TOD/tod_buggy_39.sol#48) should be constant
+TAMCContract.symbol (TOD/tod_buggy_39.sol#65) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+TOD/tod_buggy_39.sol analyzed (1 contracts with 80 detectors), 94 result(s) found

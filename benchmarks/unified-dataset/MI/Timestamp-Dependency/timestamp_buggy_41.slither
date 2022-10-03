@@ -1,0 +1,169 @@
+
+AO.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_41.sol#34-42) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_41.sol#40)
+AO.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_41.sol#52-60) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_41.sol#58)
+AO.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_41.sol#116-124) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_41.sol#122)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+AO.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_41.sol#34-42) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_41.sol#39)" 
+AO.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_41.sol#52-60) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_41.sol#57)" 
+AO.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_41.sol#116-124) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_41.sol#121)" 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG
+
+AO.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_41.sol#52-60) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_41.sol#57)
+AO.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_41.sol#116-124) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_41.sol#121)
+AO.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_41.sol#34-42) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_41.sol#39)
+AO.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_41.sol#24-26) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_41.sol#25)
+AO.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_41.sol#18-21) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_41.sol#20)
+AO.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_41.sol#158-161) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_41.sol#160)
+AO.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_41.sol#29-31) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_41.sol#30)
+AO.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_41.sol#178-181) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_41.sol#180)
+AO.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_41.sol#91-94) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_41.sol#93)
+AO.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_41.sol#47-50) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_41.sol#49)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+AO.bug_tmstmp8().pastBlockTime_tmstmp8 (Timestamp-Dependency/timestamp_buggy_41.sol#35) is a local variable never initialized
+AO.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_41.sol#117) is a local variable never initialized
+AO.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_41.sol#53) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+AO.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_41.sol#18-21) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_41.sol#20)
+AO.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_41.sol#24-26) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_41.sol#25)
+AO.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_41.sol#29-31) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_41.sol#30)
+AO.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_41.sol#34-42) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp8) (Timestamp-Dependency/timestamp_buggy_41.sol#37)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_41.sol#39)
+AO.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_41.sol#47-50) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_41.sol#49)
+AO.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_41.sol#52-60) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp36) (Timestamp-Dependency/timestamp_buggy_41.sol#55)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_41.sol#57)
+AO.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_41.sol#91-94) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_41.sol#93)
+AO.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_41.sol#116-124) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp40) (Timestamp-Dependency/timestamp_buggy_41.sol#119)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_41.sol#121)
+AO.bug_tmstmp33() (Timestamp-Dependency/timestamp_buggy_41.sol#138-140) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_41.sol#139)
+AO.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_41.sol#158-161) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_41.sol#160)
+AO.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_41.sol#178-181) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_41.sol#180)
+AO.bug_tmstmp13() (Timestamp-Dependency/timestamp_buggy_41.sol#201-203) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_41.sol#202)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+Pragma version>=0.4.22<0.6.0 (Timestamp-Dependency/timestamp_buggy_41.sol#9) is known to contain severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Contract tokenRecipient (Timestamp-Dependency/timestamp_buggy_41.sol#11-13) is not in CapWords
+Function AO.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_41.sol#18-21) is not in mixedCase
+Function AO.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_41.sol#24-26) is not in mixedCase
+Function AO.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_41.sol#29-31) is not in mixedCase
+Function AO.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_41.sol#34-42) is not in mixedCase
+Function AO.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_41.sol#47-50) is not in mixedCase
+Function AO.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_41.sol#52-60) is not in mixedCase
+Function AO.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_41.sol#91-94) is not in mixedCase
+Function AO.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_41.sol#116-124) is not in mixedCase
+Parameter AO.transfer(address,uint256)._to (Timestamp-Dependency/timestamp_buggy_41.sol#134) is not in mixedCase
+Parameter AO.transfer(address,uint256)._value (Timestamp-Dependency/timestamp_buggy_41.sol#134) is not in mixedCase
+Function AO.bug_tmstmp33() (Timestamp-Dependency/timestamp_buggy_41.sol#138-140) is not in mixedCase
+Parameter AO.transferFrom(address,address,uint256)._from (Timestamp-Dependency/timestamp_buggy_41.sol#151) is not in mixedCase
+Parameter AO.transferFrom(address,address,uint256)._to (Timestamp-Dependency/timestamp_buggy_41.sol#151) is not in mixedCase
+Parameter AO.transferFrom(address,address,uint256)._value (Timestamp-Dependency/timestamp_buggy_41.sol#151) is not in mixedCase
+Function AO.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_41.sol#158-161) is not in mixedCase
+Parameter AO.approve(address,uint256)._spender (Timestamp-Dependency/timestamp_buggy_41.sol#171) is not in mixedCase
+Parameter AO.approve(address,uint256)._value (Timestamp-Dependency/timestamp_buggy_41.sol#171) is not in mixedCase
+Function AO.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_41.sol#178-181) is not in mixedCase
+Parameter AO.approveAndCall(address,uint256,bytes)._spender (Timestamp-Dependency/timestamp_buggy_41.sol#192) is not in mixedCase
+Parameter AO.approveAndCall(address,uint256,bytes)._value (Timestamp-Dependency/timestamp_buggy_41.sol#192) is not in mixedCase
+Parameter AO.approveAndCall(address,uint256,bytes)._extraData (Timestamp-Dependency/timestamp_buggy_41.sol#192) is not in mixedCase
+Function AO.bug_tmstmp13() (Timestamp-Dependency/timestamp_buggy_41.sol#201-203) is not in mixedCase
+Parameter AO.burn(uint256)._value (Timestamp-Dependency/timestamp_buggy_41.sol#212) is not in mixedCase
+Parameter AO.burnFrom(address,uint256)._from (Timestamp-Dependency/timestamp_buggy_41.sol#229) is not in mixedCase
+Parameter AO.burnFrom(address,uint256)._value (Timestamp-Dependency/timestamp_buggy_41.sol#229) is not in mixedCase
+Variable AO.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_41.sol#17) is not in mixedCase
+Variable AO.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_41.sol#23) is not in mixedCase
+Variable AO.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_41.sol#28) is not in mixedCase
+Variable AO.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_41.sol#46) is not in mixedCase
+Variable AO.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_41.sol#64) is not in mixedCase
+Variable AO.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_41.sol#68) is not in mixedCase
+Variable AO.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_41.sol#72) is not in mixedCase
+Variable AO.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_41.sol#90) is not in mixedCase
+Variable AO.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_41.sol#157) is not in mixedCase
+Variable AO.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_41.sol#177) is not in mixedCase
+Variable AO.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_41.sol#219) is not in mixedCase
+Variable AO.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_41.sol#238) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable AO.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_41.sol#238) is too similar to AO.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_41.sol#68)
+Variable AO.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_41.sol#238) is too similar to AO.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_41.sol#72)
+Variable AO.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_41.sol#238) is too similar to AO.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_41.sol#219)
+Variable AO.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_41.sol#238) is too similar to AO.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_41.sol#64)
+Variable AO.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_41.sol#64) is too similar to AO.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_41.sol#68)
+Variable AO.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_41.sol#64) is too similar to AO.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_41.sol#72)
+Variable AO.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_41.sol#64) is too similar to AO.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_41.sol#219)
+Variable AO.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_41.sol#68) is too similar to AO.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_41.sol#72)
+Variable AO.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_41.sol#72) is too similar to AO.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_41.sol#219)
+Variable AO.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_41.sol#68) is too similar to AO.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_41.sol#219)
+Variable AO.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_41.sol#53) is too similar to AO.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_41.sol#117)
+Variable AO.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_41.sol#23) is too similar to AO.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_41.sol#177)
+Variable AO.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_41.sol#17) is too similar to AO.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_41.sol#177)
+Variable AO.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_41.sol#17) is too similar to AO.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_41.sol#46)
+Variable AO.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_41.sol#17) is too similar to AO.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_41.sol#157)
+Variable AO.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_41.sol#17) is too similar to AO.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_41.sol#28)
+Variable AO.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_41.sol#28) is too similar to AO.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_41.sol#177)
+Variable AO.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_41.sol#28) is too similar to AO.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_41.sol#90)
+Variable AO.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_41.sol#28) is too similar to AO.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_41.sol#46)
+Variable AO.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_41.sol#17) is too similar to AO.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_41.sol#90)
+Variable AO.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_41.sol#177) is too similar to AO.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_41.sol#90)
+Variable AO.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_41.sol#90) is too similar to AO.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_41.sol#46)
+Variable AO.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_41.sol#177) is too similar to AO.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_41.sol#46)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+AO.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_41.sol#64) is never used in AO (Timestamp-Dependency/timestamp_buggy_41.sol#15-239)
+AO.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_41.sol#68) is never used in AO (Timestamp-Dependency/timestamp_buggy_41.sol#15-239)
+AO.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_41.sol#72) is never used in AO (Timestamp-Dependency/timestamp_buggy_41.sol#15-239)
+AO.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_41.sol#219) is never used in AO (Timestamp-Dependency/timestamp_buggy_41.sol#15-239)
+AO.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_41.sol#238) is never used in AO (Timestamp-Dependency/timestamp_buggy_41.sol#15-239)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+
+AO.decimals (Timestamp-Dependency/timestamp_buggy_41.sol#32) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+approveAndCall(address,uint256,bytes) should be declared external:
+	- AO.approveAndCall(address,uint256,bytes) (Timestamp-Dependency/timestamp_buggy_41.sol#192-200)
+Moreover, the following function parameters should change its data location:
+_extraData location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+Timestamp-Dependency/timestamp_buggy_41.sol analyzed (2 contracts with 80 detectors), 100 result(s) found

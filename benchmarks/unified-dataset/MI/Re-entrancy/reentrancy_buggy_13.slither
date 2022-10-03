@@ -1,0 +1,204 @@
+
+BitCash.bug_re_ent20() (Re-entrancy/reentrancy_buggy_13.sol#14-20) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_13.sol#16)
+BitCash.callme_re_ent7() (Re-entrancy/reentrancy_buggy_13.sol#52-58) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_13.sol#54)
+BitCash.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_13.sol#62-67) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (Re-entrancy/reentrancy_buggy_13.sol#63)
+BitCash.bug_re_ent27() (Re-entrancy/reentrancy_buggy_13.sol#72-78) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_13.sol#74)
+BitCash.bug_re_ent13() (Re-entrancy/reentrancy_buggy_13.sol#93-100) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_13.sol#95)
+BitCash.callme_re_ent14() (Re-entrancy/reentrancy_buggy_13.sol#119-125) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_13.sol#121)
+BitCash.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_13.sol#149-154) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (Re-entrancy/reentrancy_buggy_13.sol#150)
+BitCash.callme_re_ent35() (Re-entrancy/reentrancy_buggy_13.sol#238-244) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_13.sol#240)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Reentrancy in BitCash.bug_re_ent13() (Re-entrancy/reentrancy_buggy_13.sol#93-100):
+	External calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_13.sol#95)
+	State variables written after the call(s):
+	- not_called_re_ent13 = false (Re-entrancy/reentrancy_buggy_13.sol#99)
+Reentrancy in BitCash.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_13.sol#289-297):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (Re-entrancy/reentrancy_buggy_13.sol#292)
+	State variables written after the call(s):
+	- userBalance_re_ent33[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_13.sol#296)
+Reentrancy in BitCash.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_13.sol#261-269):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (Re-entrancy/reentrancy_buggy_13.sol#264)
+	State variables written after the call(s):
+	- userBalance_re_ent40[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_13.sol#268)
+Reentrancy in BitCash.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_13.sol#169-173):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (Re-entrancy/reentrancy_buggy_13.sol#170)
+	State variables written after the call(s):
+	- balances_re_ent8[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_13.sol#172)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
+
+Pragma version>=0.4.22<0.6.0 (Re-entrancy/reentrancy_buggy_13.sol#5) is known to contain severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in BitCash.bug_re_ent13() (Re-entrancy/reentrancy_buggy_13.sol#93-100):
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_13.sol#95)
+Low level call in BitCash.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_13.sol#169-173):
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (Re-entrancy/reentrancy_buggy_13.sol#170)
+Low level call in BitCash.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_13.sol#261-269):
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (Re-entrancy/reentrancy_buggy_13.sol#264)
+Low level call in BitCash.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_13.sol#289-297):
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (Re-entrancy/reentrancy_buggy_13.sol#292)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Contract tokenRecipient (Re-entrancy/reentrancy_buggy_13.sol#7-9) is not in CapWords
+Function BitCash.bug_re_ent20() (Re-entrancy/reentrancy_buggy_13.sol#14-20) is not in mixedCase
+Function BitCash.claimReward_re_ent32() (Re-entrancy/reentrancy_buggy_13.sol#23-29) is not in mixedCase
+Function BitCash.withdrawFunds_re_ent38(uint256) (Re-entrancy/reentrancy_buggy_13.sol#32-37) is not in mixedCase
+Parameter BitCash.withdrawFunds_re_ent38(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_13.sol#32) is not in mixedCase
+Function BitCash.claimReward_re_ent4() (Re-entrancy/reentrancy_buggy_13.sol#41-47) is not in mixedCase
+Function BitCash.callme_re_ent7() (Re-entrancy/reentrancy_buggy_13.sol#52-58) is not in mixedCase
+Function BitCash.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_13.sol#62-67) is not in mixedCase
+Function BitCash.bug_re_ent27() (Re-entrancy/reentrancy_buggy_13.sol#72-78) is not in mixedCase
+Function BitCash.withdrawFunds_re_ent31(uint256) (Re-entrancy/reentrancy_buggy_13.sol#83-88) is not in mixedCase
+Parameter BitCash.withdrawFunds_re_ent31(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_13.sol#83) is not in mixedCase
+Function BitCash.bug_re_ent13() (Re-entrancy/reentrancy_buggy_13.sol#93-100) is not in mixedCase
+Function BitCash.callme_re_ent14() (Re-entrancy/reentrancy_buggy_13.sol#119-125) is not in mixedCase
+Function BitCash.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_13.sol#149-154) is not in mixedCase
+Parameter BitCash.transfer(address,uint256)._to (Re-entrancy/reentrancy_buggy_13.sol#164) is not in mixedCase
+Parameter BitCash.transfer(address,uint256)._value (Re-entrancy/reentrancy_buggy_13.sol#164) is not in mixedCase
+Function BitCash.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_13.sol#169-173) is not in mixedCase
+Parameter BitCash.transferFrom(address,address,uint256)._from (Re-entrancy/reentrancy_buggy_13.sol#184) is not in mixedCase
+Parameter BitCash.transferFrom(address,address,uint256)._to (Re-entrancy/reentrancy_buggy_13.sol#184) is not in mixedCase
+Parameter BitCash.transferFrom(address,address,uint256)._value (Re-entrancy/reentrancy_buggy_13.sol#184) is not in mixedCase
+Function BitCash.claimReward_re_ent39() (Re-entrancy/reentrancy_buggy_13.sol#191-197) is not in mixedCase
+Parameter BitCash.approve(address,uint256)._spender (Re-entrancy/reentrancy_buggy_13.sol#207) is not in mixedCase
+Parameter BitCash.approve(address,uint256)._value (Re-entrancy/reentrancy_buggy_13.sol#207) is not in mixedCase
+Function BitCash.withdraw_balances_re_ent36() (Re-entrancy/reentrancy_buggy_13.sol#214-217) is not in mixedCase
+Parameter BitCash.approveAndCall(address,uint256,bytes)._spender (Re-entrancy/reentrancy_buggy_13.sol#228) is not in mixedCase
+Parameter BitCash.approveAndCall(address,uint256,bytes)._value (Re-entrancy/reentrancy_buggy_13.sol#228) is not in mixedCase
+Parameter BitCash.approveAndCall(address,uint256,bytes)._extraData (Re-entrancy/reentrancy_buggy_13.sol#228) is not in mixedCase
+Function BitCash.callme_re_ent35() (Re-entrancy/reentrancy_buggy_13.sol#238-244) is not in mixedCase
+Parameter BitCash.burn(uint256)._value (Re-entrancy/reentrancy_buggy_13.sol#253) is not in mixedCase
+Function BitCash.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_13.sol#261-269) is not in mixedCase
+Parameter BitCash.burnFrom(address,uint256)._from (Re-entrancy/reentrancy_buggy_13.sol#279) is not in mixedCase
+Parameter BitCash.burnFrom(address,uint256)._value (Re-entrancy/reentrancy_buggy_13.sol#279) is not in mixedCase
+Function BitCash.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_13.sol#289-297) is not in mixedCase
+Variable BitCash.not_called_re_ent20 (Re-entrancy/reentrancy_buggy_13.sol#13) is not in mixedCase
+Variable BitCash.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_13.sol#22) is not in mixedCase
+Variable BitCash.balances_re_ent38 (Re-entrancy/reentrancy_buggy_13.sol#31) is not in mixedCase
+Variable BitCash.redeemableEther_re_ent4 (Re-entrancy/reentrancy_buggy_13.sol#40) is not in mixedCase
+Variable BitCash.counter_re_ent7 (Re-entrancy/reentrancy_buggy_13.sol#51) is not in mixedCase
+Variable BitCash.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_13.sol#60) is not in mixedCase
+Variable BitCash.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_13.sol#61) is not in mixedCase
+Variable BitCash.not_called_re_ent27 (Re-entrancy/reentrancy_buggy_13.sol#71) is not in mixedCase
+Variable BitCash.balances_re_ent31 (Re-entrancy/reentrancy_buggy_13.sol#82) is not in mixedCase
+Variable BitCash.not_called_re_ent13 (Re-entrancy/reentrancy_buggy_13.sol#92) is not in mixedCase
+Variable BitCash.counter_re_ent14 (Re-entrancy/reentrancy_buggy_13.sol#118) is not in mixedCase
+Variable BitCash.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_13.sol#147) is not in mixedCase
+Variable BitCash.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_13.sol#148) is not in mixedCase
+Variable BitCash.balances_re_ent8 (Re-entrancy/reentrancy_buggy_13.sol#168) is not in mixedCase
+Variable BitCash.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_13.sol#190) is not in mixedCase
+Variable BitCash.balances_re_ent36 (Re-entrancy/reentrancy_buggy_13.sol#213) is not in mixedCase
+Variable BitCash.counter_re_ent35 (Re-entrancy/reentrancy_buggy_13.sol#237) is not in mixedCase
+Variable BitCash.userBalance_re_ent40 (Re-entrancy/reentrancy_buggy_13.sol#260) is not in mixedCase
+Variable BitCash.userBalance_re_ent33 (Re-entrancy/reentrancy_buggy_13.sol#288) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in BitCash.bug_re_ent20() (Re-entrancy/reentrancy_buggy_13.sol#14-20):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_13.sol#16)
+	State variables written after the call(s):
+	- not_called_re_ent20 = false (Re-entrancy/reentrancy_buggy_13.sol#19)
+Reentrancy in BitCash.bug_re_ent27() (Re-entrancy/reentrancy_buggy_13.sol#72-78):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_13.sol#74)
+	State variables written after the call(s):
+	- not_called_re_ent27 = false (Re-entrancy/reentrancy_buggy_13.sol#77)
+Reentrancy in BitCash.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_13.sol#62-67):
+	External calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (Re-entrancy/reentrancy_buggy_13.sol#63)
+	State variables written after the call(s):
+	- jackpot_re_ent23 = address(this).balance (Re-entrancy/reentrancy_buggy_13.sol#66)
+	- lastPlayer_re_ent23 = msg.sender (Re-entrancy/reentrancy_buggy_13.sol#65)
+Reentrancy in BitCash.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_13.sol#149-154):
+	External calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (Re-entrancy/reentrancy_buggy_13.sol#150)
+	State variables written after the call(s):
+	- jackpot_re_ent30 = address(this).balance (Re-entrancy/reentrancy_buggy_13.sol#153)
+	- lastPlayer_re_ent30 = msg.sender (Re-entrancy/reentrancy_buggy_13.sol#152)
+Reentrancy in BitCash.callme_re_ent14() (Re-entrancy/reentrancy_buggy_13.sol#119-125):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_13.sol#121)
+	State variables written after the call(s):
+	- counter_re_ent14 += 1 (Re-entrancy/reentrancy_buggy_13.sol#124)
+Reentrancy in BitCash.callme_re_ent35() (Re-entrancy/reentrancy_buggy_13.sol#238-244):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_13.sol#240)
+	State variables written after the call(s):
+	- counter_re_ent35 += 1 (Re-entrancy/reentrancy_buggy_13.sol#243)
+Reentrancy in BitCash.callme_re_ent7() (Re-entrancy/reentrancy_buggy_13.sol#52-58):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_13.sol#54)
+	State variables written after the call(s):
+	- counter_re_ent7 += 1 (Re-entrancy/reentrancy_buggy_13.sol#57)
+Reentrancy in BitCash.claimReward_re_ent32() (Re-entrancy/reentrancy_buggy_13.sol#23-29):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent32) (Re-entrancy/reentrancy_buggy_13.sol#27)
+	State variables written after the call(s):
+	- redeemableEther_re_ent32[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_13.sol#28)
+Reentrancy in BitCash.claimReward_re_ent39() (Re-entrancy/reentrancy_buggy_13.sol#191-197):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent39) (Re-entrancy/reentrancy_buggy_13.sol#195)
+	State variables written after the call(s):
+	- redeemableEther_re_ent39[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_13.sol#196)
+Reentrancy in BitCash.claimReward_re_ent4() (Re-entrancy/reentrancy_buggy_13.sol#41-47):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent4) (Re-entrancy/reentrancy_buggy_13.sol#45)
+	State variables written after the call(s):
+	- redeemableEther_re_ent4[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_13.sol#46)
+Reentrancy in BitCash.withdrawFunds_re_ent31(uint256) (Re-entrancy/reentrancy_buggy_13.sol#83-88):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_13.sol#86)
+	State variables written after the call(s):
+	- balances_re_ent31[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_13.sol#87)
+Reentrancy in BitCash.withdrawFunds_re_ent38(uint256) (Re-entrancy/reentrancy_buggy_13.sol#32-37):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_13.sol#35)
+	State variables written after the call(s):
+	- balances_re_ent38[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_13.sol#36)
+Reentrancy in BitCash.withdraw_balances_re_ent36() (Re-entrancy/reentrancy_buggy_13.sol#214-217):
+	External calls:
+	- msg.sender.send(balances_re_ent36[msg.sender]) (Re-entrancy/reentrancy_buggy_13.sol#215)
+	State variables written after the call(s):
+	- balances_re_ent36[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_13.sol#216)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable BitCash.balances_re_ent31 (Re-entrancy/reentrancy_buggy_13.sol#82) is too similar to BitCash.balances_re_ent36 (Re-entrancy/reentrancy_buggy_13.sol#213)
+Variable BitCash.balances_re_ent31 (Re-entrancy/reentrancy_buggy_13.sol#82) is too similar to BitCash.balances_re_ent38 (Re-entrancy/reentrancy_buggy_13.sol#31)
+Variable BitCash.balances_re_ent36 (Re-entrancy/reentrancy_buggy_13.sol#213) is too similar to BitCash.balances_re_ent38 (Re-entrancy/reentrancy_buggy_13.sol#31)
+Variable BitCash.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_13.sol#61) is too similar to BitCash.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_13.sol#148)
+Variable BitCash.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_13.sol#60) is too similar to BitCash.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_13.sol#147)
+Variable BitCash.not_called_re_ent20 (Re-entrancy/reentrancy_buggy_13.sol#13) is too similar to BitCash.not_called_re_ent27 (Re-entrancy/reentrancy_buggy_13.sol#71)
+Variable BitCash.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_13.sol#22) is too similar to BitCash.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_13.sol#190)
+Variable BitCash.claimReward_re_ent32().transferValue_re_ent32 (Re-entrancy/reentrancy_buggy_13.sol#26) is too similar to BitCash.claimReward_re_ent39().transferValue_re_ent39 (Re-entrancy/reentrancy_buggy_13.sol#194)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+BitCash.decimals (Re-entrancy/reentrancy_buggy_13.sol#38) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+approveAndCall(address,uint256,bytes) should be declared external:
+	- BitCash.approveAndCall(address,uint256,bytes) (Re-entrancy/reentrancy_buggy_13.sol#228-236)
+Moreover, the following function parameters should change its data location:
+_extraData location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+Re-entrancy/reentrancy_buggy_13.sol analyzed (2 contracts with 80 detectors), 92 result(s) found

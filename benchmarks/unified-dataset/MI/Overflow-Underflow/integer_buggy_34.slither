@@ -1,0 +1,308 @@
+Compilation warnings/errors on Overflow-Underflow/integer_buggy_34.sol:
+Overflow-Underflow/integer_buggy_34.sol:9:2: Warning: Function state mutability can be restricted to pure
+ function bug_intou24(uint8 p_intou24) public{
+ ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_34.sol:15:2: Warning: Function state mutability can be restricted to pure
+ function bug_intou27() public{
+ ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_34.sol:162:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou15() public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_34.sol:168:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou28(uint8 p_intou28) public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_34.sol:214:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou12(uint8 p_intou12) public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_34.sol:219:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou11() public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_34.sol:270:1: Warning: Function state mutability can be restricted to pure
+function bug_intou3() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_34.sol:340:1: Warning: Function state mutability can be restricted to pure
+function bug_intou19() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_34.sol:380:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou31() public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_34.sol:421:1: Warning: Function state mutability can be restricted to pure
+function bug_intou20(uint8 p_intou20) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_34.sol:434:1: Warning: Function state mutability can be restricted to pure
+function bug_intou32(uint8 p_intou32) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_34.sol:458:1: Warning: Function state mutability can be restricted to pure
+function bug_intou4(uint8 p_intou4) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_34.sol:475:1: Warning: Function state mutability can be restricted to pure
+function bug_intou7() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_34.sol:486:1: Warning: Function state mutability can be restricted to pure
+function bug_intou23() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_34.sol:544:1: Warning: Function state mutability can be restricted to pure
+function bug_intou8(uint8 p_intou8) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_34.sol:565:1: Warning: Function state mutability can be restricted to pure
+function bug_intou39() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_34.sol:588:1: Warning: Function state mutability can be restricted to pure
+function bug_intou36(uint8 p_intou36) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_34.sol:629:1: Warning: Function state mutability can be restricted to pure
+function bug_intou35() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_34.sol:654:1: Warning: Function state mutability can be restricted to pure
+function bug_intou40(uint8 p_intou40) public{
+^ (Relevant source part starts here and spans across multiple lines).
+
+
+LollypopToken.calculateBonus(uint256,uint256) (Overflow-Underflow/integer_buggy_34.sol#261-269) performs a multiplication on the result of a division:
+	-totalDays = timeElasped.div(minAgeOfToken) (Overflow-Underflow/integer_buggy_34.sol#262)
+	-totalBonus = (totalDays * amount).div(perDayBonus) (Overflow-Underflow/integer_buggy_34.sol#266)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+
+Ownable.transfer_undrflow2(address,uint256) (Overflow-Underflow/integer_buggy_34.sol#26-31) contains a tautology or contradiction:
+	- require(bool)(balances_intou2[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_34.sol#27)
+LollypopToken.transfer_intou34(address,uint256) (Overflow-Underflow/integer_buggy_34.sol#175-180) contains a tautology or contradiction:
+	- require(bool)(balances_intou34[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_34.sol#176)
+LollypopToken.transfer_intou10(address,uint256) (Overflow-Underflow/integer_buggy_34.sol#197-202) contains a tautology or contradiction:
+	- require(bool)(balances_intou10[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_34.sol#198)
+LollypopToken.transfer_intou22(address,uint256) (Overflow-Underflow/integer_buggy_34.sol#206-211) contains a tautology or contradiction:
+	- require(bool)(balances_intou22[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_34.sol#207)
+LollypopToken.transfer_intou26(address,uint256) (Overflow-Underflow/integer_buggy_34.sol#362-367) contains a tautology or contradiction:
+	- require(bool)(balances_intou26[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_34.sol#363)
+LollypopToken.transfer_intou38(address,uint256) (Overflow-Underflow/integer_buggy_34.sol#447-452) contains a tautology or contradiction:
+	- require(bool)(balances_intou38[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_34.sol#448)
+LollypopToken.transfer_intou14(address,uint256) (Overflow-Underflow/integer_buggy_34.sol#500-505) contains a tautology or contradiction:
+	- require(bool)(balances_intou14[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_34.sol#501)
+LollypopToken.transfer_intou30(address,uint256) (Overflow-Underflow/integer_buggy_34.sol#520-525) contains a tautology or contradiction:
+	- require(bool)(balances_intou30[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_34.sol#521)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#tautology-or-contradiction
+
+LollypopToken.allowance(address,address).owner (Overflow-Underflow/integer_buggy_34.sol#495) shadows:
+	- Ownable.owner (Overflow-Underflow/integer_buggy_34.sol#13) (state variable)
+LollypopToken._approve(address,address,uint256).owner (Overflow-Underflow/integer_buggy_34.sol#647) shadows:
+	- Ownable.owner (Overflow-Underflow/integer_buggy_34.sol#13) (state variable)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#local-variable-shadowing
+
+Ownable.transferOwnership(address) (Overflow-Underflow/integer_buggy_34.sol#38-40) should emit an event for: 
+	- owner = _newOwner (Overflow-Underflow/integer_buggy_34.sol#39) 
+	- owner = _newOwner (Overflow-Underflow/integer_buggy_34.sol#39) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+Ownable.transferOwnership(address)._newOwner (Overflow-Underflow/integer_buggy_34.sol#38) lacks a zero-check on :
+		- owner = _newOwner (Overflow-Underflow/integer_buggy_34.sol#39)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Ownable.withdraw_intou17() (Overflow-Underflow/integer_buggy_34.sol#46-50) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou17[msg.sender]) (Overflow-Underflow/integer_buggy_34.sol#47)
+LollypopToken.withdraw_intou5() (Overflow-Underflow/integer_buggy_34.sol#155-159) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou5[msg.sender]) (Overflow-Underflow/integer_buggy_34.sol#156)
+LollypopToken.withdraw_intou21() (Overflow-Underflow/integer_buggy_34.sol#189-193) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou21[msg.sender]) (Overflow-Underflow/integer_buggy_34.sol#190)
+LollypopToken.withdraw_ovrflow1() (Overflow-Underflow/integer_buggy_34.sol#229-233) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou1[msg.sender]) (Overflow-Underflow/integer_buggy_34.sol#230)
+LollypopToken.withdraw_intou37() (Overflow-Underflow/integer_buggy_34.sol#255-259) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou37[msg.sender]) (Overflow-Underflow/integer_buggy_34.sol#256)
+LollypopToken.calculateBonus(uint256,uint256) (Overflow-Underflow/integer_buggy_34.sol#261-269) uses timestamp for comparisons
+	Dangerous comparisons:
+	- totalDays > maxAgeOfToken (Overflow-Underflow/integer_buggy_34.sol#263)
+LollypopToken._transfer(address,address,uint256) (Overflow-Underflow/integer_buggy_34.sol#276-303) uses timestamp for comparisons
+	Dangerous comparisons:
+	- senderTimeElasped >= minAgeOfToken && (_totalSupply < _maxTotalSupply) (Overflow-Underflow/integer_buggy_34.sol#283)
+	- recipientTimeElasped >= minAgeOfToken && (_totalSupply < _maxTotalSupply) && sender != recipient (Overflow-Underflow/integer_buggy_34.sol#288)
+LollypopToken.withdraw_intou9() (Overflow-Underflow/integer_buggy_34.sol#309-313) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou9[msg.sender]) (Overflow-Underflow/integer_buggy_34.sol#310)
+LollypopToken.withdraw_intou25() (Overflow-Underflow/integer_buggy_34.sol#327-331) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou25[msg.sender]) (Overflow-Underflow/integer_buggy_34.sol#328)
+LollypopToken.withdraw_intou13() (Overflow-Underflow/integer_buggy_34.sol#395-399) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou13[msg.sender]) (Overflow-Underflow/integer_buggy_34.sol#396)
+LollypopToken.withdraw_intou33() (Overflow-Underflow/integer_buggy_34.sol#674-678) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou33[msg.sender]) (Overflow-Underflow/integer_buggy_34.sol#675)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+LollypopToken.mint(address,uint256) (Overflow-Underflow/integer_buggy_34.sol#414-420) has costly operations inside a loop:
+	- _totalSupply = _totalSupply.add(amount) (Overflow-Underflow/integer_buggy_34.sol#417)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#costly-operations-inside-a-loop
+
+LollypopToken._burn(address,uint256) (Overflow-Underflow/integer_buggy_34.sol#622-628) is never used and should be removed
+LollypopToken._burnFrom(address,uint256) (Overflow-Underflow/integer_buggy_34.sol#665-668) is never used and should be removed
+SafeMath.mod(uint256,uint256) (Overflow-Underflow/integer_buggy_34.sol#141-144) is never used and should be removed
+SafeMath.mul(uint256,uint256) (Overflow-Underflow/integer_buggy_34.sol#96-108) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version>=0.5.12 (Overflow-Underflow/integer_buggy_34.sol#5) allows old versions
+solc-0.5.12 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function Ownable.bug_intou24(uint8) (Overflow-Underflow/integer_buggy_34.sol#9-12) is not in mixedCase
+Parameter Ownable.bug_intou24(uint8).p_intou24 (Overflow-Underflow/integer_buggy_34.sol#9) is not in mixedCase
+Function Ownable.bug_intou27() (Overflow-Underflow/integer_buggy_34.sol#15-18) is not in mixedCase
+Function Ownable.transfer_undrflow2(address,uint256) (Overflow-Underflow/integer_buggy_34.sol#26-31) is not in mixedCase
+Parameter Ownable.transfer_undrflow2(address,uint256)._to (Overflow-Underflow/integer_buggy_34.sol#26) is not in mixedCase
+Parameter Ownable.transfer_undrflow2(address,uint256)._value (Overflow-Underflow/integer_buggy_34.sol#26) is not in mixedCase
+Parameter Ownable.transferOwnership(address)._newOwner (Overflow-Underflow/integer_buggy_34.sol#38) is not in mixedCase
+Function Ownable.increaseLockTime_intou17(uint256) (Overflow-Underflow/integer_buggy_34.sol#43-45) is not in mixedCase
+Parameter Ownable.increaseLockTime_intou17(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_34.sol#43) is not in mixedCase
+Function Ownable.withdraw_intou17() (Overflow-Underflow/integer_buggy_34.sol#46-50) is not in mixedCase
+Variable Ownable.balances_intou2 (Overflow-Underflow/integer_buggy_34.sol#24) is not in mixedCase
+Variable Ownable.lockTime_intou17 (Overflow-Underflow/integer_buggy_34.sol#41) is not in mixedCase
+Struct LollypopToken.transferMapping (Overflow-Underflow/integer_buggy_34.sol#236-239) is not in CapWords
+Function LollypopToken.increaseLockTime_intou5(uint256) (Overflow-Underflow/integer_buggy_34.sol#152-154) is not in mixedCase
+Parameter LollypopToken.increaseLockTime_intou5(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_34.sol#152) is not in mixedCase
+Function LollypopToken.withdraw_intou5() (Overflow-Underflow/integer_buggy_34.sol#155-159) is not in mixedCase
+Function LollypopToken.bug_intou15() (Overflow-Underflow/integer_buggy_34.sol#162-165) is not in mixedCase
+Function LollypopToken.bug_intou28(uint8) (Overflow-Underflow/integer_buggy_34.sol#168-171) is not in mixedCase
+Parameter LollypopToken.bug_intou28(uint8).p_intou28 (Overflow-Underflow/integer_buggy_34.sol#168) is not in mixedCase
+Function LollypopToken.transfer_intou34(address,uint256) (Overflow-Underflow/integer_buggy_34.sol#175-180) is not in mixedCase
+Parameter LollypopToken.transfer_intou34(address,uint256)._to (Overflow-Underflow/integer_buggy_34.sol#175) is not in mixedCase
+Parameter LollypopToken.transfer_intou34(address,uint256)._value (Overflow-Underflow/integer_buggy_34.sol#175) is not in mixedCase
+Function LollypopToken.increaseLockTime_intou21(uint256) (Overflow-Underflow/integer_buggy_34.sol#186-188) is not in mixedCase
+Parameter LollypopToken.increaseLockTime_intou21(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_34.sol#186) is not in mixedCase
+Function LollypopToken.withdraw_intou21() (Overflow-Underflow/integer_buggy_34.sol#189-193) is not in mixedCase
+Function LollypopToken.transfer_intou10(address,uint256) (Overflow-Underflow/integer_buggy_34.sol#197-202) is not in mixedCase
+Parameter LollypopToken.transfer_intou10(address,uint256)._to (Overflow-Underflow/integer_buggy_34.sol#197) is not in mixedCase
+Parameter LollypopToken.transfer_intou10(address,uint256)._value (Overflow-Underflow/integer_buggy_34.sol#197) is not in mixedCase
+Function LollypopToken.transfer_intou22(address,uint256) (Overflow-Underflow/integer_buggy_34.sol#206-211) is not in mixedCase
+Parameter LollypopToken.transfer_intou22(address,uint256)._to (Overflow-Underflow/integer_buggy_34.sol#206) is not in mixedCase
+Parameter LollypopToken.transfer_intou22(address,uint256)._value (Overflow-Underflow/integer_buggy_34.sol#206) is not in mixedCase
+Function LollypopToken.bug_intou12(uint8) (Overflow-Underflow/integer_buggy_34.sol#214-217) is not in mixedCase
+Parameter LollypopToken.bug_intou12(uint8).p_intou12 (Overflow-Underflow/integer_buggy_34.sol#214) is not in mixedCase
+Function LollypopToken.bug_intou11() (Overflow-Underflow/integer_buggy_34.sol#219-222) is not in mixedCase
+Function LollypopToken.increaseLockTime_intou1(uint256) (Overflow-Underflow/integer_buggy_34.sol#226-228) is not in mixedCase
+Parameter LollypopToken.increaseLockTime_intou1(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_34.sol#226) is not in mixedCase
+Function LollypopToken.withdraw_ovrflow1() (Overflow-Underflow/integer_buggy_34.sol#229-233) is not in mixedCase
+Function LollypopToken.increaseLockTime_intou37(uint256) (Overflow-Underflow/integer_buggy_34.sol#252-254) is not in mixedCase
+Parameter LollypopToken.increaseLockTime_intou37(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_34.sol#252) is not in mixedCase
+Function LollypopToken.withdraw_intou37() (Overflow-Underflow/integer_buggy_34.sol#255-259) is not in mixedCase
+Function LollypopToken.bug_intou3() (Overflow-Underflow/integer_buggy_34.sol#270-273) is not in mixedCase
+Function LollypopToken.increaseLockTime_intou9(uint256) (Overflow-Underflow/integer_buggy_34.sol#306-308) is not in mixedCase
+Parameter LollypopToken.increaseLockTime_intou9(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_34.sol#306) is not in mixedCase
+Function LollypopToken.withdraw_intou9() (Overflow-Underflow/integer_buggy_34.sol#309-313) is not in mixedCase
+Function LollypopToken.increaseLockTime_intou25(uint256) (Overflow-Underflow/integer_buggy_34.sol#324-326) is not in mixedCase
+Parameter LollypopToken.increaseLockTime_intou25(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_34.sol#324) is not in mixedCase
+Function LollypopToken.withdraw_intou25() (Overflow-Underflow/integer_buggy_34.sol#327-331) is not in mixedCase
+Function LollypopToken.bug_intou19() (Overflow-Underflow/integer_buggy_34.sol#340-343) is not in mixedCase
+Function LollypopToken.transfer_intou26(address,uint256) (Overflow-Underflow/integer_buggy_34.sol#362-367) is not in mixedCase
+Parameter LollypopToken.transfer_intou26(address,uint256)._to (Overflow-Underflow/integer_buggy_34.sol#362) is not in mixedCase
+Parameter LollypopToken.transfer_intou26(address,uint256)._value (Overflow-Underflow/integer_buggy_34.sol#362) is not in mixedCase
+Function LollypopToken.bug_intou31() (Overflow-Underflow/integer_buggy_34.sol#380-383) is not in mixedCase
+Function LollypopToken.increaseLockTime_intou13(uint256) (Overflow-Underflow/integer_buggy_34.sol#392-394) is not in mixedCase
+Parameter LollypopToken.increaseLockTime_intou13(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_34.sol#392) is not in mixedCase
+Function LollypopToken.withdraw_intou13() (Overflow-Underflow/integer_buggy_34.sol#395-399) is not in mixedCase
+Function LollypopToken.bug_intou20(uint8) (Overflow-Underflow/integer_buggy_34.sol#421-424) is not in mixedCase
+Parameter LollypopToken.bug_intou20(uint8).p_intou20 (Overflow-Underflow/integer_buggy_34.sol#421) is not in mixedCase
+Function LollypopToken.bug_intou32(uint8) (Overflow-Underflow/integer_buggy_34.sol#434-437) is not in mixedCase
+Parameter LollypopToken.bug_intou32(uint8).p_intou32 (Overflow-Underflow/integer_buggy_34.sol#434) is not in mixedCase
+Function LollypopToken.transfer_intou38(address,uint256) (Overflow-Underflow/integer_buggy_34.sol#447-452) is not in mixedCase
+Parameter LollypopToken.transfer_intou38(address,uint256)._to (Overflow-Underflow/integer_buggy_34.sol#447) is not in mixedCase
+Parameter LollypopToken.transfer_intou38(address,uint256)._value (Overflow-Underflow/integer_buggy_34.sol#447) is not in mixedCase
+Function LollypopToken.bug_intou4(uint8) (Overflow-Underflow/integer_buggy_34.sol#458-461) is not in mixedCase
+Parameter LollypopToken.bug_intou4(uint8).p_intou4 (Overflow-Underflow/integer_buggy_34.sol#458) is not in mixedCase
+Function LollypopToken.bug_intou7() (Overflow-Underflow/integer_buggy_34.sol#475-478) is not in mixedCase
+Function LollypopToken.bug_intou23() (Overflow-Underflow/integer_buggy_34.sol#486-489) is not in mixedCase
+Function LollypopToken.transfer_intou14(address,uint256) (Overflow-Underflow/integer_buggy_34.sol#500-505) is not in mixedCase
+Parameter LollypopToken.transfer_intou14(address,uint256)._to (Overflow-Underflow/integer_buggy_34.sol#500) is not in mixedCase
+Parameter LollypopToken.transfer_intou14(address,uint256)._value (Overflow-Underflow/integer_buggy_34.sol#500) is not in mixedCase
+Function LollypopToken.transfer_intou30(address,uint256) (Overflow-Underflow/integer_buggy_34.sol#520-525) is not in mixedCase
+Parameter LollypopToken.transfer_intou30(address,uint256)._to (Overflow-Underflow/integer_buggy_34.sol#520) is not in mixedCase
+Parameter LollypopToken.transfer_intou30(address,uint256)._value (Overflow-Underflow/integer_buggy_34.sol#520) is not in mixedCase
+Function LollypopToken.bug_intou8(uint8) (Overflow-Underflow/integer_buggy_34.sol#544-547) is not in mixedCase
+Parameter LollypopToken.bug_intou8(uint8).p_intou8 (Overflow-Underflow/integer_buggy_34.sol#544) is not in mixedCase
+Function LollypopToken.bug_intou39() (Overflow-Underflow/integer_buggy_34.sol#565-568) is not in mixedCase
+Function LollypopToken.bug_intou36(uint8) (Overflow-Underflow/integer_buggy_34.sol#588-591) is not in mixedCase
+Parameter LollypopToken.bug_intou36(uint8).p_intou36 (Overflow-Underflow/integer_buggy_34.sol#588) is not in mixedCase
+Function LollypopToken.bug_intou35() (Overflow-Underflow/integer_buggy_34.sol#629-632) is not in mixedCase
+Function LollypopToken.bug_intou40(uint8) (Overflow-Underflow/integer_buggy_34.sol#654-657) is not in mixedCase
+Parameter LollypopToken.bug_intou40(uint8).p_intou40 (Overflow-Underflow/integer_buggy_34.sol#654) is not in mixedCase
+Function LollypopToken.increaseLockTime_intou33(uint256) (Overflow-Underflow/integer_buggy_34.sol#671-673) is not in mixedCase
+Parameter LollypopToken.increaseLockTime_intou33(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_34.sol#671) is not in mixedCase
+Function LollypopToken.withdraw_intou33() (Overflow-Underflow/integer_buggy_34.sol#674-678) is not in mixedCase
+Variable LollypopToken.lockTime_intou5 (Overflow-Underflow/integer_buggy_34.sol#150) is not in mixedCase
+Variable LollypopToken.balances_intou34 (Overflow-Underflow/integer_buggy_34.sol#173) is not in mixedCase
+Variable LollypopToken._maxTotalSupply (Overflow-Underflow/integer_buggy_34.sol#181) is not in mixedCase
+Variable LollypopToken.lockTime_intou21 (Overflow-Underflow/integer_buggy_34.sol#184) is not in mixedCase
+Variable LollypopToken.balances_intou10 (Overflow-Underflow/integer_buggy_34.sol#195) is not in mixedCase
+Variable LollypopToken.balances_intou22 (Overflow-Underflow/integer_buggy_34.sol#204) is not in mixedCase
+Variable LollypopToken.lockTime_intou1 (Overflow-Underflow/integer_buggy_34.sol#224) is not in mixedCase
+Variable LollypopToken.lockTime_intou37 (Overflow-Underflow/integer_buggy_34.sol#250) is not in mixedCase
+Variable LollypopToken.lockTime_intou9 (Overflow-Underflow/integer_buggy_34.sol#304) is not in mixedCase
+Variable LollypopToken.lockTime_intou25 (Overflow-Underflow/integer_buggy_34.sol#322) is not in mixedCase
+Variable LollypopToken.balances_intou26 (Overflow-Underflow/integer_buggy_34.sol#360) is not in mixedCase
+Variable LollypopToken.lockTime_intou13 (Overflow-Underflow/integer_buggy_34.sol#390) is not in mixedCase
+Variable LollypopToken.balances_intou38 (Overflow-Underflow/integer_buggy_34.sol#445) is not in mixedCase
+Variable LollypopToken.balances_intou14 (Overflow-Underflow/integer_buggy_34.sol#498) is not in mixedCase
+Variable LollypopToken.balances_intou30 (Overflow-Underflow/integer_buggy_34.sol#518) is not in mixedCase
+Variable LollypopToken.lockTime_intou33 (Overflow-Underflow/integer_buggy_34.sol#669) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable LollypopToken.balances_intou10 (Overflow-Underflow/integer_buggy_34.sol#195) is too similar to LollypopToken.balances_intou14 (Overflow-Underflow/integer_buggy_34.sol#498)
+Variable LollypopToken.balances_intou10 (Overflow-Underflow/integer_buggy_34.sol#195) is too similar to LollypopToken.balances_intou30 (Overflow-Underflow/integer_buggy_34.sol#518)
+Variable LollypopToken.balances_intou22 (Overflow-Underflow/integer_buggy_34.sol#204) is too similar to LollypopToken.balances_intou26 (Overflow-Underflow/integer_buggy_34.sol#360)
+Variable LollypopToken.balances_intou30 (Overflow-Underflow/integer_buggy_34.sol#518) is too similar to LollypopToken.balances_intou38 (Overflow-Underflow/integer_buggy_34.sol#445)
+Variable LollypopToken.balances_intou14 (Overflow-Underflow/integer_buggy_34.sol#498) is too similar to LollypopToken.balances_intou34 (Overflow-Underflow/integer_buggy_34.sol#173)
+Variable LollypopToken.balances_intou30 (Overflow-Underflow/integer_buggy_34.sol#518) is too similar to LollypopToken.balances_intou34 (Overflow-Underflow/integer_buggy_34.sol#173)
+Variable LollypopToken.balances_intou34 (Overflow-Underflow/integer_buggy_34.sol#173) is too similar to LollypopToken.balances_intou38 (Overflow-Underflow/integer_buggy_34.sol#445)
+Variable LollypopToken.lockTime_intou1 (Overflow-Underflow/integer_buggy_34.sol#224) is too similar to LollypopToken.lockTime_intou5 (Overflow-Underflow/integer_buggy_34.sol#150)
+Variable LollypopToken.lockTime_intou13 (Overflow-Underflow/integer_buggy_34.sol#390) is too similar to LollypopToken.lockTime_intou37 (Overflow-Underflow/integer_buggy_34.sol#250)
+Variable LollypopToken.lockTime_intou13 (Overflow-Underflow/integer_buggy_34.sol#390) is too similar to Ownable.lockTime_intou17 (Overflow-Underflow/integer_buggy_34.sol#41)
+Variable Ownable.lockTime_intou17 (Overflow-Underflow/integer_buggy_34.sol#41) is too similar to LollypopToken.lockTime_intou37 (Overflow-Underflow/integer_buggy_34.sol#250)
+Variable LollypopToken.lockTime_intou13 (Overflow-Underflow/integer_buggy_34.sol#390) is too similar to LollypopToken.lockTime_intou21 (Overflow-Underflow/integer_buggy_34.sol#184)
+Variable Ownable.lockTime_intou17 (Overflow-Underflow/integer_buggy_34.sol#41) is too similar to LollypopToken.lockTime_intou21 (Overflow-Underflow/integer_buggy_34.sol#184)
+Variable LollypopToken.lockTime_intou21 (Overflow-Underflow/integer_buggy_34.sol#184) is too similar to LollypopToken.lockTime_intou25 (Overflow-Underflow/integer_buggy_34.sol#322)
+Variable LollypopToken.lockTime_intou13 (Overflow-Underflow/integer_buggy_34.sol#390) is too similar to LollypopToken.lockTime_intou33 (Overflow-Underflow/integer_buggy_34.sol#669)
+Variable LollypopToken.lockTime_intou33 (Overflow-Underflow/integer_buggy_34.sol#669) is too similar to LollypopToken.lockTime_intou37 (Overflow-Underflow/integer_buggy_34.sol#250)
+Variable LollypopToken.lockTime_intou1 (Overflow-Underflow/integer_buggy_34.sol#224) is too similar to LollypopToken.lockTime_intou9 (Overflow-Underflow/integer_buggy_34.sol#304)
+Variable LollypopToken.lockTime_intou5 (Overflow-Underflow/integer_buggy_34.sol#150) is too similar to LollypopToken.lockTime_intou9 (Overflow-Underflow/integer_buggy_34.sol#304)
+Variable LollypopToken.withdraw_ovrflow1().transferValue_intou1 (Overflow-Underflow/integer_buggy_34.sol#231) is too similar to LollypopToken.withdraw_intou5().transferValue_intou5 (Overflow-Underflow/integer_buggy_34.sol#157)
+Variable LollypopToken.withdraw_ovrflow1().transferValue_intou1 (Overflow-Underflow/integer_buggy_34.sol#231) is too similar to LollypopToken.withdraw_intou9().transferValue_intou9 (Overflow-Underflow/integer_buggy_34.sol#311)
+Variable LollypopToken.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_34.sol#397) is too similar to Ownable.withdraw_intou17().transferValue_intou17 (Overflow-Underflow/integer_buggy_34.sol#48)
+Variable LollypopToken.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_34.sol#397) is too similar to LollypopToken.withdraw_intou21().transferValue_intou21 (Overflow-Underflow/integer_buggy_34.sol#191)
+Variable LollypopToken.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_34.sol#397) is too similar to LollypopToken.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_34.sol#329)
+Variable LollypopToken.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_34.sol#397) is too similar to LollypopToken.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_34.sol#676)
+Variable LollypopToken.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_34.sol#397) is too similar to LollypopToken.withdraw_intou37().transferValue_intou37 (Overflow-Underflow/integer_buggy_34.sol#257)
+Variable Ownable.withdraw_intou17().transferValue_intou17 (Overflow-Underflow/integer_buggy_34.sol#48) is too similar to LollypopToken.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_34.sol#676)
+Variable Ownable.withdraw_intou17().transferValue_intou17 (Overflow-Underflow/integer_buggy_34.sol#48) is too similar to LollypopToken.withdraw_intou21().transferValue_intou21 (Overflow-Underflow/integer_buggy_34.sol#191)
+Variable LollypopToken.withdraw_intou21().transferValue_intou21 (Overflow-Underflow/integer_buggy_34.sol#191) is too similar to LollypopToken.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_34.sol#329)
+Variable LollypopToken.withdraw_intou21().transferValue_intou21 (Overflow-Underflow/integer_buggy_34.sol#191) is too similar to LollypopToken.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_34.sol#676)
+Variable LollypopToken.withdraw_intou21().transferValue_intou21 (Overflow-Underflow/integer_buggy_34.sol#191) is too similar to LollypopToken.withdraw_intou37().transferValue_intou37 (Overflow-Underflow/integer_buggy_34.sol#257)
+Variable Ownable.withdraw_intou17().transferValue_intou17 (Overflow-Underflow/integer_buggy_34.sol#48) is too similar to LollypopToken.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_34.sol#329)
+Variable LollypopToken.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_34.sol#329) is too similar to LollypopToken.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_34.sol#676)
+Variable Ownable.withdraw_intou17().transferValue_intou17 (Overflow-Underflow/integer_buggy_34.sol#48) is too similar to LollypopToken.withdraw_intou37().transferValue_intou37 (Overflow-Underflow/integer_buggy_34.sol#257)
+Variable LollypopToken.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_34.sol#329) is too similar to LollypopToken.withdraw_intou37().transferValue_intou37 (Overflow-Underflow/integer_buggy_34.sol#257)
+Variable LollypopToken.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_34.sol#676) is too similar to LollypopToken.withdraw_intou37().transferValue_intou37 (Overflow-Underflow/integer_buggy_34.sol#257)
+Variable LollypopToken.withdraw_intou5().transferValue_intou5 (Overflow-Underflow/integer_buggy_34.sol#157) is too similar to LollypopToken.withdraw_intou9().transferValue_intou9 (Overflow-Underflow/integer_buggy_34.sol#311)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+LollypopToken.constructor() (Overflow-Underflow/integer_buggy_34.sol#242-249) uses literals with too many digits:
+	- _maxTotalSupply = 1000000000 * 10 ** 18 (Overflow-Underflow/integer_buggy_34.sol#243)
+LollypopToken.constructor() (Overflow-Underflow/integer_buggy_34.sol#242-249) uses literals with too many digits:
+	- _totalSupply = 2000000 * 10 ** 18 (Overflow-Underflow/integer_buggy_34.sol#244)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+LollypopToken._decimals (Overflow-Underflow/integer_buggy_34.sol#212) should be constant
+LollypopToken._name (Overflow-Underflow/integer_buggy_34.sol#194) should be constant
+LollypopToken._symbol (Overflow-Underflow/integer_buggy_34.sol#203) should be constant
+LollypopToken.maxAgeOfToken (Overflow-Underflow/integer_buggy_34.sol#218) should be constant
+LollypopToken.minAgeOfToken (Overflow-Underflow/integer_buggy_34.sol#223) should be constant
+LollypopToken.perDayBonus (Overflow-Underflow/integer_buggy_34.sol#234) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+multiTransfer(address[],uint256[]) should be declared external:
+	- LollypopToken.multiTransfer(address[],uint256[]) (Overflow-Underflow/integer_buggy_34.sol#480-485)
+Moreover, the following function parameters should change its data location:
+receivers location should be calldata
+amounts location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+Overflow-Underflow/integer_buggy_34.sol analyzed (3 contracts with 80 detectors), 175 result(s) found

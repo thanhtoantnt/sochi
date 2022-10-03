@@ -1,0 +1,110 @@
+Compilation warnings/errors on Overflow-Underflow/integer_buggy_31.sol:
+Overflow-Underflow/integer_buggy_31.sol:105:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou31() public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_31.sol:156:1: Warning: Function state mutability can be restricted to pure
+function bug_intou8(uint8 p_intou8) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_31.sol:168:1: Warning: Function state mutability can be restricted to pure
+function bug_intou39() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_31.sol:181:1: Warning: Function state mutability can be restricted to pure
+function bug_intou36(uint8 p_intou36) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_31.sol:201:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou4(uint8 p_intou4) public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_31.sol:212:1: Warning: Function state mutability can be restricted to pure
+function bug_intou35() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_31.sol:234:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou7() public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_31.sol:239:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou23() public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_31.sol:261:1: Warning: Function state mutability can be restricted to pure
+function bug_intou40(uint8 p_intou40) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_31.sol:301:1: Warning: Function state mutability can be restricted to pure
+function bug_intou27() public{
+^ (Relevant source part starts here and spans across multiple lines).
+
+
+FeeTransactionManager.execute(address,uint256,uint256,bytes) (Overflow-Underflow/integer_buggy_31.sol#266-284) uses tx.origin for authorization: require(bool,string)(tx.origin == relayer,Invalid transaction origin) (Overflow-Underflow/integer_buggy_31.sol#272)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-usage-of-txorigin
+
+Ownable.transfer_intou38(address,uint256) (Overflow-Underflow/integer_buggy_31.sol#97-102) contains a tautology or contradiction:
+	- require(bool)(balances_intou38[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_31.sol#98)
+Ownable.transfer_intou14(address,uint256) (Overflow-Underflow/integer_buggy_31.sol#120-125) contains a tautology or contradiction:
+	- require(bool)(balances_intou14[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_31.sol#121)
+Ownable.transfer_intou30(address,uint256) (Overflow-Underflow/integer_buggy_31.sol#135-140) contains a tautology or contradiction:
+	- require(bool)(balances_intou30[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_31.sol#136)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#tautology-or-contradiction
+
+FeeTransactionManager.constructor(address,address)._relayer (Overflow-Underflow/integer_buggy_31.sol#257) lacks a zero-check on :
+		- relayer = _relayer (Overflow-Underflow/integer_buggy_31.sol#258)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+FeeTransactionManager.withdraw_intou13() (Overflow-Underflow/integer_buggy_31.sol#250-254) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou13[msg.sender]) (Overflow-Underflow/integer_buggy_31.sol#251)
+FeeTransactionManager.withdraw_intou33() (Overflow-Underflow/integer_buggy_31.sol#290-294) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou33[msg.sender]) (Overflow-Underflow/integer_buggy_31.sol#291)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+ECDSA.recover(bytes32,bytes) (Overflow-Underflow/integer_buggy_31.sol#42-81) uses assembly
+	- INLINE ASM (Overflow-Underflow/integer_buggy_31.sol#56-60)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#assembly-usage
+
+Pragma version>=0.5.12 (Overflow-Underflow/integer_buggy_31.sol#6) allows old versions
+solc-0.5.12 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function Ownable.transfer_intou38(address,uint256) (Overflow-Underflow/integer_buggy_31.sol#97-102) is not in mixedCase
+Parameter Ownable.transfer_intou38(address,uint256)._to (Overflow-Underflow/integer_buggy_31.sol#97) is not in mixedCase
+Parameter Ownable.transfer_intou38(address,uint256)._value (Overflow-Underflow/integer_buggy_31.sol#97) is not in mixedCase
+Function Ownable.bug_intou31() (Overflow-Underflow/integer_buggy_31.sol#105-108) is not in mixedCase
+Function Ownable.transfer_intou14(address,uint256) (Overflow-Underflow/integer_buggy_31.sol#120-125) is not in mixedCase
+Parameter Ownable.transfer_intou14(address,uint256)._to (Overflow-Underflow/integer_buggy_31.sol#120) is not in mixedCase
+Parameter Ownable.transfer_intou14(address,uint256)._value (Overflow-Underflow/integer_buggy_31.sol#120) is not in mixedCase
+Function Ownable.transfer_intou30(address,uint256) (Overflow-Underflow/integer_buggy_31.sol#135-140) is not in mixedCase
+Parameter Ownable.transfer_intou30(address,uint256)._to (Overflow-Underflow/integer_buggy_31.sol#135) is not in mixedCase
+Parameter Ownable.transfer_intou30(address,uint256)._value (Overflow-Underflow/integer_buggy_31.sol#135) is not in mixedCase
+Function Ownable.bug_intou8(uint8) (Overflow-Underflow/integer_buggy_31.sol#156-159) is not in mixedCase
+Parameter Ownable.bug_intou8(uint8).p_intou8 (Overflow-Underflow/integer_buggy_31.sol#156) is not in mixedCase
+Function Ownable.bug_intou39() (Overflow-Underflow/integer_buggy_31.sol#168-171) is not in mixedCase
+Function Ownable.bug_intou36(uint8) (Overflow-Underflow/integer_buggy_31.sol#181-184) is not in mixedCase
+Parameter Ownable.bug_intou36(uint8).p_intou36 (Overflow-Underflow/integer_buggy_31.sol#181) is not in mixedCase
+Variable Ownable.balances_intou38 (Overflow-Underflow/integer_buggy_31.sol#95) is not in mixedCase
+Variable Ownable.balances_intou14 (Overflow-Underflow/integer_buggy_31.sol#118) is not in mixedCase
+Variable Ownable.balances_intou30 (Overflow-Underflow/integer_buggy_31.sol#133) is not in mixedCase
+Function ReentrancyGuard.bug_intou4(uint8) (Overflow-Underflow/integer_buggy_31.sol#201-204) is not in mixedCase
+Parameter ReentrancyGuard.bug_intou4(uint8).p_intou4 (Overflow-Underflow/integer_buggy_31.sol#201) is not in mixedCase
+Function ReentrancyGuard.bug_intou35() (Overflow-Underflow/integer_buggy_31.sol#212-215) is not in mixedCase
+Function FeeTransactionManager.bug_intou7() (Overflow-Underflow/integer_buggy_31.sol#234-237) is not in mixedCase
+Function FeeTransactionManager.bug_intou23() (Overflow-Underflow/integer_buggy_31.sol#239-242) is not in mixedCase
+Function FeeTransactionManager.increaseLockTime_intou13(uint256) (Overflow-Underflow/integer_buggy_31.sol#247-249) is not in mixedCase
+Parameter FeeTransactionManager.increaseLockTime_intou13(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_31.sol#247) is not in mixedCase
+Function FeeTransactionManager.withdraw_intou13() (Overflow-Underflow/integer_buggy_31.sol#250-254) is not in mixedCase
+Function FeeTransactionManager.bug_intou40(uint8) (Overflow-Underflow/integer_buggy_31.sol#261-264) is not in mixedCase
+Parameter FeeTransactionManager.bug_intou40(uint8).p_intou40 (Overflow-Underflow/integer_buggy_31.sol#261) is not in mixedCase
+Parameter FeeTransactionManager.execute(address,uint256,uint256,bytes)._to (Overflow-Underflow/integer_buggy_31.sol#267) is not in mixedCase
+Parameter FeeTransactionManager.execute(address,uint256,uint256,bytes)._value (Overflow-Underflow/integer_buggy_31.sol#268) is not in mixedCase
+Parameter FeeTransactionManager.execute(address,uint256,uint256,bytes)._fee (Overflow-Underflow/integer_buggy_31.sol#269) is not in mixedCase
+Parameter FeeTransactionManager.execute(address,uint256,uint256,bytes)._signature (Overflow-Underflow/integer_buggy_31.sol#270) is not in mixedCase
+Function FeeTransactionManager.increaseLockTime_intou33(uint256) (Overflow-Underflow/integer_buggy_31.sol#287-289) is not in mixedCase
+Parameter FeeTransactionManager.increaseLockTime_intou33(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_31.sol#287) is not in mixedCase
+Function FeeTransactionManager.withdraw_intou33() (Overflow-Underflow/integer_buggy_31.sol#290-294) is not in mixedCase
+Parameter FeeTransactionManager.setRelayer(address)._newRelayer (Overflow-Underflow/integer_buggy_31.sol#296) is not in mixedCase
+Function FeeTransactionManager.bug_intou27() (Overflow-Underflow/integer_buggy_31.sol#301-304) is not in mixedCase
+Variable FeeTransactionManager.lockTime_intou13 (Overflow-Underflow/integer_buggy_31.sol#245) is not in mixedCase
+Variable FeeTransactionManager.lockTime_intou33 (Overflow-Underflow/integer_buggy_31.sol#285) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable Ownable.balances_intou30 (Overflow-Underflow/integer_buggy_31.sol#133) is too similar to Ownable.balances_intou38 (Overflow-Underflow/integer_buggy_31.sol#95)
+Variable FeeTransactionManager.lockTime_intou13 (Overflow-Underflow/integer_buggy_31.sol#245) is too similar to FeeTransactionManager.lockTime_intou33 (Overflow-Underflow/integer_buggy_31.sol#285)
+Variable FeeTransactionManager.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_31.sol#252) is too similar to FeeTransactionManager.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_31.sol#292)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+Overflow-Underflow/integer_buggy_31.sol analyzed (6 contracts with 80 detectors), 52 result(s) found

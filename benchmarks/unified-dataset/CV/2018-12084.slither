@@ -1,0 +1,35 @@
+
+BitAseanToken (CV/2018-12084.sol#100-154) has incorrect ERC20 function interface:token.transfer(address,uint256) (CV/2018-12084.sol#57-63)
+BitAseanToken (CV/2018-12084.sol#100-154) has incorrect ERC20 function interface:BitAseanToken.transfer(address,uint256) (CV/2018-12084.sol#117-124)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-erc20-interface
+
+Pragma version^0.4.13 (CV/2018-12084.sol#5) allows old versions
+solc-0.4.13 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Contract owned (CV/2018-12084.sol#7-19) is not in CapWords
+Contract tokenRecipient (CV/2018-12084.sol#21-25) is not in CapWords
+Contract token (CV/2018-12084.sol#27-98) is not in CapWords
+Parameter token.transfer(address,uint256)._to (CV/2018-12084.sol#57) is not in mixedCase
+Parameter token.transfer(address,uint256)._value (CV/2018-12084.sol#57) is not in mixedCase
+Parameter token.approve(address,uint256)._spender (CV/2018-12084.sol#66) is not in mixedCase
+Parameter token.approve(address,uint256)._value (CV/2018-12084.sol#66) is not in mixedCase
+Parameter token.approveAndCall(address,uint256,bytes)._spender (CV/2018-12084.sol#73) is not in mixedCase
+Parameter token.approveAndCall(address,uint256,bytes)._value (CV/2018-12084.sol#73) is not in mixedCase
+Parameter token.approveAndCall(address,uint256,bytes)._extraData (CV/2018-12084.sol#73) is not in mixedCase
+Parameter token.transferFrom(address,address,uint256)._from (CV/2018-12084.sol#83) is not in mixedCase
+Parameter token.transferFrom(address,address,uint256)._to (CV/2018-12084.sol#83) is not in mixedCase
+Parameter token.transferFrom(address,address,uint256)._value (CV/2018-12084.sol#83) is not in mixedCase
+Parameter BitAseanToken.transfer(address,uint256)._to (CV/2018-12084.sol#117) is not in mixedCase
+Parameter BitAseanToken.transfer(address,uint256)._value (CV/2018-12084.sol#117) is not in mixedCase
+Parameter BitAseanToken.transferFrom(address,address,uint256)._from (CV/2018-12084.sol#128) is not in mixedCase
+Parameter BitAseanToken.transferFrom(address,address,uint256)._to (CV/2018-12084.sol#128) is not in mixedCase
+Parameter BitAseanToken.transferFrom(address,address,uint256)._value (CV/2018-12084.sol#128) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+receiveApproval(address,uint256,address,bytes) should be declared external:
+	- tokenRecipient.receiveApproval(address,uint256,address,bytes) (CV/2018-12084.sol#23)
+approveAndCall(address,uint256,bytes) should be declared external:
+	- token.approveAndCall(address,uint256,bytes) (CV/2018-12084.sol#73-80)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+CV/2018-12084.sol analyzed (4 contracts with 80 detectors), 24 result(s) found

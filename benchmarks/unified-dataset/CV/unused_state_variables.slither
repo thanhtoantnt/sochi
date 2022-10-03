@@ -1,0 +1,42 @@
+Compilation warnings/errors on CV/unused_state_variables.sol:
+CV/base.sol:3:1: Warning: Experimental features are turned on. Do not use experimental features on live deployments.
+pragma experimental ABIEncoderV2;
+^-------------------------------^
+CV/unused_state_variables.sol:3:1: Warning: Experimental features are turned on. Do not use experimental features on live deployments.
+pragma experimental ABIEncoderV2;
+^-------------------------------^
+CV/unused_state_variables.sol:17:5: Warning: Function state mutability can be restricted to view
+    function assign3(A memory x) public returns (uint) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+CV/unused_state_variables.sol:21:5: Warning: Function state mutability can be restricted to view
+    function ret() public returns (int){
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+
+DerivedA.call(int256).a (CV/unused_state_variables.sol#13) shadows:
+	- Base.a (CV/base.sol#7) (state variable)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#local-variable-shadowing
+
+Pragma version>=0.5.0 (CV/base.sol#2) allows old versions
+Pragma version>=0.5.0 (CV/unused_state_variables.sol#2) allows old versions
+solc-0.5.0 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Base.c (CV/base.sol#11) is never used in DerivedA (CV/unused_state_variables.sol#7-27)
+Base.d (CV/base.sol#12) is never used in DerivedA (CV/unused_state_variables.sol#7-27)
+DerivedA.i (CV/unused_state_variables.sol#9) is never used in DerivedA (CV/unused_state_variables.sol#7-27)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+
+Base.a (CV/base.sol#7) should be constant
+Base.b (CV/base.sol#8) should be constant
+Base.c (CV/base.sol#11) should be constant
+Base.d (CV/base.sol#12) should be constant
+DerivedA.j (CV/unused_state_variables.sol#11) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+assign3(Base.A) should be declared external:
+	- DerivedA.assign3(Base.A) (CV/unused_state_variables.sol#17-19)
+Moreover, the following function parameters should change its data location:
+x location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+CV/unused_state_variables.sol analyzed (2 contracts with 80 detectors), 13 result(s) found

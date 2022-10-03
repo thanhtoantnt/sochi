@@ -1,0 +1,265 @@
+
+UBBCToken.buyTicket_re_ent37() (Re-entrancy/reentrancy_buggy_26.sol#65-70) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent37.send(jackpot_re_ent37)) (Re-entrancy/reentrancy_buggy_26.sol#66)
+UBBCToken.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_26.sol#83-89) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_26.sol#84)
+UBBCToken.bug_re_ent20() (Re-entrancy/reentrancy_buggy_26.sol#129-135) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_26.sol#131)
+UBBCToken.bug_re_ent13() (Re-entrancy/reentrancy_buggy_26.sol#146-153) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_26.sol#148)
+UBBCToken.callme_re_ent7() (Re-entrancy/reentrancy_buggy_26.sol#194-200) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_26.sol#196)
+UBBCToken.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_26.sol#207-212) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (Re-entrancy/reentrancy_buggy_26.sol#208)
+UBBCToken.callme_re_ent14() (Re-entrancy/reentrancy_buggy_26.sol#219-225) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_26.sol#221)
+UBBCToken.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_26.sol#232-237) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (Re-entrancy/reentrancy_buggy_26.sol#233)
+UBBCToken.callme_re_ent35() (Re-entrancy/reentrancy_buggy_26.sol#279-285) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_26.sol#281)
+UBBCToken.bug_re_ent27() (Re-entrancy/reentrancy_buggy_26.sol#326-332) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_26.sol#328)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Reentrancy in UBBCToken.bug_re_ent13() (Re-entrancy/reentrancy_buggy_26.sol#146-153):
+	External calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_26.sol#148)
+	State variables written after the call(s):
+	- not_called_re_ent13 = false (Re-entrancy/reentrancy_buggy_26.sol#152)
+Reentrancy in UBBCToken.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_26.sol#83-89):
+	External calls:
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_26.sol#84)
+	State variables written after the call(s):
+	- jackpot_re_ent9 = address(this).balance (Re-entrancy/reentrancy_buggy_26.sol#88)
+	- lastPlayer_re_ent9 = msg.sender (Re-entrancy/reentrancy_buggy_26.sol#87)
+Reentrancy in UBBCToken.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_26.sol#111-119):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (Re-entrancy/reentrancy_buggy_26.sol#114)
+	State variables written after the call(s):
+	- userBalance_re_ent26[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_26.sol#118)
+Reentrancy in UBBCToken.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_26.sol#313-321):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (Re-entrancy/reentrancy_buggy_26.sol#316)
+	State variables written after the call(s):
+	- userBalance_re_ent33[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_26.sol#320)
+Reentrancy in UBBCToken.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_26.sol#296-304):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (Re-entrancy/reentrancy_buggy_26.sol#299)
+	State variables written after the call(s):
+	- userBalance_re_ent40[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_26.sol#303)
+Reentrancy in UBBCToken.withdrawFunds_re_ent3(uint256) (Re-entrancy/reentrancy_buggy_26.sol#73-79):
+	External calls:
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_26.sol#76)
+	State variables written after the call(s):
+	- balances_re_ent3[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_26.sol#78)
+Reentrancy in UBBCToken.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_26.sol#244-248):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (Re-entrancy/reentrancy_buggy_26.sol#245)
+	State variables written after the call(s):
+	- balances_re_ent8[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_26.sol#247)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
+
+SafeMath.div(uint256,uint256) (Re-entrancy/reentrancy_buggy_26.sol#35-42) is never used and should be removed
+SafeMath.mod(uint256,uint256) (Re-entrancy/reentrancy_buggy_26.sol#44-47) is never used and should be removed
+SafeMath.mul(uint256,uint256) (Re-entrancy/reentrancy_buggy_26.sol#21-33) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.5.2 (Re-entrancy/reentrancy_buggy_26.sol#5) allows old versions
+solc-0.5.2 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in UBBCToken.withdrawFunds_re_ent3(uint256) (Re-entrancy/reentrancy_buggy_26.sol#73-79):
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_26.sol#76)
+Low level call in UBBCToken.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_26.sol#83-89):
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_26.sol#84)
+Low level call in UBBCToken.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_26.sol#111-119):
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (Re-entrancy/reentrancy_buggy_26.sol#114)
+Low level call in UBBCToken.bug_re_ent13() (Re-entrancy/reentrancy_buggy_26.sol#146-153):
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_26.sol#148)
+Low level call in UBBCToken.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_26.sol#244-248):
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (Re-entrancy/reentrancy_buggy_26.sol#245)
+Low level call in UBBCToken.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_26.sol#296-304):
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (Re-entrancy/reentrancy_buggy_26.sol#299)
+Low level call in UBBCToken.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_26.sol#313-321):
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (Re-entrancy/reentrancy_buggy_26.sol#316)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Function UBBCToken.buyTicket_re_ent37() (Re-entrancy/reentrancy_buggy_26.sol#65-70) is not in mixedCase
+Function UBBCToken.withdrawFunds_re_ent3(uint256) (Re-entrancy/reentrancy_buggy_26.sol#73-79) is not in mixedCase
+Parameter UBBCToken.withdrawFunds_re_ent3(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_26.sol#73) is not in mixedCase
+Function UBBCToken.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_26.sol#83-89) is not in mixedCase
+Function UBBCToken.claimReward_re_ent25() (Re-entrancy/reentrancy_buggy_26.sol#92-98) is not in mixedCase
+Function UBBCToken.withdrawBalance_re_ent19() (Re-entrancy/reentrancy_buggy_26.sol#101-108) is not in mixedCase
+Function UBBCToken.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_26.sol#111-119) is not in mixedCase
+Function UBBCToken.bug_re_ent20() (Re-entrancy/reentrancy_buggy_26.sol#129-135) is not in mixedCase
+Function UBBCToken.withdrawFunds_re_ent31(uint256) (Re-entrancy/reentrancy_buggy_26.sol#137-142) is not in mixedCase
+Parameter UBBCToken.withdrawFunds_re_ent31(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_26.sol#137) is not in mixedCase
+Function UBBCToken.bug_re_ent13() (Re-entrancy/reentrancy_buggy_26.sol#146-153) is not in mixedCase
+Function UBBCToken.claimReward_re_ent32() (Re-entrancy/reentrancy_buggy_26.sol#160-166) is not in mixedCase
+Function UBBCToken.withdrawFunds_re_ent38(uint256) (Re-entrancy/reentrancy_buggy_26.sol#172-177) is not in mixedCase
+Parameter UBBCToken.withdrawFunds_re_ent38(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_26.sol#172) is not in mixedCase
+Function UBBCToken.claimReward_re_ent4() (Re-entrancy/reentrancy_buggy_26.sol#182-188) is not in mixedCase
+Function UBBCToken.callme_re_ent7() (Re-entrancy/reentrancy_buggy_26.sol#194-200) is not in mixedCase
+Function UBBCToken.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_26.sol#207-212) is not in mixedCase
+Function UBBCToken.callme_re_ent14() (Re-entrancy/reentrancy_buggy_26.sol#219-225) is not in mixedCase
+Function UBBCToken.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_26.sol#232-237) is not in mixedCase
+Function UBBCToken.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_26.sol#244-248) is not in mixedCase
+Function UBBCToken.claimReward_re_ent39() (Re-entrancy/reentrancy_buggy_26.sol#256-262) is not in mixedCase
+Function UBBCToken.withdraw_balances_re_ent36() (Re-entrancy/reentrancy_buggy_26.sol#269-272) is not in mixedCase
+Function UBBCToken.callme_re_ent35() (Re-entrancy/reentrancy_buggy_26.sol#279-285) is not in mixedCase
+Function UBBCToken.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_26.sol#296-304) is not in mixedCase
+Function UBBCToken.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_26.sol#313-321) is not in mixedCase
+Function UBBCToken.bug_re_ent27() (Re-entrancy/reentrancy_buggy_26.sol#326-332) is not in mixedCase
+Variable UBBCToken.lastPlayer_re_ent37 (Re-entrancy/reentrancy_buggy_26.sol#63) is not in mixedCase
+Variable UBBCToken.jackpot_re_ent37 (Re-entrancy/reentrancy_buggy_26.sol#64) is not in mixedCase
+Variable UBBCToken.balances_re_ent3 (Re-entrancy/reentrancy_buggy_26.sol#72) is not in mixedCase
+Variable UBBCToken.lastPlayer_re_ent9 (Re-entrancy/reentrancy_buggy_26.sol#81) is not in mixedCase
+Variable UBBCToken.jackpot_re_ent9 (Re-entrancy/reentrancy_buggy_26.sol#82) is not in mixedCase
+Variable UBBCToken.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_26.sol#91) is not in mixedCase
+Variable UBBCToken.userBalance_re_ent19 (Re-entrancy/reentrancy_buggy_26.sol#100) is not in mixedCase
+Variable UBBCToken.userBalance_re_ent26 (Re-entrancy/reentrancy_buggy_26.sol#110) is not in mixedCase
+Variable UBBCToken.not_called_re_ent20 (Re-entrancy/reentrancy_buggy_26.sol#128) is not in mixedCase
+Variable UBBCToken.balances_re_ent31 (Re-entrancy/reentrancy_buggy_26.sol#136) is not in mixedCase
+Variable UBBCToken.not_called_re_ent13 (Re-entrancy/reentrancy_buggy_26.sol#145) is not in mixedCase
+Variable UBBCToken.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_26.sol#159) is not in mixedCase
+Variable UBBCToken.balances_re_ent38 (Re-entrancy/reentrancy_buggy_26.sol#171) is not in mixedCase
+Variable UBBCToken.redeemableEther_re_ent4 (Re-entrancy/reentrancy_buggy_26.sol#181) is not in mixedCase
+Variable UBBCToken.counter_re_ent7 (Re-entrancy/reentrancy_buggy_26.sol#193) is not in mixedCase
+Variable UBBCToken.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_26.sol#205) is not in mixedCase
+Variable UBBCToken.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_26.sol#206) is not in mixedCase
+Variable UBBCToken.counter_re_ent14 (Re-entrancy/reentrancy_buggy_26.sol#218) is not in mixedCase
+Variable UBBCToken.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_26.sol#230) is not in mixedCase
+Variable UBBCToken.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_26.sol#231) is not in mixedCase
+Variable UBBCToken.balances_re_ent8 (Re-entrancy/reentrancy_buggy_26.sol#243) is not in mixedCase
+Variable UBBCToken.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_26.sol#255) is not in mixedCase
+Variable UBBCToken.balances_re_ent36 (Re-entrancy/reentrancy_buggy_26.sol#268) is not in mixedCase
+Variable UBBCToken.counter_re_ent35 (Re-entrancy/reentrancy_buggy_26.sol#278) is not in mixedCase
+Variable UBBCToken.userBalance_re_ent40 (Re-entrancy/reentrancy_buggy_26.sol#295) is not in mixedCase
+Variable UBBCToken.userBalance_re_ent33 (Re-entrancy/reentrancy_buggy_26.sol#312) is not in mixedCase
+Variable UBBCToken.not_called_re_ent27 (Re-entrancy/reentrancy_buggy_26.sol#325) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in UBBCToken.bug_re_ent20() (Re-entrancy/reentrancy_buggy_26.sol#129-135):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_26.sol#131)
+	State variables written after the call(s):
+	- not_called_re_ent20 = false (Re-entrancy/reentrancy_buggy_26.sol#134)
+Reentrancy in UBBCToken.bug_re_ent27() (Re-entrancy/reentrancy_buggy_26.sol#326-332):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_26.sol#328)
+	State variables written after the call(s):
+	- not_called_re_ent27 = false (Re-entrancy/reentrancy_buggy_26.sol#331)
+Reentrancy in UBBCToken.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_26.sol#207-212):
+	External calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (Re-entrancy/reentrancy_buggy_26.sol#208)
+	State variables written after the call(s):
+	- jackpot_re_ent23 = address(this).balance (Re-entrancy/reentrancy_buggy_26.sol#211)
+	- lastPlayer_re_ent23 = msg.sender (Re-entrancy/reentrancy_buggy_26.sol#210)
+Reentrancy in UBBCToken.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_26.sol#232-237):
+	External calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (Re-entrancy/reentrancy_buggy_26.sol#233)
+	State variables written after the call(s):
+	- jackpot_re_ent30 = address(this).balance (Re-entrancy/reentrancy_buggy_26.sol#236)
+	- lastPlayer_re_ent30 = msg.sender (Re-entrancy/reentrancy_buggy_26.sol#235)
+Reentrancy in UBBCToken.buyTicket_re_ent37() (Re-entrancy/reentrancy_buggy_26.sol#65-70):
+	External calls:
+	- ! (lastPlayer_re_ent37.send(jackpot_re_ent37)) (Re-entrancy/reentrancy_buggy_26.sol#66)
+	State variables written after the call(s):
+	- jackpot_re_ent37 = address(this).balance (Re-entrancy/reentrancy_buggy_26.sol#69)
+	- lastPlayer_re_ent37 = msg.sender (Re-entrancy/reentrancy_buggy_26.sol#68)
+Reentrancy in UBBCToken.callme_re_ent14() (Re-entrancy/reentrancy_buggy_26.sol#219-225):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_26.sol#221)
+	State variables written after the call(s):
+	- counter_re_ent14 += 1 (Re-entrancy/reentrancy_buggy_26.sol#224)
+Reentrancy in UBBCToken.callme_re_ent35() (Re-entrancy/reentrancy_buggy_26.sol#279-285):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_26.sol#281)
+	State variables written after the call(s):
+	- counter_re_ent35 += 1 (Re-entrancy/reentrancy_buggy_26.sol#284)
+Reentrancy in UBBCToken.callme_re_ent7() (Re-entrancy/reentrancy_buggy_26.sol#194-200):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_26.sol#196)
+	State variables written after the call(s):
+	- counter_re_ent7 += 1 (Re-entrancy/reentrancy_buggy_26.sol#199)
+Reentrancy in UBBCToken.claimReward_re_ent25() (Re-entrancy/reentrancy_buggy_26.sol#92-98):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent25) (Re-entrancy/reentrancy_buggy_26.sol#96)
+	State variables written after the call(s):
+	- redeemableEther_re_ent25[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_26.sol#97)
+Reentrancy in UBBCToken.claimReward_re_ent32() (Re-entrancy/reentrancy_buggy_26.sol#160-166):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent32) (Re-entrancy/reentrancy_buggy_26.sol#164)
+	State variables written after the call(s):
+	- redeemableEther_re_ent32[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_26.sol#165)
+Reentrancy in UBBCToken.claimReward_re_ent39() (Re-entrancy/reentrancy_buggy_26.sol#256-262):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent39) (Re-entrancy/reentrancy_buggy_26.sol#260)
+	State variables written after the call(s):
+	- redeemableEther_re_ent39[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_26.sol#261)
+Reentrancy in UBBCToken.claimReward_re_ent4() (Re-entrancy/reentrancy_buggy_26.sol#182-188):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent4) (Re-entrancy/reentrancy_buggy_26.sol#186)
+	State variables written after the call(s):
+	- redeemableEther_re_ent4[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_26.sol#187)
+Reentrancy in UBBCToken.withdrawBalance_re_ent19() (Re-entrancy/reentrancy_buggy_26.sol#101-108):
+	External calls:
+	- ! (msg.sender.send(userBalance_re_ent19[msg.sender])) (Re-entrancy/reentrancy_buggy_26.sol#104)
+	State variables written after the call(s):
+	- userBalance_re_ent19[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_26.sol#107)
+Reentrancy in UBBCToken.withdrawFunds_re_ent31(uint256) (Re-entrancy/reentrancy_buggy_26.sol#137-142):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_26.sol#140)
+	State variables written after the call(s):
+	- balances_re_ent31[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_26.sol#141)
+Reentrancy in UBBCToken.withdrawFunds_re_ent38(uint256) (Re-entrancy/reentrancy_buggy_26.sol#172-177):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_26.sol#175)
+	State variables written after the call(s):
+	- balances_re_ent38[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_26.sol#176)
+Reentrancy in UBBCToken.withdraw_balances_re_ent36() (Re-entrancy/reentrancy_buggy_26.sol#269-272):
+	External calls:
+	- msg.sender.send(balances_re_ent36[msg.sender]) (Re-entrancy/reentrancy_buggy_26.sol#270)
+	State variables written after the call(s):
+	- balances_re_ent36[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_26.sol#271)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable UBBCToken.balances_re_ent31 (Re-entrancy/reentrancy_buggy_26.sol#136) is too similar to UBBCToken.balances_re_ent36 (Re-entrancy/reentrancy_buggy_26.sol#268)
+Variable UBBCToken.balances_re_ent31 (Re-entrancy/reentrancy_buggy_26.sol#136) is too similar to UBBCToken.balances_re_ent38 (Re-entrancy/reentrancy_buggy_26.sol#171)
+Variable UBBCToken.balances_re_ent36 (Re-entrancy/reentrancy_buggy_26.sol#268) is too similar to UBBCToken.balances_re_ent38 (Re-entrancy/reentrancy_buggy_26.sol#171)
+Variable UBBCToken.balances_re_ent3 (Re-entrancy/reentrancy_buggy_26.sol#72) is too similar to UBBCToken.balances_re_ent8 (Re-entrancy/reentrancy_buggy_26.sol#243)
+Variable UBBCToken.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_26.sol#206) is too similar to UBBCToken.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_26.sol#231)
+Variable UBBCToken.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_26.sol#206) is too similar to UBBCToken.jackpot_re_ent37 (Re-entrancy/reentrancy_buggy_26.sol#64)
+Variable UBBCToken.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_26.sol#231) is too similar to UBBCToken.jackpot_re_ent37 (Re-entrancy/reentrancy_buggy_26.sol#64)
+Variable UBBCToken.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_26.sol#205) is too similar to UBBCToken.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_26.sol#230)
+Variable UBBCToken.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_26.sol#205) is too similar to UBBCToken.lastPlayer_re_ent37 (Re-entrancy/reentrancy_buggy_26.sol#63)
+Variable UBBCToken.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_26.sol#230) is too similar to UBBCToken.lastPlayer_re_ent37 (Re-entrancy/reentrancy_buggy_26.sol#63)
+Variable UBBCToken.not_called_re_ent20 (Re-entrancy/reentrancy_buggy_26.sol#128) is too similar to UBBCToken.not_called_re_ent27 (Re-entrancy/reentrancy_buggy_26.sol#325)
+Variable UBBCToken.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_26.sol#91) is too similar to UBBCToken.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_26.sol#159)
+Variable UBBCToken.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_26.sol#91) is too similar to UBBCToken.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_26.sol#255)
+Variable UBBCToken.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_26.sol#159) is too similar to UBBCToken.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_26.sol#255)
+Variable UBBCToken.claimReward_re_ent25().transferValue_re_ent25 (Re-entrancy/reentrancy_buggy_26.sol#95) is too similar to UBBCToken.claimReward_re_ent32().transferValue_re_ent32 (Re-entrancy/reentrancy_buggy_26.sol#163)
+Variable UBBCToken.claimReward_re_ent25().transferValue_re_ent25 (Re-entrancy/reentrancy_buggy_26.sol#95) is too similar to UBBCToken.claimReward_re_ent39().transferValue_re_ent39 (Re-entrancy/reentrancy_buggy_26.sol#259)
+Variable UBBCToken.claimReward_re_ent32().transferValue_re_ent32 (Re-entrancy/reentrancy_buggy_26.sol#163) is too similar to UBBCToken.claimReward_re_ent39().transferValue_re_ent39 (Re-entrancy/reentrancy_buggy_26.sol#259)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+UBBCToken.constructor() (Re-entrancy/reentrancy_buggy_26.sol#121-127) uses literals with too many digits:
+	- _totalSupply = 260000000000000000000000000 (Re-entrancy/reentrancy_buggy_26.sol#125)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+ERC20 event UBBCTokenTransfer(address,address,uint256) (Re-entrancy/reentrancy_buggy_26.sol#143)does not index parameter sender
+ERC20 event UBBCTokenTransfer(address,address,uint256) (Re-entrancy/reentrancy_buggy_26.sol#143)does not index parameter to
+ERC20 event UBBCTokenApproval(address,address,uint256) (Re-entrancy/reentrancy_buggy_26.sol#154)does not index parameter owner
+ERC20 event UBBCTokenApproval(address,address,uint256) (Re-entrancy/reentrancy_buggy_26.sol#154)does not index parameter spender
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unindexed-erc20-event-parameters
+Re-entrancy/reentrancy_buggy_26.sol analyzed (3 contracts with 80 detectors), 120 result(s) found

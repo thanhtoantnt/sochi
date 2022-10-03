@@ -1,0 +1,459 @@
+
+ERC20Detailed.owner_TOD22 (TOD/tod_buggy_28.sol#55) is never initialized. It is used in:
+	- ERC20Detailed.setReward_TOD22() (TOD/tod_buggy_28.sol#57-63)
+ERC20Detailed.owner_TOD12 (TOD/tod_buggy_28.sol#74) is never initialized. It is used in:
+	- ERC20Detailed.setReward_TOD12() (TOD/tod_buggy_28.sol#76-82)
+ERC20Detailed.owner_TOD26 (TOD/tod_buggy_28.sol#130) is never initialized. It is used in:
+	- ERC20Detailed.setReward_TOD26() (TOD/tod_buggy_28.sol#132-138)
+ERC20Detailed.owner_TOD20 (TOD/tod_buggy_28.sol#152) is never initialized. It is used in:
+	- ERC20Detailed.setReward_TOD20() (TOD/tod_buggy_28.sol#154-160)
+ERC20Detailed.owner_TOD32 (TOD/tod_buggy_28.sol#174) is never initialized. It is used in:
+	- ERC20Detailed.setReward_TOD32() (TOD/tod_buggy_28.sol#176-182)
+HYDROGEN.owner_TOD2 (TOD/tod_buggy_28.sol#211) is never initialized. It is used in:
+	- HYDROGEN.setReward_TOD2() (TOD/tod_buggy_28.sol#213-219)
+HYDROGEN.owner_TOD38 (TOD/tod_buggy_28.sol#305) is never initialized. It is used in:
+	- HYDROGEN.setReward_TOD38() (TOD/tod_buggy_28.sol#307-313)
+HYDROGEN.owner_TOD4 (TOD/tod_buggy_28.sol#327) is never initialized. It is used in:
+	- HYDROGEN.setReward_TOD4() (TOD/tod_buggy_28.sol#329-335)
+HYDROGEN.owner_TOD14 (TOD/tod_buggy_28.sol#385) is never initialized. It is used in:
+	- HYDROGEN.setReward_TOD14() (TOD/tod_buggy_28.sol#387-393)
+HYDROGEN.owner_TOD30 (TOD/tod_buggy_28.sol#420) is never initialized. It is used in:
+	- HYDROGEN.setReward_TOD30() (TOD/tod_buggy_28.sol#422-428)
+HYDROGEN.owner_TOD8 (TOD/tod_buggy_28.sol#444) is never initialized. It is used in:
+	- HYDROGEN.setReward_TOD8() (TOD/tod_buggy_28.sol#446-452)
+HYDROGEN.owner_TOD36 (TOD/tod_buggy_28.sol#503) is never initialized. It is used in:
+	- HYDROGEN.setReward_TOD36() (TOD/tod_buggy_28.sol#505-511)
+HYDROGEN.owner_TOD40 (TOD/tod_buggy_28.sol#548) is never initialized. It is used in:
+	- HYDROGEN.setReward_TOD40() (TOD/tod_buggy_28.sol#550-556)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+
+ERC20Detailed.constructor(string,string,uint8).name (TOD/tod_buggy_28.sol#107) shadows:
+	- ERC20Detailed.name() (TOD/tod_buggy_28.sol#126-128) (function)
+ERC20Detailed.constructor(string,string,uint8).symbol (TOD/tod_buggy_28.sol#107) shadows:
+	- ERC20Detailed.symbol() (TOD/tod_buggy_28.sol#148-150) (function)
+ERC20Detailed.constructor(string,string,uint8).decimals (TOD/tod_buggy_28.sol#107) shadows:
+	- ERC20Detailed.decimals() (TOD/tod_buggy_28.sol#170-172) (function)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#local-variable-shadowing
+
+HYDROGEN.setReward_TOD2() (TOD/tod_buggy_28.sol#213-219) should emit an event for: 
+	- reward_TOD2 = msg.value (TOD/tod_buggy_28.sol#218) 
+HYDROGEN.setReward_TOD38() (TOD/tod_buggy_28.sol#307-313) should emit an event for: 
+	- reward_TOD38 = msg.value (TOD/tod_buggy_28.sol#312) 
+HYDROGEN.setReward_TOD4() (TOD/tod_buggy_28.sol#329-335) should emit an event for: 
+	- reward_TOD4 = msg.value (TOD/tod_buggy_28.sol#334) 
+HYDROGEN.setReward_TOD14() (TOD/tod_buggy_28.sol#387-393) should emit an event for: 
+	- reward_TOD14 = msg.value (TOD/tod_buggy_28.sol#392) 
+HYDROGEN.setReward_TOD30() (TOD/tod_buggy_28.sol#422-428) should emit an event for: 
+	- reward_TOD30 = msg.value (TOD/tod_buggy_28.sol#427) 
+HYDROGEN.setReward_TOD8() (TOD/tod_buggy_28.sol#446-452) should emit an event for: 
+	- reward_TOD8 = msg.value (TOD/tod_buggy_28.sol#451) 
+HYDROGEN.setReward_TOD36() (TOD/tod_buggy_28.sol#505-511) should emit an event for: 
+	- reward_TOD36 = msg.value (TOD/tod_buggy_28.sol#510) 
+HYDROGEN.setReward_TOD40() (TOD/tod_buggy_28.sol#550-556) should emit an event for: 
+	- reward_TOD40 = msg.value (TOD/tod_buggy_28.sol#555) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+
+HYDROGEN.transfer(address,uint256) (TOD/tod_buggy_28.sol#403-418) has costly operations inside a loop:
+	- _totalSupply = _totalSupply.sub(tokensToBurn) (TOD/tod_buggy_28.sol#413)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#costly-operations-inside-a-loop
+
+Pragma version^0.5.0 (TOD/tod_buggy_28.sol#5) allows old versions
+solc-0.5.0 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function ERC20Detailed.setReward_TOD22() (TOD/tod_buggy_28.sol#57-63) is not in mixedCase
+Function ERC20Detailed.claimReward_TOD22(uint256) (TOD/tod_buggy_28.sol#65-71) is not in mixedCase
+Function ERC20Detailed.setReward_TOD12() (TOD/tod_buggy_28.sol#76-82) is not in mixedCase
+Function ERC20Detailed.claimReward_TOD12(uint256) (TOD/tod_buggy_28.sol#84-90) is not in mixedCase
+Function ERC20Detailed.play_TOD11(bytes32) (TOD/tod_buggy_28.sol#93-99) is not in mixedCase
+Function ERC20Detailed.getReward_TOD11() (TOD/tod_buggy_28.sol#101-104) is not in mixedCase
+Function ERC20Detailed.play_TOD19(bytes32) (TOD/tod_buggy_28.sol#113-119) is not in mixedCase
+Function ERC20Detailed.getReward_TOD19() (TOD/tod_buggy_28.sol#121-124) is not in mixedCase
+Function ERC20Detailed.setReward_TOD26() (TOD/tod_buggy_28.sol#132-138) is not in mixedCase
+Function ERC20Detailed.claimReward_TOD26(uint256) (TOD/tod_buggy_28.sol#140-146) is not in mixedCase
+Function ERC20Detailed.setReward_TOD20() (TOD/tod_buggy_28.sol#154-160) is not in mixedCase
+Function ERC20Detailed.claimReward_TOD20(uint256) (TOD/tod_buggy_28.sol#162-168) is not in mixedCase
+Function ERC20Detailed.setReward_TOD32() (TOD/tod_buggy_28.sol#176-182) is not in mixedCase
+Function ERC20Detailed.claimReward_TOD32(uint256) (TOD/tod_buggy_28.sol#184-190) is not in mixedCase
+Variable ERC20Detailed.claimed_TOD22 (TOD/tod_buggy_28.sol#54) is not in mixedCase
+Variable ERC20Detailed.owner_TOD22 (TOD/tod_buggy_28.sol#55) is not in mixedCase
+Variable ERC20Detailed.reward_TOD22 (TOD/tod_buggy_28.sol#56) is not in mixedCase
+Variable ERC20Detailed.claimed_TOD12 (TOD/tod_buggy_28.sol#73) is not in mixedCase
+Variable ERC20Detailed.owner_TOD12 (TOD/tod_buggy_28.sol#74) is not in mixedCase
+Variable ERC20Detailed.reward_TOD12 (TOD/tod_buggy_28.sol#75) is not in mixedCase
+Variable ERC20Detailed.winner_TOD11 (TOD/tod_buggy_28.sol#92) is not in mixedCase
+Variable ERC20Detailed.winner_TOD19 (TOD/tod_buggy_28.sol#112) is not in mixedCase
+Variable ERC20Detailed.claimed_TOD26 (TOD/tod_buggy_28.sol#129) is not in mixedCase
+Variable ERC20Detailed.owner_TOD26 (TOD/tod_buggy_28.sol#130) is not in mixedCase
+Variable ERC20Detailed.reward_TOD26 (TOD/tod_buggy_28.sol#131) is not in mixedCase
+Variable ERC20Detailed.claimed_TOD20 (TOD/tod_buggy_28.sol#151) is not in mixedCase
+Variable ERC20Detailed.owner_TOD20 (TOD/tod_buggy_28.sol#152) is not in mixedCase
+Variable ERC20Detailed.reward_TOD20 (TOD/tod_buggy_28.sol#153) is not in mixedCase
+Variable ERC20Detailed.claimed_TOD32 (TOD/tod_buggy_28.sol#173) is not in mixedCase
+Variable ERC20Detailed.owner_TOD32 (TOD/tod_buggy_28.sol#174) is not in mixedCase
+Variable ERC20Detailed.reward_TOD32 (TOD/tod_buggy_28.sol#175) is not in mixedCase
+Function HYDROGEN.play_TOD1(bytes32) (TOD/tod_buggy_28.sol#197-203) is not in mixedCase
+Function HYDROGEN.getReward_TOD1() (TOD/tod_buggy_28.sol#205-208) is not in mixedCase
+Function HYDROGEN.setReward_TOD2() (TOD/tod_buggy_28.sol#213-219) is not in mixedCase
+Function HYDROGEN.claimReward_TOD2(uint256) (TOD/tod_buggy_28.sol#221-227) is not in mixedCase
+Function HYDROGEN.play_TOD17(bytes32) (TOD/tod_buggy_28.sol#231-237) is not in mixedCase
+Function HYDROGEN.getReward_TOD17() (TOD/tod_buggy_28.sol#239-242) is not in mixedCase
+Function HYDROGEN.play_TOD37(bytes32) (TOD/tod_buggy_28.sol#245-251) is not in mixedCase
+Function HYDROGEN.getReward_TOD37() (TOD/tod_buggy_28.sol#253-256) is not in mixedCase
+Function HYDROGEN.play_TOD3(bytes32) (TOD/tod_buggy_28.sol#259-265) is not in mixedCase
+Function HYDROGEN.getReward_TOD3() (TOD/tod_buggy_28.sol#267-270) is not in mixedCase
+Function HYDROGEN.play_TOD9(bytes32) (TOD/tod_buggy_28.sol#273-279) is not in mixedCase
+Function HYDROGEN.getReward_TOD9() (TOD/tod_buggy_28.sol#281-284) is not in mixedCase
+Function HYDROGEN.play_TOD25(bytes32) (TOD/tod_buggy_28.sol#287-293) is not in mixedCase
+Function HYDROGEN.getReward_TOD25() (TOD/tod_buggy_28.sol#295-298) is not in mixedCase
+Function HYDROGEN.setReward_TOD38() (TOD/tod_buggy_28.sol#307-313) is not in mixedCase
+Function HYDROGEN.claimReward_TOD38(uint256) (TOD/tod_buggy_28.sol#315-321) is not in mixedCase
+Function HYDROGEN.setReward_TOD4() (TOD/tod_buggy_28.sol#329-335) is not in mixedCase
+Function HYDROGEN.claimReward_TOD4(uint256) (TOD/tod_buggy_28.sol#337-343) is not in mixedCase
+Function HYDROGEN.play_TOD7(bytes32) (TOD/tod_buggy_28.sol#349-355) is not in mixedCase
+Function HYDROGEN.getReward_TOD7() (TOD/tod_buggy_28.sol#357-360) is not in mixedCase
+Function HYDROGEN.play_TOD23(bytes32) (TOD/tod_buggy_28.sol#366-372) is not in mixedCase
+Function HYDROGEN.getReward_TOD23() (TOD/tod_buggy_28.sol#374-377) is not in mixedCase
+Function HYDROGEN.setReward_TOD14() (TOD/tod_buggy_28.sol#387-393) is not in mixedCase
+Function HYDROGEN.claimReward_TOD14(uint256) (TOD/tod_buggy_28.sol#395-401) is not in mixedCase
+Function HYDROGEN.setReward_TOD30() (TOD/tod_buggy_28.sol#422-428) is not in mixedCase
+Function HYDROGEN.claimReward_TOD30(uint256) (TOD/tod_buggy_28.sol#430-436) is not in mixedCase
+Function HYDROGEN.setReward_TOD8() (TOD/tod_buggy_28.sol#446-452) is not in mixedCase
+Function HYDROGEN.claimReward_TOD8(uint256) (TOD/tod_buggy_28.sol#454-460) is not in mixedCase
+Function HYDROGEN.play_TOD39(bytes32) (TOD/tod_buggy_28.sol#469-475) is not in mixedCase
+Function HYDROGEN.getReward_TOD39() (TOD/tod_buggy_28.sol#477-480) is not in mixedCase
+Function HYDROGEN.setReward_TOD36() (TOD/tod_buggy_28.sol#505-511) is not in mixedCase
+Function HYDROGEN.claimReward_TOD36(uint256) (TOD/tod_buggy_28.sol#513-519) is not in mixedCase
+Function HYDROGEN.play_TOD35(bytes32) (TOD/tod_buggy_28.sol#528-534) is not in mixedCase
+Function HYDROGEN.getReward_TOD35() (TOD/tod_buggy_28.sol#536-539) is not in mixedCase
+Function HYDROGEN.setReward_TOD40() (TOD/tod_buggy_28.sol#550-556) is not in mixedCase
+Function HYDROGEN.claimReward_TOD40(uint256) (TOD/tod_buggy_28.sol#558-564) is not in mixedCase
+Function HYDROGEN.play_TOD33(bytes32) (TOD/tod_buggy_28.sol#572-578) is not in mixedCase
+Function HYDROGEN.getReward_TOD33() (TOD/tod_buggy_28.sol#580-583) is not in mixedCase
+Function HYDROGEN.play_TOD27(bytes32) (TOD/tod_buggy_28.sol#589-595) is not in mixedCase
+Function HYDROGEN.getReward_TOD27() (TOD/tod_buggy_28.sol#597-600) is not in mixedCase
+Function HYDROGEN.play_TOD31(bytes32) (TOD/tod_buggy_28.sol#610-616) is not in mixedCase
+Function HYDROGEN.getReward_TOD31() (TOD/tod_buggy_28.sol#618-621) is not in mixedCase
+Function HYDROGEN.play_TOD13(bytes32) (TOD/tod_buggy_28.sol#629-635) is not in mixedCase
+Function HYDROGEN.getReward_TOD13() (TOD/tod_buggy_28.sol#637-640) is not in mixedCase
+Variable HYDROGEN.winner_TOD1 (TOD/tod_buggy_28.sol#196) is not in mixedCase
+Variable HYDROGEN.claimed_TOD2 (TOD/tod_buggy_28.sol#210) is not in mixedCase
+Variable HYDROGEN.owner_TOD2 (TOD/tod_buggy_28.sol#211) is not in mixedCase
+Variable HYDROGEN.reward_TOD2 (TOD/tod_buggy_28.sol#212) is not in mixedCase
+Variable HYDROGEN.winner_TOD17 (TOD/tod_buggy_28.sol#230) is not in mixedCase
+Constant HYDROGEN.tokenName (TOD/tod_buggy_28.sol#243) is not in UPPER_CASE_WITH_UNDERSCORES
+Variable HYDROGEN.winner_TOD37 (TOD/tod_buggy_28.sol#244) is not in mixedCase
+Constant HYDROGEN.tokenSymbol (TOD/tod_buggy_28.sol#257) is not in UPPER_CASE_WITH_UNDERSCORES
+Variable HYDROGEN.winner_TOD3 (TOD/tod_buggy_28.sol#258) is not in mixedCase
+Constant HYDROGEN.tokenDecimals (TOD/tod_buggy_28.sol#271) is not in UPPER_CASE_WITH_UNDERSCORES
+Variable HYDROGEN.winner_TOD9 (TOD/tod_buggy_28.sol#272) is not in mixedCase
+Variable HYDROGEN._totalSupply (TOD/tod_buggy_28.sol#285) is not in mixedCase
+Variable HYDROGEN.winner_TOD25 (TOD/tod_buggy_28.sol#286) is not in mixedCase
+Variable HYDROGEN.claimed_TOD38 (TOD/tod_buggy_28.sol#304) is not in mixedCase
+Variable HYDROGEN.owner_TOD38 (TOD/tod_buggy_28.sol#305) is not in mixedCase
+Variable HYDROGEN.reward_TOD38 (TOD/tod_buggy_28.sol#306) is not in mixedCase
+Variable HYDROGEN.claimed_TOD4 (TOD/tod_buggy_28.sol#326) is not in mixedCase
+Variable HYDROGEN.owner_TOD4 (TOD/tod_buggy_28.sol#327) is not in mixedCase
+Variable HYDROGEN.reward_TOD4 (TOD/tod_buggy_28.sol#328) is not in mixedCase
+Variable HYDROGEN.winner_TOD7 (TOD/tod_buggy_28.sol#348) is not in mixedCase
+Variable HYDROGEN.winner_TOD23 (TOD/tod_buggy_28.sol#365) is not in mixedCase
+Variable HYDROGEN.claimed_TOD14 (TOD/tod_buggy_28.sol#384) is not in mixedCase
+Variable HYDROGEN.owner_TOD14 (TOD/tod_buggy_28.sol#385) is not in mixedCase
+Variable HYDROGEN.reward_TOD14 (TOD/tod_buggy_28.sol#386) is not in mixedCase
+Variable HYDROGEN.claimed_TOD30 (TOD/tod_buggy_28.sol#419) is not in mixedCase
+Variable HYDROGEN.owner_TOD30 (TOD/tod_buggy_28.sol#420) is not in mixedCase
+Variable HYDROGEN.reward_TOD30 (TOD/tod_buggy_28.sol#421) is not in mixedCase
+Variable HYDROGEN.claimed_TOD8 (TOD/tod_buggy_28.sol#443) is not in mixedCase
+Variable HYDROGEN.owner_TOD8 (TOD/tod_buggy_28.sol#444) is not in mixedCase
+Variable HYDROGEN.reward_TOD8 (TOD/tod_buggy_28.sol#445) is not in mixedCase
+Variable HYDROGEN.winner_TOD39 (TOD/tod_buggy_28.sol#468) is not in mixedCase
+Variable HYDROGEN.claimed_TOD36 (TOD/tod_buggy_28.sol#502) is not in mixedCase
+Variable HYDROGEN.owner_TOD36 (TOD/tod_buggy_28.sol#503) is not in mixedCase
+Variable HYDROGEN.reward_TOD36 (TOD/tod_buggy_28.sol#504) is not in mixedCase
+Variable HYDROGEN.winner_TOD35 (TOD/tod_buggy_28.sol#527) is not in mixedCase
+Variable HYDROGEN.claimed_TOD40 (TOD/tod_buggy_28.sol#547) is not in mixedCase
+Variable HYDROGEN.owner_TOD40 (TOD/tod_buggy_28.sol#548) is not in mixedCase
+Variable HYDROGEN.reward_TOD40 (TOD/tod_buggy_28.sol#549) is not in mixedCase
+Variable HYDROGEN.winner_TOD33 (TOD/tod_buggy_28.sol#571) is not in mixedCase
+Variable HYDROGEN.winner_TOD27 (TOD/tod_buggy_28.sol#588) is not in mixedCase
+Variable HYDROGEN.winner_TOD31 (TOD/tod_buggy_28.sol#609) is not in mixedCase
+Variable HYDROGEN.winner_TOD13 (TOD/tod_buggy_28.sol#628) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in ERC20Detailed.claimReward_TOD12(uint256) (TOD/tod_buggy_28.sol#84-90):
+	External calls:
+	- msg.sender.transfer(reward_TOD12) (TOD/tod_buggy_28.sol#88)
+	State variables written after the call(s):
+	- claimed_TOD12 = true (TOD/tod_buggy_28.sol#89)
+Reentrancy in HYDROGEN.claimReward_TOD14(uint256) (TOD/tod_buggy_28.sol#395-401):
+	External calls:
+	- msg.sender.transfer(reward_TOD14) (TOD/tod_buggy_28.sol#399)
+	State variables written after the call(s):
+	- claimed_TOD14 = true (TOD/tod_buggy_28.sol#400)
+Reentrancy in HYDROGEN.claimReward_TOD2(uint256) (TOD/tod_buggy_28.sol#221-227):
+	External calls:
+	- msg.sender.transfer(reward_TOD2) (TOD/tod_buggy_28.sol#225)
+	State variables written after the call(s):
+	- claimed_TOD2 = true (TOD/tod_buggy_28.sol#226)
+Reentrancy in ERC20Detailed.claimReward_TOD20(uint256) (TOD/tod_buggy_28.sol#162-168):
+	External calls:
+	- msg.sender.transfer(reward_TOD20) (TOD/tod_buggy_28.sol#166)
+	State variables written after the call(s):
+	- claimed_TOD20 = true (TOD/tod_buggy_28.sol#167)
+Reentrancy in ERC20Detailed.claimReward_TOD22(uint256) (TOD/tod_buggy_28.sol#65-71):
+	External calls:
+	- msg.sender.transfer(reward_TOD22) (TOD/tod_buggy_28.sol#69)
+	State variables written after the call(s):
+	- claimed_TOD22 = true (TOD/tod_buggy_28.sol#70)
+Reentrancy in ERC20Detailed.claimReward_TOD26(uint256) (TOD/tod_buggy_28.sol#140-146):
+	External calls:
+	- msg.sender.transfer(reward_TOD26) (TOD/tod_buggy_28.sol#144)
+	State variables written after the call(s):
+	- claimed_TOD26 = true (TOD/tod_buggy_28.sol#145)
+Reentrancy in HYDROGEN.claimReward_TOD30(uint256) (TOD/tod_buggy_28.sol#430-436):
+	External calls:
+	- msg.sender.transfer(reward_TOD30) (TOD/tod_buggy_28.sol#434)
+	State variables written after the call(s):
+	- claimed_TOD30 = true (TOD/tod_buggy_28.sol#435)
+Reentrancy in ERC20Detailed.claimReward_TOD32(uint256) (TOD/tod_buggy_28.sol#184-190):
+	External calls:
+	- msg.sender.transfer(reward_TOD32) (TOD/tod_buggy_28.sol#188)
+	State variables written after the call(s):
+	- claimed_TOD32 = true (TOD/tod_buggy_28.sol#189)
+Reentrancy in HYDROGEN.claimReward_TOD36(uint256) (TOD/tod_buggy_28.sol#513-519):
+	External calls:
+	- msg.sender.transfer(reward_TOD36) (TOD/tod_buggy_28.sol#517)
+	State variables written after the call(s):
+	- claimed_TOD36 = true (TOD/tod_buggy_28.sol#518)
+Reentrancy in HYDROGEN.claimReward_TOD38(uint256) (TOD/tod_buggy_28.sol#315-321):
+	External calls:
+	- msg.sender.transfer(reward_TOD38) (TOD/tod_buggy_28.sol#319)
+	State variables written after the call(s):
+	- claimed_TOD38 = true (TOD/tod_buggy_28.sol#320)
+Reentrancy in HYDROGEN.claimReward_TOD4(uint256) (TOD/tod_buggy_28.sol#337-343):
+	External calls:
+	- msg.sender.transfer(reward_TOD4) (TOD/tod_buggy_28.sol#341)
+	State variables written after the call(s):
+	- claimed_TOD4 = true (TOD/tod_buggy_28.sol#342)
+Reentrancy in HYDROGEN.claimReward_TOD40(uint256) (TOD/tod_buggy_28.sol#558-564):
+	External calls:
+	- msg.sender.transfer(reward_TOD40) (TOD/tod_buggy_28.sol#562)
+	State variables written after the call(s):
+	- claimed_TOD40 = true (TOD/tod_buggy_28.sol#563)
+Reentrancy in HYDROGEN.claimReward_TOD8(uint256) (TOD/tod_buggy_28.sol#454-460):
+	External calls:
+	- msg.sender.transfer(reward_TOD8) (TOD/tod_buggy_28.sol#458)
+	State variables written after the call(s):
+	- claimed_TOD8 = true (TOD/tod_buggy_28.sol#459)
+Reentrancy in ERC20Detailed.setReward_TOD12() (TOD/tod_buggy_28.sol#76-82):
+	External calls:
+	- owner_TOD12.transfer(reward_TOD12) (TOD/tod_buggy_28.sol#80)
+	State variables written after the call(s):
+	- reward_TOD12 = msg.value (TOD/tod_buggy_28.sol#81)
+Reentrancy in HYDROGEN.setReward_TOD14() (TOD/tod_buggy_28.sol#387-393):
+	External calls:
+	- owner_TOD14.transfer(reward_TOD14) (TOD/tod_buggy_28.sol#391)
+	State variables written after the call(s):
+	- reward_TOD14 = msg.value (TOD/tod_buggy_28.sol#392)
+Reentrancy in HYDROGEN.setReward_TOD2() (TOD/tod_buggy_28.sol#213-219):
+	External calls:
+	- owner_TOD2.transfer(reward_TOD2) (TOD/tod_buggy_28.sol#217)
+	State variables written after the call(s):
+	- reward_TOD2 = msg.value (TOD/tod_buggy_28.sol#218)
+Reentrancy in ERC20Detailed.setReward_TOD20() (TOD/tod_buggy_28.sol#154-160):
+	External calls:
+	- owner_TOD20.transfer(reward_TOD20) (TOD/tod_buggy_28.sol#158)
+	State variables written after the call(s):
+	- reward_TOD20 = msg.value (TOD/tod_buggy_28.sol#159)
+Reentrancy in ERC20Detailed.setReward_TOD22() (TOD/tod_buggy_28.sol#57-63):
+	External calls:
+	- owner_TOD22.transfer(reward_TOD22) (TOD/tod_buggy_28.sol#61)
+	State variables written after the call(s):
+	- reward_TOD22 = msg.value (TOD/tod_buggy_28.sol#62)
+Reentrancy in ERC20Detailed.setReward_TOD26() (TOD/tod_buggy_28.sol#132-138):
+	External calls:
+	- owner_TOD26.transfer(reward_TOD26) (TOD/tod_buggy_28.sol#136)
+	State variables written after the call(s):
+	- reward_TOD26 = msg.value (TOD/tod_buggy_28.sol#137)
+Reentrancy in HYDROGEN.setReward_TOD30() (TOD/tod_buggy_28.sol#422-428):
+	External calls:
+	- owner_TOD30.transfer(reward_TOD30) (TOD/tod_buggy_28.sol#426)
+	State variables written after the call(s):
+	- reward_TOD30 = msg.value (TOD/tod_buggy_28.sol#427)
+Reentrancy in ERC20Detailed.setReward_TOD32() (TOD/tod_buggy_28.sol#176-182):
+	External calls:
+	- owner_TOD32.transfer(reward_TOD32) (TOD/tod_buggy_28.sol#180)
+	State variables written after the call(s):
+	- reward_TOD32 = msg.value (TOD/tod_buggy_28.sol#181)
+Reentrancy in HYDROGEN.setReward_TOD36() (TOD/tod_buggy_28.sol#505-511):
+	External calls:
+	- owner_TOD36.transfer(reward_TOD36) (TOD/tod_buggy_28.sol#509)
+	State variables written after the call(s):
+	- reward_TOD36 = msg.value (TOD/tod_buggy_28.sol#510)
+Reentrancy in HYDROGEN.setReward_TOD38() (TOD/tod_buggy_28.sol#307-313):
+	External calls:
+	- owner_TOD38.transfer(reward_TOD38) (TOD/tod_buggy_28.sol#311)
+	State variables written after the call(s):
+	- reward_TOD38 = msg.value (TOD/tod_buggy_28.sol#312)
+Reentrancy in HYDROGEN.setReward_TOD4() (TOD/tod_buggy_28.sol#329-335):
+	External calls:
+	- owner_TOD4.transfer(reward_TOD4) (TOD/tod_buggy_28.sol#333)
+	State variables written after the call(s):
+	- reward_TOD4 = msg.value (TOD/tod_buggy_28.sol#334)
+Reentrancy in HYDROGEN.setReward_TOD40() (TOD/tod_buggy_28.sol#550-556):
+	External calls:
+	- owner_TOD40.transfer(reward_TOD40) (TOD/tod_buggy_28.sol#554)
+	State variables written after the call(s):
+	- reward_TOD40 = msg.value (TOD/tod_buggy_28.sol#555)
+Reentrancy in HYDROGEN.setReward_TOD8() (TOD/tod_buggy_28.sol#446-452):
+	External calls:
+	- owner_TOD8.transfer(reward_TOD8) (TOD/tod_buggy_28.sol#450)
+	State variables written after the call(s):
+	- reward_TOD8 = msg.value (TOD/tod_buggy_28.sol#451)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable ERC20Detailed.claimed_TOD12 (TOD/tod_buggy_28.sol#73) is too similar to ERC20Detailed.claimed_TOD22 (TOD/tod_buggy_28.sol#54)
+Variable ERC20Detailed.claimed_TOD12 (TOD/tod_buggy_28.sol#73) is too similar to ERC20Detailed.claimed_TOD32 (TOD/tod_buggy_28.sol#173)
+Variable ERC20Detailed.claimed_TOD12 (TOD/tod_buggy_28.sol#73) is too similar to ERC20Detailed.claimed_TOD20 (TOD/tod_buggy_28.sol#151)
+Variable ERC20Detailed.claimed_TOD20 (TOD/tod_buggy_28.sol#151) is too similar to ERC20Detailed.claimed_TOD22 (TOD/tod_buggy_28.sol#54)
+Variable ERC20Detailed.claimed_TOD20 (TOD/tod_buggy_28.sol#151) is too similar to ERC20Detailed.claimed_TOD32 (TOD/tod_buggy_28.sol#173)
+Variable ERC20Detailed.claimed_TOD12 (TOD/tod_buggy_28.sol#73) is too similar to ERC20Detailed.claimed_TOD26 (TOD/tod_buggy_28.sol#129)
+Variable ERC20Detailed.claimed_TOD20 (TOD/tod_buggy_28.sol#151) is too similar to ERC20Detailed.claimed_TOD26 (TOD/tod_buggy_28.sol#129)
+Variable ERC20Detailed.claimed_TOD22 (TOD/tod_buggy_28.sol#54) is too similar to ERC20Detailed.claimed_TOD26 (TOD/tod_buggy_28.sol#129)
+Variable ERC20Detailed.claimed_TOD26 (TOD/tod_buggy_28.sol#129) is too similar to ERC20Detailed.claimed_TOD32 (TOD/tod_buggy_28.sol#173)
+Variable ERC20Detailed.claimed_TOD22 (TOD/tod_buggy_28.sol#54) is too similar to ERC20Detailed.claimed_TOD32 (TOD/tod_buggy_28.sol#173)
+Variable ERC20Detailed.owner_TOD12 (TOD/tod_buggy_28.sol#74) is too similar to ERC20Detailed.owner_TOD20 (TOD/tod_buggy_28.sol#152)
+Variable ERC20Detailed.owner_TOD20 (TOD/tod_buggy_28.sol#152) is too similar to ERC20Detailed.owner_TOD22 (TOD/tod_buggy_28.sol#55)
+Variable ERC20Detailed.owner_TOD12 (TOD/tod_buggy_28.sol#74) is too similar to ERC20Detailed.owner_TOD22 (TOD/tod_buggy_28.sol#55)
+Variable ERC20Detailed.owner_TOD12 (TOD/tod_buggy_28.sol#74) is too similar to ERC20Detailed.owner_TOD26 (TOD/tod_buggy_28.sol#130)
+Variable ERC20Detailed.owner_TOD20 (TOD/tod_buggy_28.sol#152) is too similar to ERC20Detailed.owner_TOD26 (TOD/tod_buggy_28.sol#130)
+Variable ERC20Detailed.owner_TOD22 (TOD/tod_buggy_28.sol#55) is too similar to ERC20Detailed.owner_TOD26 (TOD/tod_buggy_28.sol#130)
+Variable ERC20Detailed.owner_TOD12 (TOD/tod_buggy_28.sol#74) is too similar to ERC20Detailed.owner_TOD32 (TOD/tod_buggy_28.sol#174)
+Variable ERC20Detailed.owner_TOD20 (TOD/tod_buggy_28.sol#152) is too similar to ERC20Detailed.owner_TOD32 (TOD/tod_buggy_28.sol#174)
+Variable ERC20Detailed.owner_TOD22 (TOD/tod_buggy_28.sol#55) is too similar to ERC20Detailed.owner_TOD32 (TOD/tod_buggy_28.sol#174)
+Variable ERC20Detailed.owner_TOD26 (TOD/tod_buggy_28.sol#130) is too similar to ERC20Detailed.owner_TOD32 (TOD/tod_buggy_28.sol#174)
+Variable ERC20Detailed.reward_TOD12 (TOD/tod_buggy_28.sol#75) is too similar to ERC20Detailed.reward_TOD20 (TOD/tod_buggy_28.sol#153)
+Variable ERC20Detailed.reward_TOD20 (TOD/tod_buggy_28.sol#153) is too similar to ERC20Detailed.reward_TOD32 (TOD/tod_buggy_28.sol#175)
+Variable ERC20Detailed.reward_TOD12 (TOD/tod_buggy_28.sol#75) is too similar to ERC20Detailed.reward_TOD22 (TOD/tod_buggy_28.sol#56)
+Variable ERC20Detailed.reward_TOD20 (TOD/tod_buggy_28.sol#153) is too similar to ERC20Detailed.reward_TOD22 (TOD/tod_buggy_28.sol#56)
+Variable ERC20Detailed.reward_TOD22 (TOD/tod_buggy_28.sol#56) is too similar to ERC20Detailed.reward_TOD26 (TOD/tod_buggy_28.sol#131)
+Variable ERC20Detailed.reward_TOD22 (TOD/tod_buggy_28.sol#56) is too similar to ERC20Detailed.reward_TOD32 (TOD/tod_buggy_28.sol#175)
+Variable ERC20Detailed.reward_TOD12 (TOD/tod_buggy_28.sol#75) is too similar to ERC20Detailed.reward_TOD26 (TOD/tod_buggy_28.sol#131)
+Variable ERC20Detailed.reward_TOD20 (TOD/tod_buggy_28.sol#153) is too similar to ERC20Detailed.reward_TOD26 (TOD/tod_buggy_28.sol#131)
+Variable ERC20Detailed.reward_TOD26 (TOD/tod_buggy_28.sol#131) is too similar to ERC20Detailed.reward_TOD32 (TOD/tod_buggy_28.sol#175)
+Variable ERC20Detailed.reward_TOD12 (TOD/tod_buggy_28.sol#75) is too similar to ERC20Detailed.reward_TOD32 (TOD/tod_buggy_28.sol#175)
+Variable ERC20Detailed.winner_TOD11 (TOD/tod_buggy_28.sol#92) is too similar to ERC20Detailed.winner_TOD19 (TOD/tod_buggy_28.sol#112)
+Variable ERC20Detailed.claimed_TOD12 (TOD/tod_buggy_28.sol#73) is too similar to HYDROGEN.claimed_TOD14 (TOD/tod_buggy_28.sol#384)
+Variable HYDROGEN.claimed_TOD14 (TOD/tod_buggy_28.sol#384) is too similar to HYDROGEN.claimed_TOD40 (TOD/tod_buggy_28.sol#547)
+Variable HYDROGEN.claimed_TOD2 (TOD/tod_buggy_28.sol#210) is too similar to HYDROGEN.claimed_TOD4 (TOD/tod_buggy_28.sol#326)
+Variable HYDROGEN.claimed_TOD2 (TOD/tod_buggy_28.sol#210) is too similar to HYDROGEN.claimed_TOD8 (TOD/tod_buggy_28.sol#443)
+Variable ERC20Detailed.claimed_TOD20 (TOD/tod_buggy_28.sol#151) is too similar to HYDROGEN.claimed_TOD30 (TOD/tod_buggy_28.sol#419)
+Variable ERC20Detailed.claimed_TOD20 (TOD/tod_buggy_28.sol#151) is too similar to HYDROGEN.claimed_TOD40 (TOD/tod_buggy_28.sol#547)
+Variable ERC20Detailed.claimed_TOD26 (TOD/tod_buggy_28.sol#129) is too similar to HYDROGEN.claimed_TOD36 (TOD/tod_buggy_28.sol#502)
+Variable HYDROGEN.claimed_TOD30 (TOD/tod_buggy_28.sol#419) is too similar to HYDROGEN.claimed_TOD36 (TOD/tod_buggy_28.sol#502)
+Variable HYDROGEN.claimed_TOD30 (TOD/tod_buggy_28.sol#419) is too similar to HYDROGEN.claimed_TOD40 (TOD/tod_buggy_28.sol#547)
+Variable HYDROGEN.claimed_TOD30 (TOD/tod_buggy_28.sol#419) is too similar to ERC20Detailed.claimed_TOD32 (TOD/tod_buggy_28.sol#173)
+Variable ERC20Detailed.claimed_TOD32 (TOD/tod_buggy_28.sol#173) is too similar to HYDROGEN.claimed_TOD36 (TOD/tod_buggy_28.sol#502)
+Variable HYDROGEN.claimed_TOD30 (TOD/tod_buggy_28.sol#419) is too similar to HYDROGEN.claimed_TOD38 (TOD/tod_buggy_28.sol#304)
+Variable ERC20Detailed.claimed_TOD32 (TOD/tod_buggy_28.sol#173) is too similar to HYDROGEN.claimed_TOD38 (TOD/tod_buggy_28.sol#304)
+Variable HYDROGEN.claimed_TOD36 (TOD/tod_buggy_28.sol#502) is too similar to HYDROGEN.claimed_TOD38 (TOD/tod_buggy_28.sol#304)
+Variable HYDROGEN.claimed_TOD4 (TOD/tod_buggy_28.sol#326) is too similar to HYDROGEN.claimed_TOD8 (TOD/tod_buggy_28.sol#443)
+Variable ERC20Detailed.owner_TOD12 (TOD/tod_buggy_28.sol#74) is too similar to HYDROGEN.owner_TOD14 (TOD/tod_buggy_28.sol#385)
+Variable HYDROGEN.owner_TOD14 (TOD/tod_buggy_28.sol#385) is too similar to HYDROGEN.owner_TOD40 (TOD/tod_buggy_28.sol#548)
+Variable ERC20Detailed.owner_TOD20 (TOD/tod_buggy_28.sol#152) is too similar to HYDROGEN.owner_TOD30 (TOD/tod_buggy_28.sol#420)
+Variable ERC20Detailed.owner_TOD20 (TOD/tod_buggy_28.sol#152) is too similar to HYDROGEN.owner_TOD40 (TOD/tod_buggy_28.sol#548)
+Variable ERC20Detailed.owner_TOD26 (TOD/tod_buggy_28.sol#130) is too similar to HYDROGEN.owner_TOD36 (TOD/tod_buggy_28.sol#503)
+Variable HYDROGEN.owner_TOD30 (TOD/tod_buggy_28.sol#420) is too similar to HYDROGEN.owner_TOD36 (TOD/tod_buggy_28.sol#503)
+Variable HYDROGEN.owner_TOD30 (TOD/tod_buggy_28.sol#420) is too similar to HYDROGEN.owner_TOD40 (TOD/tod_buggy_28.sol#548)
+Variable HYDROGEN.owner_TOD30 (TOD/tod_buggy_28.sol#420) is too similar to ERC20Detailed.owner_TOD32 (TOD/tod_buggy_28.sol#174)
+Variable ERC20Detailed.owner_TOD32 (TOD/tod_buggy_28.sol#174) is too similar to HYDROGEN.owner_TOD36 (TOD/tod_buggy_28.sol#503)
+Variable ERC20Detailed.owner_TOD32 (TOD/tod_buggy_28.sol#174) is too similar to HYDROGEN.owner_TOD38 (TOD/tod_buggy_28.sol#305)
+Variable HYDROGEN.owner_TOD30 (TOD/tod_buggy_28.sol#420) is too similar to HYDROGEN.owner_TOD38 (TOD/tod_buggy_28.sol#305)
+Variable HYDROGEN.owner_TOD36 (TOD/tod_buggy_28.sol#503) is too similar to HYDROGEN.owner_TOD38 (TOD/tod_buggy_28.sol#305)
+Variable ERC20Detailed.reward_TOD12 (TOD/tod_buggy_28.sol#75) is too similar to HYDROGEN.reward_TOD14 (TOD/tod_buggy_28.sol#386)
+Variable HYDROGEN.reward_TOD14 (TOD/tod_buggy_28.sol#386) is too similar to HYDROGEN.reward_TOD40 (TOD/tod_buggy_28.sol#549)
+Variable HYDROGEN.reward_TOD2 (TOD/tod_buggy_28.sol#212) is too similar to HYDROGEN.reward_TOD4 (TOD/tod_buggy_28.sol#328)
+Variable HYDROGEN.reward_TOD2 (TOD/tod_buggy_28.sol#212) is too similar to HYDROGEN.reward_TOD8 (TOD/tod_buggy_28.sol#445)
+Variable ERC20Detailed.reward_TOD20 (TOD/tod_buggy_28.sol#153) is too similar to HYDROGEN.reward_TOD30 (TOD/tod_buggy_28.sol#421)
+Variable ERC20Detailed.reward_TOD20 (TOD/tod_buggy_28.sol#153) is too similar to HYDROGEN.reward_TOD40 (TOD/tod_buggy_28.sol#549)
+Variable ERC20Detailed.reward_TOD26 (TOD/tod_buggy_28.sol#131) is too similar to HYDROGEN.reward_TOD36 (TOD/tod_buggy_28.sol#504)
+Variable HYDROGEN.reward_TOD30 (TOD/tod_buggy_28.sol#421) is too similar to HYDROGEN.reward_TOD36 (TOD/tod_buggy_28.sol#504)
+Variable HYDROGEN.reward_TOD30 (TOD/tod_buggy_28.sol#421) is too similar to HYDROGEN.reward_TOD40 (TOD/tod_buggy_28.sol#549)
+Variable HYDROGEN.reward_TOD30 (TOD/tod_buggy_28.sol#421) is too similar to ERC20Detailed.reward_TOD32 (TOD/tod_buggy_28.sol#175)
+Variable ERC20Detailed.reward_TOD32 (TOD/tod_buggy_28.sol#175) is too similar to HYDROGEN.reward_TOD36 (TOD/tod_buggy_28.sol#504)
+Variable ERC20Detailed.reward_TOD32 (TOD/tod_buggy_28.sol#175) is too similar to HYDROGEN.reward_TOD38 (TOD/tod_buggy_28.sol#306)
+Variable HYDROGEN.reward_TOD30 (TOD/tod_buggy_28.sol#421) is too similar to HYDROGEN.reward_TOD38 (TOD/tod_buggy_28.sol#306)
+Variable HYDROGEN.reward_TOD36 (TOD/tod_buggy_28.sol#504) is too similar to HYDROGEN.reward_TOD38 (TOD/tod_buggy_28.sol#306)
+Variable HYDROGEN.reward_TOD4 (TOD/tod_buggy_28.sol#328) is too similar to HYDROGEN.reward_TOD8 (TOD/tod_buggy_28.sol#445)
+Variable HYDROGEN.winner_TOD1 (TOD/tod_buggy_28.sol#196) is too similar to HYDROGEN.winner_TOD3 (TOD/tod_buggy_28.sol#258)
+Variable HYDROGEN.winner_TOD1 (TOD/tod_buggy_28.sol#196) is too similar to HYDROGEN.winner_TOD7 (TOD/tod_buggy_28.sol#348)
+Variable HYDROGEN.winner_TOD1 (TOD/tod_buggy_28.sol#196) is too similar to HYDROGEN.winner_TOD9 (TOD/tod_buggy_28.sol#272)
+Variable ERC20Detailed.winner_TOD11 (TOD/tod_buggy_28.sol#92) is too similar to HYDROGEN.winner_TOD13 (TOD/tod_buggy_28.sol#628)
+Variable HYDROGEN.winner_TOD13 (TOD/tod_buggy_28.sol#628) is too similar to HYDROGEN.winner_TOD17 (TOD/tod_buggy_28.sol#230)
+Variable HYDROGEN.winner_TOD13 (TOD/tod_buggy_28.sol#628) is too similar to ERC20Detailed.winner_TOD19 (TOD/tod_buggy_28.sol#112)
+Variable HYDROGEN.winner_TOD13 (TOD/tod_buggy_28.sol#628) is too similar to HYDROGEN.winner_TOD23 (TOD/tod_buggy_28.sol#365)
+Variable HYDROGEN.winner_TOD13 (TOD/tod_buggy_28.sol#628) is too similar to HYDROGEN.winner_TOD35 (TOD/tod_buggy_28.sol#527)
+Variable HYDROGEN.winner_TOD13 (TOD/tod_buggy_28.sol#628) is too similar to HYDROGEN.winner_TOD37 (TOD/tod_buggy_28.sol#244)
+Variable HYDROGEN.winner_TOD13 (TOD/tod_buggy_28.sol#628) is too similar to HYDROGEN.winner_TOD39 (TOD/tod_buggy_28.sol#468)
+Variable ERC20Detailed.winner_TOD11 (TOD/tod_buggy_28.sol#92) is too similar to HYDROGEN.winner_TOD17 (TOD/tod_buggy_28.sol#230)
+Variable HYDROGEN.winner_TOD17 (TOD/tod_buggy_28.sol#230) is too similar to ERC20Detailed.winner_TOD19 (TOD/tod_buggy_28.sol#112)
+Variable HYDROGEN.winner_TOD17 (TOD/tod_buggy_28.sol#230) is too similar to HYDROGEN.winner_TOD37 (TOD/tod_buggy_28.sol#244)
+Variable HYDROGEN.winner_TOD23 (TOD/tod_buggy_28.sol#365) is too similar to HYDROGEN.winner_TOD35 (TOD/tod_buggy_28.sol#527)
+Variable HYDROGEN.winner_TOD23 (TOD/tod_buggy_28.sol#365) is too similar to HYDROGEN.winner_TOD39 (TOD/tod_buggy_28.sol#468)
+Variable HYDROGEN.winner_TOD23 (TOD/tod_buggy_28.sol#365) is too similar to HYDROGEN.winner_TOD25 (TOD/tod_buggy_28.sol#286)
+Variable HYDROGEN.winner_TOD25 (TOD/tod_buggy_28.sol#286) is too similar to HYDROGEN.winner_TOD35 (TOD/tod_buggy_28.sol#527)
+Variable HYDROGEN.winner_TOD17 (TOD/tod_buggy_28.sol#230) is too similar to HYDROGEN.winner_TOD27 (TOD/tod_buggy_28.sol#588)
+Variable HYDROGEN.winner_TOD23 (TOD/tod_buggy_28.sol#365) is too similar to HYDROGEN.winner_TOD27 (TOD/tod_buggy_28.sol#588)
+Variable HYDROGEN.winner_TOD25 (TOD/tod_buggy_28.sol#286) is too similar to HYDROGEN.winner_TOD27 (TOD/tod_buggy_28.sol#588)
+Variable HYDROGEN.winner_TOD27 (TOD/tod_buggy_28.sol#588) is too similar to HYDROGEN.winner_TOD37 (TOD/tod_buggy_28.sol#244)
+Variable HYDROGEN.winner_TOD3 (TOD/tod_buggy_28.sol#258) is too similar to HYDROGEN.winner_TOD7 (TOD/tod_buggy_28.sol#348)
+Variable HYDROGEN.winner_TOD3 (TOD/tod_buggy_28.sol#258) is too similar to HYDROGEN.winner_TOD9 (TOD/tod_buggy_28.sol#272)
+Variable ERC20Detailed.winner_TOD11 (TOD/tod_buggy_28.sol#92) is too similar to HYDROGEN.winner_TOD31 (TOD/tod_buggy_28.sol#609)
+Variable HYDROGEN.winner_TOD13 (TOD/tod_buggy_28.sol#628) is too similar to HYDROGEN.winner_TOD31 (TOD/tod_buggy_28.sol#609)
+Variable HYDROGEN.winner_TOD17 (TOD/tod_buggy_28.sol#230) is too similar to HYDROGEN.winner_TOD31 (TOD/tod_buggy_28.sol#609)
+Variable ERC20Detailed.winner_TOD19 (TOD/tod_buggy_28.sol#112) is too similar to HYDROGEN.winner_TOD31 (TOD/tod_buggy_28.sol#609)
+Variable HYDROGEN.winner_TOD23 (TOD/tod_buggy_28.sol#365) is too similar to HYDROGEN.winner_TOD31 (TOD/tod_buggy_28.sol#609)
+Variable HYDROGEN.winner_TOD31 (TOD/tod_buggy_28.sol#609) is too similar to HYDROGEN.winner_TOD35 (TOD/tod_buggy_28.sol#527)
+Variable HYDROGEN.winner_TOD31 (TOD/tod_buggy_28.sol#609) is too similar to HYDROGEN.winner_TOD37 (TOD/tod_buggy_28.sol#244)
+Variable HYDROGEN.winner_TOD31 (TOD/tod_buggy_28.sol#609) is too similar to HYDROGEN.winner_TOD39 (TOD/tod_buggy_28.sol#468)
+Variable HYDROGEN.winner_TOD13 (TOD/tod_buggy_28.sol#628) is too similar to HYDROGEN.winner_TOD33 (TOD/tod_buggy_28.sol#571)
+Variable HYDROGEN.winner_TOD23 (TOD/tod_buggy_28.sol#365) is too similar to HYDROGEN.winner_TOD33 (TOD/tod_buggy_28.sol#571)
+Variable HYDROGEN.winner_TOD31 (TOD/tod_buggy_28.sol#609) is too similar to HYDROGEN.winner_TOD33 (TOD/tod_buggy_28.sol#571)
+Variable HYDROGEN.winner_TOD33 (TOD/tod_buggy_28.sol#571) is too similar to HYDROGEN.winner_TOD35 (TOD/tod_buggy_28.sol#527)
+Variable HYDROGEN.winner_TOD33 (TOD/tod_buggy_28.sol#571) is too similar to HYDROGEN.winner_TOD37 (TOD/tod_buggy_28.sol#244)
+Variable HYDROGEN.winner_TOD33 (TOD/tod_buggy_28.sol#571) is too similar to HYDROGEN.winner_TOD39 (TOD/tod_buggy_28.sol#468)
+Variable HYDROGEN.winner_TOD23 (TOD/tod_buggy_28.sol#365) is too similar to HYDROGEN.winner_TOD37 (TOD/tod_buggy_28.sol#244)
+Variable HYDROGEN.winner_TOD35 (TOD/tod_buggy_28.sol#527) is too similar to HYDROGEN.winner_TOD37 (TOD/tod_buggy_28.sol#244)
+Variable HYDROGEN.winner_TOD37 (TOD/tod_buggy_28.sol#244) is too similar to HYDROGEN.winner_TOD39 (TOD/tod_buggy_28.sol#468)
+Variable ERC20Detailed.winner_TOD19 (TOD/tod_buggy_28.sol#112) is too similar to HYDROGEN.winner_TOD39 (TOD/tod_buggy_28.sol#468)
+Variable HYDROGEN.winner_TOD35 (TOD/tod_buggy_28.sol#527) is too similar to HYDROGEN.winner_TOD39 (TOD/tod_buggy_28.sol#468)
+Variable HYDROGEN.winner_TOD7 (TOD/tod_buggy_28.sol#348) is too similar to HYDROGEN.winner_TOD9 (TOD/tod_buggy_28.sol#272)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+HYDROGEN.slitherConstructorVariables() (TOD/tod_buggy_28.sol#193-641) uses literals with too many digits:
+	- _totalSupply = 8000000000 (TOD/tod_buggy_28.sol#285)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+ERC20Detailed.owner_TOD12 (TOD/tod_buggy_28.sol#74) should be constant
+ERC20Detailed.owner_TOD20 (TOD/tod_buggy_28.sol#152) should be constant
+ERC20Detailed.owner_TOD22 (TOD/tod_buggy_28.sol#55) should be constant
+ERC20Detailed.owner_TOD26 (TOD/tod_buggy_28.sol#130) should be constant
+ERC20Detailed.owner_TOD32 (TOD/tod_buggy_28.sol#174) should be constant
+HYDROGEN.basePercent (TOD/tod_buggy_28.sol#299) should be constant
+HYDROGEN.owner_TOD14 (TOD/tod_buggy_28.sol#385) should be constant
+HYDROGEN.owner_TOD2 (TOD/tod_buggy_28.sol#211) should be constant
+HYDROGEN.owner_TOD30 (TOD/tod_buggy_28.sol#420) should be constant
+HYDROGEN.owner_TOD36 (TOD/tod_buggy_28.sol#503) should be constant
+HYDROGEN.owner_TOD38 (TOD/tod_buggy_28.sol#305) should be constant
+HYDROGEN.owner_TOD4 (TOD/tod_buggy_28.sol#327) should be constant
+HYDROGEN.owner_TOD40 (TOD/tod_buggy_28.sol#548) should be constant
+HYDROGEN.owner_TOD8 (TOD/tod_buggy_28.sol#444) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+multiTransfer(address[],uint256[]) should be declared external:
+	- HYDROGEN.multiTransfer(address[],uint256[]) (TOD/tod_buggy_28.sol#438-442)
+Moreover, the following function parameters should change its data location:
+receivers location should be calldata
+amounts location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+TOD/tod_buggy_28.sol analyzed (4 contracts with 80 detectors), 302 result(s) found

@@ -1,0 +1,13 @@
+Compilation warnings/errors on CV/typo_simple.sol:
+CV/typo_simple.sol:10:18: Warning: Use of unary + is deprecated.
+        onlyOne =+ 1;
+                 ^-^
+
+
+TypoSimple.addOne() (CV/typo_simple.sol#9-14) uses an dangerous unary operator: onlyOne = + 1 (CV/typo_simple.sol#10)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-unary-expressions
+
+Pragma version^0.4.25 (CV/typo_simple.sol#2) allows old versions
+solc-0.4.25 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+CV/typo_simple.sol analyzed (1 contracts with 80 detectors), 3 result(s) found

@@ -1,0 +1,334 @@
+
+owned.bug_re_ent41() (Re-entrancy/reentrancy_buggy_19.sol#73-79) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_19.sol#75)
+owned.callme_re_ent42() (Re-entrancy/reentrancy_buggy_19.sol#97-103) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_19.sol#99)
+ethBank.buyTicket_re_ent2() (Re-entrancy/reentrancy_buggy_19.sol#111-116) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent2.send(jackpot_re_ent2)) (Re-entrancy/reentrancy_buggy_19.sol#112)
+ethBank.buyTicket_re_ent37() (Re-entrancy/reentrancy_buggy_19.sol#137-142) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent37.send(jackpot_re_ent37)) (Re-entrancy/reentrancy_buggy_19.sol#138)
+ethBank.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_19.sol#173-179) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_19.sol#174)
+ethBank.bug_re_ent20() (Re-entrancy/reentrancy_buggy_19.sol#233-239) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_19.sol#235)
+ethBank.callme_re_ent7() (Re-entrancy/reentrancy_buggy_19.sol#284-290) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_19.sol#286)
+ethBank.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_19.sol#298-303) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (Re-entrancy/reentrancy_buggy_19.sol#299)
+ethBank.callme_re_ent14() (Re-entrancy/reentrancy_buggy_19.sol#310-316) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_19.sol#312)
+ethBank.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_19.sol#324-329) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (Re-entrancy/reentrancy_buggy_19.sol#325)
+ethBank.callme_re_ent35() (Re-entrancy/reentrancy_buggy_19.sol#370-376) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_19.sol#372)
+ethBank.bug_re_ent27() (Re-entrancy/reentrancy_buggy_19.sol#413-419) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_19.sol#415)
+ethBank.bug_re_ent13() (Re-entrancy/reentrancy_buggy_19.sol#438-445) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_19.sol#440)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Reentrancy in ethBank.bug_re_ent13() (Re-entrancy/reentrancy_buggy_19.sol#438-445):
+	External calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_19.sol#440)
+	State variables written after the call(s):
+	- not_called_re_ent13 = false (Re-entrancy/reentrancy_buggy_19.sol#444)
+Reentrancy in ethBank.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_19.sol#173-179):
+	External calls:
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_19.sol#174)
+	State variables written after the call(s):
+	- jackpot_re_ent9 = address(this).balance (Re-entrancy/reentrancy_buggy_19.sol#178)
+	- lastPlayer_re_ent9 = msg.sender (Re-entrancy/reentrancy_buggy_19.sol#177)
+Reentrancy in ethBank.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_19.sol#218-226):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (Re-entrancy/reentrancy_buggy_19.sol#221)
+	State variables written after the call(s):
+	- userBalance_re_ent26[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_19.sol#225)
+Reentrancy in ethBank.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_19.sol#398-406):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (Re-entrancy/reentrancy_buggy_19.sol#401)
+	State variables written after the call(s):
+	- userBalance_re_ent33[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_19.sol#405)
+Reentrancy in ethBank.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_19.sol#383-391):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (Re-entrancy/reentrancy_buggy_19.sol#386)
+	State variables written after the call(s):
+	- userBalance_re_ent40[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_19.sol#390)
+Reentrancy in ethBank.withdrawFunds_re_ent17(uint256) (Re-entrancy/reentrancy_buggy_19.sol#123-129):
+	External calls:
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_19.sol#126)
+	State variables written after the call(s):
+	- balances_re_ent17[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_19.sol#128)
+Reentrancy in ethBank.withdrawFunds_re_ent3(uint256) (Re-entrancy/reentrancy_buggy_19.sol#156-162):
+	External calls:
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_19.sol#159)
+	State variables written after the call(s):
+	- balances_re_ent3[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_19.sol#161)
+Reentrancy in owned.withdraw_balances_re_ent1() (Re-entrancy/reentrancy_buggy_19.sol#59-63):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent1[msg.sender])() (Re-entrancy/reentrancy_buggy_19.sol#60)
+	State variables written after the call(s):
+	- balances_re_ent1[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_19.sol#62)
+Reentrancy in ethBank.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_19.sol#336-340):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (Re-entrancy/reentrancy_buggy_19.sol#337)
+	State variables written after the call(s):
+	- balances_re_ent8[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_19.sol#339)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
+
+owned.transferOwnership(address) (Re-entrancy/reentrancy_buggy_19.sol#92-95) should emit an event for: 
+	- owner = newOwner (Re-entrancy/reentrancy_buggy_19.sol#94) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+ethBank.withdrawForUser(address,uint256)._address (Re-entrancy/reentrancy_buggy_19.sol#118) lacks a zero-check on :
+		- _address.transfer(amount) (Re-entrancy/reentrancy_buggy_19.sol#120)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+SafeMath.add(uint256,uint256) (Re-entrancy/reentrancy_buggy_19.sol#44-48) is never used and should be removed
+SafeMath.div(uint256,uint256) (Re-entrancy/reentrancy_buggy_19.sol#28-31) is never used and should be removed
+SafeMath.mul(uint256,uint256) (Re-entrancy/reentrancy_buggy_19.sol#16-23) is never used and should be removed
+SafeMath.sub(uint256,uint256) (Re-entrancy/reentrancy_buggy_19.sol#36-39) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.5.1 (Re-entrancy/reentrancy_buggy_19.sol#5) allows old versions
+solc-0.5.1 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in owned.withdraw_balances_re_ent1() (Re-entrancy/reentrancy_buggy_19.sol#59-63):
+	- (success) = msg.sender.call.value(balances_re_ent1[msg.sender])() (Re-entrancy/reentrancy_buggy_19.sol#60)
+Low level call in ethBank.withdrawFunds_re_ent17(uint256) (Re-entrancy/reentrancy_buggy_19.sol#123-129):
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_19.sol#126)
+Low level call in ethBank.withdrawFunds_re_ent3(uint256) (Re-entrancy/reentrancy_buggy_19.sol#156-162):
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_19.sol#159)
+Low level call in ethBank.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_19.sol#173-179):
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_19.sol#174)
+Low level call in ethBank.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_19.sol#218-226):
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (Re-entrancy/reentrancy_buggy_19.sol#221)
+Low level call in ethBank.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_19.sol#336-340):
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (Re-entrancy/reentrancy_buggy_19.sol#337)
+Low level call in ethBank.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_19.sol#383-391):
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (Re-entrancy/reentrancy_buggy_19.sol#386)
+Low level call in ethBank.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_19.sol#398-406):
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (Re-entrancy/reentrancy_buggy_19.sol#401)
+Low level call in ethBank.bug_re_ent13() (Re-entrancy/reentrancy_buggy_19.sol#438-445):
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_19.sol#440)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Contract owned (Re-entrancy/reentrancy_buggy_19.sol#57-104) is not in CapWords
+Function owned.withdraw_balances_re_ent1() (Re-entrancy/reentrancy_buggy_19.sol#59-63) is not in mixedCase
+Function owned.bug_re_ent41() (Re-entrancy/reentrancy_buggy_19.sol#73-79) is not in mixedCase
+Function owned.callme_re_ent42() (Re-entrancy/reentrancy_buggy_19.sol#97-103) is not in mixedCase
+Variable owned.balances_re_ent1 (Re-entrancy/reentrancy_buggy_19.sol#58) is not in mixedCase
+Variable owned.not_called_re_ent41 (Re-entrancy/reentrancy_buggy_19.sol#72) is not in mixedCase
+Variable owned.counter_re_ent42 (Re-entrancy/reentrancy_buggy_19.sol#96) is not in mixedCase
+Contract ethBank (Re-entrancy/reentrancy_buggy_19.sol#106-446) is not in CapWords
+Function ethBank.buyTicket_re_ent2() (Re-entrancy/reentrancy_buggy_19.sol#111-116) is not in mixedCase
+Parameter ethBank.withdrawForUser(address,uint256)._address (Re-entrancy/reentrancy_buggy_19.sol#118) is not in mixedCase
+Function ethBank.withdrawFunds_re_ent17(uint256) (Re-entrancy/reentrancy_buggy_19.sol#123-129) is not in mixedCase
+Parameter ethBank.withdrawFunds_re_ent17(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_19.sol#123) is not in mixedCase
+Function ethBank.buyTicket_re_ent37() (Re-entrancy/reentrancy_buggy_19.sol#137-142) is not in mixedCase
+Function ethBank.withdrawFunds_re_ent3(uint256) (Re-entrancy/reentrancy_buggy_19.sol#156-162) is not in mixedCase
+Parameter ethBank.withdrawFunds_re_ent3(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_19.sol#156) is not in mixedCase
+Function ethBank.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_19.sol#173-179) is not in mixedCase
+Function ethBank.claimReward_re_ent25() (Re-entrancy/reentrancy_buggy_19.sol#191-197) is not in mixedCase
+Function ethBank.withdrawBalance_re_ent19() (Re-entrancy/reentrancy_buggy_19.sol#204-211) is not in mixedCase
+Function ethBank.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_19.sol#218-226) is not in mixedCase
+Function ethBank.bug_re_ent20() (Re-entrancy/reentrancy_buggy_19.sol#233-239) is not in mixedCase
+Function ethBank.claimReward_re_ent32() (Re-entrancy/reentrancy_buggy_19.sol#246-252) is not in mixedCase
+Function ethBank.withdrawFunds_re_ent38(uint256) (Re-entrancy/reentrancy_buggy_19.sol#259-264) is not in mixedCase
+Parameter ethBank.withdrawFunds_re_ent38(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_19.sol#259) is not in mixedCase
+Function ethBank.activeBonusCacl_1() (Re-entrancy/reentrancy_buggy_19.sol#265-269) is not in mixedCase
+Function ethBank.claimReward_re_ent4() (Re-entrancy/reentrancy_buggy_19.sol#271-277) is not in mixedCase
+Function ethBank.activeBonusCacl_2() (Re-entrancy/reentrancy_buggy_19.sol#278-282) is not in mixedCase
+Function ethBank.callme_re_ent7() (Re-entrancy/reentrancy_buggy_19.sol#284-290) is not in mixedCase
+Function ethBank.activeBonusCacl_3() (Re-entrancy/reentrancy_buggy_19.sol#291-295) is not in mixedCase
+Function ethBank.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_19.sol#298-303) is not in mixedCase
+Function ethBank.activeBonusCacl_4() (Re-entrancy/reentrancy_buggy_19.sol#304-308) is not in mixedCase
+Function ethBank.callme_re_ent14() (Re-entrancy/reentrancy_buggy_19.sol#310-316) is not in mixedCase
+Function ethBank.activeBonusCacl_5() (Re-entrancy/reentrancy_buggy_19.sol#317-321) is not in mixedCase
+Function ethBank.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_19.sol#324-329) is not in mixedCase
+Function ethBank.activeBonusCacl_6() (Re-entrancy/reentrancy_buggy_19.sol#330-334) is not in mixedCase
+Function ethBank.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_19.sol#336-340) is not in mixedCase
+Function ethBank.activeBonusCacl_7() (Re-entrancy/reentrancy_buggy_19.sol#341-345) is not in mixedCase
+Function ethBank.claimReward_re_ent39() (Re-entrancy/reentrancy_buggy_19.sol#347-353) is not in mixedCase
+Function ethBank.activeBonusCacl_8() (Re-entrancy/reentrancy_buggy_19.sol#354-358) is not in mixedCase
+Function ethBank.withdraw_balances_re_ent36() (Re-entrancy/reentrancy_buggy_19.sol#360-363) is not in mixedCase
+Function ethBank.activeBonusCacl_9() (Re-entrancy/reentrancy_buggy_19.sol#364-368) is not in mixedCase
+Function ethBank.callme_re_ent35() (Re-entrancy/reentrancy_buggy_19.sol#370-376) is not in mixedCase
+Function ethBank.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_19.sol#383-391) is not in mixedCase
+Function ethBank.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_19.sol#398-406) is not in mixedCase
+Function ethBank.bug_re_ent27() (Re-entrancy/reentrancy_buggy_19.sol#413-419) is not in mixedCase
+Function ethBank.withdrawFunds_re_ent31(uint256) (Re-entrancy/reentrancy_buggy_19.sol#426-431) is not in mixedCase
+Parameter ethBank.withdrawFunds_re_ent31(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_19.sol#426) is not in mixedCase
+Function ethBank.bug_re_ent13() (Re-entrancy/reentrancy_buggy_19.sol#438-445) is not in mixedCase
+Variable ethBank.lastPlayer_re_ent2 (Re-entrancy/reentrancy_buggy_19.sol#109) is not in mixedCase
+Variable ethBank.jackpot_re_ent2 (Re-entrancy/reentrancy_buggy_19.sol#110) is not in mixedCase
+Variable ethBank.balances_re_ent17 (Re-entrancy/reentrancy_buggy_19.sol#122) is not in mixedCase
+Variable ethBank.lastPlayer_re_ent37 (Re-entrancy/reentrancy_buggy_19.sol#135) is not in mixedCase
+Variable ethBank.jackpot_re_ent37 (Re-entrancy/reentrancy_buggy_19.sol#136) is not in mixedCase
+Variable ethBank.balances_re_ent3 (Re-entrancy/reentrancy_buggy_19.sol#155) is not in mixedCase
+Variable ethBank.lastPlayer_re_ent9 (Re-entrancy/reentrancy_buggy_19.sol#171) is not in mixedCase
+Variable ethBank.jackpot_re_ent9 (Re-entrancy/reentrancy_buggy_19.sol#172) is not in mixedCase
+Variable ethBank.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_19.sol#190) is not in mixedCase
+Variable ethBank.userBalance_re_ent19 (Re-entrancy/reentrancy_buggy_19.sol#203) is not in mixedCase
+Variable ethBank.userBalance_re_ent26 (Re-entrancy/reentrancy_buggy_19.sol#217) is not in mixedCase
+Variable ethBank.not_called_re_ent20 (Re-entrancy/reentrancy_buggy_19.sol#232) is not in mixedCase
+Variable ethBank.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_19.sol#245) is not in mixedCase
+Variable ethBank.balances_re_ent38 (Re-entrancy/reentrancy_buggy_19.sol#258) is not in mixedCase
+Variable ethBank.redeemableEther_re_ent4 (Re-entrancy/reentrancy_buggy_19.sol#270) is not in mixedCase
+Variable ethBank.counter_re_ent7 (Re-entrancy/reentrancy_buggy_19.sol#283) is not in mixedCase
+Variable ethBank.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_19.sol#296) is not in mixedCase
+Variable ethBank.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_19.sol#297) is not in mixedCase
+Variable ethBank.counter_re_ent14 (Re-entrancy/reentrancy_buggy_19.sol#309) is not in mixedCase
+Variable ethBank.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_19.sol#322) is not in mixedCase
+Variable ethBank.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_19.sol#323) is not in mixedCase
+Variable ethBank.balances_re_ent8 (Re-entrancy/reentrancy_buggy_19.sol#335) is not in mixedCase
+Variable ethBank.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_19.sol#346) is not in mixedCase
+Variable ethBank.balances_re_ent36 (Re-entrancy/reentrancy_buggy_19.sol#359) is not in mixedCase
+Variable ethBank.counter_re_ent35 (Re-entrancy/reentrancy_buggy_19.sol#369) is not in mixedCase
+Variable ethBank.userBalance_re_ent40 (Re-entrancy/reentrancy_buggy_19.sol#382) is not in mixedCase
+Variable ethBank.userBalance_re_ent33 (Re-entrancy/reentrancy_buggy_19.sol#397) is not in mixedCase
+Variable ethBank.not_called_re_ent27 (Re-entrancy/reentrancy_buggy_19.sol#412) is not in mixedCase
+Variable ethBank.balances_re_ent31 (Re-entrancy/reentrancy_buggy_19.sol#425) is not in mixedCase
+Variable ethBank.not_called_re_ent13 (Re-entrancy/reentrancy_buggy_19.sol#437) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in ethBank.bug_re_ent20() (Re-entrancy/reentrancy_buggy_19.sol#233-239):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_19.sol#235)
+	State variables written after the call(s):
+	- not_called_re_ent20 = false (Re-entrancy/reentrancy_buggy_19.sol#238)
+Reentrancy in ethBank.bug_re_ent27() (Re-entrancy/reentrancy_buggy_19.sol#413-419):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_19.sol#415)
+	State variables written after the call(s):
+	- not_called_re_ent27 = false (Re-entrancy/reentrancy_buggy_19.sol#418)
+Reentrancy in owned.bug_re_ent41() (Re-entrancy/reentrancy_buggy_19.sol#73-79):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_19.sol#75)
+	State variables written after the call(s):
+	- not_called_re_ent41 = false (Re-entrancy/reentrancy_buggy_19.sol#78)
+Reentrancy in ethBank.buyTicket_re_ent2() (Re-entrancy/reentrancy_buggy_19.sol#111-116):
+	External calls:
+	- ! (lastPlayer_re_ent2.send(jackpot_re_ent2)) (Re-entrancy/reentrancy_buggy_19.sol#112)
+	State variables written after the call(s):
+	- jackpot_re_ent2 = address(this).balance (Re-entrancy/reentrancy_buggy_19.sol#115)
+	- lastPlayer_re_ent2 = msg.sender (Re-entrancy/reentrancy_buggy_19.sol#114)
+Reentrancy in ethBank.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_19.sol#298-303):
+	External calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (Re-entrancy/reentrancy_buggy_19.sol#299)
+	State variables written after the call(s):
+	- jackpot_re_ent23 = address(this).balance (Re-entrancy/reentrancy_buggy_19.sol#302)
+	- lastPlayer_re_ent23 = msg.sender (Re-entrancy/reentrancy_buggy_19.sol#301)
+Reentrancy in ethBank.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_19.sol#324-329):
+	External calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (Re-entrancy/reentrancy_buggy_19.sol#325)
+	State variables written after the call(s):
+	- jackpot_re_ent30 = address(this).balance (Re-entrancy/reentrancy_buggy_19.sol#328)
+	- lastPlayer_re_ent30 = msg.sender (Re-entrancy/reentrancy_buggy_19.sol#327)
+Reentrancy in ethBank.buyTicket_re_ent37() (Re-entrancy/reentrancy_buggy_19.sol#137-142):
+	External calls:
+	- ! (lastPlayer_re_ent37.send(jackpot_re_ent37)) (Re-entrancy/reentrancy_buggy_19.sol#138)
+	State variables written after the call(s):
+	- jackpot_re_ent37 = address(this).balance (Re-entrancy/reentrancy_buggy_19.sol#141)
+	- lastPlayer_re_ent37 = msg.sender (Re-entrancy/reentrancy_buggy_19.sol#140)
+Reentrancy in ethBank.callme_re_ent14() (Re-entrancy/reentrancy_buggy_19.sol#310-316):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_19.sol#312)
+	State variables written after the call(s):
+	- counter_re_ent14 += 1 (Re-entrancy/reentrancy_buggy_19.sol#315)
+Reentrancy in ethBank.callme_re_ent35() (Re-entrancy/reentrancy_buggy_19.sol#370-376):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_19.sol#372)
+	State variables written after the call(s):
+	- counter_re_ent35 += 1 (Re-entrancy/reentrancy_buggy_19.sol#375)
+Reentrancy in owned.callme_re_ent42() (Re-entrancy/reentrancy_buggy_19.sol#97-103):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_19.sol#99)
+	State variables written after the call(s):
+	- counter_re_ent42 += 1 (Re-entrancy/reentrancy_buggy_19.sol#102)
+Reentrancy in ethBank.callme_re_ent7() (Re-entrancy/reentrancy_buggy_19.sol#284-290):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_19.sol#286)
+	State variables written after the call(s):
+	- counter_re_ent7 += 1 (Re-entrancy/reentrancy_buggy_19.sol#289)
+Reentrancy in ethBank.claimReward_re_ent25() (Re-entrancy/reentrancy_buggy_19.sol#191-197):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent25) (Re-entrancy/reentrancy_buggy_19.sol#195)
+	State variables written after the call(s):
+	- redeemableEther_re_ent25[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_19.sol#196)
+Reentrancy in ethBank.claimReward_re_ent32() (Re-entrancy/reentrancy_buggy_19.sol#246-252):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent32) (Re-entrancy/reentrancy_buggy_19.sol#250)
+	State variables written after the call(s):
+	- redeemableEther_re_ent32[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_19.sol#251)
+Reentrancy in ethBank.claimReward_re_ent39() (Re-entrancy/reentrancy_buggy_19.sol#347-353):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent39) (Re-entrancy/reentrancy_buggy_19.sol#351)
+	State variables written after the call(s):
+	- redeemableEther_re_ent39[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_19.sol#352)
+Reentrancy in ethBank.claimReward_re_ent4() (Re-entrancy/reentrancy_buggy_19.sol#271-277):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent4) (Re-entrancy/reentrancy_buggy_19.sol#275)
+	State variables written after the call(s):
+	- redeemableEther_re_ent4[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_19.sol#276)
+Reentrancy in ethBank.withdrawBalance_re_ent19() (Re-entrancy/reentrancy_buggy_19.sol#204-211):
+	External calls:
+	- ! (msg.sender.send(userBalance_re_ent19[msg.sender])) (Re-entrancy/reentrancy_buggy_19.sol#207)
+	State variables written after the call(s):
+	- userBalance_re_ent19[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_19.sol#210)
+Reentrancy in ethBank.withdrawFunds_re_ent31(uint256) (Re-entrancy/reentrancy_buggy_19.sol#426-431):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_19.sol#429)
+	State variables written after the call(s):
+	- balances_re_ent31[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_19.sol#430)
+Reentrancy in ethBank.withdrawFunds_re_ent38(uint256) (Re-entrancy/reentrancy_buggy_19.sol#259-264):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_19.sol#262)
+	State variables written after the call(s):
+	- balances_re_ent38[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_19.sol#263)
+Reentrancy in ethBank.withdraw_balances_re_ent36() (Re-entrancy/reentrancy_buggy_19.sol#360-363):
+	External calls:
+	- msg.sender.send(balances_re_ent36[msg.sender]) (Re-entrancy/reentrancy_buggy_19.sol#361)
+	State variables written after the call(s):
+	- balances_re_ent36[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_19.sol#362)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable owned.balances_re_ent1 (Re-entrancy/reentrancy_buggy_19.sol#58) is too similar to ethBank.balances_re_ent3 (Re-entrancy/reentrancy_buggy_19.sol#155)
+Variable owned.balances_re_ent1 (Re-entrancy/reentrancy_buggy_19.sol#58) is too similar to ethBank.balances_re_ent8 (Re-entrancy/reentrancy_buggy_19.sol#335)
+Variable ethBank.balances_re_ent17 (Re-entrancy/reentrancy_buggy_19.sol#122) is too similar to ethBank.balances_re_ent31 (Re-entrancy/reentrancy_buggy_19.sol#425)
+Variable ethBank.balances_re_ent31 (Re-entrancy/reentrancy_buggy_19.sol#425) is too similar to ethBank.balances_re_ent36 (Re-entrancy/reentrancy_buggy_19.sol#359)
+Variable ethBank.balances_re_ent31 (Re-entrancy/reentrancy_buggy_19.sol#425) is too similar to ethBank.balances_re_ent38 (Re-entrancy/reentrancy_buggy_19.sol#258)
+Variable ethBank.balances_re_ent36 (Re-entrancy/reentrancy_buggy_19.sol#359) is too similar to ethBank.balances_re_ent38 (Re-entrancy/reentrancy_buggy_19.sol#258)
+Variable ethBank.balances_re_ent3 (Re-entrancy/reentrancy_buggy_19.sol#155) is too similar to ethBank.balances_re_ent8 (Re-entrancy/reentrancy_buggy_19.sol#335)
+Variable ethBank.counter_re_ent14 (Re-entrancy/reentrancy_buggy_19.sol#309) is too similar to owned.counter_re_ent42 (Re-entrancy/reentrancy_buggy_19.sol#96)
+Variable ethBank.jackpot_re_ent2 (Re-entrancy/reentrancy_buggy_19.sol#110) is too similar to ethBank.jackpot_re_ent9 (Re-entrancy/reentrancy_buggy_19.sol#172)
+Variable ethBank.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_19.sol#297) is too similar to ethBank.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_19.sol#323)
+Variable ethBank.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_19.sol#323) is too similar to ethBank.jackpot_re_ent37 (Re-entrancy/reentrancy_buggy_19.sol#136)
+Variable ethBank.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_19.sol#297) is too similar to ethBank.jackpot_re_ent37 (Re-entrancy/reentrancy_buggy_19.sol#136)
+Variable ethBank.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_19.sol#296) is too similar to ethBank.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_19.sol#322)
+Variable ethBank.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_19.sol#296) is too similar to ethBank.lastPlayer_re_ent37 (Re-entrancy/reentrancy_buggy_19.sol#135)
+Variable ethBank.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_19.sol#322) is too similar to ethBank.lastPlayer_re_ent37 (Re-entrancy/reentrancy_buggy_19.sol#135)
+Variable ethBank.lastPlayer_re_ent2 (Re-entrancy/reentrancy_buggy_19.sol#109) is too similar to ethBank.lastPlayer_re_ent9 (Re-entrancy/reentrancy_buggy_19.sol#171)
+Variable ethBank.not_called_re_ent20 (Re-entrancy/reentrancy_buggy_19.sol#232) is too similar to ethBank.not_called_re_ent27 (Re-entrancy/reentrancy_buggy_19.sol#412)
+Variable ethBank.not_called_re_ent13 (Re-entrancy/reentrancy_buggy_19.sol#437) is too similar to owned.not_called_re_ent41 (Re-entrancy/reentrancy_buggy_19.sol#72)
+Variable ethBank.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_19.sol#190) is too similar to ethBank.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_19.sol#245)
+Variable ethBank.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_19.sol#245) is too similar to ethBank.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_19.sol#346)
+Variable ethBank.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_19.sol#190) is too similar to ethBank.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_19.sol#346)
+Variable ethBank.claimReward_re_ent25().transferValue_re_ent25 (Re-entrancy/reentrancy_buggy_19.sol#194) is too similar to ethBank.claimReward_re_ent32().transferValue_re_ent32 (Re-entrancy/reentrancy_buggy_19.sol#249)
+Variable ethBank.claimReward_re_ent25().transferValue_re_ent25 (Re-entrancy/reentrancy_buggy_19.sol#194) is too similar to ethBank.claimReward_re_ent39().transferValue_re_ent39 (Re-entrancy/reentrancy_buggy_19.sol#350)
+Variable ethBank.claimReward_re_ent32().transferValue_re_ent32 (Re-entrancy/reentrancy_buggy_19.sol#249) is too similar to ethBank.claimReward_re_ent39().transferValue_re_ent39 (Re-entrancy/reentrancy_buggy_19.sol#350)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+Re-entrancy/reentrancy_buggy_19.sol analyzed (3 contracts with 80 detectors), 159 result(s) found

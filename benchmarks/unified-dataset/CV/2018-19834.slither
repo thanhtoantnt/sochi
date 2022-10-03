@@ -1,0 +1,43 @@
+
+OldXRPCToken (CV/2018-19834.sol#100-105) has incorrect ERC20 function interface:OldXRPCToken.transfer(address,uint256) (CV/2018-19834.sol#101)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-erc20-interface
+
+Contract locking ether found:
+	Contract BOMBBA (CV/2018-19834.sol#106-266) has payable functions:
+	 - BOMBBA.fallback() (CV/2018-19834.sol#234-236)
+	But does not have a function to withdraw the ether
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#contracts-that-lock-ether
+
+BOMBBA.quaker(address).wallet (CV/2018-19834.sol#122) lacks a zero-check on :
+		- ownerWallet = wallet (CV/2018-19834.sol#124)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+SafeMath.div(uint256,uint256) (CV/2018-19834.sol#28-33) is never used and should be removed
+SafeMath.mul(uint256,uint256) (CV/2018-19834.sol#22-26) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.4.18 (CV/2018-19834.sol#9) allows old versions
+solc-0.4.18 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+BOMBBA (CV/2018-19834.sol#106-266) should inherit from OldXRPCToken (CV/2018-19834.sol#100-105)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-inheritance
+
+Parameter BOMBBA.transfer(address,uint256)._to (CV/2018-19834.sol#133) is not in mixedCase
+Parameter BOMBBA.transfer(address,uint256)._value (CV/2018-19834.sol#133) is not in mixedCase
+Parameter BOMBBA.transferFrom(address,address,uint256)._from (CV/2018-19834.sol#148) is not in mixedCase
+Parameter BOMBBA.transferFrom(address,address,uint256)._to (CV/2018-19834.sol#148) is not in mixedCase
+Parameter BOMBBA.transferFrom(address,address,uint256)._value (CV/2018-19834.sol#148) is not in mixedCase
+Parameter BOMBBA.approve(address,uint256)._spender (CV/2018-19834.sol#170) is not in mixedCase
+Parameter BOMBBA.approve(address,uint256)._value (CV/2018-19834.sol#170) is not in mixedCase
+Parameter BOMBBA.increaseApproval(address,uint256)._spender (CV/2018-19834.sol#203) is not in mixedCase
+Parameter BOMBBA.increaseApproval(address,uint256)._addedValue (CV/2018-19834.sol#203) is not in mixedCase
+Parameter BOMBBA.decreaseApproval(address,uint256)._spender (CV/2018-19834.sol#219) is not in mixedCase
+Parameter BOMBBA.decreaseApproval(address,uint256)._subtractedValue (CV/2018-19834.sol#219) is not in mixedCase
+Parameter BOMBBA.balanceOf(address)._owner (CV/2018-19834.sol#244) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+BOMBBA.slitherConstructorConstantVariables() (CV/2018-19834.sol#106-266) uses literals with too many digits:
+	- INITIAL_SUPPLY = 10000000 (CV/2018-19834.sol#116)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+CV/2018-19834.sol analyzed (5 contracts with 80 detectors), 21 result(s) found

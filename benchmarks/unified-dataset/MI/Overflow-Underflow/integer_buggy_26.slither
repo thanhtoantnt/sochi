@@ -1,0 +1,161 @@
+Compilation warnings/errors on Overflow-Underflow/integer_buggy_26.sol:
+Overflow-Underflow/integer_buggy_26.sol:74:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou3() public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_26.sol:101:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou19() public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_26.sol:122:1: Warning: Function state mutability can be restricted to pure
+function bug_intou20(uint8 p_intou20) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_26.sol:126:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou31() public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_26.sol:147:1: Warning: Function state mutability can be restricted to pure
+function bug_intou32(uint8 p_intou32) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_26.sol:166:1: Warning: Function state mutability can be restricted to pure
+function bug_intou4(uint8 p_intou4) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_26.sol:174:1: Warning: Function state mutability can be restricted to pure
+function bug_intou7() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_26.sol:182:1: Warning: Function state mutability can be restricted to pure
+function bug_intou23() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_26.sol:216:1: Warning: Function state mutability can be restricted to pure
+function bug_intou8(uint8 p_intou8) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_26.sol:226:1: Warning: Function state mutability can be restricted to pure
+function bug_intou39() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_26.sol:235:1: Warning: Function state mutability can be restricted to pure
+function bug_intou36(uint8 p_intou36) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_26.sol:244:1: Warning: Function state mutability can be restricted to pure
+function bug_intou35() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_26.sol:257:1: Warning: Function state mutability can be restricted to pure
+function bug_intou40(uint8 p_intou40) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_26.sol:281:1: Warning: Function state mutability can be restricted to pure
+function bug_intou27() public{
+^ (Relevant source part starts here and spans across multiple lines).
+
+
+UBBCToken.transfer_intou26(address,uint256) (Overflow-Underflow/integer_buggy_26.sol#108-113) contains a tautology or contradiction:
+	- require(bool)(balances_intou26[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_26.sol#109)
+UBBCToken.transfer_intou38(address,uint256) (Overflow-Underflow/integer_buggy_26.sol#157-162) contains a tautology or contradiction:
+	- require(bool)(balances_intou38[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_26.sol#158)
+UBBCToken.transfer_intou14(address,uint256) (Overflow-Underflow/integer_buggy_26.sol#193-198) contains a tautology or contradiction:
+	- require(bool)(balances_intou14[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_26.sol#194)
+UBBCToken.transfer_intou30(address,uint256) (Overflow-Underflow/integer_buggy_26.sol#205-210) contains a tautology or contradiction:
+	- require(bool)(balances_intou30[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_26.sol#206)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#tautology-or-contradiction
+
+UBBCToken.withdraw_intou37() (Overflow-Underflow/integer_buggy_26.sol#68-72) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou37[msg.sender]) (Overflow-Underflow/integer_buggy_26.sol#69)
+UBBCToken.withdraw_intou9() (Overflow-Underflow/integer_buggy_26.sol#84-88) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou9[msg.sender]) (Overflow-Underflow/integer_buggy_26.sol#85)
+UBBCToken.withdraw_intou25() (Overflow-Underflow/integer_buggy_26.sol#95-99) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou25[msg.sender]) (Overflow-Underflow/integer_buggy_26.sol#96)
+UBBCToken.withdraw_intou13() (Overflow-Underflow/integer_buggy_26.sol#137-141) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou13[msg.sender]) (Overflow-Underflow/integer_buggy_26.sol#138)
+UBBCToken.withdraw_intou33() (Overflow-Underflow/integer_buggy_26.sol#273-277) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou33[msg.sender]) (Overflow-Underflow/integer_buggy_26.sol#274)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+SafeMath.div(uint256,uint256) (Overflow-Underflow/integer_buggy_26.sol#35-42) is never used and should be removed
+SafeMath.mod(uint256,uint256) (Overflow-Underflow/integer_buggy_26.sol#44-47) is never used and should be removed
+SafeMath.mul(uint256,uint256) (Overflow-Underflow/integer_buggy_26.sol#21-33) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.5.2 (Overflow-Underflow/integer_buggy_26.sol#5) allows old versions
+solc-0.5.2 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function UBBCToken.increaseLockTime_intou37(uint256) (Overflow-Underflow/integer_buggy_26.sol#65-67) is not in mixedCase
+Parameter UBBCToken.increaseLockTime_intou37(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_26.sol#65) is not in mixedCase
+Function UBBCToken.withdraw_intou37() (Overflow-Underflow/integer_buggy_26.sol#68-72) is not in mixedCase
+Function UBBCToken.bug_intou3() (Overflow-Underflow/integer_buggy_26.sol#74-77) is not in mixedCase
+Function UBBCToken.increaseLockTime_intou9(uint256) (Overflow-Underflow/integer_buggy_26.sol#81-83) is not in mixedCase
+Parameter UBBCToken.increaseLockTime_intou9(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_26.sol#81) is not in mixedCase
+Function UBBCToken.withdraw_intou9() (Overflow-Underflow/integer_buggy_26.sol#84-88) is not in mixedCase
+Function UBBCToken.increaseLockTime_intou25(uint256) (Overflow-Underflow/integer_buggy_26.sol#92-94) is not in mixedCase
+Parameter UBBCToken.increaseLockTime_intou25(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_26.sol#92) is not in mixedCase
+Function UBBCToken.withdraw_intou25() (Overflow-Underflow/integer_buggy_26.sol#95-99) is not in mixedCase
+Function UBBCToken.bug_intou19() (Overflow-Underflow/integer_buggy_26.sol#101-104) is not in mixedCase
+Function UBBCToken.transfer_intou26(address,uint256) (Overflow-Underflow/integer_buggy_26.sol#108-113) is not in mixedCase
+Parameter UBBCToken.transfer_intou26(address,uint256)._to (Overflow-Underflow/integer_buggy_26.sol#108) is not in mixedCase
+Parameter UBBCToken.transfer_intou26(address,uint256)._value (Overflow-Underflow/integer_buggy_26.sol#108) is not in mixedCase
+Function UBBCToken.bug_intou20(uint8) (Overflow-Underflow/integer_buggy_26.sol#122-125) is not in mixedCase
+Parameter UBBCToken.bug_intou20(uint8).p_intou20 (Overflow-Underflow/integer_buggy_26.sol#122) is not in mixedCase
+Function UBBCToken.bug_intou31() (Overflow-Underflow/integer_buggy_26.sol#126-129) is not in mixedCase
+Function UBBCToken.increaseLockTime_intou13(uint256) (Overflow-Underflow/integer_buggy_26.sol#134-136) is not in mixedCase
+Parameter UBBCToken.increaseLockTime_intou13(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_26.sol#134) is not in mixedCase
+Function UBBCToken.withdraw_intou13() (Overflow-Underflow/integer_buggy_26.sol#137-141) is not in mixedCase
+Function UBBCToken.bug_intou32(uint8) (Overflow-Underflow/integer_buggy_26.sol#147-150) is not in mixedCase
+Parameter UBBCToken.bug_intou32(uint8).p_intou32 (Overflow-Underflow/integer_buggy_26.sol#147) is not in mixedCase
+Function UBBCToken.transfer_intou38(address,uint256) (Overflow-Underflow/integer_buggy_26.sol#157-162) is not in mixedCase
+Parameter UBBCToken.transfer_intou38(address,uint256)._to (Overflow-Underflow/integer_buggy_26.sol#157) is not in mixedCase
+Parameter UBBCToken.transfer_intou38(address,uint256)._value (Overflow-Underflow/integer_buggy_26.sol#157) is not in mixedCase
+Function UBBCToken.bug_intou4(uint8) (Overflow-Underflow/integer_buggy_26.sol#166-169) is not in mixedCase
+Parameter UBBCToken.bug_intou4(uint8).p_intou4 (Overflow-Underflow/integer_buggy_26.sol#166) is not in mixedCase
+Function UBBCToken.bug_intou7() (Overflow-Underflow/integer_buggy_26.sol#174-177) is not in mixedCase
+Function UBBCToken.bug_intou23() (Overflow-Underflow/integer_buggy_26.sol#182-185) is not in mixedCase
+Function UBBCToken.transfer_intou14(address,uint256) (Overflow-Underflow/integer_buggy_26.sol#193-198) is not in mixedCase
+Parameter UBBCToken.transfer_intou14(address,uint256)._to (Overflow-Underflow/integer_buggy_26.sol#193) is not in mixedCase
+Parameter UBBCToken.transfer_intou14(address,uint256)._value (Overflow-Underflow/integer_buggy_26.sol#193) is not in mixedCase
+Function UBBCToken.transfer_intou30(address,uint256) (Overflow-Underflow/integer_buggy_26.sol#205-210) is not in mixedCase
+Parameter UBBCToken.transfer_intou30(address,uint256)._to (Overflow-Underflow/integer_buggy_26.sol#205) is not in mixedCase
+Parameter UBBCToken.transfer_intou30(address,uint256)._value (Overflow-Underflow/integer_buggy_26.sol#205) is not in mixedCase
+Function UBBCToken.bug_intou8(uint8) (Overflow-Underflow/integer_buggy_26.sol#216-219) is not in mixedCase
+Parameter UBBCToken.bug_intou8(uint8).p_intou8 (Overflow-Underflow/integer_buggy_26.sol#216) is not in mixedCase
+Function UBBCToken.bug_intou39() (Overflow-Underflow/integer_buggy_26.sol#226-229) is not in mixedCase
+Function UBBCToken.bug_intou36(uint8) (Overflow-Underflow/integer_buggy_26.sol#235-238) is not in mixedCase
+Parameter UBBCToken.bug_intou36(uint8).p_intou36 (Overflow-Underflow/integer_buggy_26.sol#235) is not in mixedCase
+Function UBBCToken.bug_intou35() (Overflow-Underflow/integer_buggy_26.sol#244-247) is not in mixedCase
+Function UBBCToken.bug_intou40(uint8) (Overflow-Underflow/integer_buggy_26.sol#257-260) is not in mixedCase
+Parameter UBBCToken.bug_intou40(uint8).p_intou40 (Overflow-Underflow/integer_buggy_26.sol#257) is not in mixedCase
+Function UBBCToken.increaseLockTime_intou33(uint256) (Overflow-Underflow/integer_buggy_26.sol#270-272) is not in mixedCase
+Parameter UBBCToken.increaseLockTime_intou33(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_26.sol#270) is not in mixedCase
+Function UBBCToken.withdraw_intou33() (Overflow-Underflow/integer_buggy_26.sol#273-277) is not in mixedCase
+Function UBBCToken.bug_intou27() (Overflow-Underflow/integer_buggy_26.sol#281-284) is not in mixedCase
+Variable UBBCToken.lockTime_intou37 (Overflow-Underflow/integer_buggy_26.sol#63) is not in mixedCase
+Variable UBBCToken.lockTime_intou9 (Overflow-Underflow/integer_buggy_26.sol#79) is not in mixedCase
+Variable UBBCToken.lockTime_intou25 (Overflow-Underflow/integer_buggy_26.sol#90) is not in mixedCase
+Variable UBBCToken.balances_intou26 (Overflow-Underflow/integer_buggy_26.sol#106) is not in mixedCase
+Variable UBBCToken.lockTime_intou13 (Overflow-Underflow/integer_buggy_26.sol#132) is not in mixedCase
+Variable UBBCToken.balances_intou38 (Overflow-Underflow/integer_buggy_26.sol#155) is not in mixedCase
+Variable UBBCToken.balances_intou14 (Overflow-Underflow/integer_buggy_26.sol#191) is not in mixedCase
+Variable UBBCToken.balances_intou30 (Overflow-Underflow/integer_buggy_26.sol#203) is not in mixedCase
+Variable UBBCToken.lockTime_intou33 (Overflow-Underflow/integer_buggy_26.sol#268) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable UBBCToken.balances_intou30 (Overflow-Underflow/integer_buggy_26.sol#203) is too similar to UBBCToken.balances_intou38 (Overflow-Underflow/integer_buggy_26.sol#155)
+Variable UBBCToken.lockTime_intou13 (Overflow-Underflow/integer_buggy_26.sol#132) is too similar to UBBCToken.lockTime_intou33 (Overflow-Underflow/integer_buggy_26.sol#268)
+Variable UBBCToken.lockTime_intou13 (Overflow-Underflow/integer_buggy_26.sol#132) is too similar to UBBCToken.lockTime_intou37 (Overflow-Underflow/integer_buggy_26.sol#63)
+Variable UBBCToken.lockTime_intou33 (Overflow-Underflow/integer_buggy_26.sol#268) is too similar to UBBCToken.lockTime_intou37 (Overflow-Underflow/integer_buggy_26.sol#63)
+Variable UBBCToken.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_26.sol#139) is too similar to UBBCToken.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_26.sol#275)
+Variable UBBCToken.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_26.sol#139) is too similar to UBBCToken.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_26.sol#97)
+Variable UBBCToken.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_26.sol#97) is too similar to UBBCToken.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_26.sol#275)
+Variable UBBCToken.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_26.sol#139) is too similar to UBBCToken.withdraw_intou37().transferValue_intou37 (Overflow-Underflow/integer_buggy_26.sol#70)
+Variable UBBCToken.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_26.sol#97) is too similar to UBBCToken.withdraw_intou37().transferValue_intou37 (Overflow-Underflow/integer_buggy_26.sol#70)
+Variable UBBCToken.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_26.sol#275) is too similar to UBBCToken.withdraw_intou37().transferValue_intou37 (Overflow-Underflow/integer_buggy_26.sol#70)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+UBBCToken.constructor() (Overflow-Underflow/integer_buggy_26.sol#115-121) uses literals with too many digits:
+	- _totalSupply = 260000000000000000000000000 (Overflow-Underflow/integer_buggy_26.sol#119)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+ERC20 event UBBCTokenTransfer(address,address,uint256) (Overflow-Underflow/integer_buggy_26.sol#130)does not index parameter sender
+ERC20 event UBBCTokenTransfer(address,address,uint256) (Overflow-Underflow/integer_buggy_26.sol#130)does not index parameter to
+ERC20 event UBBCTokenApproval(address,address,uint256) (Overflow-Underflow/integer_buggy_26.sol#142)does not index parameter owner
+ERC20 event UBBCTokenApproval(address,address,uint256) (Overflow-Underflow/integer_buggy_26.sol#142)does not index parameter spender
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unindexed-erc20-event-parameters
+Overflow-Underflow/integer_buggy_26.sol analyzed (3 contracts with 80 detectors), 85 result(s) found

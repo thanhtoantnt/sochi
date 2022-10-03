@@ -1,0 +1,315 @@
+
+StockBet.callme_re_ent35() (Re-entrancy/reentrancy_buggy_45.sol#25-31) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_45.sol#27)
+StockBet.bug_re_ent27() (Re-entrancy/reentrancy_buggy_45.sol#56-62) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_45.sol#58)
+StockBet.bug_re_ent13() (Re-entrancy/reentrancy_buggy_45.sol#74-81) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_45.sol#76)
+StockBet.bug_re_ent41() (Re-entrancy/reentrancy_buggy_45.sol#107-113) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_45.sol#109)
+StockBet.callme_re_ent42() (Re-entrancy/reentrancy_buggy_45.sol#116-122) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_45.sol#118)
+StockBet.buyTicket_re_ent2() (Re-entrancy/reentrancy_buggy_45.sol#127-132) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent2.send(jackpot_re_ent2)) (Re-entrancy/reentrancy_buggy_45.sol#128)
+StockBet.buyTicket_re_ent37() (Re-entrancy/reentrancy_buggy_45.sol#147-152) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent37.send(jackpot_re_ent37)) (Re-entrancy/reentrancy_buggy_45.sol#148)
+StockBet.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_45.sol#165-171) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_45.sol#166)
+StockBet.bug_re_ent20() (Re-entrancy/reentrancy_buggy_45.sol#244-250) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_45.sol#246)
+StockBet.callme_re_ent7() (Re-entrancy/reentrancy_buggy_45.sol#306-312) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_45.sol#308)
+StockBet.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_45.sol#340-345) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (Re-entrancy/reentrancy_buggy_45.sol#341)
+StockBet.callme_re_ent14() (Re-entrancy/reentrancy_buggy_45.sol#351-357) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_45.sol#353)
+StockBet.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_45.sol#367-372) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (Re-entrancy/reentrancy_buggy_45.sol#368)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Reentrancy in StockBet.bug_re_ent13() (Re-entrancy/reentrancy_buggy_45.sol#74-81):
+	External calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_45.sol#76)
+	State variables written after the call(s):
+	- not_called_re_ent13 = false (Re-entrancy/reentrancy_buggy_45.sol#80)
+Reentrancy in StockBet.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_45.sol#165-171):
+	External calls:
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_45.sol#166)
+	State variables written after the call(s):
+	- jackpot_re_ent9 = address(this).balance (Re-entrancy/reentrancy_buggy_45.sol#170)
+	- lastPlayer_re_ent9 = msg.sender (Re-entrancy/reentrancy_buggy_45.sol#169)
+Reentrancy in StockBet.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_45.sol#228-236):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (Re-entrancy/reentrancy_buggy_45.sol#231)
+	State variables written after the call(s):
+	- userBalance_re_ent26[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_45.sol#235)
+Reentrancy in StockBet.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_45.sol#45-53):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (Re-entrancy/reentrancy_buggy_45.sol#48)
+	State variables written after the call(s):
+	- userBalance_re_ent33[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_45.sol#52)
+Reentrancy in StockBet.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_45.sol#34-42):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (Re-entrancy/reentrancy_buggy_45.sol#37)
+	State variables written after the call(s):
+	- userBalance_re_ent40[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_45.sol#41)
+Reentrancy in StockBet.withdrawFunds_re_ent17(uint256) (Re-entrancy/reentrancy_buggy_45.sol#136-142):
+	External calls:
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_45.sol#139)
+	State variables written after the call(s):
+	- balances_re_ent17[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_45.sol#141)
+Reentrancy in StockBet.withdrawFunds_re_ent3(uint256) (Re-entrancy/reentrancy_buggy_45.sol#155-161):
+	External calls:
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_45.sol#158)
+	State variables written after the call(s):
+	- balances_re_ent3[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_45.sol#160)
+Reentrancy in StockBet.withdraw_balances_re_ent1() (Re-entrancy/reentrancy_buggy_45.sol#100-104):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent1[msg.sender])() (Re-entrancy/reentrancy_buggy_45.sol#101)
+	State variables written after the call(s):
+	- balances_re_ent1[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_45.sol#103)
+Reentrancy in StockBet.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_45.sol#378-382):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (Re-entrancy/reentrancy_buggy_45.sol#379)
+	State variables written after the call(s):
+	- balances_re_ent8[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_45.sol#381)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
+
+StockBet.setOracle(address)._oracle (Re-entrancy/reentrancy_buggy_45.sol#238) lacks a zero-check on :
+		- oracle = _oracle (Re-entrancy/reentrancy_buggy_45.sol#239)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Pragma version^0.5.12 (Re-entrancy/reentrancy_buggy_45.sol#5) allows old versions
+solc-0.5.12 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in StockBet.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_45.sol#34-42):
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (Re-entrancy/reentrancy_buggy_45.sol#37)
+Low level call in StockBet.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_45.sol#45-53):
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (Re-entrancy/reentrancy_buggy_45.sol#48)
+Low level call in StockBet.bug_re_ent13() (Re-entrancy/reentrancy_buggy_45.sol#74-81):
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_45.sol#76)
+Low level call in StockBet.withdraw_balances_re_ent1() (Re-entrancy/reentrancy_buggy_45.sol#100-104):
+	- (success) = msg.sender.call.value(balances_re_ent1[msg.sender])() (Re-entrancy/reentrancy_buggy_45.sol#101)
+Low level call in StockBet.withdrawFunds_re_ent17(uint256) (Re-entrancy/reentrancy_buggy_45.sol#136-142):
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_45.sol#139)
+Low level call in StockBet.withdrawFunds_re_ent3(uint256) (Re-entrancy/reentrancy_buggy_45.sol#155-161):
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_45.sol#158)
+Low level call in StockBet.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_45.sol#165-171):
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_45.sol#166)
+Low level call in StockBet.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_45.sol#228-236):
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (Re-entrancy/reentrancy_buggy_45.sol#231)
+Low level call in StockBet.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_45.sol#378-382):
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (Re-entrancy/reentrancy_buggy_45.sol#379)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Function StockBet.claimReward_re_ent39() (Re-entrancy/reentrancy_buggy_45.sol#10-16) is not in mixedCase
+Function StockBet.withdraw_balances_re_ent36() (Re-entrancy/reentrancy_buggy_45.sol#19-22) is not in mixedCase
+Function StockBet.callme_re_ent35() (Re-entrancy/reentrancy_buggy_45.sol#25-31) is not in mixedCase
+Function StockBet.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_45.sol#34-42) is not in mixedCase
+Function StockBet.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_45.sol#45-53) is not in mixedCase
+Function StockBet.bug_re_ent27() (Re-entrancy/reentrancy_buggy_45.sol#56-62) is not in mixedCase
+Function StockBet.withdrawFunds_re_ent31(uint256) (Re-entrancy/reentrancy_buggy_45.sol#66-71) is not in mixedCase
+Parameter StockBet.withdrawFunds_re_ent31(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_45.sol#66) is not in mixedCase
+Function StockBet.bug_re_ent13() (Re-entrancy/reentrancy_buggy_45.sol#74-81) is not in mixedCase
+Function StockBet.withdraw_balances_re_ent1() (Re-entrancy/reentrancy_buggy_45.sol#100-104) is not in mixedCase
+Function StockBet.bug_re_ent41() (Re-entrancy/reentrancy_buggy_45.sol#107-113) is not in mixedCase
+Function StockBet.callme_re_ent42() (Re-entrancy/reentrancy_buggy_45.sol#116-122) is not in mixedCase
+Function StockBet.buyTicket_re_ent2() (Re-entrancy/reentrancy_buggy_45.sol#127-132) is not in mixedCase
+Function StockBet.withdrawFunds_re_ent17(uint256) (Re-entrancy/reentrancy_buggy_45.sol#136-142) is not in mixedCase
+Parameter StockBet.withdrawFunds_re_ent17(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_45.sol#136) is not in mixedCase
+Function StockBet.buyTicket_re_ent37() (Re-entrancy/reentrancy_buggy_45.sol#147-152) is not in mixedCase
+Function StockBet.withdrawFunds_re_ent3(uint256) (Re-entrancy/reentrancy_buggy_45.sol#155-161) is not in mixedCase
+Parameter StockBet.withdrawFunds_re_ent3(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_45.sol#155) is not in mixedCase
+Function StockBet.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_45.sol#165-171) is not in mixedCase
+Function StockBet.claimReward_re_ent25() (Re-entrancy/reentrancy_buggy_45.sol#175-181) is not in mixedCase
+Function StockBet.withdrawBalance_re_ent19() (Re-entrancy/reentrancy_buggy_45.sol#184-191) is not in mixedCase
+Function StockBet.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_45.sol#228-236) is not in mixedCase
+Parameter StockBet.setOracle(address)._oracle (Re-entrancy/reentrancy_buggy_45.sol#238) is not in mixedCase
+Function StockBet.bug_re_ent20() (Re-entrancy/reentrancy_buggy_45.sol#244-250) is not in mixedCase
+Parameter StockBet.setInitialPrice(uint256)._value (Re-entrancy/reentrancy_buggy_45.sol#252) is not in mixedCase
+Function StockBet.claimReward_re_ent32() (Re-entrancy/reentrancy_buggy_45.sol#259-265) is not in mixedCase
+Function StockBet.withdrawFunds_re_ent38(uint256) (Re-entrancy/reentrancy_buggy_45.sol#273-278) is not in mixedCase
+Parameter StockBet.withdrawFunds_re_ent38(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_45.sol#273) is not in mixedCase
+Function StockBet.claimReward_re_ent4() (Re-entrancy/reentrancy_buggy_45.sol#289-295) is not in mixedCase
+Function StockBet.callme_re_ent7() (Re-entrancy/reentrancy_buggy_45.sol#306-312) is not in mixedCase
+Parameter StockBet.setFinalPrice(uint256)._value (Re-entrancy/reentrancy_buggy_45.sol#315) is not in mixedCase
+Function StockBet.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_45.sol#340-345) is not in mixedCase
+Function StockBet.callme_re_ent14() (Re-entrancy/reentrancy_buggy_45.sol#351-357) is not in mixedCase
+Function StockBet.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_45.sol#367-372) is not in mixedCase
+Function StockBet.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_45.sol#378-382) is not in mixedCase
+Variable StockBet.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_45.sol#9) is not in mixedCase
+Variable StockBet.balances_re_ent36 (Re-entrancy/reentrancy_buggy_45.sol#18) is not in mixedCase
+Variable StockBet.counter_re_ent35 (Re-entrancy/reentrancy_buggy_45.sol#24) is not in mixedCase
+Variable StockBet.userBalance_re_ent40 (Re-entrancy/reentrancy_buggy_45.sol#33) is not in mixedCase
+Variable StockBet.userBalance_re_ent33 (Re-entrancy/reentrancy_buggy_45.sol#44) is not in mixedCase
+Variable StockBet.not_called_re_ent27 (Re-entrancy/reentrancy_buggy_45.sol#55) is not in mixedCase
+Variable StockBet.balances_re_ent31 (Re-entrancy/reentrancy_buggy_45.sol#65) is not in mixedCase
+Variable StockBet.not_called_re_ent13 (Re-entrancy/reentrancy_buggy_45.sol#73) is not in mixedCase
+Variable StockBet.balances_re_ent1 (Re-entrancy/reentrancy_buggy_45.sol#99) is not in mixedCase
+Variable StockBet.not_called_re_ent41 (Re-entrancy/reentrancy_buggy_45.sol#106) is not in mixedCase
+Variable StockBet.counter_re_ent42 (Re-entrancy/reentrancy_buggy_45.sol#115) is not in mixedCase
+Variable StockBet.lastPlayer_re_ent2 (Re-entrancy/reentrancy_buggy_45.sol#125) is not in mixedCase
+Variable StockBet.jackpot_re_ent2 (Re-entrancy/reentrancy_buggy_45.sol#126) is not in mixedCase
+Variable StockBet.balances_re_ent17 (Re-entrancy/reentrancy_buggy_45.sol#135) is not in mixedCase
+Variable StockBet.lastPlayer_re_ent37 (Re-entrancy/reentrancy_buggy_45.sol#145) is not in mixedCase
+Variable StockBet.jackpot_re_ent37 (Re-entrancy/reentrancy_buggy_45.sol#146) is not in mixedCase
+Variable StockBet.balances_re_ent3 (Re-entrancy/reentrancy_buggy_45.sol#154) is not in mixedCase
+Variable StockBet.lastPlayer_re_ent9 (Re-entrancy/reentrancy_buggy_45.sol#163) is not in mixedCase
+Variable StockBet.jackpot_re_ent9 (Re-entrancy/reentrancy_buggy_45.sol#164) is not in mixedCase
+Variable StockBet.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_45.sol#174) is not in mixedCase
+Variable StockBet.userBalance_re_ent19 (Re-entrancy/reentrancy_buggy_45.sol#183) is not in mixedCase
+Variable StockBet.userBalance_re_ent26 (Re-entrancy/reentrancy_buggy_45.sol#227) is not in mixedCase
+Variable StockBet.not_called_re_ent20 (Re-entrancy/reentrancy_buggy_45.sol#243) is not in mixedCase
+Variable StockBet.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_45.sol#258) is not in mixedCase
+Variable StockBet.balances_re_ent38 (Re-entrancy/reentrancy_buggy_45.sol#272) is not in mixedCase
+Variable StockBet.redeemableEther_re_ent4 (Re-entrancy/reentrancy_buggy_45.sol#288) is not in mixedCase
+Variable StockBet.counter_re_ent7 (Re-entrancy/reentrancy_buggy_45.sol#305) is not in mixedCase
+Variable StockBet.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_45.sol#338) is not in mixedCase
+Variable StockBet.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_45.sol#339) is not in mixedCase
+Variable StockBet.counter_re_ent14 (Re-entrancy/reentrancy_buggy_45.sol#350) is not in mixedCase
+Variable StockBet.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_45.sol#365) is not in mixedCase
+Variable StockBet.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_45.sol#366) is not in mixedCase
+Variable StockBet.balances_re_ent8 (Re-entrancy/reentrancy_buggy_45.sol#377) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in StockBet.bug_re_ent20() (Re-entrancy/reentrancy_buggy_45.sol#244-250):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_45.sol#246)
+	State variables written after the call(s):
+	- not_called_re_ent20 = false (Re-entrancy/reentrancy_buggy_45.sol#249)
+Reentrancy in StockBet.bug_re_ent27() (Re-entrancy/reentrancy_buggy_45.sol#56-62):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_45.sol#58)
+	State variables written after the call(s):
+	- not_called_re_ent27 = false (Re-entrancy/reentrancy_buggy_45.sol#61)
+Reentrancy in StockBet.bug_re_ent41() (Re-entrancy/reentrancy_buggy_45.sol#107-113):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_45.sol#109)
+	State variables written after the call(s):
+	- not_called_re_ent41 = false (Re-entrancy/reentrancy_buggy_45.sol#112)
+Reentrancy in StockBet.buyTicket_re_ent2() (Re-entrancy/reentrancy_buggy_45.sol#127-132):
+	External calls:
+	- ! (lastPlayer_re_ent2.send(jackpot_re_ent2)) (Re-entrancy/reentrancy_buggy_45.sol#128)
+	State variables written after the call(s):
+	- jackpot_re_ent2 = address(this).balance (Re-entrancy/reentrancy_buggy_45.sol#131)
+	- lastPlayer_re_ent2 = msg.sender (Re-entrancy/reentrancy_buggy_45.sol#130)
+Reentrancy in StockBet.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_45.sol#340-345):
+	External calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (Re-entrancy/reentrancy_buggy_45.sol#341)
+	State variables written after the call(s):
+	- jackpot_re_ent23 = address(this).balance (Re-entrancy/reentrancy_buggy_45.sol#344)
+	- lastPlayer_re_ent23 = msg.sender (Re-entrancy/reentrancy_buggy_45.sol#343)
+Reentrancy in StockBet.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_45.sol#367-372):
+	External calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (Re-entrancy/reentrancy_buggy_45.sol#368)
+	State variables written after the call(s):
+	- jackpot_re_ent30 = address(this).balance (Re-entrancy/reentrancy_buggy_45.sol#371)
+	- lastPlayer_re_ent30 = msg.sender (Re-entrancy/reentrancy_buggy_45.sol#370)
+Reentrancy in StockBet.buyTicket_re_ent37() (Re-entrancy/reentrancy_buggy_45.sol#147-152):
+	External calls:
+	- ! (lastPlayer_re_ent37.send(jackpot_re_ent37)) (Re-entrancy/reentrancy_buggy_45.sol#148)
+	State variables written after the call(s):
+	- jackpot_re_ent37 = address(this).balance (Re-entrancy/reentrancy_buggy_45.sol#151)
+	- lastPlayer_re_ent37 = msg.sender (Re-entrancy/reentrancy_buggy_45.sol#150)
+Reentrancy in StockBet.callme_re_ent14() (Re-entrancy/reentrancy_buggy_45.sol#351-357):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_45.sol#353)
+	State variables written after the call(s):
+	- counter_re_ent14 += 1 (Re-entrancy/reentrancy_buggy_45.sol#356)
+Reentrancy in StockBet.callme_re_ent35() (Re-entrancy/reentrancy_buggy_45.sol#25-31):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_45.sol#27)
+	State variables written after the call(s):
+	- counter_re_ent35 += 1 (Re-entrancy/reentrancy_buggy_45.sol#30)
+Reentrancy in StockBet.callme_re_ent42() (Re-entrancy/reentrancy_buggy_45.sol#116-122):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_45.sol#118)
+	State variables written after the call(s):
+	- counter_re_ent42 += 1 (Re-entrancy/reentrancy_buggy_45.sol#121)
+Reentrancy in StockBet.callme_re_ent7() (Re-entrancy/reentrancy_buggy_45.sol#306-312):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_45.sol#308)
+	State variables written after the call(s):
+	- counter_re_ent7 += 1 (Re-entrancy/reentrancy_buggy_45.sol#311)
+Reentrancy in StockBet.claimReward_re_ent25() (Re-entrancy/reentrancy_buggy_45.sol#175-181):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent25) (Re-entrancy/reentrancy_buggy_45.sol#179)
+	State variables written after the call(s):
+	- redeemableEther_re_ent25[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_45.sol#180)
+Reentrancy in StockBet.claimReward_re_ent32() (Re-entrancy/reentrancy_buggy_45.sol#259-265):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent32) (Re-entrancy/reentrancy_buggy_45.sol#263)
+	State variables written after the call(s):
+	- redeemableEther_re_ent32[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_45.sol#264)
+Reentrancy in StockBet.claimReward_re_ent39() (Re-entrancy/reentrancy_buggy_45.sol#10-16):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent39) (Re-entrancy/reentrancy_buggy_45.sol#14)
+	State variables written after the call(s):
+	- redeemableEther_re_ent39[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_45.sol#15)
+Reentrancy in StockBet.claimReward_re_ent4() (Re-entrancy/reentrancy_buggy_45.sol#289-295):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent4) (Re-entrancy/reentrancy_buggy_45.sol#293)
+	State variables written after the call(s):
+	- redeemableEther_re_ent4[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_45.sol#294)
+Reentrancy in StockBet.withdrawBalance_re_ent19() (Re-entrancy/reentrancy_buggy_45.sol#184-191):
+	External calls:
+	- ! (msg.sender.send(userBalance_re_ent19[msg.sender])) (Re-entrancy/reentrancy_buggy_45.sol#187)
+	State variables written after the call(s):
+	- userBalance_re_ent19[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_45.sol#190)
+Reentrancy in StockBet.withdrawFunds_re_ent31(uint256) (Re-entrancy/reentrancy_buggy_45.sol#66-71):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_45.sol#69)
+	State variables written after the call(s):
+	- balances_re_ent31[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_45.sol#70)
+Reentrancy in StockBet.withdrawFunds_re_ent38(uint256) (Re-entrancy/reentrancy_buggy_45.sol#273-278):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_45.sol#276)
+	State variables written after the call(s):
+	- balances_re_ent38[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_45.sol#277)
+Reentrancy in StockBet.withdraw_balances_re_ent36() (Re-entrancy/reentrancy_buggy_45.sol#19-22):
+	External calls:
+	- msg.sender.send(balances_re_ent36[msg.sender]) (Re-entrancy/reentrancy_buggy_45.sol#20)
+	State variables written after the call(s):
+	- balances_re_ent36[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_45.sol#21)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable StockBet.balances_re_ent1 (Re-entrancy/reentrancy_buggy_45.sol#99) is too similar to StockBet.balances_re_ent3 (Re-entrancy/reentrancy_buggy_45.sol#154)
+Variable StockBet.balances_re_ent1 (Re-entrancy/reentrancy_buggy_45.sol#99) is too similar to StockBet.balances_re_ent8 (Re-entrancy/reentrancy_buggy_45.sol#377)
+Variable StockBet.balances_re_ent17 (Re-entrancy/reentrancy_buggy_45.sol#135) is too similar to StockBet.balances_re_ent31 (Re-entrancy/reentrancy_buggy_45.sol#65)
+Variable StockBet.balances_re_ent31 (Re-entrancy/reentrancy_buggy_45.sol#65) is too similar to StockBet.balances_re_ent36 (Re-entrancy/reentrancy_buggy_45.sol#18)
+Variable StockBet.balances_re_ent31 (Re-entrancy/reentrancy_buggy_45.sol#65) is too similar to StockBet.balances_re_ent38 (Re-entrancy/reentrancy_buggy_45.sol#272)
+Variable StockBet.balances_re_ent36 (Re-entrancy/reentrancy_buggy_45.sol#18) is too similar to StockBet.balances_re_ent38 (Re-entrancy/reentrancy_buggy_45.sol#272)
+Variable StockBet.balances_re_ent3 (Re-entrancy/reentrancy_buggy_45.sol#154) is too similar to StockBet.balances_re_ent8 (Re-entrancy/reentrancy_buggy_45.sol#377)
+Variable StockBet.counter_re_ent14 (Re-entrancy/reentrancy_buggy_45.sol#350) is too similar to StockBet.counter_re_ent42 (Re-entrancy/reentrancy_buggy_45.sol#115)
+Variable StockBet.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_45.sol#339) is too similar to StockBet.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_45.sol#366)
+Variable StockBet.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_45.sol#366) is too similar to StockBet.jackpot_re_ent37 (Re-entrancy/reentrancy_buggy_45.sol#146)
+Variable StockBet.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_45.sol#339) is too similar to StockBet.jackpot_re_ent37 (Re-entrancy/reentrancy_buggy_45.sol#146)
+Variable StockBet.jackpot_re_ent2 (Re-entrancy/reentrancy_buggy_45.sol#126) is too similar to StockBet.jackpot_re_ent9 (Re-entrancy/reentrancy_buggy_45.sol#164)
+Variable StockBet.lastPlayer_re_ent2 (Re-entrancy/reentrancy_buggy_45.sol#125) is too similar to StockBet.lastPlayer_re_ent9 (Re-entrancy/reentrancy_buggy_45.sol#163)
+Variable StockBet.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_45.sol#338) is too similar to StockBet.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_45.sol#365)
+Variable StockBet.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_45.sol#365) is too similar to StockBet.lastPlayer_re_ent37 (Re-entrancy/reentrancy_buggy_45.sol#145)
+Variable StockBet.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_45.sol#338) is too similar to StockBet.lastPlayer_re_ent37 (Re-entrancy/reentrancy_buggy_45.sol#145)
+Variable StockBet.not_called_re_ent13 (Re-entrancy/reentrancy_buggy_45.sol#73) is too similar to StockBet.not_called_re_ent41 (Re-entrancy/reentrancy_buggy_45.sol#106)
+Variable StockBet.not_called_re_ent20 (Re-entrancy/reentrancy_buggy_45.sol#243) is too similar to StockBet.not_called_re_ent27 (Re-entrancy/reentrancy_buggy_45.sol#55)
+Variable StockBet.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_45.sol#174) is too similar to StockBet.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_45.sol#258)
+Variable StockBet.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_45.sol#174) is too similar to StockBet.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_45.sol#9)
+Variable StockBet.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_45.sol#258) is too similar to StockBet.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_45.sol#9)
+Variable StockBet.claimReward_re_ent25().transferValue_re_ent25 (Re-entrancy/reentrancy_buggy_45.sol#178) is too similar to StockBet.claimReward_re_ent32().transferValue_re_ent32 (Re-entrancy/reentrancy_buggy_45.sol#262)
+Variable StockBet.claimReward_re_ent25().transferValue_re_ent25 (Re-entrancy/reentrancy_buggy_45.sol#178) is too similar to StockBet.claimReward_re_ent39().transferValue_re_ent39 (Re-entrancy/reentrancy_buggy_45.sol#13)
+Variable StockBet.claimReward_re_ent32().transferValue_re_ent32 (Re-entrancy/reentrancy_buggy_45.sol#262) is too similar to StockBet.claimReward_re_ent39().transferValue_re_ent39 (Re-entrancy/reentrancy_buggy_45.sol#13)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+Re-entrancy/reentrancy_buggy_45.sol analyzed (1 contracts with 80 detectors), 145 result(s) found

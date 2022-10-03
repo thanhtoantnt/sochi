@@ -1,0 +1,94 @@
+
+DocumentSigner.owner_TOD36 (TOD/tod_buggy_10.sol#23) is never initialized. It is used in:
+	- DocumentSigner.setReward_TOD36() (TOD/tod_buggy_10.sol#25-31)
+DocumentSigner.owner_TOD40 (TOD/tod_buggy_10.sol#105) is never initialized. It is used in:
+	- DocumentSigner.setReward_TOD40() (TOD/tod_buggy_10.sol#107-113)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+
+DocumentSigner.setReward_TOD36() (TOD/tod_buggy_10.sol#25-31) should emit an event for: 
+	- reward_TOD36 = msg.value (TOD/tod_buggy_10.sol#30) 
+DocumentSigner.setReward_TOD40() (TOD/tod_buggy_10.sol#107-113) should emit an event for: 
+	- reward_TOD40 = msg.value (TOD/tod_buggy_10.sol#112) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+
+Pragma version>=0.4.21<0.6.0 (TOD/tod_buggy_10.sol#5) allows old versions
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function DocumentSigner.play_TOD39(bytes32) (TOD/tod_buggy_10.sol#9-15) is not in mixedCase
+Function DocumentSigner.getReward_TOD39() (TOD/tod_buggy_10.sol#17-20) is not in mixedCase
+Function DocumentSigner.setReward_TOD36() (TOD/tod_buggy_10.sol#25-31) is not in mixedCase
+Function DocumentSigner.claimReward_TOD36(uint256) (TOD/tod_buggy_10.sol#33-39) is not in mixedCase
+Function DocumentSigner.play_TOD31(bytes32) (TOD/tod_buggy_10.sol#48-54) is not in mixedCase
+Function DocumentSigner.getReward_TOD31() (TOD/tod_buggy_10.sol#56-59) is not in mixedCase
+Function DocumentSigner.play_TOD13(bytes32) (TOD/tod_buggy_10.sol#62-68) is not in mixedCase
+Function DocumentSigner.getReward_TOD13() (TOD/tod_buggy_10.sol#70-73) is not in mixedCase
+Parameter DocumentSigner.submitDocument(string)._doc (TOD/tod_buggy_10.sol#76) is not in mixedCase
+Function DocumentSigner.play_TOD35(bytes32) (TOD/tod_buggy_10.sol#84-90) is not in mixedCase
+Function DocumentSigner.getReward_TOD35() (TOD/tod_buggy_10.sol#92-95) is not in mixedCase
+Parameter DocumentSigner.signDocument(bytes32)._docHash (TOD/tod_buggy_10.sol#97) is not in mixedCase
+Function DocumentSigner.setReward_TOD40() (TOD/tod_buggy_10.sol#107-113) is not in mixedCase
+Function DocumentSigner.claimReward_TOD40(uint256) (TOD/tod_buggy_10.sol#115-121) is not in mixedCase
+Parameter DocumentSigner.getDetail(bytes32)._docHash (TOD/tod_buggy_10.sol#123) is not in mixedCase
+Function DocumentSigner.play_TOD33(bytes32) (TOD/tod_buggy_10.sol#128-134) is not in mixedCase
+Function DocumentSigner.getReward_TOD33() (TOD/tod_buggy_10.sol#136-139) is not in mixedCase
+Parameter DocumentSigner.getHash(string)._doc (TOD/tod_buggy_10.sol#141) is not in mixedCase
+Function DocumentSigner.play_TOD27(bytes32) (TOD/tod_buggy_10.sol#145-151) is not in mixedCase
+Function DocumentSigner.getReward_TOD27() (TOD/tod_buggy_10.sol#153-156) is not in mixedCase
+Variable DocumentSigner.winner_TOD39 (TOD/tod_buggy_10.sol#8) is not in mixedCase
+Variable DocumentSigner.claimed_TOD36 (TOD/tod_buggy_10.sol#22) is not in mixedCase
+Variable DocumentSigner.owner_TOD36 (TOD/tod_buggy_10.sol#23) is not in mixedCase
+Variable DocumentSigner.reward_TOD36 (TOD/tod_buggy_10.sol#24) is not in mixedCase
+Variable DocumentSigner.winner_TOD31 (TOD/tod_buggy_10.sol#47) is not in mixedCase
+Variable DocumentSigner.winner_TOD13 (TOD/tod_buggy_10.sol#61) is not in mixedCase
+Variable DocumentSigner.winner_TOD35 (TOD/tod_buggy_10.sol#83) is not in mixedCase
+Variable DocumentSigner.claimed_TOD40 (TOD/tod_buggy_10.sol#104) is not in mixedCase
+Variable DocumentSigner.owner_TOD40 (TOD/tod_buggy_10.sol#105) is not in mixedCase
+Variable DocumentSigner.reward_TOD40 (TOD/tod_buggy_10.sol#106) is not in mixedCase
+Variable DocumentSigner.winner_TOD33 (TOD/tod_buggy_10.sol#127) is not in mixedCase
+Variable DocumentSigner.winner_TOD27 (TOD/tod_buggy_10.sol#144) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in DocumentSigner.claimReward_TOD36(uint256) (TOD/tod_buggy_10.sol#33-39):
+	External calls:
+	- msg.sender.transfer(reward_TOD36) (TOD/tod_buggy_10.sol#37)
+	State variables written after the call(s):
+	- claimed_TOD36 = true (TOD/tod_buggy_10.sol#38)
+Reentrancy in DocumentSigner.claimReward_TOD40(uint256) (TOD/tod_buggy_10.sol#115-121):
+	External calls:
+	- msg.sender.transfer(reward_TOD40) (TOD/tod_buggy_10.sol#119)
+	State variables written after the call(s):
+	- claimed_TOD40 = true (TOD/tod_buggy_10.sol#120)
+Reentrancy in DocumentSigner.setReward_TOD36() (TOD/tod_buggy_10.sol#25-31):
+	External calls:
+	- owner_TOD36.transfer(reward_TOD36) (TOD/tod_buggy_10.sol#29)
+	State variables written after the call(s):
+	- reward_TOD36 = msg.value (TOD/tod_buggy_10.sol#30)
+Reentrancy in DocumentSigner.setReward_TOD40() (TOD/tod_buggy_10.sol#107-113):
+	External calls:
+	- owner_TOD40.transfer(reward_TOD40) (TOD/tod_buggy_10.sol#111)
+	State variables written after the call(s):
+	- reward_TOD40 = msg.value (TOD/tod_buggy_10.sol#112)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable DocumentSigner.winner_TOD13 (TOD/tod_buggy_10.sol#61) is too similar to DocumentSigner.winner_TOD31 (TOD/tod_buggy_10.sol#47)
+Variable DocumentSigner.winner_TOD13 (TOD/tod_buggy_10.sol#61) is too similar to DocumentSigner.winner_TOD33 (TOD/tod_buggy_10.sol#127)
+Variable DocumentSigner.winner_TOD31 (TOD/tod_buggy_10.sol#47) is too similar to DocumentSigner.winner_TOD33 (TOD/tod_buggy_10.sol#127)
+Variable DocumentSigner.winner_TOD33 (TOD/tod_buggy_10.sol#127) is too similar to DocumentSigner.winner_TOD35 (TOD/tod_buggy_10.sol#83)
+Variable DocumentSigner.winner_TOD13 (TOD/tod_buggy_10.sol#61) is too similar to DocumentSigner.winner_TOD35 (TOD/tod_buggy_10.sol#83)
+Variable DocumentSigner.winner_TOD31 (TOD/tod_buggy_10.sol#47) is too similar to DocumentSigner.winner_TOD35 (TOD/tod_buggy_10.sol#83)
+Variable DocumentSigner.winner_TOD13 (TOD/tod_buggy_10.sol#61) is too similar to DocumentSigner.winner_TOD39 (TOD/tod_buggy_10.sol#8)
+Variable DocumentSigner.winner_TOD31 (TOD/tod_buggy_10.sol#47) is too similar to DocumentSigner.winner_TOD39 (TOD/tod_buggy_10.sol#8)
+Variable DocumentSigner.winner_TOD33 (TOD/tod_buggy_10.sol#127) is too similar to DocumentSigner.winner_TOD39 (TOD/tod_buggy_10.sol#8)
+Variable DocumentSigner.winner_TOD35 (TOD/tod_buggy_10.sol#83) is too similar to DocumentSigner.winner_TOD39 (TOD/tod_buggy_10.sol#8)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+DocumentSigner.owner_TOD36 (TOD/tod_buggy_10.sol#23) should be constant
+DocumentSigner.owner_TOD40 (TOD/tod_buggy_10.sol#105) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+submitDocument(string) should be declared external:
+	- DocumentSigner.submitDocument(string) (TOD/tod_buggy_10.sol#76-82)
+Moreover, the following function parameters should change its data location:
+_doc location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+TOD/tod_buggy_10.sol analyzed (1 contracts with 80 detectors), 54 result(s) found

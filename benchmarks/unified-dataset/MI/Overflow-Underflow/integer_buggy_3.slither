@@ -1,0 +1,152 @@
+Compilation warnings/errors on Overflow-Underflow/integer_buggy_3.sol:
+Overflow-Underflow/integer_buggy_3.sol:8:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou27() public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_3.sol:13:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou31() public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_3.sol:52:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou19() public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_3.sol:66:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou20(uint8 p_intou20) public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_3.sol:72:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou32(uint8 p_intou32) public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_3.sol:88:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou4(uint8 p_intou4) public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_3.sol:114:1: Warning: Function state mutability can be restricted to pure
+function bug_intou7() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_3.sol:139:1: Warning: Function state mutability can be restricted to pure
+function bug_intou23() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_3.sol:198:1: Warning: Function state mutability can be restricted to pure
+function bug_intou8(uint8 p_intou8) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_3.sol:206:1: Warning: Function state mutability can be restricted to pure
+function bug_intou39() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_3.sol:220:1: Warning: Function state mutability can be restricted to pure
+function bug_intou36(uint8 p_intou36) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_3.sol:230:1: Warning: Function state mutability can be restricted to pure
+function bug_intou35() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_3.sol:241:1: Warning: Function state mutability can be restricted to pure
+function bug_intou40(uint8 p_intou40) public{
+^ (Relevant source part starts here and spans across multiple lines).
+
+
+CareerOnToken.transfer_intou26(address,uint256) (Overflow-Underflow/integer_buggy_3.sol#59-64) contains a tautology or contradiction:
+	- require(bool)(balances_intou26[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_3.sol#60)
+CareerOnToken.transfer_intou38(address,uint256) (Overflow-Underflow/integer_buggy_3.sol#79-84) contains a tautology or contradiction:
+	- require(bool)(balances_intou38[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_3.sol#80)
+CareerOnToken.transfer_intou14(address,uint256) (Overflow-Underflow/integer_buggy_3.sol#169-174) contains a tautology or contradiction:
+	- require(bool)(balances_intou14[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_3.sol#170)
+CareerOnToken.transfer_intou30(address,uint256) (Overflow-Underflow/integer_buggy_3.sol#185-190) contains a tautology or contradiction:
+	- require(bool)(balances_intou30[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_3.sol#186)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#tautology-or-contradiction
+
+CareerOnToken.withdraw_intou13() (Overflow-Underflow/integer_buggy_3.sol#23-27) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou13[msg.sender]) (Overflow-Underflow/integer_buggy_3.sol#24)
+CareerOnToken.withdraw_intou9() (Overflow-Underflow/integer_buggy_3.sol#35-39) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou9[msg.sender]) (Overflow-Underflow/integer_buggy_3.sol#36)
+CareerOnToken.withdraw_intou25() (Overflow-Underflow/integer_buggy_3.sol#46-50) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou25[msg.sender]) (Overflow-Underflow/integer_buggy_3.sol#47)
+CareerOnToken.withdraw_intou33() (Overflow-Underflow/integer_buggy_3.sol#255-259) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou33[msg.sender]) (Overflow-Underflow/integer_buggy_3.sol#256)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+Pragma version^0.5.1 (Overflow-Underflow/integer_buggy_3.sol#5) allows old versions
+solc-0.5.1 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function CareerOnToken.bug_intou27() (Overflow-Underflow/integer_buggy_3.sol#8-11) is not in mixedCase
+Function CareerOnToken.bug_intou31() (Overflow-Underflow/integer_buggy_3.sol#13-16) is not in mixedCase
+Function CareerOnToken.increaseLockTime_intou13(uint256) (Overflow-Underflow/integer_buggy_3.sol#20-22) is not in mixedCase
+Parameter CareerOnToken.increaseLockTime_intou13(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_3.sol#20) is not in mixedCase
+Function CareerOnToken.withdraw_intou13() (Overflow-Underflow/integer_buggy_3.sol#23-27) is not in mixedCase
+Function CareerOnToken.increaseLockTime_intou9(uint256) (Overflow-Underflow/integer_buggy_3.sol#32-34) is not in mixedCase
+Parameter CareerOnToken.increaseLockTime_intou9(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_3.sol#32) is not in mixedCase
+Function CareerOnToken.withdraw_intou9() (Overflow-Underflow/integer_buggy_3.sol#35-39) is not in mixedCase
+Function CareerOnToken.increaseLockTime_intou25(uint256) (Overflow-Underflow/integer_buggy_3.sol#43-45) is not in mixedCase
+Parameter CareerOnToken.increaseLockTime_intou25(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_3.sol#43) is not in mixedCase
+Function CareerOnToken.withdraw_intou25() (Overflow-Underflow/integer_buggy_3.sol#46-50) is not in mixedCase
+Function CareerOnToken.bug_intou19() (Overflow-Underflow/integer_buggy_3.sol#52-55) is not in mixedCase
+Function CareerOnToken.transfer_intou26(address,uint256) (Overflow-Underflow/integer_buggy_3.sol#59-64) is not in mixedCase
+Parameter CareerOnToken.transfer_intou26(address,uint256)._to (Overflow-Underflow/integer_buggy_3.sol#59) is not in mixedCase
+Parameter CareerOnToken.transfer_intou26(address,uint256)._value (Overflow-Underflow/integer_buggy_3.sol#59) is not in mixedCase
+Function CareerOnToken.bug_intou20(uint8) (Overflow-Underflow/integer_buggy_3.sol#66-69) is not in mixedCase
+Parameter CareerOnToken.bug_intou20(uint8).p_intou20 (Overflow-Underflow/integer_buggy_3.sol#66) is not in mixedCase
+Function CareerOnToken.bug_intou32(uint8) (Overflow-Underflow/integer_buggy_3.sol#72-75) is not in mixedCase
+Parameter CareerOnToken.bug_intou32(uint8).p_intou32 (Overflow-Underflow/integer_buggy_3.sol#72) is not in mixedCase
+Function CareerOnToken.transfer_intou38(address,uint256) (Overflow-Underflow/integer_buggy_3.sol#79-84) is not in mixedCase
+Parameter CareerOnToken.transfer_intou38(address,uint256)._to (Overflow-Underflow/integer_buggy_3.sol#79) is not in mixedCase
+Parameter CareerOnToken.transfer_intou38(address,uint256)._value (Overflow-Underflow/integer_buggy_3.sol#79) is not in mixedCase
+Function CareerOnToken.bug_intou4(uint8) (Overflow-Underflow/integer_buggy_3.sol#88-91) is not in mixedCase
+Parameter CareerOnToken.bug_intou4(uint8).p_intou4 (Overflow-Underflow/integer_buggy_3.sol#88) is not in mixedCase
+Function CareerOnToken.bug_intou7() (Overflow-Underflow/integer_buggy_3.sol#114-117) is not in mixedCase
+Parameter CareerOnToken.transfer(address,uint256)._to (Overflow-Underflow/integer_buggy_3.sol#121) is not in mixedCase
+Parameter CareerOnToken.transfer(address,uint256)._value (Overflow-Underflow/integer_buggy_3.sol#122) is not in mixedCase
+Function CareerOnToken.bug_intou23() (Overflow-Underflow/integer_buggy_3.sol#139-142) is not in mixedCase
+Parameter CareerOnToken.transferFrom(address,address,uint256)._from (Overflow-Underflow/integer_buggy_3.sol#146) is not in mixedCase
+Parameter CareerOnToken.transferFrom(address,address,uint256)._to (Overflow-Underflow/integer_buggy_3.sol#147) is not in mixedCase
+Parameter CareerOnToken.transferFrom(address,address,uint256)._value (Overflow-Underflow/integer_buggy_3.sol#148) is not in mixedCase
+Function CareerOnToken.transfer_intou14(address,uint256) (Overflow-Underflow/integer_buggy_3.sol#169-174) is not in mixedCase
+Parameter CareerOnToken.transfer_intou14(address,uint256)._to (Overflow-Underflow/integer_buggy_3.sol#169) is not in mixedCase
+Parameter CareerOnToken.transfer_intou14(address,uint256)._value (Overflow-Underflow/integer_buggy_3.sol#169) is not in mixedCase
+Parameter CareerOnToken.approve(address,uint256)._spender (Overflow-Underflow/integer_buggy_3.sol#176) is not in mixedCase
+Parameter CareerOnToken.approve(address,uint256)._value (Overflow-Underflow/integer_buggy_3.sol#176) is not in mixedCase
+Function CareerOnToken.transfer_intou30(address,uint256) (Overflow-Underflow/integer_buggy_3.sol#185-190) is not in mixedCase
+Parameter CareerOnToken.transfer_intou30(address,uint256)._to (Overflow-Underflow/integer_buggy_3.sol#185) is not in mixedCase
+Parameter CareerOnToken.transfer_intou30(address,uint256)._value (Overflow-Underflow/integer_buggy_3.sol#185) is not in mixedCase
+Parameter CareerOnToken.allowance(address,address)._owner (Overflow-Underflow/integer_buggy_3.sol#193) is not in mixedCase
+Parameter CareerOnToken.allowance(address,address)._spender (Overflow-Underflow/integer_buggy_3.sol#194) is not in mixedCase
+Function CareerOnToken.bug_intou8(uint8) (Overflow-Underflow/integer_buggy_3.sol#198-201) is not in mixedCase
+Parameter CareerOnToken.bug_intou8(uint8).p_intou8 (Overflow-Underflow/integer_buggy_3.sol#198) is not in mixedCase
+Function CareerOnToken.bug_intou39() (Overflow-Underflow/integer_buggy_3.sol#206-209) is not in mixedCase
+Function CareerOnToken.bug_intou36(uint8) (Overflow-Underflow/integer_buggy_3.sol#220-223) is not in mixedCase
+Parameter CareerOnToken.bug_intou36(uint8).p_intou36 (Overflow-Underflow/integer_buggy_3.sol#220) is not in mixedCase
+Function CareerOnToken.bug_intou35() (Overflow-Underflow/integer_buggy_3.sol#230-233) is not in mixedCase
+Parameter CareerOnToken.changeContractName(string,string)._newName (Overflow-Underflow/integer_buggy_3.sol#236) is not in mixedCase
+Parameter CareerOnToken.changeContractName(string,string)._newSymbol (Overflow-Underflow/integer_buggy_3.sol#236) is not in mixedCase
+Function CareerOnToken.bug_intou40(uint8) (Overflow-Underflow/integer_buggy_3.sol#241-244) is not in mixedCase
+Parameter CareerOnToken.bug_intou40(uint8).p_intou40 (Overflow-Underflow/integer_buggy_3.sol#241) is not in mixedCase
+Function CareerOnToken.increaseLockTime_intou33(uint256) (Overflow-Underflow/integer_buggy_3.sol#252-254) is not in mixedCase
+Parameter CareerOnToken.increaseLockTime_intou33(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_3.sol#252) is not in mixedCase
+Function CareerOnToken.withdraw_intou33() (Overflow-Underflow/integer_buggy_3.sol#255-259) is not in mixedCase
+Variable CareerOnToken.lockTime_intou13 (Overflow-Underflow/integer_buggy_3.sol#18) is not in mixedCase
+Variable CareerOnToken.lockTime_intou9 (Overflow-Underflow/integer_buggy_3.sol#30) is not in mixedCase
+Variable CareerOnToken.lockTime_intou25 (Overflow-Underflow/integer_buggy_3.sol#41) is not in mixedCase
+Variable CareerOnToken.balances_intou26 (Overflow-Underflow/integer_buggy_3.sol#57) is not in mixedCase
+Variable CareerOnToken.balances_intou38 (Overflow-Underflow/integer_buggy_3.sol#77) is not in mixedCase
+Variable CareerOnToken.balances_intou14 (Overflow-Underflow/integer_buggy_3.sol#167) is not in mixedCase
+Variable CareerOnToken.balances_intou30 (Overflow-Underflow/integer_buggy_3.sol#183) is not in mixedCase
+Variable CareerOnToken.lockTime_intou33 (Overflow-Underflow/integer_buggy_3.sol#250) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable CareerOnToken.balances_intou30 (Overflow-Underflow/integer_buggy_3.sol#183) is too similar to CareerOnToken.balances_intou38 (Overflow-Underflow/integer_buggy_3.sol#77)
+Variable CareerOnToken.lockTime_intou13 (Overflow-Underflow/integer_buggy_3.sol#18) is too similar to CareerOnToken.lockTime_intou33 (Overflow-Underflow/integer_buggy_3.sol#250)
+Variable CareerOnToken.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_3.sol#25) is too similar to CareerOnToken.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_3.sol#48)
+Variable CareerOnToken.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_3.sol#25) is too similar to CareerOnToken.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_3.sol#257)
+Variable CareerOnToken.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_3.sol#48) is too similar to CareerOnToken.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_3.sol#257)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+CareerOnToken.constructor(uint256,uint8) (Overflow-Underflow/integer_buggy_3.sol#94-113) uses literals with too many digits:
+	- totalSupply = 100000000000000000 (Overflow-Underflow/integer_buggy_3.sol#100)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+changeContractName(string,string) should be declared external:
+	- CareerOnToken.changeContractName(string,string) (Overflow-Underflow/integer_buggy_3.sol#236-240)
+Moreover, the following function parameters should change its data location:
+_newName location should be calldata
+_newSymbol location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+Overflow-Underflow/integer_buggy_3.sol analyzed (1 contracts with 80 detectors), 79 result(s) found

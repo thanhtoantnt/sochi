@@ -1,0 +1,328 @@
+
+PHO.owner_TOD26 (TOD/tod_buggy_4.sol#30) is never initialized. It is used in:
+	- PHO.setReward_TOD26() (TOD/tod_buggy_4.sol#32-38)
+PHO.owner_TOD20 (TOD/tod_buggy_4.sol#49) is never initialized. It is used in:
+	- PHO.setReward_TOD20() (TOD/tod_buggy_4.sol#51-57)
+PHO.owner_TOD32 (TOD/tod_buggy_4.sol#68) is never initialized. It is used in:
+	- PHO.setReward_TOD32() (TOD/tod_buggy_4.sol#70-76)
+PHO.owner_TOD38 (TOD/tod_buggy_4.sol#88) is never initialized. It is used in:
+	- PHO.setReward_TOD38() (TOD/tod_buggy_4.sol#90-96)
+PHO.owner_TOD4 (TOD/tod_buggy_4.sol#107) is never initialized. It is used in:
+	- PHO.setReward_TOD4() (TOD/tod_buggy_4.sol#109-115)
+PHO.owner_TOD14 (TOD/tod_buggy_4.sol#155) is never initialized. It is used in:
+	- PHO.setReward_TOD14() (TOD/tod_buggy_4.sol#157-163)
+PHO.owner_TOD30 (TOD/tod_buggy_4.sol#175) is never initialized. It is used in:
+	- PHO.setReward_TOD30() (TOD/tod_buggy_4.sol#177-183)
+PHO.owner_TOD8 (TOD/tod_buggy_4.sol#194) is never initialized. It is used in:
+	- PHO.setReward_TOD8() (TOD/tod_buggy_4.sol#196-202)
+PHO.owner_TOD36 (TOD/tod_buggy_4.sol#227) is never initialized. It is used in:
+	- PHO.setReward_TOD36() (TOD/tod_buggy_4.sol#229-235)
+PHO.owner_TOD40 (TOD/tod_buggy_4.sol#290) is never initialized. It is used in:
+	- PHO.setReward_TOD40() (TOD/tod_buggy_4.sol#292-298)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+
+PHO.setReward_TOD26() (TOD/tod_buggy_4.sol#32-38) should emit an event for: 
+	- reward_TOD26 = msg.value (TOD/tod_buggy_4.sol#37) 
+PHO.setReward_TOD20() (TOD/tod_buggy_4.sol#51-57) should emit an event for: 
+	- reward_TOD20 = msg.value (TOD/tod_buggy_4.sol#56) 
+PHO.setReward_TOD32() (TOD/tod_buggy_4.sol#70-76) should emit an event for: 
+	- reward_TOD32 = msg.value (TOD/tod_buggy_4.sol#75) 
+PHO.setReward_TOD38() (TOD/tod_buggy_4.sol#90-96) should emit an event for: 
+	- reward_TOD38 = msg.value (TOD/tod_buggy_4.sol#95) 
+PHO.setReward_TOD4() (TOD/tod_buggy_4.sol#109-115) should emit an event for: 
+	- reward_TOD4 = msg.value (TOD/tod_buggy_4.sol#114) 
+PHO.setReward_TOD14() (TOD/tod_buggy_4.sol#157-163) should emit an event for: 
+	- reward_TOD14 = msg.value (TOD/tod_buggy_4.sol#162) 
+PHO.setReward_TOD30() (TOD/tod_buggy_4.sol#177-183) should emit an event for: 
+	- reward_TOD30 = msg.value (TOD/tod_buggy_4.sol#182) 
+PHO.setReward_TOD8() (TOD/tod_buggy_4.sol#196-202) should emit an event for: 
+	- reward_TOD8 = msg.value (TOD/tod_buggy_4.sol#201) 
+PHO.setReward_TOD36() (TOD/tod_buggy_4.sol#229-235) should emit an event for: 
+	- reward_TOD36 = msg.value (TOD/tod_buggy_4.sol#234) 
+PHO.setReward_TOD40() (TOD/tod_buggy_4.sol#292-298) should emit an event for: 
+	- reward_TOD40 = msg.value (TOD/tod_buggy_4.sol#297) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+
+PHO.transfer(address,uint256) (TOD/tod_buggy_4.sol#325-347) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now >= 1589036400) (TOD/tod_buggy_4.sol#333)
+	- require(bool)(now >= 1620572400) (TOD/tod_buggy_4.sol#335)
+	- require(bool)(now >= 1652108400) (TOD/tod_buggy_4.sol#337)
+	- require(bool)(now >= 1683644400) (TOD/tod_buggy_4.sol#339)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+Pragma version>=0.5.0<0.6.0 (TOD/tod_buggy_4.sol#5) allows old versions
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function PHO.setReward_TOD26() (TOD/tod_buggy_4.sol#32-38) is not in mixedCase
+Function PHO.claimReward_TOD26(uint256) (TOD/tod_buggy_4.sol#40-46) is not in mixedCase
+Function PHO.setReward_TOD20() (TOD/tod_buggy_4.sol#51-57) is not in mixedCase
+Function PHO.claimReward_TOD20(uint256) (TOD/tod_buggy_4.sol#59-65) is not in mixedCase
+Function PHO.setReward_TOD32() (TOD/tod_buggy_4.sol#70-76) is not in mixedCase
+Function PHO.claimReward_TOD32(uint256) (TOD/tod_buggy_4.sol#78-84) is not in mixedCase
+Function PHO.setReward_TOD38() (TOD/tod_buggy_4.sol#90-96) is not in mixedCase
+Function PHO.claimReward_TOD38(uint256) (TOD/tod_buggy_4.sol#98-104) is not in mixedCase
+Function PHO.setReward_TOD4() (TOD/tod_buggy_4.sol#109-115) is not in mixedCase
+Function PHO.claimReward_TOD4(uint256) (TOD/tod_buggy_4.sol#117-123) is not in mixedCase
+Function PHO.play_TOD7(bytes32) (TOD/tod_buggy_4.sol#126-132) is not in mixedCase
+Function PHO.getReward_TOD7() (TOD/tod_buggy_4.sol#134-137) is not in mixedCase
+Function PHO.play_TOD23(bytes32) (TOD/tod_buggy_4.sol#141-147) is not in mixedCase
+Function PHO.getReward_TOD23() (TOD/tod_buggy_4.sol#149-152) is not in mixedCase
+Function PHO.setReward_TOD14() (TOD/tod_buggy_4.sol#157-163) is not in mixedCase
+Function PHO.claimReward_TOD14(uint256) (TOD/tod_buggy_4.sol#165-171) is not in mixedCase
+Function PHO.setReward_TOD30() (TOD/tod_buggy_4.sol#177-183) is not in mixedCase
+Function PHO.claimReward_TOD30(uint256) (TOD/tod_buggy_4.sol#185-191) is not in mixedCase
+Function PHO.setReward_TOD8() (TOD/tod_buggy_4.sol#196-202) is not in mixedCase
+Function PHO.claimReward_TOD8(uint256) (TOD/tod_buggy_4.sol#204-210) is not in mixedCase
+Function PHO.play_TOD39(bytes32) (TOD/tod_buggy_4.sol#213-219) is not in mixedCase
+Function PHO.getReward_TOD39() (TOD/tod_buggy_4.sol#221-224) is not in mixedCase
+Function PHO.setReward_TOD36() (TOD/tod_buggy_4.sol#229-235) is not in mixedCase
+Function PHO.claimReward_TOD36(uint256) (TOD/tod_buggy_4.sol#237-243) is not in mixedCase
+Function PHO.play_TOD35(bytes32) (TOD/tod_buggy_4.sol#273-279) is not in mixedCase
+Function PHO.getReward_TOD35() (TOD/tod_buggy_4.sol#281-284) is not in mixedCase
+Function PHO.setReward_TOD40() (TOD/tod_buggy_4.sol#292-298) is not in mixedCase
+Function PHO.claimReward_TOD40(uint256) (TOD/tod_buggy_4.sol#300-306) is not in mixedCase
+Function PHO.play_TOD33(bytes32) (TOD/tod_buggy_4.sol#312-318) is not in mixedCase
+Function PHO.getReward_TOD33() (TOD/tod_buggy_4.sol#320-323) is not in mixedCase
+Function PHO.play_TOD27(bytes32) (TOD/tod_buggy_4.sol#349-355) is not in mixedCase
+Function PHO.getReward_TOD27() (TOD/tod_buggy_4.sol#357-360) is not in mixedCase
+Function PHO.play_TOD31(bytes32) (TOD/tod_buggy_4.sol#372-378) is not in mixedCase
+Function PHO.getReward_TOD31() (TOD/tod_buggy_4.sol#380-383) is not in mixedCase
+Function PHO.play_TOD13(bytes32) (TOD/tod_buggy_4.sol#393-399) is not in mixedCase
+Function PHO.getReward_TOD13() (TOD/tod_buggy_4.sol#401-404) is not in mixedCase
+Variable PHO.claimed_TOD26 (TOD/tod_buggy_4.sol#29) is not in mixedCase
+Variable PHO.owner_TOD26 (TOD/tod_buggy_4.sol#30) is not in mixedCase
+Variable PHO.reward_TOD26 (TOD/tod_buggy_4.sol#31) is not in mixedCase
+Variable PHO.claimed_TOD20 (TOD/tod_buggy_4.sol#48) is not in mixedCase
+Variable PHO.owner_TOD20 (TOD/tod_buggy_4.sol#49) is not in mixedCase
+Variable PHO.reward_TOD20 (TOD/tod_buggy_4.sol#50) is not in mixedCase
+Variable PHO.claimed_TOD32 (TOD/tod_buggy_4.sol#67) is not in mixedCase
+Variable PHO.owner_TOD32 (TOD/tod_buggy_4.sol#68) is not in mixedCase
+Variable PHO.reward_TOD32 (TOD/tod_buggy_4.sol#69) is not in mixedCase
+Variable PHO.claimed_TOD38 (TOD/tod_buggy_4.sol#87) is not in mixedCase
+Variable PHO.owner_TOD38 (TOD/tod_buggy_4.sol#88) is not in mixedCase
+Variable PHO.reward_TOD38 (TOD/tod_buggy_4.sol#89) is not in mixedCase
+Variable PHO.claimed_TOD4 (TOD/tod_buggy_4.sol#106) is not in mixedCase
+Variable PHO.owner_TOD4 (TOD/tod_buggy_4.sol#107) is not in mixedCase
+Variable PHO.reward_TOD4 (TOD/tod_buggy_4.sol#108) is not in mixedCase
+Variable PHO.winner_TOD7 (TOD/tod_buggy_4.sol#125) is not in mixedCase
+Variable PHO.winner_TOD23 (TOD/tod_buggy_4.sol#140) is not in mixedCase
+Variable PHO._totalSupply (TOD/tod_buggy_4.sol#153) is not in mixedCase
+Variable PHO.claimed_TOD14 (TOD/tod_buggy_4.sol#154) is not in mixedCase
+Variable PHO.owner_TOD14 (TOD/tod_buggy_4.sol#155) is not in mixedCase
+Variable PHO.reward_TOD14 (TOD/tod_buggy_4.sol#156) is not in mixedCase
+Variable PHO.claimed_TOD30 (TOD/tod_buggy_4.sol#174) is not in mixedCase
+Variable PHO.owner_TOD30 (TOD/tod_buggy_4.sol#175) is not in mixedCase
+Variable PHO.reward_TOD30 (TOD/tod_buggy_4.sol#176) is not in mixedCase
+Variable PHO.claimed_TOD8 (TOD/tod_buggy_4.sol#193) is not in mixedCase
+Variable PHO.owner_TOD8 (TOD/tod_buggy_4.sol#194) is not in mixedCase
+Variable PHO.reward_TOD8 (TOD/tod_buggy_4.sol#195) is not in mixedCase
+Variable PHO.winner_TOD39 (TOD/tod_buggy_4.sol#212) is not in mixedCase
+Variable PHO.claimed_TOD36 (TOD/tod_buggy_4.sol#226) is not in mixedCase
+Variable PHO.owner_TOD36 (TOD/tod_buggy_4.sol#227) is not in mixedCase
+Variable PHO.reward_TOD36 (TOD/tod_buggy_4.sol#228) is not in mixedCase
+Variable PHO.winner_TOD35 (TOD/tod_buggy_4.sol#272) is not in mixedCase
+Variable PHO.claimed_TOD40 (TOD/tod_buggy_4.sol#289) is not in mixedCase
+Variable PHO.owner_TOD40 (TOD/tod_buggy_4.sol#290) is not in mixedCase
+Variable PHO.reward_TOD40 (TOD/tod_buggy_4.sol#291) is not in mixedCase
+Variable PHO.winner_TOD33 (TOD/tod_buggy_4.sol#311) is not in mixedCase
+Variable PHO.winner_TOD27 (TOD/tod_buggy_4.sol#348) is not in mixedCase
+Variable PHO.winner_TOD31 (TOD/tod_buggy_4.sol#371) is not in mixedCase
+Variable PHO.winner_TOD13 (TOD/tod_buggy_4.sol#392) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in PHO.claimReward_TOD14(uint256) (TOD/tod_buggy_4.sol#165-171):
+	External calls:
+	- msg.sender.transfer(reward_TOD14) (TOD/tod_buggy_4.sol#169)
+	State variables written after the call(s):
+	- claimed_TOD14 = true (TOD/tod_buggy_4.sol#170)
+Reentrancy in PHO.claimReward_TOD20(uint256) (TOD/tod_buggy_4.sol#59-65):
+	External calls:
+	- msg.sender.transfer(reward_TOD20) (TOD/tod_buggy_4.sol#63)
+	State variables written after the call(s):
+	- claimed_TOD20 = true (TOD/tod_buggy_4.sol#64)
+Reentrancy in PHO.claimReward_TOD26(uint256) (TOD/tod_buggy_4.sol#40-46):
+	External calls:
+	- msg.sender.transfer(reward_TOD26) (TOD/tod_buggy_4.sol#44)
+	State variables written after the call(s):
+	- claimed_TOD26 = true (TOD/tod_buggy_4.sol#45)
+Reentrancy in PHO.claimReward_TOD30(uint256) (TOD/tod_buggy_4.sol#185-191):
+	External calls:
+	- msg.sender.transfer(reward_TOD30) (TOD/tod_buggy_4.sol#189)
+	State variables written after the call(s):
+	- claimed_TOD30 = true (TOD/tod_buggy_4.sol#190)
+Reentrancy in PHO.claimReward_TOD32(uint256) (TOD/tod_buggy_4.sol#78-84):
+	External calls:
+	- msg.sender.transfer(reward_TOD32) (TOD/tod_buggy_4.sol#82)
+	State variables written after the call(s):
+	- claimed_TOD32 = true (TOD/tod_buggy_4.sol#83)
+Reentrancy in PHO.claimReward_TOD36(uint256) (TOD/tod_buggy_4.sol#237-243):
+	External calls:
+	- msg.sender.transfer(reward_TOD36) (TOD/tod_buggy_4.sol#241)
+	State variables written after the call(s):
+	- claimed_TOD36 = true (TOD/tod_buggy_4.sol#242)
+Reentrancy in PHO.claimReward_TOD38(uint256) (TOD/tod_buggy_4.sol#98-104):
+	External calls:
+	- msg.sender.transfer(reward_TOD38) (TOD/tod_buggy_4.sol#102)
+	State variables written after the call(s):
+	- claimed_TOD38 = true (TOD/tod_buggy_4.sol#103)
+Reentrancy in PHO.claimReward_TOD4(uint256) (TOD/tod_buggy_4.sol#117-123):
+	External calls:
+	- msg.sender.transfer(reward_TOD4) (TOD/tod_buggy_4.sol#121)
+	State variables written after the call(s):
+	- claimed_TOD4 = true (TOD/tod_buggy_4.sol#122)
+Reentrancy in PHO.claimReward_TOD40(uint256) (TOD/tod_buggy_4.sol#300-306):
+	External calls:
+	- msg.sender.transfer(reward_TOD40) (TOD/tod_buggy_4.sol#304)
+	State variables written after the call(s):
+	- claimed_TOD40 = true (TOD/tod_buggy_4.sol#305)
+Reentrancy in PHO.claimReward_TOD8(uint256) (TOD/tod_buggy_4.sol#204-210):
+	External calls:
+	- msg.sender.transfer(reward_TOD8) (TOD/tod_buggy_4.sol#208)
+	State variables written after the call(s):
+	- claimed_TOD8 = true (TOD/tod_buggy_4.sol#209)
+Reentrancy in PHO.setReward_TOD14() (TOD/tod_buggy_4.sol#157-163):
+	External calls:
+	- owner_TOD14.transfer(reward_TOD14) (TOD/tod_buggy_4.sol#161)
+	State variables written after the call(s):
+	- reward_TOD14 = msg.value (TOD/tod_buggy_4.sol#162)
+Reentrancy in PHO.setReward_TOD20() (TOD/tod_buggy_4.sol#51-57):
+	External calls:
+	- owner_TOD20.transfer(reward_TOD20) (TOD/tod_buggy_4.sol#55)
+	State variables written after the call(s):
+	- reward_TOD20 = msg.value (TOD/tod_buggy_4.sol#56)
+Reentrancy in PHO.setReward_TOD26() (TOD/tod_buggy_4.sol#32-38):
+	External calls:
+	- owner_TOD26.transfer(reward_TOD26) (TOD/tod_buggy_4.sol#36)
+	State variables written after the call(s):
+	- reward_TOD26 = msg.value (TOD/tod_buggy_4.sol#37)
+Reentrancy in PHO.setReward_TOD30() (TOD/tod_buggy_4.sol#177-183):
+	External calls:
+	- owner_TOD30.transfer(reward_TOD30) (TOD/tod_buggy_4.sol#181)
+	State variables written after the call(s):
+	- reward_TOD30 = msg.value (TOD/tod_buggy_4.sol#182)
+Reentrancy in PHO.setReward_TOD32() (TOD/tod_buggy_4.sol#70-76):
+	External calls:
+	- owner_TOD32.transfer(reward_TOD32) (TOD/tod_buggy_4.sol#74)
+	State variables written after the call(s):
+	- reward_TOD32 = msg.value (TOD/tod_buggy_4.sol#75)
+Reentrancy in PHO.setReward_TOD36() (TOD/tod_buggy_4.sol#229-235):
+	External calls:
+	- owner_TOD36.transfer(reward_TOD36) (TOD/tod_buggy_4.sol#233)
+	State variables written after the call(s):
+	- reward_TOD36 = msg.value (TOD/tod_buggy_4.sol#234)
+Reentrancy in PHO.setReward_TOD38() (TOD/tod_buggy_4.sol#90-96):
+	External calls:
+	- owner_TOD38.transfer(reward_TOD38) (TOD/tod_buggy_4.sol#94)
+	State variables written after the call(s):
+	- reward_TOD38 = msg.value (TOD/tod_buggy_4.sol#95)
+Reentrancy in PHO.setReward_TOD4() (TOD/tod_buggy_4.sol#109-115):
+	External calls:
+	- owner_TOD4.transfer(reward_TOD4) (TOD/tod_buggy_4.sol#113)
+	State variables written after the call(s):
+	- reward_TOD4 = msg.value (TOD/tod_buggy_4.sol#114)
+Reentrancy in PHO.setReward_TOD40() (TOD/tod_buggy_4.sol#292-298):
+	External calls:
+	- owner_TOD40.transfer(reward_TOD40) (TOD/tod_buggy_4.sol#296)
+	State variables written after the call(s):
+	- reward_TOD40 = msg.value (TOD/tod_buggy_4.sol#297)
+Reentrancy in PHO.setReward_TOD8() (TOD/tod_buggy_4.sol#196-202):
+	External calls:
+	- owner_TOD8.transfer(reward_TOD8) (TOD/tod_buggy_4.sol#200)
+	State variables written after the call(s):
+	- reward_TOD8 = msg.value (TOD/tod_buggy_4.sol#201)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable PHO.claimed_TOD20 (TOD/tod_buggy_4.sol#48) is too similar to PHO.claimed_TOD32 (TOD/tod_buggy_4.sol#67)
+Variable PHO.claimed_TOD20 (TOD/tod_buggy_4.sol#48) is too similar to PHO.claimed_TOD40 (TOD/tod_buggy_4.sol#289)
+Variable PHO.claimed_TOD20 (TOD/tod_buggy_4.sol#48) is too similar to PHO.claimed_TOD26 (TOD/tod_buggy_4.sol#29)
+Variable PHO.claimed_TOD26 (TOD/tod_buggy_4.sol#29) is too similar to PHO.claimed_TOD32 (TOD/tod_buggy_4.sol#67)
+Variable PHO.claimed_TOD26 (TOD/tod_buggy_4.sol#29) is too similar to PHO.claimed_TOD36 (TOD/tod_buggy_4.sol#226)
+Variable PHO.claimed_TOD20 (TOD/tod_buggy_4.sol#48) is too similar to PHO.claimed_TOD30 (TOD/tod_buggy_4.sol#174)
+Variable PHO.claimed_TOD30 (TOD/tod_buggy_4.sol#174) is too similar to PHO.claimed_TOD32 (TOD/tod_buggy_4.sol#67)
+Variable PHO.claimed_TOD30 (TOD/tod_buggy_4.sol#174) is too similar to PHO.claimed_TOD36 (TOD/tod_buggy_4.sol#226)
+Variable PHO.claimed_TOD30 (TOD/tod_buggy_4.sol#174) is too similar to PHO.claimed_TOD38 (TOD/tod_buggy_4.sol#87)
+Variable PHO.claimed_TOD30 (TOD/tod_buggy_4.sol#174) is too similar to PHO.claimed_TOD40 (TOD/tod_buggy_4.sol#289)
+Variable PHO.claimed_TOD32 (TOD/tod_buggy_4.sol#67) is too similar to PHO.claimed_TOD36 (TOD/tod_buggy_4.sol#226)
+Variable PHO.claimed_TOD32 (TOD/tod_buggy_4.sol#67) is too similar to PHO.claimed_TOD38 (TOD/tod_buggy_4.sol#87)
+Variable PHO.claimed_TOD36 (TOD/tod_buggy_4.sol#226) is too similar to PHO.claimed_TOD38 (TOD/tod_buggy_4.sol#87)
+Variable PHO.claimed_TOD4 (TOD/tod_buggy_4.sol#106) is too similar to PHO.claimed_TOD8 (TOD/tod_buggy_4.sol#193)
+Variable PHO.claimed_TOD14 (TOD/tod_buggy_4.sol#154) is too similar to PHO.claimed_TOD40 (TOD/tod_buggy_4.sol#289)
+Variable PHO.owner_TOD14 (TOD/tod_buggy_4.sol#155) is too similar to PHO.owner_TOD40 (TOD/tod_buggy_4.sol#290)
+Variable PHO.owner_TOD20 (TOD/tod_buggy_4.sol#49) is too similar to PHO.owner_TOD26 (TOD/tod_buggy_4.sol#30)
+Variable PHO.owner_TOD20 (TOD/tod_buggy_4.sol#49) is too similar to PHO.owner_TOD30 (TOD/tod_buggy_4.sol#175)
+Variable PHO.owner_TOD30 (TOD/tod_buggy_4.sol#175) is too similar to PHO.owner_TOD36 (TOD/tod_buggy_4.sol#227)
+Variable PHO.owner_TOD20 (TOD/tod_buggy_4.sol#49) is too similar to PHO.owner_TOD32 (TOD/tod_buggy_4.sol#68)
+Variable PHO.owner_TOD26 (TOD/tod_buggy_4.sol#30) is too similar to PHO.owner_TOD32 (TOD/tod_buggy_4.sol#68)
+Variable PHO.owner_TOD30 (TOD/tod_buggy_4.sol#175) is too similar to PHO.owner_TOD32 (TOD/tod_buggy_4.sol#68)
+Variable PHO.owner_TOD32 (TOD/tod_buggy_4.sol#68) is too similar to PHO.owner_TOD36 (TOD/tod_buggy_4.sol#227)
+Variable PHO.owner_TOD32 (TOD/tod_buggy_4.sol#68) is too similar to PHO.owner_TOD38 (TOD/tod_buggy_4.sol#88)
+Variable PHO.owner_TOD26 (TOD/tod_buggy_4.sol#30) is too similar to PHO.owner_TOD36 (TOD/tod_buggy_4.sol#227)
+Variable PHO.owner_TOD30 (TOD/tod_buggy_4.sol#175) is too similar to PHO.owner_TOD38 (TOD/tod_buggy_4.sol#88)
+Variable PHO.owner_TOD36 (TOD/tod_buggy_4.sol#227) is too similar to PHO.owner_TOD38 (TOD/tod_buggy_4.sol#88)
+Variable PHO.owner_TOD20 (TOD/tod_buggy_4.sol#49) is too similar to PHO.owner_TOD40 (TOD/tod_buggy_4.sol#290)
+Variable PHO.owner_TOD30 (TOD/tod_buggy_4.sol#175) is too similar to PHO.owner_TOD40 (TOD/tod_buggy_4.sol#290)
+Variable PHO.reward_TOD14 (TOD/tod_buggy_4.sol#156) is too similar to PHO.reward_TOD40 (TOD/tod_buggy_4.sol#291)
+Variable PHO.reward_TOD20 (TOD/tod_buggy_4.sol#50) is too similar to PHO.reward_TOD26 (TOD/tod_buggy_4.sol#31)
+Variable PHO.reward_TOD26 (TOD/tod_buggy_4.sol#31) is too similar to PHO.reward_TOD32 (TOD/tod_buggy_4.sol#69)
+Variable PHO.reward_TOD20 (TOD/tod_buggy_4.sol#50) is too similar to PHO.reward_TOD30 (TOD/tod_buggy_4.sol#176)
+Variable PHO.reward_TOD30 (TOD/tod_buggy_4.sol#176) is too similar to PHO.reward_TOD32 (TOD/tod_buggy_4.sol#69)
+Variable PHO.reward_TOD30 (TOD/tod_buggy_4.sol#176) is too similar to PHO.reward_TOD40 (TOD/tod_buggy_4.sol#291)
+Variable PHO.reward_TOD20 (TOD/tod_buggy_4.sol#50) is too similar to PHO.reward_TOD32 (TOD/tod_buggy_4.sol#69)
+Variable PHO.reward_TOD26 (TOD/tod_buggy_4.sol#31) is too similar to PHO.reward_TOD36 (TOD/tod_buggy_4.sol#228)
+Variable PHO.reward_TOD30 (TOD/tod_buggy_4.sol#176) is too similar to PHO.reward_TOD36 (TOD/tod_buggy_4.sol#228)
+Variable PHO.reward_TOD32 (TOD/tod_buggy_4.sol#69) is too similar to PHO.reward_TOD36 (TOD/tod_buggy_4.sol#228)
+Variable PHO.reward_TOD36 (TOD/tod_buggy_4.sol#228) is too similar to PHO.reward_TOD38 (TOD/tod_buggy_4.sol#89)
+Variable PHO.reward_TOD30 (TOD/tod_buggy_4.sol#176) is too similar to PHO.reward_TOD38 (TOD/tod_buggy_4.sol#89)
+Variable PHO.reward_TOD32 (TOD/tod_buggy_4.sol#69) is too similar to PHO.reward_TOD38 (TOD/tod_buggy_4.sol#89)
+Variable PHO.reward_TOD20 (TOD/tod_buggy_4.sol#50) is too similar to PHO.reward_TOD40 (TOD/tod_buggy_4.sol#291)
+Variable PHO.reward_TOD4 (TOD/tod_buggy_4.sol#108) is too similar to PHO.reward_TOD8 (TOD/tod_buggy_4.sol#195)
+Variable PHO.winner_TOD13 (TOD/tod_buggy_4.sol#392) is too similar to PHO.winner_TOD23 (TOD/tod_buggy_4.sol#140)
+Variable PHO.winner_TOD23 (TOD/tod_buggy_4.sol#140) is too similar to PHO.winner_TOD27 (TOD/tod_buggy_4.sol#348)
+Variable PHO.winner_TOD23 (TOD/tod_buggy_4.sol#140) is too similar to PHO.winner_TOD31 (TOD/tod_buggy_4.sol#371)
+Variable PHO.winner_TOD23 (TOD/tod_buggy_4.sol#140) is too similar to PHO.winner_TOD33 (TOD/tod_buggy_4.sol#311)
+Variable PHO.winner_TOD23 (TOD/tod_buggy_4.sol#140) is too similar to PHO.winner_TOD35 (TOD/tod_buggy_4.sol#272)
+Variable PHO.winner_TOD13 (TOD/tod_buggy_4.sol#392) is too similar to PHO.winner_TOD31 (TOD/tod_buggy_4.sol#371)
+Variable PHO.winner_TOD31 (TOD/tod_buggy_4.sol#371) is too similar to PHO.winner_TOD33 (TOD/tod_buggy_4.sol#311)
+Variable PHO.winner_TOD13 (TOD/tod_buggy_4.sol#392) is too similar to PHO.winner_TOD33 (TOD/tod_buggy_4.sol#311)
+Variable PHO.winner_TOD13 (TOD/tod_buggy_4.sol#392) is too similar to PHO.winner_TOD35 (TOD/tod_buggy_4.sol#272)
+Variable PHO.winner_TOD31 (TOD/tod_buggy_4.sol#371) is too similar to PHO.winner_TOD35 (TOD/tod_buggy_4.sol#272)
+Variable PHO.winner_TOD33 (TOD/tod_buggy_4.sol#311) is too similar to PHO.winner_TOD35 (TOD/tod_buggy_4.sol#272)
+Variable PHO.winner_TOD13 (TOD/tod_buggy_4.sol#392) is too similar to PHO.winner_TOD39 (TOD/tod_buggy_4.sol#212)
+Variable PHO.winner_TOD23 (TOD/tod_buggy_4.sol#140) is too similar to PHO.winner_TOD39 (TOD/tod_buggy_4.sol#212)
+Variable PHO.winner_TOD31 (TOD/tod_buggy_4.sol#371) is too similar to PHO.winner_TOD39 (TOD/tod_buggy_4.sol#212)
+Variable PHO.winner_TOD33 (TOD/tod_buggy_4.sol#311) is too similar to PHO.winner_TOD39 (TOD/tod_buggy_4.sol#212)
+Variable PHO.winner_TOD35 (TOD/tod_buggy_4.sol#272) is too similar to PHO.winner_TOD39 (TOD/tod_buggy_4.sol#212)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+PHO.constructor() (TOD/tod_buggy_4.sol#251-271) uses literals with too many digits:
+	- saleAmount = toWei(1000000000) (TOD/tod_buggy_4.sol#257)
+PHO.constructor() (TOD/tod_buggy_4.sol#251-271) uses literals with too many digits:
+	- evtAmount = toWei(200000000) (TOD/tod_buggy_4.sol#258)
+PHO.constructor() (TOD/tod_buggy_4.sol#251-271) uses literals with too many digits:
+	- teamAmount = toWei(800000000) (TOD/tod_buggy_4.sol#259)
+PHO.constructor() (TOD/tod_buggy_4.sol#251-271) uses literals with too many digits:
+	- _totalSupply = toWei(2000000000) (TOD/tod_buggy_4.sol#260)
+PHO.transfer(address,uint256) (TOD/tod_buggy_4.sol#325-347) uses literals with too many digits:
+	- balances[msg.sender] - value < toWei(600000000) (TOD/tod_buggy_4.sol#334)
+PHO.transfer(address,uint256) (TOD/tod_buggy_4.sol#325-347) uses literals with too many digits:
+	- balances[msg.sender] - value < toWei(400000000) (TOD/tod_buggy_4.sol#336)
+PHO.transfer(address,uint256) (TOD/tod_buggy_4.sol#325-347) uses literals with too many digits:
+	- balances[msg.sender] - value < toWei(200000000) (TOD/tod_buggy_4.sol#338)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+PHO.decimals (TOD/tod_buggy_4.sol#85) should be constant
+PHO.name (TOD/tod_buggy_4.sol#47) should be constant
+PHO.owner_TOD14 (TOD/tod_buggy_4.sol#155) should be constant
+PHO.owner_TOD20 (TOD/tod_buggy_4.sol#49) should be constant
+PHO.owner_TOD26 (TOD/tod_buggy_4.sol#30) should be constant
+PHO.owner_TOD30 (TOD/tod_buggy_4.sol#175) should be constant
+PHO.owner_TOD32 (TOD/tod_buggy_4.sol#68) should be constant
+PHO.owner_TOD36 (TOD/tod_buggy_4.sol#227) should be constant
+PHO.owner_TOD38 (TOD/tod_buggy_4.sol#88) should be constant
+PHO.owner_TOD4 (TOD/tod_buggy_4.sol#107) should be constant
+PHO.owner_TOD40 (TOD/tod_buggy_4.sol#290) should be constant
+PHO.owner_TOD8 (TOD/tod_buggy_4.sol#194) should be constant
+PHO.symbol (TOD/tod_buggy_4.sol#66) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+TOD/tod_buggy_4.sol analyzed (2 contracts with 80 detectors), 197 result(s) found

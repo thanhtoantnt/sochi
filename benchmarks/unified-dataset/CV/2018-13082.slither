@@ -1,0 +1,57 @@
+Compilation warnings/errors on CV/2018-13082.sol:
+CV/2018-13082.sol:54:9: Warning: Unused local variable
+        uint256 initialSupply,
+        ^-------------------^
+CV/2018-13082.sol:55:9: Warning: Unused local variable
+        string tokenName,
+        ^--------------^
+CV/2018-13082.sol:56:9: Warning: Unused local variable
+        string tokenSymbol
+        ^----------------^
+
+
+MyAdvancedToken (CV/2018-13082.sol#185-256) has incorrect ERC20 function interface:ModiTokenERC20.transfer(address,uint256) (CV/2018-13082.sol#94-96)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-erc20-interface
+
+owned.transferOwnership(address) (CV/2018-13082.sol#19-21) should emit an event for: 
+	- owner = newOwner (CV/2018-13082.sol#20) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+owned.transferOwnership(address).newOwner (CV/2018-13082.sol#19) lacks a zero-check on :
+		- owner = newOwner (CV/2018-13082.sol#20)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+ModiTokenERC20._transfer(address,address,uint256) (CV/2018-13082.sol#68-84) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.4.16 (CV/2018-13082.sol#5) allows old versions
+solc-0.4.16 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Contract owned (CV/2018-13082.sol#7-22) is not in CapWords
+Contract tokenRecipient (CV/2018-13082.sol#24) is not in CapWords
+Parameter ModiTokenERC20.transfer(address,uint256)._to (CV/2018-13082.sol#94) is not in mixedCase
+Parameter ModiTokenERC20.transfer(address,uint256)._value (CV/2018-13082.sol#94) is not in mixedCase
+Parameter ModiTokenERC20.transferFrom(address,address,uint256)._from (CV/2018-13082.sol#107) is not in mixedCase
+Parameter ModiTokenERC20.transferFrom(address,address,uint256)._to (CV/2018-13082.sol#107) is not in mixedCase
+Parameter ModiTokenERC20.transferFrom(address,address,uint256)._value (CV/2018-13082.sol#107) is not in mixedCase
+Parameter ModiTokenERC20.approve(address,uint256)._spender (CV/2018-13082.sol#122) is not in mixedCase
+Parameter ModiTokenERC20.approve(address,uint256)._value (CV/2018-13082.sol#122) is not in mixedCase
+Parameter ModiTokenERC20.approveAndCall(address,uint256,bytes)._spender (CV/2018-13082.sol#137) is not in mixedCase
+Parameter ModiTokenERC20.approveAndCall(address,uint256,bytes)._value (CV/2018-13082.sol#137) is not in mixedCase
+Parameter ModiTokenERC20.approveAndCall(address,uint256,bytes)._extraData (CV/2018-13082.sol#137) is not in mixedCase
+Parameter ModiTokenERC20.burn(uint256)._value (CV/2018-13082.sol#154) is not in mixedCase
+Parameter ModiTokenERC20.burnFrom(address,uint256)._from (CV/2018-13082.sol#170) is not in mixedCase
+Parameter ModiTokenERC20.burnFrom(address,uint256)._value (CV/2018-13082.sol#170) is not in mixedCase
+Constant ModiTokenERC20._myTokeName (CV/2018-13082.sol#27) is not in UPPER_CASE_WITH_UNDERSCORES
+Constant ModiTokenERC20._mySymbol (CV/2018-13082.sol#28) is not in UPPER_CASE_WITH_UNDERSCORES
+Constant ModiTokenERC20._myinitialSupply (CV/2018-13082.sol#29) is not in UPPER_CASE_WITH_UNDERSCORES
+Constant ModiTokenERC20._myDecimal (CV/2018-13082.sol#30) is not in UPPER_CASE_WITH_UNDERSCORES
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+receiveApproval(address,uint256,address,bytes) should be declared external:
+	- tokenRecipient.receiveApproval(address,uint256,address,bytes) (CV/2018-13082.sol#24)
+approveAndCall(address,uint256,bytes) should be declared external:
+	- ModiTokenERC20.approveAndCall(address,uint256,bytes) (CV/2018-13082.sol#137-145)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+CV/2018-13082.sol analyzed (4 contracts with 80 detectors), 27 result(s) found

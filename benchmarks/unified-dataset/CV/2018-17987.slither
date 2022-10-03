@@ -1,0 +1,60 @@
+
+Tiles.updateGameCost(uint256) (CV/2018-17987.sol#165-170) should emit an event for: 
+	- nextGameCost = newGameCost (CV/2018-17987.sol#167) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+
+Tiles.gameNotRunning() (CV/2018-17987.sol#50-53) compares to a boolean constant:
+	-require(bool)(gameStopped == true) (CV/2018-17987.sol#51)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#boolean-equality
+
+Deprecated standard detected winningHash = block.blockhash(block.number - 1) (CV/2018-17987.sol#83):
+	- Usage of "block.blockhash()" should be replaced with "blockhash()"
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#deprecated-standards
+
+Pragma version^0.4.13 (CV/2018-17987.sol#5) allows old versions
+solc-0.4.13 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Variable Tiles.DEFAULT_GAME_COST (CV/2018-17987.sol#12) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in Tiles.cancelContract() (CV/2018-17987.sol#66-70):
+	External calls:
+	- refundTiles() (CV/2018-17987.sol#68)
+		- currTile.claimedBy.send(currentGameCost) (CV/2018-17987.sol#132)
+	- refundWinnings() (CV/2018-17987.sol#69)
+		- currAddress.send(currAmount) (CV/2018-17987.sol#147)
+	State variables written after the call(s):
+	- refundWinnings() (CV/2018-17987.sol#69)
+		- pendingWithdrawals[currAddress] = 0 (CV/2018-17987.sol#148)
+Reentrancy in Tiles.claimOwnersEarnings() (CV/2018-17987.sol#172-178):
+	External calls:
+	- owner.send(gameEarnings) (CV/2018-17987.sol#174)
+	State variables written after the call(s):
+	- gameEarnings = 0 (CV/2018-17987.sol#175)
+Reentrancy in Tiles.claimWinnings() (CV/2018-17987.sol#154-163):
+	External calls:
+	- msg.sender.send(pendingWithdrawals[msg.sender]) (CV/2018-17987.sol#156)
+	State variables written after the call(s):
+	- pendingWithdrawals[msg.sender] = 0 (CV/2018-17987.sol#158)
+	Event emitted after the call(s):
+	- WinningsClaimed(msg.sender,pendingWithdrawals[msg.sender]) (CV/2018-17987.sol#157)
+Reentrancy in Tiles.refundTiles() (CV/2018-17987.sol#126-138):
+	External calls:
+	- currTile.claimedBy.send(currentGameCost) (CV/2018-17987.sol#132)
+	State variables written after the call(s):
+	- tiles[i][j] = Tile(0,0x0) (CV/2018-17987.sol#133)
+Reentrancy in Tiles.refundWinnings() (CV/2018-17987.sol#140-152):
+	External calls:
+	- currAddress.send(currAmount) (CV/2018-17987.sol#147)
+	State variables written after the call(s):
+	- pendingWithdrawals[currAddress] = 0 (CV/2018-17987.sol#148)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Tiles.slitherConstructorVariables() (CV/2018-17987.sol#7-180) uses literals with too many digits:
+	- DEFAULT_GAME_COST = 5000000000000000 (CV/2018-17987.sol#12)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+Tiles.DEFAULT_GAME_COST (CV/2018-17987.sol#12) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+CV/2018-17987.sol analyzed (1 contracts with 80 detectors), 13 result(s) found

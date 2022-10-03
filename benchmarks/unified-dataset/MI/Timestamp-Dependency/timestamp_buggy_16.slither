@@ -1,0 +1,441 @@
+
+ERC20Interface.bug_tmstmp12() (Timestamp-Dependency/timestamp_buggy_16.sol#52-60) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_16.sol#58)
+Owned.bug_tmstmp16() (Timestamp-Dependency/timestamp_buggy_16.sol#95-103) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_16.sol#101)
+ExclusivePlatform.bug_tmstmp24() (Timestamp-Dependency/timestamp_buggy_16.sol#148-156) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_16.sol#154)
+ExclusivePlatform.bug_tmstmp28() (Timestamp-Dependency/timestamp_buggy_16.sol#169-177) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_16.sol#175)
+ExclusivePlatform.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_16.sol#238-246) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_16.sol#244)
+ExclusivePlatform.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_16.sol#262-270) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_16.sol#268)
+ExclusivePlatform.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_16.sol#288-296) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_16.sol#294)
+ExclusivePlatform.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_16.sol#350-358) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_16.sol#356)
+ExclusivePlatform.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_16.sol#384-392) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_16.sol#390)
+ExclusivePlatform.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_16.sol#409-417) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_16.sol#415)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Owned.bug_tmstmp16() (Timestamp-Dependency/timestamp_buggy_16.sol#95-103) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#100)" 
+ERC20Interface.bug_tmstmp12() (Timestamp-Dependency/timestamp_buggy_16.sol#52-60) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#57)" 
+ExclusivePlatform.bug_tmstmp24() (Timestamp-Dependency/timestamp_buggy_16.sol#148-156) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#153)" 
+ExclusivePlatform.bug_tmstmp28() (Timestamp-Dependency/timestamp_buggy_16.sol#169-177) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#174)" 
+ExclusivePlatform.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_16.sol#238-246) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#243)" 
+ExclusivePlatform.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_16.sol#262-270) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#267)" 
+ExclusivePlatform.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_16.sol#288-296) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#293)" 
+ExclusivePlatform.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_16.sol#350-358) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#355)" 
+ExclusivePlatform.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_16.sol#384-392) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#389)" 
+ExclusivePlatform.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_16.sol#409-417) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#414)" 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG
+
+ERC20Interface.bug_tmstmp12() (Timestamp-Dependency/timestamp_buggy_16.sol#52-60) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#57)
+Owned.bug_tmstmp16() (Timestamp-Dependency/timestamp_buggy_16.sol#95-103) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#100)
+ExclusivePlatform.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_16.sol#238-246) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#243)
+ExclusivePlatform.bug_tmstmp24() (Timestamp-Dependency/timestamp_buggy_16.sol#148-156) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#153)
+ExclusivePlatform.bug_tmstmp28() (Timestamp-Dependency/timestamp_buggy_16.sol#169-177) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#174)
+ExclusivePlatform.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_16.sol#262-270) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#267)
+ExclusivePlatform.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_16.sol#384-392) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#389)
+ExclusivePlatform.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_16.sol#288-296) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#293)
+ExclusivePlatform.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_16.sol#409-417) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#414)
+ExclusivePlatform.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_16.sol#350-358) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#355)
+ExclusivePlatform.play_tmstmp10(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#190-192) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_16.sol#191)
+ERC20Interface.play_tmstmp11(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#63-66) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_16.sol#65)
+ExclusivePlatform.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#331-333) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_16.sol#332)
+ExclusivePlatform.play_tmstmp15(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#164-167) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_16.sol#166)
+ExclusivePlatform.play_tmstmp19(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#221-224) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_16.sol#223)
+ERC20Interface.play_tmstmp2(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#73-75) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_16.sol#74)
+ExclusivePlatform.play_tmstmp22(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#196-198) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_16.sol#197)
+ExclusivePlatform.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#322-325) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_16.sol#324)
+ExclusivePlatform.play_tmstmp26(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#231-233) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_16.sol#232)
+ExclusivePlatform.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#437-440) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_16.sol#439)
+Owned.play_tmstmp3(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#116-119) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_16.sol#118)
+ExclusivePlatform.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#340-342) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_16.sol#341)
+ExclusivePlatform.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#448-451) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_16.sol#450)
+ExclusivePlatform.play_tmstmp34(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#180-182) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_16.sol#181)
+ExclusivePlatform.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#400-403) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_16.sol#402)
+ExclusivePlatform.play_tmstmp38(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#281-283) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_16.sol#282)
+ExclusivePlatform.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#376-379) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_16.sol#378)
+ExclusivePlatform.play_tmstmp7(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#303-306) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_16.sol#305)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+ExclusivePlatform.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_16.sol#410) is a local variable never initialized
+ExclusivePlatform.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_16.sol#239) is a local variable never initialized
+ExclusivePlatform.bug_tmstmp24().pastBlockTime_tmstmp24 (Timestamp-Dependency/timestamp_buggy_16.sol#149) is a local variable never initialized
+ExclusivePlatform.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_16.sol#385) is a local variable never initialized
+ERC20Interface.bug_tmstmp12().pastBlockTime_tmstmp12 (Timestamp-Dependency/timestamp_buggy_16.sol#53) is a local variable never initialized
+ExclusivePlatform.bug_tmstmp28().pastBlockTime_tmstmp28 (Timestamp-Dependency/timestamp_buggy_16.sol#170) is a local variable never initialized
+ExclusivePlatform.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_16.sol#263) is a local variable never initialized
+ExclusivePlatform.bug_tmstmp8().pastBlockTime_tmstmp8 (Timestamp-Dependency/timestamp_buggy_16.sol#351) is a local variable never initialized
+ExclusivePlatform.bug_tmstmp4().pastBlockTime_tmstmp4 (Timestamp-Dependency/timestamp_buggy_16.sol#289) is a local variable never initialized
+Owned.bug_tmstmp16().pastBlockTime_tmstmp16 (Timestamp-Dependency/timestamp_buggy_16.sol#96) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+ExclusivePlatform.transferEther(address,uint256)._receiver (Timestamp-Dependency/timestamp_buggy_16.sol#394) lacks a zero-check on :
+		- _receiver.transfer(_amount) (Timestamp-Dependency/timestamp_buggy_16.sol#397)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+ERC20Interface.bug_tmstmp12() (Timestamp-Dependency/timestamp_buggy_16.sol#52-60) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp12) (Timestamp-Dependency/timestamp_buggy_16.sol#55)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#57)
+ERC20Interface.play_tmstmp11(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#63-66) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_16.sol#65)
+ERC20Interface.bug_tmstmp1() (Timestamp-Dependency/timestamp_buggy_16.sol#68-70) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_16.sol#69)
+ERC20Interface.play_tmstmp2(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#73-75) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_16.sol#74)
+ERC20Interface.bug_tmstmp17() (Timestamp-Dependency/timestamp_buggy_16.sol#77-79) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_16.sol#78)
+ERC20Interface.bug_tmstmp37() (Timestamp-Dependency/timestamp_buggy_16.sol#81-83) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_16.sol#82)
+ERC20Interface.bug_tmstmp13() (Timestamp-Dependency/timestamp_buggy_16.sol#85-87) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_16.sol#86)
+Owned.bug_tmstmp16() (Timestamp-Dependency/timestamp_buggy_16.sol#95-103) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp16) (Timestamp-Dependency/timestamp_buggy_16.sol#98)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#100)
+Owned.play_tmstmp3(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#116-119) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_16.sol#118)
+Owned.bug_tmstmp9() (Timestamp-Dependency/timestamp_buggy_16.sol#138-140) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_16.sol#139)
+ExclusivePlatform.bug_tmstmp24() (Timestamp-Dependency/timestamp_buggy_16.sol#148-156) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp24) (Timestamp-Dependency/timestamp_buggy_16.sol#151)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#153)
+ExclusivePlatform.bug_tmstmp5() (Timestamp-Dependency/timestamp_buggy_16.sol#158-160) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_16.sol#159)
+ExclusivePlatform.play_tmstmp15(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#164-167) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_16.sol#166)
+ExclusivePlatform.bug_tmstmp28() (Timestamp-Dependency/timestamp_buggy_16.sol#169-177) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp28) (Timestamp-Dependency/timestamp_buggy_16.sol#172)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#174)
+ExclusivePlatform.play_tmstmp34(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#180-182) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_16.sol#181)
+ExclusivePlatform.bug_tmstmp21() (Timestamp-Dependency/timestamp_buggy_16.sol#184-186) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_16.sol#185)
+ExclusivePlatform.play_tmstmp10(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#190-192) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_16.sol#191)
+ExclusivePlatform.play_tmstmp22(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#196-198) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_16.sol#197)
+ExclusivePlatform.bug_tmstmp25() (Timestamp-Dependency/timestamp_buggy_16.sol#213-215) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_16.sol#214)
+ExclusivePlatform.play_tmstmp19(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#221-224) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_16.sol#223)
+ExclusivePlatform.play_tmstmp26(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#231-233) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_16.sol#232)
+ExclusivePlatform.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_16.sol#238-246) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp20) (Timestamp-Dependency/timestamp_buggy_16.sol#241)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#243)
+ExclusivePlatform.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_16.sol#262-270) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp32) (Timestamp-Dependency/timestamp_buggy_16.sol#265)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#267)
+ExclusivePlatform.play_tmstmp38(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#281-283) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_16.sol#282)
+ExclusivePlatform.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_16.sol#288-296) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp4) (Timestamp-Dependency/timestamp_buggy_16.sol#291)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#293)
+ExclusivePlatform.play_tmstmp7(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#303-306) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_16.sol#305)
+ExclusivePlatform.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#322-325) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_16.sol#324)
+ExclusivePlatform.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#331-333) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_16.sol#332)
+ExclusivePlatform.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#340-342) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_16.sol#341)
+ExclusivePlatform.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_16.sol#350-358) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp8) (Timestamp-Dependency/timestamp_buggy_16.sol#353)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#355)
+ExclusivePlatform.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#376-379) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_16.sol#378)
+ExclusivePlatform.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_16.sol#384-392) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp36) (Timestamp-Dependency/timestamp_buggy_16.sol#387)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#389)
+ExclusivePlatform.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#400-403) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_16.sol#402)
+ExclusivePlatform.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_16.sol#409-417) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp40) (Timestamp-Dependency/timestamp_buggy_16.sol#412)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_16.sol#414)
+ExclusivePlatform.bug_tmstmp33() (Timestamp-Dependency/timestamp_buggy_16.sol#426-428) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_16.sol#427)
+ExclusivePlatform.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#437-440) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_16.sol#439)
+ExclusivePlatform.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#448-451) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_16.sol#450)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+Pragma version^0.5.12 (Timestamp-Dependency/timestamp_buggy_16.sol#9) allows old versions
+solc-0.5.12 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function ERC20Interface.bug_tmstmp12() (Timestamp-Dependency/timestamp_buggy_16.sol#52-60) is not in mixedCase
+Function ERC20Interface.play_tmstmp11(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#63-66) is not in mixedCase
+Function ERC20Interface.bug_tmstmp1() (Timestamp-Dependency/timestamp_buggy_16.sol#68-70) is not in mixedCase
+Function ERC20Interface.play_tmstmp2(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#73-75) is not in mixedCase
+Function ERC20Interface.bug_tmstmp17() (Timestamp-Dependency/timestamp_buggy_16.sol#77-79) is not in mixedCase
+Function ERC20Interface.bug_tmstmp37() (Timestamp-Dependency/timestamp_buggy_16.sol#81-83) is not in mixedCase
+Function ERC20Interface.bug_tmstmp13() (Timestamp-Dependency/timestamp_buggy_16.sol#85-87) is not in mixedCase
+Variable ERC20Interface.winner_tmstmp11 (Timestamp-Dependency/timestamp_buggy_16.sol#62) is not in mixedCase
+Variable ERC20Interface.winner_tmstmp2 (Timestamp-Dependency/timestamp_buggy_16.sol#72) is not in mixedCase
+Variable ERC20Interface.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_16.sol#89) is not in mixedCase
+Function Owned.bug_tmstmp16() (Timestamp-Dependency/timestamp_buggy_16.sol#95-103) is not in mixedCase
+Function Owned.play_tmstmp3(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#116-119) is not in mixedCase
+Function Owned.bug_tmstmp9() (Timestamp-Dependency/timestamp_buggy_16.sol#138-140) is not in mixedCase
+Variable Owned.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_16.sol#105) is not in mixedCase
+Variable Owned.winner_tmstmp3 (Timestamp-Dependency/timestamp_buggy_16.sol#115) is not in mixedCase
+Function ExclusivePlatform.bug_tmstmp24() (Timestamp-Dependency/timestamp_buggy_16.sol#148-156) is not in mixedCase
+Function ExclusivePlatform.bug_tmstmp5() (Timestamp-Dependency/timestamp_buggy_16.sol#158-160) is not in mixedCase
+Function ExclusivePlatform.play_tmstmp15(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#164-167) is not in mixedCase
+Function ExclusivePlatform.bug_tmstmp28() (Timestamp-Dependency/timestamp_buggy_16.sol#169-177) is not in mixedCase
+Function ExclusivePlatform.play_tmstmp34(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#180-182) is not in mixedCase
+Function ExclusivePlatform.bug_tmstmp21() (Timestamp-Dependency/timestamp_buggy_16.sol#184-186) is not in mixedCase
+Function ExclusivePlatform.play_tmstmp10(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#190-192) is not in mixedCase
+Function ExclusivePlatform.play_tmstmp22(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#196-198) is not in mixedCase
+Function ExclusivePlatform.bug_tmstmp25() (Timestamp-Dependency/timestamp_buggy_16.sol#213-215) is not in mixedCase
+Function ExclusivePlatform.play_tmstmp19(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#221-224) is not in mixedCase
+Parameter ExclusivePlatform.updateXPLPerEther(uint256)._XPLPerEther (Timestamp-Dependency/timestamp_buggy_16.sol#226) is not in mixedCase
+Function ExclusivePlatform.play_tmstmp26(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#231-233) is not in mixedCase
+Function ExclusivePlatform.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_16.sol#238-246) is not in mixedCase
+Parameter ExclusivePlatform.getBonus(uint256)._amount (Timestamp-Dependency/timestamp_buggy_16.sol#248) is not in mixedCase
+Function ExclusivePlatform.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_16.sol#262-270) is not in mixedCase
+Function ExclusivePlatform.play_tmstmp38(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#281-283) is not in mixedCase
+Parameter ExclusivePlatform.distribute(address[],uint256)._addresses (Timestamp-Dependency/timestamp_buggy_16.sol#285) is not in mixedCase
+Parameter ExclusivePlatform.distribute(address[],uint256)._amount (Timestamp-Dependency/timestamp_buggy_16.sol#285) is not in mixedCase
+Function ExclusivePlatform.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_16.sol#288-296) is not in mixedCase
+Parameter ExclusivePlatform.distributeWithAmount(address[],uint256[])._addresses (Timestamp-Dependency/timestamp_buggy_16.sol#298) is not in mixedCase
+Parameter ExclusivePlatform.distributeWithAmount(address[],uint256[])._amounts (Timestamp-Dependency/timestamp_buggy_16.sol#298) is not in mixedCase
+Function ExclusivePlatform.play_tmstmp7(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#303-306) is not in mixedCase
+Parameter ExclusivePlatform.doTransfer(address,address,uint256)._from (Timestamp-Dependency/timestamp_buggy_16.sol#313) is not in mixedCase
+Parameter ExclusivePlatform.doTransfer(address,address,uint256)._to (Timestamp-Dependency/timestamp_buggy_16.sol#313) is not in mixedCase
+Parameter ExclusivePlatform.doTransfer(address,address,uint256)._amount (Timestamp-Dependency/timestamp_buggy_16.sol#313) is not in mixedCase
+Function ExclusivePlatform.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#322-325) is not in mixedCase
+Parameter ExclusivePlatform.balanceOf(address)._owner (Timestamp-Dependency/timestamp_buggy_16.sol#327) is not in mixedCase
+Function ExclusivePlatform.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#331-333) is not in mixedCase
+Parameter ExclusivePlatform.transfer(address,uint256)._to (Timestamp-Dependency/timestamp_buggy_16.sol#335) is not in mixedCase
+Parameter ExclusivePlatform.transfer(address,uint256)._amount (Timestamp-Dependency/timestamp_buggy_16.sol#335) is not in mixedCase
+Function ExclusivePlatform.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#340-342) is not in mixedCase
+Parameter ExclusivePlatform.transferFrom(address,address,uint256)._from (Timestamp-Dependency/timestamp_buggy_16.sol#344) is not in mixedCase
+Parameter ExclusivePlatform.transferFrom(address,address,uint256)._to (Timestamp-Dependency/timestamp_buggy_16.sol#344) is not in mixedCase
+Parameter ExclusivePlatform.transferFrom(address,address,uint256)._amount (Timestamp-Dependency/timestamp_buggy_16.sol#344) is not in mixedCase
+Function ExclusivePlatform.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_16.sol#350-358) is not in mixedCase
+Parameter ExclusivePlatform.approve(address,uint256)._spender (Timestamp-Dependency/timestamp_buggy_16.sol#365) is not in mixedCase
+Parameter ExclusivePlatform.approve(address,uint256)._amount (Timestamp-Dependency/timestamp_buggy_16.sol#365) is not in mixedCase
+Function ExclusivePlatform.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#376-379) is not in mixedCase
+Parameter ExclusivePlatform.allowance(address,address)._owner (Timestamp-Dependency/timestamp_buggy_16.sol#381) is not in mixedCase
+Parameter ExclusivePlatform.allowance(address,address)._spender (Timestamp-Dependency/timestamp_buggy_16.sol#381) is not in mixedCase
+Function ExclusivePlatform.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_16.sol#384-392) is not in mixedCase
+Parameter ExclusivePlatform.transferEther(address,uint256)._receiver (Timestamp-Dependency/timestamp_buggy_16.sol#394) is not in mixedCase
+Parameter ExclusivePlatform.transferEther(address,uint256)._amount (Timestamp-Dependency/timestamp_buggy_16.sol#394) is not in mixedCase
+Function ExclusivePlatform.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#400-403) is not in mixedCase
+Function ExclusivePlatform.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_16.sol#409-417) is not in mixedCase
+Parameter ExclusivePlatform.burn(uint256)._value (Timestamp-Dependency/timestamp_buggy_16.sol#419) is not in mixedCase
+Function ExclusivePlatform.bug_tmstmp33() (Timestamp-Dependency/timestamp_buggy_16.sol#426-428) is not in mixedCase
+Function ExclusivePlatform.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#437-440) is not in mixedCase
+Function ExclusivePlatform.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_16.sol#448-451) is not in mixedCase
+Variable ExclusivePlatform.winner_tmstmp15 (Timestamp-Dependency/timestamp_buggy_16.sol#163) is not in mixedCase
+Variable ExclusivePlatform.winner_tmstmp34 (Timestamp-Dependency/timestamp_buggy_16.sol#179) is not in mixedCase
+Variable ExclusivePlatform._totalSupply (Timestamp-Dependency/timestamp_buggy_16.sol#187) is not in mixedCase
+Variable ExclusivePlatform.winner_tmstmp10 (Timestamp-Dependency/timestamp_buggy_16.sol#189) is not in mixedCase
+Variable ExclusivePlatform.XPLPerEther (Timestamp-Dependency/timestamp_buggy_16.sol#193) is not in mixedCase
+Variable ExclusivePlatform.winner_tmstmp22 (Timestamp-Dependency/timestamp_buggy_16.sol#195) is not in mixedCase
+Variable ExclusivePlatform.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_16.sol#220) is not in mixedCase
+Variable ExclusivePlatform.winner_tmstmp26 (Timestamp-Dependency/timestamp_buggy_16.sol#230) is not in mixedCase
+Variable ExclusivePlatform.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_16.sol#280) is not in mixedCase
+Variable ExclusivePlatform.winner_tmstmp7 (Timestamp-Dependency/timestamp_buggy_16.sol#302) is not in mixedCase
+Variable ExclusivePlatform.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_16.sol#321) is not in mixedCase
+Variable ExclusivePlatform.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_16.sol#330) is not in mixedCase
+Variable ExclusivePlatform.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_16.sol#339) is not in mixedCase
+Variable ExclusivePlatform.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_16.sol#375) is not in mixedCase
+Variable ExclusivePlatform.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_16.sol#399) is not in mixedCase
+Variable ExclusivePlatform.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_16.sol#436) is not in mixedCase
+Variable ExclusivePlatform.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_16.sol#447) is not in mixedCase
+Variable ExclusivePlatform.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_16.sol#453) is not in mixedCase
+Variable ExclusivePlatform.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_16.sol#455) is not in mixedCase
+Variable ExclusivePlatform.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_16.sol#457) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable Owned.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_16.sol#105) is too similar to ExclusivePlatform.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_16.sol#453)
+Variable ExclusivePlatform.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_16.sol#453) is too similar to ERC20Interface.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_16.sol#89)
+Variable Owned.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_16.sol#105) is too similar to ExclusivePlatform.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_16.sol#455)
+Variable ExclusivePlatform.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_16.sol#453) is too similar to ExclusivePlatform.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_16.sol#455)
+Variable ExclusivePlatform.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_16.sol#455) is too similar to ExclusivePlatform.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_16.sol#457)
+Variable ExclusivePlatform.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_16.sol#455) is too similar to ERC20Interface.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_16.sol#89)
+Variable Owned.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_16.sol#105) is too similar to ExclusivePlatform.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_16.sol#457)
+Variable ExclusivePlatform.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_16.sol#453) is too similar to ExclusivePlatform.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_16.sol#457)
+Variable ExclusivePlatform.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_16.sol#457) is too similar to ERC20Interface.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_16.sol#89)
+Variable Owned.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_16.sol#105) is too similar to ERC20Interface.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_16.sol#89)
+Variable ERC20Interface.bug_tmstmp12().pastBlockTime_tmstmp12 (Timestamp-Dependency/timestamp_buggy_16.sol#53) is too similar to Owned.bug_tmstmp16().pastBlockTime_tmstmp16 (Timestamp-Dependency/timestamp_buggy_16.sol#96)
+Variable ERC20Interface.bug_tmstmp12().pastBlockTime_tmstmp12 (Timestamp-Dependency/timestamp_buggy_16.sol#53) is too similar to ExclusivePlatform.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_16.sol#239)
+Variable ERC20Interface.bug_tmstmp12().pastBlockTime_tmstmp12 (Timestamp-Dependency/timestamp_buggy_16.sol#53) is too similar to ExclusivePlatform.bug_tmstmp24().pastBlockTime_tmstmp24 (Timestamp-Dependency/timestamp_buggy_16.sol#149)
+Variable ERC20Interface.bug_tmstmp12().pastBlockTime_tmstmp12 (Timestamp-Dependency/timestamp_buggy_16.sol#53) is too similar to ExclusivePlatform.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_16.sol#385)
+Variable ERC20Interface.bug_tmstmp12().pastBlockTime_tmstmp12 (Timestamp-Dependency/timestamp_buggy_16.sol#53) is too similar to ExclusivePlatform.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_16.sol#410)
+Variable Owned.bug_tmstmp16().pastBlockTime_tmstmp16 (Timestamp-Dependency/timestamp_buggy_16.sol#96) is too similar to ExclusivePlatform.bug_tmstmp24().pastBlockTime_tmstmp24 (Timestamp-Dependency/timestamp_buggy_16.sol#149)
+Variable Owned.bug_tmstmp16().pastBlockTime_tmstmp16 (Timestamp-Dependency/timestamp_buggy_16.sol#96) is too similar to ExclusivePlatform.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_16.sol#239)
+Variable ExclusivePlatform.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_16.sol#239) is too similar to ExclusivePlatform.bug_tmstmp24().pastBlockTime_tmstmp24 (Timestamp-Dependency/timestamp_buggy_16.sol#149)
+Variable ExclusivePlatform.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_16.sol#239) is too similar to ExclusivePlatform.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_16.sol#385)
+Variable ERC20Interface.bug_tmstmp12().pastBlockTime_tmstmp12 (Timestamp-Dependency/timestamp_buggy_16.sol#53) is too similar to ExclusivePlatform.bug_tmstmp28().pastBlockTime_tmstmp28 (Timestamp-Dependency/timestamp_buggy_16.sol#170)
+Variable Owned.bug_tmstmp16().pastBlockTime_tmstmp16 (Timestamp-Dependency/timestamp_buggy_16.sol#96) is too similar to ExclusivePlatform.bug_tmstmp28().pastBlockTime_tmstmp28 (Timestamp-Dependency/timestamp_buggy_16.sol#170)
+Variable ExclusivePlatform.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_16.sol#239) is too similar to ExclusivePlatform.bug_tmstmp28().pastBlockTime_tmstmp28 (Timestamp-Dependency/timestamp_buggy_16.sol#170)
+Variable ExclusivePlatform.bug_tmstmp24().pastBlockTime_tmstmp24 (Timestamp-Dependency/timestamp_buggy_16.sol#149) is too similar to ExclusivePlatform.bug_tmstmp28().pastBlockTime_tmstmp28 (Timestamp-Dependency/timestamp_buggy_16.sol#170)
+Variable ExclusivePlatform.bug_tmstmp28().pastBlockTime_tmstmp28 (Timestamp-Dependency/timestamp_buggy_16.sol#170) is too similar to ExclusivePlatform.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_16.sol#385)
+Variable ExclusivePlatform.bug_tmstmp28().pastBlockTime_tmstmp28 (Timestamp-Dependency/timestamp_buggy_16.sol#170) is too similar to ExclusivePlatform.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_16.sol#410)
+Variable ERC20Interface.bug_tmstmp12().pastBlockTime_tmstmp12 (Timestamp-Dependency/timestamp_buggy_16.sol#53) is too similar to ExclusivePlatform.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_16.sol#263)
+Variable Owned.bug_tmstmp16().pastBlockTime_tmstmp16 (Timestamp-Dependency/timestamp_buggy_16.sol#96) is too similar to ExclusivePlatform.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_16.sol#263)
+Variable ExclusivePlatform.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_16.sol#239) is too similar to ExclusivePlatform.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_16.sol#263)
+Variable ExclusivePlatform.bug_tmstmp24().pastBlockTime_tmstmp24 (Timestamp-Dependency/timestamp_buggy_16.sol#149) is too similar to ExclusivePlatform.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_16.sol#263)
+Variable ExclusivePlatform.bug_tmstmp28().pastBlockTime_tmstmp28 (Timestamp-Dependency/timestamp_buggy_16.sol#170) is too similar to ExclusivePlatform.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_16.sol#263)
+Variable ExclusivePlatform.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_16.sol#263) is too similar to ExclusivePlatform.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_16.sol#385)
+Variable ExclusivePlatform.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_16.sol#263) is too similar to ExclusivePlatform.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_16.sol#410)
+Variable Owned.bug_tmstmp16().pastBlockTime_tmstmp16 (Timestamp-Dependency/timestamp_buggy_16.sol#96) is too similar to ExclusivePlatform.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_16.sol#385)
+Variable ExclusivePlatform.bug_tmstmp24().pastBlockTime_tmstmp24 (Timestamp-Dependency/timestamp_buggy_16.sol#149) is too similar to ExclusivePlatform.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_16.sol#385)
+Variable ExclusivePlatform.bug_tmstmp4().pastBlockTime_tmstmp4 (Timestamp-Dependency/timestamp_buggy_16.sol#289) is too similar to ExclusivePlatform.bug_tmstmp8().pastBlockTime_tmstmp8 (Timestamp-Dependency/timestamp_buggy_16.sol#351)
+Variable Owned.bug_tmstmp16().pastBlockTime_tmstmp16 (Timestamp-Dependency/timestamp_buggy_16.sol#96) is too similar to ExclusivePlatform.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_16.sol#410)
+Variable ExclusivePlatform.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_16.sol#239) is too similar to ExclusivePlatform.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_16.sol#410)
+Variable ExclusivePlatform.bug_tmstmp24().pastBlockTime_tmstmp24 (Timestamp-Dependency/timestamp_buggy_16.sol#149) is too similar to ExclusivePlatform.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_16.sol#410)
+Variable ExclusivePlatform.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_16.sol#385) is too similar to ExclusivePlatform.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_16.sol#410)
+Variable ExclusivePlatform.winner_tmstmp10 (Timestamp-Dependency/timestamp_buggy_16.sol#189) is too similar to ERC20Interface.winner_tmstmp11 (Timestamp-Dependency/timestamp_buggy_16.sol#62)
+Variable ExclusivePlatform.winner_tmstmp10 (Timestamp-Dependency/timestamp_buggy_16.sol#189) is too similar to ExclusivePlatform.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_16.sol#330)
+Variable ExclusivePlatform.winner_tmstmp10 (Timestamp-Dependency/timestamp_buggy_16.sol#189) is too similar to ExclusivePlatform.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_16.sol#339)
+Variable ExclusivePlatform.winner_tmstmp10 (Timestamp-Dependency/timestamp_buggy_16.sol#189) is too similar to ExclusivePlatform.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_16.sol#447)
+Variable ERC20Interface.winner_tmstmp11 (Timestamp-Dependency/timestamp_buggy_16.sol#62) is too similar to ExclusivePlatform.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_16.sol#330)
+Variable ERC20Interface.winner_tmstmp11 (Timestamp-Dependency/timestamp_buggy_16.sol#62) is too similar to ExclusivePlatform.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_16.sol#447)
+Variable ExclusivePlatform.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_16.sol#330) is too similar to ExclusivePlatform.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_16.sol#447)
+Variable ExclusivePlatform.winner_tmstmp10 (Timestamp-Dependency/timestamp_buggy_16.sol#189) is too similar to ExclusivePlatform.winner_tmstmp15 (Timestamp-Dependency/timestamp_buggy_16.sol#163)
+Variable ERC20Interface.winner_tmstmp11 (Timestamp-Dependency/timestamp_buggy_16.sol#62) is too similar to ExclusivePlatform.winner_tmstmp15 (Timestamp-Dependency/timestamp_buggy_16.sol#163)
+Variable ExclusivePlatform.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_16.sol#330) is too similar to ExclusivePlatform.winner_tmstmp15 (Timestamp-Dependency/timestamp_buggy_16.sol#163)
+Variable ExclusivePlatform.winner_tmstmp15 (Timestamp-Dependency/timestamp_buggy_16.sol#163) is too similar to ExclusivePlatform.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_16.sol#447)
+Variable ExclusivePlatform.winner_tmstmp15 (Timestamp-Dependency/timestamp_buggy_16.sol#163) is too similar to ExclusivePlatform.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_16.sol#399)
+Variable ExclusivePlatform.winner_tmstmp10 (Timestamp-Dependency/timestamp_buggy_16.sol#189) is too similar to ExclusivePlatform.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_16.sol#220)
+Variable ERC20Interface.winner_tmstmp11 (Timestamp-Dependency/timestamp_buggy_16.sol#62) is too similar to ExclusivePlatform.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_16.sol#220)
+Variable ExclusivePlatform.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_16.sol#330) is too similar to ExclusivePlatform.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_16.sol#220)
+Variable ExclusivePlatform.winner_tmstmp15 (Timestamp-Dependency/timestamp_buggy_16.sol#163) is too similar to ExclusivePlatform.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_16.sol#220)
+Variable ExclusivePlatform.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_16.sol#220) is too similar to ExclusivePlatform.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_16.sol#447)
+Variable ExclusivePlatform.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_16.sol#220) is too similar to ExclusivePlatform.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_16.sol#375)
+Variable ExclusivePlatform.winner_tmstmp22 (Timestamp-Dependency/timestamp_buggy_16.sol#195) is too similar to ExclusivePlatform.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_16.sol#321)
+Variable ExclusivePlatform.winner_tmstmp22 (Timestamp-Dependency/timestamp_buggy_16.sol#195) is too similar to ExclusivePlatform.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_16.sol#436)
+Variable ExclusivePlatform.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_16.sol#321) is too similar to ExclusivePlatform.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_16.sol#436)
+Variable ExclusivePlatform.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_16.sol#321) is too similar to ExclusivePlatform.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_16.sol#447)
+Variable ExclusivePlatform.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_16.sol#321) is too similar to ExclusivePlatform.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_16.sol#399)
+Variable ExclusivePlatform.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_16.sol#321) is too similar to ExclusivePlatform.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_16.sol#375)
+Variable ExclusivePlatform.winner_tmstmp22 (Timestamp-Dependency/timestamp_buggy_16.sol#195) is too similar to ExclusivePlatform.winner_tmstmp26 (Timestamp-Dependency/timestamp_buggy_16.sol#230)
+Variable ExclusivePlatform.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_16.sol#321) is too similar to ExclusivePlatform.winner_tmstmp26 (Timestamp-Dependency/timestamp_buggy_16.sol#230)
+Variable ExclusivePlatform.winner_tmstmp26 (Timestamp-Dependency/timestamp_buggy_16.sol#230) is too similar to ExclusivePlatform.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_16.sol#436)
+Variable ERC20Interface.winner_tmstmp2 (Timestamp-Dependency/timestamp_buggy_16.sol#72) is too similar to Owned.winner_tmstmp3 (Timestamp-Dependency/timestamp_buggy_16.sol#115)
+Variable ExclusivePlatform.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_16.sol#321) is too similar to ExclusivePlatform.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_16.sol#339)
+Variable ExclusivePlatform.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_16.sol#339) is too similar to ExclusivePlatform.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_16.sol#447)
+Variable ExclusivePlatform.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_16.sol#339) is too similar to ExclusivePlatform.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_16.sol#399)
+Variable ExclusivePlatform.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_16.sol#339) is too similar to ExclusivePlatform.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_16.sol#375)
+Variable ExclusivePlatform.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_16.sol#447) is too similar to ExclusivePlatform.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_16.sol#399)
+Variable ExclusivePlatform.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_16.sol#447) is too similar to ExclusivePlatform.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_16.sol#375)
+Variable ExclusivePlatform.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_16.sol#330) is too similar to ExclusivePlatform.winner_tmstmp34 (Timestamp-Dependency/timestamp_buggy_16.sol#179)
+Variable ExclusivePlatform.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_16.sol#321) is too similar to ExclusivePlatform.winner_tmstmp34 (Timestamp-Dependency/timestamp_buggy_16.sol#179)
+Variable ExclusivePlatform.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_16.sol#339) is too similar to ExclusivePlatform.winner_tmstmp34 (Timestamp-Dependency/timestamp_buggy_16.sol#179)
+Variable ExclusivePlatform.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_16.sol#447) is too similar to ExclusivePlatform.winner_tmstmp34 (Timestamp-Dependency/timestamp_buggy_16.sol#179)
+Variable ExclusivePlatform.winner_tmstmp34 (Timestamp-Dependency/timestamp_buggy_16.sol#179) is too similar to ExclusivePlatform.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_16.sol#399)
+Variable ExclusivePlatform.winner_tmstmp34 (Timestamp-Dependency/timestamp_buggy_16.sol#179) is too similar to ExclusivePlatform.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_16.sol#375)
+Variable ExclusivePlatform.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_16.sol#399) is too similar to ExclusivePlatform.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_16.sol#375)
+Variable ExclusivePlatform.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_16.sol#321) is too similar to ExclusivePlatform.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_16.sol#280)
+Variable ExclusivePlatform.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_16.sol#339) is too similar to ExclusivePlatform.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_16.sol#280)
+Variable ExclusivePlatform.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_16.sol#447) is too similar to ExclusivePlatform.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_16.sol#280)
+Variable ExclusivePlatform.winner_tmstmp34 (Timestamp-Dependency/timestamp_buggy_16.sol#179) is too similar to ExclusivePlatform.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_16.sol#280)
+Variable ExclusivePlatform.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_16.sol#399) is too similar to ExclusivePlatform.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_16.sol#280)
+Variable ExclusivePlatform.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_16.sol#280) is too similar to ExclusivePlatform.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_16.sol#375)
+Variable ERC20Interface.winner_tmstmp2 (Timestamp-Dependency/timestamp_buggy_16.sol#72) is too similar to ExclusivePlatform.winner_tmstmp7 (Timestamp-Dependency/timestamp_buggy_16.sol#302)
+Variable Owned.winner_tmstmp3 (Timestamp-Dependency/timestamp_buggy_16.sol#115) is too similar to ExclusivePlatform.winner_tmstmp7 (Timestamp-Dependency/timestamp_buggy_16.sol#302)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+ExclusivePlatform.constructor() (Timestamp-Dependency/timestamp_buggy_16.sol#208-212) uses literals with too many digits:
+	- _totalSupply = 10000000000e8 (Timestamp-Dependency/timestamp_buggy_16.sol#209)
+ExclusivePlatform.slitherConstructorVariables() (Timestamp-Dependency/timestamp_buggy_16.sol#144-460) uses literals with too many digits:
+	- XPLPerEther = 8000000e8 (Timestamp-Dependency/timestamp_buggy_16.sol#193)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+ERC20Interface.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_16.sol#89) is never used in ExclusivePlatform (Timestamp-Dependency/timestamp_buggy_16.sol#144-460)
+Owned.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_16.sol#105) is never used in ExclusivePlatform (Timestamp-Dependency/timestamp_buggy_16.sol#144-460)
+ExclusivePlatform.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_16.sol#453) is never used in ExclusivePlatform (Timestamp-Dependency/timestamp_buggy_16.sol#144-460)
+ExclusivePlatform.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_16.sol#455) is never used in ExclusivePlatform (Timestamp-Dependency/timestamp_buggy_16.sol#144-460)
+ExclusivePlatform.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_16.sol#457) is never used in ExclusivePlatform (Timestamp-Dependency/timestamp_buggy_16.sol#144-460)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+
+ExclusivePlatform.decimals (Timestamp-Dependency/timestamp_buggy_16.sol#183) should be constant
+ExclusivePlatform.minimumBuy (Timestamp-Dependency/timestamp_buggy_16.sol#194) should be constant
+ExclusivePlatform.name (Timestamp-Dependency/timestamp_buggy_16.sol#168) should be constant
+ExclusivePlatform.symbol (Timestamp-Dependency/timestamp_buggy_16.sol#178) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+Timestamp-Dependency/timestamp_buggy_16.sol analyzed (4 contracts with 80 detectors), 281 result(s) found

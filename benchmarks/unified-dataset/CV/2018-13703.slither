@@ -1,0 +1,99 @@
+Compilation warnings/errors on CV/2018-13703.sol:
+CV/2018-13703.sol:138:17: Warning: Use of the "var" keyword is deprecated.
+                var amountWith = this.balance - 10000000000000000;
+                ^------------^
+CV/2018-13703.sol:151:17: Warning: Use of the "var" keyword is deprecated.
+                var totalTokenToMint = tokensToMint * (10 ** 18);
+                ^------------------^
+CV/2018-13703.sol:70:21: Warning: Invoking events without "emit" prefix is deprecated.
+                    TransferSell(owner, rec_address, finalTokens,'Offline');
+                    ^-----------------------------------------------------^
+CV/2018-13703.sol:91:16: Warning: Using contract member "balance" inherited from the address type is deprecated. Convert the contract to "address" type to access the member.
+        return this.balance;
+               ^----------^
+CV/2018-13703.sol:138:34: Warning: Using contract member "balance" inherited from the address type is deprecated. Convert the contract to "address" type to access the member.
+                var amountWith = this.balance - 10000000000000000;
+                                 ^----------^
+CV/2018-13703.sol:154:17: Warning: Invoking events without "emit" prefix is deprecated.
+                Transfer(0, owner, totalTokenToMint);
+                ^----------------------------------^
+CV/2018-13703.sol:169:13: Warning: Invoking events without "emit" prefix is deprecated.
+            FrozenFunds(target, freeze);
+            ^-------------------------^
+CV/2018-13703.sol:207:15: Warning: Invoking events without "emit" prefix is deprecated.
+              Transfer(_from, _to, _value);                                     // raise event
+              ^--------------------------^
+CV/2018-13703.sol:248:11: Warning: Invoking events without "emit" prefix is deprecated.
+          Burn(msg.sender, _value);
+          ^----------------------^
+CV/2018-13703.sol:259:11: Warning: Invoking events without "emit" prefix is deprecated.
+          Burn(_from, _value);
+          ^-----------------^
+
+
+CERB_Coin.amountCollected (CV/2018-13703.sol#13) is never initialized. It is used in:
+	- CERB_Coin.getCollectedAmount() (CV/2018-13703.sol#173-176)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+
+CERB_Coin (CV/2018-13703.sol#3-262) has incorrect ERC20 function interface:CERB_Coin.transfer(address,uint256) (CV/2018-13703.sol#215-218)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-erc20-interface
+
+CERB_Coin.transferOwnership(address) (CV/2018-13703.sol#189-194) should emit an event for: 
+	- owner = newOwner (CV/2018-13703.sol#193) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+CERB_Coin.setTransferStatus(uint256) (CV/2018-13703.sol#111-114) should emit an event for: 
+	- allowTransferToken = status (CV/2018-13703.sol#113) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+
+CERB_Coin.transferOwnership(address).newOwner (CV/2018-13703.sol#189) lacks a zero-check on :
+		- owner = newOwner (CV/2018-13703.sol#193)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+CERB_Coin.totalSupply() (CV/2018-13703.sol#183-186) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.4.21 (CV/2018-13703.sol#1) allows old versions
+solc-0.4.21 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Contract tokenRecipient (CV/2018-13703.sol#2) is not in CapWords
+Contract CERB_Coin (CV/2018-13703.sol#3-262) is not in CapWords
+Parameter CERB_Coin.sellOffline(address,uint256).rec_address (CV/2018-13703.sol#61) is not in mixedCase
+Parameter CERB_Coin.sellOffline(address,uint256).token_amount (CV/2018-13703.sol#61) is not in mixedCase
+Function CERB_Coin.withdraw_all() (CV/2018-13703.sol#134-145) is not in mixedCase
+Function CERB_Coin.adm_trasfer(address,address,uint256) (CV/2018-13703.sol#160-163) is not in mixedCase
+Parameter CERB_Coin.adm_trasfer(address,address,uint256)._from (CV/2018-13703.sol#160) is not in mixedCase
+Parameter CERB_Coin.adm_trasfer(address,address,uint256)._to (CV/2018-13703.sol#160) is not in mixedCase
+Parameter CERB_Coin.adm_trasfer(address,address,uint256)._value (CV/2018-13703.sol#160) is not in mixedCase
+Parameter CERB_Coin.balanceOf(address)._owner (CV/2018-13703.sol#178) is not in mixedCase
+Parameter CERB_Coin.transfer(address,uint256)._to (CV/2018-13703.sol#215) is not in mixedCase
+Parameter CERB_Coin.transfer(address,uint256)._value (CV/2018-13703.sol#215) is not in mixedCase
+Parameter CERB_Coin.transferFrom(address,address,uint256)._from (CV/2018-13703.sol#220) is not in mixedCase
+Parameter CERB_Coin.transferFrom(address,address,uint256)._to (CV/2018-13703.sol#220) is not in mixedCase
+Parameter CERB_Coin.transferFrom(address,address,uint256)._value (CV/2018-13703.sol#220) is not in mixedCase
+Parameter CERB_Coin.approve(address,uint256)._spender (CV/2018-13703.sol#228) is not in mixedCase
+Parameter CERB_Coin.approve(address,uint256)._value (CV/2018-13703.sol#228) is not in mixedCase
+Parameter CERB_Coin.approveAndCall(address,uint256,bytes)._spender (CV/2018-13703.sol#234) is not in mixedCase
+Parameter CERB_Coin.approveAndCall(address,uint256,bytes)._value (CV/2018-13703.sol#234) is not in mixedCase
+Parameter CERB_Coin.approveAndCall(address,uint256,bytes)._extraData (CV/2018-13703.sol#234) is not in mixedCase
+Parameter CERB_Coin.burn(uint256)._value (CV/2018-13703.sol#243) is not in mixedCase
+Parameter CERB_Coin.burnFrom(address,uint256)._from (CV/2018-13703.sol#252) is not in mixedCase
+Parameter CERB_Coin.burnFrom(address,uint256)._value (CV/2018-13703.sol#252) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+CERB_Coin.CERB_Coin() (CV/2018-13703.sol#33-48) uses literals with too many digits:
+	- totalSupply = 1000000000000000000000000000 (CV/2018-13703.sol#35)
+CERB_Coin.withdraw_all() (CV/2018-13703.sol#134-145) uses literals with too many digits:
+	- amountWith = this.balance - 10000000000000000 (CV/2018-13703.sol#138)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+CERB_Coin.amountCollected (CV/2018-13703.sol#13) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+receiveApproval(address,uint256,address,bytes) should be declared external:
+	- tokenRecipient.receiveApproval(address,uint256,address,bytes) (CV/2018-13703.sol#2)
+approveAndCall(address,uint256,bytes) should be declared external:
+	- CERB_Coin.approveAndCall(address,uint256,bytes) (CV/2018-13703.sol#234-241)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+CV/2018-13703.sol analyzed (2 contracts with 80 detectors), 36 result(s) found

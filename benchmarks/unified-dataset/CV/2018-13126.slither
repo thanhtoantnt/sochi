@@ -1,0 +1,45 @@
+
+MoxyOnePresale.withdrawFunds(address,uint256)._target (CV/2018-13126.sol#273) lacks a zero-check on :
+		- _target.transfer(_amount) (CV/2018-13126.sol#274)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Reentrancy in MoxyOnePresale.buyTokens(address,uint256) (CV/2018-13126.sol#280-293):
+	External calls:
+	- token.mint(_buyer,boughtTokens) (CV/2018-13126.sol#290)
+	Event emitted after the call(s):
+	- TokenBuy(_buyer,boughtTokens) (CV/2018-13126.sol#292)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+
+SafeMath.div(uint256,uint256) (CV/2018-13126.sol#31-36) is never used and should be removed
+SafeMath.mul(uint256,uint256) (CV/2018-13126.sol#22-29) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.4.18 (CV/2018-13126.sol#1) allows old versions
+solc-0.4.18 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Parameter BasicToken.transfer(address,uint256)._to (CV/2018-13126.sol#64) is not in mixedCase
+Parameter BasicToken.transfer(address,uint256)._value (CV/2018-13126.sol#64) is not in mixedCase
+Parameter BasicToken.balanceOf(address)._owner (CV/2018-13126.sol#81) is not in mixedCase
+Parameter StandardToken.transferFrom(address,address,uint256)._from (CV/2018-13126.sol#114) is not in mixedCase
+Parameter StandardToken.transferFrom(address,address,uint256)._to (CV/2018-13126.sol#114) is not in mixedCase
+Parameter StandardToken.transferFrom(address,address,uint256)._value (CV/2018-13126.sol#114) is not in mixedCase
+Parameter StandardToken.approve(address,uint256)._spender (CV/2018-13126.sol#138) is not in mixedCase
+Parameter StandardToken.approve(address,uint256)._value (CV/2018-13126.sol#138) is not in mixedCase
+Parameter StandardToken.allowance(address,address)._owner (CV/2018-13126.sol#152) is not in mixedCase
+Parameter StandardToken.allowance(address,address)._spender (CV/2018-13126.sol#152) is not in mixedCase
+Parameter SpendToken.mint(address,uint256)._holder (CV/2018-13126.sol#185) is not in mixedCase
+Parameter SpendToken.mint(address,uint256)._value (CV/2018-13126.sol#185) is not in mixedCase
+Parameter MoxyOnePresale.withdrawFunds(address,uint256)._target (CV/2018-13126.sol#273) is not in mixedCase
+Parameter MoxyOnePresale.withdrawFunds(address,uint256)._amount (CV/2018-13126.sol#273) is not in mixedCase
+Parameter MoxyOnePresale.buyTokens(address,uint256)._buyer (CV/2018-13126.sol#280) is not in mixedCase
+Parameter MoxyOnePresale.buyTokens(address,uint256)._value (CV/2018-13126.sol#280) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+SpendToken.slitherConstructorConstantVariables() (CV/2018-13126.sol#160-195) uses literals with too many digits:
+	- TOKEN_LIMIT = 50000000 (CV/2018-13126.sol#168)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+MoxyOnePresale.pricePerToken (CV/2018-13126.sol#210) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+CV/2018-13126.sol analyzed (7 contracts with 80 detectors), 24 result(s) found

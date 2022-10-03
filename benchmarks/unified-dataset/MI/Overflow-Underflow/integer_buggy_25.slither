@@ -1,0 +1,190 @@
+Compilation warnings/errors on Overflow-Underflow/integer_buggy_25.sol:
+Overflow-Underflow/integer_buggy_25.sol:63:1: Warning: Function state mutability can be restricted to pure
+function bug_intou19() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_25.sol:70:1: Warning: Function state mutability can be restricted to pure
+function bug_intou36(uint8 p_intou36) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_25.sol:75:1: Warning: Function state mutability can be restricted to pure
+function bug_intou35() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_25.sol:80:1: Warning: Function state mutability can be restricted to pure
+function bug_intou40(uint8 p_intou40) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_25.sol:96:1: Warning: Function state mutability can be restricted to pure
+function bug_intou27() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_25.sol:101:1: Warning: Function state mutability can be restricted to pure
+function bug_intou31() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_25.sol:135:1: Warning: Function state mutability can be restricted to pure
+function bug_intou20(uint8 p_intou20) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_25.sol:152:1: Warning: Function state mutability can be restricted to pure
+function bug_intou32(uint8 p_intou32) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_25.sol:220:1: Warning: Function state mutability can be restricted to pure
+function bug_intou4(uint8 p_intou4) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_25.sol:258:1: Warning: Function state mutability can be restricted to pure
+function bug_intou7() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_25.sol:273:1: Warning: Function state mutability can be restricted to pure
+function bug_intou23() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_25.sol:308:1: Warning: Function state mutability can be restricted to pure
+function bug_intou8(uint8 p_intou8) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_25.sol:319:1: Warning: Function state mutability can be restricted to pure
+function bug_intou39() public{
+^ (Relevant source part starts here and spans across multiple lines).
+
+
+WhiteBetting (Overflow-Underflow/integer_buggy_25.sol#12-324) contract sets array length with a user-controlled value:
+	- betList[_fixtureId].push(BetFixture(msg.sender,stake,_odd,_selectedTeam)) (Overflow-Underflow/integer_buggy_25.sol#216)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#array-length-assignment
+
+WhiteBetting.transfer_intou26(address,uint256) (Overflow-Underflow/integer_buggy_25.sol#124-129) contains a tautology or contradiction:
+	- require(bool)(balances_intou26[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_25.sol#125)
+WhiteBetting.transfer_intou38(address,uint256) (Overflow-Underflow/integer_buggy_25.sol#174-179) contains a tautology or contradiction:
+	- require(bool)(balances_intou38[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_25.sol#175)
+WhiteBetting.transfer_intou14(address,uint256) (Overflow-Underflow/integer_buggy_25.sol#284-289) contains a tautology or contradiction:
+	- require(bool)(balances_intou14[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_25.sol#285)
+WhiteBetting.transfer_intou30(address,uint256) (Overflow-Underflow/integer_buggy_25.sol#297-302) contains a tautology or contradiction:
+	- require(bool)(balances_intou30[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_25.sol#298)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#tautology-or-contradiction
+
+WhiteBetting.changeOwner(address) (Overflow-Underflow/integer_buggy_25.sol#292-294) should emit an event for: 
+	- owner = _newOwner (Overflow-Underflow/integer_buggy_25.sol#293) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+WhiteBetting.changeOwner(address)._newOwner (Overflow-Underflow/integer_buggy_25.sol#292) lacks a zero-check on :
+		- owner = _newOwner (Overflow-Underflow/integer_buggy_25.sol#293)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+WhiteBetting.givePrizeMoney(uint64,uint8,uint8) (Overflow-Underflow/integer_buggy_25.sol#226-257) has external calls inside a loop: betList[_fixtureId][i].player.transfer(returnEth) (Overflow-Underflow/integer_buggy_25.sol#247)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop
+
+WhiteBetting.withdraw_intou9() (Overflow-Underflow/integer_buggy_25.sol#18-22) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou9[msg.sender]) (Overflow-Underflow/integer_buggy_25.sol#19)
+WhiteBetting.withdraw_intou25() (Overflow-Underflow/integer_buggy_25.sol#48-52) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou25[msg.sender]) (Overflow-Underflow/integer_buggy_25.sol#49)
+WhiteBetting.withdraw_intou33() (Overflow-Underflow/integer_buggy_25.sol#90-94) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou33[msg.sender]) (Overflow-Underflow/integer_buggy_25.sol#91)
+WhiteBetting.withdraw_intou13() (Overflow-Underflow/integer_buggy_25.sol#111-115) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou13[msg.sender]) (Overflow-Underflow/integer_buggy_25.sol#112)
+WhiteBetting.placeBet(uint64,uint16,uint32) (Overflow-Underflow/integer_buggy_25.sol#182-219) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now < (gameList[_fixtureId].timestamp - 600)) (Overflow-Underflow/integer_buggy_25.sol#213)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+WhiteBetting.givePrizeMoney(uint64,uint8,uint8) (Overflow-Underflow/integer_buggy_25.sol#226-257) compares to a boolean constant:
+	-require(bool)(gameList[_fixtureId].isDone == false) (Overflow-Underflow/integer_buggy_25.sol#230)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#boolean-equality
+
+Pragma version^0.5.12 (Overflow-Underflow/integer_buggy_25.sol#5) allows old versions
+solc-0.5.12 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function WhiteBetting.increaseLockTime_intou9(uint256) (Overflow-Underflow/integer_buggy_25.sol#15-17) is not in mixedCase
+Parameter WhiteBetting.increaseLockTime_intou9(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_25.sol#15) is not in mixedCase
+Function WhiteBetting.withdraw_intou9() (Overflow-Underflow/integer_buggy_25.sol#18-22) is not in mixedCase
+Function WhiteBetting.increaseLockTime_intou25(uint256) (Overflow-Underflow/integer_buggy_25.sol#45-47) is not in mixedCase
+Parameter WhiteBetting.increaseLockTime_intou25(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_25.sol#45) is not in mixedCase
+Function WhiteBetting.withdraw_intou25() (Overflow-Underflow/integer_buggy_25.sol#48-52) is not in mixedCase
+Function WhiteBetting.bug_intou19() (Overflow-Underflow/integer_buggy_25.sol#63-66) is not in mixedCase
+Function WhiteBetting.bug_intou36(uint8) (Overflow-Underflow/integer_buggy_25.sol#70-73) is not in mixedCase
+Parameter WhiteBetting.bug_intou36(uint8).p_intou36 (Overflow-Underflow/integer_buggy_25.sol#70) is not in mixedCase
+Function WhiteBetting.bug_intou35() (Overflow-Underflow/integer_buggy_25.sol#75-78) is not in mixedCase
+Function WhiteBetting.bug_intou40(uint8) (Overflow-Underflow/integer_buggy_25.sol#80-83) is not in mixedCase
+Parameter WhiteBetting.bug_intou40(uint8).p_intou40 (Overflow-Underflow/integer_buggy_25.sol#80) is not in mixedCase
+Function WhiteBetting.increaseLockTime_intou33(uint256) (Overflow-Underflow/integer_buggy_25.sol#87-89) is not in mixedCase
+Parameter WhiteBetting.increaseLockTime_intou33(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_25.sol#87) is not in mixedCase
+Function WhiteBetting.withdraw_intou33() (Overflow-Underflow/integer_buggy_25.sol#90-94) is not in mixedCase
+Function WhiteBetting.bug_intou27() (Overflow-Underflow/integer_buggy_25.sol#96-99) is not in mixedCase
+Function WhiteBetting.bug_intou31() (Overflow-Underflow/integer_buggy_25.sol#101-104) is not in mixedCase
+Function WhiteBetting.increaseLockTime_intou13(uint256) (Overflow-Underflow/integer_buggy_25.sol#108-110) is not in mixedCase
+Parameter WhiteBetting.increaseLockTime_intou13(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_25.sol#108) is not in mixedCase
+Function WhiteBetting.withdraw_intou13() (Overflow-Underflow/integer_buggy_25.sol#111-115) is not in mixedCase
+Function WhiteBetting.transfer_intou26(address,uint256) (Overflow-Underflow/integer_buggy_25.sol#124-129) is not in mixedCase
+Parameter WhiteBetting.transfer_intou26(address,uint256)._to (Overflow-Underflow/integer_buggy_25.sol#124) is not in mixedCase
+Parameter WhiteBetting.transfer_intou26(address,uint256)._value (Overflow-Underflow/integer_buggy_25.sol#124) is not in mixedCase
+Parameter WhiteBetting.setOpenStatus(uint64,uint8)._fixtureId (Overflow-Underflow/integer_buggy_25.sol#132) is not in mixedCase
+Parameter WhiteBetting.setOpenStatus(uint64,uint8)._open_status (Overflow-Underflow/integer_buggy_25.sol#132) is not in mixedCase
+Function WhiteBetting.bug_intou20(uint8) (Overflow-Underflow/integer_buggy_25.sol#135-138) is not in mixedCase
+Parameter WhiteBetting.bug_intou20(uint8).p_intou20 (Overflow-Underflow/integer_buggy_25.sol#135) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._fixtureId (Overflow-Underflow/integer_buggy_25.sol#141) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._odd_homeTeam (Overflow-Underflow/integer_buggy_25.sol#141) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._odd_drawTeam (Overflow-Underflow/integer_buggy_25.sol#141) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._odd_awayTeam (Overflow-Underflow/integer_buggy_25.sol#141) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._odd_over (Overflow-Underflow/integer_buggy_25.sol#141) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._odd_under (Overflow-Underflow/integer_buggy_25.sol#141) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._odd_homeTeamAndDraw (Overflow-Underflow/integer_buggy_25.sol#141) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._odd_homeAndAwayTeam (Overflow-Underflow/integer_buggy_25.sol#141) is not in mixedCase
+Parameter WhiteBetting.changeOdd(uint64,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32)._odd_awayTeamAndDraw (Overflow-Underflow/integer_buggy_25.sol#141) is not in mixedCase
+Function WhiteBetting.bug_intou32(uint8) (Overflow-Underflow/integer_buggy_25.sol#152-155) is not in mixedCase
+Parameter WhiteBetting.bug_intou32(uint8).p_intou32 (Overflow-Underflow/integer_buggy_25.sol#152) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._fixtureId (Overflow-Underflow/integer_buggy_25.sol#158) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._timestamp (Overflow-Underflow/integer_buggy_25.sol#158) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._odd_homeTeam (Overflow-Underflow/integer_buggy_25.sol#158) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._odd_drawTeam (Overflow-Underflow/integer_buggy_25.sol#158) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._odd_awayTeam (Overflow-Underflow/integer_buggy_25.sol#158) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._odd_over (Overflow-Underflow/integer_buggy_25.sol#158) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._odd_under (Overflow-Underflow/integer_buggy_25.sol#158) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._odd_homeTeamAndDraw (Overflow-Underflow/integer_buggy_25.sol#158) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._odd_homeAndAwayTeam (Overflow-Underflow/integer_buggy_25.sol#158) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._odd_awayTeamAndDraw (Overflow-Underflow/integer_buggy_25.sol#158) is not in mixedCase
+Parameter WhiteBetting.setGameInfo(uint64,uint256,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint32,uint8)._open_status (Overflow-Underflow/integer_buggy_25.sol#158) is not in mixedCase
+Function WhiteBetting.transfer_intou38(address,uint256) (Overflow-Underflow/integer_buggy_25.sol#174-179) is not in mixedCase
+Parameter WhiteBetting.transfer_intou38(address,uint256)._to (Overflow-Underflow/integer_buggy_25.sol#174) is not in mixedCase
+Parameter WhiteBetting.transfer_intou38(address,uint256)._value (Overflow-Underflow/integer_buggy_25.sol#174) is not in mixedCase
+Parameter WhiteBetting.placeBet(uint64,uint16,uint32)._fixtureId (Overflow-Underflow/integer_buggy_25.sol#182) is not in mixedCase
+Parameter WhiteBetting.placeBet(uint64,uint16,uint32)._selectedTeam (Overflow-Underflow/integer_buggy_25.sol#182) is not in mixedCase
+Parameter WhiteBetting.placeBet(uint64,uint16,uint32)._odd (Overflow-Underflow/integer_buggy_25.sol#182) is not in mixedCase
+Function WhiteBetting.bug_intou4(uint8) (Overflow-Underflow/integer_buggy_25.sol#220-223) is not in mixedCase
+Parameter WhiteBetting.bug_intou4(uint8).p_intou4 (Overflow-Underflow/integer_buggy_25.sol#220) is not in mixedCase
+Parameter WhiteBetting.givePrizeMoney(uint64,uint8,uint8)._fixtureId (Overflow-Underflow/integer_buggy_25.sol#226) is not in mixedCase
+Parameter WhiteBetting.givePrizeMoney(uint64,uint8,uint8)._homeDrawAway (Overflow-Underflow/integer_buggy_25.sol#226) is not in mixedCase
+Parameter WhiteBetting.givePrizeMoney(uint64,uint8,uint8)._overUnder (Overflow-Underflow/integer_buggy_25.sol#226) is not in mixedCase
+Function WhiteBetting.bug_intou7() (Overflow-Underflow/integer_buggy_25.sol#258-261) is not in mixedCase
+Function WhiteBetting.bug_intou23() (Overflow-Underflow/integer_buggy_25.sol#273-276) is not in mixedCase
+Parameter WhiteBetting.deposit(uint256)._eth (Overflow-Underflow/integer_buggy_25.sol#279) is not in mixedCase
+Function WhiteBetting.transfer_intou14(address,uint256) (Overflow-Underflow/integer_buggy_25.sol#284-289) is not in mixedCase
+Parameter WhiteBetting.transfer_intou14(address,uint256)._to (Overflow-Underflow/integer_buggy_25.sol#284) is not in mixedCase
+Parameter WhiteBetting.transfer_intou14(address,uint256)._value (Overflow-Underflow/integer_buggy_25.sol#284) is not in mixedCase
+Parameter WhiteBetting.changeOwner(address)._newOwner (Overflow-Underflow/integer_buggy_25.sol#292) is not in mixedCase
+Function WhiteBetting.transfer_intou30(address,uint256) (Overflow-Underflow/integer_buggy_25.sol#297-302) is not in mixedCase
+Parameter WhiteBetting.transfer_intou30(address,uint256)._to (Overflow-Underflow/integer_buggy_25.sol#297) is not in mixedCase
+Parameter WhiteBetting.transfer_intou30(address,uint256)._value (Overflow-Underflow/integer_buggy_25.sol#297) is not in mixedCase
+Function WhiteBetting.bug_intou8(uint8) (Overflow-Underflow/integer_buggy_25.sol#308-311) is not in mixedCase
+Parameter WhiteBetting.bug_intou8(uint8).p_intou8 (Overflow-Underflow/integer_buggy_25.sol#308) is not in mixedCase
+Parameter WhiteBetting.withdraw(uint256)._amount (Overflow-Underflow/integer_buggy_25.sol#314) is not in mixedCase
+Function WhiteBetting.bug_intou39() (Overflow-Underflow/integer_buggy_25.sol#319-322) is not in mixedCase
+Variable WhiteBetting.lockTime_intou9 (Overflow-Underflow/integer_buggy_25.sol#13) is not in mixedCase
+Variable WhiteBetting.lockTime_intou25 (Overflow-Underflow/integer_buggy_25.sol#43) is not in mixedCase
+Variable WhiteBetting.lockTime_intou33 (Overflow-Underflow/integer_buggy_25.sol#85) is not in mixedCase
+Variable WhiteBetting.lockTime_intou13 (Overflow-Underflow/integer_buggy_25.sol#106) is not in mixedCase
+Variable WhiteBetting.balances_intou26 (Overflow-Underflow/integer_buggy_25.sol#122) is not in mixedCase
+Variable WhiteBetting.balances_intou38 (Overflow-Underflow/integer_buggy_25.sol#172) is not in mixedCase
+Variable WhiteBetting.balances_intou14 (Overflow-Underflow/integer_buggy_25.sol#282) is not in mixedCase
+Variable WhiteBetting.balances_intou30 (Overflow-Underflow/integer_buggy_25.sol#295) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in WhiteBetting.withdraw(uint256) (Overflow-Underflow/integer_buggy_25.sol#314-318):
+	External calls:
+	- owner.transfer(_amount) (Overflow-Underflow/integer_buggy_25.sol#316)
+	Event emitted after the call(s):
+	- Withdraw(owner,_amount) (Overflow-Underflow/integer_buggy_25.sol#317)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable WhiteBetting.balances_intou30 (Overflow-Underflow/integer_buggy_25.sol#295) is too similar to WhiteBetting.balances_intou38 (Overflow-Underflow/integer_buggy_25.sol#172)
+Variable WhiteBetting.lockTime_intou13 (Overflow-Underflow/integer_buggy_25.sol#106) is too similar to WhiteBetting.lockTime_intou33 (Overflow-Underflow/integer_buggy_25.sol#85)
+Variable WhiteBetting.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_25.sol#113) is too similar to WhiteBetting.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_25.sol#50)
+Variable WhiteBetting.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_25.sol#113) is too similar to WhiteBetting.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_25.sol#92)
+Variable WhiteBetting.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_25.sol#50) is too similar to WhiteBetting.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_25.sol#92)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+Overflow-Underflow/integer_buggy_25.sol analyzed (1 contracts with 80 detectors), 104 result(s) found

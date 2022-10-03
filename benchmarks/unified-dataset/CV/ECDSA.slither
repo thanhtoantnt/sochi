@@ -1,0 +1,13 @@
+
+ECDSA.recover(bytes32,bytes) (CV/ECDSA.sol#30-69) uses assembly
+	- INLINE ASM (CV/ECDSA.sol#44-59)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#assembly-usage
+
+ECDSA.recover(bytes32,bytes) (CV/ECDSA.sol#30-69) is never used and should be removed
+ECDSA.toEthSignedMessageHash(bytes32) (CV/ECDSA.sol#79-83) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.5.0 (CV/ECDSA.sol#3) allows old versions
+solc-0.5.0 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+CV/ECDSA.sol analyzed (1 contracts with 80 detectors), 5 result(s) found

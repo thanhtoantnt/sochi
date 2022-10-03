@@ -1,0 +1,77 @@
+
+IADOWR.name (CV/2018-13086.sol#106) shadows:
+	- Token.name (CV/2018-13086.sol#28)
+IADOWR.symbol (CV/2018-13086.sol#107) shadows:
+	- Token.symbol (CV/2018-13086.sol#29)
+IADOWR.decimals (CV/2018-13086.sol#109) shadows:
+	- Token.decimals (CV/2018-13086.sol#30)
+IADOWR.totalSupply (CV/2018-13086.sol#111) shadows:
+	- Token.totalSupply (CV/2018-13086.sol#31)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variable-shadowing
+
+IADOWR (CV/2018-13086.sol#105-176) has incorrect ERC20 function interface:Token.transfer(address,uint256) (CV/2018-13086.sol#55-57)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-erc20-interface
+
+owned.transferOwnership(address) (CV/2018-13086.sol#19-21) should emit an event for: 
+	- owner = newOwner (CV/2018-13086.sol#20) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+owned.transferOwnership(address).newOwner (CV/2018-13086.sol#19) lacks a zero-check on :
+		- owner = newOwner (CV/2018-13086.sol#20)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Token._transfer(address,address,uint256) (CV/2018-13086.sol#43-52) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.4.16 (CV/2018-13086.sol#5) allows old versions
+solc-0.4.16 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Contract owned (CV/2018-13086.sol#7-22) is not in CapWords
+Contract tokenRecipient (CV/2018-13086.sol#24) is not in CapWords
+Parameter Token.transfer(address,uint256)._to (CV/2018-13086.sol#55) is not in mixedCase
+Parameter Token.transfer(address,uint256)._value (CV/2018-13086.sol#55) is not in mixedCase
+Parameter Token.transferFrom(address,address,uint256)._from (CV/2018-13086.sol#59) is not in mixedCase
+Parameter Token.transferFrom(address,address,uint256)._to (CV/2018-13086.sol#59) is not in mixedCase
+Parameter Token.transferFrom(address,address,uint256)._value (CV/2018-13086.sol#59) is not in mixedCase
+Parameter Token.approve(address,uint256)._spender (CV/2018-13086.sol#67) is not in mixedCase
+Parameter Token.approve(address,uint256)._value (CV/2018-13086.sol#67) is not in mixedCase
+Parameter Token.approveAndCall(address,uint256,bytes)._spender (CV/2018-13086.sol#74) is not in mixedCase
+Parameter Token.approveAndCall(address,uint256,bytes)._value (CV/2018-13086.sol#74) is not in mixedCase
+Parameter Token.approveAndCall(address,uint256,bytes)._extraData (CV/2018-13086.sol#74) is not in mixedCase
+Parameter Token.burn(uint256)._value (CV/2018-13086.sol#85) is not in mixedCase
+Parameter Token.burnFrom(address,uint256)._from (CV/2018-13086.sol#94) is not in mixedCase
+Parameter Token.burnFrom(address,uint256)._value (CV/2018-13086.sol#94) is not in mixedCase
+Variable IADOWR.IADAddress (CV/2018-13086.sol#108) is not in mixedCase
+Variable IADOWR.IADForGas (CV/2018-13086.sol#116) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+IADOWR.slitherConstructorVariables() (CV/2018-13086.sol#105-176) uses literals with too many digits:
+	- totalSupply = 2000000000000000000000000000 (CV/2018-13086.sol#111)
+IADOWR.slitherConstructorVariables() (CV/2018-13086.sol#105-176) uses literals with too many digits:
+	- initialSupply = 2000000000000000000000000000 (CV/2018-13086.sol#110)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+IADOWR.IADForGas (CV/2018-13086.sol#116) should be constant
+IADOWR.buyPriceEth (CV/2018-13086.sol#113) should be constant
+IADOWR.decimals (CV/2018-13086.sol#109) should be constant
+IADOWR.directTradeAllowed (CV/2018-13086.sol#119) should be constant
+IADOWR.gasForIAD (CV/2018-13086.sol#115) should be constant
+IADOWR.gasReserve (CV/2018-13086.sol#117) should be constant
+IADOWR.initialSupply (CV/2018-13086.sol#110) should be constant
+IADOWR.minBalanceForAccounts (CV/2018-13086.sol#118) should be constant
+IADOWR.name (CV/2018-13086.sol#106) should be constant
+IADOWR.sellPriceEth (CV/2018-13086.sol#114) should be constant
+IADOWR.symbol (CV/2018-13086.sol#107) should be constant
+IADOWR.unitsOneEthCanBuy (CV/2018-13086.sol#112) should be constant
+Token.decimals (CV/2018-13086.sol#30) should be constant
+Token.name (CV/2018-13086.sol#28) should be constant
+Token.symbol (CV/2018-13086.sol#29) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+receiveApproval(address,uint256,address,bytes) should be declared external:
+	- tokenRecipient.receiveApproval(address,uint256,address,bytes) (CV/2018-13086.sol#24)
+approveAndCall(address,uint256,bytes) should be declared external:
+	- Token.approveAndCall(address,uint256,bytes) (CV/2018-13086.sol#74-82)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+CV/2018-13086.sol analyzed (4 contracts with 80 detectors), 46 result(s) found

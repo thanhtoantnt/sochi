@@ -1,0 +1,19 @@
+
+Wallet (CV/arbitrary_location_write_simple.sol#4-34) contract sets array length with a user-controlled value:
+	- bonusCodes.push(c) (CV/arbitrary_location_write_simple.sol#17)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#array-length-assignment
+
+Wallet.PopBonusCode() (CV/arbitrary_location_write_simple.sol#20-23) contains a tautology or contradiction:
+	- require(bool)(0 <= bonusCodes.length) (CV/arbitrary_location_write_simple.sol#21)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#tautology-or-contradiction
+
+Pragma version^0.4.25 (CV/arbitrary_location_write_simple.sol#2) allows old versions
+solc-0.4.25 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function Wallet.PushBonusCode(uint256) (CV/arbitrary_location_write_simple.sol#16-18) is not in mixedCase
+Function Wallet.PopBonusCode() (CV/arbitrary_location_write_simple.sol#20-23) is not in mixedCase
+Function Wallet.UpdateBonusCodeAt(uint256,uint256) (CV/arbitrary_location_write_simple.sol#25-28) is not in mixedCase
+Function Wallet.Destroy() (CV/arbitrary_location_write_simple.sol#30-33) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+CV/arbitrary_location_write_simple.sol analyzed (1 contracts with 80 detectors), 8 result(s) found

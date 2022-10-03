@@ -1,0 +1,433 @@
+
+owned.owner_TOD12 (TOD/tod_buggy_19.sol#59) is never initialized. It is used in:
+	- owned.setReward_TOD12() (TOD/tod_buggy_19.sol#61-67)
+ethBank.owner_TOD2 (TOD/tod_buggy_19.sol#132) is never initialized. It is used in:
+	- ethBank.setReward_TOD2() (TOD/tod_buggy_19.sol#134-140)
+ethBank.owner_TOD26 (TOD/tod_buggy_19.sol#278) is never initialized. It is used in:
+	- ethBank.setReward_TOD26() (TOD/tod_buggy_19.sol#280-286)
+ethBank.owner_TOD20 (TOD/tod_buggy_19.sol#301) is never initialized. It is used in:
+	- ethBank.setReward_TOD20() (TOD/tod_buggy_19.sol#303-309)
+ethBank.owner_TOD32 (TOD/tod_buggy_19.sol#324) is never initialized. It is used in:
+	- ethBank.setReward_TOD32() (TOD/tod_buggy_19.sol#326-332)
+ethBank.owner_TOD38 (TOD/tod_buggy_19.sol#347) is never initialized. It is used in:
+	- ethBank.setReward_TOD38() (TOD/tod_buggy_19.sol#349-355)
+ethBank.owner_TOD4 (TOD/tod_buggy_19.sol#370) is never initialized. It is used in:
+	- ethBank.setReward_TOD4() (TOD/tod_buggy_19.sol#372-378)
+ethBank.owner_TOD14 (TOD/tod_buggy_19.sol#429) is never initialized. It is used in:
+	- ethBank.setReward_TOD14() (TOD/tod_buggy_19.sol#431-437)
+ethBank.owner_TOD30 (TOD/tod_buggy_19.sol#452) is never initialized. It is used in:
+	- ethBank.setReward_TOD30() (TOD/tod_buggy_19.sol#454-460)
+ethBank.owner_TOD8 (TOD/tod_buggy_19.sol#475) is never initialized. It is used in:
+	- ethBank.setReward_TOD8() (TOD/tod_buggy_19.sol#477-483)
+ethBank.owner_TOD36 (TOD/tod_buggy_19.sol#516) is never initialized. It is used in:
+	- ethBank.setReward_TOD36() (TOD/tod_buggy_19.sol#518-524)
+ethBank.owner_TOD40 (TOD/tod_buggy_19.sol#557) is never initialized. It is used in:
+	- ethBank.setReward_TOD40() (TOD/tod_buggy_19.sol#559-565)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+
+owned.transferOwnership(address) (TOD/tod_buggy_19.sol#109-112) should emit an event for: 
+	- owner = newOwner (TOD/tod_buggy_19.sol#111) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+ethBank.setReward_TOD2() (TOD/tod_buggy_19.sol#134-140) should emit an event for: 
+	- reward_TOD2 = msg.value (TOD/tod_buggy_19.sol#139) 
+ethBank.setReward_TOD26() (TOD/tod_buggy_19.sol#280-286) should emit an event for: 
+	- reward_TOD26 = msg.value (TOD/tod_buggy_19.sol#285) 
+ethBank.setReward_TOD20() (TOD/tod_buggy_19.sol#303-309) should emit an event for: 
+	- reward_TOD20 = msg.value (TOD/tod_buggy_19.sol#308) 
+ethBank.setReward_TOD32() (TOD/tod_buggy_19.sol#326-332) should emit an event for: 
+	- reward_TOD32 = msg.value (TOD/tod_buggy_19.sol#331) 
+ethBank.setReward_TOD38() (TOD/tod_buggy_19.sol#349-355) should emit an event for: 
+	- reward_TOD38 = msg.value (TOD/tod_buggy_19.sol#354) 
+ethBank.setReward_TOD4() (TOD/tod_buggy_19.sol#372-378) should emit an event for: 
+	- reward_TOD4 = msg.value (TOD/tod_buggy_19.sol#377) 
+ethBank.setReward_TOD14() (TOD/tod_buggy_19.sol#431-437) should emit an event for: 
+	- reward_TOD14 = msg.value (TOD/tod_buggy_19.sol#436) 
+ethBank.setReward_TOD30() (TOD/tod_buggy_19.sol#454-460) should emit an event for: 
+	- reward_TOD30 = msg.value (TOD/tod_buggy_19.sol#459) 
+ethBank.setReward_TOD8() (TOD/tod_buggy_19.sol#477-483) should emit an event for: 
+	- reward_TOD8 = msg.value (TOD/tod_buggy_19.sol#482) 
+ethBank.setReward_TOD36() (TOD/tod_buggy_19.sol#518-524) should emit an event for: 
+	- reward_TOD36 = msg.value (TOD/tod_buggy_19.sol#523) 
+ethBank.setReward_TOD40() (TOD/tod_buggy_19.sol#559-565) should emit an event for: 
+	- reward_TOD40 = msg.value (TOD/tod_buggy_19.sol#564) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+
+ethBank.withdrawForUser(address,uint256)._address (TOD/tod_buggy_19.sol#150) lacks a zero-check on :
+		- _address.transfer(amount) (TOD/tod_buggy_19.sol#152)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+SafeMath.add(uint256,uint256) (TOD/tod_buggy_19.sol#44-48) is never used and should be removed
+SafeMath.div(uint256,uint256) (TOD/tod_buggy_19.sol#28-31) is never used and should be removed
+SafeMath.mul(uint256,uint256) (TOD/tod_buggy_19.sol#16-23) is never used and should be removed
+SafeMath.sub(uint256,uint256) (TOD/tod_buggy_19.sol#36-39) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.5.1 (TOD/tod_buggy_19.sol#5) allows old versions
+solc-0.5.1 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Contract owned (TOD/tod_buggy_19.sol#57-126) is not in CapWords
+Function owned.setReward_TOD12() (TOD/tod_buggy_19.sol#61-67) is not in mixedCase
+Function owned.claimReward_TOD12(uint256) (TOD/tod_buggy_19.sol#69-75) is not in mixedCase
+Function owned.play_TOD11(bytes32) (TOD/tod_buggy_19.sol#85-91) is not in mixedCase
+Function owned.getReward_TOD11() (TOD/tod_buggy_19.sol#93-96) is not in mixedCase
+Function owned.play_TOD1(bytes32) (TOD/tod_buggy_19.sol#114-120) is not in mixedCase
+Function owned.getReward_TOD1() (TOD/tod_buggy_19.sol#122-125) is not in mixedCase
+Variable owned.claimed_TOD12 (TOD/tod_buggy_19.sol#58) is not in mixedCase
+Variable owned.owner_TOD12 (TOD/tod_buggy_19.sol#59) is not in mixedCase
+Variable owned.reward_TOD12 (TOD/tod_buggy_19.sol#60) is not in mixedCase
+Variable owned.winner_TOD11 (TOD/tod_buggy_19.sol#84) is not in mixedCase
+Variable owned.winner_TOD1 (TOD/tod_buggy_19.sol#113) is not in mixedCase
+Contract ethBank (TOD/tod_buggy_19.sol#128-646) is not in CapWords
+Function ethBank.setReward_TOD2() (TOD/tod_buggy_19.sol#134-140) is not in mixedCase
+Function ethBank.claimReward_TOD2(uint256) (TOD/tod_buggy_19.sol#142-148) is not in mixedCase
+Parameter ethBank.withdrawForUser(address,uint256)._address (TOD/tod_buggy_19.sol#150) is not in mixedCase
+Function ethBank.play_TOD17(bytes32) (TOD/tod_buggy_19.sol#155-161) is not in mixedCase
+Function ethBank.getReward_TOD17() (TOD/tod_buggy_19.sol#163-166) is not in mixedCase
+Function ethBank.play_TOD37(bytes32) (TOD/tod_buggy_19.sol#173-179) is not in mixedCase
+Function ethBank.getReward_TOD37() (TOD/tod_buggy_19.sol#181-184) is not in mixedCase
+Function ethBank.play_TOD3(bytes32) (TOD/tod_buggy_19.sol#198-204) is not in mixedCase
+Function ethBank.getReward_TOD3() (TOD/tod_buggy_19.sol#206-209) is not in mixedCase
+Function ethBank.play_TOD9(bytes32) (TOD/tod_buggy_19.sol#219-225) is not in mixedCase
+Function ethBank.getReward_TOD9() (TOD/tod_buggy_19.sol#227-230) is not in mixedCase
+Function ethBank.play_TOD25(bytes32) (TOD/tod_buggy_19.sol#242-248) is not in mixedCase
+Function ethBank.getReward_TOD25() (TOD/tod_buggy_19.sol#250-253) is not in mixedCase
+Function ethBank.play_TOD19(bytes32) (TOD/tod_buggy_19.sol#260-266) is not in mixedCase
+Function ethBank.getReward_TOD19() (TOD/tod_buggy_19.sol#268-271) is not in mixedCase
+Function ethBank.setReward_TOD26() (TOD/tod_buggy_19.sol#280-286) is not in mixedCase
+Function ethBank.claimReward_TOD26(uint256) (TOD/tod_buggy_19.sol#288-294) is not in mixedCase
+Function ethBank.setReward_TOD20() (TOD/tod_buggy_19.sol#303-309) is not in mixedCase
+Function ethBank.claimReward_TOD20(uint256) (TOD/tod_buggy_19.sol#311-317) is not in mixedCase
+Function ethBank.setReward_TOD32() (TOD/tod_buggy_19.sol#326-332) is not in mixedCase
+Function ethBank.claimReward_TOD32(uint256) (TOD/tod_buggy_19.sol#334-340) is not in mixedCase
+Function ethBank.setReward_TOD38() (TOD/tod_buggy_19.sol#349-355) is not in mixedCase
+Function ethBank.claimReward_TOD38(uint256) (TOD/tod_buggy_19.sol#357-363) is not in mixedCase
+Function ethBank.activeBonusCacl_1() (TOD/tod_buggy_19.sol#364-368) is not in mixedCase
+Function ethBank.setReward_TOD4() (TOD/tod_buggy_19.sol#372-378) is not in mixedCase
+Function ethBank.claimReward_TOD4(uint256) (TOD/tod_buggy_19.sol#380-386) is not in mixedCase
+Function ethBank.activeBonusCacl_2() (TOD/tod_buggy_19.sol#387-391) is not in mixedCase
+Function ethBank.play_TOD7(bytes32) (TOD/tod_buggy_19.sol#393-399) is not in mixedCase
+Function ethBank.getReward_TOD7() (TOD/tod_buggy_19.sol#401-404) is not in mixedCase
+Function ethBank.activeBonusCacl_3() (TOD/tod_buggy_19.sol#405-409) is not in mixedCase
+Function ethBank.play_TOD23(bytes32) (TOD/tod_buggy_19.sol#411-417) is not in mixedCase
+Function ethBank.getReward_TOD23() (TOD/tod_buggy_19.sol#419-422) is not in mixedCase
+Function ethBank.activeBonusCacl_4() (TOD/tod_buggy_19.sol#423-427) is not in mixedCase
+Function ethBank.setReward_TOD14() (TOD/tod_buggy_19.sol#431-437) is not in mixedCase
+Function ethBank.claimReward_TOD14(uint256) (TOD/tod_buggy_19.sol#439-445) is not in mixedCase
+Function ethBank.activeBonusCacl_5() (TOD/tod_buggy_19.sol#446-450) is not in mixedCase
+Function ethBank.setReward_TOD30() (TOD/tod_buggy_19.sol#454-460) is not in mixedCase
+Function ethBank.claimReward_TOD30(uint256) (TOD/tod_buggy_19.sol#462-468) is not in mixedCase
+Function ethBank.activeBonusCacl_6() (TOD/tod_buggy_19.sol#469-473) is not in mixedCase
+Function ethBank.setReward_TOD8() (TOD/tod_buggy_19.sol#477-483) is not in mixedCase
+Function ethBank.claimReward_TOD8(uint256) (TOD/tod_buggy_19.sol#485-491) is not in mixedCase
+Function ethBank.activeBonusCacl_7() (TOD/tod_buggy_19.sol#492-496) is not in mixedCase
+Function ethBank.play_TOD39(bytes32) (TOD/tod_buggy_19.sol#498-504) is not in mixedCase
+Function ethBank.getReward_TOD39() (TOD/tod_buggy_19.sol#506-509) is not in mixedCase
+Function ethBank.activeBonusCacl_8() (TOD/tod_buggy_19.sol#510-514) is not in mixedCase
+Function ethBank.setReward_TOD36() (TOD/tod_buggy_19.sol#518-524) is not in mixedCase
+Function ethBank.claimReward_TOD36(uint256) (TOD/tod_buggy_19.sol#526-532) is not in mixedCase
+Function ethBank.activeBonusCacl_9() (TOD/tod_buggy_19.sol#533-537) is not in mixedCase
+Function ethBank.play_TOD35(bytes32) (TOD/tod_buggy_19.sol#539-545) is not in mixedCase
+Function ethBank.getReward_TOD35() (TOD/tod_buggy_19.sol#547-550) is not in mixedCase
+Function ethBank.setReward_TOD40() (TOD/tod_buggy_19.sol#559-565) is not in mixedCase
+Function ethBank.claimReward_TOD40(uint256) (TOD/tod_buggy_19.sol#567-573) is not in mixedCase
+Function ethBank.play_TOD33(bytes32) (TOD/tod_buggy_19.sol#580-586) is not in mixedCase
+Function ethBank.getReward_TOD33() (TOD/tod_buggy_19.sol#588-591) is not in mixedCase
+Function ethBank.play_TOD27(bytes32) (TOD/tod_buggy_19.sol#598-604) is not in mixedCase
+Function ethBank.getReward_TOD27() (TOD/tod_buggy_19.sol#606-609) is not in mixedCase
+Function ethBank.play_TOD31(bytes32) (TOD/tod_buggy_19.sol#616-622) is not in mixedCase
+Function ethBank.getReward_TOD31() (TOD/tod_buggy_19.sol#624-627) is not in mixedCase
+Function ethBank.play_TOD13(bytes32) (TOD/tod_buggy_19.sol#634-640) is not in mixedCase
+Function ethBank.getReward_TOD13() (TOD/tod_buggy_19.sol#642-645) is not in mixedCase
+Variable ethBank.claimed_TOD2 (TOD/tod_buggy_19.sol#131) is not in mixedCase
+Variable ethBank.owner_TOD2 (TOD/tod_buggy_19.sol#132) is not in mixedCase
+Variable ethBank.reward_TOD2 (TOD/tod_buggy_19.sol#133) is not in mixedCase
+Variable ethBank.winner_TOD17 (TOD/tod_buggy_19.sol#154) is not in mixedCase
+Variable ethBank.winner_TOD37 (TOD/tod_buggy_19.sol#172) is not in mixedCase
+Variable ethBank.winner_TOD3 (TOD/tod_buggy_19.sol#197) is not in mixedCase
+Variable ethBank.winner_TOD9 (TOD/tod_buggy_19.sol#218) is not in mixedCase
+Variable ethBank.winner_TOD25 (TOD/tod_buggy_19.sol#241) is not in mixedCase
+Variable ethBank.winner_TOD19 (TOD/tod_buggy_19.sol#259) is not in mixedCase
+Variable ethBank.claimed_TOD26 (TOD/tod_buggy_19.sol#277) is not in mixedCase
+Variable ethBank.owner_TOD26 (TOD/tod_buggy_19.sol#278) is not in mixedCase
+Variable ethBank.reward_TOD26 (TOD/tod_buggy_19.sol#279) is not in mixedCase
+Variable ethBank.claimed_TOD20 (TOD/tod_buggy_19.sol#300) is not in mixedCase
+Variable ethBank.owner_TOD20 (TOD/tod_buggy_19.sol#301) is not in mixedCase
+Variable ethBank.reward_TOD20 (TOD/tod_buggy_19.sol#302) is not in mixedCase
+Variable ethBank.claimed_TOD32 (TOD/tod_buggy_19.sol#323) is not in mixedCase
+Variable ethBank.owner_TOD32 (TOD/tod_buggy_19.sol#324) is not in mixedCase
+Variable ethBank.reward_TOD32 (TOD/tod_buggy_19.sol#325) is not in mixedCase
+Variable ethBank.claimed_TOD38 (TOD/tod_buggy_19.sol#346) is not in mixedCase
+Variable ethBank.owner_TOD38 (TOD/tod_buggy_19.sol#347) is not in mixedCase
+Variable ethBank.reward_TOD38 (TOD/tod_buggy_19.sol#348) is not in mixedCase
+Variable ethBank.claimed_TOD4 (TOD/tod_buggy_19.sol#369) is not in mixedCase
+Variable ethBank.owner_TOD4 (TOD/tod_buggy_19.sol#370) is not in mixedCase
+Variable ethBank.reward_TOD4 (TOD/tod_buggy_19.sol#371) is not in mixedCase
+Variable ethBank.winner_TOD7 (TOD/tod_buggy_19.sol#392) is not in mixedCase
+Variable ethBank.winner_TOD23 (TOD/tod_buggy_19.sol#410) is not in mixedCase
+Variable ethBank.claimed_TOD14 (TOD/tod_buggy_19.sol#428) is not in mixedCase
+Variable ethBank.owner_TOD14 (TOD/tod_buggy_19.sol#429) is not in mixedCase
+Variable ethBank.reward_TOD14 (TOD/tod_buggy_19.sol#430) is not in mixedCase
+Variable ethBank.claimed_TOD30 (TOD/tod_buggy_19.sol#451) is not in mixedCase
+Variable ethBank.owner_TOD30 (TOD/tod_buggy_19.sol#452) is not in mixedCase
+Variable ethBank.reward_TOD30 (TOD/tod_buggy_19.sol#453) is not in mixedCase
+Variable ethBank.claimed_TOD8 (TOD/tod_buggy_19.sol#474) is not in mixedCase
+Variable ethBank.owner_TOD8 (TOD/tod_buggy_19.sol#475) is not in mixedCase
+Variable ethBank.reward_TOD8 (TOD/tod_buggy_19.sol#476) is not in mixedCase
+Variable ethBank.winner_TOD39 (TOD/tod_buggy_19.sol#497) is not in mixedCase
+Variable ethBank.claimed_TOD36 (TOD/tod_buggy_19.sol#515) is not in mixedCase
+Variable ethBank.owner_TOD36 (TOD/tod_buggy_19.sol#516) is not in mixedCase
+Variable ethBank.reward_TOD36 (TOD/tod_buggy_19.sol#517) is not in mixedCase
+Variable ethBank.winner_TOD35 (TOD/tod_buggy_19.sol#538) is not in mixedCase
+Variable ethBank.claimed_TOD40 (TOD/tod_buggy_19.sol#556) is not in mixedCase
+Variable ethBank.owner_TOD40 (TOD/tod_buggy_19.sol#557) is not in mixedCase
+Variable ethBank.reward_TOD40 (TOD/tod_buggy_19.sol#558) is not in mixedCase
+Variable ethBank.winner_TOD33 (TOD/tod_buggy_19.sol#579) is not in mixedCase
+Variable ethBank.winner_TOD27 (TOD/tod_buggy_19.sol#597) is not in mixedCase
+Variable ethBank.winner_TOD31 (TOD/tod_buggy_19.sol#615) is not in mixedCase
+Variable ethBank.winner_TOD13 (TOD/tod_buggy_19.sol#633) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in owned.claimReward_TOD12(uint256) (TOD/tod_buggy_19.sol#69-75):
+	External calls:
+	- msg.sender.transfer(reward_TOD12) (TOD/tod_buggy_19.sol#73)
+	State variables written after the call(s):
+	- claimed_TOD12 = true (TOD/tod_buggy_19.sol#74)
+Reentrancy in ethBank.claimReward_TOD14(uint256) (TOD/tod_buggy_19.sol#439-445):
+	External calls:
+	- msg.sender.transfer(reward_TOD14) (TOD/tod_buggy_19.sol#443)
+	State variables written after the call(s):
+	- claimed_TOD14 = true (TOD/tod_buggy_19.sol#444)
+Reentrancy in ethBank.claimReward_TOD2(uint256) (TOD/tod_buggy_19.sol#142-148):
+	External calls:
+	- msg.sender.transfer(reward_TOD2) (TOD/tod_buggy_19.sol#146)
+	State variables written after the call(s):
+	- claimed_TOD2 = true (TOD/tod_buggy_19.sol#147)
+Reentrancy in ethBank.claimReward_TOD20(uint256) (TOD/tod_buggy_19.sol#311-317):
+	External calls:
+	- msg.sender.transfer(reward_TOD20) (TOD/tod_buggy_19.sol#315)
+	State variables written after the call(s):
+	- claimed_TOD20 = true (TOD/tod_buggy_19.sol#316)
+Reentrancy in ethBank.claimReward_TOD26(uint256) (TOD/tod_buggy_19.sol#288-294):
+	External calls:
+	- msg.sender.transfer(reward_TOD26) (TOD/tod_buggy_19.sol#292)
+	State variables written after the call(s):
+	- claimed_TOD26 = true (TOD/tod_buggy_19.sol#293)
+Reentrancy in ethBank.claimReward_TOD30(uint256) (TOD/tod_buggy_19.sol#462-468):
+	External calls:
+	- msg.sender.transfer(reward_TOD30) (TOD/tod_buggy_19.sol#466)
+	State variables written after the call(s):
+	- claimed_TOD30 = true (TOD/tod_buggy_19.sol#467)
+Reentrancy in ethBank.claimReward_TOD32(uint256) (TOD/tod_buggy_19.sol#334-340):
+	External calls:
+	- msg.sender.transfer(reward_TOD32) (TOD/tod_buggy_19.sol#338)
+	State variables written after the call(s):
+	- claimed_TOD32 = true (TOD/tod_buggy_19.sol#339)
+Reentrancy in ethBank.claimReward_TOD36(uint256) (TOD/tod_buggy_19.sol#526-532):
+	External calls:
+	- msg.sender.transfer(reward_TOD36) (TOD/tod_buggy_19.sol#530)
+	State variables written after the call(s):
+	- claimed_TOD36 = true (TOD/tod_buggy_19.sol#531)
+Reentrancy in ethBank.claimReward_TOD38(uint256) (TOD/tod_buggy_19.sol#357-363):
+	External calls:
+	- msg.sender.transfer(reward_TOD38) (TOD/tod_buggy_19.sol#361)
+	State variables written after the call(s):
+	- claimed_TOD38 = true (TOD/tod_buggy_19.sol#362)
+Reentrancy in ethBank.claimReward_TOD4(uint256) (TOD/tod_buggy_19.sol#380-386):
+	External calls:
+	- msg.sender.transfer(reward_TOD4) (TOD/tod_buggy_19.sol#384)
+	State variables written after the call(s):
+	- claimed_TOD4 = true (TOD/tod_buggy_19.sol#385)
+Reentrancy in ethBank.claimReward_TOD40(uint256) (TOD/tod_buggy_19.sol#567-573):
+	External calls:
+	- msg.sender.transfer(reward_TOD40) (TOD/tod_buggy_19.sol#571)
+	State variables written after the call(s):
+	- claimed_TOD40 = true (TOD/tod_buggy_19.sol#572)
+Reentrancy in ethBank.claimReward_TOD8(uint256) (TOD/tod_buggy_19.sol#485-491):
+	External calls:
+	- msg.sender.transfer(reward_TOD8) (TOD/tod_buggy_19.sol#489)
+	State variables written after the call(s):
+	- claimed_TOD8 = true (TOD/tod_buggy_19.sol#490)
+Reentrancy in owned.setReward_TOD12() (TOD/tod_buggy_19.sol#61-67):
+	External calls:
+	- owner_TOD12.transfer(reward_TOD12) (TOD/tod_buggy_19.sol#65)
+	State variables written after the call(s):
+	- reward_TOD12 = msg.value (TOD/tod_buggy_19.sol#66)
+Reentrancy in ethBank.setReward_TOD14() (TOD/tod_buggy_19.sol#431-437):
+	External calls:
+	- owner_TOD14.transfer(reward_TOD14) (TOD/tod_buggy_19.sol#435)
+	State variables written after the call(s):
+	- reward_TOD14 = msg.value (TOD/tod_buggy_19.sol#436)
+Reentrancy in ethBank.setReward_TOD2() (TOD/tod_buggy_19.sol#134-140):
+	External calls:
+	- owner_TOD2.transfer(reward_TOD2) (TOD/tod_buggy_19.sol#138)
+	State variables written after the call(s):
+	- reward_TOD2 = msg.value (TOD/tod_buggy_19.sol#139)
+Reentrancy in ethBank.setReward_TOD20() (TOD/tod_buggy_19.sol#303-309):
+	External calls:
+	- owner_TOD20.transfer(reward_TOD20) (TOD/tod_buggy_19.sol#307)
+	State variables written after the call(s):
+	- reward_TOD20 = msg.value (TOD/tod_buggy_19.sol#308)
+Reentrancy in ethBank.setReward_TOD26() (TOD/tod_buggy_19.sol#280-286):
+	External calls:
+	- owner_TOD26.transfer(reward_TOD26) (TOD/tod_buggy_19.sol#284)
+	State variables written after the call(s):
+	- reward_TOD26 = msg.value (TOD/tod_buggy_19.sol#285)
+Reentrancy in ethBank.setReward_TOD30() (TOD/tod_buggy_19.sol#454-460):
+	External calls:
+	- owner_TOD30.transfer(reward_TOD30) (TOD/tod_buggy_19.sol#458)
+	State variables written after the call(s):
+	- reward_TOD30 = msg.value (TOD/tod_buggy_19.sol#459)
+Reentrancy in ethBank.setReward_TOD32() (TOD/tod_buggy_19.sol#326-332):
+	External calls:
+	- owner_TOD32.transfer(reward_TOD32) (TOD/tod_buggy_19.sol#330)
+	State variables written after the call(s):
+	- reward_TOD32 = msg.value (TOD/tod_buggy_19.sol#331)
+Reentrancy in ethBank.setReward_TOD36() (TOD/tod_buggy_19.sol#518-524):
+	External calls:
+	- owner_TOD36.transfer(reward_TOD36) (TOD/tod_buggy_19.sol#522)
+	State variables written after the call(s):
+	- reward_TOD36 = msg.value (TOD/tod_buggy_19.sol#523)
+Reentrancy in ethBank.setReward_TOD38() (TOD/tod_buggy_19.sol#349-355):
+	External calls:
+	- owner_TOD38.transfer(reward_TOD38) (TOD/tod_buggy_19.sol#353)
+	State variables written after the call(s):
+	- reward_TOD38 = msg.value (TOD/tod_buggy_19.sol#354)
+Reentrancy in ethBank.setReward_TOD4() (TOD/tod_buggy_19.sol#372-378):
+	External calls:
+	- owner_TOD4.transfer(reward_TOD4) (TOD/tod_buggy_19.sol#376)
+	State variables written after the call(s):
+	- reward_TOD4 = msg.value (TOD/tod_buggy_19.sol#377)
+Reentrancy in ethBank.setReward_TOD40() (TOD/tod_buggy_19.sol#559-565):
+	External calls:
+	- owner_TOD40.transfer(reward_TOD40) (TOD/tod_buggy_19.sol#563)
+	State variables written after the call(s):
+	- reward_TOD40 = msg.value (TOD/tod_buggy_19.sol#564)
+Reentrancy in ethBank.setReward_TOD8() (TOD/tod_buggy_19.sol#477-483):
+	External calls:
+	- owner_TOD8.transfer(reward_TOD8) (TOD/tod_buggy_19.sol#481)
+	State variables written after the call(s):
+	- reward_TOD8 = msg.value (TOD/tod_buggy_19.sol#482)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable owned.claimed_TOD12 (TOD/tod_buggy_19.sol#58) is too similar to ethBank.claimed_TOD14 (TOD/tod_buggy_19.sol#428)
+Variable ethBank.claimed_TOD2 (TOD/tod_buggy_19.sol#131) is too similar to ethBank.claimed_TOD4 (TOD/tod_buggy_19.sol#369)
+Variable ethBank.claimed_TOD2 (TOD/tod_buggy_19.sol#131) is too similar to ethBank.claimed_TOD8 (TOD/tod_buggy_19.sol#474)
+Variable owned.claimed_TOD12 (TOD/tod_buggy_19.sol#58) is too similar to ethBank.claimed_TOD20 (TOD/tod_buggy_19.sol#300)
+Variable ethBank.claimed_TOD20 (TOD/tod_buggy_19.sol#300) is too similar to ethBank.claimed_TOD32 (TOD/tod_buggy_19.sol#323)
+Variable owned.claimed_TOD12 (TOD/tod_buggy_19.sol#58) is too similar to ethBank.claimed_TOD26 (TOD/tod_buggy_19.sol#277)
+Variable ethBank.claimed_TOD20 (TOD/tod_buggy_19.sol#300) is too similar to ethBank.claimed_TOD26 (TOD/tod_buggy_19.sol#277)
+Variable ethBank.claimed_TOD26 (TOD/tod_buggy_19.sol#277) is too similar to ethBank.claimed_TOD32 (TOD/tod_buggy_19.sol#323)
+Variable ethBank.claimed_TOD26 (TOD/tod_buggy_19.sol#277) is too similar to ethBank.claimed_TOD36 (TOD/tod_buggy_19.sol#515)
+Variable ethBank.claimed_TOD20 (TOD/tod_buggy_19.sol#300) is too similar to ethBank.claimed_TOD30 (TOD/tod_buggy_19.sol#451)
+Variable ethBank.claimed_TOD30 (TOD/tod_buggy_19.sol#451) is too similar to ethBank.claimed_TOD32 (TOD/tod_buggy_19.sol#323)
+Variable ethBank.claimed_TOD30 (TOD/tod_buggy_19.sol#451) is too similar to ethBank.claimed_TOD36 (TOD/tod_buggy_19.sol#515)
+Variable ethBank.claimed_TOD30 (TOD/tod_buggy_19.sol#451) is too similar to ethBank.claimed_TOD38 (TOD/tod_buggy_19.sol#346)
+Variable ethBank.claimed_TOD30 (TOD/tod_buggy_19.sol#451) is too similar to ethBank.claimed_TOD40 (TOD/tod_buggy_19.sol#556)
+Variable owned.claimed_TOD12 (TOD/tod_buggy_19.sol#58) is too similar to ethBank.claimed_TOD32 (TOD/tod_buggy_19.sol#323)
+Variable ethBank.claimed_TOD32 (TOD/tod_buggy_19.sol#323) is too similar to ethBank.claimed_TOD38 (TOD/tod_buggy_19.sol#346)
+Variable ethBank.claimed_TOD32 (TOD/tod_buggy_19.sol#323) is too similar to ethBank.claimed_TOD36 (TOD/tod_buggy_19.sol#515)
+Variable ethBank.claimed_TOD36 (TOD/tod_buggy_19.sol#515) is too similar to ethBank.claimed_TOD38 (TOD/tod_buggy_19.sol#346)
+Variable ethBank.claimed_TOD14 (TOD/tod_buggy_19.sol#428) is too similar to ethBank.claimed_TOD40 (TOD/tod_buggy_19.sol#556)
+Variable ethBank.claimed_TOD20 (TOD/tod_buggy_19.sol#300) is too similar to ethBank.claimed_TOD40 (TOD/tod_buggy_19.sol#556)
+Variable ethBank.claimed_TOD4 (TOD/tod_buggy_19.sol#369) is too similar to ethBank.claimed_TOD8 (TOD/tod_buggy_19.sol#474)
+Variable owned.owner_TOD12 (TOD/tod_buggy_19.sol#59) is too similar to ethBank.owner_TOD20 (TOD/tod_buggy_19.sol#301)
+Variable owned.owner_TOD12 (TOD/tod_buggy_19.sol#59) is too similar to ethBank.owner_TOD26 (TOD/tod_buggy_19.sol#278)
+Variable owned.owner_TOD12 (TOD/tod_buggy_19.sol#59) is too similar to ethBank.owner_TOD32 (TOD/tod_buggy_19.sol#324)
+Variable owned.owner_TOD12 (TOD/tod_buggy_19.sol#59) is too similar to ethBank.owner_TOD14 (TOD/tod_buggy_19.sol#429)
+Variable ethBank.owner_TOD14 (TOD/tod_buggy_19.sol#429) is too similar to ethBank.owner_TOD40 (TOD/tod_buggy_19.sol#557)
+Variable ethBank.owner_TOD20 (TOD/tod_buggy_19.sol#301) is too similar to ethBank.owner_TOD32 (TOD/tod_buggy_19.sol#324)
+Variable ethBank.owner_TOD20 (TOD/tod_buggy_19.sol#301) is too similar to ethBank.owner_TOD26 (TOD/tod_buggy_19.sol#278)
+Variable ethBank.owner_TOD26 (TOD/tod_buggy_19.sol#278) is too similar to ethBank.owner_TOD32 (TOD/tod_buggy_19.sol#324)
+Variable ethBank.owner_TOD20 (TOD/tod_buggy_19.sol#301) is too similar to ethBank.owner_TOD30 (TOD/tod_buggy_19.sol#452)
+Variable ethBank.owner_TOD30 (TOD/tod_buggy_19.sol#452) is too similar to ethBank.owner_TOD32 (TOD/tod_buggy_19.sol#324)
+Variable ethBank.owner_TOD30 (TOD/tod_buggy_19.sol#452) is too similar to ethBank.owner_TOD36 (TOD/tod_buggy_19.sol#516)
+Variable ethBank.owner_TOD30 (TOD/tod_buggy_19.sol#452) is too similar to ethBank.owner_TOD38 (TOD/tod_buggy_19.sol#347)
+Variable ethBank.owner_TOD30 (TOD/tod_buggy_19.sol#452) is too similar to ethBank.owner_TOD40 (TOD/tod_buggy_19.sol#557)
+Variable ethBank.owner_TOD26 (TOD/tod_buggy_19.sol#278) is too similar to ethBank.owner_TOD36 (TOD/tod_buggy_19.sol#516)
+Variable ethBank.owner_TOD32 (TOD/tod_buggy_19.sol#324) is too similar to ethBank.owner_TOD36 (TOD/tod_buggy_19.sol#516)
+Variable ethBank.owner_TOD36 (TOD/tod_buggy_19.sol#516) is too similar to ethBank.owner_TOD38 (TOD/tod_buggy_19.sol#347)
+Variable ethBank.owner_TOD32 (TOD/tod_buggy_19.sol#324) is too similar to ethBank.owner_TOD38 (TOD/tod_buggy_19.sol#347)
+Variable ethBank.owner_TOD20 (TOD/tod_buggy_19.sol#301) is too similar to ethBank.owner_TOD40 (TOD/tod_buggy_19.sol#557)
+Variable owned.reward_TOD12 (TOD/tod_buggy_19.sol#60) is too similar to ethBank.reward_TOD14 (TOD/tod_buggy_19.sol#430)
+Variable ethBank.reward_TOD14 (TOD/tod_buggy_19.sol#430) is too similar to ethBank.reward_TOD40 (TOD/tod_buggy_19.sol#558)
+Variable ethBank.reward_TOD2 (TOD/tod_buggy_19.sol#133) is too similar to ethBank.reward_TOD4 (TOD/tod_buggy_19.sol#371)
+Variable owned.reward_TOD12 (TOD/tod_buggy_19.sol#60) is too similar to ethBank.reward_TOD20 (TOD/tod_buggy_19.sol#302)
+Variable ethBank.reward_TOD20 (TOD/tod_buggy_19.sol#302) is too similar to ethBank.reward_TOD32 (TOD/tod_buggy_19.sol#325)
+Variable owned.reward_TOD12 (TOD/tod_buggy_19.sol#60) is too similar to ethBank.reward_TOD26 (TOD/tod_buggy_19.sol#279)
+Variable ethBank.reward_TOD20 (TOD/tod_buggy_19.sol#302) is too similar to ethBank.reward_TOD26 (TOD/tod_buggy_19.sol#279)
+Variable ethBank.reward_TOD26 (TOD/tod_buggy_19.sol#279) is too similar to ethBank.reward_TOD32 (TOD/tod_buggy_19.sol#325)
+Variable ethBank.reward_TOD20 (TOD/tod_buggy_19.sol#302) is too similar to ethBank.reward_TOD30 (TOD/tod_buggy_19.sol#453)
+Variable ethBank.reward_TOD30 (TOD/tod_buggy_19.sol#453) is too similar to ethBank.reward_TOD32 (TOD/tod_buggy_19.sol#325)
+Variable ethBank.reward_TOD30 (TOD/tod_buggy_19.sol#453) is too similar to ethBank.reward_TOD38 (TOD/tod_buggy_19.sol#348)
+Variable owned.reward_TOD12 (TOD/tod_buggy_19.sol#60) is too similar to ethBank.reward_TOD32 (TOD/tod_buggy_19.sol#325)
+Variable ethBank.reward_TOD32 (TOD/tod_buggy_19.sol#325) is too similar to ethBank.reward_TOD38 (TOD/tod_buggy_19.sol#348)
+Variable ethBank.reward_TOD26 (TOD/tod_buggy_19.sol#279) is too similar to ethBank.reward_TOD36 (TOD/tod_buggy_19.sol#517)
+Variable ethBank.reward_TOD30 (TOD/tod_buggy_19.sol#453) is too similar to ethBank.reward_TOD36 (TOD/tod_buggy_19.sol#517)
+Variable ethBank.reward_TOD32 (TOD/tod_buggy_19.sol#325) is too similar to ethBank.reward_TOD36 (TOD/tod_buggy_19.sol#517)
+Variable ethBank.reward_TOD36 (TOD/tod_buggy_19.sol#517) is too similar to ethBank.reward_TOD38 (TOD/tod_buggy_19.sol#348)
+Variable ethBank.reward_TOD20 (TOD/tod_buggy_19.sol#302) is too similar to ethBank.reward_TOD40 (TOD/tod_buggy_19.sol#558)
+Variable ethBank.reward_TOD30 (TOD/tod_buggy_19.sol#453) is too similar to ethBank.reward_TOD40 (TOD/tod_buggy_19.sol#558)
+Variable ethBank.reward_TOD2 (TOD/tod_buggy_19.sol#133) is too similar to ethBank.reward_TOD8 (TOD/tod_buggy_19.sol#476)
+Variable ethBank.reward_TOD4 (TOD/tod_buggy_19.sol#371) is too similar to ethBank.reward_TOD8 (TOD/tod_buggy_19.sol#476)
+Variable owned.winner_TOD1 (TOD/tod_buggy_19.sol#113) is too similar to ethBank.winner_TOD7 (TOD/tod_buggy_19.sol#392)
+Variable owned.winner_TOD1 (TOD/tod_buggy_19.sol#113) is too similar to ethBank.winner_TOD9 (TOD/tod_buggy_19.sol#218)
+Variable owned.winner_TOD11 (TOD/tod_buggy_19.sol#84) is too similar to ethBank.winner_TOD13 (TOD/tod_buggy_19.sol#633)
+Variable ethBank.winner_TOD13 (TOD/tod_buggy_19.sol#633) is too similar to ethBank.winner_TOD17 (TOD/tod_buggy_19.sol#154)
+Variable ethBank.winner_TOD13 (TOD/tod_buggy_19.sol#633) is too similar to ethBank.winner_TOD19 (TOD/tod_buggy_19.sol#259)
+Variable ethBank.winner_TOD13 (TOD/tod_buggy_19.sol#633) is too similar to ethBank.winner_TOD23 (TOD/tod_buggy_19.sol#410)
+Variable ethBank.winner_TOD13 (TOD/tod_buggy_19.sol#633) is too similar to ethBank.winner_TOD31 (TOD/tod_buggy_19.sol#615)
+Variable ethBank.winner_TOD13 (TOD/tod_buggy_19.sol#633) is too similar to ethBank.winner_TOD33 (TOD/tod_buggy_19.sol#579)
+Variable ethBank.winner_TOD13 (TOD/tod_buggy_19.sol#633) is too similar to ethBank.winner_TOD35 (TOD/tod_buggy_19.sol#538)
+Variable ethBank.winner_TOD13 (TOD/tod_buggy_19.sol#633) is too similar to ethBank.winner_TOD39 (TOD/tod_buggy_19.sol#497)
+Variable owned.winner_TOD11 (TOD/tod_buggy_19.sol#84) is too similar to ethBank.winner_TOD17 (TOD/tod_buggy_19.sol#154)
+Variable ethBank.winner_TOD17 (TOD/tod_buggy_19.sol#154) is too similar to ethBank.winner_TOD31 (TOD/tod_buggy_19.sol#615)
+Variable owned.winner_TOD11 (TOD/tod_buggy_19.sol#84) is too similar to ethBank.winner_TOD19 (TOD/tod_buggy_19.sol#259)
+Variable ethBank.winner_TOD17 (TOD/tod_buggy_19.sol#154) is too similar to ethBank.winner_TOD19 (TOD/tod_buggy_19.sol#259)
+Variable ethBank.winner_TOD19 (TOD/tod_buggy_19.sol#259) is too similar to ethBank.winner_TOD31 (TOD/tod_buggy_19.sol#615)
+Variable ethBank.winner_TOD19 (TOD/tod_buggy_19.sol#259) is too similar to ethBank.winner_TOD39 (TOD/tod_buggy_19.sol#497)
+Variable ethBank.winner_TOD23 (TOD/tod_buggy_19.sol#410) is too similar to ethBank.winner_TOD25 (TOD/tod_buggy_19.sol#241)
+Variable ethBank.winner_TOD17 (TOD/tod_buggy_19.sol#154) is too similar to ethBank.winner_TOD27 (TOD/tod_buggy_19.sol#597)
+Variable ethBank.winner_TOD23 (TOD/tod_buggy_19.sol#410) is too similar to ethBank.winner_TOD27 (TOD/tod_buggy_19.sol#597)
+Variable ethBank.winner_TOD25 (TOD/tod_buggy_19.sol#241) is too similar to ethBank.winner_TOD27 (TOD/tod_buggy_19.sol#597)
+Variable owned.winner_TOD1 (TOD/tod_buggy_19.sol#113) is too similar to ethBank.winner_TOD3 (TOD/tod_buggy_19.sol#197)
+Variable ethBank.winner_TOD3 (TOD/tod_buggy_19.sol#197) is too similar to ethBank.winner_TOD7 (TOD/tod_buggy_19.sol#392)
+Variable ethBank.winner_TOD3 (TOD/tod_buggy_19.sol#197) is too similar to ethBank.winner_TOD9 (TOD/tod_buggy_19.sol#218)
+Variable owned.winner_TOD11 (TOD/tod_buggy_19.sol#84) is too similar to ethBank.winner_TOD31 (TOD/tod_buggy_19.sol#615)
+Variable ethBank.winner_TOD23 (TOD/tod_buggy_19.sol#410) is too similar to ethBank.winner_TOD31 (TOD/tod_buggy_19.sol#615)
+Variable ethBank.winner_TOD31 (TOD/tod_buggy_19.sol#615) is too similar to ethBank.winner_TOD33 (TOD/tod_buggy_19.sol#579)
+Variable ethBank.winner_TOD23 (TOD/tod_buggy_19.sol#410) is too similar to ethBank.winner_TOD33 (TOD/tod_buggy_19.sol#579)
+Variable ethBank.winner_TOD23 (TOD/tod_buggy_19.sol#410) is too similar to ethBank.winner_TOD35 (TOD/tod_buggy_19.sol#538)
+Variable ethBank.winner_TOD25 (TOD/tod_buggy_19.sol#241) is too similar to ethBank.winner_TOD35 (TOD/tod_buggy_19.sol#538)
+Variable ethBank.winner_TOD31 (TOD/tod_buggy_19.sol#615) is too similar to ethBank.winner_TOD35 (TOD/tod_buggy_19.sol#538)
+Variable ethBank.winner_TOD33 (TOD/tod_buggy_19.sol#579) is too similar to ethBank.winner_TOD35 (TOD/tod_buggy_19.sol#538)
+Variable ethBank.winner_TOD13 (TOD/tod_buggy_19.sol#633) is too similar to ethBank.winner_TOD37 (TOD/tod_buggy_19.sol#172)
+Variable ethBank.winner_TOD17 (TOD/tod_buggy_19.sol#154) is too similar to ethBank.winner_TOD37 (TOD/tod_buggy_19.sol#172)
+Variable ethBank.winner_TOD23 (TOD/tod_buggy_19.sol#410) is too similar to ethBank.winner_TOD37 (TOD/tod_buggy_19.sol#172)
+Variable ethBank.winner_TOD27 (TOD/tod_buggy_19.sol#597) is too similar to ethBank.winner_TOD37 (TOD/tod_buggy_19.sol#172)
+Variable ethBank.winner_TOD31 (TOD/tod_buggy_19.sol#615) is too similar to ethBank.winner_TOD37 (TOD/tod_buggy_19.sol#172)
+Variable ethBank.winner_TOD33 (TOD/tod_buggy_19.sol#579) is too similar to ethBank.winner_TOD37 (TOD/tod_buggy_19.sol#172)
+Variable ethBank.winner_TOD35 (TOD/tod_buggy_19.sol#538) is too similar to ethBank.winner_TOD37 (TOD/tod_buggy_19.sol#172)
+Variable ethBank.winner_TOD37 (TOD/tod_buggy_19.sol#172) is too similar to ethBank.winner_TOD39 (TOD/tod_buggy_19.sol#497)
+Variable ethBank.winner_TOD23 (TOD/tod_buggy_19.sol#410) is too similar to ethBank.winner_TOD39 (TOD/tod_buggy_19.sol#497)
+Variable ethBank.winner_TOD31 (TOD/tod_buggy_19.sol#615) is too similar to ethBank.winner_TOD39 (TOD/tod_buggy_19.sol#497)
+Variable ethBank.winner_TOD33 (TOD/tod_buggy_19.sol#579) is too similar to ethBank.winner_TOD39 (TOD/tod_buggy_19.sol#497)
+Variable ethBank.winner_TOD35 (TOD/tod_buggy_19.sol#538) is too similar to ethBank.winner_TOD39 (TOD/tod_buggy_19.sol#497)
+Variable ethBank.winner_TOD7 (TOD/tod_buggy_19.sol#392) is too similar to ethBank.winner_TOD9 (TOD/tod_buggy_19.sol#218)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+ethBank.owner_TOD14 (TOD/tod_buggy_19.sol#429) should be constant
+ethBank.owner_TOD2 (TOD/tod_buggy_19.sol#132) should be constant
+ethBank.owner_TOD20 (TOD/tod_buggy_19.sol#301) should be constant
+ethBank.owner_TOD26 (TOD/tod_buggy_19.sol#278) should be constant
+ethBank.owner_TOD30 (TOD/tod_buggy_19.sol#452) should be constant
+ethBank.owner_TOD32 (TOD/tod_buggy_19.sol#324) should be constant
+ethBank.owner_TOD36 (TOD/tod_buggy_19.sol#516) should be constant
+ethBank.owner_TOD38 (TOD/tod_buggy_19.sol#347) should be constant
+ethBank.owner_TOD4 (TOD/tod_buggy_19.sol#370) should be constant
+ethBank.owner_TOD40 (TOD/tod_buggy_19.sol#557) should be constant
+ethBank.owner_TOD8 (TOD/tod_buggy_19.sol#475) should be constant
+owned.owner_TOD12 (TOD/tod_buggy_19.sol#59) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+TOD/tod_buggy_19.sol analyzed (3 contracts with 80 detectors), 291 result(s) found

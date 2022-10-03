@@ -1,0 +1,297 @@
+Compilation warnings/errors on Overflow-Underflow/integer_buggy_21.sol:
+Overflow-Underflow/integer_buggy_21.sol:5:1: Warning: Function state mutability can be restricted to pure
+function bug_intou20(uint8 p_intou20) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_21.sol:10:1: Warning: Function state mutability can be restricted to pure
+function bug_intou32(uint8 p_intou32) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_21.sol:24:1: Warning: Function state mutability can be restricted to pure
+function bug_intou4(uint8 p_intou4) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_21.sol:76:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou11() public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_21.sol:143:1: Warning: Function state mutability can be restricted to pure
+function bug_intou7() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_21.sol:161:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou3() public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_21.sol:191:4: Warning: Function state mutability can be restricted to pure
+   function bug_intou19() public{
+   ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_21.sol:217:1: Warning: Function state mutability can be restricted to pure
+function bug_intou23() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_21.sol:263:1: Warning: Function state mutability can be restricted to pure
+function bug_intou8(uint8 p_intou8) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_21.sol:289:1: Warning: Function state mutability can be restricted to pure
+function bug_intou39() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_21.sol:311:1: Warning: Function state mutability can be restricted to pure
+function bug_intou36(uint8 p_intou36) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_21.sol:327:1: Warning: Function state mutability can be restricted to pure
+function bug_intou35() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_21.sol:478:1: Warning: Function state mutability can be restricted to pure
+function bug_intou40(uint8 p_intou40) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_21.sol:510:1: Warning: Function state mutability can be restricted to pure
+function bug_intou27() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_21.sol:518:1: Warning: Function state mutability can be restricted to pure
+function bug_intou31() public{
+^ (Relevant source part starts here and spans across multiple lines).
+
+
+StableDEX.tokenDeposit(address,uint256) (Overflow-Underflow/integer_buggy_21.sol#253-262) ignores return value by Token(tokenaddr).transferFrom(msg.sender,address(this),tokenAmount) (Overflow-Underflow/integer_buggy_21.sol#258)
+StableDEX.withdraw(uint8,address,uint256) (Overflow-Underflow/integer_buggy_21.sol#268-288) ignores return value by Token(tokenaddr).transfer(msg.sender,(amount.sub(withdrawfee[tokenaddr]))) (Overflow-Underflow/integer_buggy_21.sol#282)
+StableDEX.adminProfitWithdraw(uint8,address) (Overflow-Underflow/integer_buggy_21.sol#294-310) ignores return value by Token(tokenAddr).transfer(admin,feeAmount[admin][tokenAddr]) (Overflow-Underflow/integer_buggy_21.sol#304)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-transfer
+
+StableDEX.verify(string,uint8,bytes32,bytes32) (Overflow-Underflow/integer_buggy_21.sol#334-373) performs a multiplication on the result of a division:
+	-digit = length.div(divisor) (Overflow-Underflow/integer_buggy_21.sol#346)
+	-length = length.sub(digit.mul(divisor)) (Overflow-Underflow/integer_buggy_21.sol#355)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+
+Reentrancy in StableDEX.adminProfitWithdraw(uint8,address) (Overflow-Underflow/integer_buggy_21.sol#294-310):
+	External calls:
+	- Token(tokenAddr).transfer(admin,feeAmount[admin][tokenAddr]) (Overflow-Underflow/integer_buggy_21.sol#304)
+	State variables written after the call(s):
+	- feeAmount[admin][tokenAddr] = 0 (Overflow-Underflow/integer_buggy_21.sol#305)
+Reentrancy in StableDEX.withdraw(uint8,address,uint256) (Overflow-Underflow/integer_buggy_21.sol#268-288):
+	External calls:
+	- Token(tokenaddr).transfer(msg.sender,(amount.sub(withdrawfee[tokenaddr]))) (Overflow-Underflow/integer_buggy_21.sol#282)
+	State variables written after the call(s):
+	- userDetails[msg.sender][tokenaddr] = userDetails[msg.sender][tokenaddr].sub(amount) (Overflow-Underflow/integer_buggy_21.sol#283)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
+
+Token.transfer_intou38(address,uint256) (Overflow-Underflow/integer_buggy_21.sol#17-22) contains a tautology or contradiction:
+	- require(bool)(balances_intou38[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_21.sol#18)
+StableDEX.transfer_undrflow2(address,uint256) (Overflow-Underflow/integer_buggy_21.sol#96-101) contains a tautology or contradiction:
+	- require(bool)(balances_intou2[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_21.sol#97)
+StableDEX.transfer_intou26(address,uint256) (Overflow-Underflow/integer_buggy_21.sol#199-204) contains a tautology or contradiction:
+	- require(bool)(balances_intou26[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_21.sol#200)
+StableDEX.transfer_intou14(address,uint256) (Overflow-Underflow/integer_buggy_21.sol#231-236) contains a tautology or contradiction:
+	- require(bool)(balances_intou14[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_21.sol#232)
+StableDEX.transfer_intou30(address,uint256) (Overflow-Underflow/integer_buggy_21.sol#246-251) contains a tautology or contradiction:
+	- require(bool)(balances_intou30[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_21.sol#247)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#tautology-or-contradiction
+
+StableDEX.makeOrder(uint256[9],address[2],string,uint8,bytes32,bytes32).amount__ (Overflow-Underflow/integer_buggy_21.sol#401) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+StableDEX.constructor(address,address)._admin (Overflow-Underflow/integer_buggy_21.sol#138) lacks a zero-check on :
+		- admin = _admin (Overflow-Underflow/integer_buggy_21.sol#139)
+StableDEX.constructor(address,address).feeAddress_ (Overflow-Underflow/integer_buggy_21.sol#138) lacks a zero-check on :
+		- feeAddress = feeAddress_ (Overflow-Underflow/integer_buggy_21.sol#140)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Reentrancy in StableDEX.withdraw(uint8,address,uint256) (Overflow-Underflow/integer_buggy_21.sol#268-288):
+	External calls:
+	- Token(tokenaddr).transfer(msg.sender,(amount.sub(withdrawfee[tokenaddr]))) (Overflow-Underflow/integer_buggy_21.sol#282)
+	State variables written after the call(s):
+	- feeAmount[admin][tokenaddr] = feeAmount[admin][tokenaddr].add(withdrawfee[tokenaddr]) (Overflow-Underflow/integer_buggy_21.sol#284)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-2
+
+Reentrancy in StableDEX.tokenDeposit(address,uint256) (Overflow-Underflow/integer_buggy_21.sol#253-262):
+	External calls:
+	- Token(tokenaddr).transferFrom(msg.sender,address(this),tokenAmount) (Overflow-Underflow/integer_buggy_21.sol#258)
+	Event emitted after the call(s):
+	- DepositandWithdraw(msg.sender,tokenaddr,tokenAmount,0) (Overflow-Underflow/integer_buggy_21.sol#259)
+Reentrancy in StableDEX.withdraw(uint8,address,uint256) (Overflow-Underflow/integer_buggy_21.sol#268-288):
+	External calls:
+	- Token(tokenaddr).transfer(msg.sender,(amount.sub(withdrawfee[tokenaddr]))) (Overflow-Underflow/integer_buggy_21.sol#282)
+	External calls sending eth:
+	- msg.sender.transfer(amount.sub(withdrawfee[address(0)])) (Overflow-Underflow/integer_buggy_21.sol#274)
+	Event emitted after the call(s):
+	- DepositandWithdraw(msg.sender,tokenaddr,amount,1) (Overflow-Underflow/integer_buggy_21.sol#286)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+
+StableDEX.withdraw_intou13() (Overflow-Underflow/integer_buggy_21.sol#69-73) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou13[msg.sender]) (Overflow-Underflow/integer_buggy_21.sol#70)
+StableDEX.withdraw_ovrflow1() (Overflow-Underflow/integer_buggy_21.sol#87-91) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou1[msg.sender]) (Overflow-Underflow/integer_buggy_21.sol#88)
+StableDEX.withdraw_intou17() (Overflow-Underflow/integer_buggy_21.sol#109-113) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou17[msg.sender]) (Overflow-Underflow/integer_buggy_21.sol#110)
+StableDEX.withdraw_intou37() (Overflow-Underflow/integer_buggy_21.sol#154-158) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou37[msg.sender]) (Overflow-Underflow/integer_buggy_21.sol#155)
+StableDEX.withdraw_intou9() (Overflow-Underflow/integer_buggy_21.sol#172-176) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou9[msg.sender]) (Overflow-Underflow/integer_buggy_21.sol#173)
+StableDEX.withdraw_intou25() (Overflow-Underflow/integer_buggy_21.sol#184-188) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou25[msg.sender]) (Overflow-Underflow/integer_buggy_21.sol#185)
+StableDEX.withdraw_intou33() (Overflow-Underflow/integer_buggy_21.sol#500-504) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou33[msg.sender]) (Overflow-Underflow/integer_buggy_21.sol#501)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+StableDEX.verify(string,uint8,bytes32,bytes32) (Overflow-Underflow/integer_buggy_21.sol#334-373) uses assembly
+	- INLINE ASM (Overflow-Underflow/integer_buggy_21.sol#338-341)
+	- INLINE ASM (Overflow-Underflow/integer_buggy_21.sol#359-361)
+	- INLINE ASM (Overflow-Underflow/integer_buggy_21.sol#368-370)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#assembly-usage
+
+StableDEX.addToken(address,string,uint256) (Overflow-Underflow/integer_buggy_21.sol#222-228) compares to a boolean constant:
+	-require(bool)(msg.sender == feeAddress && tokendetails[tokenAddress].status == false) (Overflow-Underflow/integer_buggy_21.sol#223)
+StableDEX.tokenDeposit(address,uint256) (Overflow-Underflow/integer_buggy_21.sol#253-262) compares to a boolean constant:
+	-require(bool)(tokenAmount > 0 && tokendetails[tokenaddr].status == true) (Overflow-Underflow/integer_buggy_21.sol#255)
+StableDEX.withdraw(uint8,address,uint256) (Overflow-Underflow/integer_buggy_21.sol#268-288) compares to a boolean constant:
+	-require(bool)(tokenaddr != address(0) && tokendetails[tokenaddr].status == true) (Overflow-Underflow/integer_buggy_21.sol#280)
+StableDEX.dexstatuscheck() (Overflow-Underflow/integer_buggy_21.sol#207-210) compares to a boolean constant:
+	-require(bool)(dexStatus == true) (Overflow-Underflow/integer_buggy_21.sol#208)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#boolean-equality
+
+Pragma version^0.5.12 (Overflow-Underflow/integer_buggy_21.sol#1) allows old versions
+solc-0.5.12 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function Token.bug_intou20(uint8) (Overflow-Underflow/integer_buggy_21.sol#5-8) is not in mixedCase
+Parameter Token.bug_intou20(uint8).p_intou20 (Overflow-Underflow/integer_buggy_21.sol#5) is not in mixedCase
+Function Token.bug_intou32(uint8) (Overflow-Underflow/integer_buggy_21.sol#10-13) is not in mixedCase
+Parameter Token.bug_intou32(uint8).p_intou32 (Overflow-Underflow/integer_buggy_21.sol#10) is not in mixedCase
+Function Token.transfer_intou38(address,uint256) (Overflow-Underflow/integer_buggy_21.sol#17-22) is not in mixedCase
+Parameter Token.transfer_intou38(address,uint256)._to (Overflow-Underflow/integer_buggy_21.sol#17) is not in mixedCase
+Parameter Token.transfer_intou38(address,uint256)._value (Overflow-Underflow/integer_buggy_21.sol#17) is not in mixedCase
+Function Token.bug_intou4(uint8) (Overflow-Underflow/integer_buggy_21.sol#24-27) is not in mixedCase
+Parameter Token.bug_intou4(uint8).p_intou4 (Overflow-Underflow/integer_buggy_21.sol#24) is not in mixedCase
+Variable Token.balances_intou38 (Overflow-Underflow/integer_buggy_21.sol#15) is not in mixedCase
+Struct StableDEX.orders (Overflow-Underflow/integer_buggy_21.sol#116-128) is not in CapWords
+Struct StableDEX.tokens (Overflow-Underflow/integer_buggy_21.sol#130-135) is not in CapWords
+Function StableDEX.increaseLockTime_intou13(uint256) (Overflow-Underflow/integer_buggy_21.sol#66-68) is not in mixedCase
+Parameter StableDEX.increaseLockTime_intou13(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_21.sol#66) is not in mixedCase
+Function StableDEX.withdraw_intou13() (Overflow-Underflow/integer_buggy_21.sol#69-73) is not in mixedCase
+Function StableDEX.bug_intou11() (Overflow-Underflow/integer_buggy_21.sol#76-79) is not in mixedCase
+Function StableDEX.increaseLockTime_intou1(uint256) (Overflow-Underflow/integer_buggy_21.sol#84-86) is not in mixedCase
+Parameter StableDEX.increaseLockTime_intou1(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_21.sol#84) is not in mixedCase
+Function StableDEX.withdraw_ovrflow1() (Overflow-Underflow/integer_buggy_21.sol#87-91) is not in mixedCase
+Function StableDEX.transfer_undrflow2(address,uint256) (Overflow-Underflow/integer_buggy_21.sol#96-101) is not in mixedCase
+Parameter StableDEX.transfer_undrflow2(address,uint256)._to (Overflow-Underflow/integer_buggy_21.sol#96) is not in mixedCase
+Parameter StableDEX.transfer_undrflow2(address,uint256)._value (Overflow-Underflow/integer_buggy_21.sol#96) is not in mixedCase
+Function StableDEX.increaseLockTime_intou17(uint256) (Overflow-Underflow/integer_buggy_21.sol#106-108) is not in mixedCase
+Parameter StableDEX.increaseLockTime_intou17(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_21.sol#106) is not in mixedCase
+Function StableDEX.withdraw_intou17() (Overflow-Underflow/integer_buggy_21.sol#109-113) is not in mixedCase
+Function StableDEX.bug_intou7() (Overflow-Underflow/integer_buggy_21.sol#143-146) is not in mixedCase
+Function StableDEX.increaseLockTime_intou37(uint256) (Overflow-Underflow/integer_buggy_21.sol#151-153) is not in mixedCase
+Parameter StableDEX.increaseLockTime_intou37(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_21.sol#151) is not in mixedCase
+Function StableDEX.withdraw_intou37() (Overflow-Underflow/integer_buggy_21.sol#154-158) is not in mixedCase
+Function StableDEX.bug_intou3() (Overflow-Underflow/integer_buggy_21.sol#161-164) is not in mixedCase
+Function StableDEX.increaseLockTime_intou9(uint256) (Overflow-Underflow/integer_buggy_21.sol#169-171) is not in mixedCase
+Parameter StableDEX.increaseLockTime_intou9(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_21.sol#169) is not in mixedCase
+Function StableDEX.withdraw_intou9() (Overflow-Underflow/integer_buggy_21.sol#172-176) is not in mixedCase
+Function StableDEX.increaseLockTime_intou25(uint256) (Overflow-Underflow/integer_buggy_21.sol#181-183) is not in mixedCase
+Parameter StableDEX.increaseLockTime_intou25(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_21.sol#181) is not in mixedCase
+Function StableDEX.withdraw_intou25() (Overflow-Underflow/integer_buggy_21.sol#184-188) is not in mixedCase
+Function StableDEX.bug_intou19() (Overflow-Underflow/integer_buggy_21.sol#191-194) is not in mixedCase
+Function StableDEX.transfer_intou26(address,uint256) (Overflow-Underflow/integer_buggy_21.sol#199-204) is not in mixedCase
+Parameter StableDEX.transfer_intou26(address,uint256)._to (Overflow-Underflow/integer_buggy_21.sol#199) is not in mixedCase
+Parameter StableDEX.transfer_intou26(address,uint256)._value (Overflow-Underflow/integer_buggy_21.sol#199) is not in mixedCase
+Function StableDEX.bug_intou23() (Overflow-Underflow/integer_buggy_21.sol#217-220) is not in mixedCase
+Function StableDEX.transfer_intou14(address,uint256) (Overflow-Underflow/integer_buggy_21.sol#231-236) is not in mixedCase
+Parameter StableDEX.transfer_intou14(address,uint256)._to (Overflow-Underflow/integer_buggy_21.sol#231) is not in mixedCase
+Parameter StableDEX.transfer_intou14(address,uint256)._value (Overflow-Underflow/integer_buggy_21.sol#231) is not in mixedCase
+Function StableDEX.transfer_intou30(address,uint256) (Overflow-Underflow/integer_buggy_21.sol#246-251) is not in mixedCase
+Parameter StableDEX.transfer_intou30(address,uint256)._to (Overflow-Underflow/integer_buggy_21.sol#246) is not in mixedCase
+Parameter StableDEX.transfer_intou30(address,uint256)._value (Overflow-Underflow/integer_buggy_21.sol#246) is not in mixedCase
+Function StableDEX.bug_intou8(uint8) (Overflow-Underflow/integer_buggy_21.sol#263-266) is not in mixedCase
+Parameter StableDEX.bug_intou8(uint8).p_intou8 (Overflow-Underflow/integer_buggy_21.sol#263) is not in mixedCase
+Function StableDEX.bug_intou39() (Overflow-Underflow/integer_buggy_21.sol#289-292) is not in mixedCase
+Function StableDEX.bug_intou36(uint8) (Overflow-Underflow/integer_buggy_21.sol#311-314) is not in mixedCase
+Parameter StableDEX.bug_intou36(uint8).p_intou36 (Overflow-Underflow/integer_buggy_21.sol#311) is not in mixedCase
+Function StableDEX.bug_intou35() (Overflow-Underflow/integer_buggy_21.sol#327-330) is not in mixedCase
+Function StableDEX.bug_intou40(uint8) (Overflow-Underflow/integer_buggy_21.sol#478-481) is not in mixedCase
+Parameter StableDEX.bug_intou40(uint8).p_intou40 (Overflow-Underflow/integer_buggy_21.sol#478) is not in mixedCase
+Function StableDEX.increaseLockTime_intou33(uint256) (Overflow-Underflow/integer_buggy_21.sol#497-499) is not in mixedCase
+Parameter StableDEX.increaseLockTime_intou33(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_21.sol#497) is not in mixedCase
+Function StableDEX.withdraw_intou33() (Overflow-Underflow/integer_buggy_21.sol#500-504) is not in mixedCase
+Function StableDEX.bug_intou27() (Overflow-Underflow/integer_buggy_21.sol#510-513) is not in mixedCase
+Function StableDEX.bug_intou31() (Overflow-Underflow/integer_buggy_21.sol#518-521) is not in mixedCase
+Variable StableDEX.lockTime_intou13 (Overflow-Underflow/integer_buggy_21.sol#64) is not in mixedCase
+Variable StableDEX.lockTime_intou1 (Overflow-Underflow/integer_buggy_21.sol#82) is not in mixedCase
+Variable StableDEX.balances_intou2 (Overflow-Underflow/integer_buggy_21.sol#94) is not in mixedCase
+Variable StableDEX.lockTime_intou17 (Overflow-Underflow/integer_buggy_21.sol#104) is not in mixedCase
+Variable StableDEX.lockTime_intou37 (Overflow-Underflow/integer_buggy_21.sol#149) is not in mixedCase
+Variable StableDEX.Order (Overflow-Underflow/integer_buggy_21.sol#159) is not in mixedCase
+Variable StableDEX.lockTime_intou9 (Overflow-Underflow/integer_buggy_21.sol#167) is not in mixedCase
+Variable StableDEX.lockTime_intou25 (Overflow-Underflow/integer_buggy_21.sol#179) is not in mixedCase
+Variable StableDEX.balances_intou26 (Overflow-Underflow/integer_buggy_21.sol#197) is not in mixedCase
+Variable StableDEX.balances_intou14 (Overflow-Underflow/integer_buggy_21.sol#229) is not in mixedCase
+Variable StableDEX.balances_intou30 (Overflow-Underflow/integer_buggy_21.sol#244) is not in mixedCase
+Variable StableDEX.lockTime_intou33 (Overflow-Underflow/integer_buggy_21.sol#495) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in StableDEX.adminProfitWithdraw(uint8,address) (Overflow-Underflow/integer_buggy_21.sol#294-310):
+	External calls:
+	- admin.transfer(feeAmount[admin][address(0)]) (Overflow-Underflow/integer_buggy_21.sol#298)
+	State variables written after the call(s):
+	- feeAmount[admin][address(0)] = 0 (Overflow-Underflow/integer_buggy_21.sol#299)
+Reentrancy in StableDEX.withdraw(uint8,address,uint256) (Overflow-Underflow/integer_buggy_21.sol#268-288):
+	External calls:
+	- msg.sender.transfer(amount.sub(withdrawfee[address(0)])) (Overflow-Underflow/integer_buggy_21.sol#274)
+	State variables written after the call(s):
+	- feeAmount[admin][address(0)] = feeAmount[admin][address(0)].add(withdrawfee[address(0)]) (Overflow-Underflow/integer_buggy_21.sol#276)
+	- userDetails[msg.sender][address(0)] = userDetails[msg.sender][address(0)].sub(amount) (Overflow-Underflow/integer_buggy_21.sol#275)
+	Event emitted after the call(s):
+	- DepositandWithdraw(msg.sender,tokenaddr,amount,1) (Overflow-Underflow/integer_buggy_21.sol#286)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable StableDEX.lockTime_intou13 (Overflow-Underflow/integer_buggy_21.sol#64) is too similar to StableDEX.lockTime_intou33 (Overflow-Underflow/integer_buggy_21.sol#495)
+Variable StableDEX.lockTime_intou13 (Overflow-Underflow/integer_buggy_21.sol#64) is too similar to StableDEX.lockTime_intou17 (Overflow-Underflow/integer_buggy_21.sol#104)
+Variable StableDEX.lockTime_intou13 (Overflow-Underflow/integer_buggy_21.sol#64) is too similar to StableDEX.lockTime_intou37 (Overflow-Underflow/integer_buggy_21.sol#149)
+Variable StableDEX.lockTime_intou17 (Overflow-Underflow/integer_buggy_21.sol#104) is too similar to StableDEX.lockTime_intou37 (Overflow-Underflow/integer_buggy_21.sol#149)
+Variable StableDEX.lockTime_intou33 (Overflow-Underflow/integer_buggy_21.sol#495) is too similar to StableDEX.lockTime_intou37 (Overflow-Underflow/integer_buggy_21.sol#149)
+Variable StableDEX.lockTime_intou1 (Overflow-Underflow/integer_buggy_21.sol#82) is too similar to StableDEX.lockTime_intou9 (Overflow-Underflow/integer_buggy_21.sol#167)
+Variable StableDEX.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_21.sol#71) is too similar to StableDEX.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_21.sol#186)
+Variable StableDEX.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_21.sol#71) is too similar to StableDEX.withdraw_intou17().transferValue_intou17 (Overflow-Underflow/integer_buggy_21.sol#111)
+Variable StableDEX.withdraw_intou17().transferValue_intou17 (Overflow-Underflow/integer_buggy_21.sol#111) is too similar to StableDEX.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_21.sol#186)
+Variable StableDEX.withdraw_intou17().transferValue_intou17 (Overflow-Underflow/integer_buggy_21.sol#111) is too similar to StableDEX.withdraw_intou37().transferValue_intou37 (Overflow-Underflow/integer_buggy_21.sol#156)
+Variable StableDEX.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_21.sol#71) is too similar to StableDEX.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_21.sol#502)
+Variable StableDEX.withdraw_intou17().transferValue_intou17 (Overflow-Underflow/integer_buggy_21.sol#111) is too similar to StableDEX.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_21.sol#502)
+Variable StableDEX.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_21.sol#186) is too similar to StableDEX.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_21.sol#502)
+Variable StableDEX.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_21.sol#502) is too similar to StableDEX.withdraw_intou37().transferValue_intou37 (Overflow-Underflow/integer_buggy_21.sol#156)
+Variable StableDEX.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_21.sol#71) is too similar to StableDEX.withdraw_intou37().transferValue_intou37 (Overflow-Underflow/integer_buggy_21.sol#156)
+Variable StableDEX.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_21.sol#186) is too similar to StableDEX.withdraw_intou37().transferValue_intou37 (Overflow-Underflow/integer_buggy_21.sol#156)
+Variable StableDEX.withdraw_ovrflow1().transferValue_intou1 (Overflow-Underflow/integer_buggy_21.sol#89) is too similar to StableDEX.withdraw_intou9().transferValue_intou9 (Overflow-Underflow/integer_buggy_21.sol#174)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+StableDEX.verify(string,uint8,bytes32,bytes32) (Overflow-Underflow/integer_buggy_21.sol#334-373) uses literals with too many digits:
+	- header = Ethereum Signed Message:
+000000 (Overflow-Underflow/integer_buggy_21.sol#335)
+StableDEX.verify(string,uint8,bytes32,bytes32) (Overflow-Underflow/integer_buggy_21.sol#334-373) uses literals with too many digits:
+	- divisor = 100000 (Overflow-Underflow/integer_buggy_21.sol#344)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+Token (Overflow-Underflow/integer_buggy_21.sol#3-28) does not implement functions:
+	- Token.allowance(address,address) (Overflow-Underflow/integer_buggy_21.sol#23)
+	- Token.balanceOf(address) (Overflow-Underflow/integer_buggy_21.sol#14)
+	- Token.transfer(address,uint256) (Overflow-Underflow/integer_buggy_21.sol#4)
+	- Token.transferFrom(address,address,uint256) (Overflow-Underflow/integer_buggy_21.sol#9)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unimplemented-functions
+
+StableDEX.tokenId (Overflow-Underflow/integer_buggy_21.sol#114) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+addToken(address,string,uint256) should be declared external:
+	- StableDEX.addToken(address,string,uint256) (Overflow-Underflow/integer_buggy_21.sol#222-228)
+Moreover, the following function parameters should change its data location:
+tokenSymbol location should be calldata
+setwithdrawfee(address[],uint256[]) should be declared external:
+	- StableDEX.setwithdrawfee(address[],uint256[]) (Overflow-Underflow/integer_buggy_21.sol#317-326)
+Moreover, the following function parameters should change its data location:
+addr location should be calldata
+feeamount location should be calldata
+makeOrder(uint256[9],address[2],string,uint8,bytes32,bytes32) should be declared external:
+	- StableDEX.makeOrder(uint256[9],address[2],string,uint8,bytes32,bytes32) (Overflow-Underflow/integer_buggy_21.sol#379-477)
+Moreover, the following function parameters should change its data location:
+tradeDetails location should be calldata
+traderAddresses location should be calldata
+message location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+Overflow-Underflow/integer_buggy_21.sol analyzed (3 contracts with 80 detectors), 129 result(s) found

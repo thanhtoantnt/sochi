@@ -1,0 +1,19 @@
+Compilation warnings/errors on CV/mapping_performance_1.sol:
+CV/mapping_performance_1.sol:17:5: Warning: No visibility specified. Defaulting to "public". 
+    constructor(){
+    ^ (Relevant source part starts here and spans across multiple lines).
+CV/mapping_performance_1.sol:21:5: Warning: No visibility specified. Defaulting to "public". 
+    function set(bytes32 a, uint cond){
+    ^ (Relevant source part starts here and spans across multiple lines).
+CV/mapping_performance_1.sol:34:5: Warning: No visibility specified. Defaulting to "public". 
+    function check(bytes32 a0, uint cond0, bytes32 a){
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+
+MappingPerformance1set.m5 (CV/mapping_performance_1.sol#14) is never initialized. It is used in:
+	- MappingPerformance1set.check(bytes32,uint256,bytes32) (CV/mapping_performance_1.sol#34-37)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+
+Pragma version^0.4.22 (CV/mapping_performance_1.sol#5) is known to contain severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+solc-0.4.22 is known to contain severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+CV/mapping_performance_1.sol analyzed (1 contracts with 80 detectors), 3 result(s) found

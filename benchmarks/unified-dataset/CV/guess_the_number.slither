@@ -1,0 +1,31 @@
+
+GuessTheNumber.checkAndTransferPrize(uint256,uint256,address) (CV/guess_the_number.sol#36-47) sends eth to arbitrary user
+	Dangerous calls:
+	- guesser.transfer(p) (CV/guess_the_number.sol#40)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+CV/guess_the_number.sol contains a unicode right-to-left-override character at byte offset 710:
+	- b'        checkAndTransferPrize(/*The prize\xe2\x80\xae/*rebmun desseug*/n , p/*\xe2\x80\xad'
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#right-to-left-override-character
+
+GuessTheNumber.checkAndTransferPrize(uint256,uint256,address) (CV/guess_the_number.sol#36-47) uses a dangerous strict equality:
+	- n == _secretNumber (CV/guess_the_number.sol#38)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+Pragma version^0.5.0 (CV/guess_the_number.sol#6) allows old versions
+solc-0.5.0 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Event GuessTheNumbersuccess(string) (CV/guess_the_number.sol#12) is not in CapWords
+Event GuessTheNumberwrongNumber(string) (CV/guess_the_number.sol#13) is not in CapWords
+Variable GuessTheNumber._secretNumber (CV/guess_the_number.sol#10) is not in mixedCase
+Variable GuessTheNumber._owner (CV/guess_the_number.sol#11) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in GuessTheNumber.checkAndTransferPrize(uint256,uint256,address) (CV/guess_the_number.sol#36-47):
+	External calls:
+	- guesser.transfer(p) (CV/guess_the_number.sol#40)
+	Event emitted after the call(s):
+	- success(You guessed the correct number!) (CV/guess_the_number.sol#41)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+CV/guess_the_number.sol analyzed (1 contracts with 80 detectors), 10 result(s) found

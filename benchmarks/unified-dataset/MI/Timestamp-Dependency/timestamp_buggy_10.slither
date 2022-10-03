@@ -1,0 +1,66 @@
+
+DocumentSigner.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_10.sol#13-16) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_10.sol#15)
+DocumentSigner.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_10.sol#38-41) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_10.sol#40)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+DocumentSigner.bug_tmstmp33() (Timestamp-Dependency/timestamp_buggy_10.sol#8-10) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_10.sol#9)
+DocumentSigner.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_10.sol#13-16) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_10.sol#15)
+DocumentSigner.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_10.sol#38-41) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_10.sol#40)
+DocumentSigner.bug_tmstmp13() (Timestamp-Dependency/timestamp_buggy_10.sol#50-52) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_10.sol#51)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+Pragma version>=0.4.21<0.6.0 (Timestamp-Dependency/timestamp_buggy_10.sol#5) allows old versions
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function DocumentSigner.bug_tmstmp33() (Timestamp-Dependency/timestamp_buggy_10.sol#8-10) is not in mixedCase
+Function DocumentSigner.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_10.sol#13-16) is not in mixedCase
+Parameter DocumentSigner.submitDocument(string)._doc (Timestamp-Dependency/timestamp_buggy_10.sol#30) is not in mixedCase
+Function DocumentSigner.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_10.sol#38-41) is not in mixedCase
+Parameter DocumentSigner.signDocument(bytes32)._docHash (Timestamp-Dependency/timestamp_buggy_10.sol#43) is not in mixedCase
+Function DocumentSigner.bug_tmstmp13() (Timestamp-Dependency/timestamp_buggy_10.sol#50-52) is not in mixedCase
+Parameter DocumentSigner.getDetail(bytes32)._docHash (Timestamp-Dependency/timestamp_buggy_10.sol#54) is not in mixedCase
+Parameter DocumentSigner.getHash(string)._doc (Timestamp-Dependency/timestamp_buggy_10.sol#60) is not in mixedCase
+Variable DocumentSigner.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_10.sol#12) is not in mixedCase
+Variable DocumentSigner.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_10.sol#23) is not in mixedCase
+Variable DocumentSigner.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_10.sol#25) is not in mixedCase
+Variable DocumentSigner.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_10.sol#27) is not in mixedCase
+Variable DocumentSigner.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_10.sol#37) is not in mixedCase
+Variable DocumentSigner.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_10.sol#58) is not in mixedCase
+Variable DocumentSigner.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_10.sol#63) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable DocumentSigner.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_10.sol#63) is too similar to DocumentSigner.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_10.sol#23)
+Variable DocumentSigner.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_10.sol#23) is too similar to DocumentSigner.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_10.sol#27)
+Variable DocumentSigner.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_10.sol#23) is too similar to DocumentSigner.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_10.sol#58)
+Variable DocumentSigner.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_10.sol#63) is too similar to DocumentSigner.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_10.sol#25)
+Variable DocumentSigner.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_10.sol#23) is too similar to DocumentSigner.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_10.sol#25)
+Variable DocumentSigner.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_10.sol#25) is too similar to DocumentSigner.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_10.sol#27)
+Variable DocumentSigner.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_10.sol#25) is too similar to DocumentSigner.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_10.sol#58)
+Variable DocumentSigner.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_10.sol#63) is too similar to DocumentSigner.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_10.sol#27)
+Variable DocumentSigner.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_10.sol#27) is too similar to DocumentSigner.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_10.sol#58)
+Variable DocumentSigner.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_10.sol#63) is too similar to DocumentSigner.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_10.sol#58)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+DocumentSigner.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_10.sol#23) is never used in DocumentSigner (Timestamp-Dependency/timestamp_buggy_10.sol#7-65)
+DocumentSigner.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_10.sol#25) is never used in DocumentSigner (Timestamp-Dependency/timestamp_buggy_10.sol#7-65)
+DocumentSigner.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_10.sol#27) is never used in DocumentSigner (Timestamp-Dependency/timestamp_buggy_10.sol#7-65)
+DocumentSigner.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_10.sol#58) is never used in DocumentSigner (Timestamp-Dependency/timestamp_buggy_10.sol#7-65)
+DocumentSigner.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_10.sol#63) is never used in DocumentSigner (Timestamp-Dependency/timestamp_buggy_10.sol#7-65)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+
+submitDocument(string) should be declared external:
+	- DocumentSigner.submitDocument(string) (Timestamp-Dependency/timestamp_buggy_10.sol#30-36)
+Moreover, the following function parameters should change its data location:
+_doc location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+Timestamp-Dependency/timestamp_buggy_10.sol analyzed (1 contracts with 80 detectors), 38 result(s) found

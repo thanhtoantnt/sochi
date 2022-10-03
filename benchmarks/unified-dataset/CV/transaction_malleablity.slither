@@ -1,0 +1,45 @@
+Compilation warnings/errors on CV/transaction_malleablity.sol:
+CV/transaction_malleablity.sol:57:16: Warning: This function only accepts a single "bytes" argument. Please use "abi.encodePacked(...)" or a similar function to encode the data.
+        return keccak256(address(this), bytes4(0x1296830d), _to, _value, _gasPrice, _nonce);
+               ^--------------------------------------------------------------------------^
+CV/transaction_malleablity.sol:65:16: Warning: This function only accepts a single "bytes" argument. Please use "abi.encodePacked(...)" or a similar function to encode the data.
+        return keccak256("\x19Ethereum Signed Message:\n32", _hash);
+               ^--------------------------------------------------^
+CV/transaction_malleablity.sol:8:3: Warning: No visibility specified. Defaulting to "public". 
+  constructor(address[] owners, uint[] init){
+  ^ (Relevant source part starts here and spans across multiple lines).
+
+
+transaction_malleablity.ecrecoverFromSig(bytes32,bytes) (CV/transaction_malleablity.sol#68-87) is declared view but contains assembly code
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#constant-functions-using-assembly-code
+
+transaction_malleablity.ecrecoverFromSig(bytes32,bytes) (CV/transaction_malleablity.sol#68-87) uses assembly
+	- INLINE ASM (CV/transaction_malleablity.sol#77-82)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#assembly-usage
+
+Pragma version^0.4.24 (CV/transaction_malleablity.sol#2) allows old versions
+solc-0.4.24 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Contract transaction_malleablity (CV/transaction_malleablity.sol#4-88) is not in CapWords
+Parameter transaction_malleablity.transfer(bytes,address,uint256,uint256,uint256)._signature (CV/transaction_malleablity.sol#16) is not in mixedCase
+Parameter transaction_malleablity.transfer(bytes,address,uint256,uint256,uint256)._to (CV/transaction_malleablity.sol#17) is not in mixedCase
+Parameter transaction_malleablity.transfer(bytes,address,uint256,uint256,uint256)._value (CV/transaction_malleablity.sol#18) is not in mixedCase
+Parameter transaction_malleablity.transfer(bytes,address,uint256,uint256,uint256)._gasPrice (CV/transaction_malleablity.sol#19) is not in mixedCase
+Parameter transaction_malleablity.transfer(bytes,address,uint256,uint256,uint256)._nonce (CV/transaction_malleablity.sol#20) is not in mixedCase
+Parameter transaction_malleablity.recoverTransferPreSigned(bytes,address,uint256,uint256,uint256)._sig (CV/transaction_malleablity.sol#37) is not in mixedCase
+Parameter transaction_malleablity.recoverTransferPreSigned(bytes,address,uint256,uint256,uint256)._to (CV/transaction_malleablity.sol#38) is not in mixedCase
+Parameter transaction_malleablity.recoverTransferPreSigned(bytes,address,uint256,uint256,uint256)._value (CV/transaction_malleablity.sol#39) is not in mixedCase
+Parameter transaction_malleablity.recoverTransferPreSigned(bytes,address,uint256,uint256,uint256)._gasPrice (CV/transaction_malleablity.sol#40) is not in mixedCase
+Parameter transaction_malleablity.recoverTransferPreSigned(bytes,address,uint256,uint256,uint256)._nonce (CV/transaction_malleablity.sol#41) is not in mixedCase
+Parameter transaction_malleablity.getTransferHash(address,uint256,uint256,uint256)._to (CV/transaction_malleablity.sol#50) is not in mixedCase
+Parameter transaction_malleablity.getTransferHash(address,uint256,uint256,uint256)._value (CV/transaction_malleablity.sol#51) is not in mixedCase
+Parameter transaction_malleablity.getTransferHash(address,uint256,uint256,uint256)._gasPrice (CV/transaction_malleablity.sol#52) is not in mixedCase
+Parameter transaction_malleablity.getTransferHash(address,uint256,uint256,uint256)._nonce (CV/transaction_malleablity.sol#53) is not in mixedCase
+Parameter transaction_malleablity.getSignHash(bytes32)._hash (CV/transaction_malleablity.sol#60) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+transfer(bytes,address,uint256,uint256,uint256) should be declared external:
+	- transaction_malleablity.transfer(bytes,address,uint256,uint256,uint256) (CV/transaction_malleablity.sol#15-34)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+CV/transaction_malleablity.sol analyzed (1 contracts with 80 detectors), 21 result(s) found

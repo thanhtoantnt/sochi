@@ -1,0 +1,100 @@
+Compilation warnings/errors on CV/deprecated_simple.sol:
+CV/deprecated_simple.sol:16:13: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+            throw;
+            ^---^
+CV/deprecated_simple.sol:21:9: Warning: Use of the "var" keyword is deprecated.
+        var a = [1,2,3];
+        ^---^
+CV/deprecated_simple.sol:23:14: Warning: Use of the "var" keyword is deprecated.
+        var (x, y, z) = (false, "test", 0);
+             ^
+CV/deprecated_simple.sol:23:17: Warning: Use of the "var" keyword is deprecated.
+        var (x, y, z) = (false, "test", 0);
+                ^
+CV/deprecated_simple.sol:23:20: Warning: Use of the "var" keyword is deprecated.
+        var (x, y, z) = (false, "test", 0);
+                   ^
+CV/deprecated_simple.sol:10:9: Warning: This declaration shadows a builtin symbol.
+        bytes32 blockhash = block.blockhash(0);
+        ^---------------^
+CV/deprecated_simple.sol:11:30: Warning: "sha3" has been deprecated in favour of "keccak256"
+        bytes32 hashofhash = sha3(blockhash);
+                             ^-------------^
+CV/deprecated_simple.sol:11:30: Warning: This function only accepts a single "bytes" argument. Please use "abi.encodePacked(...)" or a similar function to encode the data.
+        bytes32 hashofhash = sha3(blockhash);
+                             ^-------------^
+CV/deprecated_simple.sol:11:30: Warning: The provided argument of type bytes32 is not implicitly convertible to expected type bytes memory.
+        bytes32 hashofhash = sha3(blockhash);
+                             ^-------------^
+CV/deprecated_simple.sol:19:9: Warning: Return value of low-level calls not used.
+        address(this).callcode();
+        ^----------------------^
+CV/deprecated_simple.sol:23:9: Warning: The type of this variable was inferred as uint8, which can hold values between 0 and 255. This is probably not desired. Use an explicit type to silence this warning.
+        var (x, y, z) = (false, "test", 0);
+        ^--------------------------------^
+CV/deprecated_simple.sol:25:9: Warning: "suicide" has been deprecated in favour of "selfdestruct"
+        suicide(address(0));
+        ^-----------------^
+CV/deprecated_simple.sol:10:29: Warning: "block.blockhash()" has been deprecated in favor of "blockhash()"
+        bytes32 blockhash = block.blockhash(0);
+                            ^-------------^
+CV/deprecated_simple.sol:13:20: Warning: "msg.gas" has been deprecated in favor of "gasleft()"
+        uint gas = msg.gas;
+                   ^-----^
+CV/deprecated_simple.sol:19:9: Warning: "callcode" has been deprecated in favour of "delegatecall".
+        address(this).callcode();
+        ^--------------------^
+CV/deprecated_simple.sol:11:9: Warning: Unused local variable.
+        bytes32 hashofhash = sha3(blockhash);
+        ^----------------^
+CV/deprecated_simple.sol:21:9: Warning: Unused local variable.
+        var a = [1,2,3];
+        ^---^
+CV/deprecated_simple.sol:23:14: Warning: Unused local variable.
+        var (x, y, z) = (false, "test", 0);
+             ^
+CV/deprecated_simple.sol:23:17: Warning: Unused local variable.
+        var (x, y, z) = (false, "test", 0);
+                ^
+CV/deprecated_simple.sol:23:20: Warning: Unused local variable.
+        var (x, y, z) = (false, "test", 0);
+                   ^
+CV/deprecated_simple.sol:19:9: Warning: Function declared as view, but this expression (potentially) modifies the state and thus requires non-payable (the default) or payable.
+        address(this).callcode();
+        ^----------------------^
+CV/deprecated_simple.sol:25:9: Warning: Function declared as view, but this expression (potentially) modifies the state and thus requires non-payable (the default) or payable.
+        suicide(address(0));
+        ^-----------------^
+
+
+DeprecatedSimple.useDeprecated() (CV/deprecated_simple.sol#8-26) allows anyone to destruct the contract
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#suicidal
+
+DeprecatedSimple.useDeprecated() (CV/deprecated_simple.sol#8-26) ignores return value by address(this).callcode() (CV/deprecated_simple.sol#19)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-low-level-calls
+
+DeprecatedSimple.useDeprecated().blockhash (CV/deprecated_simple.sol#10) (local variable) shadows built-in symbol"
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#builtin-symbol-shadowing
+
+Deprecated standard detected blockhash = block.blockhash(0) (CV/deprecated_simple.sol#10):
+	- Usage of "block.blockhash()" should be replaced with "blockhash()"
+Deprecated standard detected hashofhash = sha3()(blockhash) (CV/deprecated_simple.sol#11):
+	- Usage of "sha3()" should be replaced with "keccak256()"
+Deprecated standard detected gas = msg.gas (CV/deprecated_simple.sol#13):
+	- Usage of "msg.gas" should be replaced with "gasleft()"
+Deprecated standard detected THROW (CV/deprecated_simple.sol#16):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected address(this).callcode() (CV/deprecated_simple.sol#19):
+	- Usage of "callcode" should be replaced with "delegatecall"
+Deprecated standard detected suicide(address)(address(0)) (CV/deprecated_simple.sol#25):
+	- Usage of "suicide()" should be replaced with "selfdestruct()"
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#deprecated-standards
+
+Pragma version^0.4.24 (CV/deprecated_simple.sol#2) allows old versions
+solc-0.4.24 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in DeprecatedSimple.useDeprecated() (CV/deprecated_simple.sol#8-26):
+	- address(this).callcode() (CV/deprecated_simple.sol#19)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+CV/deprecated_simple.sol analyzed (1 contracts with 80 detectors), 12 result(s) found

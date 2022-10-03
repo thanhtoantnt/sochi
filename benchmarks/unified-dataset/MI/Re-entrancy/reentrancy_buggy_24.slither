@@ -1,0 +1,545 @@
+
+FomoFeast.bug_re_ent6() (Re-entrancy/reentrancy_buggy_24.sol#244-250) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_24.sol#246)
+FomoFeast.buyTicket_re_ent16() (Re-entrancy/reentrancy_buggy_24.sol#254-259) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent16.send(jackpot_re_ent16)) (Re-entrancy/reentrancy_buggy_24.sol#255)
+FomoFeast.callme_re_ent28() (Re-entrancy/reentrancy_buggy_24.sol#286-292) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_24.sol#288)
+FomoFeast.bug_re_ent34() (Re-entrancy/reentrancy_buggy_24.sol#295-301) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_24.sol#297)
+FomoFeast.callme_re_ent21() (Re-entrancy/reentrancy_buggy_24.sol#304-310) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_24.sol#306)
+FomoFeast.bug_re_ent41() (Re-entrancy/reentrancy_buggy_24.sol#373-379) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_24.sol#375)
+FomoFeast.callme_re_ent42() (Re-entrancy/reentrancy_buggy_24.sol#391-397) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_24.sol#393)
+FomoFeast.buyTicket_re_ent2() (Re-entrancy/reentrancy_buggy_24.sol#424-429) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent2.send(jackpot_re_ent2)) (Re-entrancy/reentrancy_buggy_24.sol#425)
+FomoFeast.buyTicket_re_ent37() (Re-entrancy/reentrancy_buggy_24.sol#454-459) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent37.send(jackpot_re_ent37)) (Re-entrancy/reentrancy_buggy_24.sol#455)
+FomoFeast.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_24.sol#511-517) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_24.sol#512)
+FomoFeast.bug_re_ent20() (Re-entrancy/reentrancy_buggy_24.sol#610-616) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_24.sol#612)
+FomoFeast.callme_re_ent7() (Re-entrancy/reentrancy_buggy_24.sol#753-759) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_24.sol#755)
+FomoFeast.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_24.sol#771-776) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (Re-entrancy/reentrancy_buggy_24.sol#772)
+FomoFeast.callme_re_ent14() (Re-entrancy/reentrancy_buggy_24.sol#787-793) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_24.sol#789)
+FomoFeast.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_24.sol#806-811) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (Re-entrancy/reentrancy_buggy_24.sol#807)
+FomoFeast.callme_re_ent35() (Re-entrancy/reentrancy_buggy_24.sol#897-903) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_24.sol#899)
+FomoFeast.bug_re_ent27() (Re-entrancy/reentrancy_buggy_24.sol#1004-1010) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_24.sol#1006)
+FomoFeast.bug_re_ent13() (Re-entrancy/reentrancy_buggy_24.sol#1067-1074) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_24.sol#1069)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Reentrancy in FomoFeast.bug_re_ent13() (Re-entrancy/reentrancy_buggy_24.sol#1067-1074):
+	External calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_24.sol#1069)
+	State variables written after the call(s):
+	- not_called_re_ent13 = false (Re-entrancy/reentrancy_buggy_24.sol#1073)
+Reentrancy in FomoFeast.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_24.sol#511-517):
+	External calls:
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_24.sol#512)
+	State variables written after the call(s):
+	- jackpot_re_ent9 = address(this).balance (Re-entrancy/reentrancy_buggy_24.sol#516)
+	- lastPlayer_re_ent9 = msg.sender (Re-entrancy/reentrancy_buggy_24.sol#515)
+Reentrancy in FomoFeast.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_24.sol#591-599):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (Re-entrancy/reentrancy_buggy_24.sol#594)
+	State variables written after the call(s):
+	- userBalance_re_ent26[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_24.sol#598)
+Reentrancy in FomoFeast.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_24.sol#987-995):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (Re-entrancy/reentrancy_buggy_24.sol#990)
+	State variables written after the call(s):
+	- userBalance_re_ent33[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_24.sol#994)
+Reentrancy in FomoFeast.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_24.sol#926-934):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (Re-entrancy/reentrancy_buggy_24.sol#929)
+	State variables written after the call(s):
+	- userBalance_re_ent40[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_24.sol#933)
+Reentrancy in FomoFeast.withdrawFunds_re_ent17(uint256) (Re-entrancy/reentrancy_buggy_24.sol#441-447):
+	External calls:
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_24.sol#444)
+	State variables written after the call(s):
+	- balances_re_ent17[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_24.sol#446)
+Reentrancy in FomoFeast.withdrawFunds_re_ent3(uint256) (Re-entrancy/reentrancy_buggy_24.sol#474-480):
+	External calls:
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_24.sol#477)
+	State variables written after the call(s):
+	- balances_re_ent3[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_24.sol#479)
+Reentrancy in FomoFeast.withdraw_balances_re_ent1() (Re-entrancy/reentrancy_buggy_24.sol#348-352):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent1[msg.sender])() (Re-entrancy/reentrancy_buggy_24.sol#349)
+	State variables written after the call(s):
+	- balances_re_ent1[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_24.sol#351)
+Reentrancy in FomoFeast.withdraw_balances_re_ent21() (Re-entrancy/reentrancy_buggy_24.sol#322-326):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent21[msg.sender])() (Re-entrancy/reentrancy_buggy_24.sol#323)
+	State variables written after the call(s):
+	- balances_re_ent21[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_24.sol#325)
+Reentrancy in FomoFeast.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_24.sol#831-835):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (Re-entrancy/reentrancy_buggy_24.sol#832)
+	State variables written after the call(s):
+	- balances_re_ent8[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_24.sol#834)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
+
+FomoFeast.getAvaliableStaticCommissionAmount(FomoFeast.User) (Re-entrancy/reentrancy_buggy_24.sol#559-571) performs a multiplication on the result of a division:
+	-commissionDays = now.sub(user.currentInvestTime).div(ONE_DAY) (Re-entrancy/reentrancy_buggy_24.sol#563)
+	-amount = user.currentInvestAmount.mul(user.currentStaticCommissionRatio).mul(commissionDays) (Re-entrancy/reentrancy_buggy_24.sol#567)
+FomoFeast.invest(address,uint256) (Re-entrancy/reentrancy_buggy_24.sol#635-692) performs a multiplication on the result of a division:
+	-investAmount = msg.value.div(ONE_ETH) (Re-entrancy/reentrancy_buggy_24.sol#639)
+	-investAmount = investAmount.mul(ONE_ETH) (Re-entrancy/reentrancy_buggy_24.sol#640)
+FomoFeast.invest(address,uint256) (Re-entrancy/reentrancy_buggy_24.sol#635-692) performs a multiplication on the result of a division:
+	-investAmount = msg.value.div(ONE_ETH) (Re-entrancy/reentrancy_buggy_24.sol#639)
+	-operatorFunds = operatorFunds.add(investAmount.mul(3).div(100)) (Re-entrancy/reentrancy_buggy_24.sol#691)
+FomoFeast.calcDynamicCommission() (Re-entrancy/reentrancy_buggy_24.sol#936-985) performs a multiplication on the result of a division:
+	-dynamicCA = dynamicCA.mul(6).div(1000 * 100 * 10) (Re-entrancy/reentrancy_buggy_24.sol#963)
+	-dynamicCA = dynamicCA.div(1000 * 100) (Re-entrancy/reentrancy_buggy_24.sol#965)
+FomoFeast.calcDynamicCommissionRange(uint256,uint256) (Re-entrancy/reentrancy_buggy_24.sol#1012-1047) performs a multiplication on the result of a division:
+	-dynamicCA = dynamicCA.mul(6).div(1000 * 100 * 10) (Re-entrancy/reentrancy_buggy_24.sol#1034)
+	-dynamicCA = dynamicCA.div(1000 * 100) (Re-entrancy/reentrancy_buggy_24.sol#1036)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+
+FomoFeast.getAvaliableStaticCommissionAmount(FomoFeast.User) (Re-entrancy/reentrancy_buggy_24.sol#559-571) uses a dangerous strict equality:
+	- user.currentInvestAmount == 0 (Re-entrancy/reentrancy_buggy_24.sol#560)
+FomoFeast.invest(address,uint256) (Re-entrancy/reentrancy_buggy_24.sol#635-692) uses a dangerous strict equality:
+	- require(bool,string)(user.sponsorAddress == sponsorAddress,sponsor address is inconsistent) (Re-entrancy/reentrancy_buggy_24.sol#647)
+FomoFeast.invest(address,uint256) (Re-entrancy/reentrancy_buggy_24.sol#635-692) uses a dangerous strict equality:
+	- require(bool,string)(user.currentInvestAmount == 0,Dumplicate invest) (Re-entrancy/reentrancy_buggy_24.sol#648)
+FomoFeast.invest(address,uint256) (Re-entrancy/reentrancy_buggy_24.sol#635-692) uses a dangerous strict equality:
+	- require(bool,string)(user.currentInvestTime == 0,Invalid state) (Re-entrancy/reentrancy_buggy_24.sol#649)
+FomoFeast.invest(address,uint256) (Re-entrancy/reentrancy_buggy_24.sol#635-692) uses a dangerous strict equality:
+	- require(bool,string)(user.currentInvestCycle == 0,Invalid state) (Re-entrancy/reentrancy_buggy_24.sol#650)
+FomoFeast.invest(address,uint256) (Re-entrancy/reentrancy_buggy_24.sol#635-692) uses a dangerous strict equality:
+	- require(bool,string)(user.currentlevel == 0,Invalid state) (Re-entrancy/reentrancy_buggy_24.sol#651)
+FomoFeast.invest(address,uint256) (Re-entrancy/reentrancy_buggy_24.sol#635-692) uses a dangerous strict equality:
+	- require(bool,string)(user.currentStaticCommissionRatio == 0,Invalid state) (Re-entrancy/reentrancy_buggy_24.sol#652)
+FomoFeast.invest(address,uint256) (Re-entrancy/reentrancy_buggy_24.sol#635-692) uses a dangerous strict equality:
+	- require(bool,string)(user.currentStaticCommissionWithdrawAmount == 0,Invalid state) (Re-entrancy/reentrancy_buggy_24.sol#653)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+FomoFeast.transferOwnership(address) (Re-entrancy/reentrancy_buggy_24.sol#418-421) should emit an event for: 
+	- owner = newOwner (Re-entrancy/reentrancy_buggy_24.sol#420) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+FomoFeast.invest(address,uint256) (Re-entrancy/reentrancy_buggy_24.sol#635-692) should emit an event for: 
+	- totalInvestAmount = totalInvestAmount.add(investAmount) (Re-entrancy/reentrancy_buggy_24.sol#689) 
+	- engineerFunds = engineerFunds.add(investAmount.div(50)) (Re-entrancy/reentrancy_buggy_24.sol#690) 
+	- operatorFunds = operatorFunds.add(investAmount.mul(3).div(100)) (Re-entrancy/reentrancy_buggy_24.sol#691) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+
+FomoFeast.isInvestExpired(FomoFeast.User) (Re-entrancy/reentrancy_buggy_24.sol#449-451) uses timestamp for comparisons
+	Dangerous comparisons:
+	- expired = (user.currentInvestTime.add(user.currentInvestCycle.mul(ONE_DAY)) < now) (Re-entrancy/reentrancy_buggy_24.sol#450)
+FomoFeast.getAbortInvestAmount(FomoFeast.User) (Re-entrancy/reentrancy_buggy_24.sol#461-472) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(commissionDays >= 3,Invest time must >= 3days) (Re-entrancy/reentrancy_buggy_24.sol#463)
+	- commissionDays >= 60 (Re-entrancy/reentrancy_buggy_24.sol#465)
+	- commissionDays >= 30 (Re-entrancy/reentrancy_buggy_24.sol#467)
+FomoFeast.getAvaliableStaticCommissionAmount(FomoFeast.User) (Re-entrancy/reentrancy_buggy_24.sol#559-571) uses timestamp for comparisons
+	Dangerous comparisons:
+	- user.currentInvestAmount == 0 (Re-entrancy/reentrancy_buggy_24.sol#560)
+	- commissionDays > user.currentInvestCycle (Re-entrancy/reentrancy_buggy_24.sol#564)
+FomoFeast.invest(address,uint256) (Re-entrancy/reentrancy_buggy_24.sol#635-692) uses timestamp for comparisons
+	Dangerous comparisons:
+	- user.totalInvestCount > 0 (Re-entrancy/reentrancy_buggy_24.sol#646)
+	- require(bool,string)(user.sponsorAddress == sponsorAddress,sponsor address is inconsistent) (Re-entrancy/reentrancy_buggy_24.sol#647)
+	- require(bool,string)(user.currentInvestAmount == 0,Dumplicate invest) (Re-entrancy/reentrancy_buggy_24.sol#648)
+	- require(bool,string)(user.currentInvestTime == 0,Invalid state) (Re-entrancy/reentrancy_buggy_24.sol#649)
+	- require(bool,string)(user.currentInvestCycle == 0,Invalid state) (Re-entrancy/reentrancy_buggy_24.sol#650)
+	- require(bool,string)(user.currentlevel == 0,Invalid state) (Re-entrancy/reentrancy_buggy_24.sol#651)
+	- require(bool,string)(user.currentStaticCommissionRatio == 0,Invalid state) (Re-entrancy/reentrancy_buggy_24.sol#652)
+	- require(bool,string)(user.currentStaticCommissionWithdrawAmount == 0,Invalid state) (Re-entrancy/reentrancy_buggy_24.sol#653)
+FomoFeast.calcDynamicCommission() (Re-entrancy/reentrancy_buggy_24.sol#936-985) uses timestamp for comparisons
+	Dangerous comparisons:
+	- commissionDays >= 1 && commissionDays <= user_scope_1.currentInvestCycle (Re-entrancy/reentrancy_buggy_24.sol#946)
+FomoFeast.calcDynamicCommissionRange(uint256,uint256) (Re-entrancy/reentrancy_buggy_24.sol#1012-1047) uses timestamp for comparisons
+	Dangerous comparisons:
+	- commissionDays >= 1 && commissionDays <= user.currentInvestCycle (Re-entrancy/reentrancy_buggy_24.sol#1017)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+SafeMath.mod(uint256,uint256) (Re-entrancy/reentrancy_buggy_24.sol#143-145) is never used and should be removed
+SafeMath.mod(uint256,uint256,string) (Re-entrancy/reentrancy_buggy_24.sol#161-164) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.5.0 (Re-entrancy/reentrancy_buggy_24.sol#7) allows old versions
+Pragma version^0.5.0 (Re-entrancy/reentrancy_buggy_24.sol#169) allows old versions
+solc-0.5.0 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in FomoFeast.withdraw_balances_re_ent21() (Re-entrancy/reentrancy_buggy_24.sol#322-326):
+	- (success) = msg.sender.call.value(balances_re_ent21[msg.sender])() (Re-entrancy/reentrancy_buggy_24.sol#323)
+Low level call in FomoFeast.withdraw_balances_re_ent1() (Re-entrancy/reentrancy_buggy_24.sol#348-352):
+	- (success) = msg.sender.call.value(balances_re_ent1[msg.sender])() (Re-entrancy/reentrancy_buggy_24.sol#349)
+Low level call in FomoFeast.withdrawFunds_re_ent17(uint256) (Re-entrancy/reentrancy_buggy_24.sol#441-447):
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_24.sol#444)
+Low level call in FomoFeast.withdrawFunds_re_ent3(uint256) (Re-entrancy/reentrancy_buggy_24.sol#474-480):
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_24.sol#477)
+Low level call in FomoFeast.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_24.sol#511-517):
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_24.sol#512)
+Low level call in FomoFeast.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_24.sol#591-599):
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (Re-entrancy/reentrancy_buggy_24.sol#594)
+Low level call in FomoFeast.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_24.sol#831-835):
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (Re-entrancy/reentrancy_buggy_24.sol#832)
+Low level call in FomoFeast.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_24.sol#926-934):
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (Re-entrancy/reentrancy_buggy_24.sol#929)
+Low level call in FomoFeast.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_24.sol#987-995):
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (Re-entrancy/reentrancy_buggy_24.sol#990)
+Low level call in FomoFeast.bug_re_ent13() (Re-entrancy/reentrancy_buggy_24.sol#1067-1074):
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_24.sol#1069)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Function FomoFeast.claimReward_re_ent18() (Re-entrancy/reentrancy_buggy_24.sol#229-235) is not in mixedCase
+Function FomoFeast.withdraw_balances_re_ent29() (Re-entrancy/reentrancy_buggy_24.sol#238-241) is not in mixedCase
+Function FomoFeast.bug_re_ent6() (Re-entrancy/reentrancy_buggy_24.sol#244-250) is not in mixedCase
+Function FomoFeast.buyTicket_re_ent16() (Re-entrancy/reentrancy_buggy_24.sol#254-259) is not in mixedCase
+Function FomoFeast.withdrawFunds_re_ent24(uint256) (Re-entrancy/reentrancy_buggy_24.sol#262-267) is not in mixedCase
+Parameter FomoFeast.withdrawFunds_re_ent24(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_24.sol#262) is not in mixedCase
+Function FomoFeast.withdrawBalance_re_ent5() (Re-entrancy/reentrancy_buggy_24.sol#270-277) is not in mixedCase
+Function FomoFeast.withdraw_balances_re_ent15() (Re-entrancy/reentrancy_buggy_24.sol#280-283) is not in mixedCase
+Function FomoFeast.callme_re_ent28() (Re-entrancy/reentrancy_buggy_24.sol#286-292) is not in mixedCase
+Function FomoFeast.bug_re_ent34() (Re-entrancy/reentrancy_buggy_24.sol#295-301) is not in mixedCase
+Function FomoFeast.callme_re_ent21() (Re-entrancy/reentrancy_buggy_24.sol#304-310) is not in mixedCase
+Function FomoFeast.withdrawFunds_re_ent10(uint256) (Re-entrancy/reentrancy_buggy_24.sol#314-319) is not in mixedCase
+Parameter FomoFeast.withdrawFunds_re_ent10(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_24.sol#314) is not in mixedCase
+Function FomoFeast.withdraw_balances_re_ent21() (Re-entrancy/reentrancy_buggy_24.sol#322-326) is not in mixedCase
+Function FomoFeast.withdrawBalance_re_ent12() (Re-entrancy/reentrancy_buggy_24.sol#329-336) is not in mixedCase
+Function FomoFeast.claimReward_re_ent11() (Re-entrancy/reentrancy_buggy_24.sol#339-345) is not in mixedCase
+Function FomoFeast.withdraw_balances_re_ent1() (Re-entrancy/reentrancy_buggy_24.sol#348-352) is not in mixedCase
+Function FomoFeast.bug_re_ent41() (Re-entrancy/reentrancy_buggy_24.sol#373-379) is not in mixedCase
+Function FomoFeast.callme_re_ent42() (Re-entrancy/reentrancy_buggy_24.sol#391-397) is not in mixedCase
+Function FomoFeast.buyTicket_re_ent2() (Re-entrancy/reentrancy_buggy_24.sol#424-429) is not in mixedCase
+Function FomoFeast.withdrawFunds_re_ent17(uint256) (Re-entrancy/reentrancy_buggy_24.sol#441-447) is not in mixedCase
+Parameter FomoFeast.withdrawFunds_re_ent17(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_24.sol#441) is not in mixedCase
+Function FomoFeast.buyTicket_re_ent37() (Re-entrancy/reentrancy_buggy_24.sol#454-459) is not in mixedCase
+Function FomoFeast.withdrawFunds_re_ent3(uint256) (Re-entrancy/reentrancy_buggy_24.sol#474-480) is not in mixedCase
+Parameter FomoFeast.withdrawFunds_re_ent3(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_24.sol#474) is not in mixedCase
+Function FomoFeast.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_24.sol#511-517) is not in mixedCase
+Function FomoFeast.claimReward_re_ent25() (Re-entrancy/reentrancy_buggy_24.sol#551-557) is not in mixedCase
+Function FomoFeast.withdrawBalance_re_ent19() (Re-entrancy/reentrancy_buggy_24.sol#573-580) is not in mixedCase
+Function FomoFeast.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_24.sol#591-599) is not in mixedCase
+Function FomoFeast.bug_re_ent20() (Re-entrancy/reentrancy_buggy_24.sol#610-616) is not in mixedCase
+Function FomoFeast.claimReward_re_ent32() (Re-entrancy/reentrancy_buggy_24.sol#627-633) is not in mixedCase
+Function FomoFeast.withdrawFunds_re_ent38(uint256) (Re-entrancy/reentrancy_buggy_24.sol#694-699) is not in mixedCase
+Parameter FomoFeast.withdrawFunds_re_ent38(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_24.sol#694) is not in mixedCase
+Function FomoFeast.claimReward_re_ent4() (Re-entrancy/reentrancy_buggy_24.sol#722-728) is not in mixedCase
+Function FomoFeast.callme_re_ent7() (Re-entrancy/reentrancy_buggy_24.sol#753-759) is not in mixedCase
+Function FomoFeast.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_24.sol#771-776) is not in mixedCase
+Function FomoFeast.callme_re_ent14() (Re-entrancy/reentrancy_buggy_24.sol#787-793) is not in mixedCase
+Function FomoFeast.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_24.sol#806-811) is not in mixedCase
+Function FomoFeast.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_24.sol#831-835) is not in mixedCase
+Function FomoFeast.claimReward_re_ent39() (Re-entrancy/reentrancy_buggy_24.sol#842-848) is not in mixedCase
+Function FomoFeast.withdraw_balances_re_ent36() (Re-entrancy/reentrancy_buggy_24.sol#871-874) is not in mixedCase
+Function FomoFeast.callme_re_ent35() (Re-entrancy/reentrancy_buggy_24.sol#897-903) is not in mixedCase
+Function FomoFeast.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_24.sol#926-934) is not in mixedCase
+Function FomoFeast.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_24.sol#987-995) is not in mixedCase
+Function FomoFeast.bug_re_ent27() (Re-entrancy/reentrancy_buggy_24.sol#1004-1010) is not in mixedCase
+Function FomoFeast.withdrawFunds_re_ent31(uint256) (Re-entrancy/reentrancy_buggy_24.sol#1049-1054) is not in mixedCase
+Parameter FomoFeast.withdrawFunds_re_ent31(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_24.sol#1049) is not in mixedCase
+Function FomoFeast.bug_re_ent13() (Re-entrancy/reentrancy_buggy_24.sol#1067-1074) is not in mixedCase
+Variable FomoFeast.redeemableEther_re_ent18 (Re-entrancy/reentrancy_buggy_24.sol#228) is not in mixedCase
+Variable FomoFeast.balances_re_ent29 (Re-entrancy/reentrancy_buggy_24.sol#237) is not in mixedCase
+Variable FomoFeast.not_called_re_ent6 (Re-entrancy/reentrancy_buggy_24.sol#243) is not in mixedCase
+Variable FomoFeast.lastPlayer_re_ent16 (Re-entrancy/reentrancy_buggy_24.sol#252) is not in mixedCase
+Variable FomoFeast.jackpot_re_ent16 (Re-entrancy/reentrancy_buggy_24.sol#253) is not in mixedCase
+Variable FomoFeast.balances_re_ent24 (Re-entrancy/reentrancy_buggy_24.sol#261) is not in mixedCase
+Variable FomoFeast.userBalance_re_ent5 (Re-entrancy/reentrancy_buggy_24.sol#269) is not in mixedCase
+Variable FomoFeast.balances_re_ent15 (Re-entrancy/reentrancy_buggy_24.sol#279) is not in mixedCase
+Variable FomoFeast.counter_re_ent28 (Re-entrancy/reentrancy_buggy_24.sol#285) is not in mixedCase
+Variable FomoFeast.not_called_re_ent34 (Re-entrancy/reentrancy_buggy_24.sol#294) is not in mixedCase
+Variable FomoFeast.counter_re_ent21 (Re-entrancy/reentrancy_buggy_24.sol#303) is not in mixedCase
+Variable FomoFeast.balances_re_ent10 (Re-entrancy/reentrancy_buggy_24.sol#313) is not in mixedCase
+Variable FomoFeast.balances_re_ent21 (Re-entrancy/reentrancy_buggy_24.sol#321) is not in mixedCase
+Variable FomoFeast.userBalance_re_ent12 (Re-entrancy/reentrancy_buggy_24.sol#328) is not in mixedCase
+Variable FomoFeast.redeemableEther_re_ent11 (Re-entrancy/reentrancy_buggy_24.sol#338) is not in mixedCase
+Variable FomoFeast.balances_re_ent1 (Re-entrancy/reentrancy_buggy_24.sol#347) is not in mixedCase
+Variable FomoFeast.not_called_re_ent41 (Re-entrancy/reentrancy_buggy_24.sol#372) is not in mixedCase
+Variable FomoFeast.counter_re_ent42 (Re-entrancy/reentrancy_buggy_24.sol#390) is not in mixedCase
+Variable FomoFeast.lastPlayer_re_ent2 (Re-entrancy/reentrancy_buggy_24.sol#422) is not in mixedCase
+Variable FomoFeast.jackpot_re_ent2 (Re-entrancy/reentrancy_buggy_24.sol#423) is not in mixedCase
+Variable FomoFeast.balances_re_ent17 (Re-entrancy/reentrancy_buggy_24.sol#440) is not in mixedCase
+Variable FomoFeast.lastPlayer_re_ent37 (Re-entrancy/reentrancy_buggy_24.sol#452) is not in mixedCase
+Variable FomoFeast.jackpot_re_ent37 (Re-entrancy/reentrancy_buggy_24.sol#453) is not in mixedCase
+Variable FomoFeast.balances_re_ent3 (Re-entrancy/reentrancy_buggy_24.sol#473) is not in mixedCase
+Variable FomoFeast.lastPlayer_re_ent9 (Re-entrancy/reentrancy_buggy_24.sol#509) is not in mixedCase
+Variable FomoFeast.jackpot_re_ent9 (Re-entrancy/reentrancy_buggy_24.sol#510) is not in mixedCase
+Variable FomoFeast.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_24.sol#550) is not in mixedCase
+Variable FomoFeast.userBalance_re_ent19 (Re-entrancy/reentrancy_buggy_24.sol#572) is not in mixedCase
+Variable FomoFeast.userBalance_re_ent26 (Re-entrancy/reentrancy_buggy_24.sol#590) is not in mixedCase
+Variable FomoFeast.not_called_re_ent20 (Re-entrancy/reentrancy_buggy_24.sol#609) is not in mixedCase
+Variable FomoFeast.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_24.sol#626) is not in mixedCase
+Variable FomoFeast.balances_re_ent38 (Re-entrancy/reentrancy_buggy_24.sol#693) is not in mixedCase
+Variable FomoFeast.redeemableEther_re_ent4 (Re-entrancy/reentrancy_buggy_24.sol#721) is not in mixedCase
+Variable FomoFeast.counter_re_ent7 (Re-entrancy/reentrancy_buggy_24.sol#752) is not in mixedCase
+Variable FomoFeast.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_24.sol#769) is not in mixedCase
+Variable FomoFeast.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_24.sol#770) is not in mixedCase
+Variable FomoFeast.counter_re_ent14 (Re-entrancy/reentrancy_buggy_24.sol#786) is not in mixedCase
+Variable FomoFeast.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_24.sol#804) is not in mixedCase
+Variable FomoFeast.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_24.sol#805) is not in mixedCase
+Variable FomoFeast.balances_re_ent8 (Re-entrancy/reentrancy_buggy_24.sol#830) is not in mixedCase
+Variable FomoFeast.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_24.sol#841) is not in mixedCase
+Variable FomoFeast.balances_re_ent36 (Re-entrancy/reentrancy_buggy_24.sol#870) is not in mixedCase
+Variable FomoFeast.counter_re_ent35 (Re-entrancy/reentrancy_buggy_24.sol#896) is not in mixedCase
+Variable FomoFeast.userBalance_re_ent40 (Re-entrancy/reentrancy_buggy_24.sol#925) is not in mixedCase
+Variable FomoFeast.userBalance_re_ent33 (Re-entrancy/reentrancy_buggy_24.sol#986) is not in mixedCase
+Variable FomoFeast.not_called_re_ent27 (Re-entrancy/reentrancy_buggy_24.sol#1003) is not in mixedCase
+Variable FomoFeast.balances_re_ent31 (Re-entrancy/reentrancy_buggy_24.sol#1048) is not in mixedCase
+Variable FomoFeast.not_called_re_ent13 (Re-entrancy/reentrancy_buggy_24.sol#1066) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in FomoFeast.bug_re_ent20() (Re-entrancy/reentrancy_buggy_24.sol#610-616):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_24.sol#612)
+	State variables written after the call(s):
+	- not_called_re_ent20 = false (Re-entrancy/reentrancy_buggy_24.sol#615)
+Reentrancy in FomoFeast.bug_re_ent27() (Re-entrancy/reentrancy_buggy_24.sol#1004-1010):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_24.sol#1006)
+	State variables written after the call(s):
+	- not_called_re_ent27 = false (Re-entrancy/reentrancy_buggy_24.sol#1009)
+Reentrancy in FomoFeast.bug_re_ent34() (Re-entrancy/reentrancy_buggy_24.sol#295-301):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_24.sol#297)
+	State variables written after the call(s):
+	- not_called_re_ent34 = false (Re-entrancy/reentrancy_buggy_24.sol#300)
+Reentrancy in FomoFeast.bug_re_ent41() (Re-entrancy/reentrancy_buggy_24.sol#373-379):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_24.sol#375)
+	State variables written after the call(s):
+	- not_called_re_ent41 = false (Re-entrancy/reentrancy_buggy_24.sol#378)
+Reentrancy in FomoFeast.bug_re_ent6() (Re-entrancy/reentrancy_buggy_24.sol#244-250):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_24.sol#246)
+	State variables written after the call(s):
+	- not_called_re_ent6 = false (Re-entrancy/reentrancy_buggy_24.sol#249)
+Reentrancy in FomoFeast.buyTicket_re_ent16() (Re-entrancy/reentrancy_buggy_24.sol#254-259):
+	External calls:
+	- ! (lastPlayer_re_ent16.send(jackpot_re_ent16)) (Re-entrancy/reentrancy_buggy_24.sol#255)
+	State variables written after the call(s):
+	- jackpot_re_ent16 = address(this).balance (Re-entrancy/reentrancy_buggy_24.sol#258)
+	- lastPlayer_re_ent16 = msg.sender (Re-entrancy/reentrancy_buggy_24.sol#257)
+Reentrancy in FomoFeast.buyTicket_re_ent2() (Re-entrancy/reentrancy_buggy_24.sol#424-429):
+	External calls:
+	- ! (lastPlayer_re_ent2.send(jackpot_re_ent2)) (Re-entrancy/reentrancy_buggy_24.sol#425)
+	State variables written after the call(s):
+	- jackpot_re_ent2 = address(this).balance (Re-entrancy/reentrancy_buggy_24.sol#428)
+	- lastPlayer_re_ent2 = msg.sender (Re-entrancy/reentrancy_buggy_24.sol#427)
+Reentrancy in FomoFeast.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_24.sol#771-776):
+	External calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (Re-entrancy/reentrancy_buggy_24.sol#772)
+	State variables written after the call(s):
+	- jackpot_re_ent23 = address(this).balance (Re-entrancy/reentrancy_buggy_24.sol#775)
+	- lastPlayer_re_ent23 = msg.sender (Re-entrancy/reentrancy_buggy_24.sol#774)
+Reentrancy in FomoFeast.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_24.sol#806-811):
+	External calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (Re-entrancy/reentrancy_buggy_24.sol#807)
+	State variables written after the call(s):
+	- jackpot_re_ent30 = address(this).balance (Re-entrancy/reentrancy_buggy_24.sol#810)
+	- lastPlayer_re_ent30 = msg.sender (Re-entrancy/reentrancy_buggy_24.sol#809)
+Reentrancy in FomoFeast.buyTicket_re_ent37() (Re-entrancy/reentrancy_buggy_24.sol#454-459):
+	External calls:
+	- ! (lastPlayer_re_ent37.send(jackpot_re_ent37)) (Re-entrancy/reentrancy_buggy_24.sol#455)
+	State variables written after the call(s):
+	- jackpot_re_ent37 = address(this).balance (Re-entrancy/reentrancy_buggy_24.sol#458)
+	- lastPlayer_re_ent37 = msg.sender (Re-entrancy/reentrancy_buggy_24.sol#457)
+Reentrancy in FomoFeast.callme_re_ent14() (Re-entrancy/reentrancy_buggy_24.sol#787-793):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_24.sol#789)
+	State variables written after the call(s):
+	- counter_re_ent14 += 1 (Re-entrancy/reentrancy_buggy_24.sol#792)
+Reentrancy in FomoFeast.callme_re_ent21() (Re-entrancy/reentrancy_buggy_24.sol#304-310):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_24.sol#306)
+	State variables written after the call(s):
+	- counter_re_ent21 += 1 (Re-entrancy/reentrancy_buggy_24.sol#309)
+Reentrancy in FomoFeast.callme_re_ent28() (Re-entrancy/reentrancy_buggy_24.sol#286-292):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_24.sol#288)
+	State variables written after the call(s):
+	- counter_re_ent28 += 1 (Re-entrancy/reentrancy_buggy_24.sol#291)
+Reentrancy in FomoFeast.callme_re_ent35() (Re-entrancy/reentrancy_buggy_24.sol#897-903):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_24.sol#899)
+	State variables written after the call(s):
+	- counter_re_ent35 += 1 (Re-entrancy/reentrancy_buggy_24.sol#902)
+Reentrancy in FomoFeast.callme_re_ent42() (Re-entrancy/reentrancy_buggy_24.sol#391-397):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_24.sol#393)
+	State variables written after the call(s):
+	- counter_re_ent42 += 1 (Re-entrancy/reentrancy_buggy_24.sol#396)
+Reentrancy in FomoFeast.callme_re_ent7() (Re-entrancy/reentrancy_buggy_24.sol#753-759):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_24.sol#755)
+	State variables written after the call(s):
+	- counter_re_ent7 += 1 (Re-entrancy/reentrancy_buggy_24.sol#758)
+Reentrancy in FomoFeast.claimReward_re_ent11() (Re-entrancy/reentrancy_buggy_24.sol#339-345):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent11) (Re-entrancy/reentrancy_buggy_24.sol#343)
+	State variables written after the call(s):
+	- redeemableEther_re_ent11[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_24.sol#344)
+Reentrancy in FomoFeast.claimReward_re_ent18() (Re-entrancy/reentrancy_buggy_24.sol#229-235):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent18) (Re-entrancy/reentrancy_buggy_24.sol#233)
+	State variables written after the call(s):
+	- redeemableEther_re_ent18[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_24.sol#234)
+Reentrancy in FomoFeast.claimReward_re_ent25() (Re-entrancy/reentrancy_buggy_24.sol#551-557):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent25) (Re-entrancy/reentrancy_buggy_24.sol#555)
+	State variables written after the call(s):
+	- redeemableEther_re_ent25[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_24.sol#556)
+Reentrancy in FomoFeast.claimReward_re_ent32() (Re-entrancy/reentrancy_buggy_24.sol#627-633):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent32) (Re-entrancy/reentrancy_buggy_24.sol#631)
+	State variables written after the call(s):
+	- redeemableEther_re_ent32[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_24.sol#632)
+Reentrancy in FomoFeast.claimReward_re_ent39() (Re-entrancy/reentrancy_buggy_24.sol#842-848):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent39) (Re-entrancy/reentrancy_buggy_24.sol#846)
+	State variables written after the call(s):
+	- redeemableEther_re_ent39[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_24.sol#847)
+Reentrancy in FomoFeast.claimReward_re_ent4() (Re-entrancy/reentrancy_buggy_24.sol#722-728):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent4) (Re-entrancy/reentrancy_buggy_24.sol#726)
+	State variables written after the call(s):
+	- redeemableEther_re_ent4[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_24.sol#727)
+Reentrancy in FomoFeast.withdrawBalance_re_ent12() (Re-entrancy/reentrancy_buggy_24.sol#329-336):
+	External calls:
+	- ! (msg.sender.send(userBalance_re_ent12[msg.sender])) (Re-entrancy/reentrancy_buggy_24.sol#332)
+	State variables written after the call(s):
+	- userBalance_re_ent12[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_24.sol#335)
+Reentrancy in FomoFeast.withdrawBalance_re_ent19() (Re-entrancy/reentrancy_buggy_24.sol#573-580):
+	External calls:
+	- ! (msg.sender.send(userBalance_re_ent19[msg.sender])) (Re-entrancy/reentrancy_buggy_24.sol#576)
+	State variables written after the call(s):
+	- userBalance_re_ent19[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_24.sol#579)
+Reentrancy in FomoFeast.withdrawBalance_re_ent5() (Re-entrancy/reentrancy_buggy_24.sol#270-277):
+	External calls:
+	- ! (msg.sender.send(userBalance_re_ent5[msg.sender])) (Re-entrancy/reentrancy_buggy_24.sol#273)
+	State variables written after the call(s):
+	- userBalance_re_ent5[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_24.sol#276)
+Reentrancy in FomoFeast.withdrawFunds_re_ent10(uint256) (Re-entrancy/reentrancy_buggy_24.sol#314-319):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_24.sol#317)
+	State variables written after the call(s):
+	- balances_re_ent10[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_24.sol#318)
+Reentrancy in FomoFeast.withdrawFunds_re_ent24(uint256) (Re-entrancy/reentrancy_buggy_24.sol#262-267):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_24.sol#265)
+	State variables written after the call(s):
+	- balances_re_ent24[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_24.sol#266)
+Reentrancy in FomoFeast.withdrawFunds_re_ent31(uint256) (Re-entrancy/reentrancy_buggy_24.sol#1049-1054):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_24.sol#1052)
+	State variables written after the call(s):
+	- balances_re_ent31[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_24.sol#1053)
+Reentrancy in FomoFeast.withdrawFunds_re_ent38(uint256) (Re-entrancy/reentrancy_buggy_24.sol#694-699):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_24.sol#697)
+	State variables written after the call(s):
+	- balances_re_ent38[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_24.sol#698)
+Reentrancy in FomoFeast.withdraw_balances_re_ent15() (Re-entrancy/reentrancy_buggy_24.sol#280-283):
+	External calls:
+	- msg.sender.send(balances_re_ent15[msg.sender]) (Re-entrancy/reentrancy_buggy_24.sol#281)
+	State variables written after the call(s):
+	- balances_re_ent15[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_24.sol#282)
+Reentrancy in FomoFeast.withdraw_balances_re_ent29() (Re-entrancy/reentrancy_buggy_24.sol#238-241):
+	External calls:
+	- msg.sender.send(balances_re_ent29[msg.sender]) (Re-entrancy/reentrancy_buggy_24.sol#239)
+	State variables written after the call(s):
+	- balances_re_ent29[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_24.sol#240)
+Reentrancy in FomoFeast.withdraw_balances_re_ent36() (Re-entrancy/reentrancy_buggy_24.sol#871-874):
+	External calls:
+	- msg.sender.send(balances_re_ent36[msg.sender]) (Re-entrancy/reentrancy_buggy_24.sol#872)
+	State variables written after the call(s):
+	- balances_re_ent36[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_24.sol#873)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable FomoFeast.userWithdrawCommission().avaliableDCB (Re-entrancy/reentrancy_buggy_24.sol#732) is too similar to FomoFeast.userWithdrawCommission().avaliableSCB (Re-entrancy/reentrancy_buggy_24.sol#734)
+Variable FomoFeast.userWithdrawCommission().avaliableSCA (Re-entrancy/reentrancy_buggy_24.sol#733) is too similar to FomoFeast.userWithdrawCommission().avaliableSCB (Re-entrancy/reentrancy_buggy_24.sol#734)
+Variable FomoFeast.userWithdraw().avaliableSCA (Re-entrancy/reentrancy_buggy_24.sol#708) is too similar to FomoFeast.userWithdrawCommission().avaliableSCB (Re-entrancy/reentrancy_buggy_24.sol#734)
+Variable FomoFeast.balances_re_ent10 (Re-entrancy/reentrancy_buggy_24.sol#313) is too similar to FomoFeast.balances_re_ent17 (Re-entrancy/reentrancy_buggy_24.sol#440)
+Variable FomoFeast.balances_re_ent10 (Re-entrancy/reentrancy_buggy_24.sol#313) is too similar to FomoFeast.balances_re_ent21 (Re-entrancy/reentrancy_buggy_24.sol#321)
+Variable FomoFeast.balances_re_ent10 (Re-entrancy/reentrancy_buggy_24.sol#313) is too similar to FomoFeast.balances_re_ent15 (Re-entrancy/reentrancy_buggy_24.sol#279)
+Variable FomoFeast.balances_re_ent15 (Re-entrancy/reentrancy_buggy_24.sol#279) is too similar to FomoFeast.balances_re_ent17 (Re-entrancy/reentrancy_buggy_24.sol#440)
+Variable FomoFeast.balances_re_ent15 (Re-entrancy/reentrancy_buggy_24.sol#279) is too similar to FomoFeast.balances_re_ent21 (Re-entrancy/reentrancy_buggy_24.sol#321)
+Variable FomoFeast.balances_re_ent15 (Re-entrancy/reentrancy_buggy_24.sol#279) is too similar to FomoFeast.balances_re_ent31 (Re-entrancy/reentrancy_buggy_24.sol#1048)
+Variable FomoFeast.balances_re_ent17 (Re-entrancy/reentrancy_buggy_24.sol#440) is too similar to FomoFeast.balances_re_ent21 (Re-entrancy/reentrancy_buggy_24.sol#321)
+Variable FomoFeast.balances_re_ent21 (Re-entrancy/reentrancy_buggy_24.sol#321) is too similar to FomoFeast.balances_re_ent24 (Re-entrancy/reentrancy_buggy_24.sol#261)
+Variable FomoFeast.balances_re_ent21 (Re-entrancy/reentrancy_buggy_24.sol#321) is too similar to FomoFeast.balances_re_ent29 (Re-entrancy/reentrancy_buggy_24.sol#237)
+Variable FomoFeast.balances_re_ent24 (Re-entrancy/reentrancy_buggy_24.sol#261) is too similar to FomoFeast.balances_re_ent29 (Re-entrancy/reentrancy_buggy_24.sol#237)
+Variable FomoFeast.balances_re_ent1 (Re-entrancy/reentrancy_buggy_24.sol#347) is too similar to FomoFeast.balances_re_ent3 (Re-entrancy/reentrancy_buggy_24.sol#473)
+Variable FomoFeast.balances_re_ent3 (Re-entrancy/reentrancy_buggy_24.sol#473) is too similar to FomoFeast.balances_re_ent8 (Re-entrancy/reentrancy_buggy_24.sol#830)
+Variable FomoFeast.balances_re_ent10 (Re-entrancy/reentrancy_buggy_24.sol#313) is too similar to FomoFeast.balances_re_ent31 (Re-entrancy/reentrancy_buggy_24.sol#1048)
+Variable FomoFeast.balances_re_ent17 (Re-entrancy/reentrancy_buggy_24.sol#440) is too similar to FomoFeast.balances_re_ent31 (Re-entrancy/reentrancy_buggy_24.sol#1048)
+Variable FomoFeast.balances_re_ent21 (Re-entrancy/reentrancy_buggy_24.sol#321) is too similar to FomoFeast.balances_re_ent31 (Re-entrancy/reentrancy_buggy_24.sol#1048)
+Variable FomoFeast.balances_re_ent31 (Re-entrancy/reentrancy_buggy_24.sol#1048) is too similar to FomoFeast.balances_re_ent36 (Re-entrancy/reentrancy_buggy_24.sol#870)
+Variable FomoFeast.balances_re_ent36 (Re-entrancy/reentrancy_buggy_24.sol#870) is too similar to FomoFeast.balances_re_ent38 (Re-entrancy/reentrancy_buggy_24.sol#693)
+Variable FomoFeast.balances_re_ent31 (Re-entrancy/reentrancy_buggy_24.sol#1048) is too similar to FomoFeast.balances_re_ent38 (Re-entrancy/reentrancy_buggy_24.sol#693)
+Variable FomoFeast.balances_re_ent1 (Re-entrancy/reentrancy_buggy_24.sol#347) is too similar to FomoFeast.balances_re_ent8 (Re-entrancy/reentrancy_buggy_24.sol#830)
+Variable FomoFeast.counter_re_ent14 (Re-entrancy/reentrancy_buggy_24.sol#786) is too similar to FomoFeast.counter_re_ent21 (Re-entrancy/reentrancy_buggy_24.sol#303)
+Variable FomoFeast.counter_re_ent14 (Re-entrancy/reentrancy_buggy_24.sol#786) is too similar to FomoFeast.counter_re_ent42 (Re-entrancy/reentrancy_buggy_24.sol#390)
+Variable FomoFeast.counter_re_ent21 (Re-entrancy/reentrancy_buggy_24.sol#303) is too similar to FomoFeast.counter_re_ent42 (Re-entrancy/reentrancy_buggy_24.sol#390)
+Variable FomoFeast.counter_re_ent21 (Re-entrancy/reentrancy_buggy_24.sol#303) is too similar to FomoFeast.counter_re_ent28 (Re-entrancy/reentrancy_buggy_24.sol#285)
+Variable FomoFeast.counter_re_ent28 (Re-entrancy/reentrancy_buggy_24.sol#285) is too similar to FomoFeast.counter_re_ent42 (Re-entrancy/reentrancy_buggy_24.sol#390)
+Variable FomoFeast.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_24.sol#770) is too similar to FomoFeast.jackpot_re_ent37 (Re-entrancy/reentrancy_buggy_24.sol#453)
+Variable FomoFeast.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_24.sol#770) is too similar to FomoFeast.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_24.sol#805)
+Variable FomoFeast.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_24.sol#805) is too similar to FomoFeast.jackpot_re_ent37 (Re-entrancy/reentrancy_buggy_24.sol#453)
+Variable FomoFeast.jackpot_re_ent2 (Re-entrancy/reentrancy_buggy_24.sol#423) is too similar to FomoFeast.jackpot_re_ent9 (Re-entrancy/reentrancy_buggy_24.sol#510)
+Variable FomoFeast.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_24.sol#769) is too similar to FomoFeast.lastPlayer_re_ent37 (Re-entrancy/reentrancy_buggy_24.sol#452)
+Variable FomoFeast.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_24.sol#769) is too similar to FomoFeast.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_24.sol#804)
+Variable FomoFeast.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_24.sol#804) is too similar to FomoFeast.lastPlayer_re_ent37 (Re-entrancy/reentrancy_buggy_24.sol#452)
+Variable FomoFeast.lastPlayer_re_ent2 (Re-entrancy/reentrancy_buggy_24.sol#422) is too similar to FomoFeast.lastPlayer_re_ent9 (Re-entrancy/reentrancy_buggy_24.sol#509)
+Variable FomoFeast.not_called_re_ent13 (Re-entrancy/reentrancy_buggy_24.sol#1066) is too similar to FomoFeast.not_called_re_ent41 (Re-entrancy/reentrancy_buggy_24.sol#372)
+Variable FomoFeast.not_called_re_ent20 (Re-entrancy/reentrancy_buggy_24.sol#609) is too similar to FomoFeast.not_called_re_ent27 (Re-entrancy/reentrancy_buggy_24.sol#1003)
+Variable FomoFeast.not_called_re_ent13 (Re-entrancy/reentrancy_buggy_24.sol#1066) is too similar to FomoFeast.not_called_re_ent34 (Re-entrancy/reentrancy_buggy_24.sol#294)
+Variable FomoFeast.not_called_re_ent34 (Re-entrancy/reentrancy_buggy_24.sol#294) is too similar to FomoFeast.not_called_re_ent41 (Re-entrancy/reentrancy_buggy_24.sol#372)
+Variable FomoFeast.redeemableEther_re_ent11 (Re-entrancy/reentrancy_buggy_24.sol#338) is too similar to FomoFeast.redeemableEther_re_ent18 (Re-entrancy/reentrancy_buggy_24.sol#228)
+Variable FomoFeast.redeemableEther_re_ent11 (Re-entrancy/reentrancy_buggy_24.sol#338) is too similar to FomoFeast.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_24.sol#550)
+Variable FomoFeast.redeemableEther_re_ent18 (Re-entrancy/reentrancy_buggy_24.sol#228) is too similar to FomoFeast.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_24.sol#550)
+Variable FomoFeast.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_24.sol#550) is too similar to FomoFeast.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_24.sol#626)
+Variable FomoFeast.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_24.sol#550) is too similar to FomoFeast.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_24.sol#841)
+Variable FomoFeast.redeemableEther_re_ent11 (Re-entrancy/reentrancy_buggy_24.sol#338) is too similar to FomoFeast.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_24.sol#626)
+Variable FomoFeast.redeemableEther_re_ent18 (Re-entrancy/reentrancy_buggy_24.sol#228) is too similar to FomoFeast.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_24.sol#626)
+Variable FomoFeast.redeemableEther_re_ent11 (Re-entrancy/reentrancy_buggy_24.sol#338) is too similar to FomoFeast.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_24.sol#841)
+Variable FomoFeast.redeemableEther_re_ent18 (Re-entrancy/reentrancy_buggy_24.sol#228) is too similar to FomoFeast.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_24.sol#841)
+Variable FomoFeast.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_24.sol#626) is too similar to FomoFeast.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_24.sol#841)
+Variable FomoFeast.claimReward_re_ent11().transferValue_re_ent11 (Re-entrancy/reentrancy_buggy_24.sol#342) is too similar to FomoFeast.claimReward_re_ent18().transferValue_re_ent18 (Re-entrancy/reentrancy_buggy_24.sol#232)
+Variable FomoFeast.claimReward_re_ent18().transferValue_re_ent18 (Re-entrancy/reentrancy_buggy_24.sol#232) is too similar to FomoFeast.claimReward_re_ent25().transferValue_re_ent25 (Re-entrancy/reentrancy_buggy_24.sol#554)
+Variable FomoFeast.claimReward_re_ent11().transferValue_re_ent11 (Re-entrancy/reentrancy_buggy_24.sol#342) is too similar to FomoFeast.claimReward_re_ent25().transferValue_re_ent25 (Re-entrancy/reentrancy_buggy_24.sol#554)
+Variable FomoFeast.claimReward_re_ent11().transferValue_re_ent11 (Re-entrancy/reentrancy_buggy_24.sol#342) is too similar to FomoFeast.claimReward_re_ent32().transferValue_re_ent32 (Re-entrancy/reentrancy_buggy_24.sol#630)
+Variable FomoFeast.claimReward_re_ent18().transferValue_re_ent18 (Re-entrancy/reentrancy_buggy_24.sol#232) is too similar to FomoFeast.claimReward_re_ent32().transferValue_re_ent32 (Re-entrancy/reentrancy_buggy_24.sol#630)
+Variable FomoFeast.claimReward_re_ent25().transferValue_re_ent25 (Re-entrancy/reentrancy_buggy_24.sol#554) is too similar to FomoFeast.claimReward_re_ent32().transferValue_re_ent32 (Re-entrancy/reentrancy_buggy_24.sol#630)
+Variable FomoFeast.claimReward_re_ent32().transferValue_re_ent32 (Re-entrancy/reentrancy_buggy_24.sol#630) is too similar to FomoFeast.claimReward_re_ent39().transferValue_re_ent39 (Re-entrancy/reentrancy_buggy_24.sol#845)
+Variable FomoFeast.claimReward_re_ent11().transferValue_re_ent11 (Re-entrancy/reentrancy_buggy_24.sol#342) is too similar to FomoFeast.claimReward_re_ent39().transferValue_re_ent39 (Re-entrancy/reentrancy_buggy_24.sol#845)
+Variable FomoFeast.claimReward_re_ent18().transferValue_re_ent18 (Re-entrancy/reentrancy_buggy_24.sol#232) is too similar to FomoFeast.claimReward_re_ent39().transferValue_re_ent39 (Re-entrancy/reentrancy_buggy_24.sol#845)
+Variable FomoFeast.claimReward_re_ent25().transferValue_re_ent25 (Re-entrancy/reentrancy_buggy_24.sol#554) is too similar to FomoFeast.claimReward_re_ent39().transferValue_re_ent39 (Re-entrancy/reentrancy_buggy_24.sol#845)
+Variable FomoFeast.userBalance_re_ent12 (Re-entrancy/reentrancy_buggy_24.sol#328) is too similar to FomoFeast.userBalance_re_ent19 (Re-entrancy/reentrancy_buggy_24.sol#572)
+Variable FomoFeast.userBalance_re_ent12 (Re-entrancy/reentrancy_buggy_24.sol#328) is too similar to FomoFeast.userBalance_re_ent26 (Re-entrancy/reentrancy_buggy_24.sol#590)
+Variable FomoFeast.calcDynamicCommission().user_scope_1 (Re-entrancy/reentrancy_buggy_24.sol#943) is too similar to FomoFeast.calcDynamicCommission().user_scope_3 (Re-entrancy/reentrancy_buggy_24.sol#979)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+Re-entrancy/reentrancy_buggy_24.sol analyzed (2 contracts with 80 detectors), 254 result(s) found

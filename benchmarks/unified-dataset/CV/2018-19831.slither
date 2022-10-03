@@ -1,0 +1,84 @@
+
+Cryptbond.totalSupply (CV/2018-19831.sol#68) shadows:
+	- ERC20Basic.totalSupply (CV/2018-19831.sol#37)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variable-shadowing-from-abstract-contracts
+
+Cryptbond.transferOwnership(address) (CV/2018-19831.sol#117-121) should emit an event for: 
+	- owner = newOwner (CV/2018-19831.sol#119) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+Cryptbond.setParameters(uint256,uint256) (CV/2018-19831.sol#112-115) should emit an event for: 
+	- value = _value (CV/2018-19831.sol#113) 
+	- minReq = _minReq (CV/2018-19831.sol#114) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+
+Cryptbond.onlyWhitelist() (CV/2018-19831.sol#95-98) compares to a boolean constant:
+	-require(bool)(blacklist[msg.sender] == false) (CV/2018-19831.sol#96)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#boolean-equality
+
+Cryptbond.distr(address,uint256) (CV/2018-19831.sol#141-152) has costly operations inside a loop:
+	- totalDistributed = totalDistributed.add(_amount) (CV/2018-19831.sol#142)
+Cryptbond.distr(address,uint256) (CV/2018-19831.sol#141-152) has costly operations inside a loop:
+	- totalRemaining = totalRemaining.sub(_amount) (CV/2018-19831.sol#143)
+Cryptbond.distributeAmounts(address[],uint256[]) (CV/2018-19831.sol#184-197) has costly operations inside a loop:
+	- distributionFinished = true (CV/2018-19831.sol#194)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#costly-operations-inside-a-loop
+
+SafeMath.div(uint256,uint256) (CV/2018-19831.sol#14-17) is never used and should be removed
+SafeMath.mul(uint256,uint256) (CV/2018-19831.sol#8-12) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.4.19 (CV/2018-19831.sol#5) allows old versions
+solc-0.4.19 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function Cryptbond.ToOwner() (CV/2018-19831.sol#99-104) is not in mixedCase
+Function Cryptbond.Mining24(uint256,uint256) (CV/2018-19831.sol#105-110) is not in mixedCase
+Parameter Cryptbond.Mining24(uint256,uint256)._value (CV/2018-19831.sol#105) is not in mixedCase
+Parameter Cryptbond.Mining24(uint256,uint256)._minReq (CV/2018-19831.sol#105) is not in mixedCase
+Parameter Cryptbond.setParameters(uint256,uint256)._value (CV/2018-19831.sol#112) is not in mixedCase
+Parameter Cryptbond.setParameters(uint256,uint256)._minReq (CV/2018-19831.sol#112) is not in mixedCase
+Parameter Cryptbond.distr(address,uint256)._to (CV/2018-19831.sol#141) is not in mixedCase
+Parameter Cryptbond.distr(address,uint256)._amount (CV/2018-19831.sol#141) is not in mixedCase
+Parameter Cryptbond.balanceOf(address)._owner (CV/2018-19831.sol#229) is not in mixedCase
+Parameter Cryptbond.transfer(address,uint256)._to (CV/2018-19831.sol#239) is not in mixedCase
+Parameter Cryptbond.transfer(address,uint256)._amount (CV/2018-19831.sol#239) is not in mixedCase
+Parameter Cryptbond.transferFrom(address,address,uint256)._from (CV/2018-19831.sol#250) is not in mixedCase
+Parameter Cryptbond.transferFrom(address,address,uint256)._to (CV/2018-19831.sol#250) is not in mixedCase
+Parameter Cryptbond.transferFrom(address,address,uint256)._amount (CV/2018-19831.sol#250) is not in mixedCase
+Parameter Cryptbond.approve(address,uint256)._spender (CV/2018-19831.sol#263) is not in mixedCase
+Parameter Cryptbond.approve(address,uint256)._value (CV/2018-19831.sol#263) is not in mixedCase
+Parameter Cryptbond.allowance(address,address)._owner (CV/2018-19831.sol#271) is not in mixedCase
+Parameter Cryptbond.allowance(address,address)._spender (CV/2018-19831.sol#271) is not in mixedCase
+Parameter Cryptbond.burn(uint256)._value (CV/2018-19831.sol#286) is not in mixedCase
+Parameter Cryptbond.withdrawForeignTokens(address)._tokenContract (CV/2018-19831.sol#298) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Cryptbond.slitherConstructorVariables() (CV/2018-19831.sol#56-306) uses literals with too many digits:
+	- totalSupply = 3000000000 (CV/2018-19831.sol#68)
+Cryptbond.slitherConstructorVariables() (CV/2018-19831.sol#56-306) uses literals with too many digits:
+	- price = 1000000000000 (CV/2018-19831.sol#198)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+Cryptbond.totalReserved (CV/2018-19831.sol#69) is never used in Cryptbond (CV/2018-19831.sol#56-306)
+Cryptbond.totalBounties (CV/2018-19831.sol#70) is never used in Cryptbond (CV/2018-19831.sol#56-306)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+
+Cryptbond.price (CV/2018-19831.sol#198) should be constant
+Cryptbond.totalBounties (CV/2018-19831.sol#70) should be constant
+Cryptbond.totalReserved (CV/2018-19831.sol#69) should be constant
+ERC20Basic.totalSupply (CV/2018-19831.sol#37) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+enableWhitelist(address[]) should be declared external:
+	- Cryptbond.enableWhitelist(address[]) (CV/2018-19831.sol#123-127)
+disableWhitelist(address[]) should be declared external:
+	- Cryptbond.disableWhitelist(address[]) (CV/2018-19831.sol#129-133)
+airdrop(address[]) should be declared external:
+	- Cryptbond.airdrop(address[]) (CV/2018-19831.sol#154-167)
+distribution(address[],uint256) should be declared external:
+	- Cryptbond.distribution(address[],uint256) (CV/2018-19831.sol#169-182)
+distributeAmounts(address[],uint256[]) should be declared external:
+	- Cryptbond.distributeAmounts(address[],uint256[]) (CV/2018-19831.sol#184-197)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+CV/2018-19831.sol analyzed (6 contracts with 80 detectors), 44 result(s) found

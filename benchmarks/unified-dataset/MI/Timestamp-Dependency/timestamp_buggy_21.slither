@@ -1,0 +1,353 @@
+
+StableDEX.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_21.sol#114-122) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_21.sol#120)
+StableDEX.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_21.sol#138-146) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_21.sol#144)
+StableDEX.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_21.sol#149-157) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_21.sol#155)
+StableDEX.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_21.sol#166-174) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_21.sol#172)
+StableDEX.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_21.sol#201-209) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_21.sol#207)
+StableDEX.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_21.sol#233-241) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_21.sol#239)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+StableDEX.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_21.sol#114-122) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_21.sol#119)" 
+StableDEX.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_21.sol#138-146) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_21.sol#143)" 
+StableDEX.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_21.sol#149-157) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_21.sol#154)" 
+StableDEX.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_21.sol#166-174) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_21.sol#171)" 
+StableDEX.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_21.sol#201-209) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_21.sol#206)" 
+StableDEX.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_21.sol#233-241) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_21.sol#238)" 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG
+
+StableDEX.tokenDeposit(address,uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#223-232) ignores return value by Token(tokenaddr).transferFrom(msg.sender,address(this),tokenAmount) (Timestamp-Dependency/timestamp_buggy_21.sol#228)
+StableDEX.withdraw(uint8,address,uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#243-263) ignores return value by Token(tokenaddr).transfer(msg.sender,(amount.sub(withdrawfee[tokenaddr]))) (Timestamp-Dependency/timestamp_buggy_21.sol#257)
+StableDEX.adminProfitWithdraw(uint8,address) (Timestamp-Dependency/timestamp_buggy_21.sol#268-284) ignores return value by Token(tokenAddr).transfer(admin,feeAmount[admin][tokenAddr]) (Timestamp-Dependency/timestamp_buggy_21.sol#278)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-transfer
+
+StableDEX.verify(string,uint8,bytes32,bytes32) (Timestamp-Dependency/timestamp_buggy_21.sol#310-349) performs a multiplication on the result of a division:
+	-digit = length.div(divisor) (Timestamp-Dependency/timestamp_buggy_21.sol#322)
+	-divisor = divisor.div(10) (Timestamp-Dependency/timestamp_buggy_21.sol#326)
+	-length = length.sub(digit.mul(divisor)) (Timestamp-Dependency/timestamp_buggy_21.sol#331)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+
+Token.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#18-20) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_21.sol#19)
+Token.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#12-15) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_21.sol#14)
+Token.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#23-25) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_21.sol#24)
+Token.play_tmstmp7(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#6-9) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_21.sol#8)
+StableDEX.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_21.sol#138-146) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_21.sol#143)
+StableDEX.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_21.sol#149-157) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_21.sol#154)
+StableDEX.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_21.sol#201-209) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_21.sol#206)
+StableDEX.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_21.sol#166-174) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_21.sol#171)
+StableDEX.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_21.sol#233-241) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_21.sol#238)
+StableDEX.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_21.sol#114-122) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_21.sol#119)
+StableDEX.play_tmstmp19(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#126-129) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_21.sol#128)
+StableDEX.play_tmstmp26(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#133-135) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_21.sol#134)
+StableDEX.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#286-289) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_21.sol#288)
+StableDEX.play_tmstmp3(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#71-74) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_21.sol#73)
+StableDEX.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#303-306) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_21.sol#305)
+StableDEX.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#218-221) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_21.sol#220)
+StableDEX.play_tmstmp38(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#161-163) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_21.sol#162)
+StableDEX.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#189-192) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_21.sol#191)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+Reentrancy in StableDEX.adminProfitWithdraw(uint8,address) (Timestamp-Dependency/timestamp_buggy_21.sol#268-284):
+	External calls:
+	- Token(tokenAddr).transfer(admin,feeAmount[admin][tokenAddr]) (Timestamp-Dependency/timestamp_buggy_21.sol#278)
+	State variables written after the call(s):
+	- feeAmount[admin][tokenAddr] = 0 (Timestamp-Dependency/timestamp_buggy_21.sol#279)
+Reentrancy in StableDEX.withdraw(uint8,address,uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#243-263):
+	External calls:
+	- Token(tokenaddr).transfer(msg.sender,(amount.sub(withdrawfee[tokenaddr]))) (Timestamp-Dependency/timestamp_buggy_21.sol#257)
+	State variables written after the call(s):
+	- userDetails[msg.sender][tokenaddr] = userDetails[msg.sender][tokenaddr].sub(amount) (Timestamp-Dependency/timestamp_buggy_21.sol#258)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
+
+StableDEX.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_21.sol#234) is a local variable never initialized
+StableDEX.bug_tmstmp4().pastBlockTime_tmstmp4 (Timestamp-Dependency/timestamp_buggy_21.sol#167) is a local variable never initialized
+StableDEX.makeOrder(uint256[9],address[2],string,uint8,bytes32,bytes32).amount__ (Timestamp-Dependency/timestamp_buggy_21.sol#377) is a local variable never initialized
+StableDEX.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_21.sol#150) is a local variable never initialized
+StableDEX.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_21.sol#202) is a local variable never initialized
+StableDEX.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_21.sol#139) is a local variable never initialized
+StableDEX.bug_tmstmp8().pastBlockTime_tmstmp8 (Timestamp-Dependency/timestamp_buggy_21.sol#115) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+StableDEX.constructor(address,address)._admin (Timestamp-Dependency/timestamp_buggy_21.sol#109) lacks a zero-check on :
+		- admin = _admin (Timestamp-Dependency/timestamp_buggy_21.sol#110)
+StableDEX.constructor(address,address).feeAddress_ (Timestamp-Dependency/timestamp_buggy_21.sol#109) lacks a zero-check on :
+		- feeAddress = feeAddress_ (Timestamp-Dependency/timestamp_buggy_21.sol#111)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Reentrancy in StableDEX.withdraw(uint8,address,uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#243-263):
+	External calls:
+	- Token(tokenaddr).transfer(msg.sender,(amount.sub(withdrawfee[tokenaddr]))) (Timestamp-Dependency/timestamp_buggy_21.sol#257)
+	State variables written after the call(s):
+	- feeAmount[admin][tokenaddr] = feeAmount[admin][tokenaddr].add(withdrawfee[tokenaddr]) (Timestamp-Dependency/timestamp_buggy_21.sol#259)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-2
+
+Reentrancy in StableDEX.tokenDeposit(address,uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#223-232):
+	External calls:
+	- Token(tokenaddr).transferFrom(msg.sender,address(this),tokenAmount) (Timestamp-Dependency/timestamp_buggy_21.sol#228)
+	Event emitted after the call(s):
+	- DepositandWithdraw(msg.sender,tokenaddr,tokenAmount,0) (Timestamp-Dependency/timestamp_buggy_21.sol#229)
+Reentrancy in StableDEX.withdraw(uint8,address,uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#243-263):
+	External calls:
+	- Token(tokenaddr).transfer(msg.sender,(amount.sub(withdrawfee[tokenaddr]))) (Timestamp-Dependency/timestamp_buggy_21.sol#257)
+	External calls sending eth:
+	- msg.sender.transfer(amount.sub(withdrawfee[address(0)])) (Timestamp-Dependency/timestamp_buggy_21.sol#249)
+	Event emitted after the call(s):
+	- DepositandWithdraw(msg.sender,tokenaddr,amount,1) (Timestamp-Dependency/timestamp_buggy_21.sol#261)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+
+Token.play_tmstmp7(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#6-9) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_21.sol#8)
+Token.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#12-15) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_21.sol#14)
+Token.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#18-20) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_21.sol#19)
+Token.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#23-25) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_21.sol#24)
+StableDEX.bug_tmstmp37() (Timestamp-Dependency/timestamp_buggy_21.sol#65-67) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_21.sol#66)
+StableDEX.play_tmstmp3(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#71-74) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_21.sol#73)
+StableDEX.bug_tmstmp9() (Timestamp-Dependency/timestamp_buggy_21.sol#77-79) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_21.sol#78)
+StableDEX.bug_tmstmp25() (Timestamp-Dependency/timestamp_buggy_21.sol#82-84) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_21.sol#83)
+StableDEX.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_21.sol#114-122) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp8) (Timestamp-Dependency/timestamp_buggy_21.sol#117)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_21.sol#119)
+StableDEX.play_tmstmp19(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#126-129) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_21.sol#128)
+StableDEX.play_tmstmp26(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#133-135) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_21.sol#134)
+StableDEX.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_21.sol#138-146) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp20) (Timestamp-Dependency/timestamp_buggy_21.sol#141)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_21.sol#143)
+StableDEX.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_21.sol#149-157) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp32) (Timestamp-Dependency/timestamp_buggy_21.sol#152)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_21.sol#154)
+StableDEX.play_tmstmp38(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#161-163) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_21.sol#162)
+StableDEX.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_21.sol#166-174) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp4) (Timestamp-Dependency/timestamp_buggy_21.sol#169)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_21.sol#171)
+StableDEX.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#189-192) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_21.sol#191)
+StableDEX.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_21.sol#201-209) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp36) (Timestamp-Dependency/timestamp_buggy_21.sol#204)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_21.sol#206)
+StableDEX.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#218-221) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_21.sol#220)
+StableDEX.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_21.sol#233-241) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp40) (Timestamp-Dependency/timestamp_buggy_21.sol#236)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_21.sol#238)
+StableDEX.bug_tmstmp33() (Timestamp-Dependency/timestamp_buggy_21.sol#264-266) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_21.sol#265)
+StableDEX.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#286-289) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_21.sol#288)
+StableDEX.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#303-306) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_21.sol#305)
+StableDEX.bug_tmstmp13() (Timestamp-Dependency/timestamp_buggy_21.sol#454-456) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_21.sol#455)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+StableDEX.verify(string,uint8,bytes32,bytes32) (Timestamp-Dependency/timestamp_buggy_21.sol#310-349) uses assembly
+	- INLINE ASM (Timestamp-Dependency/timestamp_buggy_21.sol#314-317)
+	- INLINE ASM (Timestamp-Dependency/timestamp_buggy_21.sol#335-337)
+	- INLINE ASM (Timestamp-Dependency/timestamp_buggy_21.sol#344-346)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#assembly-usage
+
+StableDEX.addToken(address,string,uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#194-200) compares to a boolean constant:
+	-require(bool)(msg.sender == feeAddress && tokendetails[tokenAddress].status == false) (Timestamp-Dependency/timestamp_buggy_21.sol#195)
+StableDEX.tokenDeposit(address,uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#223-232) compares to a boolean constant:
+	-require(bool)(tokenAmount > 0 && tokendetails[tokenaddr].status == true) (Timestamp-Dependency/timestamp_buggy_21.sol#225)
+StableDEX.withdraw(uint8,address,uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#243-263) compares to a boolean constant:
+	-require(bool)(tokenaddr != address(0) && tokendetails[tokenaddr].status == true) (Timestamp-Dependency/timestamp_buggy_21.sol#255)
+StableDEX.dexstatuscheck() (Timestamp-Dependency/timestamp_buggy_21.sol#177-180) compares to a boolean constant:
+	-require(bool)(dexStatus == true) (Timestamp-Dependency/timestamp_buggy_21.sol#178)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#boolean-equality
+
+Pragma version^0.5.12 (Timestamp-Dependency/timestamp_buggy_21.sol#1) allows old versions
+solc-0.5.12 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function Token.play_tmstmp7(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#6-9) is not in mixedCase
+Function Token.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#12-15) is not in mixedCase
+Function Token.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#18-20) is not in mixedCase
+Function Token.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#23-25) is not in mixedCase
+Variable Token.winner_tmstmp7 (Timestamp-Dependency/timestamp_buggy_21.sol#5) is not in mixedCase
+Variable Token.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_21.sol#11) is not in mixedCase
+Variable Token.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_21.sol#17) is not in mixedCase
+Variable Token.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_21.sol#22) is not in mixedCase
+Struct StableDEX.orders (Timestamp-Dependency/timestamp_buggy_21.sol#87-99) is not in CapWords
+Struct StableDEX.tokens (Timestamp-Dependency/timestamp_buggy_21.sol#101-106) is not in CapWords
+Function StableDEX.bug_tmstmp37() (Timestamp-Dependency/timestamp_buggy_21.sol#65-67) is not in mixedCase
+Function StableDEX.play_tmstmp3(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#71-74) is not in mixedCase
+Function StableDEX.bug_tmstmp9() (Timestamp-Dependency/timestamp_buggy_21.sol#77-79) is not in mixedCase
+Function StableDEX.bug_tmstmp25() (Timestamp-Dependency/timestamp_buggy_21.sol#82-84) is not in mixedCase
+Function StableDEX.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_21.sol#114-122) is not in mixedCase
+Function StableDEX.play_tmstmp19(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#126-129) is not in mixedCase
+Function StableDEX.play_tmstmp26(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#133-135) is not in mixedCase
+Function StableDEX.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_21.sol#138-146) is not in mixedCase
+Function StableDEX.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_21.sol#149-157) is not in mixedCase
+Function StableDEX.play_tmstmp38(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#161-163) is not in mixedCase
+Function StableDEX.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_21.sol#166-174) is not in mixedCase
+Function StableDEX.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#189-192) is not in mixedCase
+Function StableDEX.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_21.sol#201-209) is not in mixedCase
+Function StableDEX.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#218-221) is not in mixedCase
+Function StableDEX.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_21.sol#233-241) is not in mixedCase
+Function StableDEX.bug_tmstmp33() (Timestamp-Dependency/timestamp_buggy_21.sol#264-266) is not in mixedCase
+Function StableDEX.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#286-289) is not in mixedCase
+Function StableDEX.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#303-306) is not in mixedCase
+Function StableDEX.bug_tmstmp13() (Timestamp-Dependency/timestamp_buggy_21.sol#454-456) is not in mixedCase
+Variable StableDEX.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_21.sol#62) is not in mixedCase
+Variable StableDEX.winner_tmstmp3 (Timestamp-Dependency/timestamp_buggy_21.sol#70) is not in mixedCase
+Variable StableDEX.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_21.sol#125) is not in mixedCase
+Variable StableDEX.Order (Timestamp-Dependency/timestamp_buggy_21.sol#130) is not in mixedCase
+Variable StableDEX.winner_tmstmp26 (Timestamp-Dependency/timestamp_buggy_21.sol#132) is not in mixedCase
+Variable StableDEX.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_21.sol#160) is not in mixedCase
+Variable StableDEX.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_21.sol#181) is not in mixedCase
+Variable StableDEX.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_21.sol#188) is not in mixedCase
+Variable StableDEX.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_21.sol#217) is not in mixedCase
+Variable StableDEX.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_21.sol#285) is not in mixedCase
+Variable StableDEX.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_21.sol#302) is not in mixedCase
+Variable StableDEX.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_21.sol#470) is not in mixedCase
+Variable StableDEX.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_21.sol#476) is not in mixedCase
+Variable StableDEX.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_21.sol#481) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in StableDEX.adminProfitWithdraw(uint8,address) (Timestamp-Dependency/timestamp_buggy_21.sol#268-284):
+	External calls:
+	- admin.transfer(feeAmount[admin][address(0)]) (Timestamp-Dependency/timestamp_buggy_21.sol#272)
+	State variables written after the call(s):
+	- feeAmount[admin][address(0)] = 0 (Timestamp-Dependency/timestamp_buggy_21.sol#273)
+Reentrancy in StableDEX.withdraw(uint8,address,uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#243-263):
+	External calls:
+	- msg.sender.transfer(amount.sub(withdrawfee[address(0)])) (Timestamp-Dependency/timestamp_buggy_21.sol#249)
+	State variables written after the call(s):
+	- feeAmount[admin][address(0)] = feeAmount[admin][address(0)].add(withdrawfee[address(0)]) (Timestamp-Dependency/timestamp_buggy_21.sol#251)
+	- userDetails[msg.sender][address(0)] = userDetails[msg.sender][address(0)].sub(amount) (Timestamp-Dependency/timestamp_buggy_21.sol#250)
+	Event emitted after the call(s):
+	- DepositandWithdraw(msg.sender,tokenaddr,amount,1) (Timestamp-Dependency/timestamp_buggy_21.sol#261)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable Token.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_21.sol#11) is too similar to Token.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_21.sol#22)
+Variable StableDEX.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_21.sol#476) is too similar to StableDEX.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_21.sol#181)
+Variable StableDEX.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_21.sol#476) is too similar to StableDEX.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_21.sol#470)
+Variable StableDEX.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_21.sol#476) is too similar to StableDEX.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_21.sol#481)
+Variable StableDEX.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_21.sol#481) is too similar to StableDEX.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_21.sol#181)
+Variable StableDEX.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_21.sol#481) is too similar to StableDEX.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_21.sol#62)
+Variable StableDEX.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_21.sol#481) is too similar to StableDEX.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_21.sol#470)
+Variable StableDEX.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_21.sol#476) is too similar to StableDEX.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_21.sol#62)
+Variable StableDEX.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_21.sol#181) is too similar to StableDEX.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_21.sol#62)
+Variable StableDEX.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_21.sol#62) is too similar to StableDEX.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_21.sol#470)
+Variable StableDEX.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_21.sol#181) is too similar to StableDEX.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_21.sol#470)
+Variable StableDEX.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_21.sol#139) is too similar to StableDEX.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_21.sol#150)
+Variable StableDEX.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_21.sol#139) is too similar to StableDEX.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_21.sol#202)
+Variable StableDEX.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_21.sol#150) is too similar to StableDEX.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_21.sol#202)
+Variable StableDEX.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_21.sol#139) is too similar to StableDEX.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_21.sol#234)
+Variable StableDEX.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_21.sol#150) is too similar to StableDEX.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_21.sol#234)
+Variable StableDEX.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_21.sol#202) is too similar to StableDEX.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_21.sol#234)
+Variable StableDEX.bug_tmstmp4().pastBlockTime_tmstmp4 (Timestamp-Dependency/timestamp_buggy_21.sol#167) is too similar to StableDEX.bug_tmstmp8().pastBlockTime_tmstmp8 (Timestamp-Dependency/timestamp_buggy_21.sol#115)
+Variable StableDEX.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_21.sol#125) is too similar to StableDEX.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_21.sol#302)
+Variable StableDEX.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_21.sol#125) is too similar to StableDEX.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_21.sol#188)
+Variable StableDEX.winner_tmstmp26 (Timestamp-Dependency/timestamp_buggy_21.sol#132) is too similar to StableDEX.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_21.sol#285)
+Variable StableDEX.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_21.sol#302) is too similar to StableDEX.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_21.sol#217)
+Variable StableDEX.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_21.sol#302) is too similar to StableDEX.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_21.sol#160)
+Variable StableDEX.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_21.sol#217) is too similar to StableDEX.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_21.sol#160)
+Variable StableDEX.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_21.sol#160) is too similar to StableDEX.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_21.sol#188)
+Variable StableDEX.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_21.sol#302) is too similar to StableDEX.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_21.sol#188)
+Variable StableDEX.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_21.sol#217) is too similar to StableDEX.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_21.sol#188)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+StableDEX.verify(string,uint8,bytes32,bytes32) (Timestamp-Dependency/timestamp_buggy_21.sol#310-349) uses literals with too many digits:
+	- header = Ethereum Signed Message:
+000000 (Timestamp-Dependency/timestamp_buggy_21.sol#311)
+StableDEX.verify(string,uint8,bytes32,bytes32) (Timestamp-Dependency/timestamp_buggy_21.sol#310-349) uses literals with too many digits:
+	- divisor = 100000 (Timestamp-Dependency/timestamp_buggy_21.sol#320)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+Token (Timestamp-Dependency/timestamp_buggy_21.sol#3-26) does not implement functions:
+	- Token.allowance(address,address) (Timestamp-Dependency/timestamp_buggy_21.sol#21)
+	- Token.balanceOf(address) (Timestamp-Dependency/timestamp_buggy_21.sol#16)
+	- Token.transfer(address,uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#4)
+	- Token.transferFrom(address,address,uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#10)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unimplemented-functions
+
+StableDEX.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_21.sol#62) is never used in StableDEX (Timestamp-Dependency/timestamp_buggy_21.sol#59-483)
+StableDEX.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_21.sol#181) is never used in StableDEX (Timestamp-Dependency/timestamp_buggy_21.sol#59-483)
+StableDEX.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_21.sol#470) is never used in StableDEX (Timestamp-Dependency/timestamp_buggy_21.sol#59-483)
+StableDEX.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_21.sol#476) is never used in StableDEX (Timestamp-Dependency/timestamp_buggy_21.sol#59-483)
+StableDEX.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_21.sol#481) is never used in StableDEX (Timestamp-Dependency/timestamp_buggy_21.sol#59-483)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+
+StableDEX.tokenId (Timestamp-Dependency/timestamp_buggy_21.sol#85) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+addToken(address,string,uint256) should be declared external:
+	- StableDEX.addToken(address,string,uint256) (Timestamp-Dependency/timestamp_buggy_21.sol#194-200)
+Moreover, the following function parameters should change its data location:
+tokenSymbol location should be calldata
+setwithdrawfee(address[],uint256[]) should be declared external:
+	- StableDEX.setwithdrawfee(address[],uint256[]) (Timestamp-Dependency/timestamp_buggy_21.sol#292-301)
+Moreover, the following function parameters should change its data location:
+addr location should be calldata
+feeamount location should be calldata
+makeOrder(uint256[9],address[2],string,uint8,bytes32,bytes32) should be declared external:
+	- StableDEX.makeOrder(uint256[9],address[2],string,uint8,bytes32,bytes32) (Timestamp-Dependency/timestamp_buggy_21.sol#355-453)
+Moreover, the following function parameters should change its data location:
+tradeDetails location should be calldata
+traderAddresses location should be calldata
+message location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+Timestamp-Dependency/timestamp_buggy_21.sol analyzed (3 contracts with 80 detectors), 162 result(s) found

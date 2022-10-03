@@ -1,0 +1,41 @@
+
+Ownable.transferOwnership(address) (CV/2018-17882.sol#35-39) should emit an event for: 
+	- owner = newOwner (CV/2018-17882.sol#37) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+BattleToken.setFightsAddress(address)._fights (CV/2018-17882.sol#57) lacks a zero-check on :
+		- fights = _fights (CV/2018-17882.sol#58)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Pragma version^0.4.18 (CV/2018-17882.sol#5) allows old versions
+solc-0.4.18 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Parameter BattleToken.setFightsAddress(address)._fights (CV/2018-17882.sol#57) is not in mixedCase
+Parameter BattleToken.create(uint256)._amount (CV/2018-17882.sol#61) is not in mixedCase
+Parameter BattleToken.transfer(address,uint256)._to (CV/2018-17882.sol#66) is not in mixedCase
+Parameter BattleToken.transfer(address,uint256)._value (CV/2018-17882.sol#66) is not in mixedCase
+Parameter BattleToken.batchTransfer(address[],uint256)._to (CV/2018-17882.sol#73) is not in mixedCase
+Parameter BattleToken.batchTransfer(address[],uint256)._value (CV/2018-17882.sol#73) is not in mixedCase
+Parameter BattleToken.transferFrom(address,address,uint256)._from (CV/2018-17882.sol#83) is not in mixedCase
+Parameter BattleToken.transferFrom(address,address,uint256)._to (CV/2018-17882.sol#83) is not in mixedCase
+Parameter BattleToken.transferFrom(address,address,uint256)._value (CV/2018-17882.sol#83) is not in mixedCase
+Parameter BattleToken.balanceOf(address)._owner (CV/2018-17882.sol#93) is not in mixedCase
+Parameter BattleToken.approve(address,uint256)._spender (CV/2018-17882.sol#97) is not in mixedCase
+Parameter BattleToken.approve(address,uint256)._value (CV/2018-17882.sol#97) is not in mixedCase
+Parameter BattleToken.allowance(address,address)._owner (CV/2018-17882.sol#103) is not in mixedCase
+Parameter BattleToken.allowance(address,address)._spender (CV/2018-17882.sol#103) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+BattleToken.MAX_UINT256 (CV/2018-17882.sol#47) is never used in BattleToken (CV/2018-17882.sol#43-118)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+
+BattleToken.decimals (CV/2018-17882.sol#52) should be constant
+BattleToken.name (CV/2018-17882.sol#51) should be constant
+BattleToken.symbol (CV/2018-17882.sol#53) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+batchTransfer(address[],uint256) should be declared external:
+	- BattleToken.batchTransfer(address[],uint256) (CV/2018-17882.sol#73-81)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+CV/2018-17882.sol analyzed (2 contracts with 80 detectors), 23 result(s) found

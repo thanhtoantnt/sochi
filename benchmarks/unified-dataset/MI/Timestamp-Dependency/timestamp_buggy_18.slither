@@ -1,0 +1,472 @@
+
+ERC20Interface.bug_tmstmp12() (Timestamp-Dependency/timestamp_buggy_18.sol#67-75) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_18.sol#73)
+_Yesbuzz.bug_tmstmp16() (Timestamp-Dependency/timestamp_buggy_18.sol#203-211) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_18.sol#209)
+_Yesbuzz.bug_tmstmp24() (Timestamp-Dependency/timestamp_buggy_18.sol#213-221) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_18.sol#219)
+_Yesbuzz.bug_tmstmp28() (Timestamp-Dependency/timestamp_buggy_18.sol#233-241) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_18.sol#239)
+_Yesbuzz.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_18.sol#341-349) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_18.sol#347)
+_Yesbuzz.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_18.sol#382-390) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_18.sol#388)
+_Yesbuzz.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_18.sol#405-413) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_18.sol#411)
+_Yesbuzz.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_18.sol#465-473) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_18.sol#471)
+_Yesbuzz.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_18.sol#510-518) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_18.sol#516)
+_Yesbuzz.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_18.sol#561-569) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_18.sol#567)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+ERC20Interface.bug_tmstmp12() (Timestamp-Dependency/timestamp_buggy_18.sol#67-75) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#72)" 
+_Yesbuzz.bug_tmstmp16() (Timestamp-Dependency/timestamp_buggy_18.sol#203-211) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#208)" 
+_Yesbuzz.bug_tmstmp24() (Timestamp-Dependency/timestamp_buggy_18.sol#213-221) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#218)" 
+_Yesbuzz.bug_tmstmp28() (Timestamp-Dependency/timestamp_buggy_18.sol#233-241) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#238)" 
+_Yesbuzz.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_18.sol#341-349) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#346)" 
+_Yesbuzz.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_18.sol#382-390) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#387)" 
+_Yesbuzz.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_18.sol#405-413) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#410)" 
+_Yesbuzz.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_18.sol#465-473) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#470)" 
+_Yesbuzz.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_18.sol#510-518) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#515)" 
+_Yesbuzz.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_18.sol#561-569) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#566)" 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG
+
+_Yesbuzz._reAdjustDifficulty() (Timestamp-Dependency/timestamp_buggy_18.sol#353-381) performs a multiplication on the result of a division:
+	-miningTarget = miningTarget.sub(miningTarget.div(2000).mul(excess_block_pct_extra)) (Timestamp-Dependency/timestamp_buggy_18.sol#365)
+_Yesbuzz._reAdjustDifficulty() (Timestamp-Dependency/timestamp_buggy_18.sol#353-381) performs a multiplication on the result of a division:
+	-miningTarget = miningTarget.add(miningTarget.div(2000).mul(shortage_block_pct_extra)) (Timestamp-Dependency/timestamp_buggy_18.sol#370)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+
+ERC20Interface.bug_tmstmp12() (Timestamp-Dependency/timestamp_buggy_18.sol#67-75) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#72)
+_Yesbuzz.bug_tmstmp16() (Timestamp-Dependency/timestamp_buggy_18.sol#203-211) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#208)
+_Yesbuzz.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_18.sol#341-349) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#346)
+_Yesbuzz.bug_tmstmp24() (Timestamp-Dependency/timestamp_buggy_18.sol#213-221) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#218)
+_Yesbuzz.bug_tmstmp28() (Timestamp-Dependency/timestamp_buggy_18.sol#233-241) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#238)
+_Yesbuzz.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_18.sol#382-390) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#387)
+_Yesbuzz.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_18.sol#510-518) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#515)
+_Yesbuzz.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_18.sol#405-413) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#410)
+_Yesbuzz.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_18.sol#561-569) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#566)
+_Yesbuzz.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_18.sol#465-473) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#470)
+_Yesbuzz.play_tmstmp10(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#253-255) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_18.sol#254)
+ERC20Interface.play_tmstmp11(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#78-81) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_18.sol#80)
+_Yesbuzz.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#443-445) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_18.sol#444)
+_Yesbuzz.play_tmstmp15(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#228-231) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_18.sol#230)
+_Yesbuzz.play_tmstmp18(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#190-192) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_18.sol#191)
+_Yesbuzz.play_tmstmp19(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#287-290) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_18.sol#289)
+ERC20Interface.play_tmstmp2(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#88-90) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_18.sol#89)
+ERC20Interface.play_tmstmp22(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#63-65) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_18.sol#64)
+_Yesbuzz.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#432-435) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_18.sol#434)
+_Yesbuzz.play_tmstmp26(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#317-319) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_18.sol#318)
+_Yesbuzz.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#596-599) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_18.sol#598)
+Owned.play_tmstmp3(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#133-136) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_18.sol#135)
+_Yesbuzz.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#454-456) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_18.sol#455)
+_Yesbuzz.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#609-612) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_18.sol#611)
+_Yesbuzz.play_tmstmp34(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#244-246) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_18.sol#245)
+_Yesbuzz.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#535-538) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_18.sol#537)
+_Yesbuzz.play_tmstmp38(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#397-399) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_18.sol#398)
+_Yesbuzz.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#483-486) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_18.sol#485)
+_Yesbuzz.play_tmstmp6(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#199-201) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_18.sol#200)
+_Yesbuzz.play_tmstmp7(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#419-422) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_18.sol#421)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+_Yesbuzz.bug_tmstmp4().pastBlockTime_tmstmp4 (Timestamp-Dependency/timestamp_buggy_18.sol#406) is a local variable never initialized
+_Yesbuzz.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_18.sol#511) is a local variable never initialized
+_Yesbuzz.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_18.sol#562) is a local variable never initialized
+ERC20Interface.bug_tmstmp12().pastBlockTime_tmstmp12 (Timestamp-Dependency/timestamp_buggy_18.sol#68) is a local variable never initialized
+_Yesbuzz.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_18.sol#342) is a local variable never initialized
+_Yesbuzz.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_18.sol#383) is a local variable never initialized
+_Yesbuzz.bug_tmstmp16().pastBlockTime_tmstmp16 (Timestamp-Dependency/timestamp_buggy_18.sol#204) is a local variable never initialized
+_Yesbuzz.bug_tmstmp24().pastBlockTime_tmstmp24 (Timestamp-Dependency/timestamp_buggy_18.sol#214) is a local variable never initialized
+_Yesbuzz.bug_tmstmp8().pastBlockTime_tmstmp8 (Timestamp-Dependency/timestamp_buggy_18.sol#466) is a local variable never initialized
+_Yesbuzz.bug_tmstmp28().pastBlockTime_tmstmp28 (Timestamp-Dependency/timestamp_buggy_18.sol#234) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+Owned.transferOwnership(address)._newOwner (Timestamp-Dependency/timestamp_buggy_18.sol#144) lacks a zero-check on :
+		- newOwner = _newOwner (Timestamp-Dependency/timestamp_buggy_18.sol#145)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+ERC20Interface.play_tmstmp22(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#63-65) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_18.sol#64)
+ERC20Interface.bug_tmstmp12() (Timestamp-Dependency/timestamp_buggy_18.sol#67-75) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp12) (Timestamp-Dependency/timestamp_buggy_18.sol#70)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#72)
+ERC20Interface.play_tmstmp11(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#78-81) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_18.sol#80)
+ERC20Interface.bug_tmstmp1() (Timestamp-Dependency/timestamp_buggy_18.sol#83-85) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_18.sol#84)
+ERC20Interface.play_tmstmp2(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#88-90) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_18.sol#89)
+ERC20Interface.bug_tmstmp17() (Timestamp-Dependency/timestamp_buggy_18.sol#92-94) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_18.sol#93)
+ApproveAndCallFallBack.bug_tmstmp37() (Timestamp-Dependency/timestamp_buggy_18.sol#111-113) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_18.sol#112)
+Owned.play_tmstmp3(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#133-136) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_18.sol#135)
+Owned.bug_tmstmp9() (Timestamp-Dependency/timestamp_buggy_18.sol#147-149) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_18.sol#148)
+Owned.bug_tmstmp25() (Timestamp-Dependency/timestamp_buggy_18.sol#157-159) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_18.sol#158)
+_Yesbuzz.play_tmstmp18(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#190-192) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_18.sol#191)
+_Yesbuzz.bug_tmstmp29() (Timestamp-Dependency/timestamp_buggy_18.sol#194-196) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_18.sol#195)
+_Yesbuzz.play_tmstmp6(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#199-201) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_18.sol#200)
+_Yesbuzz.bug_tmstmp16() (Timestamp-Dependency/timestamp_buggy_18.sol#203-211) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp16) (Timestamp-Dependency/timestamp_buggy_18.sol#206)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#208)
+_Yesbuzz.bug_tmstmp24() (Timestamp-Dependency/timestamp_buggy_18.sol#213-221) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp24) (Timestamp-Dependency/timestamp_buggy_18.sol#216)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#218)
+_Yesbuzz.bug_tmstmp5() (Timestamp-Dependency/timestamp_buggy_18.sol#223-225) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_18.sol#224)
+_Yesbuzz.play_tmstmp15(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#228-231) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_18.sol#230)
+_Yesbuzz.bug_tmstmp28() (Timestamp-Dependency/timestamp_buggy_18.sol#233-241) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp28) (Timestamp-Dependency/timestamp_buggy_18.sol#236)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#238)
+_Yesbuzz.play_tmstmp34(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#244-246) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_18.sol#245)
+_Yesbuzz.bug_tmstmp21() (Timestamp-Dependency/timestamp_buggy_18.sol#248-250) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_18.sol#249)
+_Yesbuzz.play_tmstmp10(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#253-255) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_18.sol#254)
+_Yesbuzz.play_tmstmp19(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#287-290) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_18.sol#289)
+_Yesbuzz.play_tmstmp26(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#317-319) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_18.sol#318)
+_Yesbuzz.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_18.sol#341-349) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp20) (Timestamp-Dependency/timestamp_buggy_18.sol#344)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#346)
+_Yesbuzz.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_18.sol#382-390) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp32) (Timestamp-Dependency/timestamp_buggy_18.sol#385)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#387)
+_Yesbuzz.play_tmstmp38(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#397-399) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_18.sol#398)
+_Yesbuzz.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_18.sol#405-413) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp4) (Timestamp-Dependency/timestamp_buggy_18.sol#408)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#410)
+_Yesbuzz.play_tmstmp7(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#419-422) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_18.sol#421)
+_Yesbuzz.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#432-435) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_18.sol#434)
+_Yesbuzz.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#443-445) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_18.sol#444)
+_Yesbuzz.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#454-456) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_18.sol#455)
+_Yesbuzz.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_18.sol#465-473) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp8) (Timestamp-Dependency/timestamp_buggy_18.sol#468)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#470)
+_Yesbuzz.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#483-486) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_18.sol#485)
+_Yesbuzz.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_18.sol#510-518) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp36) (Timestamp-Dependency/timestamp_buggy_18.sol#513)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#515)
+_Yesbuzz.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#535-538) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_18.sol#537)
+_Yesbuzz.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_18.sol#561-569) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp40) (Timestamp-Dependency/timestamp_buggy_18.sol#564)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_18.sol#566)
+_Yesbuzz.bug_tmstmp33() (Timestamp-Dependency/timestamp_buggy_18.sol#579-581) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_18.sol#580)
+_Yesbuzz.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#596-599) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_18.sol#598)
+_Yesbuzz.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#609-612) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_18.sol#611)
+_Yesbuzz.bug_tmstmp13() (Timestamp-Dependency/timestamp_buggy_18.sol#621-623) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_18.sol#622)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+Pragma version>=0.5.9 (Timestamp-Dependency/timestamp_buggy_18.sol#5) allows old versions
+solc-0.5.9 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function ERC20Interface.play_tmstmp22(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#63-65) is not in mixedCase
+Function ERC20Interface.bug_tmstmp12() (Timestamp-Dependency/timestamp_buggy_18.sol#67-75) is not in mixedCase
+Function ERC20Interface.play_tmstmp11(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#78-81) is not in mixedCase
+Function ERC20Interface.bug_tmstmp1() (Timestamp-Dependency/timestamp_buggy_18.sol#83-85) is not in mixedCase
+Function ERC20Interface.play_tmstmp2(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#88-90) is not in mixedCase
+Function ERC20Interface.bug_tmstmp17() (Timestamp-Dependency/timestamp_buggy_18.sol#92-94) is not in mixedCase
+Variable ERC20Interface.winner_tmstmp22 (Timestamp-Dependency/timestamp_buggy_18.sol#62) is not in mixedCase
+Variable ERC20Interface.winner_tmstmp11 (Timestamp-Dependency/timestamp_buggy_18.sol#77) is not in mixedCase
+Variable ERC20Interface.winner_tmstmp2 (Timestamp-Dependency/timestamp_buggy_18.sol#87) is not in mixedCase
+Variable ERC20Interface.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_18.sol#95) is not in mixedCase
+Variable ERC20Interface.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_18.sol#97) is not in mixedCase
+Function ApproveAndCallFallBack.bug_tmstmp37() (Timestamp-Dependency/timestamp_buggy_18.sol#111-113) is not in mixedCase
+Function Owned.play_tmstmp3(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#133-136) is not in mixedCase
+Parameter Owned.transferOwnership(address)._newOwner (Timestamp-Dependency/timestamp_buggy_18.sol#144) is not in mixedCase
+Function Owned.bug_tmstmp9() (Timestamp-Dependency/timestamp_buggy_18.sol#147-149) is not in mixedCase
+Function Owned.bug_tmstmp25() (Timestamp-Dependency/timestamp_buggy_18.sol#157-159) is not in mixedCase
+Variable Owned.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_18.sol#126) is not in mixedCase
+Variable Owned.winner_tmstmp3 (Timestamp-Dependency/timestamp_buggy_18.sol#132) is not in mixedCase
+Variable Owned.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_18.sol#142) is not in mixedCase
+Contract _Yesbuzz (Timestamp-Dependency/timestamp_buggy_18.sol#168-625) is not in CapWords
+Function _Yesbuzz.play_tmstmp18(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#190-192) is not in mixedCase
+Function _Yesbuzz.bug_tmstmp29() (Timestamp-Dependency/timestamp_buggy_18.sol#194-196) is not in mixedCase
+Function _Yesbuzz.play_tmstmp6(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#199-201) is not in mixedCase
+Function _Yesbuzz.bug_tmstmp16() (Timestamp-Dependency/timestamp_buggy_18.sol#203-211) is not in mixedCase
+Function _Yesbuzz.bug_tmstmp24() (Timestamp-Dependency/timestamp_buggy_18.sol#213-221) is not in mixedCase
+Function _Yesbuzz.bug_tmstmp5() (Timestamp-Dependency/timestamp_buggy_18.sol#223-225) is not in mixedCase
+Function _Yesbuzz.play_tmstmp15(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#228-231) is not in mixedCase
+Function _Yesbuzz.bug_tmstmp28() (Timestamp-Dependency/timestamp_buggy_18.sol#233-241) is not in mixedCase
+Function _Yesbuzz.play_tmstmp34(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#244-246) is not in mixedCase
+Function _Yesbuzz.bug_tmstmp21() (Timestamp-Dependency/timestamp_buggy_18.sol#248-250) is not in mixedCase
+Function _Yesbuzz.play_tmstmp10(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#253-255) is not in mixedCase
+Function _Yesbuzz.play_tmstmp19(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#287-290) is not in mixedCase
+Parameter _Yesbuzz.mint(uint256,bytes32).challenge_digest (Timestamp-Dependency/timestamp_buggy_18.sol#292) is not in mixedCase
+Function _Yesbuzz.play_tmstmp26(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#317-319) is not in mixedCase
+Function _Yesbuzz.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_18.sol#341-349) is not in mixedCase
+Function _Yesbuzz.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_18.sol#382-390) is not in mixedCase
+Function _Yesbuzz.play_tmstmp38(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#397-399) is not in mixedCase
+Function _Yesbuzz.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_18.sol#405-413) is not in mixedCase
+Function _Yesbuzz.play_tmstmp7(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#419-422) is not in mixedCase
+Function _Yesbuzz.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#432-435) is not in mixedCase
+Parameter _Yesbuzz.getMintDigest(uint256,bytes32).challenge_number (Timestamp-Dependency/timestamp_buggy_18.sol#438) is not in mixedCase
+Function _Yesbuzz.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#443-445) is not in mixedCase
+Parameter _Yesbuzz.checkMintSolution(uint256,bytes32,bytes32,uint256).challenge_digest (Timestamp-Dependency/timestamp_buggy_18.sol#448) is not in mixedCase
+Parameter _Yesbuzz.checkMintSolution(uint256,bytes32,bytes32,uint256).challenge_number (Timestamp-Dependency/timestamp_buggy_18.sol#448) is not in mixedCase
+Function _Yesbuzz.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#454-456) is not in mixedCase
+Function _Yesbuzz.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_18.sol#465-473) is not in mixedCase
+Function _Yesbuzz.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#483-486) is not in mixedCase
+Function _Yesbuzz.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_18.sol#510-518) is not in mixedCase
+Function _Yesbuzz.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#535-538) is not in mixedCase
+Function _Yesbuzz.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_18.sol#561-569) is not in mixedCase
+Function _Yesbuzz.bug_tmstmp33() (Timestamp-Dependency/timestamp_buggy_18.sol#579-581) is not in mixedCase
+Function _Yesbuzz.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#596-599) is not in mixedCase
+Function _Yesbuzz.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_18.sol#609-612) is not in mixedCase
+Function _Yesbuzz.bug_tmstmp13() (Timestamp-Dependency/timestamp_buggy_18.sol#621-623) is not in mixedCase
+Variable _Yesbuzz._totalSupply (Timestamp-Dependency/timestamp_buggy_18.sol#176) is not in mixedCase
+Variable _Yesbuzz._BLOCKS_PER_READJUSTMENT (Timestamp-Dependency/timestamp_buggy_18.sol#179) is not in mixedCase
+Variable _Yesbuzz._MINIMUM_TARGET (Timestamp-Dependency/timestamp_buggy_18.sol#182) is not in mixedCase
+Variable _Yesbuzz._MAXIMUM_TARGET (Timestamp-Dependency/timestamp_buggy_18.sol#186) is not in mixedCase
+Variable _Yesbuzz.winner_tmstmp18 (Timestamp-Dependency/timestamp_buggy_18.sol#189) is not in mixedCase
+Variable _Yesbuzz.winner_tmstmp6 (Timestamp-Dependency/timestamp_buggy_18.sol#198) is not in mixedCase
+Variable _Yesbuzz.winner_tmstmp15 (Timestamp-Dependency/timestamp_buggy_18.sol#227) is not in mixedCase
+Variable _Yesbuzz.winner_tmstmp34 (Timestamp-Dependency/timestamp_buggy_18.sol#243) is not in mixedCase
+Variable _Yesbuzz.winner_tmstmp10 (Timestamp-Dependency/timestamp_buggy_18.sol#252) is not in mixedCase
+Variable _Yesbuzz.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_18.sol#258) is not in mixedCase
+Variable _Yesbuzz.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_18.sol#286) is not in mixedCase
+Variable _Yesbuzz.winner_tmstmp26 (Timestamp-Dependency/timestamp_buggy_18.sol#316) is not in mixedCase
+Variable _Yesbuzz.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_18.sol#396) is not in mixedCase
+Variable _Yesbuzz.winner_tmstmp7 (Timestamp-Dependency/timestamp_buggy_18.sol#418) is not in mixedCase
+Variable _Yesbuzz.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_18.sol#431) is not in mixedCase
+Variable _Yesbuzz.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_18.sol#442) is not in mixedCase
+Variable _Yesbuzz.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_18.sol#453) is not in mixedCase
+Variable _Yesbuzz.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_18.sol#482) is not in mixedCase
+Variable _Yesbuzz.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_18.sol#534) is not in mixedCase
+Variable _Yesbuzz.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_18.sol#595) is not in mixedCase
+Variable _Yesbuzz.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_18.sol#608) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable ERC20Interface.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_18.sol#95) is too similar to ERC20Interface.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_18.sol#97)
+Variable Owned.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_18.sol#126) is too similar to Owned.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_18.sol#142)
+Variable ERC20Interface.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_18.sol#95) is too similar to Owned.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_18.sol#126)
+Variable ERC20Interface.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_18.sol#95) is too similar to Owned.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_18.sol#142)
+Variable ERC20Interface.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_18.sol#97) is too similar to Owned.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_18.sol#126)
+Variable ERC20Interface.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_18.sol#97) is too similar to Owned.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_18.sol#142)
+Variable ERC20Interface.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_18.sol#95) is too similar to _Yesbuzz.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_18.sol#258)
+Variable ERC20Interface.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_18.sol#97) is too similar to _Yesbuzz.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_18.sol#258)
+Variable Owned.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_18.sol#126) is too similar to _Yesbuzz.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_18.sol#258)
+Variable _Yesbuzz.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_18.sol#258) is too similar to Owned.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_18.sol#142)
+Variable ERC20Interface.bug_tmstmp12().pastBlockTime_tmstmp12 (Timestamp-Dependency/timestamp_buggy_18.sol#68) is too similar to _Yesbuzz.bug_tmstmp16().pastBlockTime_tmstmp16 (Timestamp-Dependency/timestamp_buggy_18.sol#204)
+Variable _Yesbuzz.bug_tmstmp16().pastBlockTime_tmstmp16 (Timestamp-Dependency/timestamp_buggy_18.sol#204) is too similar to _Yesbuzz.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_18.sol#342)
+Variable _Yesbuzz.bug_tmstmp16().pastBlockTime_tmstmp16 (Timestamp-Dependency/timestamp_buggy_18.sol#204) is too similar to _Yesbuzz.bug_tmstmp24().pastBlockTime_tmstmp24 (Timestamp-Dependency/timestamp_buggy_18.sol#214)
+Variable _Yesbuzz.bug_tmstmp16().pastBlockTime_tmstmp16 (Timestamp-Dependency/timestamp_buggy_18.sol#204) is too similar to _Yesbuzz.bug_tmstmp28().pastBlockTime_tmstmp28 (Timestamp-Dependency/timestamp_buggy_18.sol#234)
+Variable _Yesbuzz.bug_tmstmp16().pastBlockTime_tmstmp16 (Timestamp-Dependency/timestamp_buggy_18.sol#204) is too similar to _Yesbuzz.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_18.sol#383)
+Variable _Yesbuzz.bug_tmstmp16().pastBlockTime_tmstmp16 (Timestamp-Dependency/timestamp_buggy_18.sol#204) is too similar to _Yesbuzz.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_18.sol#511)
+Variable _Yesbuzz.bug_tmstmp16().pastBlockTime_tmstmp16 (Timestamp-Dependency/timestamp_buggy_18.sol#204) is too similar to _Yesbuzz.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_18.sol#562)
+Variable ERC20Interface.bug_tmstmp12().pastBlockTime_tmstmp12 (Timestamp-Dependency/timestamp_buggy_18.sol#68) is too similar to _Yesbuzz.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_18.sol#342)
+Variable _Yesbuzz.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_18.sol#342) is too similar to _Yesbuzz.bug_tmstmp24().pastBlockTime_tmstmp24 (Timestamp-Dependency/timestamp_buggy_18.sol#214)
+Variable _Yesbuzz.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_18.sol#342) is too similar to _Yesbuzz.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_18.sol#511)
+Variable ERC20Interface.bug_tmstmp12().pastBlockTime_tmstmp12 (Timestamp-Dependency/timestamp_buggy_18.sol#68) is too similar to _Yesbuzz.bug_tmstmp24().pastBlockTime_tmstmp24 (Timestamp-Dependency/timestamp_buggy_18.sol#214)
+Variable ERC20Interface.bug_tmstmp12().pastBlockTime_tmstmp12 (Timestamp-Dependency/timestamp_buggy_18.sol#68) is too similar to _Yesbuzz.bug_tmstmp28().pastBlockTime_tmstmp28 (Timestamp-Dependency/timestamp_buggy_18.sol#234)
+Variable _Yesbuzz.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_18.sol#342) is too similar to _Yesbuzz.bug_tmstmp28().pastBlockTime_tmstmp28 (Timestamp-Dependency/timestamp_buggy_18.sol#234)
+Variable _Yesbuzz.bug_tmstmp24().pastBlockTime_tmstmp24 (Timestamp-Dependency/timestamp_buggy_18.sol#214) is too similar to _Yesbuzz.bug_tmstmp28().pastBlockTime_tmstmp28 (Timestamp-Dependency/timestamp_buggy_18.sol#234)
+Variable _Yesbuzz.bug_tmstmp28().pastBlockTime_tmstmp28 (Timestamp-Dependency/timestamp_buggy_18.sol#234) is too similar to _Yesbuzz.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_18.sol#383)
+Variable _Yesbuzz.bug_tmstmp28().pastBlockTime_tmstmp28 (Timestamp-Dependency/timestamp_buggy_18.sol#234) is too similar to _Yesbuzz.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_18.sol#511)
+Variable _Yesbuzz.bug_tmstmp28().pastBlockTime_tmstmp28 (Timestamp-Dependency/timestamp_buggy_18.sol#234) is too similar to _Yesbuzz.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_18.sol#562)
+Variable ERC20Interface.bug_tmstmp12().pastBlockTime_tmstmp12 (Timestamp-Dependency/timestamp_buggy_18.sol#68) is too similar to _Yesbuzz.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_18.sol#383)
+Variable _Yesbuzz.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_18.sol#342) is too similar to _Yesbuzz.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_18.sol#383)
+Variable _Yesbuzz.bug_tmstmp24().pastBlockTime_tmstmp24 (Timestamp-Dependency/timestamp_buggy_18.sol#214) is too similar to _Yesbuzz.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_18.sol#383)
+Variable _Yesbuzz.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_18.sol#383) is too similar to _Yesbuzz.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_18.sol#511)
+Variable _Yesbuzz.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_18.sol#383) is too similar to _Yesbuzz.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_18.sol#562)
+Variable ERC20Interface.bug_tmstmp12().pastBlockTime_tmstmp12 (Timestamp-Dependency/timestamp_buggy_18.sol#68) is too similar to _Yesbuzz.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_18.sol#511)
+Variable _Yesbuzz.bug_tmstmp24().pastBlockTime_tmstmp24 (Timestamp-Dependency/timestamp_buggy_18.sol#214) is too similar to _Yesbuzz.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_18.sol#511)
+Variable ERC20Interface.bug_tmstmp12().pastBlockTime_tmstmp12 (Timestamp-Dependency/timestamp_buggy_18.sol#68) is too similar to _Yesbuzz.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_18.sol#562)
+Variable _Yesbuzz.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_18.sol#342) is too similar to _Yesbuzz.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_18.sol#562)
+Variable _Yesbuzz.bug_tmstmp24().pastBlockTime_tmstmp24 (Timestamp-Dependency/timestamp_buggy_18.sol#214) is too similar to _Yesbuzz.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_18.sol#562)
+Variable _Yesbuzz.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_18.sol#511) is too similar to _Yesbuzz.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_18.sol#562)
+Variable _Yesbuzz.bug_tmstmp4().pastBlockTime_tmstmp4 (Timestamp-Dependency/timestamp_buggy_18.sol#406) is too similar to _Yesbuzz.bug_tmstmp8().pastBlockTime_tmstmp8 (Timestamp-Dependency/timestamp_buggy_18.sol#466)
+Variable _Yesbuzz.winner_tmstmp10 (Timestamp-Dependency/timestamp_buggy_18.sol#252) is too similar to ERC20Interface.winner_tmstmp11 (Timestamp-Dependency/timestamp_buggy_18.sol#77)
+Variable _Yesbuzz.winner_tmstmp10 (Timestamp-Dependency/timestamp_buggy_18.sol#252) is too similar to _Yesbuzz.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_18.sol#442)
+Variable _Yesbuzz.winner_tmstmp10 (Timestamp-Dependency/timestamp_buggy_18.sol#252) is too similar to _Yesbuzz.winner_tmstmp15 (Timestamp-Dependency/timestamp_buggy_18.sol#227)
+Variable _Yesbuzz.winner_tmstmp10 (Timestamp-Dependency/timestamp_buggy_18.sol#252) is too similar to _Yesbuzz.winner_tmstmp18 (Timestamp-Dependency/timestamp_buggy_18.sol#189)
+Variable _Yesbuzz.winner_tmstmp10 (Timestamp-Dependency/timestamp_buggy_18.sol#252) is too similar to _Yesbuzz.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_18.sol#286)
+Variable _Yesbuzz.winner_tmstmp10 (Timestamp-Dependency/timestamp_buggy_18.sol#252) is too similar to _Yesbuzz.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_18.sol#453)
+Variable _Yesbuzz.winner_tmstmp10 (Timestamp-Dependency/timestamp_buggy_18.sol#252) is too similar to _Yesbuzz.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_18.sol#608)
+Variable ERC20Interface.winner_tmstmp11 (Timestamp-Dependency/timestamp_buggy_18.sol#77) is too similar to _Yesbuzz.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_18.sol#442)
+Variable ERC20Interface.winner_tmstmp11 (Timestamp-Dependency/timestamp_buggy_18.sol#77) is too similar to _Yesbuzz.winner_tmstmp15 (Timestamp-Dependency/timestamp_buggy_18.sol#227)
+Variable ERC20Interface.winner_tmstmp11 (Timestamp-Dependency/timestamp_buggy_18.sol#77) is too similar to _Yesbuzz.winner_tmstmp18 (Timestamp-Dependency/timestamp_buggy_18.sol#189)
+Variable ERC20Interface.winner_tmstmp11 (Timestamp-Dependency/timestamp_buggy_18.sol#77) is too similar to _Yesbuzz.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_18.sol#286)
+Variable ERC20Interface.winner_tmstmp11 (Timestamp-Dependency/timestamp_buggy_18.sol#77) is too similar to _Yesbuzz.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_18.sol#608)
+Variable _Yesbuzz.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_18.sol#442) is too similar to _Yesbuzz.winner_tmstmp15 (Timestamp-Dependency/timestamp_buggy_18.sol#227)
+Variable _Yesbuzz.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_18.sol#442) is too similar to _Yesbuzz.winner_tmstmp18 (Timestamp-Dependency/timestamp_buggy_18.sol#189)
+Variable _Yesbuzz.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_18.sol#442) is too similar to _Yesbuzz.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_18.sol#608)
+Variable _Yesbuzz.winner_tmstmp15 (Timestamp-Dependency/timestamp_buggy_18.sol#227) is too similar to _Yesbuzz.winner_tmstmp18 (Timestamp-Dependency/timestamp_buggy_18.sol#189)
+Variable _Yesbuzz.winner_tmstmp18 (Timestamp-Dependency/timestamp_buggy_18.sol#189) is too similar to _Yesbuzz.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_18.sol#608)
+Variable _Yesbuzz.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_18.sol#442) is too similar to _Yesbuzz.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_18.sol#286)
+Variable _Yesbuzz.winner_tmstmp15 (Timestamp-Dependency/timestamp_buggy_18.sol#227) is too similar to _Yesbuzz.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_18.sol#286)
+Variable _Yesbuzz.winner_tmstmp18 (Timestamp-Dependency/timestamp_buggy_18.sol#189) is too similar to _Yesbuzz.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_18.sol#286)
+Variable _Yesbuzz.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_18.sol#286) is too similar to _Yesbuzz.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_18.sol#608)
+Variable _Yesbuzz.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_18.sol#286) is too similar to _Yesbuzz.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_18.sol#482)
+Variable ERC20Interface.winner_tmstmp2 (Timestamp-Dependency/timestamp_buggy_18.sol#87) is too similar to Owned.winner_tmstmp3 (Timestamp-Dependency/timestamp_buggy_18.sol#132)
+Variable ERC20Interface.winner_tmstmp2 (Timestamp-Dependency/timestamp_buggy_18.sol#87) is too similar to _Yesbuzz.winner_tmstmp6 (Timestamp-Dependency/timestamp_buggy_18.sol#198)
+Variable ERC20Interface.winner_tmstmp22 (Timestamp-Dependency/timestamp_buggy_18.sol#62) is too similar to _Yesbuzz.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_18.sol#431)
+Variable _Yesbuzz.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_18.sol#431) is too similar to _Yesbuzz.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_18.sol#595)
+Variable _Yesbuzz.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_18.sol#431) is too similar to _Yesbuzz.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_18.sol#453)
+Variable _Yesbuzz.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_18.sol#431) is too similar to _Yesbuzz.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_18.sol#608)
+Variable _Yesbuzz.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_18.sol#431) is too similar to _Yesbuzz.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_18.sol#534)
+Variable _Yesbuzz.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_18.sol#431) is too similar to _Yesbuzz.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_18.sol#482)
+Variable ERC20Interface.winner_tmstmp22 (Timestamp-Dependency/timestamp_buggy_18.sol#62) is too similar to _Yesbuzz.winner_tmstmp26 (Timestamp-Dependency/timestamp_buggy_18.sol#316)
+Variable _Yesbuzz.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_18.sol#431) is too similar to _Yesbuzz.winner_tmstmp26 (Timestamp-Dependency/timestamp_buggy_18.sol#316)
+Variable _Yesbuzz.winner_tmstmp26 (Timestamp-Dependency/timestamp_buggy_18.sol#316) is too similar to _Yesbuzz.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_18.sol#595)
+Variable ERC20Interface.winner_tmstmp22 (Timestamp-Dependency/timestamp_buggy_18.sol#62) is too similar to _Yesbuzz.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_18.sol#595)
+Variable Owned.winner_tmstmp3 (Timestamp-Dependency/timestamp_buggy_18.sol#132) is too similar to _Yesbuzz.winner_tmstmp6 (Timestamp-Dependency/timestamp_buggy_18.sol#198)
+Variable _Yesbuzz.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_18.sol#453) is too similar to _Yesbuzz.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_18.sol#608)
+Variable _Yesbuzz.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_18.sol#453) is too similar to _Yesbuzz.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_18.sol#534)
+Variable _Yesbuzz.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_18.sol#453) is too similar to _Yesbuzz.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_18.sol#482)
+Variable _Yesbuzz.winner_tmstmp15 (Timestamp-Dependency/timestamp_buggy_18.sol#227) is too similar to _Yesbuzz.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_18.sol#608)
+Variable _Yesbuzz.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_18.sol#442) is too similar to _Yesbuzz.winner_tmstmp34 (Timestamp-Dependency/timestamp_buggy_18.sol#243)
+Variable _Yesbuzz.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_18.sol#431) is too similar to _Yesbuzz.winner_tmstmp34 (Timestamp-Dependency/timestamp_buggy_18.sol#243)
+Variable _Yesbuzz.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_18.sol#453) is too similar to _Yesbuzz.winner_tmstmp34 (Timestamp-Dependency/timestamp_buggy_18.sol#243)
+Variable _Yesbuzz.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_18.sol#608) is too similar to _Yesbuzz.winner_tmstmp34 (Timestamp-Dependency/timestamp_buggy_18.sol#243)
+Variable _Yesbuzz.winner_tmstmp34 (Timestamp-Dependency/timestamp_buggy_18.sol#243) is too similar to _Yesbuzz.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_18.sol#534)
+Variable _Yesbuzz.winner_tmstmp34 (Timestamp-Dependency/timestamp_buggy_18.sol#243) is too similar to _Yesbuzz.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_18.sol#396)
+Variable _Yesbuzz.winner_tmstmp34 (Timestamp-Dependency/timestamp_buggy_18.sol#243) is too similar to _Yesbuzz.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_18.sol#482)
+Variable _Yesbuzz.winner_tmstmp15 (Timestamp-Dependency/timestamp_buggy_18.sol#227) is too similar to _Yesbuzz.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_18.sol#534)
+Variable _Yesbuzz.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_18.sol#608) is too similar to _Yesbuzz.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_18.sol#534)
+Variable _Yesbuzz.winner_tmstmp18 (Timestamp-Dependency/timestamp_buggy_18.sol#189) is too similar to _Yesbuzz.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_18.sol#396)
+Variable _Yesbuzz.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_18.sol#431) is too similar to _Yesbuzz.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_18.sol#396)
+Variable _Yesbuzz.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_18.sol#453) is too similar to _Yesbuzz.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_18.sol#396)
+Variable _Yesbuzz.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_18.sol#608) is too similar to _Yesbuzz.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_18.sol#396)
+Variable _Yesbuzz.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_18.sol#534) is too similar to _Yesbuzz.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_18.sol#396)
+Variable _Yesbuzz.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_18.sol#396) is too similar to _Yesbuzz.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_18.sol#482)
+Variable _Yesbuzz.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_18.sol#608) is too similar to _Yesbuzz.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_18.sol#482)
+Variable _Yesbuzz.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_18.sol#534) is too similar to _Yesbuzz.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_18.sol#482)
+Variable ERC20Interface.winner_tmstmp2 (Timestamp-Dependency/timestamp_buggy_18.sol#87) is too similar to _Yesbuzz.winner_tmstmp7 (Timestamp-Dependency/timestamp_buggy_18.sol#418)
+Variable Owned.winner_tmstmp3 (Timestamp-Dependency/timestamp_buggy_18.sol#132) is too similar to _Yesbuzz.winner_tmstmp7 (Timestamp-Dependency/timestamp_buggy_18.sol#418)
+Variable _Yesbuzz.winner_tmstmp6 (Timestamp-Dependency/timestamp_buggy_18.sol#198) is too similar to _Yesbuzz.winner_tmstmp7 (Timestamp-Dependency/timestamp_buggy_18.sol#418)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+_Yesbuzz.constructor() (Timestamp-Dependency/timestamp_buggy_18.sol#265-285) uses literals with too many digits:
+	- _totalSupply = 21000000 * 10 ** uint256(decimals) (Timestamp-Dependency/timestamp_buggy_18.sol#270)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+ApproveAndCallFallBack (Timestamp-Dependency/timestamp_buggy_18.sol#108-115) does not implement functions:
+	- ApproveAndCallFallBack.receiveApproval(address,uint256,address,bytes) (Timestamp-Dependency/timestamp_buggy_18.sol#110)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unimplemented-functions
+
+ERC20Interface.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_18.sol#95) is never used in _Yesbuzz (Timestamp-Dependency/timestamp_buggy_18.sol#168-625)
+ERC20Interface.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_18.sol#97) is never used in _Yesbuzz (Timestamp-Dependency/timestamp_buggy_18.sol#168-625)
+Owned.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_18.sol#126) is never used in _Yesbuzz (Timestamp-Dependency/timestamp_buggy_18.sol#168-625)
+Owned.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_18.sol#142) is never used in _Yesbuzz (Timestamp-Dependency/timestamp_buggy_18.sol#168-625)
+_Yesbuzz.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_18.sol#258) is never used in _Yesbuzz (Timestamp-Dependency/timestamp_buggy_18.sol#168-625)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+
+_Yesbuzz._BLOCKS_PER_READJUSTMENT (Timestamp-Dependency/timestamp_buggy_18.sol#179) should be constant
+_Yesbuzz._MAXIMUM_TARGET (Timestamp-Dependency/timestamp_buggy_18.sol#186) should be constant
+_Yesbuzz._MINIMUM_TARGET (Timestamp-Dependency/timestamp_buggy_18.sol#182) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+receiveApproval(address,uint256,address,bytes) should be declared external:
+	- ApproveAndCallFallBack.receiveApproval(address,uint256,address,bytes) (Timestamp-Dependency/timestamp_buggy_18.sol#110)
+Moreover, the following function parameters should change its data location:
+data location should be calldata
+approveAndCall(address,uint256,bytes) should be declared external:
+	- _Yesbuzz.approveAndCall(address,uint256,bytes) (Timestamp-Dependency/timestamp_buggy_18.sol#589-594)
+Moreover, the following function parameters should change its data location:
+data location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+Timestamp-Dependency/timestamp_buggy_18.sol analyzed (6 contracts with 80 detectors), 290 result(s) found

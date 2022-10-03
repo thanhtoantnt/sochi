@@ -1,0 +1,45 @@
+
+StandardToken (CV/2018-13079.sol#108-162) has incorrect ERC20 function interface:GoodTo.transfer(address,uint256) (CV/2018-13079.sol#62-64)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-erc20-interface
+
+owned.transferOwnership(address) (CV/2018-13079.sol#19-21) should emit an event for: 
+	- owner = newOwner (CV/2018-13079.sol#20) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+owned.transferOwnership(address).newOwner (CV/2018-13079.sol#19) lacks a zero-check on :
+		- owner = newOwner (CV/2018-13079.sol#20)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+GoodTo._transfer(address,address,uint256) (CV/2018-13079.sol#51-60) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.4.16 (CV/2018-13079.sol#5) allows old versions
+solc-0.4.16 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Contract owned (CV/2018-13079.sol#7-22) is not in CapWords
+Contract tokenRecipient (CV/2018-13079.sol#24) is not in CapWords
+Parameter GoodTo.transfer(address,uint256)._to (CV/2018-13079.sol#62) is not in mixedCase
+Parameter GoodTo.transfer(address,uint256)._value (CV/2018-13079.sol#62) is not in mixedCase
+Parameter GoodTo.transferFrom(address,address,uint256)._from (CV/2018-13079.sol#66) is not in mixedCase
+Parameter GoodTo.transferFrom(address,address,uint256)._to (CV/2018-13079.sol#66) is not in mixedCase
+Parameter GoodTo.transferFrom(address,address,uint256)._value (CV/2018-13079.sol#66) is not in mixedCase
+Parameter GoodTo.approve(address,uint256)._spender (CV/2018-13079.sol#73) is not in mixedCase
+Parameter GoodTo.approve(address,uint256)._value (CV/2018-13079.sol#73) is not in mixedCase
+Parameter GoodTo.approveAndCall(address,uint256,bytes)._spender (CV/2018-13079.sol#79) is not in mixedCase
+Parameter GoodTo.approveAndCall(address,uint256,bytes)._value (CV/2018-13079.sol#79) is not in mixedCase
+Parameter GoodTo.approveAndCall(address,uint256,bytes)._extraData (CV/2018-13079.sol#79) is not in mixedCase
+Parameter GoodTo.burn(uint256)._value (CV/2018-13079.sol#89) is not in mixedCase
+Parameter GoodTo.burnFrom(address,uint256)._from (CV/2018-13079.sol#97) is not in mixedCase
+Parameter GoodTo.burnFrom(address,uint256)._value (CV/2018-13079.sol#97) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+GoodTo.decimals (CV/2018-13079.sol#30) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+receiveApproval(address,uint256,address,bytes) should be declared external:
+	- tokenRecipient.receiveApproval(address,uint256,address,bytes) (CV/2018-13079.sol#24)
+approveAndCall(address,uint256,bytes) should be declared external:
+	- GoodTo.approveAndCall(address,uint256,bytes) (CV/2018-13079.sol#79-87)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+CV/2018-13079.sol analyzed (4 contracts with 80 detectors), 24 result(s) found

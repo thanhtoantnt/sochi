@@ -1,0 +1,47 @@
+
+SPXToken.SPXToken(address,address)._migrationMaster (CV/2018-13129.sol#210) lacks a zero-check on :
+		- migrationMaster = _migrationMaster (CV/2018-13129.sol#213)
+SPXToken.setMigrationAgent(address)._agent (CV/2018-13129.sol#265) lacks a zero-check on :
+		- migrationAgent = _agent (CV/2018-13129.sol#268)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Reentrancy in SPXToken.migrate(uint256) (CV/2018-13129.sol#252-262):
+	External calls:
+	- MigrationAgent(migrationAgent).migrateFrom(msg.sender,value) (CV/2018-13129.sol#260)
+	Event emitted after the call(s):
+	- Migrate(msg.sender,migrationAgent,value) (CV/2018-13129.sol#261)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+
+SafeMath.div(uint256,uint256) (CV/2018-13129.sol#18-23) is never used and should be removed
+SafeMath.mul(uint256,uint256) (CV/2018-13129.sol#9-16) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.4.18 (CV/2018-13129.sol#1) allows old versions
+solc-0.4.18 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Parameter BasicToken.transfer(address,uint256)._to (CV/2018-13129.sol#65) is not in mixedCase
+Parameter BasicToken.transfer(address,uint256)._value (CV/2018-13129.sol#65) is not in mixedCase
+Parameter BasicToken.balanceOf(address)._owner (CV/2018-13129.sol#81) is not in mixedCase
+Parameter StandardToken.transferFrom(address,address,uint256)._from (CV/2018-13129.sol#120) is not in mixedCase
+Parameter StandardToken.transferFrom(address,address,uint256)._to (CV/2018-13129.sol#120) is not in mixedCase
+Parameter StandardToken.transferFrom(address,address,uint256)._value (CV/2018-13129.sol#120) is not in mixedCase
+Parameter StandardToken.approve(address,uint256)._spender (CV/2018-13129.sol#142) is not in mixedCase
+Parameter StandardToken.approve(address,uint256)._value (CV/2018-13129.sol#142) is not in mixedCase
+Parameter StandardToken.allowance(address,address)._owner (CV/2018-13129.sol#154) is not in mixedCase
+Parameter StandardToken.allowance(address,address)._spender (CV/2018-13129.sol#154) is not in mixedCase
+Parameter StandardToken.increaseApproval(address,uint256)._spender (CV/2018-13129.sol#164) is not in mixedCase
+Parameter StandardToken.increaseApproval(address,uint256)._addedValue (CV/2018-13129.sol#164) is not in mixedCase
+Parameter StandardToken.decreaseApproval(address,uint256)._spender (CV/2018-13129.sol#170) is not in mixedCase
+Parameter StandardToken.decreaseApproval(address,uint256)._subtractedValue (CV/2018-13129.sol#170) is not in mixedCase
+Parameter SPXToken.transfer(address,uint256)._to (CV/2018-13129.sol#235) is not in mixedCase
+Parameter SPXToken.transfer(address,uint256)._value (CV/2018-13129.sol#235) is not in mixedCase
+Parameter SPXToken.transferFrom(address,address,uint256)._from (CV/2018-13129.sol#241) is not in mixedCase
+Parameter SPXToken.transferFrom(address,address,uint256)._to (CV/2018-13129.sol#241) is not in mixedCase
+Parameter SPXToken.transferFrom(address,address,uint256)._value (CV/2018-13129.sol#241) is not in mixedCase
+Parameter SPXToken.approve(address,uint256)._spender (CV/2018-13129.sol#246) is not in mixedCase
+Parameter SPXToken.approve(address,uint256)._value (CV/2018-13129.sol#246) is not in mixedCase
+Parameter SPXToken.setMigrationAgent(address)._agent (CV/2018-13129.sol#265) is not in mixedCase
+Parameter SPXToken.setMigrationMaster(address)._master (CV/2018-13129.sol#271) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+CV/2018-13129.sol analyzed (7 contracts with 80 detectors), 30 result(s) found

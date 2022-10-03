@@ -1,0 +1,95 @@
+Compilation warnings/errors on CV/2018-13070.sol:
+CV/2018-13070.sol:10:5: Warning: Defining constructors as functions with the same name as the contract is deprecated. Use "constructor(...) { ... }" instead.
+    function owned() public {
+    ^ (Relevant source part starts here and spans across multiple lines).
+CV/2018-13070.sol:44:5: Warning: Defining constructors as functions with the same name as the contract is deprecated. Use "constructor(...) { ... }" instead.
+    function TokenERC20(uint256 initialSupply, string tokenName, string tokenSymbol) public {
+    ^ (Relevant source part starts here and spans across multiple lines).
+CV/2018-13070.sol:126:2: Warning: Defining constructors as functions with the same name as the contract is deprecated. Use "constructor(...) { ... }" instead.
+	function EncryptedToken() TokenERC20(INITIAL_SUPPLY, 'ECC', 'ECC') payable public {}
+	^----------------------------------------------------------------------------------^
+CV/2018-13070.sol:24:28: Warning: Functions in interfaces should be declared external.
+interface tokenRecipient { function receiveApproval(address _from, uint256 _value, address _token, bytes _extraData) public; }
+                           ^-----------------------------------------------------------------------------------------------^
+CV/2018-13070.sol:65:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Transfer(_from, _to, _value);
+        ^--------------------------^
+CV/2018-13070.sol:103:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Burn(msg.sender, _value);
+        ^----------------------^
+CV/2018-13070.sol:114:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Burn(_from, _value);
+        ^-----------------^
+CV/2018-13070.sol:148:9: Warning: Invoking events without "emit" prefix is deprecated.
+        FrozenFunds(target, freeze);
+        ^-------------------------^
+CV/2018-13070.sol:161:7: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    		owner.send(msg.value);//
+    		^-------------------^
+
+
+EncryptedToken (CV/2018-13070.sol#119-170) has incorrect ERC20 function interface:TokenERC20.transfer(address,uint256) (CV/2018-13070.sol#71-73)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-erc20-interface
+
+EncryptedToken.fallback() (CV/2018-13070.sol#160-164) ignores return value by owner.send(msg.value) (CV/2018-13070.sol#161)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-send
+
+owned.transferOwnership(address) (CV/2018-13070.sol#19-21) should emit an event for: 
+	- owner = newOwner (CV/2018-13070.sol#20) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+owned.transferOwnership(address).newOwner (CV/2018-13070.sol#19) lacks a zero-check on :
+		- owner = newOwner (CV/2018-13070.sol#20)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+TokenERC20._transfer(address,address,uint256) (CV/2018-13070.sol#52-69) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.4.24 (CV/2018-13070.sol#5) allows old versions
+solc-0.4.24 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Contract owned (CV/2018-13070.sol#7-22) is not in CapWords
+Contract tokenRecipient (CV/2018-13070.sol#24) is not in CapWords
+Parameter TokenERC20.transfer(address,uint256)._to (CV/2018-13070.sol#71) is not in mixedCase
+Parameter TokenERC20.transfer(address,uint256)._value (CV/2018-13070.sol#71) is not in mixedCase
+Parameter TokenERC20.transferFrom(address,address,uint256)._from (CV/2018-13070.sol#75) is not in mixedCase
+Parameter TokenERC20.transferFrom(address,address,uint256)._to (CV/2018-13070.sol#75) is not in mixedCase
+Parameter TokenERC20.transferFrom(address,address,uint256)._value (CV/2018-13070.sol#75) is not in mixedCase
+Parameter TokenERC20.approve(address,uint256)._spender (CV/2018-13070.sol#82) is not in mixedCase
+Parameter TokenERC20.approve(address,uint256)._value (CV/2018-13070.sol#82) is not in mixedCase
+Parameter TokenERC20.approveAndCall(address,uint256,bytes)._spender (CV/2018-13070.sol#89) is not in mixedCase
+Parameter TokenERC20.approveAndCall(address,uint256,bytes)._value (CV/2018-13070.sol#89) is not in mixedCase
+Parameter TokenERC20.approveAndCall(address,uint256,bytes)._extraData (CV/2018-13070.sol#89) is not in mixedCase
+Parameter TokenERC20.burn(uint256)._value (CV/2018-13070.sol#99) is not in mixedCase
+Parameter TokenERC20.burnFrom(address,uint256)._from (CV/2018-13070.sol#108) is not in mixedCase
+Parameter TokenERC20.burnFrom(address,uint256)._value (CV/2018-13070.sol#108) is not in mixedCase
+Variable EncryptedToken.INITIAL_SUPPLY (CV/2018-13070.sol#120) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in EncryptedToken.fallback() (CV/2018-13070.sol#160-164):
+	External calls:
+	- owner.send(msg.value) (CV/2018-13070.sol#161)
+	State variables written after the call(s):
+	- _transfer(owner,msg.sender,amount) (CV/2018-13070.sol#163)
+		- balanceOf[_from] -= _value (CV/2018-13070.sol#134)
+		- balanceOf[_to] += _value (CV/2018-13070.sol#135)
+	Event emitted after the call(s):
+	- Transfer(_from,_to,_value) (CV/2018-13070.sol#136)
+		- _transfer(owner,msg.sender,amount) (CV/2018-13070.sol#163)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+EncryptedToken.slitherConstructorVariables() (CV/2018-13070.sol#119-170) uses literals with too many digits:
+	- INITIAL_SUPPLY = 100000000 (CV/2018-13070.sol#120)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+EncryptedToken.INITIAL_SUPPLY (CV/2018-13070.sol#120) should be constant
+TokenERC20.decimals (CV/2018-13070.sol#29) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+receiveApproval(address,uint256,address,bytes) should be declared external:
+	- tokenRecipient.receiveApproval(address,uint256,address,bytes) (CV/2018-13070.sol#24)
+approveAndCall(address,uint256,bytes) should be declared external:
+	- TokenERC20.approveAndCall(address,uint256,bytes) (CV/2018-13070.sol#89-97)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+CV/2018-13070.sol analyzed (4 contracts with 80 detectors), 29 result(s) found

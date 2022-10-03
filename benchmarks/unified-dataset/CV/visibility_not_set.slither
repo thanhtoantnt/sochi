@@ -1,0 +1,24 @@
+Compilation warnings/errors on CV/visibility_not_set.sol:
+CV/visibility_not_set.sol:19:30: Warning: Using contract member "balance" inherited from the address type is deprecated. Convert the contract to "address" type to access the member, for example use "address(contract).balance" instead.
+         msg.sender.transfer(this.balance);
+                             ^----------^
+CV/visibility_not_set.sol:12:5: Warning: No visibility specified. Defaulting to "public". 
+    function withdrawWinnings() {
+    ^ (Relevant source part starts here and spans across multiple lines).
+CV/visibility_not_set.sol:18:6: Warning: No visibility specified. Defaulting to "public". 
+     function _sendWinnings() {
+     ^ (Relevant source part starts here and spans across multiple lines).
+
+
+HashForEther._sendWinnings() (CV/visibility_not_set.sol#18-20) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(this.balance) (CV/visibility_not_set.sol#19)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Pragma version^0.4.24 (CV/visibility_not_set.sol#8) allows old versions
+solc-0.4.24 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function HashForEther._sendWinnings() (CV/visibility_not_set.sol#18-20) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+CV/visibility_not_set.sol analyzed (1 contracts with 80 detectors), 4 result(s) found

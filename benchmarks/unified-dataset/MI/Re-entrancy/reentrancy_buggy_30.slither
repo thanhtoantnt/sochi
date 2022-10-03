@@ -1,0 +1,575 @@
+
+ERC777.bug_re_ent6() (Re-entrancy/reentrancy_buggy_30.sol#354-360) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_30.sol#356)
+ERC777.buyTicket_re_ent16() (Re-entrancy/reentrancy_buggy_30.sol#376-381) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent16.send(jackpot_re_ent16)) (Re-entrancy/reentrancy_buggy_30.sol#377)
+ERC777.callme_re_ent28() (Re-entrancy/reentrancy_buggy_30.sol#442-448) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_30.sol#444)
+ERC777.bug_re_ent34() (Re-entrancy/reentrancy_buggy_30.sol#455-461) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_30.sol#457)
+ERC777.callme_re_ent21() (Re-entrancy/reentrancy_buggy_30.sol#470-476) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_30.sol#472)
+ERC777.bug_re_ent41() (Re-entrancy/reentrancy_buggy_30.sol#624-630) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_30.sol#626)
+ERC777.callme_re_ent42() (Re-entrancy/reentrancy_buggy_30.sol#649-655) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_30.sol#651)
+ERC777.buyTicket_re_ent2() (Re-entrancy/reentrancy_buggy_30.sol#678-683) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent2.send(jackpot_re_ent2)) (Re-entrancy/reentrancy_buggy_30.sol#679)
+MinterRole.callme_re_ent35() (Re-entrancy/reentrancy_buggy_30.sol#714-720) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_30.sol#716)
+MinterRole.buyTicket_re_ent37() (Re-entrancy/reentrancy_buggy_30.sol#758-763) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent37.send(jackpot_re_ent37)) (Re-entrancy/reentrancy_buggy_30.sol#759)
+MinterRole.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_30.sol#782-788) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_30.sol#783)
+PauserRole.bug_re_ent27() (Re-entrancy/reentrancy_buggy_30.sol#833-839) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_30.sol#835)
+PauserRole.bug_re_ent20() (Re-entrancy/reentrancy_buggy_30.sol#867-873) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_30.sol#869)
+PauserRole.callme_re_ent7() (Re-entrancy/reentrancy_buggy_30.sol#916-922) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_30.sol#918)
+Pausable.bug_re_ent13() (Re-entrancy/reentrancy_buggy_30.sol#938-945) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_30.sol#940)
+Pausable.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_30.sol#956-961) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (Re-entrancy/reentrancy_buggy_30.sol#957)
+Pausable.callme_re_ent14() (Re-entrancy/reentrancy_buggy_30.sol#968-974) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_30.sol#970)
+Pausable.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_30.sol#995-1000) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (Re-entrancy/reentrancy_buggy_30.sol#996)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Reentrancy in Pausable.bug_re_ent13() (Re-entrancy/reentrancy_buggy_30.sol#938-945):
+	External calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_30.sol#940)
+	State variables written after the call(s):
+	- not_called_re_ent13 = false (Re-entrancy/reentrancy_buggy_30.sol#944)
+Reentrancy in MinterRole.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_30.sol#782-788):
+	External calls:
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_30.sol#783)
+	State variables written after the call(s):
+	- jackpot_re_ent9 = address(this).balance (Re-entrancy/reentrancy_buggy_30.sol#787)
+	- lastPlayer_re_ent9 = msg.sender (Re-entrancy/reentrancy_buggy_30.sol#786)
+Reentrancy in PauserRole.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_30.sol#848-856):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (Re-entrancy/reentrancy_buggy_30.sol#851)
+	State variables written after the call(s):
+	- userBalance_re_ent26[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_30.sol#855)
+Reentrancy in PauserRole.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_30.sol#822-830):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (Re-entrancy/reentrancy_buggy_30.sol#825)
+	State variables written after the call(s):
+	- userBalance_re_ent33[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_30.sol#829)
+Reentrancy in MinterRole.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_30.sol#723-731):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (Re-entrancy/reentrancy_buggy_30.sol#726)
+	State variables written after the call(s):
+	- userBalance_re_ent40[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_30.sol#730)
+Reentrancy in MinterRole.withdrawFunds_re_ent17(uint256) (Re-entrancy/reentrancy_buggy_30.sol#740-746):
+	External calls:
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_30.sol#743)
+	State variables written after the call(s):
+	- balances_re_ent17[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_30.sol#745)
+Reentrancy in MinterRole.withdrawFunds_re_ent3(uint256) (Re-entrancy/reentrancy_buggy_30.sol#769-775):
+	External calls:
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_30.sol#772)
+	State variables written after the call(s):
+	- balances_re_ent3[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_30.sol#774)
+Reentrancy in ERC777.withdraw_balances_re_ent1() (Re-entrancy/reentrancy_buggy_30.sol#608-612):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent1[msg.sender])() (Re-entrancy/reentrancy_buggy_30.sol#609)
+	State variables written after the call(s):
+	- balances_re_ent1[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_30.sol#611)
+Reentrancy in ERC777.withdraw_balances_re_ent21() (Re-entrancy/reentrancy_buggy_30.sol#524-528):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent21[msg.sender])() (Re-entrancy/reentrancy_buggy_30.sol#525)
+	State variables written after the call(s):
+	- balances_re_ent21[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_30.sol#527)
+Reentrancy in Pausable.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_30.sol#1008-1012):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (Re-entrancy/reentrancy_buggy_30.sol#1009)
+	State variables written after the call(s):
+	- balances_re_ent8[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_30.sol#1011)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
+
+IERC1820Registry.setInterfaceImplementer(address,bytes32,address).interfaceHash (Re-entrancy/reentrancy_buggy_30.sol#198) shadows:
+	- IERC1820Registry.interfaceHash(string) (Re-entrancy/reentrancy_buggy_30.sol#204) (function)
+IERC1820Registry.getInterfaceImplementer(address,bytes32).interfaceHash (Re-entrancy/reentrancy_buggy_30.sol#201) shadows:
+	- IERC1820Registry.interfaceHash(string) (Re-entrancy/reentrancy_buggy_30.sol#204) (function)
+ERC777.constructor(string,string,address[]).name (Re-entrancy/reentrancy_buggy_30.sol#259) shadows:
+	- ERC777.name() (Re-entrancy/reentrancy_buggy_30.sol#277-279) (function)
+	- IERC777.name() (Re-entrancy/reentrancy_buggy_30.sol#10) (function)
+ERC777.constructor(string,string,address[]).symbol (Re-entrancy/reentrancy_buggy_30.sol#260) shadows:
+	- ERC777.symbol() (Re-entrancy/reentrancy_buggy_30.sol#282-284) (function)
+	- IERC777.symbol() (Re-entrancy/reentrancy_buggy_30.sol#13) (function)
+ERC777.constructor(string,string,address[]).defaultOperators (Re-entrancy/reentrancy_buggy_30.sol#261) shadows:
+	- ERC777.defaultOperators() (Re-entrancy/reentrancy_buggy_30.sol#404-406) (function)
+	- IERC777.defaultOperators() (Re-entrancy/reentrancy_buggy_30.sol#40) (function)
+SKYBITToken.constructor(uint256,address[]).defaultOperators (Re-entrancy/reentrancy_buggy_30.sol#1018) shadows:
+	- ERC777.defaultOperators() (Re-entrancy/reentrancy_buggy_30.sol#404-406) (function)
+	- IERC777.defaultOperators() (Re-entrancy/reentrancy_buggy_30.sol#40) (function)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#local-variable-shadowing
+
+Reentrancy in ERC777._burn(address,address,uint256,bytes,bytes) (Re-entrancy/reentrancy_buggy_30.sol#562-581):
+	External calls:
+	- _callTokensToSend(operator,from,address(0),amount,data,operatorData) (Re-entrancy/reentrancy_buggy_30.sol#573)
+		- IERC777Sender(implementer).tokensToSend(operator,from,to,amount,userData,operatorData) (Re-entrancy/reentrancy_buggy_30.sol#645)
+	State variables written after the call(s):
+	- _balances[from] = _balances[from].sub(amount) (Re-entrancy/reentrancy_buggy_30.sol#577)
+	- _totalSupply = _totalSupply.sub(amount) (Re-entrancy/reentrancy_buggy_30.sol#576)
+Reentrancy in ERC777._send(address,address,address,uint256,bytes,bytes,bool) (Re-entrancy/reentrancy_buggy_30.sol#531-550):
+	External calls:
+	- _callTokensToSend(operator,from,to,amount,userData,operatorData) (Re-entrancy/reentrancy_buggy_30.sol#545)
+		- IERC777Sender(implementer).tokensToSend(operator,from,to,amount,userData,operatorData) (Re-entrancy/reentrancy_buggy_30.sol#645)
+	State variables written after the call(s):
+	- _move(operator,from,to,amount,userData,operatorData) (Re-entrancy/reentrancy_buggy_30.sol#547)
+		- _balances[from] = _balances[from].sub(amount) (Re-entrancy/reentrancy_buggy_30.sol#601)
+		- _balances[to] = _balances[to].add(amount) (Re-entrancy/reentrancy_buggy_30.sol#602)
+Reentrancy in ERC777.transfer(address,uint256) (Re-entrancy/reentrancy_buggy_30.sol#312-324):
+	External calls:
+	- _callTokensToSend(from,from,recipient,amount,,) (Re-entrancy/reentrancy_buggy_30.sol#317)
+		- IERC777Sender(implementer).tokensToSend(operator,from,to,amount,userData,operatorData) (Re-entrancy/reentrancy_buggy_30.sol#645)
+	State variables written after the call(s):
+	- _move(from,from,recipient,amount,,) (Re-entrancy/reentrancy_buggy_30.sol#319)
+		- _balances[from] = _balances[from].sub(amount) (Re-entrancy/reentrancy_buggy_30.sol#601)
+		- _balances[to] = _balances[to].add(amount) (Re-entrancy/reentrancy_buggy_30.sol#602)
+Reentrancy in ERC777.transferFrom(address,address,uint256) (Re-entrancy/reentrancy_buggy_30.sol#479-493):
+	External calls:
+	- _callTokensToSend(spender,holder,recipient,amount,,) (Re-entrancy/reentrancy_buggy_30.sol#485)
+		- IERC777Sender(implementer).tokensToSend(operator,from,to,amount,userData,operatorData) (Re-entrancy/reentrancy_buggy_30.sol#645)
+	State variables written after the call(s):
+	- _approve(holder,spender,_allowances[holder][spender].sub(amount)) (Re-entrancy/reentrancy_buggy_30.sol#488)
+		- _allowances[holder][spender] = value (Re-entrancy/reentrancy_buggy_30.sol#620)
+	- _move(spender,holder,recipient,amount,,) (Re-entrancy/reentrancy_buggy_30.sol#487)
+		- _balances[from] = _balances[from].sub(amount) (Re-entrancy/reentrancy_buggy_30.sol#601)
+		- _balances[to] = _balances[to].add(amount) (Re-entrancy/reentrancy_buggy_30.sol#602)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-2
+
+Reentrancy in ERC777._burn(address,address,uint256,bytes,bytes) (Re-entrancy/reentrancy_buggy_30.sol#562-581):
+	External calls:
+	- _callTokensToSend(operator,from,address(0),amount,data,operatorData) (Re-entrancy/reentrancy_buggy_30.sol#573)
+		- IERC777Sender(implementer).tokensToSend(operator,from,to,amount,userData,operatorData) (Re-entrancy/reentrancy_buggy_30.sol#645)
+	Event emitted after the call(s):
+	- Burned(operator,from,amount,data,operatorData) (Re-entrancy/reentrancy_buggy_30.sol#579)
+	- Transfer(from,address(0),amount) (Re-entrancy/reentrancy_buggy_30.sol#580)
+Reentrancy in ERC777._mint(address,address,uint256,bytes,bytes) (Re-entrancy/reentrancy_buggy_30.sol#503-522):
+	External calls:
+	- _callTokensReceived(operator,address(0),account,amount,userData,operatorData,true) (Re-entrancy/reentrancy_buggy_30.sol#518)
+		- IERC777Recipient(implementer).tokensReceived(operator,from,to,amount,userData,operatorData) (Re-entrancy/reentrancy_buggy_30.sol#671)
+	Event emitted after the call(s):
+	- Minted(operator,account,amount,userData,operatorData) (Re-entrancy/reentrancy_buggy_30.sol#520)
+	- Transfer(address(0),account,amount) (Re-entrancy/reentrancy_buggy_30.sol#521)
+Reentrancy in ERC777._send(address,address,address,uint256,bytes,bytes,bool) (Re-entrancy/reentrancy_buggy_30.sol#531-550):
+	External calls:
+	- _callTokensToSend(operator,from,to,amount,userData,operatorData) (Re-entrancy/reentrancy_buggy_30.sol#545)
+		- IERC777Sender(implementer).tokensToSend(operator,from,to,amount,userData,operatorData) (Re-entrancy/reentrancy_buggy_30.sol#645)
+	Event emitted after the call(s):
+	- Sent(operator,from,to,amount,userData,operatorData) (Re-entrancy/reentrancy_buggy_30.sol#604)
+		- _move(operator,from,to,amount,userData,operatorData) (Re-entrancy/reentrancy_buggy_30.sol#547)
+	- Transfer(from,to,amount) (Re-entrancy/reentrancy_buggy_30.sol#605)
+		- _move(operator,from,to,amount,userData,operatorData) (Re-entrancy/reentrancy_buggy_30.sol#547)
+Reentrancy in ERC777.transfer(address,uint256) (Re-entrancy/reentrancy_buggy_30.sol#312-324):
+	External calls:
+	- _callTokensToSend(from,from,recipient,amount,,) (Re-entrancy/reentrancy_buggy_30.sol#317)
+		- IERC777Sender(implementer).tokensToSend(operator,from,to,amount,userData,operatorData) (Re-entrancy/reentrancy_buggy_30.sol#645)
+	Event emitted after the call(s):
+	- Sent(operator,from,to,amount,userData,operatorData) (Re-entrancy/reentrancy_buggy_30.sol#604)
+		- _move(from,from,recipient,amount,,) (Re-entrancy/reentrancy_buggy_30.sol#319)
+	- Transfer(from,to,amount) (Re-entrancy/reentrancy_buggy_30.sol#605)
+		- _move(from,from,recipient,amount,,) (Re-entrancy/reentrancy_buggy_30.sol#319)
+Reentrancy in ERC777.transferFrom(address,address,uint256) (Re-entrancy/reentrancy_buggy_30.sol#479-493):
+	External calls:
+	- _callTokensToSend(spender,holder,recipient,amount,,) (Re-entrancy/reentrancy_buggy_30.sol#485)
+		- IERC777Sender(implementer).tokensToSend(operator,from,to,amount,userData,operatorData) (Re-entrancy/reentrancy_buggy_30.sol#645)
+	Event emitted after the call(s):
+	- Approval(holder,spender,value) (Re-entrancy/reentrancy_buggy_30.sol#621)
+		- _approve(holder,spender,_allowances[holder][spender].sub(amount)) (Re-entrancy/reentrancy_buggy_30.sol#488)
+	- Sent(operator,from,to,amount,userData,operatorData) (Re-entrancy/reentrancy_buggy_30.sol#604)
+		- _move(spender,holder,recipient,amount,,) (Re-entrancy/reentrancy_buggy_30.sol#487)
+	- Transfer(from,to,amount) (Re-entrancy/reentrancy_buggy_30.sol#605)
+		- _move(spender,holder,recipient,amount,,) (Re-entrancy/reentrancy_buggy_30.sol#487)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+
+Address.isContract(address) (Re-entrancy/reentrancy_buggy_30.sol#178-187) uses assembly
+	- INLINE ASM (Re-entrancy/reentrancy_buggy_30.sol#185)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#assembly-usage
+
+SafeMath.div(uint256,uint256) (Re-entrancy/reentrancy_buggy_30.sol#160-167) is never used and should be removed
+SafeMath.mod(uint256,uint256) (Re-entrancy/reentrancy_buggy_30.sol#170-173) is never used and should be removed
+SafeMath.mul(uint256,uint256) (Re-entrancy/reentrancy_buggy_30.sol#145-157) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.5.12 (Re-entrancy/reentrancy_buggy_30.sol#5) allows old versions
+solc-0.5.12 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in ERC777.withdraw_balances_re_ent21() (Re-entrancy/reentrancy_buggy_30.sol#524-528):
+	- (success) = msg.sender.call.value(balances_re_ent21[msg.sender])() (Re-entrancy/reentrancy_buggy_30.sol#525)
+Low level call in ERC777.withdraw_balances_re_ent1() (Re-entrancy/reentrancy_buggy_30.sol#608-612):
+	- (success) = msg.sender.call.value(balances_re_ent1[msg.sender])() (Re-entrancy/reentrancy_buggy_30.sol#609)
+Low level call in MinterRole.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_30.sol#723-731):
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (Re-entrancy/reentrancy_buggy_30.sol#726)
+Low level call in MinterRole.withdrawFunds_re_ent17(uint256) (Re-entrancy/reentrancy_buggy_30.sol#740-746):
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_30.sol#743)
+Low level call in MinterRole.withdrawFunds_re_ent3(uint256) (Re-entrancy/reentrancy_buggy_30.sol#769-775):
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_30.sol#772)
+Low level call in MinterRole.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_30.sol#782-788):
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_30.sol#783)
+Low level call in PauserRole.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_30.sol#822-830):
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (Re-entrancy/reentrancy_buggy_30.sol#825)
+Low level call in PauserRole.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_30.sol#848-856):
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (Re-entrancy/reentrancy_buggy_30.sol#851)
+Low level call in Pausable.bug_re_ent13() (Re-entrancy/reentrancy_buggy_30.sol#938-945):
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_30.sol#940)
+Low level call in Pausable.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_30.sol#1008-1012):
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (Re-entrancy/reentrancy_buggy_30.sol#1009)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Function ERC777.claimReward_re_ent18() (Re-entrancy/reentrancy_buggy_30.sol#326-332) is not in mixedCase
+Function ERC777.withdraw_balances_re_ent29() (Re-entrancy/reentrancy_buggy_30.sol#339-342) is not in mixedCase
+Function ERC777.bug_re_ent6() (Re-entrancy/reentrancy_buggy_30.sol#354-360) is not in mixedCase
+Function ERC777.buyTicket_re_ent16() (Re-entrancy/reentrancy_buggy_30.sol#376-381) is not in mixedCase
+Function ERC777.withdrawFunds_re_ent24(uint256) (Re-entrancy/reentrancy_buggy_30.sol#396-401) is not in mixedCase
+Parameter ERC777.withdrawFunds_re_ent24(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_30.sol#396) is not in mixedCase
+Function ERC777.withdrawBalance_re_ent5() (Re-entrancy/reentrancy_buggy_30.sol#408-415) is not in mixedCase
+Function ERC777.withdraw_balances_re_ent15() (Re-entrancy/reentrancy_buggy_30.sol#431-434) is not in mixedCase
+Function ERC777.callme_re_ent28() (Re-entrancy/reentrancy_buggy_30.sol#442-448) is not in mixedCase
+Function ERC777.bug_re_ent34() (Re-entrancy/reentrancy_buggy_30.sol#455-461) is not in mixedCase
+Function ERC777.callme_re_ent21() (Re-entrancy/reentrancy_buggy_30.sol#470-476) is not in mixedCase
+Function ERC777.withdrawFunds_re_ent10(uint256) (Re-entrancy/reentrancy_buggy_30.sol#495-500) is not in mixedCase
+Parameter ERC777.withdrawFunds_re_ent10(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_30.sol#495) is not in mixedCase
+Function ERC777.withdraw_balances_re_ent21() (Re-entrancy/reentrancy_buggy_30.sol#524-528) is not in mixedCase
+Function ERC777.withdrawBalance_re_ent12() (Re-entrancy/reentrancy_buggy_30.sol#552-559) is not in mixedCase
+Function ERC777.claimReward_re_ent11() (Re-entrancy/reentrancy_buggy_30.sol#583-589) is not in mixedCase
+Function ERC777.withdraw_balances_re_ent1() (Re-entrancy/reentrancy_buggy_30.sol#608-612) is not in mixedCase
+Function ERC777.bug_re_ent41() (Re-entrancy/reentrancy_buggy_30.sol#624-630) is not in mixedCase
+Function ERC777.callme_re_ent42() (Re-entrancy/reentrancy_buggy_30.sol#649-655) is not in mixedCase
+Function ERC777.buyTicket_re_ent2() (Re-entrancy/reentrancy_buggy_30.sol#678-683) is not in mixedCase
+Variable ERC777.redeemableEther_re_ent18 (Re-entrancy/reentrancy_buggy_30.sol#325) is not in mixedCase
+Variable ERC777.balances_re_ent29 (Re-entrancy/reentrancy_buggy_30.sol#338) is not in mixedCase
+Variable ERC777.not_called_re_ent6 (Re-entrancy/reentrancy_buggy_30.sol#353) is not in mixedCase
+Variable ERC777.lastPlayer_re_ent16 (Re-entrancy/reentrancy_buggy_30.sol#374) is not in mixedCase
+Variable ERC777.jackpot_re_ent16 (Re-entrancy/reentrancy_buggy_30.sol#375) is not in mixedCase
+Variable ERC777.balances_re_ent24 (Re-entrancy/reentrancy_buggy_30.sol#395) is not in mixedCase
+Variable ERC777.userBalance_re_ent5 (Re-entrancy/reentrancy_buggy_30.sol#407) is not in mixedCase
+Variable ERC777.balances_re_ent15 (Re-entrancy/reentrancy_buggy_30.sol#430) is not in mixedCase
+Variable ERC777.counter_re_ent28 (Re-entrancy/reentrancy_buggy_30.sol#441) is not in mixedCase
+Variable ERC777.not_called_re_ent34 (Re-entrancy/reentrancy_buggy_30.sol#454) is not in mixedCase
+Variable ERC777.counter_re_ent21 (Re-entrancy/reentrancy_buggy_30.sol#469) is not in mixedCase
+Variable ERC777.balances_re_ent10 (Re-entrancy/reentrancy_buggy_30.sol#494) is not in mixedCase
+Variable ERC777.balances_re_ent21 (Re-entrancy/reentrancy_buggy_30.sol#523) is not in mixedCase
+Variable ERC777.userBalance_re_ent12 (Re-entrancy/reentrancy_buggy_30.sol#551) is not in mixedCase
+Variable ERC777.redeemableEther_re_ent11 (Re-entrancy/reentrancy_buggy_30.sol#582) is not in mixedCase
+Variable ERC777.balances_re_ent1 (Re-entrancy/reentrancy_buggy_30.sol#607) is not in mixedCase
+Variable ERC777.not_called_re_ent41 (Re-entrancy/reentrancy_buggy_30.sol#623) is not in mixedCase
+Variable ERC777.counter_re_ent42 (Re-entrancy/reentrancy_buggy_30.sol#648) is not in mixedCase
+Variable ERC777.lastPlayer_re_ent2 (Re-entrancy/reentrancy_buggy_30.sol#676) is not in mixedCase
+Variable ERC777.jackpot_re_ent2 (Re-entrancy/reentrancy_buggy_30.sol#677) is not in mixedCase
+Function MinterRole.callme_re_ent35() (Re-entrancy/reentrancy_buggy_30.sol#714-720) is not in mixedCase
+Function MinterRole.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_30.sol#723-731) is not in mixedCase
+Function MinterRole.withdrawFunds_re_ent17(uint256) (Re-entrancy/reentrancy_buggy_30.sol#740-746) is not in mixedCase
+Parameter MinterRole.withdrawFunds_re_ent17(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_30.sol#740) is not in mixedCase
+Function MinterRole.buyTicket_re_ent37() (Re-entrancy/reentrancy_buggy_30.sol#758-763) is not in mixedCase
+Function MinterRole.withdrawFunds_re_ent3(uint256) (Re-entrancy/reentrancy_buggy_30.sol#769-775) is not in mixedCase
+Parameter MinterRole.withdrawFunds_re_ent3(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_30.sol#769) is not in mixedCase
+Function MinterRole.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_30.sol#782-788) is not in mixedCase
+Function MinterRole.claimReward_re_ent25() (Re-entrancy/reentrancy_buggy_30.sol#795-801) is not in mixedCase
+Function MinterRole.withdrawBalance_re_ent19() (Re-entrancy/reentrancy_buggy_30.sol#808-815) is not in mixedCase
+Variable MinterRole.counter_re_ent35 (Re-entrancy/reentrancy_buggy_30.sol#713) is not in mixedCase
+Variable MinterRole.userBalance_re_ent40 (Re-entrancy/reentrancy_buggy_30.sol#722) is not in mixedCase
+Variable MinterRole.balances_re_ent17 (Re-entrancy/reentrancy_buggy_30.sol#739) is not in mixedCase
+Variable MinterRole.lastPlayer_re_ent37 (Re-entrancy/reentrancy_buggy_30.sol#756) is not in mixedCase
+Variable MinterRole.jackpot_re_ent37 (Re-entrancy/reentrancy_buggy_30.sol#757) is not in mixedCase
+Variable MinterRole.balances_re_ent3 (Re-entrancy/reentrancy_buggy_30.sol#768) is not in mixedCase
+Variable MinterRole.lastPlayer_re_ent9 (Re-entrancy/reentrancy_buggy_30.sol#780) is not in mixedCase
+Variable MinterRole.jackpot_re_ent9 (Re-entrancy/reentrancy_buggy_30.sol#781) is not in mixedCase
+Variable MinterRole.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_30.sol#794) is not in mixedCase
+Variable MinterRole.userBalance_re_ent19 (Re-entrancy/reentrancy_buggy_30.sol#807) is not in mixedCase
+Function PauserRole.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_30.sol#822-830) is not in mixedCase
+Function PauserRole.bug_re_ent27() (Re-entrancy/reentrancy_buggy_30.sol#833-839) is not in mixedCase
+Function PauserRole.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_30.sol#848-856) is not in mixedCase
+Function PauserRole.bug_re_ent20() (Re-entrancy/reentrancy_buggy_30.sol#867-873) is not in mixedCase
+Function PauserRole.claimReward_re_ent32() (Re-entrancy/reentrancy_buggy_30.sol#879-885) is not in mixedCase
+Function PauserRole.withdrawFunds_re_ent38(uint256) (Re-entrancy/reentrancy_buggy_30.sol#891-896) is not in mixedCase
+Parameter PauserRole.withdrawFunds_re_ent38(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_30.sol#891) is not in mixedCase
+Function PauserRole.claimReward_re_ent4() (Re-entrancy/reentrancy_buggy_30.sol#903-909) is not in mixedCase
+Function PauserRole.callme_re_ent7() (Re-entrancy/reentrancy_buggy_30.sol#916-922) is not in mixedCase
+Variable PauserRole.userBalance_re_ent33 (Re-entrancy/reentrancy_buggy_30.sol#821) is not in mixedCase
+Variable PauserRole.not_called_re_ent27 (Re-entrancy/reentrancy_buggy_30.sol#832) is not in mixedCase
+Variable PauserRole.userBalance_re_ent26 (Re-entrancy/reentrancy_buggy_30.sol#847) is not in mixedCase
+Variable PauserRole.not_called_re_ent20 (Re-entrancy/reentrancy_buggy_30.sol#866) is not in mixedCase
+Variable PauserRole.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_30.sol#878) is not in mixedCase
+Variable PauserRole.balances_re_ent38 (Re-entrancy/reentrancy_buggy_30.sol#890) is not in mixedCase
+Variable PauserRole.redeemableEther_re_ent4 (Re-entrancy/reentrancy_buggy_30.sol#902) is not in mixedCase
+Variable PauserRole.counter_re_ent7 (Re-entrancy/reentrancy_buggy_30.sol#915) is not in mixedCase
+Function Pausable.withdrawFunds_re_ent31(uint256) (Re-entrancy/reentrancy_buggy_30.sol#928-933) is not in mixedCase
+Parameter Pausable.withdrawFunds_re_ent31(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_30.sol#928) is not in mixedCase
+Function Pausable.bug_re_ent13() (Re-entrancy/reentrancy_buggy_30.sol#938-945) is not in mixedCase
+Function Pausable.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_30.sol#956-961) is not in mixedCase
+Function Pausable.callme_re_ent14() (Re-entrancy/reentrancy_buggy_30.sol#968-974) is not in mixedCase
+Function Pausable.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_30.sol#995-1000) is not in mixedCase
+Function Pausable.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_30.sol#1008-1012) is not in mixedCase
+Variable Pausable.balances_re_ent31 (Re-entrancy/reentrancy_buggy_30.sol#927) is not in mixedCase
+Variable Pausable.not_called_re_ent13 (Re-entrancy/reentrancy_buggy_30.sol#937) is not in mixedCase
+Variable Pausable.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_30.sol#954) is not in mixedCase
+Variable Pausable.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_30.sol#955) is not in mixedCase
+Variable Pausable.counter_re_ent14 (Re-entrancy/reentrancy_buggy_30.sol#967) is not in mixedCase
+Variable Pausable.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_30.sol#993) is not in mixedCase
+Variable Pausable.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_30.sol#994) is not in mixedCase
+Variable Pausable.balances_re_ent8 (Re-entrancy/reentrancy_buggy_30.sol#1007) is not in mixedCase
+Function SKYBITToken.claimReward_re_ent39() (Re-entrancy/reentrancy_buggy_30.sol#1026-1032) is not in mixedCase
+Function SKYBITToken.withdraw_balances_re_ent36() (Re-entrancy/reentrancy_buggy_30.sol#1039-1042) is not in mixedCase
+Variable SKYBITToken.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_30.sol#1025) is not in mixedCase
+Variable SKYBITToken.balances_re_ent36 (Re-entrancy/reentrancy_buggy_30.sol#1038) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in PauserRole.bug_re_ent20() (Re-entrancy/reentrancy_buggy_30.sol#867-873):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_30.sol#869)
+	State variables written after the call(s):
+	- not_called_re_ent20 = false (Re-entrancy/reentrancy_buggy_30.sol#872)
+Reentrancy in PauserRole.bug_re_ent27() (Re-entrancy/reentrancy_buggy_30.sol#833-839):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_30.sol#835)
+	State variables written after the call(s):
+	- not_called_re_ent27 = false (Re-entrancy/reentrancy_buggy_30.sol#838)
+Reentrancy in ERC777.bug_re_ent34() (Re-entrancy/reentrancy_buggy_30.sol#455-461):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_30.sol#457)
+	State variables written after the call(s):
+	- not_called_re_ent34 = false (Re-entrancy/reentrancy_buggy_30.sol#460)
+Reentrancy in ERC777.bug_re_ent41() (Re-entrancy/reentrancy_buggy_30.sol#624-630):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_30.sol#626)
+	State variables written after the call(s):
+	- not_called_re_ent41 = false (Re-entrancy/reentrancy_buggy_30.sol#629)
+Reentrancy in ERC777.bug_re_ent6() (Re-entrancy/reentrancy_buggy_30.sol#354-360):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_30.sol#356)
+	State variables written after the call(s):
+	- not_called_re_ent6 = false (Re-entrancy/reentrancy_buggy_30.sol#359)
+Reentrancy in ERC777.buyTicket_re_ent16() (Re-entrancy/reentrancy_buggy_30.sol#376-381):
+	External calls:
+	- ! (lastPlayer_re_ent16.send(jackpot_re_ent16)) (Re-entrancy/reentrancy_buggy_30.sol#377)
+	State variables written after the call(s):
+	- jackpot_re_ent16 = address(this).balance (Re-entrancy/reentrancy_buggy_30.sol#380)
+	- lastPlayer_re_ent16 = msg.sender (Re-entrancy/reentrancy_buggy_30.sol#379)
+Reentrancy in ERC777.buyTicket_re_ent2() (Re-entrancy/reentrancy_buggy_30.sol#678-683):
+	External calls:
+	- ! (lastPlayer_re_ent2.send(jackpot_re_ent2)) (Re-entrancy/reentrancy_buggy_30.sol#679)
+	State variables written after the call(s):
+	- jackpot_re_ent2 = address(this).balance (Re-entrancy/reentrancy_buggy_30.sol#682)
+	- lastPlayer_re_ent2 = msg.sender (Re-entrancy/reentrancy_buggy_30.sol#681)
+Reentrancy in Pausable.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_30.sol#956-961):
+	External calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (Re-entrancy/reentrancy_buggy_30.sol#957)
+	State variables written after the call(s):
+	- jackpot_re_ent23 = address(this).balance (Re-entrancy/reentrancy_buggy_30.sol#960)
+	- lastPlayer_re_ent23 = msg.sender (Re-entrancy/reentrancy_buggy_30.sol#959)
+Reentrancy in Pausable.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_30.sol#995-1000):
+	External calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (Re-entrancy/reentrancy_buggy_30.sol#996)
+	State variables written after the call(s):
+	- jackpot_re_ent30 = address(this).balance (Re-entrancy/reentrancy_buggy_30.sol#999)
+	- lastPlayer_re_ent30 = msg.sender (Re-entrancy/reentrancy_buggy_30.sol#998)
+Reentrancy in MinterRole.buyTicket_re_ent37() (Re-entrancy/reentrancy_buggy_30.sol#758-763):
+	External calls:
+	- ! (lastPlayer_re_ent37.send(jackpot_re_ent37)) (Re-entrancy/reentrancy_buggy_30.sol#759)
+	State variables written after the call(s):
+	- jackpot_re_ent37 = address(this).balance (Re-entrancy/reentrancy_buggy_30.sol#762)
+	- lastPlayer_re_ent37 = msg.sender (Re-entrancy/reentrancy_buggy_30.sol#761)
+Reentrancy in Pausable.callme_re_ent14() (Re-entrancy/reentrancy_buggy_30.sol#968-974):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_30.sol#970)
+	State variables written after the call(s):
+	- counter_re_ent14 += 1 (Re-entrancy/reentrancy_buggy_30.sol#973)
+Reentrancy in ERC777.callme_re_ent21() (Re-entrancy/reentrancy_buggy_30.sol#470-476):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_30.sol#472)
+	State variables written after the call(s):
+	- counter_re_ent21 += 1 (Re-entrancy/reentrancy_buggy_30.sol#475)
+Reentrancy in ERC777.callme_re_ent28() (Re-entrancy/reentrancy_buggy_30.sol#442-448):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_30.sol#444)
+	State variables written after the call(s):
+	- counter_re_ent28 += 1 (Re-entrancy/reentrancy_buggy_30.sol#447)
+Reentrancy in MinterRole.callme_re_ent35() (Re-entrancy/reentrancy_buggy_30.sol#714-720):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_30.sol#716)
+	State variables written after the call(s):
+	- counter_re_ent35 += 1 (Re-entrancy/reentrancy_buggy_30.sol#719)
+Reentrancy in ERC777.callme_re_ent42() (Re-entrancy/reentrancy_buggy_30.sol#649-655):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_30.sol#651)
+	State variables written after the call(s):
+	- counter_re_ent42 += 1 (Re-entrancy/reentrancy_buggy_30.sol#654)
+Reentrancy in PauserRole.callme_re_ent7() (Re-entrancy/reentrancy_buggy_30.sol#916-922):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_30.sol#918)
+	State variables written after the call(s):
+	- counter_re_ent7 += 1 (Re-entrancy/reentrancy_buggy_30.sol#921)
+Reentrancy in ERC777.claimReward_re_ent11() (Re-entrancy/reentrancy_buggy_30.sol#583-589):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent11) (Re-entrancy/reentrancy_buggy_30.sol#587)
+	State variables written after the call(s):
+	- redeemableEther_re_ent11[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_30.sol#588)
+Reentrancy in ERC777.claimReward_re_ent18() (Re-entrancy/reentrancy_buggy_30.sol#326-332):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent18) (Re-entrancy/reentrancy_buggy_30.sol#330)
+	State variables written after the call(s):
+	- redeemableEther_re_ent18[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_30.sol#331)
+Reentrancy in MinterRole.claimReward_re_ent25() (Re-entrancy/reentrancy_buggy_30.sol#795-801):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent25) (Re-entrancy/reentrancy_buggy_30.sol#799)
+	State variables written after the call(s):
+	- redeemableEther_re_ent25[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_30.sol#800)
+Reentrancy in PauserRole.claimReward_re_ent32() (Re-entrancy/reentrancy_buggy_30.sol#879-885):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent32) (Re-entrancy/reentrancy_buggy_30.sol#883)
+	State variables written after the call(s):
+	- redeemableEther_re_ent32[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_30.sol#884)
+Reentrancy in SKYBITToken.claimReward_re_ent39() (Re-entrancy/reentrancy_buggy_30.sol#1026-1032):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent39) (Re-entrancy/reentrancy_buggy_30.sol#1030)
+	State variables written after the call(s):
+	- redeemableEther_re_ent39[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_30.sol#1031)
+Reentrancy in PauserRole.claimReward_re_ent4() (Re-entrancy/reentrancy_buggy_30.sol#903-909):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent4) (Re-entrancy/reentrancy_buggy_30.sol#907)
+	State variables written after the call(s):
+	- redeemableEther_re_ent4[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_30.sol#908)
+Reentrancy in ERC777.withdrawBalance_re_ent12() (Re-entrancy/reentrancy_buggy_30.sol#552-559):
+	External calls:
+	- ! (msg.sender.send(userBalance_re_ent12[msg.sender])) (Re-entrancy/reentrancy_buggy_30.sol#555)
+	State variables written after the call(s):
+	- userBalance_re_ent12[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_30.sol#558)
+Reentrancy in MinterRole.withdrawBalance_re_ent19() (Re-entrancy/reentrancy_buggy_30.sol#808-815):
+	External calls:
+	- ! (msg.sender.send(userBalance_re_ent19[msg.sender])) (Re-entrancy/reentrancy_buggy_30.sol#811)
+	State variables written after the call(s):
+	- userBalance_re_ent19[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_30.sol#814)
+Reentrancy in ERC777.withdrawBalance_re_ent5() (Re-entrancy/reentrancy_buggy_30.sol#408-415):
+	External calls:
+	- ! (msg.sender.send(userBalance_re_ent5[msg.sender])) (Re-entrancy/reentrancy_buggy_30.sol#411)
+	State variables written after the call(s):
+	- userBalance_re_ent5[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_30.sol#414)
+Reentrancy in ERC777.withdrawFunds_re_ent10(uint256) (Re-entrancy/reentrancy_buggy_30.sol#495-500):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_30.sol#498)
+	State variables written after the call(s):
+	- balances_re_ent10[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_30.sol#499)
+Reentrancy in ERC777.withdrawFunds_re_ent24(uint256) (Re-entrancy/reentrancy_buggy_30.sol#396-401):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_30.sol#399)
+	State variables written after the call(s):
+	- balances_re_ent24[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_30.sol#400)
+Reentrancy in Pausable.withdrawFunds_re_ent31(uint256) (Re-entrancy/reentrancy_buggy_30.sol#928-933):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_30.sol#931)
+	State variables written after the call(s):
+	- balances_re_ent31[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_30.sol#932)
+Reentrancy in PauserRole.withdrawFunds_re_ent38(uint256) (Re-entrancy/reentrancy_buggy_30.sol#891-896):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_30.sol#894)
+	State variables written after the call(s):
+	- balances_re_ent38[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_30.sol#895)
+Reentrancy in ERC777.withdraw_balances_re_ent15() (Re-entrancy/reentrancy_buggy_30.sol#431-434):
+	External calls:
+	- msg.sender.send(balances_re_ent15[msg.sender]) (Re-entrancy/reentrancy_buggy_30.sol#432)
+	State variables written after the call(s):
+	- balances_re_ent15[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_30.sol#433)
+Reentrancy in ERC777.withdraw_balances_re_ent29() (Re-entrancy/reentrancy_buggy_30.sol#339-342):
+	External calls:
+	- msg.sender.send(balances_re_ent29[msg.sender]) (Re-entrancy/reentrancy_buggy_30.sol#340)
+	State variables written after the call(s):
+	- balances_re_ent29[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_30.sol#341)
+Reentrancy in SKYBITToken.withdraw_balances_re_ent36() (Re-entrancy/reentrancy_buggy_30.sol#1039-1042):
+	External calls:
+	- msg.sender.send(balances_re_ent36[msg.sender]) (Re-entrancy/reentrancy_buggy_30.sol#1040)
+	State variables written after the call(s):
+	- balances_re_ent36[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_30.sol#1041)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable ERC777.balances_re_ent10 (Re-entrancy/reentrancy_buggy_30.sol#494) is too similar to ERC777.balances_re_ent15 (Re-entrancy/reentrancy_buggy_30.sol#430)
+Variable ERC777.balances_re_ent10 (Re-entrancy/reentrancy_buggy_30.sol#494) is too similar to ERC777.balances_re_ent21 (Re-entrancy/reentrancy_buggy_30.sol#523)
+Variable ERC777.balances_re_ent15 (Re-entrancy/reentrancy_buggy_30.sol#430) is too similar to ERC777.balances_re_ent21 (Re-entrancy/reentrancy_buggy_30.sol#523)
+Variable ERC777.balances_re_ent21 (Re-entrancy/reentrancy_buggy_30.sol#523) is too similar to ERC777.balances_re_ent24 (Re-entrancy/reentrancy_buggy_30.sol#395)
+Variable ERC777.balances_re_ent21 (Re-entrancy/reentrancy_buggy_30.sol#523) is too similar to ERC777.balances_re_ent29 (Re-entrancy/reentrancy_buggy_30.sol#338)
+Variable ERC777.balances_re_ent24 (Re-entrancy/reentrancy_buggy_30.sol#395) is too similar to ERC777.balances_re_ent29 (Re-entrancy/reentrancy_buggy_30.sol#338)
+Variable ERC777.counter_re_ent21 (Re-entrancy/reentrancy_buggy_30.sol#469) is too similar to ERC777.counter_re_ent28 (Re-entrancy/reentrancy_buggy_30.sol#441)
+Variable ERC777.counter_re_ent21 (Re-entrancy/reentrancy_buggy_30.sol#469) is too similar to ERC777.counter_re_ent42 (Re-entrancy/reentrancy_buggy_30.sol#648)
+Variable ERC777.counter_re_ent28 (Re-entrancy/reentrancy_buggy_30.sol#441) is too similar to ERC777.counter_re_ent42 (Re-entrancy/reentrancy_buggy_30.sol#648)
+Variable ERC777.not_called_re_ent34 (Re-entrancy/reentrancy_buggy_30.sol#454) is too similar to ERC777.not_called_re_ent41 (Re-entrancy/reentrancy_buggy_30.sol#623)
+Variable ERC777.redeemableEther_re_ent11 (Re-entrancy/reentrancy_buggy_30.sol#582) is too similar to ERC777.redeemableEther_re_ent18 (Re-entrancy/reentrancy_buggy_30.sol#325)
+Variable ERC777.claimReward_re_ent11().transferValue_re_ent11 (Re-entrancy/reentrancy_buggy_30.sol#586) is too similar to ERC777.claimReward_re_ent18().transferValue_re_ent18 (Re-entrancy/reentrancy_buggy_30.sol#329)
+Variable PauserRole.not_called_re_ent20 (Re-entrancy/reentrancy_buggy_30.sol#866) is too similar to PauserRole.not_called_re_ent27 (Re-entrancy/reentrancy_buggy_30.sol#832)
+Variable Pausable.balances_re_ent31 (Re-entrancy/reentrancy_buggy_30.sol#927) is too similar to PauserRole.balances_re_ent38 (Re-entrancy/reentrancy_buggy_30.sol#890)
+Variable Pausable.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_30.sol#955) is too similar to Pausable.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_30.sol#994)
+Variable Pausable.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_30.sol#954) is too similar to Pausable.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_30.sol#993)
+Variable ERC777.balances_re_ent1 (Re-entrancy/reentrancy_buggy_30.sol#607) is too similar to MinterRole.balances_re_ent3 (Re-entrancy/reentrancy_buggy_30.sol#768)
+Variable ERC777.balances_re_ent1 (Re-entrancy/reentrancy_buggy_30.sol#607) is too similar to Pausable.balances_re_ent8 (Re-entrancy/reentrancy_buggy_30.sol#1007)
+Variable ERC777.balances_re_ent10 (Re-entrancy/reentrancy_buggy_30.sol#494) is too similar to MinterRole.balances_re_ent17 (Re-entrancy/reentrancy_buggy_30.sol#739)
+Variable ERC777.balances_re_ent10 (Re-entrancy/reentrancy_buggy_30.sol#494) is too similar to Pausable.balances_re_ent31 (Re-entrancy/reentrancy_buggy_30.sol#927)
+Variable ERC777.balances_re_ent15 (Re-entrancy/reentrancy_buggy_30.sol#430) is too similar to MinterRole.balances_re_ent17 (Re-entrancy/reentrancy_buggy_30.sol#739)
+Variable MinterRole.balances_re_ent17 (Re-entrancy/reentrancy_buggy_30.sol#739) is too similar to ERC777.balances_re_ent21 (Re-entrancy/reentrancy_buggy_30.sol#523)
+Variable ERC777.balances_re_ent21 (Re-entrancy/reentrancy_buggy_30.sol#523) is too similar to Pausable.balances_re_ent31 (Re-entrancy/reentrancy_buggy_30.sol#927)
+Variable MinterRole.balances_re_ent3 (Re-entrancy/reentrancy_buggy_30.sol#768) is too similar to Pausable.balances_re_ent8 (Re-entrancy/reentrancy_buggy_30.sol#1007)
+Variable ERC777.balances_re_ent15 (Re-entrancy/reentrancy_buggy_30.sol#430) is too similar to Pausable.balances_re_ent31 (Re-entrancy/reentrancy_buggy_30.sol#927)
+Variable MinterRole.balances_re_ent17 (Re-entrancy/reentrancy_buggy_30.sol#739) is too similar to Pausable.balances_re_ent31 (Re-entrancy/reentrancy_buggy_30.sol#927)
+Variable Pausable.balances_re_ent31 (Re-entrancy/reentrancy_buggy_30.sol#927) is too similar to SKYBITToken.balances_re_ent36 (Re-entrancy/reentrancy_buggy_30.sol#1038)
+Variable SKYBITToken.balances_re_ent36 (Re-entrancy/reentrancy_buggy_30.sol#1038) is too similar to PauserRole.balances_re_ent38 (Re-entrancy/reentrancy_buggy_30.sol#890)
+Variable Pausable.counter_re_ent14 (Re-entrancy/reentrancy_buggy_30.sol#967) is too similar to ERC777.counter_re_ent21 (Re-entrancy/reentrancy_buggy_30.sol#469)
+Variable Pausable.counter_re_ent14 (Re-entrancy/reentrancy_buggy_30.sol#967) is too similar to ERC777.counter_re_ent42 (Re-entrancy/reentrancy_buggy_30.sol#648)
+Variable ERC777.jackpot_re_ent2 (Re-entrancy/reentrancy_buggy_30.sol#677) is too similar to MinterRole.jackpot_re_ent9 (Re-entrancy/reentrancy_buggy_30.sol#781)
+Variable Pausable.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_30.sol#955) is too similar to MinterRole.jackpot_re_ent37 (Re-entrancy/reentrancy_buggy_30.sol#757)
+Variable Pausable.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_30.sol#994) is too similar to MinterRole.jackpot_re_ent37 (Re-entrancy/reentrancy_buggy_30.sol#757)
+Variable ERC777.lastPlayer_re_ent2 (Re-entrancy/reentrancy_buggy_30.sol#676) is too similar to MinterRole.lastPlayer_re_ent9 (Re-entrancy/reentrancy_buggy_30.sol#780)
+Variable Pausable.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_30.sol#954) is too similar to MinterRole.lastPlayer_re_ent37 (Re-entrancy/reentrancy_buggy_30.sol#756)
+Variable Pausable.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_30.sol#993) is too similar to MinterRole.lastPlayer_re_ent37 (Re-entrancy/reentrancy_buggy_30.sol#756)
+Variable Pausable.not_called_re_ent13 (Re-entrancy/reentrancy_buggy_30.sol#937) is too similar to ERC777.not_called_re_ent34 (Re-entrancy/reentrancy_buggy_30.sol#454)
+Variable Pausable.not_called_re_ent13 (Re-entrancy/reentrancy_buggy_30.sol#937) is too similar to ERC777.not_called_re_ent41 (Re-entrancy/reentrancy_buggy_30.sol#623)
+Variable ERC777.redeemableEther_re_ent11 (Re-entrancy/reentrancy_buggy_30.sol#582) is too similar to MinterRole.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_30.sol#794)
+Variable ERC777.redeemableEther_re_ent11 (Re-entrancy/reentrancy_buggy_30.sol#582) is too similar to PauserRole.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_30.sol#878)
+Variable ERC777.redeemableEther_re_ent11 (Re-entrancy/reentrancy_buggy_30.sol#582) is too similar to SKYBITToken.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_30.sol#1025)
+Variable ERC777.redeemableEther_re_ent18 (Re-entrancy/reentrancy_buggy_30.sol#325) is too similar to MinterRole.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_30.sol#794)
+Variable ERC777.redeemableEther_re_ent18 (Re-entrancy/reentrancy_buggy_30.sol#325) is too similar to PauserRole.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_30.sol#878)
+Variable MinterRole.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_30.sol#794) is too similar to PauserRole.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_30.sol#878)
+Variable ERC777.redeemableEther_re_ent18 (Re-entrancy/reentrancy_buggy_30.sol#325) is too similar to SKYBITToken.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_30.sol#1025)
+Variable MinterRole.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_30.sol#794) is too similar to SKYBITToken.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_30.sol#1025)
+Variable PauserRole.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_30.sol#878) is too similar to SKYBITToken.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_30.sol#1025)
+Variable ERC777.claimReward_re_ent11().transferValue_re_ent11 (Re-entrancy/reentrancy_buggy_30.sol#586) is too similar to SKYBITToken.claimReward_re_ent39().transferValue_re_ent39 (Re-entrancy/reentrancy_buggy_30.sol#1029)
+Variable ERC777.claimReward_re_ent18().transferValue_re_ent18 (Re-entrancy/reentrancy_buggy_30.sol#329) is too similar to MinterRole.claimReward_re_ent25().transferValue_re_ent25 (Re-entrancy/reentrancy_buggy_30.sol#798)
+Variable ERC777.claimReward_re_ent18().transferValue_re_ent18 (Re-entrancy/reentrancy_buggy_30.sol#329) is too similar to SKYBITToken.claimReward_re_ent39().transferValue_re_ent39 (Re-entrancy/reentrancy_buggy_30.sol#1029)
+Variable ERC777.claimReward_re_ent11().transferValue_re_ent11 (Re-entrancy/reentrancy_buggy_30.sol#586) is too similar to MinterRole.claimReward_re_ent25().transferValue_re_ent25 (Re-entrancy/reentrancy_buggy_30.sol#798)
+Variable MinterRole.claimReward_re_ent25().transferValue_re_ent25 (Re-entrancy/reentrancy_buggy_30.sol#798) is too similar to SKYBITToken.claimReward_re_ent39().transferValue_re_ent39 (Re-entrancy/reentrancy_buggy_30.sol#1029)
+Variable ERC777.claimReward_re_ent11().transferValue_re_ent11 (Re-entrancy/reentrancy_buggy_30.sol#586) is too similar to PauserRole.claimReward_re_ent32().transferValue_re_ent32 (Re-entrancy/reentrancy_buggy_30.sol#882)
+Variable ERC777.claimReward_re_ent18().transferValue_re_ent18 (Re-entrancy/reentrancy_buggy_30.sol#329) is too similar to PauserRole.claimReward_re_ent32().transferValue_re_ent32 (Re-entrancy/reentrancy_buggy_30.sol#882)
+Variable MinterRole.claimReward_re_ent25().transferValue_re_ent25 (Re-entrancy/reentrancy_buggy_30.sol#798) is too similar to PauserRole.claimReward_re_ent32().transferValue_re_ent32 (Re-entrancy/reentrancy_buggy_30.sol#882)
+Variable PauserRole.claimReward_re_ent32().transferValue_re_ent32 (Re-entrancy/reentrancy_buggy_30.sol#882) is too similar to SKYBITToken.claimReward_re_ent39().transferValue_re_ent39 (Re-entrancy/reentrancy_buggy_30.sol#1029)
+Variable ERC777.userBalance_re_ent12 (Re-entrancy/reentrancy_buggy_30.sol#551) is too similar to MinterRole.userBalance_re_ent19 (Re-entrancy/reentrancy_buggy_30.sol#807)
+Variable ERC777.userBalance_re_ent12 (Re-entrancy/reentrancy_buggy_30.sol#551) is too similar to PauserRole.userBalance_re_ent26 (Re-entrancy/reentrancy_buggy_30.sol#847)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+mint(address,address,uint256,bytes,bytes) should be declared external:
+	- SKYBITToken.mint(address,address,uint256,bytes,bytes) (Re-entrancy/reentrancy_buggy_30.sol#1034-1037)
+Moreover, the following function parameters should change its data location:
+userData location should be calldata
+operatorData location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+Re-entrancy/reentrancy_buggy_30.sol analyzed (13 contracts with 80 detectors), 246 result(s) found

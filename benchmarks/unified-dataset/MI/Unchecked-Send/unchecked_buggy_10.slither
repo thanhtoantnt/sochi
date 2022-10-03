@@ -1,0 +1,50 @@
+
+DocumentSigner.bug_unchk_send7() (Unchecked-Send/unchecked_buggy_10.sol#8-9) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_10.sol#9)
+DocumentSigner.bug_unchk_send23() (Unchecked-Send/unchecked_buggy_10.sol#11-12) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_10.sol#12)
+DocumentSigner.bug_unchk_send31() (Unchecked-Send/unchecked_buggy_10.sol#20-21) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_10.sol#21)
+DocumentSigner.bug_unchk_send13() (Unchecked-Send/unchecked_buggy_10.sol#23-24) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_10.sol#24)
+DocumentSigner.bug_unchk_send14() (Unchecked-Send/unchecked_buggy_10.sol#34-35) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_10.sol#35)
+DocumentSigner.bug_unchk_send30() (Unchecked-Send/unchecked_buggy_10.sol#44-45) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_10.sol#45)
+DocumentSigner.bug_unchk_send8() (Unchecked-Send/unchecked_buggy_10.sol#51-52) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_10.sol#52)
+DocumentSigner.bug_unchk_send27() (Unchecked-Send/unchecked_buggy_10.sol#57-58) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(1000000000000000000) (Unchecked-Send/unchecked_buggy_10.sol#58)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Pragma version>=0.4.21<0.6.0 (Unchecked-Send/unchecked_buggy_10.sol#5) allows old versions
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function DocumentSigner.bug_unchk_send7() (Unchecked-Send/unchecked_buggy_10.sol#8-9) is not in mixedCase
+Function DocumentSigner.bug_unchk_send23() (Unchecked-Send/unchecked_buggy_10.sol#11-12) is not in mixedCase
+Function DocumentSigner.bug_unchk_send31() (Unchecked-Send/unchecked_buggy_10.sol#20-21) is not in mixedCase
+Function DocumentSigner.bug_unchk_send13() (Unchecked-Send/unchecked_buggy_10.sol#23-24) is not in mixedCase
+Parameter DocumentSigner.submitDocument(string)._doc (Unchecked-Send/unchecked_buggy_10.sol#27) is not in mixedCase
+Function DocumentSigner.bug_unchk_send14() (Unchecked-Send/unchecked_buggy_10.sol#34-35) is not in mixedCase
+Parameter DocumentSigner.signDocument(bytes32)._docHash (Unchecked-Send/unchecked_buggy_10.sol#37) is not in mixedCase
+Function DocumentSigner.bug_unchk_send30() (Unchecked-Send/unchecked_buggy_10.sol#44-45) is not in mixedCase
+Parameter DocumentSigner.getDetail(bytes32)._docHash (Unchecked-Send/unchecked_buggy_10.sol#47) is not in mixedCase
+Function DocumentSigner.bug_unchk_send8() (Unchecked-Send/unchecked_buggy_10.sol#51-52) is not in mixedCase
+Parameter DocumentSigner.getHash(string)._doc (Unchecked-Send/unchecked_buggy_10.sol#54) is not in mixedCase
+Function DocumentSigner.bug_unchk_send27() (Unchecked-Send/unchecked_buggy_10.sol#57-58) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+submitDocument(string) should be declared external:
+	- DocumentSigner.submitDocument(string) (Unchecked-Send/unchecked_buggy_10.sol#27-33)
+Moreover, the following function parameters should change its data location:
+_doc location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+Unchecked-Send/unchecked_buggy_10.sol analyzed (1 contracts with 80 detectors), 22 result(s) found

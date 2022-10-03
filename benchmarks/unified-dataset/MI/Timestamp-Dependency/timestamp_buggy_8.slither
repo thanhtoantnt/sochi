@@ -1,0 +1,279 @@
+
+Ownable.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_8.sol#24-32) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_8.sol#30)
+TokenERC20.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_8.sol#118-126) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_8.sol#124)
+TokenERC20.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_8.sol#229-237) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_8.sol#235)
+YFT.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_8.sol#281-289) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_8.sol#287)
+YFT.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_8.sol#302-310) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_8.sol#308)
+YFT.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_8.sol#338-346) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_8.sol#344)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+TokenERC20.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_8.sol#118-126) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_8.sol#123)" 
+TokenERC20.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_8.sol#229-237) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_8.sol#234)" 
+Ownable.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_8.sol#24-32) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_8.sol#29)" 
+YFT.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_8.sol#281-289) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_8.sol#286)" 
+YFT.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_8.sol#302-310) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_8.sol#307)" 
+YFT.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_8.sol#338-346) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_8.sol#343)" 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG
+
+YFT.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_8.sol#281-289) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_8.sol#286)
+Ownable.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_8.sol#24-32) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_8.sol#29)
+YFT.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_8.sol#302-310) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_8.sol#307)
+TokenERC20.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_8.sol#118-126) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_8.sol#123)
+YFT.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_8.sol#338-346) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_8.sol#343)
+TokenERC20.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_8.sol#229-237) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_8.sol#234)
+TokenERC20.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#188-190) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_8.sol#189)
+YFT.play_tmstmp19(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#270-273) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_8.sol#272)
+TokenERC20.play_tmstmp2(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#61-63) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_8.sol#62)
+TokenERC20.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#167-170) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_8.sol#169)
+YFT.play_tmstmp26(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#276-278) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_8.sol#277)
+YFT.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#367-370) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_8.sol#369)
+TokenERC20.play_tmstmp3(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#75-78) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_8.sol#77)
+TokenERC20.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#207-209) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_8.sol#208)
+YFT.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#378-381) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_8.sol#380)
+YFT.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#324-327) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_8.sol#326)
+Ownable.play_tmstmp38(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#52-54) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_8.sol#53)
+TokenERC20.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#257-260) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_8.sol#259)
+TokenERC20.play_tmstmp7(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#149-152) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_8.sol#151)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+YFT.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_8.sol#303) is a local variable never initialized
+YFT.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_8.sol#282) is a local variable never initialized
+Ownable.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_8.sol#25) is a local variable never initialized
+TokenERC20.bug_tmstmp4().pastBlockTime_tmstmp4 (Timestamp-Dependency/timestamp_buggy_8.sol#119) is a local variable never initialized
+TokenERC20.bug_tmstmp8().pastBlockTime_tmstmp8 (Timestamp-Dependency/timestamp_buggy_8.sol#230) is a local variable never initialized
+YFT.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_8.sol#339) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+Ownable.bug_tmstmp1() (Timestamp-Dependency/timestamp_buggy_8.sol#8-10) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_8.sol#9)
+Ownable.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_8.sol#24-32) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp32) (Timestamp-Dependency/timestamp_buggy_8.sol#27)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_8.sol#29)
+Ownable.play_tmstmp38(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#52-54) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_8.sol#53)
+TokenERC20.play_tmstmp2(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#61-63) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_8.sol#62)
+TokenERC20.bug_tmstmp17() (Timestamp-Dependency/timestamp_buggy_8.sol#65-67) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_8.sol#66)
+TokenERC20.bug_tmstmp37() (Timestamp-Dependency/timestamp_buggy_8.sol#69-71) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_8.sol#70)
+TokenERC20.play_tmstmp3(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#75-78) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_8.sol#77)
+TokenERC20.bug_tmstmp9() (Timestamp-Dependency/timestamp_buggy_8.sol#82-84) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_8.sol#83)
+TokenERC20.bug_tmstmp25() (Timestamp-Dependency/timestamp_buggy_8.sol#86-88) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_8.sol#87)
+TokenERC20.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_8.sol#118-126) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp4) (Timestamp-Dependency/timestamp_buggy_8.sol#121)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_8.sol#123)
+TokenERC20.play_tmstmp7(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#149-152) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_8.sol#151)
+TokenERC20.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#167-170) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_8.sol#169)
+TokenERC20.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#188-190) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_8.sol#189)
+TokenERC20.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#207-209) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_8.sol#208)
+TokenERC20.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_8.sol#229-237) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp8) (Timestamp-Dependency/timestamp_buggy_8.sol#232)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_8.sol#234)
+TokenERC20.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#257-260) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_8.sol#259)
+YFT.play_tmstmp19(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#270-273) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_8.sol#272)
+YFT.play_tmstmp26(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#276-278) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_8.sol#277)
+YFT.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_8.sol#281-289) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp20) (Timestamp-Dependency/timestamp_buggy_8.sol#284)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_8.sol#286)
+YFT.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_8.sol#302-310) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp36) (Timestamp-Dependency/timestamp_buggy_8.sol#305)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_8.sol#307)
+YFT.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#324-327) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_8.sol#326)
+YFT.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_8.sol#338-346) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp40) (Timestamp-Dependency/timestamp_buggy_8.sol#341)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_8.sol#343)
+YFT.bug_tmstmp33() (Timestamp-Dependency/timestamp_buggy_8.sol#355-357) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_8.sol#356)
+YFT.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#367-370) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_8.sol#369)
+YFT.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#378-381) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_8.sol#380)
+YFT.bug_tmstmp13() (Timestamp-Dependency/timestamp_buggy_8.sol#391-393) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_8.sol#392)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+TokenERC20._transfer(address,address,uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#131-147) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version>=0.4.22<0.6.0 (Timestamp-Dependency/timestamp_buggy_8.sol#5) is known to contain severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function Ownable.bug_tmstmp1() (Timestamp-Dependency/timestamp_buggy_8.sol#8-10) is not in mixedCase
+Function Ownable.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_8.sol#24-32) is not in mixedCase
+Function Ownable.play_tmstmp38(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#52-54) is not in mixedCase
+Variable Ownable.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_8.sol#13) is not in mixedCase
+Variable Ownable.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_8.sol#51) is not in mixedCase
+Function TokenERC20.play_tmstmp2(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#61-63) is not in mixedCase
+Function TokenERC20.bug_tmstmp17() (Timestamp-Dependency/timestamp_buggy_8.sol#65-67) is not in mixedCase
+Function TokenERC20.bug_tmstmp37() (Timestamp-Dependency/timestamp_buggy_8.sol#69-71) is not in mixedCase
+Function TokenERC20.play_tmstmp3(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#75-78) is not in mixedCase
+Function TokenERC20.bug_tmstmp9() (Timestamp-Dependency/timestamp_buggy_8.sol#82-84) is not in mixedCase
+Function TokenERC20.bug_tmstmp25() (Timestamp-Dependency/timestamp_buggy_8.sol#86-88) is not in mixedCase
+Function TokenERC20.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_8.sol#118-126) is not in mixedCase
+Function TokenERC20.play_tmstmp7(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#149-152) is not in mixedCase
+Parameter TokenERC20.transfer(address,uint256)._to (Timestamp-Dependency/timestamp_buggy_8.sol#162) is not in mixedCase
+Parameter TokenERC20.transfer(address,uint256)._value (Timestamp-Dependency/timestamp_buggy_8.sol#162) is not in mixedCase
+Function TokenERC20.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#167-170) is not in mixedCase
+Parameter TokenERC20.transferFrom(address,address,uint256)._from (Timestamp-Dependency/timestamp_buggy_8.sol#181) is not in mixedCase
+Parameter TokenERC20.transferFrom(address,address,uint256)._to (Timestamp-Dependency/timestamp_buggy_8.sol#181) is not in mixedCase
+Parameter TokenERC20.transferFrom(address,address,uint256)._value (Timestamp-Dependency/timestamp_buggy_8.sol#181) is not in mixedCase
+Function TokenERC20.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#188-190) is not in mixedCase
+Parameter TokenERC20.approve(address,uint256)._spender (Timestamp-Dependency/timestamp_buggy_8.sol#200) is not in mixedCase
+Parameter TokenERC20.approve(address,uint256)._value (Timestamp-Dependency/timestamp_buggy_8.sol#200) is not in mixedCase
+Function TokenERC20.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#207-209) is not in mixedCase
+Parameter TokenERC20.burn(uint256)._value (Timestamp-Dependency/timestamp_buggy_8.sol#222) is not in mixedCase
+Function TokenERC20.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_8.sol#229-237) is not in mixedCase
+Parameter TokenERC20.burnFrom(address,uint256)._from (Timestamp-Dependency/timestamp_buggy_8.sol#247) is not in mixedCase
+Parameter TokenERC20.burnFrom(address,uint256)._value (Timestamp-Dependency/timestamp_buggy_8.sol#247) is not in mixedCase
+Function TokenERC20.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#257-260) is not in mixedCase
+Variable TokenERC20.winner_tmstmp2 (Timestamp-Dependency/timestamp_buggy_8.sol#60) is not in mixedCase
+Variable TokenERC20.winner_tmstmp3 (Timestamp-Dependency/timestamp_buggy_8.sol#74) is not in mixedCase
+Variable TokenERC20.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_8.sol#92) is not in mixedCase
+Variable TokenERC20.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_8.sol#96) is not in mixedCase
+Variable TokenERC20.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_8.sol#100) is not in mixedCase
+Variable TokenERC20.winner_tmstmp7 (Timestamp-Dependency/timestamp_buggy_8.sol#148) is not in mixedCase
+Variable TokenERC20.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_8.sol#166) is not in mixedCase
+Variable TokenERC20.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_8.sol#187) is not in mixedCase
+Variable TokenERC20.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_8.sol#206) is not in mixedCase
+Variable TokenERC20.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_8.sol#256) is not in mixedCase
+Function YFT.play_tmstmp19(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#270-273) is not in mixedCase
+Function YFT.play_tmstmp26(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#276-278) is not in mixedCase
+Function YFT.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_8.sol#281-289) is not in mixedCase
+Function YFT.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_8.sol#302-310) is not in mixedCase
+Function YFT.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#324-327) is not in mixedCase
+Function YFT.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_8.sol#338-346) is not in mixedCase
+Function YFT.bug_tmstmp33() (Timestamp-Dependency/timestamp_buggy_8.sol#355-357) is not in mixedCase
+Function YFT.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#367-370) is not in mixedCase
+Function YFT.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_8.sol#378-381) is not in mixedCase
+Function YFT.bug_tmstmp13() (Timestamp-Dependency/timestamp_buggy_8.sol#391-393) is not in mixedCase
+Variable YFT.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_8.sol#269) is not in mixedCase
+Variable YFT.winner_tmstmp26 (Timestamp-Dependency/timestamp_buggy_8.sol#275) is not in mixedCase
+Variable YFT.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_8.sol#293) is not in mixedCase
+Variable YFT.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_8.sol#323) is not in mixedCase
+Variable YFT.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_8.sol#366) is not in mixedCase
+Variable YFT.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_8.sol#377) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable TokenERC20.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_8.sol#92) is too similar to TokenERC20.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_8.sol#100)
+Variable TokenERC20.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_8.sol#92) is too similar to TokenERC20.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_8.sol#96)
+Variable TokenERC20.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_8.sol#96) is too similar to TokenERC20.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_8.sol#100)
+Variable TokenERC20.bug_tmstmp4().pastBlockTime_tmstmp4 (Timestamp-Dependency/timestamp_buggy_8.sol#119) is too similar to TokenERC20.bug_tmstmp8().pastBlockTime_tmstmp8 (Timestamp-Dependency/timestamp_buggy_8.sol#230)
+Variable TokenERC20.winner_tmstmp2 (Timestamp-Dependency/timestamp_buggy_8.sol#60) is too similar to TokenERC20.winner_tmstmp3 (Timestamp-Dependency/timestamp_buggy_8.sol#74)
+Variable TokenERC20.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_8.sol#166) is too similar to TokenERC20.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_8.sol#206)
+Variable TokenERC20.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_8.sol#166) is too similar to TokenERC20.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_8.sol#256)
+Variable TokenERC20.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_8.sol#206) is too similar to TokenERC20.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_8.sol#256)
+Variable TokenERC20.winner_tmstmp2 (Timestamp-Dependency/timestamp_buggy_8.sol#60) is too similar to TokenERC20.winner_tmstmp7 (Timestamp-Dependency/timestamp_buggy_8.sol#148)
+Variable TokenERC20.winner_tmstmp3 (Timestamp-Dependency/timestamp_buggy_8.sol#74) is too similar to TokenERC20.winner_tmstmp7 (Timestamp-Dependency/timestamp_buggy_8.sol#148)
+Variable TokenERC20.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_8.sol#96) is too similar to YFT.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_8.sol#293)
+Variable TokenERC20.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_8.sol#96) is too similar to Ownable.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_8.sol#13)
+Variable TokenERC20.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_8.sol#92) is too similar to YFT.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_8.sol#293)
+Variable TokenERC20.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_8.sol#100) is too similar to YFT.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_8.sol#293)
+Variable TokenERC20.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_8.sol#92) is too similar to Ownable.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_8.sol#13)
+Variable TokenERC20.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_8.sol#100) is too similar to Ownable.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_8.sol#13)
+Variable YFT.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_8.sol#293) is too similar to Ownable.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_8.sol#13)
+Variable YFT.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_8.sol#282) is too similar to Ownable.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_8.sol#25)
+Variable YFT.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_8.sol#282) is too similar to YFT.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_8.sol#303)
+Variable YFT.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_8.sol#282) is too similar to YFT.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_8.sol#339)
+Variable Ownable.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_8.sol#25) is too similar to YFT.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_8.sol#303)
+Variable Ownable.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_8.sol#25) is too similar to YFT.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_8.sol#339)
+Variable YFT.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_8.sol#303) is too similar to YFT.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_8.sol#339)
+Variable TokenERC20.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_8.sol#187) is too similar to YFT.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_8.sol#269)
+Variable TokenERC20.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_8.sol#187) is too similar to YFT.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_8.sol#377)
+Variable YFT.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_8.sol#269) is too similar to TokenERC20.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_8.sol#256)
+Variable TokenERC20.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_8.sol#166) is too similar to YFT.winner_tmstmp26 (Timestamp-Dependency/timestamp_buggy_8.sol#275)
+Variable YFT.winner_tmstmp26 (Timestamp-Dependency/timestamp_buggy_8.sol#275) is too similar to YFT.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_8.sol#366)
+Variable TokenERC20.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_8.sol#166) is too similar to YFT.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_8.sol#366)
+Variable TokenERC20.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_8.sol#206) is too similar to Ownable.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_8.sol#51)
+Variable YFT.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_8.sol#269) is too similar to YFT.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_8.sol#377)
+Variable TokenERC20.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_8.sol#166) is too similar to YFT.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_8.sol#377)
+Variable TokenERC20.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_8.sol#206) is too similar to YFT.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_8.sol#377)
+Variable YFT.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_8.sol#377) is too similar to Ownable.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_8.sol#51)
+Variable YFT.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_8.sol#377) is too similar to TokenERC20.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_8.sol#256)
+Variable TokenERC20.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_8.sol#166) is too similar to YFT.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_8.sol#323)
+Variable TokenERC20.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_8.sol#206) is too similar to YFT.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_8.sol#323)
+Variable YFT.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_8.sol#377) is too similar to YFT.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_8.sol#323)
+Variable YFT.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_8.sol#323) is too similar to Ownable.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_8.sol#51)
+Variable YFT.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_8.sol#323) is too similar to TokenERC20.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_8.sol#256)
+Variable TokenERC20.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_8.sol#166) is too similar to Ownable.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_8.sol#51)
+Variable Ownable.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_8.sol#51) is too similar to TokenERC20.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_8.sol#256)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+Ownable.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_8.sol#13) is never used in YFT (Timestamp-Dependency/timestamp_buggy_8.sol#267-395)
+TokenERC20.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_8.sol#92) is never used in YFT (Timestamp-Dependency/timestamp_buggy_8.sol#267-395)
+TokenERC20.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_8.sol#96) is never used in YFT (Timestamp-Dependency/timestamp_buggy_8.sol#267-395)
+TokenERC20.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_8.sol#100) is never used in YFT (Timestamp-Dependency/timestamp_buggy_8.sol#267-395)
+YFT.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_8.sol#293) is never used in YFT (Timestamp-Dependency/timestamp_buggy_8.sol#267-395)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+
+TokenERC20.decimals (Timestamp-Dependency/timestamp_buggy_8.sol#72) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+Timestamp-Dependency/timestamp_buggy_8.sol analyzed (3 contracts with 80 detectors), 167 result(s) found

@@ -1,0 +1,403 @@
+
+digitalNotary (TOD/tod_buggy_50.sol#7-555) contract sets array length with a user-controlled value:
+	- HashList[hash].push(thisregistration) (TOD/tod_buggy_50.sol#520)
+digitalNotary (TOD/tod_buggy_50.sol#7-555) contract sets array length with a user-controlled value:
+	- HashList[hash].push(thisregistration) (TOD/tod_buggy_50.sol#481)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#array-length-assignment
+
+digitalNotary.owner_TOD2 (TOD/tod_buggy_50.sol#11) is never initialized. It is used in:
+	- digitalNotary.setReward_TOD2() (TOD/tod_buggy_50.sol#13-19)
+digitalNotary.owner_TOD26 (TOD/tod_buggy_50.sol#181) is never initialized. It is used in:
+	- digitalNotary.setReward_TOD26() (TOD/tod_buggy_50.sol#183-189)
+digitalNotary.owner_TOD20 (TOD/tod_buggy_50.sol#206) is never initialized. It is used in:
+	- digitalNotary.setReward_TOD20() (TOD/tod_buggy_50.sol#208-214)
+digitalNotary.owner_TOD32 (TOD/tod_buggy_50.sol#229) is never initialized. It is used in:
+	- digitalNotary.setReward_TOD32() (TOD/tod_buggy_50.sol#231-237)
+digitalNotary.owner_TOD38 (TOD/tod_buggy_50.sol#254) is never initialized. It is used in:
+	- digitalNotary.setReward_TOD38() (TOD/tod_buggy_50.sol#256-262)
+digitalNotary.owner_TOD4 (TOD/tod_buggy_50.sol#277) is never initialized. It is used in:
+	- digitalNotary.setReward_TOD4() (TOD/tod_buggy_50.sol#279-285)
+digitalNotary.owner_TOD14 (TOD/tod_buggy_50.sol#337) is never initialized. It is used in:
+	- digitalNotary.setReward_TOD14() (TOD/tod_buggy_50.sol#339-345)
+digitalNotary.owner_TOD30 (TOD/tod_buggy_50.sol#361) is never initialized. It is used in:
+	- digitalNotary.setReward_TOD30() (TOD/tod_buggy_50.sol#363-369)
+digitalNotary.owner_TOD8 (TOD/tod_buggy_50.sol#388) is never initialized. It is used in:
+	- digitalNotary.setReward_TOD8() (TOD/tod_buggy_50.sol#390-396)
+digitalNotary.owner_TOD36 (TOD/tod_buggy_50.sol#429) is never initialized. It is used in:
+	- digitalNotary.setReward_TOD36() (TOD/tod_buggy_50.sol#431-437)
+digitalNotary.owner_TOD40 (TOD/tod_buggy_50.sol#489) is never initialized. It is used in:
+	- digitalNotary.setReward_TOD40() (TOD/tod_buggy_50.sol#491-497)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+
+digitalNotary.sethashfee(uint256) (TOD/tod_buggy_50.sol#199-204) contains a tautology or contradiction:
+	- require(bool)(newfee >= 0) (TOD/tod_buggy_50.sol#201)
+digitalNotary.setchangehashownerfee(uint256) (TOD/tod_buggy_50.sol#247-252) contains a tautology or contradiction:
+	- require(bool)(newfee >= 0) (TOD/tod_buggy_50.sol#249)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#tautology-or-contradiction
+
+digitalNotary.changeHashOwnership(bytes32,address).thisregistration (TOD/tod_buggy_50.sol#516) is a local variable never initialized
+digitalNotary.registerHash(bytes32).thisregistration (TOD/tod_buggy_50.sol#477) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+digitalNotary.setmanager(address) (TOD/tod_buggy_50.sol#331-335) should emit an event for: 
+	- manager = newmngr (TOD/tod_buggy_50.sol#334) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+digitalNotary.setReward_TOD2() (TOD/tod_buggy_50.sol#13-19) should emit an event for: 
+	- reward_TOD2 = msg.value (TOD/tod_buggy_50.sol#18) 
+digitalNotary.setReward_TOD26() (TOD/tod_buggy_50.sol#183-189) should emit an event for: 
+	- reward_TOD26 = msg.value (TOD/tod_buggy_50.sol#188) 
+digitalNotary.sethashfee(uint256) (TOD/tod_buggy_50.sol#199-204) should emit an event for: 
+	- hashfee = newfee (TOD/tod_buggy_50.sol#203) 
+digitalNotary.setReward_TOD20() (TOD/tod_buggy_50.sol#208-214) should emit an event for: 
+	- reward_TOD20 = msg.value (TOD/tod_buggy_50.sol#213) 
+digitalNotary.setReward_TOD32() (TOD/tod_buggy_50.sol#231-237) should emit an event for: 
+	- reward_TOD32 = msg.value (TOD/tod_buggy_50.sol#236) 
+digitalNotary.setchangehashownerfee(uint256) (TOD/tod_buggy_50.sol#247-252) should emit an event for: 
+	- changehashownerfee = newfee (TOD/tod_buggy_50.sol#251) 
+digitalNotary.setReward_TOD38() (TOD/tod_buggy_50.sol#256-262) should emit an event for: 
+	- reward_TOD38 = msg.value (TOD/tod_buggy_50.sol#261) 
+digitalNotary.setReward_TOD4() (TOD/tod_buggy_50.sol#279-285) should emit an event for: 
+	- reward_TOD4 = msg.value (TOD/tod_buggy_50.sol#284) 
+digitalNotary.setReward_TOD14() (TOD/tod_buggy_50.sol#339-345) should emit an event for: 
+	- reward_TOD14 = msg.value (TOD/tod_buggy_50.sol#344) 
+digitalNotary.setReward_TOD30() (TOD/tod_buggy_50.sol#363-369) should emit an event for: 
+	- reward_TOD30 = msg.value (TOD/tod_buggy_50.sol#368) 
+digitalNotary.setReward_TOD8() (TOD/tod_buggy_50.sol#390-396) should emit an event for: 
+	- reward_TOD8 = msg.value (TOD/tod_buggy_50.sol#395) 
+digitalNotary.setReward_TOD36() (TOD/tod_buggy_50.sol#431-437) should emit an event for: 
+	- reward_TOD36 = msg.value (TOD/tod_buggy_50.sol#436) 
+digitalNotary.setReward_TOD40() (TOD/tod_buggy_50.sol#491-497) should emit an event for: 
+	- reward_TOD40 = msg.value (TOD/tod_buggy_50.sol#496) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+
+digitalNotary.registerHash(bytes32) (TOD/tod_buggy_50.sol#470-487) compares to a boolean constant:
+	-require(bool)(contractactive == true) (TOD/tod_buggy_50.sol#473)
+digitalNotary.changeHashOwnership(bytes32,address) (TOD/tod_buggy_50.sol#507-523) compares to a boolean constant:
+	-require(bool)(contractactive == true) (TOD/tod_buggy_50.sol#510)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#boolean-equality
+
+Pragma version^0.5.12 (TOD/tod_buggy_50.sol#5) allows old versions
+solc-0.5.12 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Contract digitalNotary (TOD/tod_buggy_50.sol#7-555) is not in CapWords
+Function digitalNotary.setReward_TOD2() (TOD/tod_buggy_50.sol#13-19) is not in mixedCase
+Function digitalNotary.claimReward_TOD2(uint256) (TOD/tod_buggy_50.sol#21-27) is not in mixedCase
+Function digitalNotary.play_TOD17(bytes32) (TOD/tod_buggy_50.sol#31-37) is not in mixedCase
+Function digitalNotary.getReward_TOD17() (TOD/tod_buggy_50.sol#39-42) is not in mixedCase
+Function digitalNotary.play_TOD37(bytes32) (TOD/tod_buggy_50.sol#46-52) is not in mixedCase
+Function digitalNotary.getReward_TOD37() (TOD/tod_buggy_50.sol#54-57) is not in mixedCase
+Function digitalNotary.play_TOD3(bytes32) (TOD/tod_buggy_50.sol#61-67) is not in mixedCase
+Function digitalNotary.getReward_TOD3() (TOD/tod_buggy_50.sol#69-72) is not in mixedCase
+Function digitalNotary.play_TOD9(bytes32) (TOD/tod_buggy_50.sol#82-88) is not in mixedCase
+Function digitalNotary.getReward_TOD9() (TOD/tod_buggy_50.sol#90-93) is not in mixedCase
+Function digitalNotary.play_TOD25(bytes32) (TOD/tod_buggy_50.sol#97-103) is not in mixedCase
+Function digitalNotary.getReward_TOD25() (TOD/tod_buggy_50.sol#105-108) is not in mixedCase
+Function digitalNotary.play_TOD31(bytes32) (TOD/tod_buggy_50.sol#112-118) is not in mixedCase
+Function digitalNotary.getReward_TOD31() (TOD/tod_buggy_50.sol#120-123) is not in mixedCase
+Function digitalNotary.play_TOD13(bytes32) (TOD/tod_buggy_50.sol#127-133) is not in mixedCase
+Function digitalNotary.getReward_TOD13() (TOD/tod_buggy_50.sol#135-138) is not in mixedCase
+Function digitalNotary.play_TOD19(bytes32) (TOD/tod_buggy_50.sol#156-162) is not in mixedCase
+Function digitalNotary.getReward_TOD19() (TOD/tod_buggy_50.sol#164-167) is not in mixedCase
+Function digitalNotary.setReward_TOD26() (TOD/tod_buggy_50.sol#183-189) is not in mixedCase
+Function digitalNotary.claimReward_TOD26(uint256) (TOD/tod_buggy_50.sol#191-197) is not in mixedCase
+Function digitalNotary.setReward_TOD20() (TOD/tod_buggy_50.sol#208-214) is not in mixedCase
+Function digitalNotary.claimReward_TOD20(uint256) (TOD/tod_buggy_50.sol#216-222) is not in mixedCase
+Function digitalNotary.setReward_TOD32() (TOD/tod_buggy_50.sol#231-237) is not in mixedCase
+Function digitalNotary.claimReward_TOD32(uint256) (TOD/tod_buggy_50.sol#239-245) is not in mixedCase
+Function digitalNotary.setReward_TOD38() (TOD/tod_buggy_50.sol#256-262) is not in mixedCase
+Function digitalNotary.claimReward_TOD38(uint256) (TOD/tod_buggy_50.sol#264-270) is not in mixedCase
+Function digitalNotary.setReward_TOD4() (TOD/tod_buggy_50.sol#279-285) is not in mixedCase
+Function digitalNotary.claimReward_TOD4(uint256) (TOD/tod_buggy_50.sol#287-293) is not in mixedCase
+Function digitalNotary.play_TOD7(bytes32) (TOD/tod_buggy_50.sol#300-306) is not in mixedCase
+Function digitalNotary.getReward_TOD7() (TOD/tod_buggy_50.sol#308-311) is not in mixedCase
+Function digitalNotary.play_TOD23(bytes32) (TOD/tod_buggy_50.sol#318-324) is not in mixedCase
+Function digitalNotary.getReward_TOD23() (TOD/tod_buggy_50.sol#326-329) is not in mixedCase
+Function digitalNotary.setReward_TOD14() (TOD/tod_buggy_50.sol#339-345) is not in mixedCase
+Function digitalNotary.claimReward_TOD14(uint256) (TOD/tod_buggy_50.sol#347-353) is not in mixedCase
+Function digitalNotary.setReward_TOD30() (TOD/tod_buggy_50.sol#363-369) is not in mixedCase
+Function digitalNotary.claimReward_TOD30(uint256) (TOD/tod_buggy_50.sol#371-377) is not in mixedCase
+Function digitalNotary.setReward_TOD8() (TOD/tod_buggy_50.sol#390-396) is not in mixedCase
+Function digitalNotary.claimReward_TOD8(uint256) (TOD/tod_buggy_50.sol#398-404) is not in mixedCase
+Function digitalNotary.play_TOD39(bytes32) (TOD/tod_buggy_50.sol#411-417) is not in mixedCase
+Function digitalNotary.getReward_TOD39() (TOD/tod_buggy_50.sol#419-422) is not in mixedCase
+Function digitalNotary.setReward_TOD36() (TOD/tod_buggy_50.sol#431-437) is not in mixedCase
+Function digitalNotary.claimReward_TOD36(uint256) (TOD/tod_buggy_50.sol#439-445) is not in mixedCase
+Function digitalNotary.play_TOD35(bytes32) (TOD/tod_buggy_50.sol#457-463) is not in mixedCase
+Function digitalNotary.getReward_TOD35() (TOD/tod_buggy_50.sol#465-468) is not in mixedCase
+Function digitalNotary.setReward_TOD40() (TOD/tod_buggy_50.sol#491-497) is not in mixedCase
+Function digitalNotary.claimReward_TOD40(uint256) (TOD/tod_buggy_50.sol#499-505) is not in mixedCase
+Function digitalNotary.play_TOD33(bytes32) (TOD/tod_buggy_50.sol#525-531) is not in mixedCase
+Function digitalNotary.getReward_TOD33() (TOD/tod_buggy_50.sol#533-536) is not in mixedCase
+Function digitalNotary.play_TOD27(bytes32) (TOD/tod_buggy_50.sol#543-549) is not in mixedCase
+Function digitalNotary.getReward_TOD27() (TOD/tod_buggy_50.sol#551-554) is not in mixedCase
+Variable digitalNotary.claimed_TOD2 (TOD/tod_buggy_50.sol#10) is not in mixedCase
+Variable digitalNotary.owner_TOD2 (TOD/tod_buggy_50.sol#11) is not in mixedCase
+Variable digitalNotary.reward_TOD2 (TOD/tod_buggy_50.sol#12) is not in mixedCase
+Variable digitalNotary.winner_TOD17 (TOD/tod_buggy_50.sol#30) is not in mixedCase
+Variable digitalNotary.winner_TOD37 (TOD/tod_buggy_50.sol#45) is not in mixedCase
+Variable digitalNotary.winner_TOD3 (TOD/tod_buggy_50.sol#60) is not in mixedCase
+Variable digitalNotary.winner_TOD9 (TOD/tod_buggy_50.sol#81) is not in mixedCase
+Variable digitalNotary.HashList (TOD/tod_buggy_50.sol#94) is not in mixedCase
+Variable digitalNotary.winner_TOD25 (TOD/tod_buggy_50.sol#96) is not in mixedCase
+Variable digitalNotary.HashListLength (TOD/tod_buggy_50.sol#109) is not in mixedCase
+Variable digitalNotary.winner_TOD31 (TOD/tod_buggy_50.sol#111) is not in mixedCase
+Variable digitalNotary.winner_TOD13 (TOD/tod_buggy_50.sol#126) is not in mixedCase
+Variable digitalNotary.winner_TOD19 (TOD/tod_buggy_50.sol#155) is not in mixedCase
+Variable digitalNotary.claimed_TOD26 (TOD/tod_buggy_50.sol#180) is not in mixedCase
+Variable digitalNotary.owner_TOD26 (TOD/tod_buggy_50.sol#181) is not in mixedCase
+Variable digitalNotary.reward_TOD26 (TOD/tod_buggy_50.sol#182) is not in mixedCase
+Variable digitalNotary.claimed_TOD20 (TOD/tod_buggy_50.sol#205) is not in mixedCase
+Variable digitalNotary.owner_TOD20 (TOD/tod_buggy_50.sol#206) is not in mixedCase
+Variable digitalNotary.reward_TOD20 (TOD/tod_buggy_50.sol#207) is not in mixedCase
+Variable digitalNotary.claimed_TOD32 (TOD/tod_buggy_50.sol#228) is not in mixedCase
+Variable digitalNotary.owner_TOD32 (TOD/tod_buggy_50.sol#229) is not in mixedCase
+Variable digitalNotary.reward_TOD32 (TOD/tod_buggy_50.sol#230) is not in mixedCase
+Variable digitalNotary.claimed_TOD38 (TOD/tod_buggy_50.sol#253) is not in mixedCase
+Variable digitalNotary.owner_TOD38 (TOD/tod_buggy_50.sol#254) is not in mixedCase
+Variable digitalNotary.reward_TOD38 (TOD/tod_buggy_50.sol#255) is not in mixedCase
+Variable digitalNotary.claimed_TOD4 (TOD/tod_buggy_50.sol#276) is not in mixedCase
+Variable digitalNotary.owner_TOD4 (TOD/tod_buggy_50.sol#277) is not in mixedCase
+Variable digitalNotary.reward_TOD4 (TOD/tod_buggy_50.sol#278) is not in mixedCase
+Variable digitalNotary.winner_TOD7 (TOD/tod_buggy_50.sol#299) is not in mixedCase
+Variable digitalNotary.winner_TOD23 (TOD/tod_buggy_50.sol#317) is not in mixedCase
+Variable digitalNotary.claimed_TOD14 (TOD/tod_buggy_50.sol#336) is not in mixedCase
+Variable digitalNotary.owner_TOD14 (TOD/tod_buggy_50.sol#337) is not in mixedCase
+Variable digitalNotary.reward_TOD14 (TOD/tod_buggy_50.sol#338) is not in mixedCase
+Variable digitalNotary.claimed_TOD30 (TOD/tod_buggy_50.sol#360) is not in mixedCase
+Variable digitalNotary.owner_TOD30 (TOD/tod_buggy_50.sol#361) is not in mixedCase
+Variable digitalNotary.reward_TOD30 (TOD/tod_buggy_50.sol#362) is not in mixedCase
+Variable digitalNotary.claimed_TOD8 (TOD/tod_buggy_50.sol#387) is not in mixedCase
+Variable digitalNotary.owner_TOD8 (TOD/tod_buggy_50.sol#388) is not in mixedCase
+Variable digitalNotary.reward_TOD8 (TOD/tod_buggy_50.sol#389) is not in mixedCase
+Variable digitalNotary.winner_TOD39 (TOD/tod_buggy_50.sol#410) is not in mixedCase
+Variable digitalNotary.claimed_TOD36 (TOD/tod_buggy_50.sol#428) is not in mixedCase
+Variable digitalNotary.owner_TOD36 (TOD/tod_buggy_50.sol#429) is not in mixedCase
+Variable digitalNotary.reward_TOD36 (TOD/tod_buggy_50.sol#430) is not in mixedCase
+Variable digitalNotary.winner_TOD35 (TOD/tod_buggy_50.sol#456) is not in mixedCase
+Variable digitalNotary.claimed_TOD40 (TOD/tod_buggy_50.sol#488) is not in mixedCase
+Variable digitalNotary.owner_TOD40 (TOD/tod_buggy_50.sol#489) is not in mixedCase
+Variable digitalNotary.reward_TOD40 (TOD/tod_buggy_50.sol#490) is not in mixedCase
+Variable digitalNotary.winner_TOD33 (TOD/tod_buggy_50.sol#524) is not in mixedCase
+Variable digitalNotary.winner_TOD27 (TOD/tod_buggy_50.sol#542) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in digitalNotary.claimReward_TOD14(uint256) (TOD/tod_buggy_50.sol#347-353):
+	External calls:
+	- msg.sender.transfer(reward_TOD14) (TOD/tod_buggy_50.sol#351)
+	State variables written after the call(s):
+	- claimed_TOD14 = true (TOD/tod_buggy_50.sol#352)
+Reentrancy in digitalNotary.claimReward_TOD2(uint256) (TOD/tod_buggy_50.sol#21-27):
+	External calls:
+	- msg.sender.transfer(reward_TOD2) (TOD/tod_buggy_50.sol#25)
+	State variables written after the call(s):
+	- claimed_TOD2 = true (TOD/tod_buggy_50.sol#26)
+Reentrancy in digitalNotary.claimReward_TOD20(uint256) (TOD/tod_buggy_50.sol#216-222):
+	External calls:
+	- msg.sender.transfer(reward_TOD20) (TOD/tod_buggy_50.sol#220)
+	State variables written after the call(s):
+	- claimed_TOD20 = true (TOD/tod_buggy_50.sol#221)
+Reentrancy in digitalNotary.claimReward_TOD26(uint256) (TOD/tod_buggy_50.sol#191-197):
+	External calls:
+	- msg.sender.transfer(reward_TOD26) (TOD/tod_buggy_50.sol#195)
+	State variables written after the call(s):
+	- claimed_TOD26 = true (TOD/tod_buggy_50.sol#196)
+Reentrancy in digitalNotary.claimReward_TOD30(uint256) (TOD/tod_buggy_50.sol#371-377):
+	External calls:
+	- msg.sender.transfer(reward_TOD30) (TOD/tod_buggy_50.sol#375)
+	State variables written after the call(s):
+	- claimed_TOD30 = true (TOD/tod_buggy_50.sol#376)
+Reentrancy in digitalNotary.claimReward_TOD32(uint256) (TOD/tod_buggy_50.sol#239-245):
+	External calls:
+	- msg.sender.transfer(reward_TOD32) (TOD/tod_buggy_50.sol#243)
+	State variables written after the call(s):
+	- claimed_TOD32 = true (TOD/tod_buggy_50.sol#244)
+Reentrancy in digitalNotary.claimReward_TOD36(uint256) (TOD/tod_buggy_50.sol#439-445):
+	External calls:
+	- msg.sender.transfer(reward_TOD36) (TOD/tod_buggy_50.sol#443)
+	State variables written after the call(s):
+	- claimed_TOD36 = true (TOD/tod_buggy_50.sol#444)
+Reentrancy in digitalNotary.claimReward_TOD38(uint256) (TOD/tod_buggy_50.sol#264-270):
+	External calls:
+	- msg.sender.transfer(reward_TOD38) (TOD/tod_buggy_50.sol#268)
+	State variables written after the call(s):
+	- claimed_TOD38 = true (TOD/tod_buggy_50.sol#269)
+Reentrancy in digitalNotary.claimReward_TOD4(uint256) (TOD/tod_buggy_50.sol#287-293):
+	External calls:
+	- msg.sender.transfer(reward_TOD4) (TOD/tod_buggy_50.sol#291)
+	State variables written after the call(s):
+	- claimed_TOD4 = true (TOD/tod_buggy_50.sol#292)
+Reentrancy in digitalNotary.claimReward_TOD40(uint256) (TOD/tod_buggy_50.sol#499-505):
+	External calls:
+	- msg.sender.transfer(reward_TOD40) (TOD/tod_buggy_50.sol#503)
+	State variables written after the call(s):
+	- claimed_TOD40 = true (TOD/tod_buggy_50.sol#504)
+Reentrancy in digitalNotary.claimReward_TOD8(uint256) (TOD/tod_buggy_50.sol#398-404):
+	External calls:
+	- msg.sender.transfer(reward_TOD8) (TOD/tod_buggy_50.sol#402)
+	State variables written after the call(s):
+	- claimed_TOD8 = true (TOD/tod_buggy_50.sol#403)
+Reentrancy in digitalNotary.setReward_TOD14() (TOD/tod_buggy_50.sol#339-345):
+	External calls:
+	- owner_TOD14.transfer(reward_TOD14) (TOD/tod_buggy_50.sol#343)
+	State variables written after the call(s):
+	- reward_TOD14 = msg.value (TOD/tod_buggy_50.sol#344)
+Reentrancy in digitalNotary.setReward_TOD2() (TOD/tod_buggy_50.sol#13-19):
+	External calls:
+	- owner_TOD2.transfer(reward_TOD2) (TOD/tod_buggy_50.sol#17)
+	State variables written after the call(s):
+	- reward_TOD2 = msg.value (TOD/tod_buggy_50.sol#18)
+Reentrancy in digitalNotary.setReward_TOD20() (TOD/tod_buggy_50.sol#208-214):
+	External calls:
+	- owner_TOD20.transfer(reward_TOD20) (TOD/tod_buggy_50.sol#212)
+	State variables written after the call(s):
+	- reward_TOD20 = msg.value (TOD/tod_buggy_50.sol#213)
+Reentrancy in digitalNotary.setReward_TOD26() (TOD/tod_buggy_50.sol#183-189):
+	External calls:
+	- owner_TOD26.transfer(reward_TOD26) (TOD/tod_buggy_50.sol#187)
+	State variables written after the call(s):
+	- reward_TOD26 = msg.value (TOD/tod_buggy_50.sol#188)
+Reentrancy in digitalNotary.setReward_TOD30() (TOD/tod_buggy_50.sol#363-369):
+	External calls:
+	- owner_TOD30.transfer(reward_TOD30) (TOD/tod_buggy_50.sol#367)
+	State variables written after the call(s):
+	- reward_TOD30 = msg.value (TOD/tod_buggy_50.sol#368)
+Reentrancy in digitalNotary.setReward_TOD32() (TOD/tod_buggy_50.sol#231-237):
+	External calls:
+	- owner_TOD32.transfer(reward_TOD32) (TOD/tod_buggy_50.sol#235)
+	State variables written after the call(s):
+	- reward_TOD32 = msg.value (TOD/tod_buggy_50.sol#236)
+Reentrancy in digitalNotary.setReward_TOD36() (TOD/tod_buggy_50.sol#431-437):
+	External calls:
+	- owner_TOD36.transfer(reward_TOD36) (TOD/tod_buggy_50.sol#435)
+	State variables written after the call(s):
+	- reward_TOD36 = msg.value (TOD/tod_buggy_50.sol#436)
+Reentrancy in digitalNotary.setReward_TOD38() (TOD/tod_buggy_50.sol#256-262):
+	External calls:
+	- owner_TOD38.transfer(reward_TOD38) (TOD/tod_buggy_50.sol#260)
+	State variables written after the call(s):
+	- reward_TOD38 = msg.value (TOD/tod_buggy_50.sol#261)
+Reentrancy in digitalNotary.setReward_TOD4() (TOD/tod_buggy_50.sol#279-285):
+	External calls:
+	- owner_TOD4.transfer(reward_TOD4) (TOD/tod_buggy_50.sol#283)
+	State variables written after the call(s):
+	- reward_TOD4 = msg.value (TOD/tod_buggy_50.sol#284)
+Reentrancy in digitalNotary.setReward_TOD40() (TOD/tod_buggy_50.sol#491-497):
+	External calls:
+	- owner_TOD40.transfer(reward_TOD40) (TOD/tod_buggy_50.sol#495)
+	State variables written after the call(s):
+	- reward_TOD40 = msg.value (TOD/tod_buggy_50.sol#496)
+Reentrancy in digitalNotary.setReward_TOD8() (TOD/tod_buggy_50.sol#390-396):
+	External calls:
+	- owner_TOD8.transfer(reward_TOD8) (TOD/tod_buggy_50.sol#394)
+	State variables written after the call(s):
+	- reward_TOD8 = msg.value (TOD/tod_buggy_50.sol#395)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable digitalNotary.claimed_TOD14 (TOD/tod_buggy_50.sol#336) is too similar to digitalNotary.claimed_TOD40 (TOD/tod_buggy_50.sol#488)
+Variable digitalNotary.claimed_TOD2 (TOD/tod_buggy_50.sol#10) is too similar to digitalNotary.claimed_TOD8 (TOD/tod_buggy_50.sol#387)
+Variable digitalNotary.claimed_TOD20 (TOD/tod_buggy_50.sol#205) is too similar to digitalNotary.claimed_TOD26 (TOD/tod_buggy_50.sol#180)
+Variable digitalNotary.claimed_TOD20 (TOD/tod_buggy_50.sol#205) is too similar to digitalNotary.claimed_TOD32 (TOD/tod_buggy_50.sol#228)
+Variable digitalNotary.claimed_TOD20 (TOD/tod_buggy_50.sol#205) is too similar to digitalNotary.claimed_TOD40 (TOD/tod_buggy_50.sol#488)
+Variable digitalNotary.claimed_TOD20 (TOD/tod_buggy_50.sol#205) is too similar to digitalNotary.claimed_TOD30 (TOD/tod_buggy_50.sol#360)
+Variable digitalNotary.claimed_TOD30 (TOD/tod_buggy_50.sol#360) is too similar to digitalNotary.claimed_TOD32 (TOD/tod_buggy_50.sol#228)
+Variable digitalNotary.claimed_TOD30 (TOD/tod_buggy_50.sol#360) is too similar to digitalNotary.claimed_TOD36 (TOD/tod_buggy_50.sol#428)
+Variable digitalNotary.claimed_TOD30 (TOD/tod_buggy_50.sol#360) is too similar to digitalNotary.claimed_TOD38 (TOD/tod_buggy_50.sol#253)
+Variable digitalNotary.claimed_TOD30 (TOD/tod_buggy_50.sol#360) is too similar to digitalNotary.claimed_TOD40 (TOD/tod_buggy_50.sol#488)
+Variable digitalNotary.claimed_TOD26 (TOD/tod_buggy_50.sol#180) is too similar to digitalNotary.claimed_TOD32 (TOD/tod_buggy_50.sol#228)
+Variable digitalNotary.claimed_TOD26 (TOD/tod_buggy_50.sol#180) is too similar to digitalNotary.claimed_TOD36 (TOD/tod_buggy_50.sol#428)
+Variable digitalNotary.claimed_TOD32 (TOD/tod_buggy_50.sol#228) is too similar to digitalNotary.claimed_TOD36 (TOD/tod_buggy_50.sol#428)
+Variable digitalNotary.claimed_TOD32 (TOD/tod_buggy_50.sol#228) is too similar to digitalNotary.claimed_TOD38 (TOD/tod_buggy_50.sol#253)
+Variable digitalNotary.claimed_TOD36 (TOD/tod_buggy_50.sol#428) is too similar to digitalNotary.claimed_TOD38 (TOD/tod_buggy_50.sol#253)
+Variable digitalNotary.claimed_TOD2 (TOD/tod_buggy_50.sol#10) is too similar to digitalNotary.claimed_TOD4 (TOD/tod_buggy_50.sol#276)
+Variable digitalNotary.claimed_TOD4 (TOD/tod_buggy_50.sol#276) is too similar to digitalNotary.claimed_TOD8 (TOD/tod_buggy_50.sol#387)
+Variable digitalNotary.owner_TOD14 (TOD/tod_buggy_50.sol#337) is too similar to digitalNotary.owner_TOD40 (TOD/tod_buggy_50.sol#489)
+Variable digitalNotary.owner_TOD20 (TOD/tod_buggy_50.sol#206) is too similar to digitalNotary.owner_TOD26 (TOD/tod_buggy_50.sol#181)
+Variable digitalNotary.owner_TOD26 (TOD/tod_buggy_50.sol#181) is too similar to digitalNotary.owner_TOD36 (TOD/tod_buggy_50.sol#429)
+Variable digitalNotary.owner_TOD20 (TOD/tod_buggy_50.sol#206) is too similar to digitalNotary.owner_TOD30 (TOD/tod_buggy_50.sol#361)
+Variable digitalNotary.owner_TOD30 (TOD/tod_buggy_50.sol#361) is too similar to digitalNotary.owner_TOD36 (TOD/tod_buggy_50.sol#429)
+Variable digitalNotary.owner_TOD30 (TOD/tod_buggy_50.sol#361) is too similar to digitalNotary.owner_TOD40 (TOD/tod_buggy_50.sol#489)
+Variable digitalNotary.owner_TOD20 (TOD/tod_buggy_50.sol#206) is too similar to digitalNotary.owner_TOD32 (TOD/tod_buggy_50.sol#229)
+Variable digitalNotary.owner_TOD26 (TOD/tod_buggy_50.sol#181) is too similar to digitalNotary.owner_TOD32 (TOD/tod_buggy_50.sol#229)
+Variable digitalNotary.owner_TOD30 (TOD/tod_buggy_50.sol#361) is too similar to digitalNotary.owner_TOD32 (TOD/tod_buggy_50.sol#229)
+Variable digitalNotary.owner_TOD32 (TOD/tod_buggy_50.sol#229) is too similar to digitalNotary.owner_TOD36 (TOD/tod_buggy_50.sol#429)
+Variable digitalNotary.owner_TOD30 (TOD/tod_buggy_50.sol#361) is too similar to digitalNotary.owner_TOD38 (TOD/tod_buggy_50.sol#254)
+Variable digitalNotary.owner_TOD32 (TOD/tod_buggy_50.sol#229) is too similar to digitalNotary.owner_TOD38 (TOD/tod_buggy_50.sol#254)
+Variable digitalNotary.owner_TOD36 (TOD/tod_buggy_50.sol#429) is too similar to digitalNotary.owner_TOD38 (TOD/tod_buggy_50.sol#254)
+Variable digitalNotary.owner_TOD20 (TOD/tod_buggy_50.sol#206) is too similar to digitalNotary.owner_TOD40 (TOD/tod_buggy_50.sol#489)
+Variable digitalNotary.reward_TOD2 (TOD/tod_buggy_50.sol#12) is too similar to digitalNotary.reward_TOD4 (TOD/tod_buggy_50.sol#278)
+Variable digitalNotary.reward_TOD20 (TOD/tod_buggy_50.sol#207) is too similar to digitalNotary.reward_TOD26 (TOD/tod_buggy_50.sol#182)
+Variable digitalNotary.reward_TOD20 (TOD/tod_buggy_50.sol#207) is too similar to digitalNotary.reward_TOD30 (TOD/tod_buggy_50.sol#362)
+Variable digitalNotary.reward_TOD30 (TOD/tod_buggy_50.sol#362) is too similar to digitalNotary.reward_TOD38 (TOD/tod_buggy_50.sol#255)
+Variable digitalNotary.reward_TOD20 (TOD/tod_buggy_50.sol#207) is too similar to digitalNotary.reward_TOD32 (TOD/tod_buggy_50.sol#230)
+Variable digitalNotary.reward_TOD26 (TOD/tod_buggy_50.sol#182) is too similar to digitalNotary.reward_TOD32 (TOD/tod_buggy_50.sol#230)
+Variable digitalNotary.reward_TOD30 (TOD/tod_buggy_50.sol#362) is too similar to digitalNotary.reward_TOD32 (TOD/tod_buggy_50.sol#230)
+Variable digitalNotary.reward_TOD32 (TOD/tod_buggy_50.sol#230) is too similar to digitalNotary.reward_TOD38 (TOD/tod_buggy_50.sol#255)
+Variable digitalNotary.reward_TOD26 (TOD/tod_buggy_50.sol#182) is too similar to digitalNotary.reward_TOD36 (TOD/tod_buggy_50.sol#430)
+Variable digitalNotary.reward_TOD30 (TOD/tod_buggy_50.sol#362) is too similar to digitalNotary.reward_TOD36 (TOD/tod_buggy_50.sol#430)
+Variable digitalNotary.reward_TOD32 (TOD/tod_buggy_50.sol#230) is too similar to digitalNotary.reward_TOD36 (TOD/tod_buggy_50.sol#430)
+Variable digitalNotary.reward_TOD36 (TOD/tod_buggy_50.sol#430) is too similar to digitalNotary.reward_TOD38 (TOD/tod_buggy_50.sol#255)
+Variable digitalNotary.reward_TOD14 (TOD/tod_buggy_50.sol#338) is too similar to digitalNotary.reward_TOD40 (TOD/tod_buggy_50.sol#490)
+Variable digitalNotary.reward_TOD20 (TOD/tod_buggy_50.sol#207) is too similar to digitalNotary.reward_TOD40 (TOD/tod_buggy_50.sol#490)
+Variable digitalNotary.reward_TOD30 (TOD/tod_buggy_50.sol#362) is too similar to digitalNotary.reward_TOD40 (TOD/tod_buggy_50.sol#490)
+Variable digitalNotary.reward_TOD2 (TOD/tod_buggy_50.sol#12) is too similar to digitalNotary.reward_TOD8 (TOD/tod_buggy_50.sol#389)
+Variable digitalNotary.reward_TOD4 (TOD/tod_buggy_50.sol#278) is too similar to digitalNotary.reward_TOD8 (TOD/tod_buggy_50.sol#389)
+Variable digitalNotary.winner_TOD13 (TOD/tod_buggy_50.sol#126) is too similar to digitalNotary.winner_TOD17 (TOD/tod_buggy_50.sol#30)
+Variable digitalNotary.winner_TOD17 (TOD/tod_buggy_50.sol#30) is too similar to digitalNotary.winner_TOD19 (TOD/tod_buggy_50.sol#155)
+Variable digitalNotary.winner_TOD17 (TOD/tod_buggy_50.sol#30) is too similar to digitalNotary.winner_TOD27 (TOD/tod_buggy_50.sol#542)
+Variable digitalNotary.winner_TOD17 (TOD/tod_buggy_50.sol#30) is too similar to digitalNotary.winner_TOD31 (TOD/tod_buggy_50.sol#111)
+Variable digitalNotary.winner_TOD13 (TOD/tod_buggy_50.sol#126) is too similar to digitalNotary.winner_TOD19 (TOD/tod_buggy_50.sol#155)
+Variable digitalNotary.winner_TOD13 (TOD/tod_buggy_50.sol#126) is too similar to digitalNotary.winner_TOD23 (TOD/tod_buggy_50.sol#317)
+Variable digitalNotary.winner_TOD23 (TOD/tod_buggy_50.sol#317) is too similar to digitalNotary.winner_TOD25 (TOD/tod_buggy_50.sol#96)
+Variable digitalNotary.winner_TOD25 (TOD/tod_buggy_50.sol#96) is too similar to digitalNotary.winner_TOD35 (TOD/tod_buggy_50.sol#456)
+Variable digitalNotary.winner_TOD23 (TOD/tod_buggy_50.sol#317) is too similar to digitalNotary.winner_TOD27 (TOD/tod_buggy_50.sol#542)
+Variable digitalNotary.winner_TOD25 (TOD/tod_buggy_50.sol#96) is too similar to digitalNotary.winner_TOD27 (TOD/tod_buggy_50.sol#542)
+Variable digitalNotary.winner_TOD13 (TOD/tod_buggy_50.sol#126) is too similar to digitalNotary.winner_TOD31 (TOD/tod_buggy_50.sol#111)
+Variable digitalNotary.winner_TOD19 (TOD/tod_buggy_50.sol#155) is too similar to digitalNotary.winner_TOD31 (TOD/tod_buggy_50.sol#111)
+Variable digitalNotary.winner_TOD23 (TOD/tod_buggy_50.sol#317) is too similar to digitalNotary.winner_TOD31 (TOD/tod_buggy_50.sol#111)
+Variable digitalNotary.winner_TOD31 (TOD/tod_buggy_50.sol#111) is too similar to digitalNotary.winner_TOD35 (TOD/tod_buggy_50.sol#456)
+Variable digitalNotary.winner_TOD31 (TOD/tod_buggy_50.sol#111) is too similar to digitalNotary.winner_TOD39 (TOD/tod_buggy_50.sol#410)
+Variable digitalNotary.winner_TOD13 (TOD/tod_buggy_50.sol#126) is too similar to digitalNotary.winner_TOD33 (TOD/tod_buggy_50.sol#524)
+Variable digitalNotary.winner_TOD23 (TOD/tod_buggy_50.sol#317) is too similar to digitalNotary.winner_TOD33 (TOD/tod_buggy_50.sol#524)
+Variable digitalNotary.winner_TOD31 (TOD/tod_buggy_50.sol#111) is too similar to digitalNotary.winner_TOD33 (TOD/tod_buggy_50.sol#524)
+Variable digitalNotary.winner_TOD33 (TOD/tod_buggy_50.sol#524) is too similar to digitalNotary.winner_TOD35 (TOD/tod_buggy_50.sol#456)
+Variable digitalNotary.winner_TOD33 (TOD/tod_buggy_50.sol#524) is too similar to digitalNotary.winner_TOD39 (TOD/tod_buggy_50.sol#410)
+Variable digitalNotary.winner_TOD13 (TOD/tod_buggy_50.sol#126) is too similar to digitalNotary.winner_TOD35 (TOD/tod_buggy_50.sol#456)
+Variable digitalNotary.winner_TOD23 (TOD/tod_buggy_50.sol#317) is too similar to digitalNotary.winner_TOD35 (TOD/tod_buggy_50.sol#456)
+Variable digitalNotary.winner_TOD13 (TOD/tod_buggy_50.sol#126) is too similar to digitalNotary.winner_TOD37 (TOD/tod_buggy_50.sol#45)
+Variable digitalNotary.winner_TOD17 (TOD/tod_buggy_50.sol#30) is too similar to digitalNotary.winner_TOD37 (TOD/tod_buggy_50.sol#45)
+Variable digitalNotary.winner_TOD23 (TOD/tod_buggy_50.sol#317) is too similar to digitalNotary.winner_TOD37 (TOD/tod_buggy_50.sol#45)
+Variable digitalNotary.winner_TOD27 (TOD/tod_buggy_50.sol#542) is too similar to digitalNotary.winner_TOD37 (TOD/tod_buggy_50.sol#45)
+Variable digitalNotary.winner_TOD31 (TOD/tod_buggy_50.sol#111) is too similar to digitalNotary.winner_TOD37 (TOD/tod_buggy_50.sol#45)
+Variable digitalNotary.winner_TOD33 (TOD/tod_buggy_50.sol#524) is too similar to digitalNotary.winner_TOD37 (TOD/tod_buggy_50.sol#45)
+Variable digitalNotary.winner_TOD35 (TOD/tod_buggy_50.sol#456) is too similar to digitalNotary.winner_TOD37 (TOD/tod_buggy_50.sol#45)
+Variable digitalNotary.winner_TOD37 (TOD/tod_buggy_50.sol#45) is too similar to digitalNotary.winner_TOD39 (TOD/tod_buggy_50.sol#410)
+Variable digitalNotary.winner_TOD13 (TOD/tod_buggy_50.sol#126) is too similar to digitalNotary.winner_TOD39 (TOD/tod_buggy_50.sol#410)
+Variable digitalNotary.winner_TOD19 (TOD/tod_buggy_50.sol#155) is too similar to digitalNotary.winner_TOD39 (TOD/tod_buggy_50.sol#410)
+Variable digitalNotary.winner_TOD23 (TOD/tod_buggy_50.sol#317) is too similar to digitalNotary.winner_TOD39 (TOD/tod_buggy_50.sol#410)
+Variable digitalNotary.winner_TOD35 (TOD/tod_buggy_50.sol#456) is too similar to digitalNotary.winner_TOD39 (TOD/tod_buggy_50.sol#410)
+Variable digitalNotary.winner_TOD3 (TOD/tod_buggy_50.sol#60) is too similar to digitalNotary.winner_TOD7 (TOD/tod_buggy_50.sol#299)
+Variable digitalNotary.winner_TOD7 (TOD/tod_buggy_50.sol#299) is too similar to digitalNotary.winner_TOD9 (TOD/tod_buggy_50.sol#81)
+Variable digitalNotary.winner_TOD3 (TOD/tod_buggy_50.sol#60) is too similar to digitalNotary.winner_TOD9 (TOD/tod_buggy_50.sol#81)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+digitalNotary.constructor() (TOD/tod_buggy_50.sol#141-154) uses literals with too many digits:
+	- hashfee = 5000000000000000 (TOD/tod_buggy_50.sol#148)
+digitalNotary.constructor() (TOD/tod_buggy_50.sol#141-154) uses literals with too many digits:
+	- changehashownerfee = 25000000000000000 (TOD/tod_buggy_50.sol#150)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+digitalNotary.owner_TOD14 (TOD/tod_buggy_50.sol#337) should be constant
+digitalNotary.owner_TOD2 (TOD/tod_buggy_50.sol#11) should be constant
+digitalNotary.owner_TOD20 (TOD/tod_buggy_50.sol#206) should be constant
+digitalNotary.owner_TOD26 (TOD/tod_buggy_50.sol#181) should be constant
+digitalNotary.owner_TOD30 (TOD/tod_buggy_50.sol#361) should be constant
+digitalNotary.owner_TOD32 (TOD/tod_buggy_50.sol#229) should be constant
+digitalNotary.owner_TOD36 (TOD/tod_buggy_50.sol#429) should be constant
+digitalNotary.owner_TOD38 (TOD/tod_buggy_50.sol#254) should be constant
+digitalNotary.owner_TOD4 (TOD/tod_buggy_50.sol#277) should be constant
+digitalNotary.owner_TOD40 (TOD/tod_buggy_50.sol#489) should be constant
+digitalNotary.owner_TOD8 (TOD/tod_buggy_50.sol#388) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+TOD/tod_buggy_50.sol analyzed (1 contracts with 80 detectors), 255 result(s) found

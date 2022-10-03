@@ -1,0 +1,101 @@
+
+ALUXToken.buy() (CV/2018-13533.sol#165-175) performs a multiplication on the result of a division:
+	-amount = msg.value / buyPrice (CV/2018-13533.sol#167)
+	-market_value = amount * buyPrice (CV/2018-13533.sol#168)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+
+ALUXToken (CV/2018-13533.sol#74-191) has incorrect ERC20 function interface:TokenERC20.transfer(address,uint256) (CV/2018-13533.sol#56-58)
+ALUXToken (CV/2018-13533.sol#74-191) has incorrect ERC20 function interface:ALUXToken.transfer(address,uint256) (CV/2018-13533.sol#108-116)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-erc20-interface
+
+owned.transferOwnership(address) (CV/2018-13533.sol#19-21) should emit an event for: 
+	- owner = newOwner (CV/2018-13533.sol#20) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+ALUXToken.setPrices(uint256,uint256) (CV/2018-13533.sol#143-146) should emit an event for: 
+	- sellPrice = newSellPrice (CV/2018-13533.sol#144) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+
+owned.transferOwnership(address).newOwner (CV/2018-13533.sol#19) lacks a zero-check on :
+		- owner = newOwner (CV/2018-13533.sol#20)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+TokenERC20._transfer(address,address,uint256) (CV/2018-13533.sol#45-54) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.4.18 (CV/2018-13533.sol#1) allows old versions
+solc-0.4.18 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Contract owned (CV/2018-13533.sol#7-22) is not in CapWords
+Parameter TokenERC20.transfer(address,uint256)._to (CV/2018-13533.sol#56) is not in mixedCase
+Parameter TokenERC20.transfer(address,uint256)._value (CV/2018-13533.sol#56) is not in mixedCase
+Parameter TokenERC20.transferFrom(address,address,uint256)._from (CV/2018-13533.sol#60) is not in mixedCase
+Parameter TokenERC20.transferFrom(address,address,uint256)._to (CV/2018-13533.sol#60) is not in mixedCase
+Parameter TokenERC20.transferFrom(address,address,uint256)._value (CV/2018-13533.sol#60) is not in mixedCase
+Parameter TokenERC20.approve(address,uint256)._spender (CV/2018-13533.sol#67) is not in mixedCase
+Parameter TokenERC20.approve(address,uint256)._value (CV/2018-13533.sol#67) is not in mixedCase
+Parameter ALUXToken.refillTokens(uint256)._value (CV/2018-13533.sol#104) is not in mixedCase
+Parameter ALUXToken.transfer(address,uint256)._to (CV/2018-13533.sol#108) is not in mixedCase
+Parameter ALUXToken.transfer(address,uint256)._value (CV/2018-13533.sol#108) is not in mixedCase
+Parameter ALUXToken.transferFrom(address,address,uint256)._from (CV/2018-13533.sol#118) is not in mixedCase
+Parameter ALUXToken.transferFrom(address,address,uint256)._to (CV/2018-13533.sol#118) is not in mixedCase
+Parameter ALUXToken.transferFrom(address,address,uint256)._value (CV/2018-13533.sol#118) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in ALUXToken.buy() (CV/2018-13533.sol#165-175):
+	External calls:
+	- commissionGetter.transfer(commission) (CV/2018-13533.sol#173)
+	State variables written after the call(s):
+	- _transfer(this,msg.sender,amount) (CV/2018-13533.sol#174)
+		- balanceOf[_from] -= _value (CV/2018-13533.sol#99)
+		- balanceOf[_to] += _value (CV/2018-13533.sol#100)
+	Event emitted after the call(s):
+	- Transfer(_from,_to,_value) (CV/2018-13533.sol#101)
+		- _transfer(this,msg.sender,amount) (CV/2018-13533.sol#174)
+Reentrancy in ALUXToken.sell(uint256) (CV/2018-13533.sol#177-188):
+	External calls:
+	- commissionGetter.transfer(commission) (CV/2018-13533.sol#185)
+	State variables written after the call(s):
+	- _transfer(msg.sender,this,amount) (CV/2018-13533.sol#186)
+		- balanceOf[_from] -= _value (CV/2018-13533.sol#99)
+		- balanceOf[_to] += _value (CV/2018-13533.sol#100)
+	Event emitted after the call(s):
+	- Transfer(_from,_to,_value) (CV/2018-13533.sol#101)
+		- _transfer(msg.sender,this,amount) (CV/2018-13533.sol#186)
+Reentrancy in ALUXToken.transfer(address,uint256) (CV/2018-13533.sol#108-116):
+	External calls:
+	- commissionGetter.transfer(commission) (CV/2018-13533.sol#114)
+	State variables written after the call(s):
+	- _transfer(msg.sender,_to,_value) (CV/2018-13533.sol#115)
+		- balanceOf[_from] -= _value (CV/2018-13533.sol#99)
+		- balanceOf[_to] += _value (CV/2018-13533.sol#100)
+	Event emitted after the call(s):
+	- Transfer(_from,_to,_value) (CV/2018-13533.sol#101)
+		- _transfer(msg.sender,_to,_value) (CV/2018-13533.sol#115)
+Reentrancy in ALUXToken.transferFrom(address,address,uint256) (CV/2018-13533.sol#118-129):
+	External calls:
+	- commissionGetter.transfer(commission) (CV/2018-13533.sol#125)
+	State variables written after the call(s):
+	- allowance[_from][msg.sender] -= _value (CV/2018-13533.sol#126)
+	- _transfer(_from,_to,_value) (CV/2018-13533.sol#127)
+		- balanceOf[_from] -= _value (CV/2018-13533.sol#99)
+		- balanceOf[_to] += _value (CV/2018-13533.sol#100)
+	Event emitted after the call(s):
+	- Transfer(_from,_to,_value) (CV/2018-13533.sol#101)
+		- _transfer(_from,_to,_value) (CV/2018-13533.sol#127)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+ALUXToken.slitherConstructorVariables() (CV/2018-13533.sol#74-191) uses literals with too many digits:
+	- sellPrice = 10000000000000000 (CV/2018-13533.sol#75)
+ALUXToken.slitherConstructorVariables() (CV/2018-13533.sol#74-191) uses literals with too many digits:
+	- buyPrice = 10000000000000000 (CV/2018-13533.sol#76)
+ALUXToken.slitherConstructorVariables() (CV/2018-13533.sol#74-191) uses literals with too many digits:
+	- minimumCommission = 100000000000000 (CV/2018-13533.sol#80)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+ALUXToken.commissionGetter (CV/2018-13533.sol#79) should be constant
+ALUXToken.minimumCommission (CV/2018-13533.sol#80) should be constant
+TokenERC20.decimals (CV/2018-13533.sol#27) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+CV/2018-13533.sol analyzed (3 contracts with 80 detectors), 33 result(s) found

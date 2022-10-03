@@ -1,0 +1,327 @@
+
+SaveWon.DECIMALS (TOD/tod_buggy_14.sol#503) shadows:
+	- ERC20.DECIMALS (TOD/tod_buggy_14.sol#85)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variable-shadowing
+
+ERC20.owner_TOD32 (TOD/tod_buggy_14.sol#137) is never initialized. It is used in:
+	- ERC20.setReward_TOD32() (TOD/tod_buggy_14.sol#139-145)
+ERC20.owner_TOD38 (TOD/tod_buggy_14.sol#159) is never initialized. It is used in:
+	- ERC20.setReward_TOD38() (TOD/tod_buggy_14.sol#161-167)
+ERC20.owner_TOD4 (TOD/tod_buggy_14.sol#182) is never initialized. It is used in:
+	- ERC20.setReward_TOD4() (TOD/tod_buggy_14.sol#184-190)
+ERC20.owner_TOD14 (TOD/tod_buggy_14.sol#241) is never initialized. It is used in:
+	- ERC20.setReward_TOD14() (TOD/tod_buggy_14.sol#243-249)
+ERC20.owner_TOD30 (TOD/tod_buggy_14.sol#263) is never initialized. It is used in:
+	- ERC20.setReward_TOD30() (TOD/tod_buggy_14.sol#265-271)
+ERC20.owner_TOD8 (TOD/tod_buggy_14.sol#288) is never initialized. It is used in:
+	- ERC20.setReward_TOD8() (TOD/tod_buggy_14.sol#290-296)
+ERC20.owner_TOD36 (TOD/tod_buggy_14.sol#336) is never initialized. It is used in:
+	- ERC20.setReward_TOD36() (TOD/tod_buggy_14.sol#338-344)
+ERC20Detailed.owner_TOD26 (TOD/tod_buggy_14.sol#380) is never initialized. It is used in:
+	- ERC20Detailed.setReward_TOD26() (TOD/tod_buggy_14.sol#382-388)
+ERC20Detailed.owner_TOD40 (TOD/tod_buggy_14.sol#405) is never initialized. It is used in:
+	- ERC20Detailed.setReward_TOD40() (TOD/tod_buggy_14.sol#407-413)
+SaveWon.owner_TOD20 (TOD/tod_buggy_14.sol#486) is never initialized. It is used in:
+	- SaveWon.setReward_TOD20() (TOD/tod_buggy_14.sol#488-494)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+
+ERC20Detailed.constructor(string,string,uint8).name (TOD/tod_buggy_14.sol#399) shadows:
+	- ERC20Detailed.name() (TOD/tod_buggy_14.sol#426-428) (function)
+ERC20Detailed.constructor(string,string,uint8).symbol (TOD/tod_buggy_14.sol#399) shadows:
+	- ERC20Detailed.symbol() (TOD/tod_buggy_14.sol#446-448) (function)
+ERC20Detailed.constructor(string,string,uint8).decimals (TOD/tod_buggy_14.sol#399) shadows:
+	- ERC20Detailed.decimals() (TOD/tod_buggy_14.sol#466-468) (function)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#local-variable-shadowing
+
+SaveWon.setReward_TOD20() (TOD/tod_buggy_14.sol#488-494) should emit an event for: 
+	- reward_TOD20 = msg.value (TOD/tod_buggy_14.sol#493) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+
+SafeMath.div(uint256,uint256) (TOD/tod_buggy_14.sol#21-27) is never used and should be removed
+SafeMath.mod(uint256,uint256) (TOD/tod_buggy_14.sol#43-46) is never used and should be removed
+SafeMath.mul(uint256,uint256) (TOD/tod_buggy_14.sol#9-19) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.5.1 (TOD/tod_buggy_14.sol#5) allows old versions
+solc-0.5.1 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function ERC20.play_TOD3(bytes32) (TOD/tod_buggy_14.sol#73-79) is not in mixedCase
+Function ERC20.getReward_TOD3() (TOD/tod_buggy_14.sol#81-84) is not in mixedCase
+Function ERC20.play_TOD9(bytes32) (TOD/tod_buggy_14.sol#87-93) is not in mixedCase
+Function ERC20.getReward_TOD9() (TOD/tod_buggy_14.sol#95-98) is not in mixedCase
+Function ERC20.play_TOD25(bytes32) (TOD/tod_buggy_14.sol#104-110) is not in mixedCase
+Function ERC20.getReward_TOD25() (TOD/tod_buggy_14.sol#112-115) is not in mixedCase
+Function ERC20.play_TOD19(bytes32) (TOD/tod_buggy_14.sol#118-124) is not in mixedCase
+Function ERC20.getReward_TOD19() (TOD/tod_buggy_14.sol#126-129) is not in mixedCase
+Function ERC20.setReward_TOD32() (TOD/tod_buggy_14.sol#139-145) is not in mixedCase
+Function ERC20.claimReward_TOD32(uint256) (TOD/tod_buggy_14.sol#147-153) is not in mixedCase
+Function ERC20.setReward_TOD38() (TOD/tod_buggy_14.sol#161-167) is not in mixedCase
+Function ERC20.claimReward_TOD38(uint256) (TOD/tod_buggy_14.sol#169-175) is not in mixedCase
+Function ERC20.setReward_TOD4() (TOD/tod_buggy_14.sol#184-190) is not in mixedCase
+Function ERC20.claimReward_TOD4(uint256) (TOD/tod_buggy_14.sol#192-198) is not in mixedCase
+Function ERC20.play_TOD7(bytes32) (TOD/tod_buggy_14.sol#206-212) is not in mixedCase
+Function ERC20.getReward_TOD7() (TOD/tod_buggy_14.sol#214-217) is not in mixedCase
+Function ERC20.play_TOD23(bytes32) (TOD/tod_buggy_14.sol#224-230) is not in mixedCase
+Function ERC20.getReward_TOD23() (TOD/tod_buggy_14.sol#232-235) is not in mixedCase
+Function ERC20.setReward_TOD14() (TOD/tod_buggy_14.sol#243-249) is not in mixedCase
+Function ERC20.claimReward_TOD14(uint256) (TOD/tod_buggy_14.sol#251-257) is not in mixedCase
+Function ERC20.setReward_TOD30() (TOD/tod_buggy_14.sol#265-271) is not in mixedCase
+Function ERC20.claimReward_TOD30(uint256) (TOD/tod_buggy_14.sol#273-279) is not in mixedCase
+Function ERC20.setReward_TOD8() (TOD/tod_buggy_14.sol#290-296) is not in mixedCase
+Function ERC20.claimReward_TOD8(uint256) (TOD/tod_buggy_14.sol#298-304) is not in mixedCase
+Function ERC20.play_TOD39(bytes32) (TOD/tod_buggy_14.sol#315-321) is not in mixedCase
+Function ERC20.getReward_TOD39() (TOD/tod_buggy_14.sol#323-326) is not in mixedCase
+Function ERC20.setReward_TOD36() (TOD/tod_buggy_14.sol#338-344) is not in mixedCase
+Function ERC20.claimReward_TOD36(uint256) (TOD/tod_buggy_14.sol#346-352) is not in mixedCase
+Function ERC20.play_TOD35(bytes32) (TOD/tod_buggy_14.sol#362-368) is not in mixedCase
+Function ERC20.getReward_TOD35() (TOD/tod_buggy_14.sol#370-373) is not in mixedCase
+Variable ERC20.winner_TOD3 (TOD/tod_buggy_14.sol#72) is not in mixedCase
+Variable ERC20.winner_TOD9 (TOD/tod_buggy_14.sol#86) is not in mixedCase
+Variable ERC20.winner_TOD25 (TOD/tod_buggy_14.sol#103) is not in mixedCase
+Variable ERC20.winner_TOD19 (TOD/tod_buggy_14.sol#117) is not in mixedCase
+Variable ERC20.claimed_TOD32 (TOD/tod_buggy_14.sol#136) is not in mixedCase
+Variable ERC20.owner_TOD32 (TOD/tod_buggy_14.sol#137) is not in mixedCase
+Variable ERC20.reward_TOD32 (TOD/tod_buggy_14.sol#138) is not in mixedCase
+Variable ERC20.claimed_TOD38 (TOD/tod_buggy_14.sol#158) is not in mixedCase
+Variable ERC20.owner_TOD38 (TOD/tod_buggy_14.sol#159) is not in mixedCase
+Variable ERC20.reward_TOD38 (TOD/tod_buggy_14.sol#160) is not in mixedCase
+Variable ERC20.claimed_TOD4 (TOD/tod_buggy_14.sol#181) is not in mixedCase
+Variable ERC20.owner_TOD4 (TOD/tod_buggy_14.sol#182) is not in mixedCase
+Variable ERC20.reward_TOD4 (TOD/tod_buggy_14.sol#183) is not in mixedCase
+Variable ERC20.winner_TOD7 (TOD/tod_buggy_14.sol#205) is not in mixedCase
+Variable ERC20.winner_TOD23 (TOD/tod_buggy_14.sol#223) is not in mixedCase
+Variable ERC20.claimed_TOD14 (TOD/tod_buggy_14.sol#240) is not in mixedCase
+Variable ERC20.owner_TOD14 (TOD/tod_buggy_14.sol#241) is not in mixedCase
+Variable ERC20.reward_TOD14 (TOD/tod_buggy_14.sol#242) is not in mixedCase
+Variable ERC20.claimed_TOD30 (TOD/tod_buggy_14.sol#262) is not in mixedCase
+Variable ERC20.owner_TOD30 (TOD/tod_buggy_14.sol#263) is not in mixedCase
+Variable ERC20.reward_TOD30 (TOD/tod_buggy_14.sol#264) is not in mixedCase
+Variable ERC20.claimed_TOD8 (TOD/tod_buggy_14.sol#287) is not in mixedCase
+Variable ERC20.owner_TOD8 (TOD/tod_buggy_14.sol#288) is not in mixedCase
+Variable ERC20.reward_TOD8 (TOD/tod_buggy_14.sol#289) is not in mixedCase
+Variable ERC20.winner_TOD39 (TOD/tod_buggy_14.sol#314) is not in mixedCase
+Variable ERC20.claimed_TOD36 (TOD/tod_buggy_14.sol#335) is not in mixedCase
+Variable ERC20.owner_TOD36 (TOD/tod_buggy_14.sol#336) is not in mixedCase
+Variable ERC20.reward_TOD36 (TOD/tod_buggy_14.sol#337) is not in mixedCase
+Variable ERC20.winner_TOD35 (TOD/tod_buggy_14.sol#361) is not in mixedCase
+Function ERC20Detailed.setReward_TOD26() (TOD/tod_buggy_14.sol#382-388) is not in mixedCase
+Function ERC20Detailed.claimReward_TOD26(uint256) (TOD/tod_buggy_14.sol#390-396) is not in mixedCase
+Function ERC20Detailed.setReward_TOD40() (TOD/tod_buggy_14.sol#407-413) is not in mixedCase
+Function ERC20Detailed.claimReward_TOD40(uint256) (TOD/tod_buggy_14.sol#415-421) is not in mixedCase
+Function ERC20Detailed.play_TOD33(bytes32) (TOD/tod_buggy_14.sol#430-436) is not in mixedCase
+Function ERC20Detailed.getReward_TOD33() (TOD/tod_buggy_14.sol#438-441) is not in mixedCase
+Function ERC20Detailed.play_TOD27(bytes32) (TOD/tod_buggy_14.sol#450-456) is not in mixedCase
+Function ERC20Detailed.getReward_TOD27() (TOD/tod_buggy_14.sol#458-461) is not in mixedCase
+Function ERC20Detailed.play_TOD31(bytes32) (TOD/tod_buggy_14.sol#470-476) is not in mixedCase
+Function ERC20Detailed.getReward_TOD31() (TOD/tod_buggy_14.sol#478-481) is not in mixedCase
+Variable ERC20Detailed.claimed_TOD26 (TOD/tod_buggy_14.sol#379) is not in mixedCase
+Variable ERC20Detailed.owner_TOD26 (TOD/tod_buggy_14.sol#380) is not in mixedCase
+Variable ERC20Detailed.reward_TOD26 (TOD/tod_buggy_14.sol#381) is not in mixedCase
+Variable ERC20Detailed.claimed_TOD40 (TOD/tod_buggy_14.sol#404) is not in mixedCase
+Variable ERC20Detailed.owner_TOD40 (TOD/tod_buggy_14.sol#405) is not in mixedCase
+Variable ERC20Detailed.reward_TOD40 (TOD/tod_buggy_14.sol#406) is not in mixedCase
+Variable ERC20Detailed.winner_TOD33 (TOD/tod_buggy_14.sol#429) is not in mixedCase
+Variable ERC20Detailed.winner_TOD27 (TOD/tod_buggy_14.sol#449) is not in mixedCase
+Variable ERC20Detailed.winner_TOD31 (TOD/tod_buggy_14.sol#469) is not in mixedCase
+Function SaveWon.setReward_TOD20() (TOD/tod_buggy_14.sol#488-494) is not in mixedCase
+Function SaveWon.claimReward_TOD20(uint256) (TOD/tod_buggy_14.sol#496-502) is not in mixedCase
+Function SaveWon.play_TOD13(bytes32) (TOD/tod_buggy_14.sol#513-519) is not in mixedCase
+Function SaveWon.getReward_TOD13() (TOD/tod_buggy_14.sol#521-524) is not in mixedCase
+Variable SaveWon.claimed_TOD20 (TOD/tod_buggy_14.sol#485) is not in mixedCase
+Variable SaveWon.owner_TOD20 (TOD/tod_buggy_14.sol#486) is not in mixedCase
+Variable SaveWon.reward_TOD20 (TOD/tod_buggy_14.sol#487) is not in mixedCase
+Variable SaveWon.winner_TOD13 (TOD/tod_buggy_14.sol#512) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in ERC20.claimReward_TOD14(uint256) (TOD/tod_buggy_14.sol#251-257):
+	External calls:
+	- msg.sender.transfer(reward_TOD14) (TOD/tod_buggy_14.sol#255)
+	State variables written after the call(s):
+	- claimed_TOD14 = true (TOD/tod_buggy_14.sol#256)
+Reentrancy in SaveWon.claimReward_TOD20(uint256) (TOD/tod_buggy_14.sol#496-502):
+	External calls:
+	- msg.sender.transfer(reward_TOD20) (TOD/tod_buggy_14.sol#500)
+	State variables written after the call(s):
+	- claimed_TOD20 = true (TOD/tod_buggy_14.sol#501)
+Reentrancy in ERC20Detailed.claimReward_TOD26(uint256) (TOD/tod_buggy_14.sol#390-396):
+	External calls:
+	- msg.sender.transfer(reward_TOD26) (TOD/tod_buggy_14.sol#394)
+	State variables written after the call(s):
+	- claimed_TOD26 = true (TOD/tod_buggy_14.sol#395)
+Reentrancy in ERC20.claimReward_TOD30(uint256) (TOD/tod_buggy_14.sol#273-279):
+	External calls:
+	- msg.sender.transfer(reward_TOD30) (TOD/tod_buggy_14.sol#277)
+	State variables written after the call(s):
+	- claimed_TOD30 = true (TOD/tod_buggy_14.sol#278)
+Reentrancy in ERC20.claimReward_TOD32(uint256) (TOD/tod_buggy_14.sol#147-153):
+	External calls:
+	- msg.sender.transfer(reward_TOD32) (TOD/tod_buggy_14.sol#151)
+	State variables written after the call(s):
+	- claimed_TOD32 = true (TOD/tod_buggy_14.sol#152)
+Reentrancy in ERC20.claimReward_TOD36(uint256) (TOD/tod_buggy_14.sol#346-352):
+	External calls:
+	- msg.sender.transfer(reward_TOD36) (TOD/tod_buggy_14.sol#350)
+	State variables written after the call(s):
+	- claimed_TOD36 = true (TOD/tod_buggy_14.sol#351)
+Reentrancy in ERC20.claimReward_TOD38(uint256) (TOD/tod_buggy_14.sol#169-175):
+	External calls:
+	- msg.sender.transfer(reward_TOD38) (TOD/tod_buggy_14.sol#173)
+	State variables written after the call(s):
+	- claimed_TOD38 = true (TOD/tod_buggy_14.sol#174)
+Reentrancy in ERC20.claimReward_TOD4(uint256) (TOD/tod_buggy_14.sol#192-198):
+	External calls:
+	- msg.sender.transfer(reward_TOD4) (TOD/tod_buggy_14.sol#196)
+	State variables written after the call(s):
+	- claimed_TOD4 = true (TOD/tod_buggy_14.sol#197)
+Reentrancy in ERC20Detailed.claimReward_TOD40(uint256) (TOD/tod_buggy_14.sol#415-421):
+	External calls:
+	- msg.sender.transfer(reward_TOD40) (TOD/tod_buggy_14.sol#419)
+	State variables written after the call(s):
+	- claimed_TOD40 = true (TOD/tod_buggy_14.sol#420)
+Reentrancy in ERC20.claimReward_TOD8(uint256) (TOD/tod_buggy_14.sol#298-304):
+	External calls:
+	- msg.sender.transfer(reward_TOD8) (TOD/tod_buggy_14.sol#302)
+	State variables written after the call(s):
+	- claimed_TOD8 = true (TOD/tod_buggy_14.sol#303)
+Reentrancy in ERC20.setReward_TOD14() (TOD/tod_buggy_14.sol#243-249):
+	External calls:
+	- owner_TOD14.transfer(reward_TOD14) (TOD/tod_buggy_14.sol#247)
+	State variables written after the call(s):
+	- reward_TOD14 = msg.value (TOD/tod_buggy_14.sol#248)
+Reentrancy in SaveWon.setReward_TOD20() (TOD/tod_buggy_14.sol#488-494):
+	External calls:
+	- owner_TOD20.transfer(reward_TOD20) (TOD/tod_buggy_14.sol#492)
+	State variables written after the call(s):
+	- reward_TOD20 = msg.value (TOD/tod_buggy_14.sol#493)
+Reentrancy in ERC20Detailed.setReward_TOD26() (TOD/tod_buggy_14.sol#382-388):
+	External calls:
+	- owner_TOD26.transfer(reward_TOD26) (TOD/tod_buggy_14.sol#386)
+	State variables written after the call(s):
+	- reward_TOD26 = msg.value (TOD/tod_buggy_14.sol#387)
+Reentrancy in ERC20.setReward_TOD30() (TOD/tod_buggy_14.sol#265-271):
+	External calls:
+	- owner_TOD30.transfer(reward_TOD30) (TOD/tod_buggy_14.sol#269)
+	State variables written after the call(s):
+	- reward_TOD30 = msg.value (TOD/tod_buggy_14.sol#270)
+Reentrancy in ERC20.setReward_TOD32() (TOD/tod_buggy_14.sol#139-145):
+	External calls:
+	- owner_TOD32.transfer(reward_TOD32) (TOD/tod_buggy_14.sol#143)
+	State variables written after the call(s):
+	- reward_TOD32 = msg.value (TOD/tod_buggy_14.sol#144)
+Reentrancy in ERC20.setReward_TOD36() (TOD/tod_buggy_14.sol#338-344):
+	External calls:
+	- owner_TOD36.transfer(reward_TOD36) (TOD/tod_buggy_14.sol#342)
+	State variables written after the call(s):
+	- reward_TOD36 = msg.value (TOD/tod_buggy_14.sol#343)
+Reentrancy in ERC20.setReward_TOD38() (TOD/tod_buggy_14.sol#161-167):
+	External calls:
+	- owner_TOD38.transfer(reward_TOD38) (TOD/tod_buggy_14.sol#165)
+	State variables written after the call(s):
+	- reward_TOD38 = msg.value (TOD/tod_buggy_14.sol#166)
+Reentrancy in ERC20.setReward_TOD4() (TOD/tod_buggy_14.sol#184-190):
+	External calls:
+	- owner_TOD4.transfer(reward_TOD4) (TOD/tod_buggy_14.sol#188)
+	State variables written after the call(s):
+	- reward_TOD4 = msg.value (TOD/tod_buggy_14.sol#189)
+Reentrancy in ERC20Detailed.setReward_TOD40() (TOD/tod_buggy_14.sol#407-413):
+	External calls:
+	- owner_TOD40.transfer(reward_TOD40) (TOD/tod_buggy_14.sol#411)
+	State variables written after the call(s):
+	- reward_TOD40 = msg.value (TOD/tod_buggy_14.sol#412)
+Reentrancy in ERC20.setReward_TOD8() (TOD/tod_buggy_14.sol#290-296):
+	External calls:
+	- owner_TOD8.transfer(reward_TOD8) (TOD/tod_buggy_14.sol#294)
+	State variables written after the call(s):
+	- reward_TOD8 = msg.value (TOD/tod_buggy_14.sol#295)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable ERC20.claimed_TOD30 (TOD/tod_buggy_14.sol#262) is too similar to ERC20.claimed_TOD36 (TOD/tod_buggy_14.sol#335)
+Variable ERC20.claimed_TOD30 (TOD/tod_buggy_14.sol#262) is too similar to ERC20.claimed_TOD32 (TOD/tod_buggy_14.sol#136)
+Variable ERC20.claimed_TOD32 (TOD/tod_buggy_14.sol#136) is too similar to ERC20.claimed_TOD36 (TOD/tod_buggy_14.sol#335)
+Variable ERC20.claimed_TOD32 (TOD/tod_buggy_14.sol#136) is too similar to ERC20.claimed_TOD38 (TOD/tod_buggy_14.sol#158)
+Variable ERC20.claimed_TOD30 (TOD/tod_buggy_14.sol#262) is too similar to ERC20.claimed_TOD38 (TOD/tod_buggy_14.sol#158)
+Variable ERC20.claimed_TOD36 (TOD/tod_buggy_14.sol#335) is too similar to ERC20.claimed_TOD38 (TOD/tod_buggy_14.sol#158)
+Variable ERC20.claimed_TOD4 (TOD/tod_buggy_14.sol#181) is too similar to ERC20.claimed_TOD8 (TOD/tod_buggy_14.sol#287)
+Variable ERC20.owner_TOD30 (TOD/tod_buggy_14.sol#263) is too similar to ERC20.owner_TOD32 (TOD/tod_buggy_14.sol#137)
+Variable ERC20.owner_TOD32 (TOD/tod_buggy_14.sol#137) is too similar to ERC20.owner_TOD36 (TOD/tod_buggy_14.sol#336)
+Variable ERC20.owner_TOD30 (TOD/tod_buggy_14.sol#263) is too similar to ERC20.owner_TOD36 (TOD/tod_buggy_14.sol#336)
+Variable ERC20.owner_TOD30 (TOD/tod_buggy_14.sol#263) is too similar to ERC20.owner_TOD38 (TOD/tod_buggy_14.sol#159)
+Variable ERC20.owner_TOD32 (TOD/tod_buggy_14.sol#137) is too similar to ERC20.owner_TOD38 (TOD/tod_buggy_14.sol#159)
+Variable ERC20.owner_TOD36 (TOD/tod_buggy_14.sol#336) is too similar to ERC20.owner_TOD38 (TOD/tod_buggy_14.sol#159)
+Variable ERC20.reward_TOD30 (TOD/tod_buggy_14.sol#264) is too similar to ERC20.reward_TOD32 (TOD/tod_buggy_14.sol#138)
+Variable ERC20.reward_TOD30 (TOD/tod_buggy_14.sol#264) is too similar to ERC20.reward_TOD36 (TOD/tod_buggy_14.sol#337)
+Variable ERC20.reward_TOD32 (TOD/tod_buggy_14.sol#138) is too similar to ERC20.reward_TOD36 (TOD/tod_buggy_14.sol#337)
+Variable ERC20.reward_TOD30 (TOD/tod_buggy_14.sol#264) is too similar to ERC20.reward_TOD38 (TOD/tod_buggy_14.sol#160)
+Variable ERC20.reward_TOD32 (TOD/tod_buggy_14.sol#138) is too similar to ERC20.reward_TOD38 (TOD/tod_buggy_14.sol#160)
+Variable ERC20.reward_TOD36 (TOD/tod_buggy_14.sol#337) is too similar to ERC20.reward_TOD38 (TOD/tod_buggy_14.sol#160)
+Variable ERC20.reward_TOD4 (TOD/tod_buggy_14.sol#183) is too similar to ERC20.reward_TOD8 (TOD/tod_buggy_14.sol#289)
+Variable ERC20.winner_TOD19 (TOD/tod_buggy_14.sol#117) is too similar to ERC20.winner_TOD39 (TOD/tod_buggy_14.sol#314)
+Variable ERC20.winner_TOD23 (TOD/tod_buggy_14.sol#223) is too similar to ERC20.winner_TOD35 (TOD/tod_buggy_14.sol#361)
+Variable ERC20.winner_TOD23 (TOD/tod_buggy_14.sol#223) is too similar to ERC20.winner_TOD39 (TOD/tod_buggy_14.sol#314)
+Variable ERC20.winner_TOD23 (TOD/tod_buggy_14.sol#223) is too similar to ERC20.winner_TOD25 (TOD/tod_buggy_14.sol#103)
+Variable ERC20.winner_TOD25 (TOD/tod_buggy_14.sol#103) is too similar to ERC20.winner_TOD35 (TOD/tod_buggy_14.sol#361)
+Variable ERC20.winner_TOD35 (TOD/tod_buggy_14.sol#361) is too similar to ERC20.winner_TOD39 (TOD/tod_buggy_14.sol#314)
+Variable ERC20.winner_TOD3 (TOD/tod_buggy_14.sol#72) is too similar to ERC20.winner_TOD7 (TOD/tod_buggy_14.sol#205)
+Variable ERC20.winner_TOD7 (TOD/tod_buggy_14.sol#205) is too similar to ERC20.winner_TOD9 (TOD/tod_buggy_14.sol#86)
+Variable ERC20.winner_TOD3 (TOD/tod_buggy_14.sol#72) is too similar to ERC20.winner_TOD9 (TOD/tod_buggy_14.sol#86)
+Variable ERC20Detailed.winner_TOD31 (TOD/tod_buggy_14.sol#469) is too similar to ERC20Detailed.winner_TOD33 (TOD/tod_buggy_14.sol#429)
+Variable ERC20.claimed_TOD14 (TOD/tod_buggy_14.sol#240) is too similar to ERC20Detailed.claimed_TOD40 (TOD/tod_buggy_14.sol#404)
+Variable SaveWon.claimed_TOD20 (TOD/tod_buggy_14.sol#485) is too similar to ERC20Detailed.claimed_TOD26 (TOD/tod_buggy_14.sol#379)
+Variable SaveWon.claimed_TOD20 (TOD/tod_buggy_14.sol#485) is too similar to ERC20.claimed_TOD30 (TOD/tod_buggy_14.sol#262)
+Variable SaveWon.claimed_TOD20 (TOD/tod_buggy_14.sol#485) is too similar to ERC20Detailed.claimed_TOD40 (TOD/tod_buggy_14.sol#404)
+Variable ERC20Detailed.claimed_TOD26 (TOD/tod_buggy_14.sol#379) is too similar to ERC20.claimed_TOD36 (TOD/tod_buggy_14.sol#335)
+Variable ERC20.claimed_TOD30 (TOD/tod_buggy_14.sol#262) is too similar to ERC20Detailed.claimed_TOD40 (TOD/tod_buggy_14.sol#404)
+Variable SaveWon.claimed_TOD20 (TOD/tod_buggy_14.sol#485) is too similar to ERC20.claimed_TOD32 (TOD/tod_buggy_14.sol#136)
+Variable ERC20Detailed.claimed_TOD26 (TOD/tod_buggy_14.sol#379) is too similar to ERC20.claimed_TOD32 (TOD/tod_buggy_14.sol#136)
+Variable ERC20.owner_TOD14 (TOD/tod_buggy_14.sol#241) is too similar to ERC20Detailed.owner_TOD40 (TOD/tod_buggy_14.sol#405)
+Variable SaveWon.owner_TOD20 (TOD/tod_buggy_14.sol#486) is too similar to ERC20Detailed.owner_TOD26 (TOD/tod_buggy_14.sol#380)
+Variable SaveWon.owner_TOD20 (TOD/tod_buggy_14.sol#486) is too similar to ERC20.owner_TOD30 (TOD/tod_buggy_14.sol#263)
+Variable SaveWon.owner_TOD20 (TOD/tod_buggy_14.sol#486) is too similar to ERC20Detailed.owner_TOD40 (TOD/tod_buggy_14.sol#405)
+Variable ERC20Detailed.owner_TOD26 (TOD/tod_buggy_14.sol#380) is too similar to ERC20.owner_TOD36 (TOD/tod_buggy_14.sol#336)
+Variable ERC20.owner_TOD30 (TOD/tod_buggy_14.sol#263) is too similar to ERC20Detailed.owner_TOD40 (TOD/tod_buggy_14.sol#405)
+Variable SaveWon.owner_TOD20 (TOD/tod_buggy_14.sol#486) is too similar to ERC20.owner_TOD32 (TOD/tod_buggy_14.sol#137)
+Variable ERC20Detailed.owner_TOD26 (TOD/tod_buggy_14.sol#380) is too similar to ERC20.owner_TOD32 (TOD/tod_buggy_14.sol#137)
+Variable ERC20.reward_TOD14 (TOD/tod_buggy_14.sol#242) is too similar to ERC20Detailed.reward_TOD40 (TOD/tod_buggy_14.sol#406)
+Variable SaveWon.reward_TOD20 (TOD/tod_buggy_14.sol#487) is too similar to ERC20Detailed.reward_TOD26 (TOD/tod_buggy_14.sol#381)
+Variable SaveWon.reward_TOD20 (TOD/tod_buggy_14.sol#487) is too similar to ERC20Detailed.reward_TOD40 (TOD/tod_buggy_14.sol#406)
+Variable SaveWon.reward_TOD20 (TOD/tod_buggy_14.sol#487) is too similar to ERC20.reward_TOD30 (TOD/tod_buggy_14.sol#264)
+Variable ERC20.reward_TOD30 (TOD/tod_buggy_14.sol#264) is too similar to ERC20Detailed.reward_TOD40 (TOD/tod_buggy_14.sol#406)
+Variable SaveWon.reward_TOD20 (TOD/tod_buggy_14.sol#487) is too similar to ERC20.reward_TOD32 (TOD/tod_buggy_14.sol#138)
+Variable ERC20Detailed.reward_TOD26 (TOD/tod_buggy_14.sol#381) is too similar to ERC20.reward_TOD32 (TOD/tod_buggy_14.sol#138)
+Variable ERC20Detailed.reward_TOD26 (TOD/tod_buggy_14.sol#381) is too similar to ERC20.reward_TOD36 (TOD/tod_buggy_14.sol#337)
+Variable SaveWon.winner_TOD13 (TOD/tod_buggy_14.sol#512) is too similar to ERC20Detailed.winner_TOD33 (TOD/tod_buggy_14.sol#429)
+Variable SaveWon.winner_TOD13 (TOD/tod_buggy_14.sol#512) is too similar to ERC20.winner_TOD19 (TOD/tod_buggy_14.sol#117)
+Variable SaveWon.winner_TOD13 (TOD/tod_buggy_14.sol#512) is too similar to ERC20.winner_TOD23 (TOD/tod_buggy_14.sol#223)
+Variable ERC20.winner_TOD23 (TOD/tod_buggy_14.sol#223) is too similar to ERC20Detailed.winner_TOD33 (TOD/tod_buggy_14.sol#429)
+Variable ERC20.winner_TOD23 (TOD/tod_buggy_14.sol#223) is too similar to ERC20Detailed.winner_TOD27 (TOD/tod_buggy_14.sol#449)
+Variable ERC20.winner_TOD25 (TOD/tod_buggy_14.sol#103) is too similar to ERC20Detailed.winner_TOD27 (TOD/tod_buggy_14.sol#449)
+Variable SaveWon.winner_TOD13 (TOD/tod_buggy_14.sol#512) is too similar to ERC20Detailed.winner_TOD31 (TOD/tod_buggy_14.sol#469)
+Variable ERC20.winner_TOD19 (TOD/tod_buggy_14.sol#117) is too similar to ERC20Detailed.winner_TOD31 (TOD/tod_buggy_14.sol#469)
+Variable ERC20.winner_TOD23 (TOD/tod_buggy_14.sol#223) is too similar to ERC20Detailed.winner_TOD31 (TOD/tod_buggy_14.sol#469)
+Variable ERC20Detailed.winner_TOD31 (TOD/tod_buggy_14.sol#469) is too similar to ERC20.winner_TOD35 (TOD/tod_buggy_14.sol#361)
+Variable ERC20Detailed.winner_TOD31 (TOD/tod_buggy_14.sol#469) is too similar to ERC20.winner_TOD39 (TOD/tod_buggy_14.sol#314)
+Variable SaveWon.winner_TOD13 (TOD/tod_buggy_14.sol#512) is too similar to ERC20.winner_TOD35 (TOD/tod_buggy_14.sol#361)
+Variable ERC20Detailed.winner_TOD33 (TOD/tod_buggy_14.sol#429) is too similar to ERC20.winner_TOD35 (TOD/tod_buggy_14.sol#361)
+Variable SaveWon.winner_TOD13 (TOD/tod_buggy_14.sol#512) is too similar to ERC20.winner_TOD39 (TOD/tod_buggy_14.sol#314)
+Variable ERC20Detailed.winner_TOD33 (TOD/tod_buggy_14.sol#429) is too similar to ERC20.winner_TOD39 (TOD/tod_buggy_14.sol#314)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+SaveWon.slitherConstructorConstantVariables() (TOD/tod_buggy_14.sol#484-526) uses literals with too many digits:
+	- INITIAL_SUPPLY = 50000000000 * (10 ** uint256(DECIMALS)) (TOD/tod_buggy_14.sol#504)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+ERC20._name (TOD/tod_buggy_14.sol#100) should be constant
+ERC20._symbol (TOD/tod_buggy_14.sol#101) should be constant
+ERC20.owner_TOD14 (TOD/tod_buggy_14.sol#241) should be constant
+ERC20.owner_TOD30 (TOD/tod_buggy_14.sol#263) should be constant
+ERC20.owner_TOD32 (TOD/tod_buggy_14.sol#137) should be constant
+ERC20.owner_TOD36 (TOD/tod_buggy_14.sol#336) should be constant
+ERC20.owner_TOD38 (TOD/tod_buggy_14.sol#159) should be constant
+ERC20.owner_TOD4 (TOD/tod_buggy_14.sol#182) should be constant
+ERC20.owner_TOD8 (TOD/tod_buggy_14.sol#288) should be constant
+ERC20Detailed.owner_TOD26 (TOD/tod_buggy_14.sol#380) should be constant
+ERC20Detailed.owner_TOD40 (TOD/tod_buggy_14.sol#405) should be constant
+SaveWon.owner_TOD20 (TOD/tod_buggy_14.sol#486) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+TOD/tod_buggy_14.sol analyzed (5 contracts with 80 detectors), 208 result(s) found

@@ -1,0 +1,478 @@
+
+tokenRecipient.receiveApproval(address,uint256,address,bytes) (Re-entrancy/reentrancy_buggy_22.sol#64-68) uses arbitrary from in transferFrom: require(bool)(t.transferFrom(_from,address(this),_value)) (Re-entrancy/reentrancy_buggy_22.sol#66)
+Reference: https://github.com/trailofbits/slither/wiki/Detector-Documentation#arbitrary-send-erc20
+
+owned.bug_re_ent41() (Re-entrancy/reentrancy_buggy_22.sol#20-26) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_22.sol#22)
+owned.callme_re_ent42() (Re-entrancy/reentrancy_buggy_22.sol#37-43) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_22.sol#39)
+tokenRecipient.buyTicket_re_ent2() (Re-entrancy/reentrancy_buggy_22.sol#71-76) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent2.send(jackpot_re_ent2)) (Re-entrancy/reentrancy_buggy_22.sol#72)
+Token.buyTicket_re_ent37() (Re-entrancy/reentrancy_buggy_22.sol#96-101) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent37.send(jackpot_re_ent37)) (Re-entrancy/reentrancy_buggy_22.sol#97)
+Token.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_22.sol#114-120) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_22.sol#115)
+Token.bug_re_ent20() (Re-entrancy/reentrancy_buggy_22.sol#153-159) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_22.sol#155)
+MindsyncPlatform.callme_re_ent28() (Re-entrancy/reentrancy_buggy_22.sol#235-241) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_22.sol#237)
+MindsyncPlatform.bug_re_ent34() (Re-entrancy/reentrancy_buggy_22.sol#244-250) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_22.sol#246)
+MindsyncPlatform.callme_re_ent21() (Re-entrancy/reentrancy_buggy_22.sol#253-259) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_22.sol#255)
+MindsyncPlatform.callme_re_ent35() (Re-entrancy/reentrancy_buggy_22.sol#305-311) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_22.sol#307)
+MindsyncPlatform.bug_re_ent27() (Re-entrancy/reentrancy_buggy_22.sol#336-342) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_22.sol#338)
+MindsyncPlatform.bug_re_ent13() (Re-entrancy/reentrancy_buggy_22.sol#353-360) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_22.sol#355)
+MindsyncPlatform.callme_re_ent7() (Re-entrancy/reentrancy_buggy_22.sol#504-510) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_22.sol#506)
+MindsyncPlatform.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_22.sol#535-540) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (Re-entrancy/reentrancy_buggy_22.sol#536)
+MindsyncPlatform.callme_re_ent14() (Re-entrancy/reentrancy_buggy_22.sol#568-574) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_22.sol#570)
+MindsyncPlatform.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_22.sol#604-609) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (Re-entrancy/reentrancy_buggy_22.sol#605)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Reentrancy in MindsyncPlatform.bug_re_ent13() (Re-entrancy/reentrancy_buggy_22.sol#353-360):
+	External calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_22.sol#355)
+	State variables written after the call(s):
+	- not_called_re_ent13 = false (Re-entrancy/reentrancy_buggy_22.sol#359)
+Reentrancy in Token.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_22.sol#114-120):
+	External calls:
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_22.sol#115)
+	State variables written after the call(s):
+	- jackpot_re_ent9 = address(this).balance (Re-entrancy/reentrancy_buggy_22.sol#119)
+	- lastPlayer_re_ent9 = msg.sender (Re-entrancy/reentrancy_buggy_22.sol#118)
+Reentrancy in MindsyncPlatform.executeProposal(uint256,bytes) (Re-entrancy/reentrancy_buggy_22.sol#619-663):
+	External calls:
+	- (success) = p.recipient.call.value(p.amount)(transactionBytecode) (Re-entrancy/reentrancy_buggy_22.sol#652)
+	State variables written after the call(s):
+	- p.proposalPassed = true (Re-entrancy/reentrancy_buggy_22.sol#655)
+Reentrancy in Token.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_22.sol#142-150):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (Re-entrancy/reentrancy_buggy_22.sol#145)
+	State variables written after the call(s):
+	- userBalance_re_ent26[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_22.sol#149)
+Reentrancy in MindsyncPlatform.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_22.sol#325-333):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (Re-entrancy/reentrancy_buggy_22.sol#328)
+	State variables written after the call(s):
+	- userBalance_re_ent33[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_22.sol#332)
+Reentrancy in MindsyncPlatform.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_22.sol#314-322):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (Re-entrancy/reentrancy_buggy_22.sol#317)
+	State variables written after the call(s):
+	- userBalance_re_ent40[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_22.sol#321)
+Reentrancy in tokenRecipient.withdrawFunds_re_ent17(uint256) (Re-entrancy/reentrancy_buggy_22.sol#82-88):
+	External calls:
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_22.sol#85)
+	State variables written after the call(s):
+	- balances_re_ent17[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_22.sol#87)
+Reentrancy in Token.withdrawFunds_re_ent3(uint256) (Re-entrancy/reentrancy_buggy_22.sol#104-110):
+	External calls:
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_22.sol#107)
+	State variables written after the call(s):
+	- balances_re_ent3[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_22.sol#109)
+Reentrancy in MindsyncPlatform.withdraw_balances_re_ent1() (Re-entrancy/reentrancy_buggy_22.sol#297-301):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent1[msg.sender])() (Re-entrancy/reentrancy_buggy_22.sol#298)
+	State variables written after the call(s):
+	- balances_re_ent1[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_22.sol#300)
+Reentrancy in MindsyncPlatform.withdraw_balances_re_ent21() (Re-entrancy/reentrancy_buggy_22.sol#270-274):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent21[msg.sender])() (Re-entrancy/reentrancy_buggy_22.sol#271)
+	State variables written after the call(s):
+	- balances_re_ent21[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_22.sol#273)
+Reentrancy in MindsyncPlatform.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_22.sol#665-669):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (Re-entrancy/reentrancy_buggy_22.sol#666)
+	State variables written after the call(s):
+	- balances_re_ent8[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_22.sol#668)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
+
+owned.transferOwnership(address) (Re-entrancy/reentrancy_buggy_22.sol#33-35) should emit an event for: 
+	- owner = newOwner (Re-entrancy/reentrancy_buggy_22.sol#34) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+owned.transferOwnership(address).newOwner (Re-entrancy/reentrancy_buggy_22.sol#33) lacks a zero-check on :
+		- owner = newOwner (Re-entrancy/reentrancy_buggy_22.sol#34)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+MindsyncPlatform.executeProposal(uint256,bytes) (Re-entrancy/reentrancy_buggy_22.sol#619-663) has external calls inside a loop: voteWeight = tokenAddress.actualBalanceOf(v.voter) (Re-entrancy/reentrancy_buggy_22.sol#635)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop
+
+Reentrancy in MindsyncPlatform.executeProposal(uint256,bytes) (Re-entrancy/reentrancy_buggy_22.sol#619-663):
+	External calls:
+	- (success) = p.recipient.call.value(p.amount)(transactionBytecode) (Re-entrancy/reentrancy_buggy_22.sol#652)
+	Event emitted after the call(s):
+	- ProposalTallied(proposalNumber,yea - nay,quorum,p.proposalPassed) (Re-entrancy/reentrancy_buggy_22.sol#662)
+Reentrancy in tokenRecipient.receiveApproval(address,uint256,address,bytes) (Re-entrancy/reentrancy_buggy_22.sol#64-68):
+	External calls:
+	- require(bool)(t.transferFrom(_from,address(this),_value)) (Re-entrancy/reentrancy_buggy_22.sol#66)
+	Event emitted after the call(s):
+	- receivedTokens(_from,_value,_token,_extraData) (Re-entrancy/reentrancy_buggy_22.sol#67)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+
+MindsyncPlatform.executeProposal(uint256,bytes) (Re-entrancy/reentrancy_buggy_22.sol#619-663) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > p.minExecutionDate && ! p.executed && p.proposalHash == keccak256(bytes)(abi.encodePacked(p.recipient,p.amount,transactionBytecode))) (Re-entrancy/reentrancy_buggy_22.sol#623-625)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+MindsyncPlatform.sign(uint256,bool) (Re-entrancy/reentrancy_buggy_22.sol#551-566) compares to a boolean constant:
+	-require(bool)(signProposal == true) (Re-entrancy/reentrancy_buggy_22.sol#561)
+MindsyncPlatform.vote(uint256,bool) (Re-entrancy/reentrancy_buggy_22.sol#585-601) compares to a boolean constant:
+	-require(bool)(p.voted[msg.sender] != true) (Re-entrancy/reentrancy_buggy_22.sol#593)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#boolean-equality
+
+SafeMath.add(uint256,uint256) (Re-entrancy/reentrancy_buggy_22.sol#210-215) is never used and should be removed
+SafeMath.mod(uint256,uint256) (Re-entrancy/reentrancy_buggy_22.sol#221-224) is never used and should be removed
+SafeMath.sub(uint256,uint256) (Re-entrancy/reentrancy_buggy_22.sol#200-205) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version>=0.5.1 (Re-entrancy/reentrancy_buggy_22.sol#5) allows old versions
+solc-0.5.1 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in tokenRecipient.withdrawFunds_re_ent17(uint256) (Re-entrancy/reentrancy_buggy_22.sol#82-88):
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_22.sol#85)
+Low level call in Token.withdrawFunds_re_ent3(uint256) (Re-entrancy/reentrancy_buggy_22.sol#104-110):
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_22.sol#107)
+Low level call in Token.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_22.sol#114-120):
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_22.sol#115)
+Low level call in Token.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_22.sol#142-150):
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (Re-entrancy/reentrancy_buggy_22.sol#145)
+Low level call in MindsyncPlatform.withdraw_balances_re_ent21() (Re-entrancy/reentrancy_buggy_22.sol#270-274):
+	- (success) = msg.sender.call.value(balances_re_ent21[msg.sender])() (Re-entrancy/reentrancy_buggy_22.sol#271)
+Low level call in MindsyncPlatform.withdraw_balances_re_ent1() (Re-entrancy/reentrancy_buggy_22.sol#297-301):
+	- (success) = msg.sender.call.value(balances_re_ent1[msg.sender])() (Re-entrancy/reentrancy_buggy_22.sol#298)
+Low level call in MindsyncPlatform.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_22.sol#314-322):
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (Re-entrancy/reentrancy_buggy_22.sol#317)
+Low level call in MindsyncPlatform.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_22.sol#325-333):
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (Re-entrancy/reentrancy_buggy_22.sol#328)
+Low level call in MindsyncPlatform.bug_re_ent13() (Re-entrancy/reentrancy_buggy_22.sol#353-360):
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_22.sol#355)
+Low level call in MindsyncPlatform.executeProposal(uint256,bytes) (Re-entrancy/reentrancy_buggy_22.sol#619-663):
+	- (success) = p.recipient.call.value(p.amount)(transactionBytecode) (Re-entrancy/reentrancy_buggy_22.sol#652)
+Low level call in MindsyncPlatform.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_22.sol#665-669):
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (Re-entrancy/reentrancy_buggy_22.sol#666)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Contract owned (Re-entrancy/reentrancy_buggy_22.sol#8-44) is not in CapWords
+Function owned.withdraw_balances_re_ent15() (Re-entrancy/reentrancy_buggy_22.sol#10-13) is not in mixedCase
+Function owned.bug_re_ent41() (Re-entrancy/reentrancy_buggy_22.sol#20-26) is not in mixedCase
+Function owned.callme_re_ent42() (Re-entrancy/reentrancy_buggy_22.sol#37-43) is not in mixedCase
+Variable owned.balances_re_ent15 (Re-entrancy/reentrancy_buggy_22.sol#9) is not in mixedCase
+Variable owned.not_called_re_ent41 (Re-entrancy/reentrancy_buggy_22.sol#19) is not in mixedCase
+Variable owned.counter_re_ent42 (Re-entrancy/reentrancy_buggy_22.sol#36) is not in mixedCase
+Contract tokenRecipient (Re-entrancy/reentrancy_buggy_22.sol#47-89) is not in CapWords
+Event tokenRecipientreceivedEther(address,uint256) (Re-entrancy/reentrancy_buggy_22.sol#56) is not in CapWords
+Event tokenRecipientreceivedTokens(address,uint256,address,bytes) (Re-entrancy/reentrancy_buggy_22.sol#62) is not in CapWords
+Function tokenRecipient.claimReward_re_ent39() (Re-entrancy/reentrancy_buggy_22.sol#49-55) is not in mixedCase
+Function tokenRecipient.withdraw_balances_re_ent36() (Re-entrancy/reentrancy_buggy_22.sol#58-61) is not in mixedCase
+Parameter tokenRecipient.receiveApproval(address,uint256,address,bytes)._from (Re-entrancy/reentrancy_buggy_22.sol#64) is not in mixedCase
+Parameter tokenRecipient.receiveApproval(address,uint256,address,bytes)._value (Re-entrancy/reentrancy_buggy_22.sol#64) is not in mixedCase
+Parameter tokenRecipient.receiveApproval(address,uint256,address,bytes)._token (Re-entrancy/reentrancy_buggy_22.sol#64) is not in mixedCase
+Parameter tokenRecipient.receiveApproval(address,uint256,address,bytes)._extraData (Re-entrancy/reentrancy_buggy_22.sol#64) is not in mixedCase
+Function tokenRecipient.buyTicket_re_ent2() (Re-entrancy/reentrancy_buggy_22.sol#71-76) is not in mixedCase
+Function tokenRecipient.withdrawFunds_re_ent17(uint256) (Re-entrancy/reentrancy_buggy_22.sol#82-88) is not in mixedCase
+Parameter tokenRecipient.withdrawFunds_re_ent17(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_22.sol#82) is not in mixedCase
+Variable tokenRecipient.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_22.sol#48) is not in mixedCase
+Variable tokenRecipient.balances_re_ent36 (Re-entrancy/reentrancy_buggy_22.sol#57) is not in mixedCase
+Variable tokenRecipient.lastPlayer_re_ent2 (Re-entrancy/reentrancy_buggy_22.sol#69) is not in mixedCase
+Variable tokenRecipient.jackpot_re_ent2 (Re-entrancy/reentrancy_buggy_22.sol#70) is not in mixedCase
+Variable tokenRecipient.balances_re_ent17 (Re-entrancy/reentrancy_buggy_22.sol#81) is not in mixedCase
+Function Token.buyTicket_re_ent37() (Re-entrancy/reentrancy_buggy_22.sol#96-101) is not in mixedCase
+Function Token.withdrawFunds_re_ent3(uint256) (Re-entrancy/reentrancy_buggy_22.sol#104-110) is not in mixedCase
+Parameter Token.withdrawFunds_re_ent3(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_22.sol#104) is not in mixedCase
+Function Token.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_22.sol#114-120) is not in mixedCase
+Function Token.claimReward_re_ent25() (Re-entrancy/reentrancy_buggy_22.sol#123-129) is not in mixedCase
+Function Token.withdrawBalance_re_ent19() (Re-entrancy/reentrancy_buggy_22.sol#132-139) is not in mixedCase
+Function Token.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_22.sol#142-150) is not in mixedCase
+Function Token.bug_re_ent20() (Re-entrancy/reentrancy_buggy_22.sol#153-159) is not in mixedCase
+Variable Token.lastPlayer_re_ent37 (Re-entrancy/reentrancy_buggy_22.sol#94) is not in mixedCase
+Variable Token.jackpot_re_ent37 (Re-entrancy/reentrancy_buggy_22.sol#95) is not in mixedCase
+Variable Token.balances_re_ent3 (Re-entrancy/reentrancy_buggy_22.sol#103) is not in mixedCase
+Variable Token.lastPlayer_re_ent9 (Re-entrancy/reentrancy_buggy_22.sol#112) is not in mixedCase
+Variable Token.jackpot_re_ent9 (Re-entrancy/reentrancy_buggy_22.sol#113) is not in mixedCase
+Variable Token.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_22.sol#122) is not in mixedCase
+Variable Token.userBalance_re_ent19 (Re-entrancy/reentrancy_buggy_22.sol#131) is not in mixedCase
+Variable Token.userBalance_re_ent26 (Re-entrancy/reentrancy_buggy_22.sol#141) is not in mixedCase
+Variable Token.not_called_re_ent20 (Re-entrancy/reentrancy_buggy_22.sol#152) is not in mixedCase
+Function MindsyncPlatform.callme_re_ent28() (Re-entrancy/reentrancy_buggy_22.sol#235-241) is not in mixedCase
+Function MindsyncPlatform.bug_re_ent34() (Re-entrancy/reentrancy_buggy_22.sol#244-250) is not in mixedCase
+Function MindsyncPlatform.callme_re_ent21() (Re-entrancy/reentrancy_buggy_22.sol#253-259) is not in mixedCase
+Function MindsyncPlatform.withdrawFunds_re_ent10(uint256) (Re-entrancy/reentrancy_buggy_22.sol#262-267) is not in mixedCase
+Parameter MindsyncPlatform.withdrawFunds_re_ent10(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_22.sol#262) is not in mixedCase
+Function MindsyncPlatform.withdraw_balances_re_ent21() (Re-entrancy/reentrancy_buggy_22.sol#270-274) is not in mixedCase
+Function MindsyncPlatform.withdrawBalance_re_ent12() (Re-entrancy/reentrancy_buggy_22.sol#277-284) is not in mixedCase
+Function MindsyncPlatform.claimReward_re_ent11() (Re-entrancy/reentrancy_buggy_22.sol#287-293) is not in mixedCase
+Function MindsyncPlatform.withdraw_balances_re_ent1() (Re-entrancy/reentrancy_buggy_22.sol#297-301) is not in mixedCase
+Function MindsyncPlatform.callme_re_ent35() (Re-entrancy/reentrancy_buggy_22.sol#305-311) is not in mixedCase
+Function MindsyncPlatform.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_22.sol#314-322) is not in mixedCase
+Function MindsyncPlatform.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_22.sol#325-333) is not in mixedCase
+Function MindsyncPlatform.bug_re_ent27() (Re-entrancy/reentrancy_buggy_22.sol#336-342) is not in mixedCase
+Function MindsyncPlatform.withdrawFunds_re_ent31(uint256) (Re-entrancy/reentrancy_buggy_22.sol#345-350) is not in mixedCase
+Parameter MindsyncPlatform.withdrawFunds_re_ent31(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_22.sol#345) is not in mixedCase
+Function MindsyncPlatform.bug_re_ent13() (Re-entrancy/reentrancy_buggy_22.sol#353-360) is not in mixedCase
+Function MindsyncPlatform.claimReward_re_ent32() (Re-entrancy/reentrancy_buggy_22.sol#403-409) is not in mixedCase
+Parameter MindsyncPlatform.init(Token,address,uint256,uint256,uint256)._tokenAddress (Re-entrancy/reentrancy_buggy_22.sol#420) is not in mixedCase
+Parameter MindsyncPlatform.init(Token,address,uint256,uint256,uint256)._chairmanAddress (Re-entrancy/reentrancy_buggy_22.sol#420) is not in mixedCase
+Parameter MindsyncPlatform.init(Token,address,uint256,uint256,uint256)._minimumTokensToVote (Re-entrancy/reentrancy_buggy_22.sol#420) is not in mixedCase
+Parameter MindsyncPlatform.init(Token,address,uint256,uint256,uint256)._minimumPercentToPassAVote (Re-entrancy/reentrancy_buggy_22.sol#420) is not in mixedCase
+Parameter MindsyncPlatform.init(Token,address,uint256,uint256,uint256)._minutesForDebate (Re-entrancy/reentrancy_buggy_22.sol#420) is not in mixedCase
+Function MindsyncPlatform.withdrawFunds_re_ent38(uint256) (Re-entrancy/reentrancy_buggy_22.sol#427-432) is not in mixedCase
+Parameter MindsyncPlatform.withdrawFunds_re_ent38(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_22.sol#427) is not in mixedCase
+Parameter MindsyncPlatform.changeVotingRules(Token,address,uint256,uint256,uint256)._tokenAddress (Re-entrancy/reentrancy_buggy_22.sol#446) is not in mixedCase
+Parameter MindsyncPlatform.changeVotingRules(Token,address,uint256,uint256,uint256)._chairmanAddress (Re-entrancy/reentrancy_buggy_22.sol#446) is not in mixedCase
+Parameter MindsyncPlatform.changeVotingRules(Token,address,uint256,uint256,uint256)._minimumTokensToVote (Re-entrancy/reentrancy_buggy_22.sol#446) is not in mixedCase
+Parameter MindsyncPlatform.changeVotingRules(Token,address,uint256,uint256,uint256)._minimumPercentToPassAVote (Re-entrancy/reentrancy_buggy_22.sol#446) is not in mixedCase
+Parameter MindsyncPlatform.changeVotingRules(Token,address,uint256,uint256,uint256)._minutesForDebate (Re-entrancy/reentrancy_buggy_22.sol#446) is not in mixedCase
+Function MindsyncPlatform.claimReward_re_ent4() (Re-entrancy/reentrancy_buggy_22.sol#459-465) is not in mixedCase
+Function MindsyncPlatform.callme_re_ent7() (Re-entrancy/reentrancy_buggy_22.sol#504-510) is not in mixedCase
+Function MindsyncPlatform.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_22.sol#535-540) is not in mixedCase
+Function MindsyncPlatform.callme_re_ent14() (Re-entrancy/reentrancy_buggy_22.sol#568-574) is not in mixedCase
+Function MindsyncPlatform.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_22.sol#604-609) is not in mixedCase
+Function MindsyncPlatform.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_22.sol#665-669) is not in mixedCase
+Variable MindsyncPlatform.counter_re_ent28 (Re-entrancy/reentrancy_buggy_22.sol#234) is not in mixedCase
+Variable MindsyncPlatform.not_called_re_ent34 (Re-entrancy/reentrancy_buggy_22.sol#243) is not in mixedCase
+Variable MindsyncPlatform.counter_re_ent21 (Re-entrancy/reentrancy_buggy_22.sol#252) is not in mixedCase
+Variable MindsyncPlatform.balances_re_ent10 (Re-entrancy/reentrancy_buggy_22.sol#261) is not in mixedCase
+Variable MindsyncPlatform.balances_re_ent21 (Re-entrancy/reentrancy_buggy_22.sol#269) is not in mixedCase
+Variable MindsyncPlatform.userBalance_re_ent12 (Re-entrancy/reentrancy_buggy_22.sol#276) is not in mixedCase
+Variable MindsyncPlatform.redeemableEther_re_ent11 (Re-entrancy/reentrancy_buggy_22.sol#286) is not in mixedCase
+Variable MindsyncPlatform.balances_re_ent1 (Re-entrancy/reentrancy_buggy_22.sol#296) is not in mixedCase
+Variable MindsyncPlatform.counter_re_ent35 (Re-entrancy/reentrancy_buggy_22.sol#304) is not in mixedCase
+Variable MindsyncPlatform.userBalance_re_ent40 (Re-entrancy/reentrancy_buggy_22.sol#313) is not in mixedCase
+Variable MindsyncPlatform.userBalance_re_ent33 (Re-entrancy/reentrancy_buggy_22.sol#324) is not in mixedCase
+Variable MindsyncPlatform.not_called_re_ent27 (Re-entrancy/reentrancy_buggy_22.sol#335) is not in mixedCase
+Variable MindsyncPlatform.balances_re_ent31 (Re-entrancy/reentrancy_buggy_22.sol#344) is not in mixedCase
+Variable MindsyncPlatform.not_called_re_ent13 (Re-entrancy/reentrancy_buggy_22.sol#352) is not in mixedCase
+Variable MindsyncPlatform.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_22.sol#402) is not in mixedCase
+Variable MindsyncPlatform.balances_re_ent38 (Re-entrancy/reentrancy_buggy_22.sol#426) is not in mixedCase
+Variable MindsyncPlatform.redeemableEther_re_ent4 (Re-entrancy/reentrancy_buggy_22.sol#458) is not in mixedCase
+Variable MindsyncPlatform.counter_re_ent7 (Re-entrancy/reentrancy_buggy_22.sol#503) is not in mixedCase
+Variable MindsyncPlatform.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_22.sol#533) is not in mixedCase
+Variable MindsyncPlatform.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_22.sol#534) is not in mixedCase
+Variable MindsyncPlatform.counter_re_ent14 (Re-entrancy/reentrancy_buggy_22.sol#567) is not in mixedCase
+Variable MindsyncPlatform.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_22.sol#602) is not in mixedCase
+Variable MindsyncPlatform.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_22.sol#603) is not in mixedCase
+Variable MindsyncPlatform.balances_re_ent8 (Re-entrancy/reentrancy_buggy_22.sol#664) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in Token.bug_re_ent20() (Re-entrancy/reentrancy_buggy_22.sol#153-159):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_22.sol#155)
+	State variables written after the call(s):
+	- not_called_re_ent20 = false (Re-entrancy/reentrancy_buggy_22.sol#158)
+Reentrancy in MindsyncPlatform.bug_re_ent27() (Re-entrancy/reentrancy_buggy_22.sol#336-342):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_22.sol#338)
+	State variables written after the call(s):
+	- not_called_re_ent27 = false (Re-entrancy/reentrancy_buggy_22.sol#341)
+Reentrancy in MindsyncPlatform.bug_re_ent34() (Re-entrancy/reentrancy_buggy_22.sol#244-250):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_22.sol#246)
+	State variables written after the call(s):
+	- not_called_re_ent34 = false (Re-entrancy/reentrancy_buggy_22.sol#249)
+Reentrancy in owned.bug_re_ent41() (Re-entrancy/reentrancy_buggy_22.sol#20-26):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_22.sol#22)
+	State variables written after the call(s):
+	- not_called_re_ent41 = false (Re-entrancy/reentrancy_buggy_22.sol#25)
+Reentrancy in tokenRecipient.buyTicket_re_ent2() (Re-entrancy/reentrancy_buggy_22.sol#71-76):
+	External calls:
+	- ! (lastPlayer_re_ent2.send(jackpot_re_ent2)) (Re-entrancy/reentrancy_buggy_22.sol#72)
+	State variables written after the call(s):
+	- jackpot_re_ent2 = address(this).balance (Re-entrancy/reentrancy_buggy_22.sol#75)
+	- lastPlayer_re_ent2 = msg.sender (Re-entrancy/reentrancy_buggy_22.sol#74)
+Reentrancy in MindsyncPlatform.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_22.sol#535-540):
+	External calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (Re-entrancy/reentrancy_buggy_22.sol#536)
+	State variables written after the call(s):
+	- jackpot_re_ent23 = address(this).balance (Re-entrancy/reentrancy_buggy_22.sol#539)
+	- lastPlayer_re_ent23 = msg.sender (Re-entrancy/reentrancy_buggy_22.sol#538)
+Reentrancy in MindsyncPlatform.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_22.sol#604-609):
+	External calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (Re-entrancy/reentrancy_buggy_22.sol#605)
+	State variables written after the call(s):
+	- jackpot_re_ent30 = address(this).balance (Re-entrancy/reentrancy_buggy_22.sol#608)
+	- lastPlayer_re_ent30 = msg.sender (Re-entrancy/reentrancy_buggy_22.sol#607)
+Reentrancy in Token.buyTicket_re_ent37() (Re-entrancy/reentrancy_buggy_22.sol#96-101):
+	External calls:
+	- ! (lastPlayer_re_ent37.send(jackpot_re_ent37)) (Re-entrancy/reentrancy_buggy_22.sol#97)
+	State variables written after the call(s):
+	- jackpot_re_ent37 = address(this).balance (Re-entrancy/reentrancy_buggy_22.sol#100)
+	- lastPlayer_re_ent37 = msg.sender (Re-entrancy/reentrancy_buggy_22.sol#99)
+Reentrancy in MindsyncPlatform.callme_re_ent14() (Re-entrancy/reentrancy_buggy_22.sol#568-574):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_22.sol#570)
+	State variables written after the call(s):
+	- counter_re_ent14 += 1 (Re-entrancy/reentrancy_buggy_22.sol#573)
+Reentrancy in MindsyncPlatform.callme_re_ent21() (Re-entrancy/reentrancy_buggy_22.sol#253-259):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_22.sol#255)
+	State variables written after the call(s):
+	- counter_re_ent21 += 1 (Re-entrancy/reentrancy_buggy_22.sol#258)
+Reentrancy in MindsyncPlatform.callme_re_ent28() (Re-entrancy/reentrancy_buggy_22.sol#235-241):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_22.sol#237)
+	State variables written after the call(s):
+	- counter_re_ent28 += 1 (Re-entrancy/reentrancy_buggy_22.sol#240)
+Reentrancy in MindsyncPlatform.callme_re_ent35() (Re-entrancy/reentrancy_buggy_22.sol#305-311):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_22.sol#307)
+	State variables written after the call(s):
+	- counter_re_ent35 += 1 (Re-entrancy/reentrancy_buggy_22.sol#310)
+Reentrancy in owned.callme_re_ent42() (Re-entrancy/reentrancy_buggy_22.sol#37-43):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_22.sol#39)
+	State variables written after the call(s):
+	- counter_re_ent42 += 1 (Re-entrancy/reentrancy_buggy_22.sol#42)
+Reentrancy in MindsyncPlatform.callme_re_ent7() (Re-entrancy/reentrancy_buggy_22.sol#504-510):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_22.sol#506)
+	State variables written after the call(s):
+	- counter_re_ent7 += 1 (Re-entrancy/reentrancy_buggy_22.sol#509)
+Reentrancy in MindsyncPlatform.claimReward_re_ent11() (Re-entrancy/reentrancy_buggy_22.sol#287-293):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent11) (Re-entrancy/reentrancy_buggy_22.sol#291)
+	State variables written after the call(s):
+	- redeemableEther_re_ent11[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_22.sol#292)
+Reentrancy in Token.claimReward_re_ent25() (Re-entrancy/reentrancy_buggy_22.sol#123-129):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent25) (Re-entrancy/reentrancy_buggy_22.sol#127)
+	State variables written after the call(s):
+	- redeemableEther_re_ent25[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_22.sol#128)
+Reentrancy in MindsyncPlatform.claimReward_re_ent32() (Re-entrancy/reentrancy_buggy_22.sol#403-409):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent32) (Re-entrancy/reentrancy_buggy_22.sol#407)
+	State variables written after the call(s):
+	- redeemableEther_re_ent32[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_22.sol#408)
+Reentrancy in tokenRecipient.claimReward_re_ent39() (Re-entrancy/reentrancy_buggy_22.sol#49-55):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent39) (Re-entrancy/reentrancy_buggy_22.sol#53)
+	State variables written after the call(s):
+	- redeemableEther_re_ent39[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_22.sol#54)
+Reentrancy in MindsyncPlatform.claimReward_re_ent4() (Re-entrancy/reentrancy_buggy_22.sol#459-465):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent4) (Re-entrancy/reentrancy_buggy_22.sol#463)
+	State variables written after the call(s):
+	- redeemableEther_re_ent4[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_22.sol#464)
+Reentrancy in MindsyncPlatform.withdrawBalance_re_ent12() (Re-entrancy/reentrancy_buggy_22.sol#277-284):
+	External calls:
+	- ! (msg.sender.send(userBalance_re_ent12[msg.sender])) (Re-entrancy/reentrancy_buggy_22.sol#280)
+	State variables written after the call(s):
+	- userBalance_re_ent12[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_22.sol#283)
+Reentrancy in Token.withdrawBalance_re_ent19() (Re-entrancy/reentrancy_buggy_22.sol#132-139):
+	External calls:
+	- ! (msg.sender.send(userBalance_re_ent19[msg.sender])) (Re-entrancy/reentrancy_buggy_22.sol#135)
+	State variables written after the call(s):
+	- userBalance_re_ent19[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_22.sol#138)
+Reentrancy in MindsyncPlatform.withdrawFunds_re_ent10(uint256) (Re-entrancy/reentrancy_buggy_22.sol#262-267):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_22.sol#265)
+	State variables written after the call(s):
+	- balances_re_ent10[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_22.sol#266)
+Reentrancy in MindsyncPlatform.withdrawFunds_re_ent31(uint256) (Re-entrancy/reentrancy_buggy_22.sol#345-350):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_22.sol#348)
+	State variables written after the call(s):
+	- balances_re_ent31[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_22.sol#349)
+Reentrancy in MindsyncPlatform.withdrawFunds_re_ent38(uint256) (Re-entrancy/reentrancy_buggy_22.sol#427-432):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_22.sol#430)
+	State variables written after the call(s):
+	- balances_re_ent38[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_22.sol#431)
+Reentrancy in owned.withdraw_balances_re_ent15() (Re-entrancy/reentrancy_buggy_22.sol#10-13):
+	External calls:
+	- msg.sender.send(balances_re_ent15[msg.sender]) (Re-entrancy/reentrancy_buggy_22.sol#11)
+	State variables written after the call(s):
+	- balances_re_ent15[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_22.sol#12)
+Reentrancy in tokenRecipient.withdraw_balances_re_ent36() (Re-entrancy/reentrancy_buggy_22.sol#58-61):
+	External calls:
+	- msg.sender.send(balances_re_ent36[msg.sender]) (Re-entrancy/reentrancy_buggy_22.sol#59)
+	State variables written after the call(s):
+	- balances_re_ent36[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_22.sol#60)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable MindsyncPlatform.balances_re_ent10 (Re-entrancy/reentrancy_buggy_22.sol#261) is too similar to MindsyncPlatform.balances_re_ent21 (Re-entrancy/reentrancy_buggy_22.sol#269)
+Variable MindsyncPlatform.balances_re_ent10 (Re-entrancy/reentrancy_buggy_22.sol#261) is too similar to MindsyncPlatform.balances_re_ent31 (Re-entrancy/reentrancy_buggy_22.sol#344)
+Variable MindsyncPlatform.balances_re_ent10 (Re-entrancy/reentrancy_buggy_22.sol#261) is too similar to owned.balances_re_ent15 (Re-entrancy/reentrancy_buggy_22.sol#9)
+Variable owned.balances_re_ent15 (Re-entrancy/reentrancy_buggy_22.sol#9) is too similar to MindsyncPlatform.balances_re_ent21 (Re-entrancy/reentrancy_buggy_22.sol#269)
+Variable owned.balances_re_ent15 (Re-entrancy/reentrancy_buggy_22.sol#9) is too similar to MindsyncPlatform.balances_re_ent31 (Re-entrancy/reentrancy_buggy_22.sol#344)
+Variable MindsyncPlatform.balances_re_ent10 (Re-entrancy/reentrancy_buggy_22.sol#261) is too similar to tokenRecipient.balances_re_ent17 (Re-entrancy/reentrancy_buggy_22.sol#81)
+Variable owned.balances_re_ent15 (Re-entrancy/reentrancy_buggy_22.sol#9) is too similar to tokenRecipient.balances_re_ent17 (Re-entrancy/reentrancy_buggy_22.sol#81)
+Variable tokenRecipient.balances_re_ent17 (Re-entrancy/reentrancy_buggy_22.sol#81) is too similar to MindsyncPlatform.balances_re_ent21 (Re-entrancy/reentrancy_buggy_22.sol#269)
+Variable tokenRecipient.balances_re_ent17 (Re-entrancy/reentrancy_buggy_22.sol#81) is too similar to MindsyncPlatform.balances_re_ent31 (Re-entrancy/reentrancy_buggy_22.sol#344)
+Variable MindsyncPlatform.balances_re_ent21 (Re-entrancy/reentrancy_buggy_22.sol#269) is too similar to MindsyncPlatform.balances_re_ent31 (Re-entrancy/reentrancy_buggy_22.sol#344)
+Variable MindsyncPlatform.balances_re_ent31 (Re-entrancy/reentrancy_buggy_22.sol#344) is too similar to tokenRecipient.balances_re_ent36 (Re-entrancy/reentrancy_buggy_22.sol#57)
+Variable MindsyncPlatform.balances_re_ent31 (Re-entrancy/reentrancy_buggy_22.sol#344) is too similar to MindsyncPlatform.balances_re_ent38 (Re-entrancy/reentrancy_buggy_22.sol#426)
+Variable tokenRecipient.balances_re_ent36 (Re-entrancy/reentrancy_buggy_22.sol#57) is too similar to MindsyncPlatform.balances_re_ent38 (Re-entrancy/reentrancy_buggy_22.sol#426)
+Variable MindsyncPlatform.balances_re_ent1 (Re-entrancy/reentrancy_buggy_22.sol#296) is too similar to MindsyncPlatform.balances_re_ent8 (Re-entrancy/reentrancy_buggy_22.sol#664)
+Variable MindsyncPlatform.counter_re_ent14 (Re-entrancy/reentrancy_buggy_22.sol#567) is too similar to MindsyncPlatform.counter_re_ent21 (Re-entrancy/reentrancy_buggy_22.sol#252)
+Variable MindsyncPlatform.counter_re_ent14 (Re-entrancy/reentrancy_buggy_22.sol#567) is too similar to owned.counter_re_ent42 (Re-entrancy/reentrancy_buggy_22.sol#36)
+Variable MindsyncPlatform.counter_re_ent21 (Re-entrancy/reentrancy_buggy_22.sol#252) is too similar to MindsyncPlatform.counter_re_ent28 (Re-entrancy/reentrancy_buggy_22.sol#234)
+Variable MindsyncPlatform.counter_re_ent21 (Re-entrancy/reentrancy_buggy_22.sol#252) is too similar to owned.counter_re_ent42 (Re-entrancy/reentrancy_buggy_22.sol#36)
+Variable MindsyncPlatform.counter_re_ent28 (Re-entrancy/reentrancy_buggy_22.sol#234) is too similar to owned.counter_re_ent42 (Re-entrancy/reentrancy_buggy_22.sol#36)
+Variable MindsyncPlatform.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_22.sol#534) is too similar to MindsyncPlatform.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_22.sol#603)
+Variable MindsyncPlatform.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_22.sol#533) is too similar to MindsyncPlatform.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_22.sol#602)
+Variable MindsyncPlatform.not_called_re_ent13 (Re-entrancy/reentrancy_buggy_22.sol#352) is too similar to MindsyncPlatform.not_called_re_ent34 (Re-entrancy/reentrancy_buggy_22.sol#243)
+Variable MindsyncPlatform.not_called_re_ent13 (Re-entrancy/reentrancy_buggy_22.sol#352) is too similar to owned.not_called_re_ent41 (Re-entrancy/reentrancy_buggy_22.sol#19)
+Variable MindsyncPlatform.not_called_re_ent34 (Re-entrancy/reentrancy_buggy_22.sol#243) is too similar to owned.not_called_re_ent41 (Re-entrancy/reentrancy_buggy_22.sol#19)
+Variable MindsyncPlatform.redeemableEther_re_ent11 (Re-entrancy/reentrancy_buggy_22.sol#286) is too similar to tokenRecipient.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_22.sol#48)
+Variable MindsyncPlatform.redeemableEther_re_ent11 (Re-entrancy/reentrancy_buggy_22.sol#286) is too similar to MindsyncPlatform.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_22.sol#402)
+Variable MindsyncPlatform.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_22.sol#402) is too similar to tokenRecipient.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_22.sol#48)
+Variable MindsyncPlatform.claimReward_re_ent11().transferValue_re_ent11 (Re-entrancy/reentrancy_buggy_22.sol#290) is too similar to MindsyncPlatform.claimReward_re_ent32().transferValue_re_ent32 (Re-entrancy/reentrancy_buggy_22.sol#406)
+Variable MindsyncPlatform.claimReward_re_ent11().transferValue_re_ent11 (Re-entrancy/reentrancy_buggy_22.sol#290) is too similar to tokenRecipient.claimReward_re_ent39().transferValue_re_ent39 (Re-entrancy/reentrancy_buggy_22.sol#52)
+Variable MindsyncPlatform.claimReward_re_ent32().transferValue_re_ent32 (Re-entrancy/reentrancy_buggy_22.sol#406) is too similar to tokenRecipient.claimReward_re_ent39().transferValue_re_ent39 (Re-entrancy/reentrancy_buggy_22.sol#52)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+Token (Re-entrancy/reentrancy_buggy_22.sol#92-160) does not implement functions:
+	- Token.actualBalanceOf(address) (Re-entrancy/reentrancy_buggy_22.sol#102)
+	- Token.pause() (Re-entrancy/reentrancy_buggy_22.sol#140)
+	- Token.renounceOwnership() (Re-entrancy/reentrancy_buggy_22.sol#121)
+	- Token.totalSupply() (Re-entrancy/reentrancy_buggy_22.sol#93)
+	- Token.transferFrom(address,address,uint256) (Re-entrancy/reentrancy_buggy_22.sol#111)
+	- Token.transferOwnership(address) (Re-entrancy/reentrancy_buggy_22.sol#130)
+	- Token.unpause() (Re-entrancy/reentrancy_buggy_22.sol#151)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unimplemented-functions
+
+receiveApproval(address,uint256,address,bytes) should be declared external:
+	- tokenRecipient.receiveApproval(address,uint256,address,bytes) (Re-entrancy/reentrancy_buggy_22.sol#64-68)
+Moreover, the following function parameters should change its data location:
+_extraData location should be calldata
+newProposal(address,uint256,string,bytes) should be declared external:
+	- MindsyncPlatform.newProposal(address,uint256,string,bytes) (Re-entrancy/reentrancy_buggy_22.sol#478-502)
+Moreover, the following function parameters should change its data location:
+transactionDescription location should be calldata
+transactionBytecode location should be calldata
+checkProposalCode(uint256,address,uint256,bytes) should be declared external:
+	- MindsyncPlatform.checkProposalCode(uint256,address,uint256,bytes) (Re-entrancy/reentrancy_buggy_22.sol#521-532)
+Moreover, the following function parameters should change its data location:
+transactionBytecode location should be calldata
+executeProposal(uint256,bytes) should be declared external:
+	- MindsyncPlatform.executeProposal(uint256,bytes) (Re-entrancy/reentrancy_buggy_22.sol#619-663)
+Moreover, the following function parameters should change its data location:
+transactionBytecode location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+Re-entrancy/reentrancy_buggy_22.sol analyzed (5 contracts with 80 detectors), 213 result(s) found

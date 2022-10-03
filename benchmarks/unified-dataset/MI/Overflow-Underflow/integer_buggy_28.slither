@@ -1,0 +1,220 @@
+Compilation warnings/errors on Overflow-Underflow/integer_buggy_28.sol:
+Overflow-Underflow/integer_buggy_28.sol:63:1: Warning: Function state mutability can be restricted to pure
+function bug_intou12(uint8 p_intou12) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_28.sol:68:1: Warning: Function state mutability can be restricted to pure
+function bug_intou11() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_28.sol:79:1: Warning: Function state mutability can be restricted to pure
+function bug_intou19() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_28.sol:99:1: Warning: Function state mutability can be restricted to pure
+function bug_intou20(uint8 p_intou20) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_28.sol:107:1: Warning: Function state mutability can be restricted to pure
+function bug_intou32(uint8 p_intou32) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_28.sol:159:1: Warning: Function state mutability can be restricted to pure
+function bug_intou3() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_28.sol:202:1: Warning: Function state mutability can be restricted to pure
+function bug_intou4(uint8 p_intou4) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_28.sol:210:1: Warning: Function state mutability can be restricted to pure
+function bug_intou7() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_28.sol:218:1: Warning: Function state mutability can be restricted to pure
+function bug_intou23() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_28.sol:267:1: Warning: Function state mutability can be restricted to pure
+function bug_intou8(uint8 p_intou8) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_28.sol:278:1: Warning: Function state mutability can be restricted to pure
+function bug_intou39() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_28.sol:303:1: Warning: Function state mutability can be restricted to pure
+function bug_intou36(uint8 p_intou36) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_28.sol:314:1: Warning: Function state mutability can be restricted to pure
+function bug_intou35() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_28.sol:325:1: Warning: Function state mutability can be restricted to pure
+function bug_intou40(uint8 p_intou40) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_28.sol:349:1: Warning: Function state mutability can be restricted to pure
+function bug_intou27() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_28.sol:361:1: Warning: Function state mutability can be restricted to pure
+function bug_intou31() public{
+^ (Relevant source part starts here and spans across multiple lines).
+
+
+ERC20Detailed.transfer_intou22(address,uint256) (Overflow-Underflow/integer_buggy_28.sol#56-61) contains a tautology or contradiction:
+	- require(bool)(balances_intou22[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_28.sol#57)
+ERC20Detailed.transfer_intou26(address,uint256) (Overflow-Underflow/integer_buggy_28.sol#89-94) contains a tautology or contradiction:
+	- require(bool)(balances_intou26[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_28.sol#90)
+HYDROGEN.transfer_undrflow2(address,uint256) (Overflow-Underflow/integer_buggy_28.sol#129-134) contains a tautology or contradiction:
+	- require(bool)(balances_intou2[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_28.sol#130)
+HYDROGEN.transfer_intou38(address,uint256) (Overflow-Underflow/integer_buggy_28.sol#192-197) contains a tautology or contradiction:
+	- require(bool)(balances_intou38[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_28.sol#193)
+HYDROGEN.transfer_intou14(address,uint256) (Overflow-Underflow/integer_buggy_28.sol#230-235) contains a tautology or contradiction:
+	- require(bool)(balances_intou14[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_28.sol#231)
+HYDROGEN.transfer_intou30(address,uint256) (Overflow-Underflow/integer_buggy_28.sol#255-260) contains a tautology or contradiction:
+	- require(bool)(balances_intou30[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_28.sol#256)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#tautology-or-contradiction
+
+ERC20Detailed.constructor(string,string,uint8).name (Overflow-Underflow/integer_buggy_28.sol#74) shadows:
+	- ERC20Detailed.name() (Overflow-Underflow/integer_buggy_28.sol#84-86) (function)
+ERC20Detailed.constructor(string,string,uint8).symbol (Overflow-Underflow/integer_buggy_28.sol#74) shadows:
+	- ERC20Detailed.symbol() (Overflow-Underflow/integer_buggy_28.sol#96-98) (function)
+ERC20Detailed.constructor(string,string,uint8).decimals (Overflow-Underflow/integer_buggy_28.sol#74) shadows:
+	- ERC20Detailed.decimals() (Overflow-Underflow/integer_buggy_28.sol#104-106) (function)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#local-variable-shadowing
+
+HYDROGEN.withdraw_ovrflow1() (Overflow-Underflow/integer_buggy_28.sol#121-125) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou1[msg.sender]) (Overflow-Underflow/integer_buggy_28.sol#122)
+HYDROGEN.withdraw_intou17() (Overflow-Underflow/integer_buggy_28.sol#142-146) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou17[msg.sender]) (Overflow-Underflow/integer_buggy_28.sol#143)
+HYDROGEN.withdraw_intou37() (Overflow-Underflow/integer_buggy_28.sol#153-157) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou37[msg.sender]) (Overflow-Underflow/integer_buggy_28.sol#154)
+HYDROGEN.withdraw_intou9() (Overflow-Underflow/integer_buggy_28.sol#169-173) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou9[msg.sender]) (Overflow-Underflow/integer_buggy_28.sol#170)
+HYDROGEN.withdraw_intou25() (Overflow-Underflow/integer_buggy_28.sol#180-184) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou25[msg.sender]) (Overflow-Underflow/integer_buggy_28.sol#181)
+HYDROGEN.withdraw_intou33() (Overflow-Underflow/integer_buggy_28.sol#340-344) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou33[msg.sender]) (Overflow-Underflow/integer_buggy_28.sol#341)
+HYDROGEN.withdraw_intou13() (Overflow-Underflow/integer_buggy_28.sol#376-380) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou13[msg.sender]) (Overflow-Underflow/integer_buggy_28.sol#377)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+HYDROGEN.transfer(address,uint256) (Overflow-Underflow/integer_buggy_28.sol#237-252) has costly operations inside a loop:
+	- _totalSupply = _totalSupply.sub(tokensToBurn) (Overflow-Underflow/integer_buggy_28.sol#247)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#costly-operations-inside-a-loop
+
+Pragma version^0.5.0 (Overflow-Underflow/integer_buggy_28.sol#5) allows old versions
+solc-0.5.0 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function ERC20Detailed.transfer_intou22(address,uint256) (Overflow-Underflow/integer_buggy_28.sol#56-61) is not in mixedCase
+Parameter ERC20Detailed.transfer_intou22(address,uint256)._to (Overflow-Underflow/integer_buggy_28.sol#56) is not in mixedCase
+Parameter ERC20Detailed.transfer_intou22(address,uint256)._value (Overflow-Underflow/integer_buggy_28.sol#56) is not in mixedCase
+Function ERC20Detailed.bug_intou12(uint8) (Overflow-Underflow/integer_buggy_28.sol#63-66) is not in mixedCase
+Parameter ERC20Detailed.bug_intou12(uint8).p_intou12 (Overflow-Underflow/integer_buggy_28.sol#63) is not in mixedCase
+Function ERC20Detailed.bug_intou11() (Overflow-Underflow/integer_buggy_28.sol#68-71) is not in mixedCase
+Function ERC20Detailed.bug_intou19() (Overflow-Underflow/integer_buggy_28.sol#79-82) is not in mixedCase
+Function ERC20Detailed.transfer_intou26(address,uint256) (Overflow-Underflow/integer_buggy_28.sol#89-94) is not in mixedCase
+Parameter ERC20Detailed.transfer_intou26(address,uint256)._to (Overflow-Underflow/integer_buggy_28.sol#89) is not in mixedCase
+Parameter ERC20Detailed.transfer_intou26(address,uint256)._value (Overflow-Underflow/integer_buggy_28.sol#89) is not in mixedCase
+Function ERC20Detailed.bug_intou20(uint8) (Overflow-Underflow/integer_buggy_28.sol#99-102) is not in mixedCase
+Parameter ERC20Detailed.bug_intou20(uint8).p_intou20 (Overflow-Underflow/integer_buggy_28.sol#99) is not in mixedCase
+Function ERC20Detailed.bug_intou32(uint8) (Overflow-Underflow/integer_buggy_28.sol#107-110) is not in mixedCase
+Parameter ERC20Detailed.bug_intou32(uint8).p_intou32 (Overflow-Underflow/integer_buggy_28.sol#107) is not in mixedCase
+Variable ERC20Detailed.balances_intou22 (Overflow-Underflow/integer_buggy_28.sol#54) is not in mixedCase
+Variable ERC20Detailed.balances_intou26 (Overflow-Underflow/integer_buggy_28.sol#87) is not in mixedCase
+Function HYDROGEN.increaseLockTime_intou1(uint256) (Overflow-Underflow/integer_buggy_28.sol#118-120) is not in mixedCase
+Parameter HYDROGEN.increaseLockTime_intou1(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_28.sol#118) is not in mixedCase
+Function HYDROGEN.withdraw_ovrflow1() (Overflow-Underflow/integer_buggy_28.sol#121-125) is not in mixedCase
+Function HYDROGEN.transfer_undrflow2(address,uint256) (Overflow-Underflow/integer_buggy_28.sol#129-134) is not in mixedCase
+Parameter HYDROGEN.transfer_undrflow2(address,uint256)._to (Overflow-Underflow/integer_buggy_28.sol#129) is not in mixedCase
+Parameter HYDROGEN.transfer_undrflow2(address,uint256)._value (Overflow-Underflow/integer_buggy_28.sol#129) is not in mixedCase
+Function HYDROGEN.increaseLockTime_intou17(uint256) (Overflow-Underflow/integer_buggy_28.sol#139-141) is not in mixedCase
+Parameter HYDROGEN.increaseLockTime_intou17(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_28.sol#139) is not in mixedCase
+Function HYDROGEN.withdraw_intou17() (Overflow-Underflow/integer_buggy_28.sol#142-146) is not in mixedCase
+Function HYDROGEN.increaseLockTime_intou37(uint256) (Overflow-Underflow/integer_buggy_28.sol#150-152) is not in mixedCase
+Parameter HYDROGEN.increaseLockTime_intou37(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_28.sol#150) is not in mixedCase
+Function HYDROGEN.withdraw_intou37() (Overflow-Underflow/integer_buggy_28.sol#153-157) is not in mixedCase
+Function HYDROGEN.bug_intou3() (Overflow-Underflow/integer_buggy_28.sol#159-162) is not in mixedCase
+Function HYDROGEN.increaseLockTime_intou9(uint256) (Overflow-Underflow/integer_buggy_28.sol#166-168) is not in mixedCase
+Parameter HYDROGEN.increaseLockTime_intou9(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_28.sol#166) is not in mixedCase
+Function HYDROGEN.withdraw_intou9() (Overflow-Underflow/integer_buggy_28.sol#169-173) is not in mixedCase
+Function HYDROGEN.increaseLockTime_intou25(uint256) (Overflow-Underflow/integer_buggy_28.sol#177-179) is not in mixedCase
+Parameter HYDROGEN.increaseLockTime_intou25(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_28.sol#177) is not in mixedCase
+Function HYDROGEN.withdraw_intou25() (Overflow-Underflow/integer_buggy_28.sol#180-184) is not in mixedCase
+Function HYDROGEN.transfer_intou38(address,uint256) (Overflow-Underflow/integer_buggy_28.sol#192-197) is not in mixedCase
+Parameter HYDROGEN.transfer_intou38(address,uint256)._to (Overflow-Underflow/integer_buggy_28.sol#192) is not in mixedCase
+Parameter HYDROGEN.transfer_intou38(address,uint256)._value (Overflow-Underflow/integer_buggy_28.sol#192) is not in mixedCase
+Function HYDROGEN.bug_intou4(uint8) (Overflow-Underflow/integer_buggy_28.sol#202-205) is not in mixedCase
+Parameter HYDROGEN.bug_intou4(uint8).p_intou4 (Overflow-Underflow/integer_buggy_28.sol#202) is not in mixedCase
+Function HYDROGEN.bug_intou7() (Overflow-Underflow/integer_buggy_28.sol#210-213) is not in mixedCase
+Function HYDROGEN.bug_intou23() (Overflow-Underflow/integer_buggy_28.sol#218-221) is not in mixedCase
+Function HYDROGEN.transfer_intou14(address,uint256) (Overflow-Underflow/integer_buggy_28.sol#230-235) is not in mixedCase
+Parameter HYDROGEN.transfer_intou14(address,uint256)._to (Overflow-Underflow/integer_buggy_28.sol#230) is not in mixedCase
+Parameter HYDROGEN.transfer_intou14(address,uint256)._value (Overflow-Underflow/integer_buggy_28.sol#230) is not in mixedCase
+Function HYDROGEN.transfer_intou30(address,uint256) (Overflow-Underflow/integer_buggy_28.sol#255-260) is not in mixedCase
+Parameter HYDROGEN.transfer_intou30(address,uint256)._to (Overflow-Underflow/integer_buggy_28.sol#255) is not in mixedCase
+Parameter HYDROGEN.transfer_intou30(address,uint256)._value (Overflow-Underflow/integer_buggy_28.sol#255) is not in mixedCase
+Function HYDROGEN.bug_intou8(uint8) (Overflow-Underflow/integer_buggy_28.sol#267-270) is not in mixedCase
+Parameter HYDROGEN.bug_intou8(uint8).p_intou8 (Overflow-Underflow/integer_buggy_28.sol#267) is not in mixedCase
+Function HYDROGEN.bug_intou39() (Overflow-Underflow/integer_buggy_28.sol#278-281) is not in mixedCase
+Function HYDROGEN.bug_intou36(uint8) (Overflow-Underflow/integer_buggy_28.sol#303-306) is not in mixedCase
+Parameter HYDROGEN.bug_intou36(uint8).p_intou36 (Overflow-Underflow/integer_buggy_28.sol#303) is not in mixedCase
+Function HYDROGEN.bug_intou35() (Overflow-Underflow/integer_buggy_28.sol#314-317) is not in mixedCase
+Function HYDROGEN.bug_intou40(uint8) (Overflow-Underflow/integer_buggy_28.sol#325-328) is not in mixedCase
+Parameter HYDROGEN.bug_intou40(uint8).p_intou40 (Overflow-Underflow/integer_buggy_28.sol#325) is not in mixedCase
+Function HYDROGEN.increaseLockTime_intou33(uint256) (Overflow-Underflow/integer_buggy_28.sol#337-339) is not in mixedCase
+Parameter HYDROGEN.increaseLockTime_intou33(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_28.sol#337) is not in mixedCase
+Function HYDROGEN.withdraw_intou33() (Overflow-Underflow/integer_buggy_28.sol#340-344) is not in mixedCase
+Function HYDROGEN.bug_intou27() (Overflow-Underflow/integer_buggy_28.sol#349-352) is not in mixedCase
+Function HYDROGEN.bug_intou31() (Overflow-Underflow/integer_buggy_28.sol#361-364) is not in mixedCase
+Function HYDROGEN.increaseLockTime_intou13(uint256) (Overflow-Underflow/integer_buggy_28.sol#373-375) is not in mixedCase
+Parameter HYDROGEN.increaseLockTime_intou13(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_28.sol#373) is not in mixedCase
+Function HYDROGEN.withdraw_intou13() (Overflow-Underflow/integer_buggy_28.sol#376-380) is not in mixedCase
+Variable HYDROGEN.lockTime_intou1 (Overflow-Underflow/integer_buggy_28.sol#116) is not in mixedCase
+Variable HYDROGEN.balances_intou2 (Overflow-Underflow/integer_buggy_28.sol#127) is not in mixedCase
+Variable HYDROGEN.lockTime_intou17 (Overflow-Underflow/integer_buggy_28.sol#137) is not in mixedCase
+Constant HYDROGEN.tokenName (Overflow-Underflow/integer_buggy_28.sol#147) is not in UPPER_CASE_WITH_UNDERSCORES
+Variable HYDROGEN.lockTime_intou37 (Overflow-Underflow/integer_buggy_28.sol#148) is not in mixedCase
+Constant HYDROGEN.tokenSymbol (Overflow-Underflow/integer_buggy_28.sol#158) is not in UPPER_CASE_WITH_UNDERSCORES
+Constant HYDROGEN.tokenDecimals (Overflow-Underflow/integer_buggy_28.sol#163) is not in UPPER_CASE_WITH_UNDERSCORES
+Variable HYDROGEN.lockTime_intou9 (Overflow-Underflow/integer_buggy_28.sol#164) is not in mixedCase
+Variable HYDROGEN._totalSupply (Overflow-Underflow/integer_buggy_28.sol#174) is not in mixedCase
+Variable HYDROGEN.lockTime_intou25 (Overflow-Underflow/integer_buggy_28.sol#175) is not in mixedCase
+Variable HYDROGEN.balances_intou38 (Overflow-Underflow/integer_buggy_28.sol#190) is not in mixedCase
+Variable HYDROGEN.balances_intou14 (Overflow-Underflow/integer_buggy_28.sol#228) is not in mixedCase
+Variable HYDROGEN.balances_intou30 (Overflow-Underflow/integer_buggy_28.sol#253) is not in mixedCase
+Variable HYDROGEN.lockTime_intou33 (Overflow-Underflow/integer_buggy_28.sol#335) is not in mixedCase
+Variable HYDROGEN.lockTime_intou13 (Overflow-Underflow/integer_buggy_28.sol#371) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable ERC20Detailed.balances_intou22 (Overflow-Underflow/integer_buggy_28.sol#54) is too similar to ERC20Detailed.balances_intou26 (Overflow-Underflow/integer_buggy_28.sol#87)
+Variable HYDROGEN.balances_intou30 (Overflow-Underflow/integer_buggy_28.sol#253) is too similar to HYDROGEN.balances_intou38 (Overflow-Underflow/integer_buggy_28.sol#190)
+Variable HYDROGEN.lockTime_intou1 (Overflow-Underflow/integer_buggy_28.sol#116) is too similar to HYDROGEN.lockTime_intou9 (Overflow-Underflow/integer_buggy_28.sol#164)
+Variable HYDROGEN.lockTime_intou13 (Overflow-Underflow/integer_buggy_28.sol#371) is too similar to HYDROGEN.lockTime_intou17 (Overflow-Underflow/integer_buggy_28.sol#137)
+Variable HYDROGEN.lockTime_intou13 (Overflow-Underflow/integer_buggy_28.sol#371) is too similar to HYDROGEN.lockTime_intou33 (Overflow-Underflow/integer_buggy_28.sol#335)
+Variable HYDROGEN.lockTime_intou13 (Overflow-Underflow/integer_buggy_28.sol#371) is too similar to HYDROGEN.lockTime_intou37 (Overflow-Underflow/integer_buggy_28.sol#148)
+Variable HYDROGEN.lockTime_intou17 (Overflow-Underflow/integer_buggy_28.sol#137) is too similar to HYDROGEN.lockTime_intou37 (Overflow-Underflow/integer_buggy_28.sol#148)
+Variable HYDROGEN.lockTime_intou33 (Overflow-Underflow/integer_buggy_28.sol#335) is too similar to HYDROGEN.lockTime_intou37 (Overflow-Underflow/integer_buggy_28.sol#148)
+Variable HYDROGEN.withdraw_ovrflow1().transferValue_intou1 (Overflow-Underflow/integer_buggy_28.sol#123) is too similar to HYDROGEN.withdraw_intou9().transferValue_intou9 (Overflow-Underflow/integer_buggy_28.sol#171)
+Variable HYDROGEN.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_28.sol#378) is too similar to HYDROGEN.withdraw_intou37().transferValue_intou37 (Overflow-Underflow/integer_buggy_28.sol#155)
+Variable HYDROGEN.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_28.sol#378) is too similar to HYDROGEN.withdraw_intou17().transferValue_intou17 (Overflow-Underflow/integer_buggy_28.sol#144)
+Variable HYDROGEN.withdraw_intou17().transferValue_intou17 (Overflow-Underflow/integer_buggy_28.sol#144) is too similar to HYDROGEN.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_28.sol#342)
+Variable HYDROGEN.withdraw_intou17().transferValue_intou17 (Overflow-Underflow/integer_buggy_28.sol#144) is too similar to HYDROGEN.withdraw_intou37().transferValue_intou37 (Overflow-Underflow/integer_buggy_28.sol#155)
+Variable HYDROGEN.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_28.sol#378) is too similar to HYDROGEN.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_28.sol#182)
+Variable HYDROGEN.withdraw_intou17().transferValue_intou17 (Overflow-Underflow/integer_buggy_28.sol#144) is too similar to HYDROGEN.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_28.sol#182)
+Variable HYDROGEN.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_28.sol#182) is too similar to HYDROGEN.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_28.sol#342)
+Variable HYDROGEN.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_28.sol#182) is too similar to HYDROGEN.withdraw_intou37().transferValue_intou37 (Overflow-Underflow/integer_buggy_28.sol#155)
+Variable HYDROGEN.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_28.sol#378) is too similar to HYDROGEN.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_28.sol#342)
+Variable HYDROGEN.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_28.sol#342) is too similar to HYDROGEN.withdraw_intou37().transferValue_intou37 (Overflow-Underflow/integer_buggy_28.sol#155)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+HYDROGEN.slitherConstructorVariables() (Overflow-Underflow/integer_buggy_28.sol#113-381) uses literals with too many digits:
+	- _totalSupply = 8000000000 (Overflow-Underflow/integer_buggy_28.sol#174)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+HYDROGEN.basePercent (Overflow-Underflow/integer_buggy_28.sol#185) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+multiTransfer(address[],uint256[]) should be declared external:
+	- HYDROGEN.multiTransfer(address[],uint256[]) (Overflow-Underflow/integer_buggy_28.sol#262-266)
+Moreover, the following function parameters should change its data location:
+receivers location should be calldata
+amounts location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+Overflow-Underflow/integer_buggy_28.sol analyzed (4 contracts with 80 detectors), 120 result(s) found

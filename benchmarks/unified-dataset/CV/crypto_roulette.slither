@@ -1,0 +1,60 @@
+Compilation warnings/errors on CV/crypto_roulette.sol:
+CV/crypto_roulette.sol:40:9: Warning: Variable is declared as a storage pointer. Use an explicit "storage" keyword to silence this warning.
+        Game game;
+        ^-------^
+CV/crypto_roulette.sol:34:30: Warning: "sha3" has been deprecated in favour of "keccak256"
+        secretNumber = uint8(sha3(now, block.blockhash(block.number-1))) % 20 + 1;
+                             ^----------------------------------------^
+CV/crypto_roulette.sol:40:9: Warning: Uninitialized storage pointer. Did you mean '<type> memory game'?
+        Game game;
+        ^-------^
+CV/crypto_roulette.sol:56:13: Warning: "suicide" has been deprecated in favour of "selfdestruct"
+            suicide(msg.sender);
+            ^-----------------^
+
+
+CryptoRoulette (CV/crypto_roulette.sol#14-62) contract sets array length with a user-controlled value:
+	- gamesPlayed.push(game) (CV/crypto_roulette.sol#43)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#array-length-assignment
+
+CryptoRoulette.shuffle() (CV/crypto_roulette.sol#32-35) uses a weak PRNG: "secretNumber = uint8(sha3()(now,block.blockhash(block.number - 1))) % 20 + 1 (CV/crypto_roulette.sol#34)" 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG
+
+CryptoRoulette.play(uint256).game (CV/crypto_roulette.sol#40) is a storage variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-storage-variables
+
+CryptoRoulette.play(uint256) (CV/crypto_roulette.sol#37-52) uses a dangerous strict equality:
+	- number == secretNumber (CV/crypto_roulette.sol#45)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+CryptoRoulette.play(uint256) (CV/crypto_roulette.sol#37-52) uses timestamp for comparisons
+	Dangerous comparisons:
+	- number == secretNumber (CV/crypto_roulette.sol#45)
+CryptoRoulette.kill() (CV/crypto_roulette.sol#54-58) uses timestamp for comparisons
+	Dangerous comparisons:
+	- msg.sender == ownerAddr && now > lastPlayed + 86400 (CV/crypto_roulette.sol#55)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+Deprecated standard detected secretNumber = uint8(sha3()(now,block.blockhash(block.number - 1))) % 20 + 1 (CV/crypto_roulette.sol#34):
+	- Usage of "block.blockhash()" should be replaced with "blockhash()"
+	- Usage of "sha3()" should be replaced with "keccak256()"
+Deprecated standard detected suicide(address)(msg.sender) (CV/crypto_roulette.sol#56):
+	- Usage of "suicide()" should be replaced with "selfdestruct()"
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#deprecated-standards
+
+Pragma version^0.4.19 (CV/crypto_roulette.sol#5) allows old versions
+solc-0.4.19 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Reentrancy in CryptoRoulette.play(uint256) (CV/crypto_roulette.sol#37-52):
+	External calls:
+	- msg.sender.transfer(this.balance) (CV/crypto_roulette.sol#47)
+	State variables written after the call(s):
+	- lastPlayed = now (CV/crypto_roulette.sol#51)
+	- shuffle() (CV/crypto_roulette.sol#50)
+		- secretNumber = uint8(sha3()(now,block.blockhash(block.number - 1))) % 20 + 1 (CV/crypto_roulette.sol#34)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+CryptoRoulette.betPrice (CV/crypto_roulette.sol#18) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+CV/crypto_roulette.sol analyzed (1 contracts with 80 detectors), 12 result(s) found

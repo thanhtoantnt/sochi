@@ -1,0 +1,163 @@
+
+Ownable.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_31.sol#124-132) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_31.sol#130)
+Ownable.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_31.sol#162-170) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_31.sol#168)
+FeeTransactionManager.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_31.sol#239-247) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_31.sol#245)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Ownable.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_31.sol#124-132) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_31.sol#129)" 
+Ownable.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_31.sol#162-170) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_31.sol#167)" 
+FeeTransactionManager.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_31.sol#239-247) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_31.sol#244)" 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG
+
+Ownable.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_31.sol#124-132) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_31.sol#129)
+Ownable.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_31.sol#162-170) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_31.sol#167)
+FeeTransactionManager.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_31.sol#239-247) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_31.sol#244)
+ReentrancyGuard.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_31.sol#200-202) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_31.sol#201)
+Ownable.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_31.sol#96-99) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_31.sol#98)
+ReentrancyGuard.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_31.sol#211-214) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_31.sol#213)
+FeeTransactionManager.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_31.sol#235-237) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_31.sol#236)
+FeeTransactionManager.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_31.sol#258-261) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_31.sol#260)
+Ownable.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_31.sol#150-153) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_31.sol#152)
+Ownable.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_31.sol#113-116) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_31.sol#115)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+FeeTransactionManager.execute(address,uint256,uint256,bytes) (Timestamp-Dependency/timestamp_buggy_31.sol#263-281) uses tx.origin for authorization: require(bool,string)(tx.origin == relayer,Invalid transaction origin) (Timestamp-Dependency/timestamp_buggy_31.sol#269)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-usage-of-txorigin
+
+Ownable.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_31.sol#125) is a local variable never initialized
+FeeTransactionManager.bug_tmstmp8().pastBlockTime_tmstmp8 (Timestamp-Dependency/timestamp_buggy_31.sol#240) is a local variable never initialized
+Ownable.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_31.sol#163) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+FeeTransactionManager.constructor(address,address)._relayer (Timestamp-Dependency/timestamp_buggy_31.sol#253) lacks a zero-check on :
+		- relayer = _relayer (Timestamp-Dependency/timestamp_buggy_31.sol#254)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Ownable.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_31.sol#96-99) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_31.sol#98)
+Ownable.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_31.sol#113-116) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_31.sol#115)
+Ownable.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_31.sol#124-132) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp36) (Timestamp-Dependency/timestamp_buggy_31.sol#127)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_31.sol#129)
+Ownable.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_31.sol#150-153) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_31.sol#152)
+Ownable.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_31.sol#162-170) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp40) (Timestamp-Dependency/timestamp_buggy_31.sol#165)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_31.sol#167)
+Ownable.bug_tmstmp33() (Timestamp-Dependency/timestamp_buggy_31.sol#180-182) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_31.sol#181)
+ReentrancyGuard.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_31.sol#200-202) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_31.sol#201)
+ReentrancyGuard.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_31.sol#211-214) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_31.sol#213)
+FeeTransactionManager.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_31.sol#235-237) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_31.sol#236)
+FeeTransactionManager.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_31.sol#239-247) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp8) (Timestamp-Dependency/timestamp_buggy_31.sol#242)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_31.sol#244)
+FeeTransactionManager.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_31.sol#258-261) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_31.sol#260)
+FeeTransactionManager.bug_tmstmp13() (Timestamp-Dependency/timestamp_buggy_31.sol#282-284) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_31.sol#283)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+ECDSA.recover(bytes32,bytes) (Timestamp-Dependency/timestamp_buggy_31.sol#42-81) uses assembly
+	- INLINE ASM (Timestamp-Dependency/timestamp_buggy_31.sol#56-60)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#assembly-usage
+
+Pragma version>=0.5.12 (Timestamp-Dependency/timestamp_buggy_31.sol#6) allows old versions
+solc-0.5.12 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function Ownable.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_31.sol#96-99) is not in mixedCase
+Function Ownable.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_31.sol#113-116) is not in mixedCase
+Function Ownable.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_31.sol#124-132) is not in mixedCase
+Function Ownable.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_31.sol#150-153) is not in mixedCase
+Function Ownable.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_31.sol#162-170) is not in mixedCase
+Function Ownable.bug_tmstmp33() (Timestamp-Dependency/timestamp_buggy_31.sol#180-182) is not in mixedCase
+Variable Ownable.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_31.sol#95) is not in mixedCase
+Variable Ownable.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_31.sol#102) is not in mixedCase
+Variable Ownable.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_31.sol#112) is not in mixedCase
+Variable Ownable.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_31.sol#141) is not in mixedCase
+Variable Ownable.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_31.sol#149) is not in mixedCase
+Function ReentrancyGuard.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_31.sol#200-202) is not in mixedCase
+Function ReentrancyGuard.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_31.sol#211-214) is not in mixedCase
+Variable ReentrancyGuard.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_31.sol#199) is not in mixedCase
+Variable ReentrancyGuard.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_31.sol#210) is not in mixedCase
+Variable ReentrancyGuard.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_31.sol#229) is not in mixedCase
+Function FeeTransactionManager.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_31.sol#235-237) is not in mixedCase
+Function FeeTransactionManager.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_31.sol#239-247) is not in mixedCase
+Function FeeTransactionManager.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_31.sol#258-261) is not in mixedCase
+Parameter FeeTransactionManager.execute(address,uint256,uint256,bytes)._to (Timestamp-Dependency/timestamp_buggy_31.sol#264) is not in mixedCase
+Parameter FeeTransactionManager.execute(address,uint256,uint256,bytes)._value (Timestamp-Dependency/timestamp_buggy_31.sol#265) is not in mixedCase
+Parameter FeeTransactionManager.execute(address,uint256,uint256,bytes)._fee (Timestamp-Dependency/timestamp_buggy_31.sol#266) is not in mixedCase
+Parameter FeeTransactionManager.execute(address,uint256,uint256,bytes)._signature (Timestamp-Dependency/timestamp_buggy_31.sol#267) is not in mixedCase
+Function FeeTransactionManager.bug_tmstmp13() (Timestamp-Dependency/timestamp_buggy_31.sol#282-284) is not in mixedCase
+Parameter FeeTransactionManager.setRelayer(address)._newRelayer (Timestamp-Dependency/timestamp_buggy_31.sol#286) is not in mixedCase
+Variable FeeTransactionManager.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_31.sol#234) is not in mixedCase
+Variable FeeTransactionManager.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_31.sol#250) is not in mixedCase
+Variable FeeTransactionManager.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_31.sol#257) is not in mixedCase
+Variable FeeTransactionManager.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_31.sol#291) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable Ownable.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_31.sol#141) is too similar to Ownable.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_31.sol#102)
+Variable Ownable.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_31.sol#125) is too similar to Ownable.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_31.sol#163)
+Variable Ownable.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_31.sol#95) is too similar to Ownable.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_31.sol#149)
+Variable Ownable.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_31.sol#95) is too similar to Ownable.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_31.sol#112)
+Variable Ownable.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_31.sol#149) is too similar to Ownable.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_31.sol#112)
+Variable Ownable.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_31.sol#141) is too similar to FeeTransactionManager.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_31.sol#291)
+Variable Ownable.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_31.sol#141) is too similar to ReentrancyGuard.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_31.sol#229)
+Variable ReentrancyGuard.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_31.sol#229) is too similar to FeeTransactionManager.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_31.sol#291)
+Variable ReentrancyGuard.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_31.sol#229) is too similar to Ownable.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_31.sol#102)
+Variable Ownable.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_31.sol#102) is too similar to FeeTransactionManager.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_31.sol#291)
+Variable Ownable.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_31.sol#141) is too similar to FeeTransactionManager.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_31.sol#250)
+Variable ReentrancyGuard.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_31.sol#229) is too similar to FeeTransactionManager.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_31.sol#250)
+Variable Ownable.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_31.sol#102) is too similar to FeeTransactionManager.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_31.sol#250)
+Variable FeeTransactionManager.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_31.sol#250) is too similar to FeeTransactionManager.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_31.sol#291)
+Variable ReentrancyGuard.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_31.sol#199) is too similar to FeeTransactionManager.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_31.sol#257)
+Variable Ownable.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_31.sol#95) is too similar to FeeTransactionManager.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_31.sol#257)
+Variable Ownable.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_31.sol#95) is too similar to ReentrancyGuard.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_31.sol#210)
+Variable Ownable.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_31.sol#95) is too similar to FeeTransactionManager.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_31.sol#234)
+Variable FeeTransactionManager.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_31.sol#234) is too similar to FeeTransactionManager.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_31.sol#257)
+Variable FeeTransactionManager.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_31.sol#234) is too similar to Ownable.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_31.sol#149)
+Variable FeeTransactionManager.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_31.sol#234) is too similar to Ownable.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_31.sol#112)
+Variable FeeTransactionManager.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_31.sol#257) is too similar to Ownable.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_31.sol#149)
+Variable FeeTransactionManager.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_31.sol#257) is too similar to Ownable.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_31.sol#112)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+Ownable.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_31.sol#102) is never used in FeeTransactionManager (Timestamp-Dependency/timestamp_buggy_31.sol#232-293)
+Ownable.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_31.sol#141) is never used in FeeTransactionManager (Timestamp-Dependency/timestamp_buggy_31.sol#232-293)
+ReentrancyGuard.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_31.sol#229) is never used in FeeTransactionManager (Timestamp-Dependency/timestamp_buggy_31.sol#232-293)
+FeeTransactionManager.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_31.sol#250) is never used in FeeTransactionManager (Timestamp-Dependency/timestamp_buggy_31.sol#232-293)
+FeeTransactionManager.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_31.sol#291) is never used in FeeTransactionManager (Timestamp-Dependency/timestamp_buggy_31.sol#232-293)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+Timestamp-Dependency/timestamp_buggy_31.sol analyzed (6 contracts with 80 detectors), 93 result(s) found

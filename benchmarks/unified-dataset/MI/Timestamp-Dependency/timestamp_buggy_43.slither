@@ -1,0 +1,279 @@
+
+Operated.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_43.sol#78-86) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_43.sol#84)
+Operated.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_43.sol#93-101) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_43.sol#99)
+Operated.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_43.sol#116-124) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_43.sol#122)
+ProofHash.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_43.sol#260-268) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_43.sol#266)
+Template.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_43.sol#314-322) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_43.sol#320)
+Template.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_43.sol#336-344) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_43.sol#342)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Template.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_43.sol#314-322) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_43.sol#319)" 
+Template.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_43.sol#336-344) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_43.sol#341)" 
+Operated.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_43.sol#78-86) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_43.sol#83)" 
+Operated.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_43.sol#93-101) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_43.sol#98)" 
+Operated.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_43.sol#116-124) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_43.sol#121)" 
+ProofHash.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_43.sol#260-268) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_43.sol#265)" 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG
+
+Operated.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_43.sol#78-86) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_43.sol#83)
+Operated.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_43.sol#93-101) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_43.sol#98)
+Template.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_43.sol#314-322) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_43.sol#319)
+Operated.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_43.sol#116-124) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_43.sol#121)
+Template.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_43.sol#336-344) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_43.sol#341)
+ProofHash.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_43.sol#260-268) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_43.sol#265)
+MultiHashWrapper.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#181-183) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_43.sol#182)
+Operated.play_tmstmp19(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#57-60) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_43.sol#59)
+Operated.play_tmstmp2(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#28-30) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_43.sol#29)
+Operated.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#139-142) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_43.sol#141)
+Operated.play_tmstmp26(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#69-71) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_43.sol#70)
+Post.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#397-400) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_43.sol#399)
+Template.play_tmstmp3(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#288-291) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_43.sol#290)
+MultiHashWrapper.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#208-210) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_43.sol#209)
+Post.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#410-413) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_43.sol#412)
+Template.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#328-331) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_43.sol#330)
+Operated.play_tmstmp38(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#109-111) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_43.sol#110)
+ProofHash.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#276-279) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_43.sol#278)
+Operated.play_tmstmp7(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#130-133) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_43.sol#132)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+Operated.bug_tmstmp4().pastBlockTime_tmstmp4 (Timestamp-Dependency/timestamp_buggy_43.sol#117) is a local variable never initialized
+Operated.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_43.sol#94) is a local variable never initialized
+Template.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_43.sol#337) is a local variable never initialized
+Template.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_43.sol#315) is a local variable never initialized
+ProofHash.bug_tmstmp8().pastBlockTime_tmstmp8 (Timestamp-Dependency/timestamp_buggy_43.sol#261) is a local variable never initialized
+Operated.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_43.sol#79) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+EventMetadata.bug_tmstmp9() (Timestamp-Dependency/timestamp_buggy_43.sol#18-20) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_43.sol#19)
+Operated.play_tmstmp2(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#28-30) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_43.sol#29)
+Operated.bug_tmstmp17() (Timestamp-Dependency/timestamp_buggy_43.sol#32-34) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_43.sol#33)
+Operated.bug_tmstmp25() (Timestamp-Dependency/timestamp_buggy_43.sol#47-49) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_43.sol#48)
+Operated.play_tmstmp19(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#57-60) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_43.sol#59)
+Operated.play_tmstmp26(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#69-71) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_43.sol#70)
+Operated.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_43.sol#78-86) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp20) (Timestamp-Dependency/timestamp_buggy_43.sol#81)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_43.sol#83)
+Operated.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_43.sol#93-101) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp32) (Timestamp-Dependency/timestamp_buggy_43.sol#96)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_43.sol#98)
+Operated.play_tmstmp38(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#109-111) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_43.sol#110)
+Operated.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_43.sol#116-124) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp4) (Timestamp-Dependency/timestamp_buggy_43.sol#119)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_43.sol#121)
+Operated.play_tmstmp7(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#130-133) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_43.sol#132)
+Operated.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#139-142) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_43.sol#141)
+MultiHashWrapper.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#181-183) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_43.sol#182)
+MultiHashWrapper.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#208-210) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_43.sol#209)
+ProofHash.bug_tmstmp37() (Timestamp-Dependency/timestamp_buggy_43.sol#246-248) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_43.sol#247)
+ProofHash.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_43.sol#260-268) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp8) (Timestamp-Dependency/timestamp_buggy_43.sol#263)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_43.sol#265)
+ProofHash.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#276-279) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_43.sol#278)
+Template.play_tmstmp3(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#288-291) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_43.sol#290)
+Template.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_43.sol#314-322) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp36) (Timestamp-Dependency/timestamp_buggy_43.sol#317)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_43.sol#319)
+Template.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#328-331) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_43.sol#330)
+Template.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_43.sol#336-344) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp40) (Timestamp-Dependency/timestamp_buggy_43.sol#339)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_43.sol#341)
+Post.bug_tmstmp33() (Timestamp-Dependency/timestamp_buggy_43.sol#383-385) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_43.sol#384)
+Post.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#397-400) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_43.sol#399)
+Post.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#410-413) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_43.sol#412)
+Post.bug_tmstmp13() (Timestamp-Dependency/timestamp_buggy_43.sol#422-424) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_43.sol#423)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+MultiHashWrapper._splitMultiHash(bytes) (Timestamp-Dependency/timestamp_buggy_43.sol#190-206) uses assembly
+	- INLINE ASM (Timestamp-Dependency/timestamp_buggy_43.sol#197-201)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#assembly-usage
+
+Operated._deactivateOperator() (Timestamp-Dependency/timestamp_buggy_43.sol#88-92) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.5.0 (Timestamp-Dependency/timestamp_buggy_43.sol#5) allows old versions
+solc-0.5.0 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function EventMetadata.bug_tmstmp9() (Timestamp-Dependency/timestamp_buggy_43.sol#18-20) is not in mixedCase
+Variable EventMetadata.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_43.sol#10) is not in mixedCase
+Function Operated.play_tmstmp2(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#28-30) is not in mixedCase
+Function Operated.bug_tmstmp17() (Timestamp-Dependency/timestamp_buggy_43.sol#32-34) is not in mixedCase
+Function Operated.bug_tmstmp25() (Timestamp-Dependency/timestamp_buggy_43.sol#47-49) is not in mixedCase
+Function Operated.play_tmstmp19(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#57-60) is not in mixedCase
+Function Operated.play_tmstmp26(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#69-71) is not in mixedCase
+Function Operated.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_43.sol#78-86) is not in mixedCase
+Function Operated.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_43.sol#93-101) is not in mixedCase
+Function Operated.play_tmstmp38(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#109-111) is not in mixedCase
+Function Operated.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_43.sol#116-124) is not in mixedCase
+Function Operated.play_tmstmp7(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#130-133) is not in mixedCase
+Function Operated.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#139-142) is not in mixedCase
+Variable Operated.winner_tmstmp2 (Timestamp-Dependency/timestamp_buggy_43.sol#27) is not in mixedCase
+Variable Operated.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_43.sol#37) is not in mixedCase
+Variable Operated.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_43.sol#56) is not in mixedCase
+Variable Operated.winner_tmstmp26 (Timestamp-Dependency/timestamp_buggy_43.sol#68) is not in mixedCase
+Variable Operated.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_43.sol#108) is not in mixedCase
+Variable Operated.winner_tmstmp7 (Timestamp-Dependency/timestamp_buggy_43.sol#129) is not in mixedCase
+Variable Operated.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_43.sol#138) is not in mixedCase
+Function MultiHashWrapper.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#181-183) is not in mixedCase
+Function MultiHashWrapper.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#208-210) is not in mixedCase
+Variable MultiHashWrapper.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_43.sol#180) is not in mixedCase
+Variable MultiHashWrapper.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_43.sol#207) is not in mixedCase
+Contract iFactory (Timestamp-Dependency/timestamp_buggy_43.sol#222-240) is not in CapWords
+Function ProofHash.bug_tmstmp37() (Timestamp-Dependency/timestamp_buggy_43.sol#246-248) is not in mixedCase
+Function ProofHash.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_43.sol#260-268) is not in mixedCase
+Function ProofHash.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#276-279) is not in mixedCase
+Variable ProofHash.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_43.sol#251) is not in mixedCase
+Variable ProofHash.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_43.sol#275) is not in mixedCase
+Function Template.play_tmstmp3(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#288-291) is not in mixedCase
+Function Template.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_43.sol#314-322) is not in mixedCase
+Function Template.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#328-331) is not in mixedCase
+Function Template.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_43.sol#336-344) is not in mixedCase
+Variable Template.winner_tmstmp3 (Timestamp-Dependency/timestamp_buggy_43.sol#287) is not in mixedCase
+Variable Template.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_43.sol#306) is not in mixedCase
+Variable Template.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_43.sol#327) is not in mixedCase
+Function Post.bug_tmstmp33() (Timestamp-Dependency/timestamp_buggy_43.sol#383-385) is not in mixedCase
+Function Post.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#397-400) is not in mixedCase
+Function Post.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_43.sol#410-413) is not in mixedCase
+Function Post.bug_tmstmp13() (Timestamp-Dependency/timestamp_buggy_43.sol#422-424) is not in mixedCase
+Variable Post.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_43.sol#355) is not in mixedCase
+Variable Post.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_43.sol#396) is not in mixedCase
+Variable Post.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_43.sol#409) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable Operated.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_43.sol#79) is too similar to Operated.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_43.sol#94)
+Variable Operated.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_43.sol#138) is too similar to Operated.winner_tmstmp26 (Timestamp-Dependency/timestamp_buggy_43.sol#68)
+Variable Operated.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_43.sol#138) is too similar to Operated.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_43.sol#108)
+Variable Operated.winner_tmstmp2 (Timestamp-Dependency/timestamp_buggy_43.sol#27) is too similar to Operated.winner_tmstmp7 (Timestamp-Dependency/timestamp_buggy_43.sol#129)
+Variable MultiHashWrapper.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_43.sol#207) is too similar to ProofHash.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_43.sol#275)
+Variable Template.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_43.sol#315) is too similar to Template.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_43.sol#337)
+Variable EventMetadata.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_43.sol#10) is too similar to Operated.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_43.sol#37)
+Variable EventMetadata.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_43.sol#10) is too similar to Template.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_43.sol#306)
+Variable EventMetadata.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_43.sol#10) is too similar to ProofHash.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_43.sol#251)
+Variable Operated.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_43.sol#37) is too similar to ProofHash.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_43.sol#251)
+Variable ProofHash.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_43.sol#251) is too similar to Template.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_43.sol#306)
+Variable EventMetadata.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_43.sol#10) is too similar to Post.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_43.sol#355)
+Variable Operated.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_43.sol#37) is too similar to Post.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_43.sol#355)
+Variable ProofHash.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_43.sol#251) is too similar to Post.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_43.sol#355)
+Variable Post.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_43.sol#355) is too similar to Template.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_43.sol#306)
+Variable Operated.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_43.sol#37) is too similar to Template.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_43.sol#306)
+Variable Operated.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_43.sol#79) is too similar to Template.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_43.sol#337)
+Variable Operated.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_43.sol#94) is too similar to Template.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_43.sol#337)
+Variable Operated.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_43.sol#79) is too similar to Template.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_43.sol#315)
+Variable Operated.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_43.sol#94) is too similar to Template.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_43.sol#315)
+Variable Operated.bug_tmstmp4().pastBlockTime_tmstmp4 (Timestamp-Dependency/timestamp_buggy_43.sol#117) is too similar to ProofHash.bug_tmstmp8().pastBlockTime_tmstmp8 (Timestamp-Dependency/timestamp_buggy_43.sol#261)
+Variable MultiHashWrapper.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_43.sol#180) is too similar to Operated.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_43.sol#56)
+Variable Operated.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_43.sol#138) is too similar to Template.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_43.sol#327)
+Variable Operated.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_43.sol#138) is too similar to ProofHash.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_43.sol#275)
+Variable Operated.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_43.sol#138) is too similar to Post.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_43.sol#396)
+Variable Operated.winner_tmstmp26 (Timestamp-Dependency/timestamp_buggy_43.sol#68) is too similar to Post.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_43.sol#396)
+Variable Operated.winner_tmstmp2 (Timestamp-Dependency/timestamp_buggy_43.sol#27) is too similar to Template.winner_tmstmp3 (Timestamp-Dependency/timestamp_buggy_43.sol#287)
+Variable Template.winner_tmstmp3 (Timestamp-Dependency/timestamp_buggy_43.sol#287) is too similar to Operated.winner_tmstmp7 (Timestamp-Dependency/timestamp_buggy_43.sol#129)
+Variable Operated.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_43.sol#138) is too similar to MultiHashWrapper.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_43.sol#207)
+Variable MultiHashWrapper.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_43.sol#207) is too similar to Template.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_43.sol#327)
+Variable MultiHashWrapper.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_43.sol#207) is too similar to Operated.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_43.sol#108)
+Variable MultiHashWrapper.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_43.sol#180) is too similar to Post.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_43.sol#409)
+Variable Operated.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_43.sol#56) is too similar to Post.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_43.sol#409)
+Variable Operated.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_43.sol#138) is too similar to Post.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_43.sol#409)
+Variable MultiHashWrapper.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_43.sol#207) is too similar to Post.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_43.sol#409)
+Variable Post.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_43.sol#409) is too similar to Template.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_43.sol#327)
+Variable Post.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_43.sol#409) is too similar to Operated.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_43.sol#108)
+Variable Post.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_43.sol#409) is too similar to ProofHash.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_43.sol#275)
+Variable Template.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_43.sol#327) is too similar to Operated.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_43.sol#108)
+Variable Operated.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_43.sol#108) is too similar to ProofHash.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_43.sol#275)
+Variable Operated.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_43.sol#56) is too similar to ProofHash.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_43.sol#275)
+Variable Template.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_43.sol#327) is too similar to ProofHash.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_43.sol#275)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+ProofHash.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_43.sol#251) is never used in Post (Timestamp-Dependency/timestamp_buggy_43.sol#353-426)
+Operated.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_43.sol#37) is never used in Post (Timestamp-Dependency/timestamp_buggy_43.sol#353-426)
+EventMetadata.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_43.sol#10) is never used in Post (Timestamp-Dependency/timestamp_buggy_43.sol#353-426)
+Template.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_43.sol#306) is never used in Post (Timestamp-Dependency/timestamp_buggy_43.sol#353-426)
+Post.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_43.sol#355) is never used in Post (Timestamp-Dependency/timestamp_buggy_43.sol#353-426)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+
+initialize(address,bytes,bytes) should be declared external:
+	- Post.initialize(address,bytes,bytes) (Timestamp-Dependency/timestamp_buggy_43.sol#358-382)
+Moreover, the following function parameters should change its data location:
+multihash location should be calldata
+metadata location should be calldata
+setMetadata(bytes) should be declared external:
+	- Post.setMetadata(bytes) (Timestamp-Dependency/timestamp_buggy_43.sol#389-395)
+Moreover, the following function parameters should change its data location:
+metadata location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+Timestamp-Dependency/timestamp_buggy_43.sol analyzed (7 contracts with 80 detectors), 159 result(s) found

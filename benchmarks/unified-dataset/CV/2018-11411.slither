@@ -1,0 +1,47 @@
+
+DimonCoin.transferFrom(address,address,uint256).allowance (CV/2018-11411.sol#86) shadows:
+	- DimonCoin.allowance(address,address) (CV/2018-11411.sol#113-115) (function)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#local-variable-shadowing
+
+DimonCoin.transferOwnership(address) (CV/2018-11411.sol#34-36) should emit an event for: 
+	- owner = newOwner (CV/2018-11411.sol#35) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+DimonCoin.transferOwnership(address).newOwner (CV/2018-11411.sol#34) lacks a zero-check on :
+		- owner = newOwner (CV/2018-11411.sol#35)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Pragma version^0.4.16 (CV/2018-11411.sol#1) allows old versions
+solc-0.4.16 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+DimonCoin (CV/2018-11411.sol#8-127) should inherit from ForeignToken (CV/2018-11411.sol#3-6)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-inheritance
+
+Parameter DimonCoin.getEthBalance(address)._addr (CV/2018-11411.sol#38) is not in mixedCase
+Parameter DimonCoin.distributeFUD(address[],uint256,uint256)._value (CV/2018-11411.sol#42) is not in mixedCase
+Parameter DimonCoin.distributeFUD(address[],uint256,uint256)._ethbal (CV/2018-11411.sol#42) is not in mixedCase
+Parameter DimonCoin.balanceOf(address)._owner (CV/2018-11411.sol#53) is not in mixedCase
+Parameter DimonCoin.transfer(address,uint256)._to (CV/2018-11411.sol#63) is not in mixedCase
+Parameter DimonCoin.transfer(address,uint256)._value (CV/2018-11411.sol#63) is not in mixedCase
+Parameter DimonCoin.transferFrom(address,address,uint256)._from (CV/2018-11411.sol#81) is not in mixedCase
+Parameter DimonCoin.transferFrom(address,address,uint256)._to (CV/2018-11411.sol#81) is not in mixedCase
+Parameter DimonCoin.transferFrom(address,address,uint256)._value (CV/2018-11411.sol#81) is not in mixedCase
+Parameter DimonCoin.approve(address,uint256)._spender (CV/2018-11411.sol#103) is not in mixedCase
+Parameter DimonCoin.approve(address,uint256)._value (CV/2018-11411.sol#103) is not in mixedCase
+Parameter DimonCoin.allowance(address,address)._owner (CV/2018-11411.sol#113) is not in mixedCase
+Parameter DimonCoin.allowance(address,address)._spender (CV/2018-11411.sol#113) is not in mixedCase
+Parameter DimonCoin.withdrawForeignTokens(address)._tokenContract (CV/2018-11411.sol#118) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+DimonCoin.slitherConstructorVariables() (CV/2018-11411.sol#8-127) uses literals with too many digits:
+	- totalSupply = 100000000 * 10 ** 8 (CV/2018-11411.sol#15)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+DimonCoin.totalSupply (CV/2018-11411.sol#15) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+distributeFUD(address[],uint256,uint256) should be declared external:
+	- DimonCoin.distributeFUD(address[],uint256,uint256) (CV/2018-11411.sol#42-51)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+CV/2018-11411.sol analyzed (2 contracts with 80 detectors), 23 result(s) found

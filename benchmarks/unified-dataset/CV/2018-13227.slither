@@ -1,0 +1,73 @@
+
+MoneyChainNetToken () has incorrect ERC20 function interface:token.transfer(address,uint256) ()
+MoneyChainNetToken () has incorrect ERC20 function interface:MoneyChainNetToken.transfer(address,uint256) ()
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-erc20-interface
+
+owned.transferOwnership(address) () should emit an event for: 
+	- owner = newOwner () 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+MoneyChainNetToken.setPrices(uint256,uint256) () should emit an event for: 
+	- sellPrice = newSellPrice () 
+	- buyPrice = newBuyPrice () 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+
+owned.transferOwnership(address).newOwner () lacks a zero-check on :
+		- owner = newOwner ()
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Deprecated standard detected THROW ():
+	- Usage of "throw" should be replaced with "revert()"
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#deprecated-standards
+
+Pragma version^0.4.2 () allows old versions
+solc-0.4.2 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Contract owned () is not in CapWords
+Contract tokenRecipient () is not in CapWords
+Contract token () is not in CapWords
+Parameter token.transfer(address,uint256)._to () is not in mixedCase
+Parameter token.transfer(address,uint256)._value () is not in mixedCase
+Parameter token.approve(address,uint256)._spender () is not in mixedCase
+Parameter token.approve(address,uint256)._value () is not in mixedCase
+Parameter token.approveAndCall(address,uint256,bytes)._spender () is not in mixedCase
+Parameter token.approveAndCall(address,uint256,bytes)._value () is not in mixedCase
+Parameter token.approveAndCall(address,uint256,bytes)._extraData () is not in mixedCase
+Parameter token.transferFrom(address,address,uint256)._from () is not in mixedCase
+Parameter token.transferFrom(address,address,uint256)._to () is not in mixedCase
+Parameter token.transferFrom(address,address,uint256)._value () is not in mixedCase
+Parameter MoneyChainNetToken.transfer(address,uint256)._to () is not in mixedCase
+Parameter MoneyChainNetToken.transfer(address,uint256)._value () is not in mixedCase
+Parameter MoneyChainNetToken.transferFrom(address,address,uint256)._from () is not in mixedCase
+Parameter MoneyChainNetToken.transferFrom(address,address,uint256)._to () is not in mixedCase
+Parameter MoneyChainNetToken.transferFrom(address,address,uint256)._value () is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in MoneyChainNetToken.sell(uint256) ():
+	External calls:
+	- ! msg.sender.send(amount * sellPrice) ()
+	Event emitted after the call(s):
+	- Transfer(msg.sender,this,amount) ()
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+MoneyChainNetToken.slitherConstructorVariables() () uses literals with too many digits:
+	- initialSupply = 35000000 * 10 ** 8 ()
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+token.standard () is never used in MoneyChainNetToken ()
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+
+MoneyChainNetToken.decimalUnits () should be constant
+MoneyChainNetToken.initialSupply () should be constant
+MoneyChainNetToken.tokenName () should be constant
+MoneyChainNetToken.tokenSymbol () should be constant
+token.standard () should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+receiveApproval(address,uint256,address,bytes) should be declared external:
+	- tokenRecipient.receiveApproval(address,uint256,address,bytes) ()
+approveAndCall(address,uint256,bytes) should be declared external:
+	- token.approveAndCall(address,uint256,bytes) ()
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+CV/2018-13227.sol analyzed (4 contracts with 80 detectors), 36 result(s) found

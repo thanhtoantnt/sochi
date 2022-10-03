@@ -1,0 +1,50 @@
+
+Tracto.fallback() (CV/2018-14063.sol#63-67) sends eth to arbitrary user
+	Dangerous calls:
+	- owner.transfer(this.balance) (CV/2018-14063.sol#65)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Tracto.transferOwnership(address) (CV/2018-14063.sol#175-177) should emit an event for: 
+	- owner = newOwner (CV/2018-14063.sol#176) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+Tracto.transferOwnership(address).newOwner (CV/2018-14063.sol#175) lacks a zero-check on :
+		- owner = newOwner (CV/2018-14063.sol#176)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Pragma version^0.4.11 (CV/2018-14063.sol#1) allows old versions
+solc-0.4.11 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Parameter Tracto.balanceOf(address)._owner (CV/2018-14063.sol#70) is not in mixedCase
+Parameter Tracto.transfer(address,uint256)._to (CV/2018-14063.sol#80) is not in mixedCase
+Parameter Tracto.transfer(address,uint256)._amount (CV/2018-14063.sol#80) is not in mixedCase
+Parameter Tracto.transferFrom(address,address,uint256)._from (CV/2018-14063.sol#99) is not in mixedCase
+Parameter Tracto.transferFrom(address,address,uint256)._to (CV/2018-14063.sol#100) is not in mixedCase
+Parameter Tracto.transferFrom(address,address,uint256)._amount (CV/2018-14063.sol#101) is not in mixedCase
+Parameter Tracto.approve(address,uint256)._spender (CV/2018-14063.sol#126) is not in mixedCase
+Parameter Tracto.approve(address,uint256)._amount (CV/2018-14063.sol#126) is not in mixedCase
+Parameter Tracto.increaseApproval(address,uint256)._spender (CV/2018-14063.sol#145) is not in mixedCase
+Parameter Tracto.increaseApproval(address,uint256)._addedValue (CV/2018-14063.sol#145) is not in mixedCase
+Parameter Tracto.decreaseApproval(address,uint256)._spender (CV/2018-14063.sol#153) is not in mixedCase
+Parameter Tracto.decreaseApproval(address,uint256)._subtractedValue (CV/2018-14063.sol#153) is not in mixedCase
+Parameter Tracto.allowance(address,address)._owner (CV/2018-14063.sol#166) is not in mixedCase
+Parameter Tracto.allowance(address,address)._spender (CV/2018-14063.sol#166) is not in mixedCase
+Parameter Tracto.changeNameSymbol(string,string)._name (CV/2018-14063.sol#170) is not in mixedCase
+Parameter Tracto.changeNameSymbol(string,string)._symbol (CV/2018-14063.sol#170) is not in mixedCase
+Variable Tracto._totalSupply (CV/2018-14063.sol#33) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Tracto.fallback() (CV/2018-14063.sol#63-67) uses literals with too many digits:
+	- this.balance > 1000000000000000000 (CV/2018-14063.sol#64)
+Tracto.slitherConstructorVariables() (CV/2018-14063.sol#29-178) uses literals with too many digits:
+	- _totalSupply = 7000000000000000 (CV/2018-14063.sol#33)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+Tracto._totalSupply (CV/2018-14063.sol#33) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+changeNameSymbol(string,string) should be declared external:
+	- Tracto.changeNameSymbol(string,string) (CV/2018-14063.sol#170-173)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+CV/2018-14063.sol analyzed (3 contracts with 80 detectors), 26 result(s) found

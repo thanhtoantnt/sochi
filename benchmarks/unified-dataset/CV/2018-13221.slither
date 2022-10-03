@@ -1,0 +1,99 @@
+Compilation warnings/errors on CV/2018-13221.sol:
+CV/2018-13221.sol:43:7: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+      throw;
+      ^---^
+CV/2018-13221.sol:54:34: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (msg.sender != owner) throw;
+                                 ^---^
+CV/2018-13221.sol:86:8: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+       throw;
+       ^---^
+CV/2018-13221.sol:116:64: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+    if ((_value != 0) && (allowed[msg.sender][_spender] != 0)) throw;
+                                                               ^---^
+CV/2018-13221.sol:154:38: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (balances[this] < amount) throw; 
+                                     ^---^
+CV/2018-13221.sol:161:45: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (balances[msg.sender] < amount ) throw;
+                                            ^---^
+CV/2018-13221.sol:165:13: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+            throw;
+            ^---^
+CV/2018-13221.sol:41:3: Warning: This declaration shadows a builtin symbol.
+  function assert(bool assertion) internal {
+  ^
+Spanning multiple lines.
+
+
+ExtremeToken (CV/2018-13221.sol#141-186) has incorrect ERC20 function interface:StandardToken.transferFrom(address,address,uint256) (CV/2018-13221.sol#102-110)
+ExtremeToken (CV/2018-13221.sol#141-186) has incorrect ERC20 function interface:StandardToken.approve(address,uint256) (CV/2018-13221.sol#111-119)
+ExtremeToken (CV/2018-13221.sol#141-186) has incorrect ERC20 function interface:ERC20.transferFrom(address,address,uint256) (CV/2018-13221.sol#72)
+ExtremeToken (CV/2018-13221.sol#141-186) has incorrect ERC20 function interface:ERC20.approve(address,uint256) (CV/2018-13221.sol#73)
+ExtremeToken (CV/2018-13221.sol#141-186) has incorrect ERC20 function interface:ERC20Basic.transfer(address,uint256) (CV/2018-13221.sol#67)
+ExtremeToken (CV/2018-13221.sol#141-186) has incorrect ERC20 function interface:newToken.transfer(address,uint256) (CV/2018-13221.sol#90-94)
+ExtremeToken (CV/2018-13221.sol#141-186) has incorrect ERC20 function interface:ExtremeToken.transfer(address,uint256) (CV/2018-13221.sol#171-177)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-erc20-interface
+
+SafeMath.assert(bool) (CV/2018-13221.sol#41-45) (function) shadows built-in symbol"
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#builtin-symbol-shadowing
+
+Ownable.transferOwnership(address) (CV/2018-13221.sol#57-61) should emit an event for: 
+	- owner = newOwner (CV/2018-13221.sol#59) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+ExtremeToken.setPrices(uint256,uint256) (CV/2018-13221.sol#146-149) should emit an event for: 
+	- sellPrice = newSellPrice (CV/2018-13221.sol#147) 
+	- buyPrice = newBuyPrice (CV/2018-13221.sol#148) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+
+SafeMath.div(uint256,uint256) (CV/2018-13221.sol#14-19) is never used and should be removed
+SafeMath.max256(uint256,uint256) (CV/2018-13221.sol#35-37) is never used and should be removed
+SafeMath.max64(uint64,uint64) (CV/2018-13221.sol#29-31) is never used and should be removed
+SafeMath.min256(uint256,uint256) (CV/2018-13221.sol#38-40) is never used and should be removed
+SafeMath.min64(uint64,uint64) (CV/2018-13221.sol#32-34) is never used and should be removed
+SafeMath.mul(uint256,uint256) (CV/2018-13221.sol#9-13) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Deprecated standard detected THROW (CV/2018-13221.sol#43):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected THROW (CV/2018-13221.sol#54):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected THROW (CV/2018-13221.sol#86):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected THROW (CV/2018-13221.sol#116):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected THROW (CV/2018-13221.sol#154):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected THROW (CV/2018-13221.sol#161):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected THROW (CV/2018-13221.sol#165):
+	- Usage of "throw" should be replaced with "revert()"
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#deprecated-standards
+
+Pragma version^0.4.14 (CV/2018-13221.sol#1) allows old versions
+solc-0.4.14 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Contract newToken (CV/2018-13221.sol#77-98) is not in CapWords
+Parameter newToken.transfer(address,uint256)._to (CV/2018-13221.sol#90) is not in mixedCase
+Parameter newToken.transfer(address,uint256)._value (CV/2018-13221.sol#90) is not in mixedCase
+Parameter newToken.balanceOf(address)._owner (CV/2018-13221.sol#95) is not in mixedCase
+Parameter StandardToken.transferFrom(address,address,uint256)._from (CV/2018-13221.sol#102) is not in mixedCase
+Parameter StandardToken.transferFrom(address,address,uint256)._to (CV/2018-13221.sol#102) is not in mixedCase
+Parameter StandardToken.transferFrom(address,address,uint256)._value (CV/2018-13221.sol#102) is not in mixedCase
+Parameter StandardToken.approve(address,uint256)._spender (CV/2018-13221.sol#111) is not in mixedCase
+Parameter StandardToken.approve(address,uint256)._value (CV/2018-13221.sol#111) is not in mixedCase
+Parameter StandardToken.allowance(address,address)._owner (CV/2018-13221.sol#120) is not in mixedCase
+Parameter StandardToken.allowance(address,address)._spender (CV/2018-13221.sol#120) is not in mixedCase
+Parameter ExtremeToken.transfer(address,uint256)._to (CV/2018-13221.sol#171) is not in mixedCase
+Parameter ExtremeToken.transfer(address,uint256)._value (CV/2018-13221.sol#171) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in ExtremeToken.sell(uint256) (CV/2018-13221.sol#160-169):
+	External calls:
+	- ! msg.sender.send(amount * sellPrice) (CV/2018-13221.sol#164)
+	Event emitted after the call(s):
+	- Transfer(msg.sender,this,amount) (CV/2018-13221.sol#167)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+CV/2018-13221.sol analyzed (8 contracts with 80 detectors), 39 result(s) found

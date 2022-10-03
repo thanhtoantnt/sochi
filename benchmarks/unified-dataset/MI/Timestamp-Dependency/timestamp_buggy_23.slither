@@ -1,0 +1,267 @@
+
+ERC20.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_23.sol#156-164) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_23.sol#162)
+ERC20.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_23.sol#246-254) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_23.sol#252)
+ERC20.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_23.sol#289-297) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_23.sol#295)
+ERC20.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_23.sol#332-340) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_23.sol#338)
+ERC20Detailed.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_23.sol#431-439) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_23.sol#437)
+ERC20Detailed.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_23.sol#441-449) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(address(this).balance) (Timestamp-Dependency/timestamp_buggy_23.sol#447)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+ERC20.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_23.sol#156-164) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_23.sol#161)" 
+ERC20.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_23.sol#246-254) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_23.sol#251)" 
+ERC20.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_23.sol#289-297) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_23.sol#294)" 
+ERC20.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_23.sol#332-340) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_23.sol#337)" 
+ERC20Detailed.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_23.sol#431-439) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_23.sol#436)" 
+ERC20Detailed.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_23.sol#441-449) uses a weak PRNG: "now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_23.sol#446)" 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG
+
+ERC20Detailed.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_23.sol#431-439) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_23.sol#436)
+ERC20Detailed.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_23.sol#441-449) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_23.sol#446)
+ERC20.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_23.sol#289-297) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_23.sol#294)
+ERC20.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_23.sol#156-164) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_23.sol#161)
+ERC20.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_23.sol#332-340) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_23.sol#337)
+ERC20.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_23.sol#246-254) uses a dangerous strict equality:
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_23.sol#251)
+ERC20.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#210-212) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_23.sol#211)
+ERC20.play_tmstmp19(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#131-134) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_23.sol#133)
+ERC20.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#191-194) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_23.sol#193)
+ERC20Detailed.play_tmstmp26(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#427-429) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_23.sol#428)
+ERC20.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#372-375) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_23.sol#374)
+ERC20.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#228-230) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_23.sol#229)
+ERC20Burnable.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#396-399) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_23.sol#398)
+ERC20.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#314-317) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_23.sol#316)
+ERC20.play_tmstmp38(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#144-146) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_23.sol#145)
+ERC20.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#271-274) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_23.sol#273)
+ERC20.play_tmstmp7(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#176-179) uses a dangerous strict equality:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_23.sol#178)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+ERC20.bug_tmstmp4().pastBlockTime_tmstmp4 (Timestamp-Dependency/timestamp_buggy_23.sol#157) is a local variable never initialized
+ERC20.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_23.sol#290) is a local variable never initialized
+ERC20.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_23.sol#333) is a local variable never initialized
+ERC20.bug_tmstmp8().pastBlockTime_tmstmp8 (Timestamp-Dependency/timestamp_buggy_23.sol#247) is a local variable never initialized
+ERC20Detailed.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_23.sol#432) is a local variable never initialized
+ERC20Detailed.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_23.sol#442) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+ERC20Detailed.constructor(string,string,uint8).name (Timestamp-Dependency/timestamp_buggy_23.sol#452) shadows:
+	- ERC20Detailed.name() (Timestamp-Dependency/timestamp_buggy_23.sol#462-464) (function)
+ERC20Detailed.constructor(string,string,uint8).symbol (Timestamp-Dependency/timestamp_buggy_23.sol#452) shadows:
+	- ERC20Detailed.symbol() (Timestamp-Dependency/timestamp_buggy_23.sol#470-472) (function)
+ERC20Detailed.constructor(string,string,uint8).decimals (Timestamp-Dependency/timestamp_buggy_23.sol#452) shadows:
+	- ERC20Detailed.decimals() (Timestamp-Dependency/timestamp_buggy_23.sol#478-480) (function)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#local-variable-shadowing
+
+ERC20.bug_tmstmp9() (Timestamp-Dependency/timestamp_buggy_23.sol#120-122) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_23.sol#121)
+ERC20.bug_tmstmp25() (Timestamp-Dependency/timestamp_buggy_23.sol#125-127) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_23.sol#126)
+ERC20.play_tmstmp19(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#131-134) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_23.sol#133)
+ERC20.play_tmstmp38(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#144-146) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_23.sol#145)
+ERC20.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_23.sol#156-164) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp4) (Timestamp-Dependency/timestamp_buggy_23.sol#159)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_23.sol#161)
+ERC20.play_tmstmp7(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#176-179) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_23.sol#178)
+ERC20.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#191-194) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_23.sol#193)
+ERC20.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#210-212) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_23.sol#211)
+ERC20.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#228-230) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_23.sol#229)
+ERC20.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_23.sol#246-254) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp8) (Timestamp-Dependency/timestamp_buggy_23.sol#249)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_23.sol#251)
+ERC20.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#271-274) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_23.sol#273)
+ERC20.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_23.sol#289-297) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp36) (Timestamp-Dependency/timestamp_buggy_23.sol#292)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_23.sol#294)
+ERC20.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#314-317) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_23.sol#316)
+ERC20.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_23.sol#332-340) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp40) (Timestamp-Dependency/timestamp_buggy_23.sol#335)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_23.sol#337)
+ERC20.bug_tmstmp33() (Timestamp-Dependency/timestamp_buggy_23.sol#355-357) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_23.sol#356)
+ERC20.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#372-375) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_23.sol#374)
+ERC20Burnable.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#396-399) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == _vtime (Timestamp-Dependency/timestamp_buggy_23.sol#398)
+ERC20Burnable.bug_tmstmp13() (Timestamp-Dependency/timestamp_buggy_23.sol#409-411) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp >= 1546300800 (Timestamp-Dependency/timestamp_buggy_23.sol#410)
+ERC20Detailed.play_tmstmp26(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#427-429) uses timestamp for comparisons
+	Dangerous comparisons:
+	- startTime + (5 * 86400) == block.timestamp (Timestamp-Dependency/timestamp_buggy_23.sol#428)
+ERC20Detailed.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_23.sol#431-439) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp20) (Timestamp-Dependency/timestamp_buggy_23.sol#434)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_23.sol#436)
+ERC20Detailed.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_23.sol#441-449) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime_tmstmp32) (Timestamp-Dependency/timestamp_buggy_23.sol#444)
+	- now % 15 == 0 (Timestamp-Dependency/timestamp_buggy_23.sol#446)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+Different versions of Solidity are used:
+	- Version used: ['^0.5.0', '^0.5.2']
+	- ^0.5.2 (Timestamp-Dependency/timestamp_buggy_23.sol#7)
+	- ^0.5.2 (Timestamp-Dependency/timestamp_buggy_23.sol#33)
+	- ^0.5.2 (Timestamp-Dependency/timestamp_buggy_23.sol#101)
+	- ^0.5.2 (Timestamp-Dependency/timestamp_buggy_23.sol#380)
+	- ^0.5.2 (Timestamp-Dependency/timestamp_buggy_23.sol#416)
+	- ^0.5.0 (Timestamp-Dependency/timestamp_buggy_23.sol#486)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#different-pragma-directives-are-used
+
+SafeMath.div(uint256,uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#60-67) is never used and should be removed
+SafeMath.mod(uint256,uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#93-96) is never used and should be removed
+SafeMath.mul(uint256,uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#43-55) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version^0.5.2 (Timestamp-Dependency/timestamp_buggy_23.sol#7) allows old versions
+Pragma version^0.5.2 (Timestamp-Dependency/timestamp_buggy_23.sol#33) allows old versions
+Pragma version^0.5.2 (Timestamp-Dependency/timestamp_buggy_23.sol#101) allows old versions
+Pragma version^0.5.2 (Timestamp-Dependency/timestamp_buggy_23.sol#380) allows old versions
+Pragma version^0.5.2 (Timestamp-Dependency/timestamp_buggy_23.sol#416) allows old versions
+Pragma version^0.5.0 (Timestamp-Dependency/timestamp_buggy_23.sol#486) allows old versions
+solc-0.5.2 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function ERC20.bug_tmstmp9() (Timestamp-Dependency/timestamp_buggy_23.sol#120-122) is not in mixedCase
+Function ERC20.bug_tmstmp25() (Timestamp-Dependency/timestamp_buggy_23.sol#125-127) is not in mixedCase
+Function ERC20.play_tmstmp19(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#131-134) is not in mixedCase
+Function ERC20.play_tmstmp38(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#144-146) is not in mixedCase
+Function ERC20.bug_tmstmp4() (Timestamp-Dependency/timestamp_buggy_23.sol#156-164) is not in mixedCase
+Function ERC20.play_tmstmp7(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#176-179) is not in mixedCase
+Function ERC20.play_tmstmp23(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#191-194) is not in mixedCase
+Function ERC20.play_tmstmp14(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#210-212) is not in mixedCase
+Function ERC20.play_tmstmp30(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#228-230) is not in mixedCase
+Function ERC20.bug_tmstmp8() (Timestamp-Dependency/timestamp_buggy_23.sol#246-254) is not in mixedCase
+Function ERC20.play_tmstmp39(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#271-274) is not in mixedCase
+Function ERC20.bug_tmstmp36() (Timestamp-Dependency/timestamp_buggy_23.sol#289-297) is not in mixedCase
+Function ERC20.play_tmstmp35(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#314-317) is not in mixedCase
+Function ERC20.bug_tmstmp40() (Timestamp-Dependency/timestamp_buggy_23.sol#332-340) is not in mixedCase
+Function ERC20.bug_tmstmp33() (Timestamp-Dependency/timestamp_buggy_23.sol#355-357) is not in mixedCase
+Function ERC20.play_tmstmp27(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#372-375) is not in mixedCase
+Variable ERC20.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_23.sol#130) is not in mixedCase
+Variable ERC20.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_23.sol#143) is not in mixedCase
+Variable ERC20.winner_tmstmp7 (Timestamp-Dependency/timestamp_buggy_23.sol#175) is not in mixedCase
+Variable ERC20.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_23.sol#190) is not in mixedCase
+Variable ERC20.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_23.sol#209) is not in mixedCase
+Variable ERC20.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_23.sol#227) is not in mixedCase
+Variable ERC20.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_23.sol#270) is not in mixedCase
+Variable ERC20.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_23.sol#313) is not in mixedCase
+Variable ERC20.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_23.sol#371) is not in mixedCase
+Function ERC20Burnable.play_tmstmp31(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#396-399) is not in mixedCase
+Function ERC20Burnable.bug_tmstmp13() (Timestamp-Dependency/timestamp_buggy_23.sol#409-411) is not in mixedCase
+Variable ERC20Burnable.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_23.sol#395) is not in mixedCase
+Function ERC20Detailed.play_tmstmp26(uint256) (Timestamp-Dependency/timestamp_buggy_23.sol#427-429) is not in mixedCase
+Function ERC20Detailed.bug_tmstmp20() (Timestamp-Dependency/timestamp_buggy_23.sol#431-439) is not in mixedCase
+Function ERC20Detailed.bug_tmstmp32() (Timestamp-Dependency/timestamp_buggy_23.sol#441-449) is not in mixedCase
+Variable ERC20Detailed.winner_tmstmp26 (Timestamp-Dependency/timestamp_buggy_23.sol#426) is not in mixedCase
+Variable ERC20Detailed.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_23.sol#457) is not in mixedCase
+Variable ERC20Detailed.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_23.sol#465) is not in mixedCase
+Variable ERC20Detailed.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_23.sol#473) is not in mixedCase
+Variable ERC20Detailed.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_23.sol#481) is not in mixedCase
+Variable AGR.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_23.sol#495) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable ERC20.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_23.sol#290) is too similar to ERC20.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_23.sol#333)
+Variable ERC20.bug_tmstmp4().pastBlockTime_tmstmp4 (Timestamp-Dependency/timestamp_buggy_23.sol#157) is too similar to ERC20.bug_tmstmp8().pastBlockTime_tmstmp8 (Timestamp-Dependency/timestamp_buggy_23.sol#247)
+Variable ERC20.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_23.sol#209) is too similar to ERC20.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_23.sol#130)
+Variable ERC20.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_23.sol#190) is too similar to ERC20.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_23.sol#143)
+Variable ERC20.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_23.sol#190) is too similar to ERC20.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_23.sol#270)
+Variable ERC20.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_23.sol#190) is too similar to ERC20.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_23.sol#371)
+Variable ERC20.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_23.sol#190) is too similar to ERC20.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_23.sol#227)
+Variable ERC20.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_23.sol#227) is too similar to ERC20.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_23.sol#313)
+Variable ERC20.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_23.sol#227) is too similar to ERC20.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_23.sol#143)
+Variable ERC20.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_23.sol#227) is too similar to ERC20.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_23.sol#270)
+Variable ERC20.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_23.sol#190) is too similar to ERC20.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_23.sol#313)
+Variable ERC20.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_23.sol#313) is too similar to ERC20.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_23.sol#143)
+Variable ERC20.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_23.sol#313) is too similar to ERC20.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_23.sol#270)
+Variable ERC20.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_23.sol#130) is too similar to ERC20.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_23.sol#270)
+Variable ERC20.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_23.sol#143) is too similar to ERC20.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_23.sol#270)
+Variable ERC20.winner_tmstmp14 (Timestamp-Dependency/timestamp_buggy_23.sol#209) is too similar to ERC20Burnable.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_23.sol#395)
+Variable ERC20.winner_tmstmp19 (Timestamp-Dependency/timestamp_buggy_23.sol#130) is too similar to ERC20Burnable.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_23.sol#395)
+Variable ERC20.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_23.sol#190) is too similar to ERC20Burnable.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_23.sol#395)
+Variable ERC20.winner_tmstmp30 (Timestamp-Dependency/timestamp_buggy_23.sol#227) is too similar to ERC20Burnable.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_23.sol#395)
+Variable ERC20Burnable.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_23.sol#395) is too similar to ERC20.winner_tmstmp35 (Timestamp-Dependency/timestamp_buggy_23.sol#313)
+Variable ERC20Burnable.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_23.sol#395) is too similar to ERC20.winner_tmstmp38 (Timestamp-Dependency/timestamp_buggy_23.sol#143)
+Variable ERC20Burnable.winner_tmstmp31 (Timestamp-Dependency/timestamp_buggy_23.sol#395) is too similar to ERC20.winner_tmstmp39 (Timestamp-Dependency/timestamp_buggy_23.sol#270)
+Variable ERC20Detailed.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_23.sol#465) is too similar to ERC20Detailed.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_23.sol#473)
+Variable ERC20Detailed.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_23.sol#465) is too similar to ERC20Detailed.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_23.sol#481)
+Variable ERC20Detailed.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_23.sol#473) is too similar to ERC20Detailed.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_23.sol#481)
+Variable ERC20Detailed.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_23.sol#465) is too similar to ERC20Detailed.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_23.sol#457)
+Variable ERC20Detailed.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_23.sol#473) is too similar to ERC20Detailed.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_23.sol#457)
+Variable ERC20Detailed.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_23.sol#481) is too similar to ERC20Detailed.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_23.sol#457)
+Variable ERC20Detailed.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_23.sol#432) is too similar to ERC20Detailed.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_23.sol#442)
+Variable ERC20Detailed.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_23.sol#465) is too similar to AGR.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_23.sol#495)
+Variable ERC20Detailed.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_23.sol#473) is too similar to AGR.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_23.sol#495)
+Variable ERC20Detailed.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_23.sol#481) is too similar to AGR.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_23.sol#495)
+Variable AGR.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_23.sol#495) is too similar to ERC20Detailed.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_23.sol#457)
+Variable ERC20Detailed.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_23.sol#432) is too similar to ERC20.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_23.sol#290)
+Variable ERC20Detailed.bug_tmstmp20().pastBlockTime_tmstmp20 (Timestamp-Dependency/timestamp_buggy_23.sol#432) is too similar to ERC20.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_23.sol#333)
+Variable ERC20Detailed.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_23.sol#442) is too similar to ERC20.bug_tmstmp36().pastBlockTime_tmstmp36 (Timestamp-Dependency/timestamp_buggy_23.sol#290)
+Variable ERC20Detailed.bug_tmstmp32().pastBlockTime_tmstmp32 (Timestamp-Dependency/timestamp_buggy_23.sol#442) is too similar to ERC20.bug_tmstmp40().pastBlockTime_tmstmp40 (Timestamp-Dependency/timestamp_buggy_23.sol#333)
+Variable ERC20.winner_tmstmp23 (Timestamp-Dependency/timestamp_buggy_23.sol#190) is too similar to ERC20Detailed.winner_tmstmp26 (Timestamp-Dependency/timestamp_buggy_23.sol#426)
+Variable ERC20Detailed.winner_tmstmp26 (Timestamp-Dependency/timestamp_buggy_23.sol#426) is too similar to ERC20.winner_tmstmp27 (Timestamp-Dependency/timestamp_buggy_23.sol#371)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+AGR.constructor() (Timestamp-Dependency/timestamp_buggy_23.sol#492-494) uses literals with too many digits:
+	- super._mint(msg.sender,30000000000000) (Timestamp-Dependency/timestamp_buggy_23.sol#493)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+ERC20Detailed.bugv_tmstmp5 (Timestamp-Dependency/timestamp_buggy_23.sol#457) is never used in AGR (Timestamp-Dependency/timestamp_buggy_23.sol#491-496)
+ERC20Detailed.bugv_tmstmp1 (Timestamp-Dependency/timestamp_buggy_23.sol#465) is never used in AGR (Timestamp-Dependency/timestamp_buggy_23.sol#491-496)
+ERC20Detailed.bugv_tmstmp2 (Timestamp-Dependency/timestamp_buggy_23.sol#473) is never used in AGR (Timestamp-Dependency/timestamp_buggy_23.sol#491-496)
+ERC20Detailed.bugv_tmstmp3 (Timestamp-Dependency/timestamp_buggy_23.sol#481) is never used in AGR (Timestamp-Dependency/timestamp_buggy_23.sol#491-496)
+AGR.bugv_tmstmp4 (Timestamp-Dependency/timestamp_buggy_23.sol#495) is never used in AGR (Timestamp-Dependency/timestamp_buggy_23.sol#491-496)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+Timestamp-Dependency/timestamp_buggy_23.sol analyzed (6 contracts with 80 detectors), 152 result(s) found

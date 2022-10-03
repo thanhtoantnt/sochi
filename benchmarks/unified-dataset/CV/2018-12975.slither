@@ -1,0 +1,177 @@
+
+ERC721Token (CV/2018-12975.sol#250-454) contract sets array length with a user-controlled value:
+	- ownedTokens[_to].push(_tokenId) (CV/2018-12975.sol#425)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#array-length-assignment
+
+CryptoSagaHero.random(uint32,uint32) (CV/2018-12975.sol#1224-1232) uses a weak PRNG: "seed % (_upper - _lower) + _lower (CV/2018-12975.sol#1231)" 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG
+
+Reentrancy in CryptoSagaHero.withdrawDeposit(uint256) (CV/2018-12975.sol#1211-1221):
+	External calls:
+	- goldContract.transfer(msg.sender,_amount) (CV/2018-12975.sol#1217)
+	State variables written after the call(s):
+	- addressToGoldDeposit[msg.sender] -= _amount (CV/2018-12975.sol#1219)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
+
+CryptoSagaHero.mint(address,uint32)._ivForStats (CV/2018-12975.sol#1059) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+Claimable.transferOwnership(address) (CV/2018-12975.sol#68-70) should emit an event for: 
+	- pendingOwner = newOwner (CV/2018-12975.sol#69) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+
+CryptoSagaHero.setRequiredExpIncreaseFactor(uint32) (CV/2018-12975.sol#975-980) should emit an event for: 
+	- requiredExpIncreaseFactor = _value (CV/2018-12975.sol#979) 
+CryptoSagaHero.setRequiredGoldIncreaseFactor(uint256) (CV/2018-12975.sol#983-988) should emit an event for: 
+	- requiredGoldIncreaseFactor = _value (CV/2018-12975.sol#987) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+
+Claimable.transferOwnership(address).newOwner (CV/2018-12975.sol#68) lacks a zero-check on :
+		- pendingOwner = newOwner (CV/2018-12975.sol#69)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Reentrancy in CryptoSagaHero.transferDeposit(uint256) (CV/2018-12975.sol#1197-1208):
+	External calls:
+	- require(bool)(goldContract.allowance(msg.sender,this) >= _amount) (CV/2018-12975.sol#1201)
+	- goldContract.transferFrom(msg.sender,this,_amount) (CV/2018-12975.sol#1204)
+	State variables written after the call(s):
+	- addressToGoldDeposit[msg.sender] += _amount (CV/2018-12975.sol#1206)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-2
+
+CryptoSagaHero.deploy(uint256,uint32,uint256) (CV/2018-12975.sol#1093-1111) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(_heroInstance.availableAt <= now) (CV/2018-12975.sol#1104)
+CryptoSagaHero.levelUp(uint256) (CV/2018-12975.sol#1146-1194) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(_heroInstance.availableAt <= now) (CV/2018-12975.sol#1155)
+	- require(bool)(_heroInstance.currentLevel < _heroClassInfo.maxLevel) (CV/2018-12975.sol#1161)
+	- require(bool)(_heroInstance.currentExp >= requiredExp) (CV/2018-12975.sol#1167)
+	- require(bool)(addressToGoldDeposit[_ownerOfToken] >= requiredGold) (CV/2018-12975.sol#1176)
+CryptoSagaHero.withdrawDeposit(uint256) (CV/2018-12975.sol#1211-1221) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(addressToGoldDeposit[msg.sender] >= _amount) (CV/2018-12975.sol#1214)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+AccessDeploy.onlyAccessDeploy() (CV/2018-12975.sol#138-141) compares to a boolean constant:
+	-require(bool)(msg.sender == owner || deployAccess[msg.sender] == true) (CV/2018-12975.sol#139)
+AccessDeposit.onlyAccessDeposit() (CV/2018-12975.sol#172-175) compares to a boolean constant:
+	-require(bool)(msg.sender == owner || depositAccess[msg.sender] == true) (CV/2018-12975.sol#173)
+AccessMint.onlyAccessMint() (CV/2018-12975.sol#206-209) compares to a boolean constant:
+	-require(bool)(msg.sender == owner || mintAccess[msg.sender] == true) (CV/2018-12975.sol#207)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#boolean-equality
+
+CryptoSagaHero.random(uint32,uint32) (CV/2018-12975.sol#1224-1232) has costly operations inside a loop:
+	- seed = uint32(keccak256()(keccak256()(block.blockhash(block.number),seed),now)) (CV/2018-12975.sol#1230)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#costly-operations-inside-a-loop
+
+ERC721Token._burn(uint256) (CV/2018-12975.sol#370-376) is never used and should be removed
+SafeMath.div(uint256,uint256) (CV/2018-12975.sol#503-508) is never used and should be removed
+SafeMath.mul(uint256,uint256) (CV/2018-12975.sol#491-498) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Deprecated standard detected seed = uint32(keccak256()(keccak256()(block.blockhash(block.number),seed),now)) (CV/2018-12975.sol#1230):
+	- Usage of "block.blockhash()" should be replaced with "blockhash()"
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#deprecated-standards
+
+Pragma version^0.4.18 (CV/2018-12975.sol#5) allows old versions
+solc-0.4.18 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Parameter AccessDeploy.grantAccessDeploy(address)._address (CV/2018-12975.sol#144) is not in mixedCase
+Parameter AccessDeploy.revokeAccessDeploy(address)._address (CV/2018-12975.sol#152) is not in mixedCase
+Parameter AccessDeposit.grantAccessDeposit(address)._address (CV/2018-12975.sol#178) is not in mixedCase
+Parameter AccessDeposit.revokeAccessDeposit(address)._address (CV/2018-12975.sol#186) is not in mixedCase
+Parameter AccessMint.grantAccessMint(address)._address (CV/2018-12975.sol#212) is not in mixedCase
+Parameter AccessMint.revokeAccessMint(address)._address (CV/2018-12975.sol#220) is not in mixedCase
+Parameter ERC721Token.balanceOf(address)._owner (CV/2018-12975.sol#290) is not in mixedCase
+Parameter ERC721Token.tokensOf(address)._owner (CV/2018-12975.sol#299) is not in mixedCase
+Parameter ERC721Token.ownerOf(uint256)._tokenId (CV/2018-12975.sol#308) is not in mixedCase
+Parameter ERC721Token.approvedFor(uint256)._tokenId (CV/2018-12975.sol#319) is not in mixedCase
+Parameter ERC721Token.transfer(address,uint256)._to (CV/2018-12975.sol#328) is not in mixedCase
+Parameter ERC721Token.transfer(address,uint256)._tokenId (CV/2018-12975.sol#328) is not in mixedCase
+Parameter ERC721Token.approve(address,uint256)._to (CV/2018-12975.sol#337) is not in mixedCase
+Parameter ERC721Token.approve(address,uint256)._tokenId (CV/2018-12975.sol#337) is not in mixedCase
+Parameter ERC721Token.takeOwnership(uint256)._tokenId (CV/2018-12975.sol#350) is not in mixedCase
+Parameter ERC721Token.isApprovedFor(address,uint256)._owner (CV/2018-12975.sol#385) is not in mixedCase
+Parameter ERC721Token.isApprovedFor(address,uint256)._tokenId (CV/2018-12975.sol#385) is not in mixedCase
+Parameter ERC721Token.clearApprovalAndTransfer(address,address,uint256)._from (CV/2018-12975.sol#395) is not in mixedCase
+Parameter ERC721Token.clearApprovalAndTransfer(address,address,uint256)._to (CV/2018-12975.sol#395) is not in mixedCase
+Parameter ERC721Token.clearApprovalAndTransfer(address,address,uint256)._tokenId (CV/2018-12975.sol#395) is not in mixedCase
+Parameter ERC721Token.clearApproval(address,uint256)._owner (CV/2018-12975.sol#410) is not in mixedCase
+Parameter ERC721Token.clearApproval(address,uint256)._tokenId (CV/2018-12975.sol#410) is not in mixedCase
+Parameter ERC721Token.addToken(address,uint256)._to (CV/2018-12975.sol#421) is not in mixedCase
+Parameter ERC721Token.addToken(address,uint256)._tokenId (CV/2018-12975.sol#421) is not in mixedCase
+Parameter ERC721Token.removeToken(address,uint256)._from (CV/2018-12975.sol#435) is not in mixedCase
+Parameter ERC721Token.removeToken(address,uint256)._tokenId (CV/2018-12975.sol#435) is not in mixedCase
+Parameter BasicToken.transfer(address,uint256)._to (CV/2018-12975.sol#552) is not in mixedCase
+Parameter BasicToken.transfer(address,uint256)._value (CV/2018-12975.sol#552) is not in mixedCase
+Parameter BasicToken.balanceOf(address)._owner (CV/2018-12975.sol#568) is not in mixedCase
+Parameter StandardToken.transferFrom(address,address,uint256)._from (CV/2018-12975.sol#593) is not in mixedCase
+Parameter StandardToken.transferFrom(address,address,uint256)._to (CV/2018-12975.sol#593) is not in mixedCase
+Parameter StandardToken.transferFrom(address,address,uint256)._value (CV/2018-12975.sol#593) is not in mixedCase
+Parameter StandardToken.approve(address,uint256)._spender (CV/2018-12975.sol#615) is not in mixedCase
+Parameter StandardToken.approve(address,uint256)._value (CV/2018-12975.sol#615) is not in mixedCase
+Parameter StandardToken.allowance(address,address)._owner (CV/2018-12975.sol#627) is not in mixedCase
+Parameter StandardToken.allowance(address,address)._spender (CV/2018-12975.sol#627) is not in mixedCase
+Parameter StandardToken.increaseApproval(address,uint256)._spender (CV/2018-12975.sol#641) is not in mixedCase
+Parameter StandardToken.increaseApproval(address,uint256)._addedValue (CV/2018-12975.sol#641) is not in mixedCase
+Parameter StandardToken.decreaseApproval(address,uint256)._spender (CV/2018-12975.sol#657) is not in mixedCase
+Parameter StandardToken.decreaseApproval(address,uint256)._subtractedValue (CV/2018-12975.sol#657) is not in mixedCase
+Parameter Gold.mint(address,uint256)._to (CV/2018-12975.sol#688) is not in mixedCase
+Parameter Gold.mint(address,uint256)._amount (CV/2018-12975.sol#688) is not in mixedCase
+Parameter CryptoSagaHero.getClassInfo(uint32)._classId (CV/2018-12975.sol#822) is not in mixedCase
+Parameter CryptoSagaHero.getClassName(uint32)._classId (CV/2018-12975.sol#831) is not in mixedCase
+Parameter CryptoSagaHero.getClassRank(uint32)._classId (CV/2018-12975.sol#839) is not in mixedCase
+Parameter CryptoSagaHero.getClassMintCount(uint32)._classId (CV/2018-12975.sol#847) is not in mixedCase
+Parameter CryptoSagaHero.getHeroInfo(uint256)._tokenId (CV/2018-12975.sol#855) is not in mixedCase
+Parameter CryptoSagaHero.getHeroClassId(uint256)._tokenId (CV/2018-12975.sol#865) is not in mixedCase
+Parameter CryptoSagaHero.getHeroName(uint256)._tokenId (CV/2018-12975.sol#873) is not in mixedCase
+Parameter CryptoSagaHero.getHeroLevel(uint256)._tokenId (CV/2018-12975.sol#881) is not in mixedCase
+Parameter CryptoSagaHero.getHeroLocation(uint256)._tokenId (CV/2018-12975.sol#889) is not in mixedCase
+Parameter CryptoSagaHero.getHeroAvailableAt(uint256)._tokenId (CV/2018-12975.sol#897) is not in mixedCase
+Parameter CryptoSagaHero.getHeroBP(uint256)._tokenId (CV/2018-12975.sol#905) is not in mixedCase
+Parameter CryptoSagaHero.getHeroRequiredGoldForLevelUp(uint256)._tokenId (CV/2018-12975.sol#914) is not in mixedCase
+Parameter CryptoSagaHero.getHeroRequiredExpForLevelUp(uint256)._tokenId (CV/2018-12975.sol#922) is not in mixedCase
+Parameter CryptoSagaHero.getGoldDepositOfAddress(address)._address (CV/2018-12975.sol#930) is not in mixedCase
+Parameter CryptoSagaHero.getTokenIdOfAddressAndIndex(address,uint256)._address (CV/2018-12975.sol#938) is not in mixedCase
+Parameter CryptoSagaHero.getTokenIdOfAddressAndIndex(address,uint256)._index (CV/2018-12975.sol#938) is not in mixedCase
+Parameter CryptoSagaHero.getTotalBPOfAddress(address)._address (CV/2018-12975.sol#946) is not in mixedCase
+Parameter CryptoSagaHero.setHeroName(uint256,string)._tokenId (CV/2018-12975.sol#959) is not in mixedCase
+Parameter CryptoSagaHero.setHeroName(uint256,string)._name (CV/2018-12975.sol#959) is not in mixedCase
+Parameter CryptoSagaHero.setGoldContract(address)._contractAddress (CV/2018-12975.sol#967) is not in mixedCase
+Parameter CryptoSagaHero.setRequiredExpIncreaseFactor(uint32)._value (CV/2018-12975.sol#975) is not in mixedCase
+Parameter CryptoSagaHero.setRequiredGoldIncreaseFactor(uint256)._value (CV/2018-12975.sol#983) is not in mixedCase
+Parameter CryptoSagaHero.defineType(string,uint8,uint8,uint32,uint8,uint32,uint8,uint32[5],uint32[5],uint32[5])._className (CV/2018-12975.sol#1009) is not in mixedCase
+Parameter CryptoSagaHero.defineType(string,uint8,uint8,uint32,uint8,uint32,uint8,uint32[5],uint32[5],uint32[5])._classRank (CV/2018-12975.sol#1009) is not in mixedCase
+Parameter CryptoSagaHero.defineType(string,uint8,uint8,uint32,uint8,uint32,uint8,uint32[5],uint32[5],uint32[5])._classRace (CV/2018-12975.sol#1009) is not in mixedCase
+Parameter CryptoSagaHero.defineType(string,uint8,uint8,uint32,uint8,uint32,uint8,uint32[5],uint32[5],uint32[5])._classAge (CV/2018-12975.sol#1009) is not in mixedCase
+Parameter CryptoSagaHero.defineType(string,uint8,uint8,uint32,uint8,uint32,uint8,uint32[5],uint32[5],uint32[5])._classType (CV/2018-12975.sol#1009) is not in mixedCase
+Parameter CryptoSagaHero.defineType(string,uint8,uint8,uint32,uint8,uint32,uint8,uint32[5],uint32[5],uint32[5])._maxLevel (CV/2018-12975.sol#1009) is not in mixedCase
+Parameter CryptoSagaHero.defineType(string,uint8,uint8,uint32,uint8,uint32,uint8,uint32[5],uint32[5],uint32[5])._aura (CV/2018-12975.sol#1009) is not in mixedCase
+Parameter CryptoSagaHero.defineType(string,uint8,uint8,uint32,uint8,uint32,uint8,uint32[5],uint32[5],uint32[5])._baseStats (CV/2018-12975.sol#1009) is not in mixedCase
+Parameter CryptoSagaHero.defineType(string,uint8,uint8,uint32,uint8,uint32,uint8,uint32[5],uint32[5],uint32[5])._minIVForStats (CV/2018-12975.sol#1009) is not in mixedCase
+Parameter CryptoSagaHero.defineType(string,uint8,uint8,uint32,uint8,uint32,uint8,uint32[5],uint32[5],uint32[5])._maxIVForStats (CV/2018-12975.sol#1009) is not in mixedCase
+Parameter CryptoSagaHero.mint(address,uint32)._owner (CV/2018-12975.sol#1044) is not in mixedCase
+Parameter CryptoSagaHero.mint(address,uint32)._heroClassId (CV/2018-12975.sol#1044) is not in mixedCase
+Parameter CryptoSagaHero.deploy(uint256,uint32,uint256)._tokenId (CV/2018-12975.sol#1093) is not in mixedCase
+Parameter CryptoSagaHero.deploy(uint256,uint32,uint256)._locationId (CV/2018-12975.sol#1093) is not in mixedCase
+Parameter CryptoSagaHero.deploy(uint256,uint32,uint256)._duration (CV/2018-12975.sol#1093) is not in mixedCase
+Parameter CryptoSagaHero.addExp(uint256,uint32)._tokenId (CV/2018-12975.sol#1115) is not in mixedCase
+Parameter CryptoSagaHero.addExp(uint256,uint32)._exp (CV/2018-12975.sol#1115) is not in mixedCase
+Parameter CryptoSagaHero.addDeposit(address,uint256)._to (CV/2018-12975.sol#1136) is not in mixedCase
+Parameter CryptoSagaHero.addDeposit(address,uint256)._amount (CV/2018-12975.sol#1136) is not in mixedCase
+Parameter CryptoSagaHero.levelUp(uint256)._tokenId (CV/2018-12975.sol#1146) is not in mixedCase
+Parameter CryptoSagaHero.transferDeposit(uint256)._amount (CV/2018-12975.sol#1197) is not in mixedCase
+Parameter CryptoSagaHero.withdrawDeposit(uint256)._amount (CV/2018-12975.sol#1211) is not in mixedCase
+Parameter CryptoSagaHero.random(uint32,uint32)._upper (CV/2018-12975.sol#1224) is not in mixedCase
+Parameter CryptoSagaHero.random(uint32,uint32)._lower (CV/2018-12975.sol#1224) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+CryptoSagaHero.slitherConstructorVariables() (CV/2018-12975.sol#709-1235) uses literals with too many digits:
+	- requiredGoldIncreaseFactor = 1000000000000000000 (CV/2018-12975.sol#777)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+setHeroName(uint256,string) should be declared external:
+	- CryptoSagaHero.setHeroName(uint256,string) (CV/2018-12975.sol#959-964)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+CV/2018-12975.sol analyzed (15 contracts with 80 detectors), 112 result(s) found

@@ -1,0 +1,12 @@
+Compilation warnings/errors on CV/simple_suicide.sol:
+CV/simple_suicide.sol:6:3: Warning: No visibility specified. Defaulting to "public". 
+  function sudicideAnyone() {
+  ^ (Relevant source part starts here and spans across multiple lines).
+
+
+SimpleSuicide.sudicideAnyone() (CV/simple_suicide.sol#6-8) allows anyone to destruct the contract
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#suicidal
+
+Pragma version^0.4.22 (CV/simple_suicide.sol#2) is known to contain severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+solc-0.4.22 is known to contain severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+CV/simple_suicide.sol analyzed (1 contracts with 80 detectors), 3 result(s) found

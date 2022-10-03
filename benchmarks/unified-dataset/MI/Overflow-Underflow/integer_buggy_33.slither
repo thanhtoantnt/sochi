@@ -1,0 +1,226 @@
+Compilation warnings/errors on Overflow-Underflow/integer_buggy_33.sol:
+Overflow-Underflow/integer_buggy_33.sol:29:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou27() public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_33.sol:38:1: Warning: Function state mutability can be restricted to pure
+function bug_intou32(uint8 p_intou32) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_33.sol:96:1: Warning: Function state mutability can be restricted to pure
+function bug_intou4(uint8 p_intou4) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_33.sol:101:1: Warning: Function state mutability can be restricted to pure
+function bug_intou7() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_33.sol:106:1: Warning: Function state mutability can be restricted to pure
+function bug_intou23() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_33.sol:124:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou3() public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_33.sol:152:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou19() public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_33.sol:166:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou31() public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_33.sol:188:3: Warning: Function state mutability can be restricted to pure
+  function bug_intou20(uint8 p_intou20) public{
+  ^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_33.sol:236:1: Warning: Function state mutability can be restricted to pure
+function bug_intou8(uint8 p_intou8) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_33.sol:244:1: Warning: Function state mutability can be restricted to pure
+function bug_intou39() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_33.sol:252:1: Warning: Function state mutability can be restricted to pure
+function bug_intou36(uint8 p_intou36) public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_33.sol:261:1: Warning: Function state mutability can be restricted to pure
+function bug_intou35() public{
+^ (Relevant source part starts here and spans across multiple lines).
+Overflow-Underflow/integer_buggy_33.sol:269:1: Warning: Function state mutability can be restricted to pure
+function bug_intou40(uint8 p_intou40) public{
+^ (Relevant source part starts here and spans across multiple lines).
+
+
+Reentrancy in Staking.redeem() (Overflow-Underflow/integer_buggy_33.sol#226-235):
+	External calls:
+	- require(bool)(token.transfer(msg.sender,staker[msg.sender].tokens)) (Overflow-Underflow/integer_buggy_33.sol#230)
+	- require(bool)(token.transferFrom(owner,msg.sender,staker[msg.sender].tokens * stakePercentage * 100 / 10000)) (Overflow-Underflow/integer_buggy_33.sol#231)
+	State variables written after the call(s):
+	- staker[msg.sender].redeem = true (Overflow-Underflow/integer_buggy_33.sol#233)
+	- staker[msg.sender].tokens = 0 (Overflow-Underflow/integer_buggy_33.sol#234)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
+
+Owned.transfer_undrflow2(address,uint256) (Overflow-Underflow/integer_buggy_33.sol#10-15) contains a tautology or contradiction:
+	- require(bool)(balances_intou2[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_33.sol#11)
+Owned.transfer_intou38(address,uint256) (Overflow-Underflow/integer_buggy_33.sol#53-58) contains a tautology or contradiction:
+	- require(bool)(balances_intou38[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_33.sol#54)
+Staking.transfer_intou26(address,uint256) (Overflow-Underflow/integer_buggy_33.sol#159-164) contains a tautology or contradiction:
+	- require(bool)(balances_intou26[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_33.sol#160)
+Staking.transfer_intou14(address,uint256) (Overflow-Underflow/integer_buggy_33.sol#202-207) contains a tautology or contradiction:
+	- require(bool)(balances_intou14[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_33.sol#203)
+Staking.transfer_intou30(address,uint256) (Overflow-Underflow/integer_buggy_33.sol#219-224) contains a tautology or contradiction:
+	- require(bool)(balances_intou30[msg.sender] - _value >= 0) (Overflow-Underflow/integer_buggy_33.sol#220)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#tautology-or-contradiction
+
+Staking.changeStakeTokens(uint256) (Overflow-Underflow/integer_buggy_33.sol#241-243) should emit an event for: 
+	- minstakeTokens = _NewTokensThreshold * 10 ** uint256(10) (Overflow-Underflow/integer_buggy_33.sol#242) 
+Staking.changeStakeTime(uint256) (Overflow-Underflow/integer_buggy_33.sol#249-251) should emit an event for: 
+	- stakeTime = _newStakeTime (Overflow-Underflow/integer_buggy_33.sol#250) 
+Staking.changeStakingPercentage(uint256) (Overflow-Underflow/integer_buggy_33.sol#257-260) should emit an event for: 
+	- stakePercentage = _newStakePercentage (Overflow-Underflow/integer_buggy_33.sol#258) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+
+Owned.transferOwnership(address)._newOwner (Overflow-Underflow/integer_buggy_33.sol#48) lacks a zero-check on :
+		- newOwner = _newOwner (Overflow-Underflow/integer_buggy_33.sol#49)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Reentrancy in Staking.startStaking(uint256) (Overflow-Underflow/integer_buggy_33.sol#209-216):
+	External calls:
+	- require(bool)(token.transferFrom(msg.sender,address(this),stakeTokens + findOnePercent(stakeTokens))) (Overflow-Underflow/integer_buggy_33.sol#212)
+	State variables written after the call(s):
+	- staker[msg.sender].time = now (Overflow-Underflow/integer_buggy_33.sol#213)
+	- staker[msg.sender].tokens = staker[msg.sender].tokens + stakeTokens (Overflow-Underflow/integer_buggy_33.sol#214)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-2
+
+Reentrancy in Staking.redeem() (Overflow-Underflow/integer_buggy_33.sol#226-235):
+	External calls:
+	- require(bool)(token.transfer(msg.sender,staker[msg.sender].tokens)) (Overflow-Underflow/integer_buggy_33.sol#230)
+	- require(bool)(token.transferFrom(owner,msg.sender,staker[msg.sender].tokens * stakePercentage * 100 / 10000)) (Overflow-Underflow/integer_buggy_33.sol#231)
+	Event emitted after the call(s):
+	- tokensRedeemed(msg.sender,staker[msg.sender].tokens,staker[msg.sender].tokens * stakePercentage * 100 / 10000) (Overflow-Underflow/integer_buggy_33.sol#232)
+Reentrancy in Staking.startStaking(uint256) (Overflow-Underflow/integer_buggy_33.sol#209-216):
+	External calls:
+	- require(bool)(token.transferFrom(msg.sender,address(this),stakeTokens + findOnePercent(stakeTokens))) (Overflow-Underflow/integer_buggy_33.sol#212)
+	Event emitted after the call(s):
+	- stakingstarted(msg.sender,staker[msg.sender].tokens,staker[msg.sender].time) (Overflow-Underflow/integer_buggy_33.sol#215)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+
+Owned.withdraw_intou17() (Overflow-Underflow/integer_buggy_33.sol#22-26) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou17[msg.sender]) (Overflow-Underflow/integer_buggy_33.sol#23)
+Staking.withdraw_intou37() (Overflow-Underflow/integer_buggy_33.sol#118-122) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou37[msg.sender]) (Overflow-Underflow/integer_buggy_33.sol#119)
+Staking.withdraw_intou9() (Overflow-Underflow/integer_buggy_33.sol#134-138) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou9[msg.sender]) (Overflow-Underflow/integer_buggy_33.sol#135)
+Staking.withdraw_intou25() (Overflow-Underflow/integer_buggy_33.sol#145-149) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou25[msg.sender]) (Overflow-Underflow/integer_buggy_33.sol#146)
+Staking.withdraw_intou13() (Overflow-Underflow/integer_buggy_33.sol#176-180) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou13[msg.sender]) (Overflow-Underflow/integer_buggy_33.sol#177)
+Staking.redeem() (Overflow-Underflow/integer_buggy_33.sol#226-235) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(staker[msg.sender].time + stakeTime <= now) (Overflow-Underflow/integer_buggy_33.sol#229)
+Staking.withdraw_intou33() (Overflow-Underflow/integer_buggy_33.sol#284-288) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now > lockTime_intou33[msg.sender]) (Overflow-Underflow/integer_buggy_33.sol#285)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+Pragma version>=0.5.12 (Overflow-Underflow/integer_buggy_33.sol#5) allows old versions
+solc-0.5.12 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Function Owned.transfer_undrflow2(address,uint256) (Overflow-Underflow/integer_buggy_33.sol#10-15) is not in mixedCase
+Parameter Owned.transfer_undrflow2(address,uint256)._to (Overflow-Underflow/integer_buggy_33.sol#10) is not in mixedCase
+Parameter Owned.transfer_undrflow2(address,uint256)._value (Overflow-Underflow/integer_buggy_33.sol#10) is not in mixedCase
+Function Owned.increaseLockTime_intou17(uint256) (Overflow-Underflow/integer_buggy_33.sol#19-21) is not in mixedCase
+Parameter Owned.increaseLockTime_intou17(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_33.sol#19) is not in mixedCase
+Function Owned.withdraw_intou17() (Overflow-Underflow/integer_buggy_33.sol#22-26) is not in mixedCase
+Function Owned.bug_intou27() (Overflow-Underflow/integer_buggy_33.sol#29-32) is not in mixedCase
+Function Owned.bug_intou32(uint8) (Overflow-Underflow/integer_buggy_33.sol#38-41) is not in mixedCase
+Parameter Owned.bug_intou32(uint8).p_intou32 (Overflow-Underflow/integer_buggy_33.sol#38) is not in mixedCase
+Parameter Owned.transferOwnership(address)._newOwner (Overflow-Underflow/integer_buggy_33.sol#48) is not in mixedCase
+Function Owned.transfer_intou38(address,uint256) (Overflow-Underflow/integer_buggy_33.sol#53-58) is not in mixedCase
+Parameter Owned.transfer_intou38(address,uint256)._to (Overflow-Underflow/integer_buggy_33.sol#53) is not in mixedCase
+Parameter Owned.transfer_intou38(address,uint256)._value (Overflow-Underflow/integer_buggy_33.sol#53) is not in mixedCase
+Variable Owned.balances_intou2 (Overflow-Underflow/integer_buggy_33.sol#8) is not in mixedCase
+Variable Owned.lockTime_intou17 (Overflow-Underflow/integer_buggy_33.sol#17) is not in mixedCase
+Variable Owned.balances_intou38 (Overflow-Underflow/integer_buggy_33.sol#51) is not in mixedCase
+Function Token.bug_intou4(uint8) (Overflow-Underflow/integer_buggy_33.sol#96-99) is not in mixedCase
+Parameter Token.bug_intou4(uint8).p_intou4 (Overflow-Underflow/integer_buggy_33.sol#96) is not in mixedCase
+Function Token.bug_intou7() (Overflow-Underflow/integer_buggy_33.sol#101-104) is not in mixedCase
+Function Token.bug_intou23() (Overflow-Underflow/integer_buggy_33.sol#106-109) is not in mixedCase
+Struct Staking.stake (Overflow-Underflow/integer_buggy_33.sol#183-187) is not in CapWords
+Event Stakingstakingstarted(address,uint256,uint256) (Overflow-Underflow/integer_buggy_33.sol#170) is not in CapWords
+Event StakingtokensRedeemed(address,uint256,uint256) (Overflow-Underflow/integer_buggy_33.sol#181) is not in CapWords
+Function Staking.increaseLockTime_intou37(uint256) (Overflow-Underflow/integer_buggy_33.sol#115-117) is not in mixedCase
+Parameter Staking.increaseLockTime_intou37(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_33.sol#115) is not in mixedCase
+Function Staking.withdraw_intou37() (Overflow-Underflow/integer_buggy_33.sol#118-122) is not in mixedCase
+Function Staking.bug_intou3() (Overflow-Underflow/integer_buggy_33.sol#124-127) is not in mixedCase
+Function Staking.increaseLockTime_intou9(uint256) (Overflow-Underflow/integer_buggy_33.sol#131-133) is not in mixedCase
+Parameter Staking.increaseLockTime_intou9(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_33.sol#131) is not in mixedCase
+Function Staking.withdraw_intou9() (Overflow-Underflow/integer_buggy_33.sol#134-138) is not in mixedCase
+Function Staking.increaseLockTime_intou25(uint256) (Overflow-Underflow/integer_buggy_33.sol#142-144) is not in mixedCase
+Parameter Staking.increaseLockTime_intou25(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_33.sol#142) is not in mixedCase
+Function Staking.withdraw_intou25() (Overflow-Underflow/integer_buggy_33.sol#145-149) is not in mixedCase
+Function Staking.bug_intou19() (Overflow-Underflow/integer_buggy_33.sol#152-155) is not in mixedCase
+Function Staking.transfer_intou26(address,uint256) (Overflow-Underflow/integer_buggy_33.sol#159-164) is not in mixedCase
+Parameter Staking.transfer_intou26(address,uint256)._to (Overflow-Underflow/integer_buggy_33.sol#159) is not in mixedCase
+Parameter Staking.transfer_intou26(address,uint256)._value (Overflow-Underflow/integer_buggy_33.sol#159) is not in mixedCase
+Function Staking.bug_intou31() (Overflow-Underflow/integer_buggy_33.sol#166-169) is not in mixedCase
+Function Staking.increaseLockTime_intou13(uint256) (Overflow-Underflow/integer_buggy_33.sol#173-175) is not in mixedCase
+Parameter Staking.increaseLockTime_intou13(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_33.sol#173) is not in mixedCase
+Function Staking.withdraw_intou13() (Overflow-Underflow/integer_buggy_33.sol#176-180) is not in mixedCase
+Function Staking.bug_intou20(uint8) (Overflow-Underflow/integer_buggy_33.sol#188-191) is not in mixedCase
+Parameter Staking.bug_intou20(uint8).p_intou20 (Overflow-Underflow/integer_buggy_33.sol#188) is not in mixedCase
+Function Staking.transfer_intou14(address,uint256) (Overflow-Underflow/integer_buggy_33.sol#202-207) is not in mixedCase
+Parameter Staking.transfer_intou14(address,uint256)._to (Overflow-Underflow/integer_buggy_33.sol#202) is not in mixedCase
+Parameter Staking.transfer_intou14(address,uint256)._value (Overflow-Underflow/integer_buggy_33.sol#202) is not in mixedCase
+Function Staking.transfer_intou30(address,uint256) (Overflow-Underflow/integer_buggy_33.sol#219-224) is not in mixedCase
+Parameter Staking.transfer_intou30(address,uint256)._to (Overflow-Underflow/integer_buggy_33.sol#219) is not in mixedCase
+Parameter Staking.transfer_intou30(address,uint256)._value (Overflow-Underflow/integer_buggy_33.sol#219) is not in mixedCase
+Function Staking.bug_intou8(uint8) (Overflow-Underflow/integer_buggy_33.sol#236-239) is not in mixedCase
+Parameter Staking.bug_intou8(uint8).p_intou8 (Overflow-Underflow/integer_buggy_33.sol#236) is not in mixedCase
+Parameter Staking.changeStakeTokens(uint256)._NewTokensThreshold (Overflow-Underflow/integer_buggy_33.sol#241) is not in mixedCase
+Function Staking.bug_intou39() (Overflow-Underflow/integer_buggy_33.sol#244-247) is not in mixedCase
+Parameter Staking.changeStakeTime(uint256)._newStakeTime (Overflow-Underflow/integer_buggy_33.sol#249) is not in mixedCase
+Function Staking.bug_intou36(uint8) (Overflow-Underflow/integer_buggy_33.sol#252-255) is not in mixedCase
+Parameter Staking.bug_intou36(uint8).p_intou36 (Overflow-Underflow/integer_buggy_33.sol#252) is not in mixedCase
+Parameter Staking.changeStakingPercentage(uint256)._newStakePercentage (Overflow-Underflow/integer_buggy_33.sol#257) is not in mixedCase
+Function Staking.bug_intou35() (Overflow-Underflow/integer_buggy_33.sol#261-264) is not in mixedCase
+Function Staking.bug_intou40(uint8) (Overflow-Underflow/integer_buggy_33.sol#269-272) is not in mixedCase
+Parameter Staking.bug_intou40(uint8).p_intou40 (Overflow-Underflow/integer_buggy_33.sol#269) is not in mixedCase
+Function Staking.increaseLockTime_intou33(uint256) (Overflow-Underflow/integer_buggy_33.sol#281-283) is not in mixedCase
+Parameter Staking.increaseLockTime_intou33(uint256)._secondsToIncrease (Overflow-Underflow/integer_buggy_33.sol#281) is not in mixedCase
+Function Staking.withdraw_intou33() (Overflow-Underflow/integer_buggy_33.sol#284-288) is not in mixedCase
+Variable Staking.lockTime_intou37 (Overflow-Underflow/integer_buggy_33.sol#113) is not in mixedCase
+Variable Staking.lockTime_intou9 (Overflow-Underflow/integer_buggy_33.sol#129) is not in mixedCase
+Variable Staking.lockTime_intou25 (Overflow-Underflow/integer_buggy_33.sol#140) is not in mixedCase
+Variable Staking.balances_intou26 (Overflow-Underflow/integer_buggy_33.sol#157) is not in mixedCase
+Variable Staking.lockTime_intou13 (Overflow-Underflow/integer_buggy_33.sol#171) is not in mixedCase
+Variable Staking.balances_intou14 (Overflow-Underflow/integer_buggy_33.sol#200) is not in mixedCase
+Variable Staking.balances_intou30 (Overflow-Underflow/integer_buggy_33.sol#217) is not in mixedCase
+Variable Staking.lockTime_intou33 (Overflow-Underflow/integer_buggy_33.sol#279) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Variable Staking.balances_intou30 (Overflow-Underflow/integer_buggy_33.sol#217) is too similar to Owned.balances_intou38 (Overflow-Underflow/integer_buggy_33.sol#51)
+Variable Staking.lockTime_intou13 (Overflow-Underflow/integer_buggy_33.sol#171) is too similar to Owned.lockTime_intou17 (Overflow-Underflow/integer_buggy_33.sol#17)
+Variable Staking.lockTime_intou13 (Overflow-Underflow/integer_buggy_33.sol#171) is too similar to Staking.lockTime_intou33 (Overflow-Underflow/integer_buggy_33.sol#279)
+Variable Staking.lockTime_intou13 (Overflow-Underflow/integer_buggy_33.sol#171) is too similar to Staking.lockTime_intou37 (Overflow-Underflow/integer_buggy_33.sol#113)
+Variable Owned.lockTime_intou17 (Overflow-Underflow/integer_buggy_33.sol#17) is too similar to Staking.lockTime_intou37 (Overflow-Underflow/integer_buggy_33.sol#113)
+Variable Staking.lockTime_intou33 (Overflow-Underflow/integer_buggy_33.sol#279) is too similar to Staking.lockTime_intou37 (Overflow-Underflow/integer_buggy_33.sol#113)
+Variable Staking.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_33.sol#178) is too similar to Staking.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_33.sol#147)
+Variable Staking.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_33.sol#178) is too similar to Owned.withdraw_intou17().transferValue_intou17 (Overflow-Underflow/integer_buggy_33.sol#24)
+Variable Owned.withdraw_intou17().transferValue_intou17 (Overflow-Underflow/integer_buggy_33.sol#24) is too similar to Staking.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_33.sol#147)
+Variable Owned.withdraw_intou17().transferValue_intou17 (Overflow-Underflow/integer_buggy_33.sol#24) is too similar to Staking.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_33.sol#286)
+Variable Owned.withdraw_intou17().transferValue_intou17 (Overflow-Underflow/integer_buggy_33.sol#24) is too similar to Staking.withdraw_intou37().transferValue_intou37 (Overflow-Underflow/integer_buggy_33.sol#120)
+Variable Staking.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_33.sol#178) is too similar to Staking.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_33.sol#286)
+Variable Staking.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_33.sol#147) is too similar to Staking.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_33.sol#286)
+Variable Staking.withdraw_intou33().transferValue_intou33 (Overflow-Underflow/integer_buggy_33.sol#286) is too similar to Staking.withdraw_intou37().transferValue_intou37 (Overflow-Underflow/integer_buggy_33.sol#120)
+Variable Staking.withdraw_intou13().transferValue_intou13 (Overflow-Underflow/integer_buggy_33.sol#178) is too similar to Staking.withdraw_intou37().transferValue_intou37 (Overflow-Underflow/integer_buggy_33.sol#120)
+Variable Staking.withdraw_intou25().transferValue_intou25 (Overflow-Underflow/integer_buggy_33.sol#147) is too similar to Staking.withdraw_intou37().transferValue_intou37 (Overflow-Underflow/integer_buggy_33.sol#120)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+Token (Overflow-Underflow/integer_buggy_33.sol#94-110) does not implement functions:
+	- Token.balanceOf(address) (Overflow-Underflow/integer_buggy_33.sol#95)
+	- Token.transfer(address,uint256) (Overflow-Underflow/integer_buggy_33.sol#105)
+	- Token.transferFrom(address,address,uint256) (Overflow-Underflow/integer_buggy_33.sol#100)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unimplemented-functions
+
+Staking.basePercent (Overflow-Underflow/integer_buggy_33.sol#150) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+Overflow-Underflow/integer_buggy_33.sol analyzed (4 contracts with 80 detectors), 111 result(s) found

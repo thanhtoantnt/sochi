@@ -1,0 +1,285 @@
+
+TokenERC20.buyTicket_re_ent37() (Re-entrancy/reentrancy_buggy_9.sol#89-94) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent37.send(jackpot_re_ent37)) (Re-entrancy/reentrancy_buggy_9.sol#90)
+TokenERC20.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_9.sol#107-113) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_9.sol#108)
+TokenERC20.bug_re_ent20() (Re-entrancy/reentrancy_buggy_9.sol#149-155) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_9.sol#151)
+TokenERC20.bug_re_ent27() (Re-entrancy/reentrancy_buggy_9.sol#160-166) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_9.sol#162)
+TokenERC20.bug_re_ent13() (Re-entrancy/reentrancy_buggy_9.sol#181-188) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_9.sol#183)
+TokenERC20.callme_re_ent7() (Re-entrancy/reentrancy_buggy_9.sol#254-260) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_9.sol#256)
+TokenERC20.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_9.sol#273-278) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (Re-entrancy/reentrancy_buggy_9.sol#274)
+TokenERC20.callme_re_ent14() (Re-entrancy/reentrancy_buggy_9.sol#290-296) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_9.sol#292)
+TokenERC20.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_9.sol#313-318) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (Re-entrancy/reentrancy_buggy_9.sol#314)
+TokenERC20.callme_re_ent35() (Re-entrancy/reentrancy_buggy_9.sol#397-403) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_9.sol#399)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Reentrancy in TokenERC20.bug_re_ent13() (Re-entrancy/reentrancy_buggy_9.sol#181-188):
+	External calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_9.sol#183)
+	State variables written after the call(s):
+	- not_called_re_ent13 = false (Re-entrancy/reentrancy_buggy_9.sol#187)
+Reentrancy in TokenERC20.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_9.sol#107-113):
+	External calls:
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_9.sol#108)
+	State variables written after the call(s):
+	- jackpot_re_ent9 = address(this).balance (Re-entrancy/reentrancy_buggy_9.sol#112)
+	- lastPlayer_re_ent9 = msg.sender (Re-entrancy/reentrancy_buggy_9.sol#111)
+Reentrancy in TokenERC20.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_9.sol#138-146):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (Re-entrancy/reentrancy_buggy_9.sol#141)
+	State variables written after the call(s):
+	- userBalance_re_ent26[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_9.sol#145)
+Reentrancy in XLToken.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_9.sol#438-446):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (Re-entrancy/reentrancy_buggy_9.sol#441)
+	State variables written after the call(s):
+	- userBalance_re_ent33[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_9.sol#445)
+Reentrancy in TokenERC20.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_9.sol#419-427):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (Re-entrancy/reentrancy_buggy_9.sol#422)
+	State variables written after the call(s):
+	- userBalance_re_ent40[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_9.sol#426)
+Reentrancy in Ownable.withdrawFunds_re_ent17(uint256) (Re-entrancy/reentrancy_buggy_9.sol#56-62):
+	External calls:
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_9.sol#59)
+	State variables written after the call(s):
+	- balances_re_ent17[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_9.sol#61)
+Reentrancy in TokenERC20.withdrawFunds_re_ent3(uint256) (Re-entrancy/reentrancy_buggy_9.sol#97-103):
+	External calls:
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_9.sol#100)
+	State variables written after the call(s):
+	- balances_re_ent3[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_9.sol#102)
+Reentrancy in TokenERC20.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_9.sol#334-338):
+	External calls:
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (Re-entrancy/reentrancy_buggy_9.sol#335)
+	State variables written after the call(s):
+	- balances_re_ent8[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_9.sol#337)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
+
+SafeMath.div(uint256,uint256) (Re-entrancy/reentrancy_buggy_9.sol#28-33) is never used and should be removed
+SafeMath.mul(uint256,uint256) (Re-entrancy/reentrancy_buggy_9.sol#16-23) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Pragma version>=0.4.22<0.6.0 (Re-entrancy/reentrancy_buggy_9.sol#5) is known to contain severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in Ownable.withdrawFunds_re_ent17(uint256) (Re-entrancy/reentrancy_buggy_9.sol#56-62):
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_9.sol#59)
+Low level call in TokenERC20.withdrawFunds_re_ent3(uint256) (Re-entrancy/reentrancy_buggy_9.sol#97-103):
+	- (success) = msg.sender.call.value(_weiToWithdraw)() (Re-entrancy/reentrancy_buggy_9.sol#100)
+Low level call in TokenERC20.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_9.sol#107-113):
+	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (Re-entrancy/reentrancy_buggy_9.sol#108)
+Low level call in TokenERC20.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_9.sol#138-146):
+	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (Re-entrancy/reentrancy_buggy_9.sol#141)
+Low level call in TokenERC20.bug_re_ent13() (Re-entrancy/reentrancy_buggy_9.sol#181-188):
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_9.sol#183)
+Low level call in TokenERC20.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_9.sol#334-338):
+	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (Re-entrancy/reentrancy_buggy_9.sol#335)
+Low level call in TokenERC20.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_9.sol#419-427):
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (Re-entrancy/reentrancy_buggy_9.sol#422)
+Low level call in XLToken.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_9.sol#438-446):
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (Re-entrancy/reentrancy_buggy_9.sol#441)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Function Ownable.withdrawFunds_re_ent17(uint256) (Re-entrancy/reentrancy_buggy_9.sol#56-62) is not in mixedCase
+Parameter Ownable.withdrawFunds_re_ent17(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_9.sol#56) is not in mixedCase
+Function Ownable.claimReward_re_ent32() (Re-entrancy/reentrancy_buggy_9.sol#69-75) is not in mixedCase
+Variable Ownable.balances_re_ent17 (Re-entrancy/reentrancy_buggy_9.sol#55) is not in mixedCase
+Variable Ownable.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_9.sol#68) is not in mixedCase
+Function TokenERC20.buyTicket_re_ent37() (Re-entrancy/reentrancy_buggy_9.sol#89-94) is not in mixedCase
+Function TokenERC20.withdrawFunds_re_ent3(uint256) (Re-entrancy/reentrancy_buggy_9.sol#97-103) is not in mixedCase
+Parameter TokenERC20.withdrawFunds_re_ent3(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_9.sol#97) is not in mixedCase
+Function TokenERC20.buyTicket_re_ent9() (Re-entrancy/reentrancy_buggy_9.sol#107-113) is not in mixedCase
+Function TokenERC20.claimReward_re_ent25() (Re-entrancy/reentrancy_buggy_9.sol#117-123) is not in mixedCase
+Function TokenERC20.withdrawBalance_re_ent19() (Re-entrancy/reentrancy_buggy_9.sol#126-133) is not in mixedCase
+Function TokenERC20.withdrawBalance_re_ent26() (Re-entrancy/reentrancy_buggy_9.sol#138-146) is not in mixedCase
+Function TokenERC20.bug_re_ent20() (Re-entrancy/reentrancy_buggy_9.sol#149-155) is not in mixedCase
+Function TokenERC20.bug_re_ent27() (Re-entrancy/reentrancy_buggy_9.sol#160-166) is not in mixedCase
+Function TokenERC20.withdrawFunds_re_ent31(uint256) (Re-entrancy/reentrancy_buggy_9.sol#171-176) is not in mixedCase
+Parameter TokenERC20.withdrawFunds_re_ent31(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_9.sol#171) is not in mixedCase
+Function TokenERC20.bug_re_ent13() (Re-entrancy/reentrancy_buggy_9.sol#181-188) is not in mixedCase
+Function TokenERC20.withdrawFunds_re_ent38(uint256) (Re-entrancy/reentrancy_buggy_9.sol#223-228) is not in mixedCase
+Parameter TokenERC20.withdrawFunds_re_ent38(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_9.sol#223) is not in mixedCase
+Function TokenERC20.claimReward_re_ent4() (Re-entrancy/reentrancy_buggy_9.sol#237-243) is not in mixedCase
+Parameter TokenERC20.balanceOf(address)._owner (Re-entrancy/reentrancy_buggy_9.sol#250) is not in mixedCase
+Function TokenERC20.callme_re_ent7() (Re-entrancy/reentrancy_buggy_9.sol#254-260) is not in mixedCase
+Parameter TokenERC20.allowance(address,address)._owner (Re-entrancy/reentrancy_buggy_9.sol#268) is not in mixedCase
+Parameter TokenERC20.allowance(address,address)._spender (Re-entrancy/reentrancy_buggy_9.sol#268) is not in mixedCase
+Function TokenERC20.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_9.sol#273-278) is not in mixedCase
+Parameter TokenERC20.transfer(address,uint256)._to (Re-entrancy/reentrancy_buggy_9.sol#285) is not in mixedCase
+Parameter TokenERC20.transfer(address,uint256)._value (Re-entrancy/reentrancy_buggy_9.sol#285) is not in mixedCase
+Function TokenERC20.callme_re_ent14() (Re-entrancy/reentrancy_buggy_9.sol#290-296) is not in mixedCase
+Parameter TokenERC20.approve(address,uint256)._spender (Re-entrancy/reentrancy_buggy_9.sol#307) is not in mixedCase
+Parameter TokenERC20.approve(address,uint256)._value (Re-entrancy/reentrancy_buggy_9.sol#307) is not in mixedCase
+Function TokenERC20.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_9.sol#313-318) is not in mixedCase
+Parameter TokenERC20.transferFrom(address,address,uint256)._from (Re-entrancy/reentrancy_buggy_9.sol#328) is not in mixedCase
+Parameter TokenERC20.transferFrom(address,address,uint256)._to (Re-entrancy/reentrancy_buggy_9.sol#328) is not in mixedCase
+Parameter TokenERC20.transferFrom(address,address,uint256)._value (Re-entrancy/reentrancy_buggy_9.sol#328) is not in mixedCase
+Function TokenERC20.withdraw_balances_re_ent8() (Re-entrancy/reentrancy_buggy_9.sol#334-338) is not in mixedCase
+Function TokenERC20.claimReward_re_ent39() (Re-entrancy/reentrancy_buggy_9.sol#354-360) is not in mixedCase
+Function TokenERC20.withdraw_balances_re_ent36() (Re-entrancy/reentrancy_buggy_9.sol#376-379) is not in mixedCase
+Parameter TokenERC20.mint(address,uint256)._to (Re-entrancy/reentrancy_buggy_9.sol#387) is not in mixedCase
+Parameter TokenERC20.mint(address,uint256)._amount (Re-entrancy/reentrancy_buggy_9.sol#387) is not in mixedCase
+Function TokenERC20.callme_re_ent35() (Re-entrancy/reentrancy_buggy_9.sol#397-403) is not in mixedCase
+Parameter TokenERC20.transferBatch(address[],uint256[])._tos (Re-entrancy/reentrancy_buggy_9.sol#410) is not in mixedCase
+Parameter TokenERC20.transferBatch(address[],uint256[])._values (Re-entrancy/reentrancy_buggy_9.sol#410) is not in mixedCase
+Function TokenERC20.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_9.sol#419-427) is not in mixedCase
+Variable TokenERC20.lastPlayer_re_ent37 (Re-entrancy/reentrancy_buggy_9.sol#87) is not in mixedCase
+Variable TokenERC20.jackpot_re_ent37 (Re-entrancy/reentrancy_buggy_9.sol#88) is not in mixedCase
+Variable TokenERC20.balances_re_ent3 (Re-entrancy/reentrancy_buggy_9.sol#96) is not in mixedCase
+Variable TokenERC20.lastPlayer_re_ent9 (Re-entrancy/reentrancy_buggy_9.sol#105) is not in mixedCase
+Variable TokenERC20.jackpot_re_ent9 (Re-entrancy/reentrancy_buggy_9.sol#106) is not in mixedCase
+Variable TokenERC20.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_9.sol#116) is not in mixedCase
+Variable TokenERC20.userBalance_re_ent19 (Re-entrancy/reentrancy_buggy_9.sol#125) is not in mixedCase
+Variable TokenERC20.userBalance_re_ent26 (Re-entrancy/reentrancy_buggy_9.sol#137) is not in mixedCase
+Variable TokenERC20.not_called_re_ent20 (Re-entrancy/reentrancy_buggy_9.sol#148) is not in mixedCase
+Variable TokenERC20.not_called_re_ent27 (Re-entrancy/reentrancy_buggy_9.sol#159) is not in mixedCase
+Variable TokenERC20.balances_re_ent31 (Re-entrancy/reentrancy_buggy_9.sol#170) is not in mixedCase
+Variable TokenERC20.not_called_re_ent13 (Re-entrancy/reentrancy_buggy_9.sol#180) is not in mixedCase
+Variable TokenERC20.balances_re_ent38 (Re-entrancy/reentrancy_buggy_9.sol#222) is not in mixedCase
+Variable TokenERC20.redeemableEther_re_ent4 (Re-entrancy/reentrancy_buggy_9.sol#236) is not in mixedCase
+Variable TokenERC20.counter_re_ent7 (Re-entrancy/reentrancy_buggy_9.sol#253) is not in mixedCase
+Variable TokenERC20.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_9.sol#271) is not in mixedCase
+Variable TokenERC20.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_9.sol#272) is not in mixedCase
+Variable TokenERC20.counter_re_ent14 (Re-entrancy/reentrancy_buggy_9.sol#289) is not in mixedCase
+Variable TokenERC20.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_9.sol#311) is not in mixedCase
+Variable TokenERC20.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_9.sol#312) is not in mixedCase
+Variable TokenERC20.balances_re_ent8 (Re-entrancy/reentrancy_buggy_9.sol#333) is not in mixedCase
+Variable TokenERC20.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_9.sol#353) is not in mixedCase
+Variable TokenERC20.balances_re_ent36 (Re-entrancy/reentrancy_buggy_9.sol#375) is not in mixedCase
+Variable TokenERC20.counter_re_ent35 (Re-entrancy/reentrancy_buggy_9.sol#396) is not in mixedCase
+Variable TokenERC20.userBalance_re_ent40 (Re-entrancy/reentrancy_buggy_9.sol#418) is not in mixedCase
+Function XLToken.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_9.sol#438-446) is not in mixedCase
+Variable XLToken.userBalance_re_ent33 (Re-entrancy/reentrancy_buggy_9.sol#437) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in TokenERC20.bug_re_ent20() (Re-entrancy/reentrancy_buggy_9.sol#149-155):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_9.sol#151)
+	State variables written after the call(s):
+	- not_called_re_ent20 = false (Re-entrancy/reentrancy_buggy_9.sol#154)
+Reentrancy in TokenERC20.bug_re_ent27() (Re-entrancy/reentrancy_buggy_9.sol#160-166):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_9.sol#162)
+	State variables written after the call(s):
+	- not_called_re_ent27 = false (Re-entrancy/reentrancy_buggy_9.sol#165)
+Reentrancy in TokenERC20.buyTicket_re_ent23() (Re-entrancy/reentrancy_buggy_9.sol#273-278):
+	External calls:
+	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (Re-entrancy/reentrancy_buggy_9.sol#274)
+	State variables written after the call(s):
+	- jackpot_re_ent23 = address(this).balance (Re-entrancy/reentrancy_buggy_9.sol#277)
+	- lastPlayer_re_ent23 = msg.sender (Re-entrancy/reentrancy_buggy_9.sol#276)
+Reentrancy in TokenERC20.buyTicket_re_ent30() (Re-entrancy/reentrancy_buggy_9.sol#313-318):
+	External calls:
+	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (Re-entrancy/reentrancy_buggy_9.sol#314)
+	State variables written after the call(s):
+	- jackpot_re_ent30 = address(this).balance (Re-entrancy/reentrancy_buggy_9.sol#317)
+	- lastPlayer_re_ent30 = msg.sender (Re-entrancy/reentrancy_buggy_9.sol#316)
+Reentrancy in TokenERC20.buyTicket_re_ent37() (Re-entrancy/reentrancy_buggy_9.sol#89-94):
+	External calls:
+	- ! (lastPlayer_re_ent37.send(jackpot_re_ent37)) (Re-entrancy/reentrancy_buggy_9.sol#90)
+	State variables written after the call(s):
+	- jackpot_re_ent37 = address(this).balance (Re-entrancy/reentrancy_buggy_9.sol#93)
+	- lastPlayer_re_ent37 = msg.sender (Re-entrancy/reentrancy_buggy_9.sol#92)
+Reentrancy in TokenERC20.callme_re_ent14() (Re-entrancy/reentrancy_buggy_9.sol#290-296):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_9.sol#292)
+	State variables written after the call(s):
+	- counter_re_ent14 += 1 (Re-entrancy/reentrancy_buggy_9.sol#295)
+Reentrancy in TokenERC20.callme_re_ent35() (Re-entrancy/reentrancy_buggy_9.sol#397-403):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_9.sol#399)
+	State variables written after the call(s):
+	- counter_re_ent35 += 1 (Re-entrancy/reentrancy_buggy_9.sol#402)
+Reentrancy in TokenERC20.callme_re_ent7() (Re-entrancy/reentrancy_buggy_9.sol#254-260):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_9.sol#256)
+	State variables written after the call(s):
+	- counter_re_ent7 += 1 (Re-entrancy/reentrancy_buggy_9.sol#259)
+Reentrancy in TokenERC20.claimReward_re_ent25() (Re-entrancy/reentrancy_buggy_9.sol#117-123):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent25) (Re-entrancy/reentrancy_buggy_9.sol#121)
+	State variables written after the call(s):
+	- redeemableEther_re_ent25[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_9.sol#122)
+Reentrancy in Ownable.claimReward_re_ent32() (Re-entrancy/reentrancy_buggy_9.sol#69-75):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent32) (Re-entrancy/reentrancy_buggy_9.sol#73)
+	State variables written after the call(s):
+	- redeemableEther_re_ent32[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_9.sol#74)
+Reentrancy in TokenERC20.claimReward_re_ent39() (Re-entrancy/reentrancy_buggy_9.sol#354-360):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent39) (Re-entrancy/reentrancy_buggy_9.sol#358)
+	State variables written after the call(s):
+	- redeemableEther_re_ent39[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_9.sol#359)
+Reentrancy in TokenERC20.claimReward_re_ent4() (Re-entrancy/reentrancy_buggy_9.sol#237-243):
+	External calls:
+	- msg.sender.transfer(transferValue_re_ent4) (Re-entrancy/reentrancy_buggy_9.sol#241)
+	State variables written after the call(s):
+	- redeemableEther_re_ent4[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_9.sol#242)
+Reentrancy in TokenERC20.withdrawBalance_re_ent19() (Re-entrancy/reentrancy_buggy_9.sol#126-133):
+	External calls:
+	- ! (msg.sender.send(userBalance_re_ent19[msg.sender])) (Re-entrancy/reentrancy_buggy_9.sol#129)
+	State variables written after the call(s):
+	- userBalance_re_ent19[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_9.sol#132)
+Reentrancy in TokenERC20.withdrawFunds_re_ent31(uint256) (Re-entrancy/reentrancy_buggy_9.sol#171-176):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_9.sol#174)
+	State variables written after the call(s):
+	- balances_re_ent31[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_9.sol#175)
+Reentrancy in TokenERC20.withdrawFunds_re_ent38(uint256) (Re-entrancy/reentrancy_buggy_9.sol#223-228):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_9.sol#226)
+	State variables written after the call(s):
+	- balances_re_ent38[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_9.sol#227)
+Reentrancy in TokenERC20.withdraw_balances_re_ent36() (Re-entrancy/reentrancy_buggy_9.sol#376-379):
+	External calls:
+	- msg.sender.send(balances_re_ent36[msg.sender]) (Re-entrancy/reentrancy_buggy_9.sol#377)
+	State variables written after the call(s):
+	- balances_re_ent36[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_9.sol#378)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable TokenERC20.balances_re_ent3 (Re-entrancy/reentrancy_buggy_9.sol#96) is too similar to TokenERC20.balances_re_ent8 (Re-entrancy/reentrancy_buggy_9.sol#333)
+Variable Ownable.balances_re_ent17 (Re-entrancy/reentrancy_buggy_9.sol#55) is too similar to TokenERC20.balances_re_ent31 (Re-entrancy/reentrancy_buggy_9.sol#170)
+Variable TokenERC20.balances_re_ent31 (Re-entrancy/reentrancy_buggy_9.sol#170) is too similar to TokenERC20.balances_re_ent36 (Re-entrancy/reentrancy_buggy_9.sol#375)
+Variable TokenERC20.balances_re_ent31 (Re-entrancy/reentrancy_buggy_9.sol#170) is too similar to TokenERC20.balances_re_ent38 (Re-entrancy/reentrancy_buggy_9.sol#222)
+Variable TokenERC20.balances_re_ent36 (Re-entrancy/reentrancy_buggy_9.sol#375) is too similar to TokenERC20.balances_re_ent38 (Re-entrancy/reentrancy_buggy_9.sol#222)
+Variable TokenERC20.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_9.sol#272) is too similar to TokenERC20.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_9.sol#312)
+Variable TokenERC20.jackpot_re_ent30 (Re-entrancy/reentrancy_buggy_9.sol#312) is too similar to TokenERC20.jackpot_re_ent37 (Re-entrancy/reentrancy_buggy_9.sol#88)
+Variable TokenERC20.jackpot_re_ent23 (Re-entrancy/reentrancy_buggy_9.sol#272) is too similar to TokenERC20.jackpot_re_ent37 (Re-entrancy/reentrancy_buggy_9.sol#88)
+Variable TokenERC20.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_9.sol#271) is too similar to TokenERC20.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_9.sol#311)
+Variable TokenERC20.lastPlayer_re_ent23 (Re-entrancy/reentrancy_buggy_9.sol#271) is too similar to TokenERC20.lastPlayer_re_ent37 (Re-entrancy/reentrancy_buggy_9.sol#87)
+Variable TokenERC20.lastPlayer_re_ent30 (Re-entrancy/reentrancy_buggy_9.sol#311) is too similar to TokenERC20.lastPlayer_re_ent37 (Re-entrancy/reentrancy_buggy_9.sol#87)
+Variable TokenERC20.not_called_re_ent20 (Re-entrancy/reentrancy_buggy_9.sol#148) is too similar to TokenERC20.not_called_re_ent27 (Re-entrancy/reentrancy_buggy_9.sol#159)
+Variable TokenERC20.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_9.sol#116) is too similar to Ownable.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_9.sol#68)
+Variable TokenERC20.redeemableEther_re_ent25 (Re-entrancy/reentrancy_buggy_9.sol#116) is too similar to TokenERC20.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_9.sol#353)
+Variable Ownable.redeemableEther_re_ent32 (Re-entrancy/reentrancy_buggy_9.sol#68) is too similar to TokenERC20.redeemableEther_re_ent39 (Re-entrancy/reentrancy_buggy_9.sol#353)
+Variable TokenERC20.claimReward_re_ent25().transferValue_re_ent25 (Re-entrancy/reentrancy_buggy_9.sol#120) is too similar to TokenERC20.claimReward_re_ent39().transferValue_re_ent39 (Re-entrancy/reentrancy_buggy_9.sol#357)
+Variable TokenERC20.claimReward_re_ent25().transferValue_re_ent25 (Re-entrancy/reentrancy_buggy_9.sol#120) is too similar to Ownable.claimReward_re_ent32().transferValue_re_ent32 (Re-entrancy/reentrancy_buggy_9.sol#72)
+Variable Ownable.claimReward_re_ent32().transferValue_re_ent32 (Re-entrancy/reentrancy_buggy_9.sol#72) is too similar to TokenERC20.claimReward_re_ent39().transferValue_re_ent39 (Re-entrancy/reentrancy_buggy_9.sol#357)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+transferBatch(address[],uint256[]) should be declared external:
+	- TokenERC20.transferBatch(address[],uint256[]) (Re-entrancy/reentrancy_buggy_9.sol#410-417)
+Moreover, the following function parameters should change its data location:
+_tos location should be calldata
+_values location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+Re-entrancy/reentrancy_buggy_9.sol analyzed (4 contracts with 80 detectors), 134 result(s) found

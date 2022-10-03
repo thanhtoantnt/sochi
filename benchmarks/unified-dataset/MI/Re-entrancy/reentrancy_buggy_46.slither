@@ -1,0 +1,122 @@
+
+ProofOfExistence.callme_re_ent35() (Re-entrancy/reentrancy_buggy_46.sol#49-55) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_46.sol#51)
+ProofOfExistence.bug_re_ent27() (Re-entrancy/reentrancy_buggy_46.sol#122-128) sends eth to arbitrary user
+	Dangerous calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_46.sol#124)
+ProofOfExistence.bug_re_ent13() (Re-entrancy/reentrancy_buggy_46.sol#176-183) sends eth to arbitrary user
+	Dangerous calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_46.sol#178)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+ProofOfExistence (Re-entrancy/reentrancy_buggy_46.sol#7-186) contract sets array length with a user-controlled value:
+	- fileExistenceProofs[dappBoxOrigin].push(newInfo) (Re-entrancy/reentrancy_buggy_46.sol#45)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#array-length-assignment
+
+Reentrancy in ProofOfExistence.bug_re_ent13() (Re-entrancy/reentrancy_buggy_46.sol#176-183):
+	External calls:
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_46.sol#178)
+	State variables written after the call(s):
+	- not_called_re_ent13 = false (Re-entrancy/reentrancy_buggy_46.sol#182)
+Reentrancy in ProofOfExistence.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_46.sol#102-110):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (Re-entrancy/reentrancy_buggy_46.sol#105)
+	State variables written after the call(s):
+	- userBalance_re_ent33[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_46.sol#109)
+Reentrancy in ProofOfExistence.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_46.sol#79-87):
+	External calls:
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (Re-entrancy/reentrancy_buggy_46.sol#82)
+	State variables written after the call(s):
+	- userBalance_re_ent40[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_46.sol#86)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
+
+ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification).newInfo (Re-entrancy/reentrancy_buggy_46.sol#34) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+ProofOfExistence.GetFileExistenceProof(address,string,string) (Re-entrancy/reentrancy_buggy_46.sol#61-77) compares to a boolean constant:
+	-res == true (Re-entrancy/reentrancy_buggy_46.sol#68)
+ProofOfExistence.getQRCode(address,string,string) (Re-entrancy/reentrancy_buggy_46.sol#135-148) compares to a boolean constant:
+	-res == true (Re-entrancy/reentrancy_buggy_46.sol#142)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#boolean-equality
+
+Pragma version>=0.4.21<0.6.0 (Re-entrancy/reentrancy_buggy_46.sol#5) allows old versions
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Low level call in ProofOfExistence.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_46.sol#79-87):
+	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (Re-entrancy/reentrancy_buggy_46.sol#82)
+Low level call in ProofOfExistence.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_46.sol#102-110):
+	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (Re-entrancy/reentrancy_buggy_46.sol#105)
+Low level call in ProofOfExistence.bug_re_ent13() (Re-entrancy/reentrancy_buggy_46.sol#176-183):
+	- (success) = msg.sender.call.value(1000000000000000000)() (Re-entrancy/reentrancy_buggy_46.sol#178)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Function ProofOfExistence.withdraw_balances_re_ent36() (Re-entrancy/reentrancy_buggy_46.sol#20-23) is not in mixedCase
+Function ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification) (Re-entrancy/reentrancy_buggy_46.sol#32-47) is not in mixedCase
+Parameter ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification)._fileHash (Re-entrancy/reentrancy_buggy_46.sol#32) is not in mixedCase
+Parameter ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification)._filePathHash (Re-entrancy/reentrancy_buggy_46.sol#32) is not in mixedCase
+Parameter ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification)._contractAddress (Re-entrancy/reentrancy_buggy_46.sol#32) is not in mixedCase
+Parameter ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification)._identifier (Re-entrancy/reentrancy_buggy_46.sol#32) is not in mixedCase
+Function ProofOfExistence.callme_re_ent35() (Re-entrancy/reentrancy_buggy_46.sol#49-55) is not in mixedCase
+Function ProofOfExistence.GetFileExistenceProof(address,string,string) (Re-entrancy/reentrancy_buggy_46.sol#61-77) is not in mixedCase
+Function ProofOfExistence.withdrawBalance_re_ent40() (Re-entrancy/reentrancy_buggy_46.sol#79-87) is not in mixedCase
+Function ProofOfExistence.withdrawBalance_re_ent33() (Re-entrancy/reentrancy_buggy_46.sol#102-110) is not in mixedCase
+Parameter ProofOfExistence.generateQRCodeForFile(address,string,string,address,ProofOfExistence.BlockchainIdentification)._fileHash (Re-entrancy/reentrancy_buggy_46.sol#115) is not in mixedCase
+Parameter ProofOfExistence.generateQRCodeForFile(address,string,string,address,ProofOfExistence.BlockchainIdentification)._contractAddress (Re-entrancy/reentrancy_buggy_46.sol#115) is not in mixedCase
+Parameter ProofOfExistence.generateQRCodeForFile(address,string,string,address,ProofOfExistence.BlockchainIdentification)._identifier (Re-entrancy/reentrancy_buggy_46.sol#115) is not in mixedCase
+Function ProofOfExistence.bug_re_ent27() (Re-entrancy/reentrancy_buggy_46.sol#122-128) is not in mixedCase
+Function ProofOfExistence.withdrawFunds_re_ent31(uint256) (Re-entrancy/reentrancy_buggy_46.sol#150-155) is not in mixedCase
+Parameter ProofOfExistence.withdrawFunds_re_ent31(uint256)._weiToWithdraw (Re-entrancy/reentrancy_buggy_46.sol#150) is not in mixedCase
+Parameter ProofOfExistence.searchExistenceProoUsngQRf(address,bytes32).QRCodeHash (Re-entrancy/reentrancy_buggy_46.sol#161) is not in mixedCase
+Function ProofOfExistence.bug_re_ent13() (Re-entrancy/reentrancy_buggy_46.sol#176-183) is not in mixedCase
+Variable ProofOfExistence.balances_re_ent36 (Re-entrancy/reentrancy_buggy_46.sol#19) is not in mixedCase
+Variable ProofOfExistence.counter_re_ent35 (Re-entrancy/reentrancy_buggy_46.sol#48) is not in mixedCase
+Variable ProofOfExistence.userBalance_re_ent40 (Re-entrancy/reentrancy_buggy_46.sol#78) is not in mixedCase
+Variable ProofOfExistence.userBalance_re_ent33 (Re-entrancy/reentrancy_buggy_46.sol#101) is not in mixedCase
+Variable ProofOfExistence.not_called_re_ent27 (Re-entrancy/reentrancy_buggy_46.sol#121) is not in mixedCase
+Variable ProofOfExistence.balances_re_ent31 (Re-entrancy/reentrancy_buggy_46.sol#149) is not in mixedCase
+Variable ProofOfExistence.not_called_re_ent13 (Re-entrancy/reentrancy_buggy_46.sol#175) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in ProofOfExistence.bug_re_ent27() (Re-entrancy/reentrancy_buggy_46.sol#122-128):
+	External calls:
+	- ! (msg.sender.send(1000000000000000000)) (Re-entrancy/reentrancy_buggy_46.sol#124)
+	State variables written after the call(s):
+	- not_called_re_ent27 = false (Re-entrancy/reentrancy_buggy_46.sol#127)
+Reentrancy in ProofOfExistence.callme_re_ent35() (Re-entrancy/reentrancy_buggy_46.sol#49-55):
+	External calls:
+	- ! (msg.sender.send(10000000000000000000)) (Re-entrancy/reentrancy_buggy_46.sol#51)
+	State variables written after the call(s):
+	- counter_re_ent35 += 1 (Re-entrancy/reentrancy_buggy_46.sol#54)
+Reentrancy in ProofOfExistence.withdrawFunds_re_ent31(uint256) (Re-entrancy/reentrancy_buggy_46.sol#150-155):
+	External calls:
+	- require(bool)(msg.sender.send(_weiToWithdraw)) (Re-entrancy/reentrancy_buggy_46.sol#153)
+	State variables written after the call(s):
+	- balances_re_ent31[msg.sender] -= _weiToWithdraw (Re-entrancy/reentrancy_buggy_46.sol#154)
+Reentrancy in ProofOfExistence.withdraw_balances_re_ent36() (Re-entrancy/reentrancy_buggy_46.sol#20-23):
+	External calls:
+	- msg.sender.send(balances_re_ent36[msg.sender]) (Re-entrancy/reentrancy_buggy_46.sol#21)
+	State variables written after the call(s):
+	- balances_re_ent36[msg.sender] = 0 (Re-entrancy/reentrancy_buggy_46.sol#22)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Variable ProofOfExistence.balances_re_ent31 (Re-entrancy/reentrancy_buggy_46.sol#149) is too similar to ProofOfExistence.balances_re_ent36 (Re-entrancy/reentrancy_buggy_46.sol#19)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+
+SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification) should be declared external:
+	- ProofOfExistence.SetFileExistenceProof(address,string,string,address,ProofOfExistence.BlockchainIdentification) (Re-entrancy/reentrancy_buggy_46.sol#32-47)
+Moreover, the following function parameters should change its data location:
+_fileHash location should be calldata
+_filePathHash location should be calldata
+GetFileExistenceProof(address,string,string) should be declared external:
+	- ProofOfExistence.GetFileExistenceProof(address,string,string) (Re-entrancy/reentrancy_buggy_46.sol#61-77)
+Moreover, the following function parameters should change its data location:
+fileHash location should be calldata
+filePathHash location should be calldata
+getQRCode(address,string,string) should be declared external:
+	- ProofOfExistence.getQRCode(address,string,string) (Re-entrancy/reentrancy_buggy_46.sol#135-148)
+Moreover, the following function parameters should change its data location:
+fileHash location should be calldata
+filePathHash location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+Re-entrancy/reentrancy_buggy_46.sol analyzed (1 contracts with 80 detectors), 47 result(s) found
