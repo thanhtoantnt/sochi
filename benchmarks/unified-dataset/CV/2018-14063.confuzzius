@@ -1,0 +1,445 @@
+2022-10-03 08:32:07,680 - Main     - INFO - [1mInitializing seed to 0.27857429037878745[0m
+2022-10-03 08:32:07,768 - Fuzzer   - INFO - [1mFuzzing contract [1mTracto[0m[0m
+2022-10-03 08:32:07,786 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,786 - Detector - INFO - [1m[33m          !!! Assertion failure detected !!!         [0m
+2022-10-03 08:32:07,786 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,786 - Detector - INFO - [1m[33mSWC-ID:   110[0m
+2022-10-03 08:32:07,786 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 08:32:07,786 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,786 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 08:32:07,786 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,786 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/CV/2018-14063.sol:30:1[0m
+2022-10-03 08:32:07,787 - Detector - INFO - [1m[33mstring public symbol = "TRCT"[0m
+2022-10-03 08:32:07,787 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,787 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 08:32:07,787 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,787 - Detector - INFO - [1m[33mTransaction - symbol():[0m
+2022-10-03 08:32:07,787 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,787 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 08:32:07,787 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 08:32:07,787 - Detector - INFO - [1m[33mValue:     1 Wei[0m
+2022-10-03 08:32:07,787 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 08:32:07,787 - Detector - INFO - [1m[33mInput:     0x95d89b41[0m
+2022-10-03 08:32:07,787 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,817 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,817 - Detector - INFO - [1m[33m          !!! Assertion failure detected !!!         [0m
+2022-10-03 08:32:07,817 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,817 - Detector - INFO - [1m[33mSWC-ID:   110[0m
+2022-10-03 08:32:07,817 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 08:32:07,817 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,817 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 08:32:07,817 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,817 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/CV/2018-14063.sol:98:1[0m
+2022-10-03 08:32:07,817 - Detector - INFO - [1m[33mfunction transferFrom(
+          address _from,
+          address _to,
+          uint256 _amount
+      ) notThisContract(_to) returns (bool success) {
+	  
+		   require(balances[_from] >= _amount);
+		   require(allowed[_from][msg.sender] >= _amount);
+		   require(_amount > 0);
+		   require(balances[_to] + _amount > balances[_to]);
+		   
+		   balances[_from] -= _amount;
+           allowed[_from][msg.sender] -= _amount;
+           balances[_to] += _amount;
+           Transfer(_from, _to, _amount);
+           return true;
+	  
+         
+     }[0m
+2022-10-03 08:32:07,817 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,817 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 08:32:07,817 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,817 - Detector - INFO - [1m[33mTransaction - transferFrom(address,address,uint256):[0m
+2022-10-03 08:32:07,817 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,817 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 08:32:07,817 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 08:32:07,817 - Detector - INFO - [1m[33mValue:     1 Wei[0m
+2022-10-03 08:32:07,817 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 08:32:07,817 - Detector - INFO - [1m[33mInput:     0x23b872dd000000000000000000000000cafebabe[0m
+2022-10-03 08:32:07,817 - Detector - INFO - [1m[33m           cafebabecafebabecafebabecafebabe0000000000[0m
+2022-10-03 08:32:07,817 - Detector - INFO - [1m[33m           00000000000000cafebabecafebabecafebabecafe[0m
+2022-10-03 08:32:07,817 - Detector - INFO - [1m[33m           babecafebabea961af4260d40613d0674fc0523564[0m
+2022-10-03 08:32:07,817 - Detector - INFO - [1m[33m           37145a68a1ab3b77df63ed24af0526eb16[0m
+2022-10-03 08:32:07,817 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,821 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,821 - Detector - INFO - [1m[33m          !!! Assertion failure detected !!!         [0m
+2022-10-03 08:32:07,821 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,821 - Detector - INFO - [1m[33mSWC-ID:   110[0m
+2022-10-03 08:32:07,821 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 08:32:07,821 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,821 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 08:32:07,821 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,821 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/CV/2018-14063.sol:166:1[0m
+2022-10-03 08:32:07,821 - Detector - INFO - [1m[33mfunction allowance(address _owner, address _spender) constant returns (uint256 remaining) {
+         return allowed[_owner][_spender];
+     }[0m
+2022-10-03 08:32:07,821 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,821 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 08:32:07,821 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,821 - Detector - INFO - [1m[33mTransaction - allowance(address,address):[0m
+2022-10-03 08:32:07,821 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,821 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 08:32:07,821 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 08:32:07,821 - Detector - INFO - [1m[33mValue:     1 Wei[0m
+2022-10-03 08:32:07,821 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 08:32:07,821 - Detector - INFO - [1m[33mInput:     0xdd62ed3e000000000000000000000000cafebabe[0m
+2022-10-03 08:32:07,821 - Detector - INFO - [1m[33m           cafebabecafebabecafebabecafebabe0000000000[0m
+2022-10-03 08:32:07,821 - Detector - INFO - [1m[33m           00000000000000deadbeefdeadbeefdeadbeefdead[0m
+2022-10-03 08:32:07,821 - Detector - INFO - [1m[33m           beefdeadbeef[0m
+2022-10-03 08:32:07,821 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,824 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,824 - Detector - INFO - [1m[33m          !!! Assertion failure detected !!!         [0m
+2022-10-03 08:32:07,824 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,824 - Detector - INFO - [1m[33mSWC-ID:   110[0m
+2022-10-03 08:32:07,824 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 08:32:07,824 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,824 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 08:32:07,824 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,824 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/CV/2018-14063.sol:170:1[0m
+2022-10-03 08:32:07,824 - Detector - INFO - [1m[33mfunction changeNameSymbol(string _name, string _symbol) onlyOwner {
+		name = _name;
+		symbol = _symbol;
+	}[0m
+2022-10-03 08:32:07,824 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,825 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 08:32:07,825 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,825 - Detector - INFO - [1m[33mTransaction - changeNameSymbol(string,string):[0m
+2022-10-03 08:32:07,825 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,825 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 08:32:07,825 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 08:32:07,825 - Detector - INFO - [1m[33mValue:     1 Wei[0m
+2022-10-03 08:32:07,825 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 08:32:07,825 - Detector - INFO - [1m[33mInput:     0x501a4d6800000000000000000000000000000000[0m
+2022-10-03 08:32:07,825 - Detector - INFO - [1m[33m           000000000000000000000000000000400000000000[0m
+2022-10-03 08:32:07,825 - Detector - INFO - [1m[33m           000000000000000000000000000000000000000000[0m
+2022-10-03 08:32:07,825 - Detector - INFO - [1m[33m           0000000000a0000000000000000000000000000000[0m
+2022-10-03 08:32:07,825 - Detector - INFO - [1m[33m           000000000000000000000000000000002141414141[0m
+2022-10-03 08:32:07,825 - Detector - INFO - [1m[33m           414141414141414141414141414141414141414141[0m
+2022-10-03 08:32:07,825 - Detector - INFO - [1m[33m           414141414141414100000000000000000000000000[0m
+2022-10-03 08:32:07,825 - Detector - INFO - [1m[33m           000000000000000000000000000000000000000000[0m
+2022-10-03 08:32:07,825 - Detector - INFO - [1m[33m           000000000000000000000000000000000000000000[0m
+2022-10-03 08:32:07,825 - Detector - INFO - [1m[33m           000000000000002041414141414141414141414141[0m
+2022-10-03 08:32:07,825 - Detector - INFO - [1m[33m           41414141414141414141414141414141414141[0m
+2022-10-03 08:32:07,825 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,829 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,829 - Detector - INFO - [1m[33m          !!! Assertion failure detected !!!         [0m
+2022-10-03 08:32:07,829 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,829 - Detector - INFO - [1m[33mSWC-ID:   110[0m
+2022-10-03 08:32:07,829 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 08:32:07,829 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,829 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 08:32:07,829 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,829 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/CV/2018-14063.sol:175:1[0m
+2022-10-03 08:32:07,829 - Detector - INFO - [1m[33mfunction transferOwnership(address newOwner) onlyOwner {
+        owner = newOwner;
+    }[0m
+2022-10-03 08:32:07,829 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,829 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 08:32:07,829 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,829 - Detector - INFO - [1m[33mTransaction - transferOwnership(address):[0m
+2022-10-03 08:32:07,829 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,829 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 08:32:07,829 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 08:32:07,829 - Detector - INFO - [1m[33mValue:     1 Wei[0m
+2022-10-03 08:32:07,829 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 08:32:07,829 - Detector - INFO - [1m[33mInput:     0xf2fde38b000000000000000000000000deadbeef[0m
+2022-10-03 08:32:07,829 - Detector - INFO - [1m[33m           deadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 08:32:07,829 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,859 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,859 - Detector - INFO - [1m[33m          !!! Assertion failure detected !!!         [0m
+2022-10-03 08:32:07,859 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,860 - Detector - INFO - [1m[33mSWC-ID:   110[0m
+2022-10-03 08:32:07,860 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 08:32:07,860 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,860 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 08:32:07,860 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,860 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/CV/2018-14063.sol:32:1[0m
+2022-10-03 08:32:07,860 - Detector - INFO - [1m[33muint8 public constant decimals = 8[0m
+2022-10-03 08:32:07,860 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,860 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 08:32:07,860 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,860 - Detector - INFO - [1m[33mTransaction - decimals():[0m
+2022-10-03 08:32:07,860 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,860 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 08:32:07,860 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 08:32:07,860 - Detector - INFO - [1m[33mValue:     1 Wei[0m
+2022-10-03 08:32:07,860 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 08:32:07,860 - Detector - INFO - [1m[33mInput:     0x313ce567[0m
+2022-10-03 08:32:07,860 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,863 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,863 - Detector - INFO - [1m[33m          !!! Assertion failure detected !!!         [0m
+2022-10-03 08:32:07,863 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,863 - Detector - INFO - [1m[33mSWC-ID:   110[0m
+2022-10-03 08:32:07,863 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 08:32:07,863 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,863 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 08:32:07,863 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,863 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/CV/2018-14063.sol:153:1[0m
+2022-10-03 08:32:07,863 - Detector - INFO - [1m[33mfunction decreaseApproval (address _spender, uint _subtractedValue) 
+        returns (bool success) {
+        uint oldValue = allowed[msg.sender][_spender];
+        if (_subtractedValue > oldValue) {
+          allowed[msg.sender][_spender] = 0;
+        } else {
+          //allowed[msg.sender][_spender] = oldValue.sub(_subtractedValue);
+          allowed[msg.sender][_spender] -= _subtractedValue;
+        }
+        Approval(msg.sender, _spender, allowed[msg.sender][_spender]);
+        return true;
+      }[0m
+2022-10-03 08:32:07,863 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,863 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 08:32:07,863 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,863 - Detector - INFO - [1m[33mTransaction - decreaseApproval(address,uint256):[0m
+2022-10-03 08:32:07,863 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,863 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 08:32:07,863 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 08:32:07,863 - Detector - INFO - [1m[33mValue:     1 Wei[0m
+2022-10-03 08:32:07,863 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 08:32:07,863 - Detector - INFO - [1m[33mInput:     0x66188463000000000000000000000000cafebabe[0m
+2022-10-03 08:32:07,863 - Detector - INFO - [1m[33m           cafebabecafebabecafebabecafebabe83f1138a42[0m
+2022-10-03 08:32:07,863 - Detector - INFO - [1m[33m           6047cb588854fb25478a24ba1256dce398b594d2ed[0m
+2022-10-03 08:32:07,863 - Detector - INFO - [1m[33m           2e44c1dc384e[0m
+2022-10-03 08:32:07,863 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,865 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,866 - Detector - INFO - [1m[33m          !!! Assertion failure detected !!!         [0m
+2022-10-03 08:32:07,866 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,866 - Detector - INFO - [1m[33mSWC-ID:   110[0m
+2022-10-03 08:32:07,866 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 08:32:07,866 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,866 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 08:32:07,866 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,866 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/CV/2018-14063.sol:31:1[0m
+2022-10-03 08:32:07,866 - Detector - INFO - [1m[33mstring public name = "Tracto"[0m
+2022-10-03 08:32:07,866 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,866 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 08:32:07,866 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,866 - Detector - INFO - [1m[33mTransaction - name():[0m
+2022-10-03 08:32:07,866 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,866 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 08:32:07,866 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 08:32:07,866 - Detector - INFO - [1m[33mValue:     1 Wei[0m
+2022-10-03 08:32:07,866 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 08:32:07,866 - Detector - INFO - [1m[33mInput:     0x06fdde03[0m
+2022-10-03 08:32:07,866 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,869 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,870 - Detector - INFO - [1m[33m          !!! Assertion failure detected !!!         [0m
+2022-10-03 08:32:07,870 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,870 - Detector - INFO - [1m[33mSWC-ID:   110[0m
+2022-10-03 08:32:07,870 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 08:32:07,870 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,870 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 08:32:07,870 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,870 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/CV/2018-14063.sol:145:1[0m
+2022-10-03 08:32:07,870 - Detector - INFO - [1m[33mfunction increaseApproval (address _spender, uint _addedValue) 
+        returns (bool success) {
+        //allowed[msg.sender][_spender] = allowed[msg.sender][_spender].add(_addedValue);
+        allowed[msg.sender][_spender] += _addedValue;
+        Approval(msg.sender, _spender, allowed[msg.sender][_spender]);
+        return true;
+      }[0m
+2022-10-03 08:32:07,870 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,870 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 08:32:07,870 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,870 - Detector - INFO - [1m[33mTransaction - increaseApproval(address,uint256):[0m
+2022-10-03 08:32:07,870 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,870 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 08:32:07,870 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 08:32:07,870 - Detector - INFO - [1m[33mValue:     1 Wei[0m
+2022-10-03 08:32:07,870 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 08:32:07,870 - Detector - INFO - [1m[33mInput:     0xd73dd623000000000000000000000000cafebabe[0m
+2022-10-03 08:32:07,870 - Detector - INFO - [1m[33m           cafebabecafebabecafebabecafebabeffffffffff[0m
+2022-10-03 08:32:07,870 - Detector - INFO - [1m[33m           ffffffffffffffffffffffffffffffffffffffffff[0m
+2022-10-03 08:32:07,870 - Detector - INFO - [1m[33m           fffffffffffd[0m
+2022-10-03 08:32:07,870 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,873 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,873 - Detector - INFO - [1m[33m          !!! Assertion failure detected !!!         [0m
+2022-10-03 08:32:07,873 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,873 - Detector - INFO - [1m[33mSWC-ID:   110[0m
+2022-10-03 08:32:07,873 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 08:32:07,873 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,873 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 08:32:07,873 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,873 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/CV/2018-14063.sol:70:1[0m
+2022-10-03 08:32:07,873 - Detector - INFO - [1m[33mfunction balanceOf(address _owner) constant returns (uint256 balance) {
+          return balances[_owner];
+      }[0m
+2022-10-03 08:32:07,873 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,873 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 08:32:07,873 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,873 - Detector - INFO - [1m[33mTransaction - balanceOf(address):[0m
+2022-10-03 08:32:07,873 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,873 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 08:32:07,873 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 08:32:07,873 - Detector - INFO - [1m[33mValue:     1 Wei[0m
+2022-10-03 08:32:07,873 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 08:32:07,873 - Detector - INFO - [1m[33mInput:     0x70a08231000000000000000000000000deadbeef[0m
+2022-10-03 08:32:07,873 - Detector - INFO - [1m[33m           deadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 08:32:07,873 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,876 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,876 - Detector - INFO - [1m[33m          !!! Assertion failure detected !!!         [0m
+2022-10-03 08:32:07,876 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,876 - Detector - INFO - [1m[33mSWC-ID:   110[0m
+2022-10-03 08:32:07,876 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 08:32:07,876 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,876 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 08:32:07,876 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,876 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/CV/2018-14063.sol:74:1[0m
+2022-10-03 08:32:07,876 - Detector - INFO - [1m[33mfunction totalSupply() constant returns (uint256 totSupply) {
+          //totalSupply = _totalSupply;
+		  return _totalSupply;
+      }[0m
+2022-10-03 08:32:07,876 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,876 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 08:32:07,876 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,876 - Detector - INFO - [1m[33mTransaction - totalSupply():[0m
+2022-10-03 08:32:07,876 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,876 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 08:32:07,876 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 08:32:07,876 - Detector - INFO - [1m[33mValue:     1 Wei[0m
+2022-10-03 08:32:07,876 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 08:32:07,876 - Detector - INFO - [1m[33mInput:     0x18160ddd[0m
+2022-10-03 08:32:07,876 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,907 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,907 - Detector - INFO - [1m[33m          !!! Assertion failure detected !!!         [0m
+2022-10-03 08:32:07,907 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,907 - Detector - INFO - [1m[33mSWC-ID:   110[0m
+2022-10-03 08:32:07,907 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 08:32:07,907 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,907 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 08:32:07,907 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,907 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/CV/2018-14063.sol:80:1[0m
+2022-10-03 08:32:07,907 - Detector - INFO - [1m[33mfunction transfer(address _to, uint256 _amount) notThisContract(_to) returns (bool success) {
+          require(_to != 0x0);
+		  require(_amount > 0);
+		  require(balances[msg.sender] >= _amount);
+		  require(balances[_to] + _amount > balances[_to]);
+		  balances[msg.sender] -= _amount;
+          balances[_to] += _amount;		  
+		  Transfer(msg.sender, _to, _amount);
+		  return true;
+	 
+      }[0m
+2022-10-03 08:32:07,908 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,908 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 08:32:07,908 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,908 - Detector - INFO - [1m[33mTransaction - transfer(address,uint256):[0m
+2022-10-03 08:32:07,908 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,908 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 08:32:07,908 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 08:32:07,908 - Detector - INFO - [1m[33mValue:     1 Wei[0m
+2022-10-03 08:32:07,908 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 08:32:07,908 - Detector - INFO - [1m[33mInput:     0xa9059cbb000000000000000000000000cafebabe[0m
+2022-10-03 08:32:07,908 - Detector - INFO - [1m[33m           cafebabecafebabecafebabecafebabefd462985c8[0m
+2022-10-03 08:32:07,908 - Detector - INFO - [1m[33m           c50e875336ff846644cf997852ee5a8e0c0afe67b9[0m
+2022-10-03 08:32:07,908 - Detector - INFO - [1m[33m           582b1b7c5d09[0m
+2022-10-03 08:32:07,908 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,911 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,911 - Detector - INFO - [1m[33m          !!! Assertion failure detected !!!         [0m
+2022-10-03 08:32:07,911 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,911 - Detector - INFO - [1m[33mSWC-ID:   110[0m
+2022-10-03 08:32:07,911 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 08:32:07,911 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,911 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 08:32:07,911 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,911 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/CV/2018-14063.sol:36:1[0m
+2022-10-03 08:32:07,911 - Detector - INFO - [1m[33maddress public owner[0m
+2022-10-03 08:32:07,911 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,911 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 08:32:07,911 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,911 - Detector - INFO - [1m[33mTransaction - owner():[0m
+2022-10-03 08:32:07,911 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,911 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 08:32:07,911 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 08:32:07,911 - Detector - INFO - [1m[33mValue:     1 Wei[0m
+2022-10-03 08:32:07,911 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 08:32:07,911 - Detector - INFO - [1m[33mInput:     0x8da5cb5b[0m
+2022-10-03 08:32:07,911 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,914 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,914 - Detector - INFO - [1m[33m          !!! Assertion failure detected !!!         [0m
+2022-10-03 08:32:07,914 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,914 - Detector - INFO - [1m[33mSWC-ID:   110[0m
+2022-10-03 08:32:07,914 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 08:32:07,914 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,914 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 08:32:07,914 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,914 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/CV/2018-14063.sol:126:1[0m
+2022-10-03 08:32:07,914 - Detector - INFO - [1m[33mfunction approve(address _spender, uint256 _amount) returns (bool) {
+
+		// To change the approve amount you first have to reduce the addresses`
+		//  allowance to zero by calling `approve(_spender, 0)` if it is not
+		//  already 0 to mitigate the race condition described here:
+		//  https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
+		require((_amount == 0) || (allowed[msg.sender][_spender] == 0));
+
+		allowed[msg.sender][_spender] = _amount;
+		Approval(msg.sender, _spender, _amount);
+		return true;
+	}[0m
+2022-10-03 08:32:07,914 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,914 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 08:32:07,914 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,914 - Detector - INFO - [1m[33mTransaction - approve(address,uint256):[0m
+2022-10-03 08:32:07,914 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,914 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 08:32:07,914 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 08:32:07,914 - Detector - INFO - [1m[33mValue:     1 Wei[0m
+2022-10-03 08:32:07,914 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 08:32:07,914 - Detector - INFO - [1m[33mInput:     0x095ea7b3000000000000000000000000deadbeef[0m
+2022-10-03 08:32:07,914 - Detector - INFO - [1m[33m           deadbeefdeadbeefdeadbeefdeadbeef0000000000[0m
+2022-10-03 08:32:07,914 - Detector - INFO - [1m[33m           000000000000000000000000000000000000000000[0m
+2022-10-03 08:32:07,914 - Detector - INFO - [1m[33m           000000000001[0m
+2022-10-03 08:32:07,914 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:07,918 - Analysis - INFO - [1mGeneration number 0 	 Code coverage: 60.67% (1331/2194) 	 Branch coverage: 61.29% (76/124) 	 Transactions: 31 (30 unique)   	 Time: 0.13474416732788086[0m
+2022-10-03 08:32:08,102 - Analysis - INFO - [1mGeneration number 1 	 Code coverage: 60.67% (1331/2194) 	 Branch coverage: 62.10% (77/124) 	 Transactions: 64 (47 unique)   	 Time: 0.3188962936401367[0m
+2022-10-03 08:32:08,413 - Analysis - INFO - [1mGeneration number 2 	 Code coverage: 62.81% (1378/2194) 	 Branch coverage: 66.13% (82/124) 	 Transactions: 107 (62 unique)   	 Time: 0.6297738552093506[0m
+2022-10-03 08:32:08,690 - Analysis - INFO - [1mGeneration number 3 	 Code coverage: 62.81% (1378/2194) 	 Branch coverage: 66.13% (82/124) 	 Transactions: 163 (79 unique)   	 Time: 0.9066371917724609[0m
+2022-10-03 08:32:09,126 - Analysis - INFO - [1mGeneration number 4 	 Code coverage: 62.81% (1378/2194) 	 Branch coverage: 66.13% (82/124) 	 Transactions: 243 (103 unique)   	 Time: 1.342989206314087[0m
+2022-10-03 08:32:09,653 - Analysis - INFO - [1mGeneration number 5 	 Code coverage: 62.81% (1378/2194) 	 Branch coverage: 66.13% (82/124) 	 Transactions: 340 (130 unique)   	 Time: 1.8690822124481201[0m
+2022-10-03 08:32:10,242 - Analysis - INFO - [1mGeneration number 6 	 Code coverage: 62.81% (1378/2194) 	 Branch coverage: 66.13% (82/124) 	 Transactions: 445 (159 unique)   	 Time: 2.458998441696167[0m
+2022-10-03 08:32:10,844 - Analysis - INFO - [1mGeneration number 7 	 Code coverage: 62.81% (1378/2194) 	 Branch coverage: 66.13% (82/124) 	 Transactions: 551 (186 unique)   	 Time: 3.060741662979126[0m
+2022-10-03 08:32:11,459 - Analysis - INFO - [1mGeneration number 8 	 Code coverage: 62.81% (1378/2194) 	 Branch coverage: 66.13% (82/124) 	 Transactions: 657 (215 unique)   	 Time: 3.67576003074646[0m
+2022-10-03 08:32:12,122 - Analysis - INFO - [1mGeneration number 9 	 Code coverage: 62.81% (1378/2194) 	 Branch coverage: 66.13% (82/124) 	 Transactions: 773 (243 unique)   	 Time: 4.338811159133911[0m
+2022-10-03 08:32:12,814 - Analysis - INFO - [1mGeneration number 10 	 Code coverage: 62.81% (1378/2194) 	 Branch coverage: 66.13% (82/124) 	 Transactions: 891 (272 unique)   	 Time: 5.0303795337677[0m
+2022-10-03 08:32:13,512 - Analysis - INFO - [1mGeneration number 11 	 Code coverage: 62.81% (1378/2194) 	 Branch coverage: 66.13% (82/124) 	 Transactions: 1008 (301 unique)   	 Time: 5.728162050247192[0m
+2022-10-03 08:32:14,231 - Analysis - INFO - [1mGeneration number 12 	 Code coverage: 62.81% (1378/2194) 	 Branch coverage: 66.13% (82/124) 	 Transactions: 1129 (330 unique)   	 Time: 6.447680711746216[0m
+2022-10-03 08:32:14,997 - Analysis - INFO - [1mGeneration number 13 	 Code coverage: 62.81% (1378/2194) 	 Branch coverage: 66.13% (82/124) 	 Transactions: 1252 (360 unique)   	 Time: 7.2131476402282715[0m
+2022-10-03 08:32:15,359 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:15,359 - Detector - INFO - [1m[33m          !!! Assertion failure detected !!!         [0m
+2022-10-03 08:32:15,359 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:15,359 - Detector - INFO - [1m[33mSWC-ID:   110[0m
+2022-10-03 08:32:15,359 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 08:32:15,359 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:15,359 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 08:32:15,359 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:15,359 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/CV/2018-14063.sol:65:1[0m
+2022-10-03 08:32:15,359 - Detector - INFO - [1m[33mowner.transfer(this.balance)[0m
+2022-10-03 08:32:15,359 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:15,359 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 08:32:15,359 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:15,359 - Detector - INFO - [1m[33mTransaction:[0m
+2022-10-03 08:32:15,359 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:15,359 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 08:32:15,359 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 08:32:15,359 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 08:32:15,359 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 08:32:15,359 - Detector - INFO - [1m[33mInput:     0x00000000[0m
+2022-10-03 08:32:15,359 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 08:32:15,634 - Analysis - INFO - [1mGeneration number 14 	 Code coverage: 81.54% (1789/2194) 	 Branch coverage: 84.68% (105/124) 	 Transactions: 1321 (405 unique)   	 Time: 7.85081672668457[0m
+2022-10-03 08:32:16,385 - Analysis - INFO - [1mGeneration number 15 	 Code coverage: 81.54% (1789/2194) 	 Branch coverage: 86.29% (107/124) 	 Transactions: 1389 (429 unique)   	 Time: 8.601539611816406[0m
+2022-10-03 08:32:17,592 - Analysis - INFO - [1mGeneration number 16 	 Code coverage: 81.68% (1792/2194) 	 Branch coverage: 87.10% (108/124) 	 Transactions: 1491 (455 unique)   	 Time: 9.808918714523315[0m
+2022-10-03 08:32:18,948 - Analysis - INFO - [1mGeneration number 17 	 Code coverage: 81.68% (1792/2194) 	 Branch coverage: 87.10% (108/124) 	 Transactions: 1601 (478 unique)   	 Time: 11.164503812789917[0m
+2022-10-03 08:32:20,443 - Analysis - INFO - [1mGeneration number 18 	 Code coverage: 81.68% (1792/2194) 	 Branch coverage: 87.10% (108/124) 	 Transactions: 1704 (498 unique)   	 Time: 12.6600341796875[0m
+2022-10-03 08:32:22,461 - Analysis - INFO - [1mGeneration number 19 	 Code coverage: 81.68% (1792/2194) 	 Branch coverage: 87.10% (108/124) 	 Transactions: 1832 (523 unique)   	 Time: 14.677582740783691[0m
+2022-10-03 08:32:24,045 - Analysis - INFO - [1mGeneration number 20 	 Code coverage: 81.68% (1792/2194) 	 Branch coverage: 87.10% (108/124) 	 Transactions: 1937 (542 unique)   	 Time: 16.2616229057312[0m
+2022-10-03 08:32:24,147 - Analysis - INFO - [1m-----------------------------------------------------[0m
+2022-10-03 08:32:24,147 - Analysis - INFO - Number of generations: 	 20
+2022-10-03 08:32:24,147 - Analysis - INFO - Number of transactions: 	 1937 (542 unique)
+2022-10-03 08:32:24,147 - Analysis - INFO - Transactions per second: 	 118
+2022-10-03 08:32:24,147 - Analysis - INFO - Total code coverage: 	 81.68% (1792/2194)
+2022-10-03 08:32:24,147 - Analysis - INFO - Total branch coverage: 	 87.10% (108/124)
+2022-10-03 08:32:24,147 - Analysis - INFO - Total execution time: 	 16.36 seconds
+2022-10-03 08:32:24,147 - Analysis - INFO - Total memory consumption: 	 77.45 MB
