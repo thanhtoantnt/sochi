@@ -1,0 +1,1788 @@
+2022-10-03 11:55:30,705 - Main     - INFO - [1mInitializing seed to 0.39838195346074934[0m
+2022-10-03 11:55:30,842 - Fuzzer   - INFO - [1mFuzzing contract [1mAugustCoin[0m[0m
+2022-10-03 11:55:30,897 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:30,897 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-10-03 11:55:30,897 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:30,897 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:55:30,897 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:55:30,897 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:30,897 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:55:30,897 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:30,897 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:27:1[0m
+2022-10-03 11:55:30,897 - Detector - INFO - [1m[31ma + b[0m
+2022-10-03 11:55:30,897 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:30,897 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:55:30,897 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:30,897 - Detector - INFO - [1m[31mTransaction - safeAdd(uint256,uint256):[0m
+2022-10-03 11:55:30,897 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:30,897 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:30,897 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:30,897 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:30,897 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:30,897 - Detector - INFO - [1m[31mInput:     0xe6cb901300000000000000000000000000000000[0m
+2022-10-03 11:55:30,897 - Detector - INFO - [1m[31m           00000000000000000000000000000002ffffffffff[0m
+2022-10-03 11:55:30,897 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:55:30,897 - Detector - INFO - [1m[31m           fffffffffffe[0m
+2022-10-03 11:55:30,897 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,025 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,025 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-10-03 11:55:31,025 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,025 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:55:31,025 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:55:31,026 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,026 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:55:31,026 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,026 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:337:1[0m
+2022-10-03 11:55:31,026 - Detector - INFO - [1m[31mbalances_intou30[msg.sender] - _value[0m
+2022-10-03 11:55:31,026 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,026 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:55:31,026 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,026 - Detector - INFO - [1m[31mTransaction - transfer_intou30(address,uint256):[0m
+2022-10-03 11:55:31,026 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,026 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:55:31,026 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:31,026 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:31,026 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:31,026 - Detector - INFO - [1m[31mInput:     0xc036563e000000000000000000000000cafebabe[0m
+2022-10-03 11:55:31,026 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabea265811c57[0m
+2022-10-03 11:55:31,026 - Detector - INFO - [1m[31m           727846c76ebc36e326489d37fc528bb22b07313992[0m
+2022-10-03 11:55:31,026 - Detector - INFO - [1m[31m           d70b97ab43d7[0m
+2022-10-03 11:55:31,026 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,028 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,028 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-10-03 11:55:31,028 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,028 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:55:31,028 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:55:31,028 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,028 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:55:31,028 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,028 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:338:1[0m
+2022-10-03 11:55:31,028 - Detector - INFO - [1m[31mbalances_intou30[msg.sender] -= _value[0m
+2022-10-03 11:55:31,028 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,028 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:55:31,028 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,028 - Detector - INFO - [1m[31mTransaction - transfer_intou30(address,uint256):[0m
+2022-10-03 11:55:31,028 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,028 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:55:31,028 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:31,029 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:31,029 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:31,029 - Detector - INFO - [1m[31mInput:     0xc036563e000000000000000000000000cafebabe[0m
+2022-10-03 11:55:31,029 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabea265811c57[0m
+2022-10-03 11:55:31,029 - Detector - INFO - [1m[31m           727846c76ebc36e326489d37fc528bb22b07313992[0m
+2022-10-03 11:55:31,029 - Detector - INFO - [1m[31m           d70b97ab43d7[0m
+2022-10-03 11:55:31,029 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,032 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,032 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-10-03 11:55:31,032 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,032 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:55:31,032 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:55:31,032 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,032 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:55:31,032 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,032 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:339:1[0m
+2022-10-03 11:55:31,032 - Detector - INFO - [1m[31mbalances_intou30[_to] += _value[0m
+2022-10-03 11:55:31,032 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,032 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:55:31,032 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,032 - Detector - INFO - [1m[31mTransaction - transfer_intou30(address,uint256):[0m
+2022-10-03 11:55:31,032 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,032 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:55:31,032 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:31,032 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:31,032 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:31,032 - Detector - INFO - [1m[31mInput:     0xc036563e000000000000000000000000cafebabe[0m
+2022-10-03 11:55:31,032 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabea265811c57[0m
+2022-10-03 11:55:31,032 - Detector - INFO - [1m[31m           727846c76ebc36e326489d37fc528bb22b07313992[0m
+2022-10-03 11:55:31,032 - Detector - INFO - [1m[31m           d70b97ab43d7[0m
+2022-10-03 11:55:31,032 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,174 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,174 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-10-03 11:55:31,174 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,175 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:55:31,175 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:55:31,175 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,175 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:55:31,175 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,175 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:208:1[0m
+2022-10-03 11:55:31,175 - Detector - INFO - [1m[31mbalances_intou38[msg.sender] - _value[0m
+2022-10-03 11:55:31,175 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,175 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:55:31,175 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,175 - Detector - INFO - [1m[31mTransaction - transfer_intou38(address,uint256):[0m
+2022-10-03 11:55:31,175 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,175 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:55:31,175 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:31,175 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:31,175 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:31,175 - Detector - INFO - [1m[31mInput:     0x7daba891000000000000000000000000deadbeef[0m
+2022-10-03 11:55:31,175 - Detector - INFO - [1m[31m           deadbeefdeadbeefdeadbeefdeadbeef4b110dfd56[0m
+2022-10-03 11:55:31,175 - Detector - INFO - [1m[31m           96a1f6455c199feaad82d4029fb8718ef1e16576ad[0m
+2022-10-03 11:55:31,175 - Detector - INFO - [1m[31m           3ee23f099da8[0m
+2022-10-03 11:55:31,175 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,177 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,177 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-10-03 11:55:31,177 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,177 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:55:31,177 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:55:31,177 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,177 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:55:31,177 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,177 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:209:1[0m
+2022-10-03 11:55:31,177 - Detector - INFO - [1m[31mbalances_intou38[msg.sender] -= _value[0m
+2022-10-03 11:55:31,177 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,177 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:55:31,177 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,177 - Detector - INFO - [1m[31mTransaction - transfer_intou38(address,uint256):[0m
+2022-10-03 11:55:31,177 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,178 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:55:31,178 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:31,178 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:31,178 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:31,178 - Detector - INFO - [1m[31mInput:     0x7daba891000000000000000000000000deadbeef[0m
+2022-10-03 11:55:31,178 - Detector - INFO - [1m[31m           deadbeefdeadbeefdeadbeefdeadbeef4b110dfd56[0m
+2022-10-03 11:55:31,178 - Detector - INFO - [1m[31m           96a1f6455c199feaad82d4029fb8718ef1e16576ad[0m
+2022-10-03 11:55:31,178 - Detector - INFO - [1m[31m           3ee23f099da8[0m
+2022-10-03 11:55:31,178 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,387 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,387 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-10-03 11:55:31,387 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,387 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:55:31,387 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:55:31,387 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,387 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:55:31,387 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,387 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:129:1[0m
+2022-10-03 11:55:31,387 - Detector - INFO - [1m[31mbalances_intou26[msg.sender] - _value[0m
+2022-10-03 11:55:31,387 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,387 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:55:31,387 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,387 - Detector - INFO - [1m[31mTransaction - transfer_intou26(address,uint256):[0m
+2022-10-03 11:55:31,387 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,387 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:55:31,387 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:31,387 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:31,387 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:31,387 - Detector - INFO - [1m[31mInput:     0x46aa9243000000000000000000000000deadbeef[0m
+2022-10-03 11:55:31,387 - Detector - INFO - [1m[31m           deadbeefdeadbeefdeadbeefdeadbeef3c0f9ef102[0m
+2022-10-03 11:55:31,387 - Detector - INFO - [1m[31m           9f63c11fc6d1047203e92efbd5ba49343d0440caa2[0m
+2022-10-03 11:55:31,388 - Detector - INFO - [1m[31m           c65807f81b62[0m
+2022-10-03 11:55:31,388 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,390 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,390 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-10-03 11:55:31,390 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,390 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:55:31,390 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:55:31,390 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,390 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:55:31,390 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,390 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:130:1[0m
+2022-10-03 11:55:31,390 - Detector - INFO - [1m[31mbalances_intou26[msg.sender] -= _value[0m
+2022-10-03 11:55:31,390 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,390 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:55:31,390 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,390 - Detector - INFO - [1m[31mTransaction - transfer_intou26(address,uint256):[0m
+2022-10-03 11:55:31,390 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,390 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:55:31,390 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:31,390 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:31,390 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:31,390 - Detector - INFO - [1m[31mInput:     0x46aa9243000000000000000000000000deadbeef[0m
+2022-10-03 11:55:31,390 - Detector - INFO - [1m[31m           deadbeefdeadbeefdeadbeefdeadbeef3c0f9ef102[0m
+2022-10-03 11:55:31,390 - Detector - INFO - [1m[31m           9f63c11fc6d1047203e92efbd5ba49343d0440caa2[0m
+2022-10-03 11:55:31,390 - Detector - INFO - [1m[31m           c65807f81b62[0m
+2022-10-03 11:55:31,390 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,400 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,400 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-10-03 11:55:31,400 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,400 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:55:31,400 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:55:31,400 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,400 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:55:31,400 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,400 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:55:1[0m
+2022-10-03 11:55:31,400 - Detector - INFO - [1m[31mbalances_intou2[msg.sender] - _value[0m
+2022-10-03 11:55:31,400 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,400 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:55:31,400 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,400 - Detector - INFO - [1m[31mTransaction - transfer_undrflow2(address,uint256):[0m
+2022-10-03 11:55:31,400 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,400 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:31,400 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:31,400 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:31,400 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:31,400 - Detector - INFO - [1m[31mInput:     0x37ae6b73000000000000000000000000cafebabe[0m
+2022-10-03 11:55:31,400 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabe0000000000[0m
+2022-10-03 11:55:31,400 - Detector - INFO - [1m[31m           000000000000000000000000000000000000000000[0m
+2022-10-03 11:55:31,400 - Detector - INFO - [1m[31m           000000000001[0m
+2022-10-03 11:55:31,400 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,402 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,402 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-10-03 11:55:31,402 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,402 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:55:31,402 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:55:31,402 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,402 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:55:31,402 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,402 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:56:1[0m
+2022-10-03 11:55:31,402 - Detector - INFO - [1m[31mbalances_intou2[msg.sender] -= _value[0m
+2022-10-03 11:55:31,402 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,402 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:55:31,403 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,403 - Detector - INFO - [1m[31mTransaction - transfer_undrflow2(address,uint256):[0m
+2022-10-03 11:55:31,403 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,403 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:31,403 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:31,403 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:31,403 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:31,403 - Detector - INFO - [1m[31mInput:     0x37ae6b73000000000000000000000000cafebabe[0m
+2022-10-03 11:55:31,403 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabe0000000000[0m
+2022-10-03 11:55:31,403 - Detector - INFO - [1m[31m           000000000000000000000000000000000000000000[0m
+2022-10-03 11:55:31,403 - Detector - INFO - [1m[31m           000000000001[0m
+2022-10-03 11:55:31,403 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,537 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,537 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-10-03 11:55:31,537 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,537 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:55:31,537 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:55:31,537 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,537 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:55:31,537 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,537 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:234:1[0m
+2022-10-03 11:55:31,537 - Detector - INFO - [1m[31mbalances_intou34[msg.sender] - _value[0m
+2022-10-03 11:55:31,537 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,537 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:55:31,537 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,537 - Detector - INFO - [1m[31mTransaction - transfer_intou34(address,uint256):[0m
+2022-10-03 11:55:31,537 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,537 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:31,537 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:31,537 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:31,537 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:31,537 - Detector - INFO - [1m[31mInput:     0x46852dfc000000000000000000000000cafebabe[0m
+2022-10-03 11:55:31,538 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabe8ef80af23e[0m
+2022-10-03 11:55:31,538 - Detector - INFO - [1m[31m           fbdd5972fa74acdfd8c4b5f1feb73ea96772e95f03[0m
+2022-10-03 11:55:31,538 - Detector - INFO - [1m[31m           2da1066dd6a2[0m
+2022-10-03 11:55:31,538 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,540 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,540 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-10-03 11:55:31,540 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,540 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:55:31,540 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:55:31,540 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,540 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:55:31,540 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,540 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:235:5[0m
+2022-10-03 11:55:31,540 - Detector - INFO - [1m[31mbalances_intou34[msg.sender] -= _value[0m
+2022-10-03 11:55:31,540 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,540 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:55:31,540 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,540 - Detector - INFO - [1m[31mTransaction - transfer_intou34(address,uint256):[0m
+2022-10-03 11:55:31,540 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,540 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:31,540 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:31,540 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:31,540 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:31,540 - Detector - INFO - [1m[31mInput:     0x46852dfc000000000000000000000000cafebabe[0m
+2022-10-03 11:55:31,540 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabe8ef80af23e[0m
+2022-10-03 11:55:31,540 - Detector - INFO - [1m[31m           fbdd5972fa74acdfd8c4b5f1feb73ea96772e95f03[0m
+2022-10-03 11:55:31,540 - Detector - INFO - [1m[31m           2da1066dd6a2[0m
+2022-10-03 11:55:31,540 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,626 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,626 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-10-03 11:55:31,626 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,626 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:55:31,626 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:55:31,626 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,626 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:55:31,626 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,626 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:254:1[0m
+2022-10-03 11:55:31,626 - Detector - INFO - [1m[31mbalances_intou10[msg.sender] - _value[0m
+2022-10-03 11:55:31,626 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,626 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:55:31,626 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,627 - Detector - INFO - [1m[31mTransaction - transfer_intou10(address,uint256):[0m
+2022-10-03 11:55:31,627 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,627 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:55:31,627 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:31,627 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:31,627 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:31,627 - Detector - INFO - [1m[31mInput:     0xc1762373000000000000000000000000cafebabe[0m
+2022-10-03 11:55:31,627 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabeffffffffff[0m
+2022-10-03 11:55:31,627 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:55:31,627 - Detector - INFO - [1m[31m           ffffffffffff[0m
+2022-10-03 11:55:31,627 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,629 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,629 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-10-03 11:55:31,629 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,629 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:55:31,629 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:55:31,629 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,629 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:55:31,629 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,629 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:255:1[0m
+2022-10-03 11:55:31,629 - Detector - INFO - [1m[31mbalances_intou10[msg.sender] -= _value[0m
+2022-10-03 11:55:31,629 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,629 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:55:31,629 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,629 - Detector - INFO - [1m[31mTransaction - transfer_intou10(address,uint256):[0m
+2022-10-03 11:55:31,629 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,629 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:55:31,629 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:31,629 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:31,629 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:31,629 - Detector - INFO - [1m[31mInput:     0xc1762373000000000000000000000000cafebabe[0m
+2022-10-03 11:55:31,629 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabeffffffffff[0m
+2022-10-03 11:55:31,629 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:55:31,629 - Detector - INFO - [1m[31m           ffffffffffff[0m
+2022-10-03 11:55:31,629 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,632 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,633 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-10-03 11:55:31,633 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,633 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:55:31,633 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:55:31,633 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,633 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:55:31,633 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,633 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:256:1[0m
+2022-10-03 11:55:31,633 - Detector - INFO - [1m[31mbalances_intou10[_to] += _value[0m
+2022-10-03 11:55:31,633 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,633 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:55:31,633 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,633 - Detector - INFO - [1m[31mTransaction - transfer_intou10(address,uint256):[0m
+2022-10-03 11:55:31,633 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,633 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:55:31,633 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:31,633 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:31,633 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:31,633 - Detector - INFO - [1m[31mInput:     0xc1762373000000000000000000000000cafebabe[0m
+2022-10-03 11:55:31,633 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabeffffffffff[0m
+2022-10-03 11:55:31,633 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:55:31,633 - Detector - INFO - [1m[31m           ffffffffffff[0m
+2022-10-03 11:55:31,633 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,671 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,671 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-10-03 11:55:31,671 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,671 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:55:31,671 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:55:31,671 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,671 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:55:31,671 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,671 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:263:1[0m
+2022-10-03 11:55:31,671 - Detector - INFO - [1m[31mbalances_intou22[msg.sender] - _value[0m
+2022-10-03 11:55:31,671 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,671 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:55:31,671 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,671 - Detector - INFO - [1m[31mTransaction - transfer_intou22(address,uint256):[0m
+2022-10-03 11:55:31,671 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,671 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:55:31,671 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:31,671 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:31,671 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:31,671 - Detector - INFO - [1m[31mInput:     0xd7f8581a000000000000000000000000cafebabe[0m
+2022-10-03 11:55:31,671 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabe2091f8f4dc[0m
+2022-10-03 11:55:31,671 - Detector - INFO - [1m[31m           6e14216a47018ac37d5a4184b0a9714fe12cdf134b[0m
+2022-10-03 11:55:31,671 - Detector - INFO - [1m[31m           329c893747ce[0m
+2022-10-03 11:55:31,671 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,674 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,674 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-10-03 11:55:31,674 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,674 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:55:31,674 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:55:31,674 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,674 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:55:31,674 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,674 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:264:1[0m
+2022-10-03 11:55:31,674 - Detector - INFO - [1m[31mbalances_intou22[msg.sender] -= _value[0m
+2022-10-03 11:55:31,674 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,674 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:55:31,674 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,674 - Detector - INFO - [1m[31mTransaction - transfer_intou22(address,uint256):[0m
+2022-10-03 11:55:31,674 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,674 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:55:31,674 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:31,674 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:31,674 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:31,674 - Detector - INFO - [1m[31mInput:     0xd7f8581a000000000000000000000000cafebabe[0m
+2022-10-03 11:55:31,674 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabe2091f8f4dc[0m
+2022-10-03 11:55:31,674 - Detector - INFO - [1m[31m           6e14216a47018ac37d5a4184b0a9714fe12cdf134b[0m
+2022-10-03 11:55:31,674 - Detector - INFO - [1m[31m           329c893747ce[0m
+2022-10-03 11:55:31,674 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,677 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,677 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-10-03 11:55:31,677 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,677 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:55:31,677 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:55:31,677 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,677 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:55:31,677 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,677 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:265:1[0m
+2022-10-03 11:55:31,677 - Detector - INFO - [1m[31mbalances_intou22[_to] += _value[0m
+2022-10-03 11:55:31,677 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,677 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:55:31,677 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,677 - Detector - INFO - [1m[31mTransaction - transfer_intou22(address,uint256):[0m
+2022-10-03 11:55:31,677 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:31,677 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:55:31,677 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:31,678 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:31,678 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:31,678 - Detector - INFO - [1m[31mInput:     0xd7f8581a000000000000000000000000cafebabe[0m
+2022-10-03 11:55:31,678 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabe2091f8f4dc[0m
+2022-10-03 11:55:31,678 - Detector - INFO - [1m[31m           6e14216a47018ac37d5a4184b0a9714fe12cdf134b[0m
+2022-10-03 11:55:31,678 - Detector - INFO - [1m[31m           329c893747ce[0m
+2022-10-03 11:55:31,678 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:32,030 - Analysis - INFO - [1mGeneration number 0 	 Code coverage: 88.71% (3960/4464) 	 Branch coverage: 80.00% (328/410) 	 Transactions: 141 (140 unique)   	 Time: 1.16593337059021[0m
+2022-10-03 11:55:32,504 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:32,504 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-10-03 11:55:32,504 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:32,504 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:55:32,504 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:55:32,504 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:32,504 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:55:32,504 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:32,504 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:57:1[0m
+2022-10-03 11:55:32,504 - Detector - INFO - [1m[31mbalances_intou2[_to] += _value[0m
+2022-10-03 11:55:32,504 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:32,504 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:55:32,504 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:32,504 - Detector - INFO - [1m[31mTransaction - transfer_undrflow2(address,uint256):[0m
+2022-10-03 11:55:32,504 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:32,504 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:32,504 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:32,504 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:32,504 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:32,504 - Detector - INFO - [1m[31mInput:     0x37ae6b73000000000000000000000000deadbeef[0m
+2022-10-03 11:55:32,504 - Detector - INFO - [1m[31m           deadbeefdeadbeefdeadbeefdeadbeef0000000000[0m
+2022-10-03 11:55:32,504 - Detector - INFO - [1m[31m           000000000000000000000000000000000000000000[0m
+2022-10-03 11:55:32,504 - Detector - INFO - [1m[31m           000000000001[0m
+2022-10-03 11:55:32,504 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:33,574 - Analysis - INFO - [1mGeneration number 1 	 Code coverage: 89.34% (3988/4464) 	 Branch coverage: 81.46% (334/410) 	 Transactions: 294 (213 unique)   	 Time: 2.7102885246276855[0m
+2022-10-03 11:55:34,112 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,112 - Detector - INFO - [1m[32m          !!! Block dependency detected !!!          [0m
+2022-10-03 11:55:34,112 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,112 - Detector - INFO - [1m[32mSWC-ID:   120[0m
+2022-10-03 11:55:34,112 - Detector - INFO - [1m[32mSeverity: Low[0m
+2022-10-03 11:55:34,112 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,112 - Detector - INFO - [1m[32mSource code line:[0m
+2022-10-03 11:55:34,112 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,112 - Detector - INFO - [1m[32mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:44:1[0m
+2022-10-03 11:55:34,112 - Detector - INFO - [1m[32mnow[0m
+2022-10-03 11:55:34,112 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,112 - Detector - INFO - [1m[32mTransaction sequence:[0m
+2022-10-03 11:55:34,112 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,113 - Detector - INFO - [1m[32mTransaction 1 - increaseLockTime_intou1(uint256):[0m
+2022-10-03 11:55:34,113 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,113 - Detector - INFO - [1m[32mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:34,113 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:34,113 - Detector - INFO - [1m[32mValue:     1 Wei[0m
+2022-10-03 11:55:34,113 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-10-03 11:55:34,113 - Detector - INFO - [1m[32mInput:     0x1d3fb2a700000000000000000000000000000000[0m
+2022-10-03 11:55:34,113 - Detector - INFO - [1m[32m           00000000000000000000000000000000[0m
+2022-10-03 11:55:34,113 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,113 - Detector - INFO - [1m[32mTransaction 2 - withdraw_ovrflow1():[0m
+2022-10-03 11:55:34,113 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,113 - Detector - INFO - [1m[32mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:55:34,113 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:34,113 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-10-03 11:55:34,113 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-10-03 11:55:34,113 - Detector - INFO - [1m[32mInput:     0x76be3cd1[0m
+2022-10-03 11:55:34,113 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,145 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,145 - Detector - INFO - [1m[32m          !!! Block dependency detected !!!          [0m
+2022-10-03 11:55:34,145 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,145 - Detector - INFO - [1m[32mSWC-ID:   120[0m
+2022-10-03 11:55:34,145 - Detector - INFO - [1m[32mSeverity: Low[0m
+2022-10-03 11:55:34,145 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,145 - Detector - INFO - [1m[32mSource code line:[0m
+2022-10-03 11:55:34,145 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,145 - Detector - INFO - [1m[32mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:246:1[0m
+2022-10-03 11:55:34,145 - Detector - INFO - [1m[32mnow[0m
+2022-10-03 11:55:34,146 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,146 - Detector - INFO - [1m[32mTransaction sequence:[0m
+2022-10-03 11:55:34,146 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,146 - Detector - INFO - [1m[32mTransaction 1 - increaseLockTime_intou21(uint256):[0m
+2022-10-03 11:55:34,146 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,146 - Detector - INFO - [1m[32mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:34,146 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:34,146 - Detector - INFO - [1m[32mValue:     1 Wei[0m
+2022-10-03 11:55:34,146 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-10-03 11:55:34,146 - Detector - INFO - [1m[32mInput:     0xa3af6a7041c6702d7669a4b3cb8b1de18fbd4132[0m
+2022-10-03 11:55:34,146 - Detector - INFO - [1m[32m           43440590ccab8da11063ee51e5f75e98[0m
+2022-10-03 11:55:34,146 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,146 - Detector - INFO - [1m[32mTransaction 2 - withdraw_intou21():[0m
+2022-10-03 11:55:34,146 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,146 - Detector - INFO - [1m[32mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:34,146 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:34,146 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-10-03 11:55:34,146 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-10-03 11:55:34,146 - Detector - INFO - [1m[32mInput:     0x81bb4758[0m
+2022-10-03 11:55:34,146 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:243:1[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31mlockTime_intou21[msg.sender] += _secondsToIncrease[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31mTransaction 1 - increaseLockTime_intou21(uint256):[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31mInput:     0xa3af6a70ffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31mTransaction 2 - lockTime_intou21(address):[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31mInput:     0x6dbbb575000000000000000000000000cafebabe[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31mTransaction 3 - increaseLockTime_intou21(uint256):[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31mInput:     0xa3af6a70ffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:55:34,180 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32m          !!! Block dependency detected !!!          [0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32mSWC-ID:   120[0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32mSeverity: Low[0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32mSource code line:[0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:183:1[0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32mnow[0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32mTransaction sequence:[0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32mTransaction 1 - increaseLockTime_intou13(uint256):[0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32mInput:     0xb21d31b600000000000000000000000000000000[0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32m           00000000000000000000000000000002[0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32mTransaction 2 - withdraw_intou13():[0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:34,336 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-10-03 11:55:34,337 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-10-03 11:55:34,337 - Detector - INFO - [1m[32mInput:     0x5c03b626[0m
+2022-10-03 11:55:34,337 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:67:1[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31mlockTime_intou17[msg.sender] += _secondsToIncrease[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31mTransaction 1 - increaseLockTime_intou17(uint256):[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31mInput:     0xb55c7520a1aeaaeb1aee1c19dc617510c47418cc[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31m           a845fd6ebc5fbe418b172f440a5f219f[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31mTransaction 2 - lockTime_intou17(address):[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31mInput:     0x1d9bf886000000000000000000000000deadbeef[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31m           deadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31mTransaction 3 - increaseLockTime_intou17(uint256):[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:34,497 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:34,498 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:34,498 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:34,498 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:34,498 - Detector - INFO - [1m[31mInput:     0xb55c7520ffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:55:34,498 - Detector - INFO - [1m[31m           fffffffffffffffffffffffffffffffd[0m
+2022-10-03 11:55:34,498 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:34,532 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,532 - Detector - INFO - [1m[32m          !!! Block dependency detected !!!          [0m
+2022-10-03 11:55:34,532 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,532 - Detector - INFO - [1m[32mSWC-ID:   120[0m
+2022-10-03 11:55:34,532 - Detector - INFO - [1m[32mSeverity: Low[0m
+2022-10-03 11:55:34,532 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,532 - Detector - INFO - [1m[32mSource code line:[0m
+2022-10-03 11:55:34,532 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,532 - Detector - INFO - [1m[32mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:70:1[0m
+2022-10-03 11:55:34,532 - Detector - INFO - [1m[32mnow[0m
+2022-10-03 11:55:34,532 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,532 - Detector - INFO - [1m[32mTransaction sequence:[0m
+2022-10-03 11:55:34,532 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,532 - Detector - INFO - [1m[32mTransaction 1 - increaseLockTime_intou17(uint256):[0m
+2022-10-03 11:55:34,532 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,532 - Detector - INFO - [1m[32mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:34,532 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:34,532 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-10-03 11:55:34,532 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-10-03 11:55:34,532 - Detector - INFO - [1m[32mInput:     0xb55c7520ffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:55:34,533 - Detector - INFO - [1m[32m           fffffffffffffffffffffffffffffffd[0m
+2022-10-03 11:55:34,533 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,533 - Detector - INFO - [1m[32mTransaction 2 - withdraw_intou17():[0m
+2022-10-03 11:55:34,533 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:34,533 - Detector - INFO - [1m[32mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:34,533 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:34,533 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-10-03 11:55:34,533 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-10-03 11:55:34,533 - Detector - INFO - [1m[32mInput:     0x24243846[0m
+2022-10-03 11:55:34,533 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:35,528 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:35,528 - Detector - INFO - [1m[33m    !!! Transaction order dependency detected !!!    [0m
+2022-10-03 11:55:35,528 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:35,528 - Detector - INFO - [1m[33mSWC-ID:   114[0m
+2022-10-03 11:55:35,528 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 11:55:35,528 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:35,528 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 11:55:35,528 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:35,528 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:86:1[0m
+2022-10-03 11:55:35,528 - Detector - INFO - [1m[33mlockTime_intou37[msg.sender] += _secondsToIncrease[0m
+2022-10-03 11:55:35,529 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:35,529 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 11:55:35,529 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:35,529 - Detector - INFO - [1m[33mTransaction 1 - increaseLockTime_intou37(uint256):[0m
+2022-10-03 11:55:35,529 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:35,529 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:35,529 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:35,529 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 11:55:35,529 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 11:55:35,529 - Detector - INFO - [1m[33mInput:     0xdd3871ef00000000000000000000000000000000[0m
+2022-10-03 11:55:35,529 - Detector - INFO - [1m[33m           00000000000000000000000000000002[0m
+2022-10-03 11:55:35,529 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:35,529 - Detector - INFO - [1m[33mTransaction 2 - withdraw_intou37():[0m
+2022-10-03 11:55:35,529 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:35,529 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:35,529 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:35,529 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 11:55:35,529 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 11:55:35,529 - Detector - INFO - [1m[33mInput:     0xc2bc6798[0m
+2022-10-03 11:55:35,529 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:35,801 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:35,801 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-10-03 11:55:35,801 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:35,801 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:55:35,801 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:55:35,801 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:35,801 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:55:35,801 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:35,801 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:86:1[0m
+2022-10-03 11:55:35,801 - Detector - INFO - [1m[31mlockTime_intou37[msg.sender] += _secondsToIncrease[0m
+2022-10-03 11:55:35,801 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:35,801 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:55:35,801 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:35,801 - Detector - INFO - [1m[31mTransaction 1 - increaseLockTime_intou37(uint256):[0m
+2022-10-03 11:55:35,801 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:35,801 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:35,801 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:35,801 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:35,801 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[31mInput:     0xdd3871efffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[31m           fffffffffffffffffffffffffffffffd[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[31mTransaction 2 - withdraw_intou37():[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[31mInput:     0xc2bc6798[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[31mTransaction 3 - increaseLockTime_intou37(uint256):[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[31mInput:     0xdd3871efffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32m          !!! Block dependency detected !!!          [0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32mSWC-ID:   120[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32mSeverity: Low[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32mSource code line:[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:89:1[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32mnow[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32mTransaction sequence:[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32mTransaction 1 - increaseLockTime_intou37(uint256):[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32mInput:     0xdd3871efffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32m           fffffffffffffffffffffffffffffffd[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32mTransaction 2 - withdraw_intou37():[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32mInput:     0xc2bc6798[0m
+2022-10-03 11:55:35,802 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:55:36,028 - Analysis - INFO - [1mGeneration number 2 	 Code coverage: 89.40% (3991/4464) 	 Branch coverage: 81.71% (335/410) 	 Transactions: 544 (306 unique)   	 Time: 5.164379358291626[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:180:1[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31mlockTime_intou13[msg.sender] += _secondsToIncrease[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31mTransaction 1 - increaseLockTime_intou13(uint256):[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31mInput:     0xb21d31b600000000000000000000000000000000[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31m           00000000000000000000000000000000[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31mTransaction 2 - lockTime_intou13(address):[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31mInput:     0xcd71ee0b000000000000000000000000cafebabe[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31mTransaction 3 - increaseLockTime_intou13(uint256):[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31mInput:     0xb21d31b6711db91416de3def05a7271648a681a0[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31m           34c56f47dac5d1b7f6a7c294aa4f472e[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31mTransaction 4 - withdraw_intou13():[0m
+2022-10-03 11:55:38,308 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:38,309 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:38,309 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:38,309 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:38,309 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:38,309 - Detector - INFO - [1m[31mInput:     0x5c03b626[0m
+2022-10-03 11:55:38,309 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:38,309 - Detector - INFO - [1m[31mTransaction 5 - increaseLockTime_intou13(uint256):[0m
+2022-10-03 11:55:38,309 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:38,309 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:38,309 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:38,309 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:38,309 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:38,309 - Detector - INFO - [1m[31mInput:     0xb21d31b6ffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:55:38,309 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:55:38,309 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:39,283 - Analysis - INFO - [1mGeneration number 3 	 Code coverage: 89.40% (3991/4464) 	 Branch coverage: 81.71% (335/410) 	 Transactions: 893 (399 unique)   	 Time: 8.419444799423218[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33m    !!! Transaction order dependency detected !!!    [0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33mSWC-ID:   114[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:180:1[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33mlockTime_intou13[msg.sender] += _secondsToIncrease[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33mTransaction 1 - increaseLockTime_intou13(uint256):[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33mInput:     0xb21d31b600000000000000000000000000000000[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33m           00000000000000000000000000000001[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33mTransaction 2 - lockTime_intou13(address):[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33mInput:     0xcd71ee0b000000000000000000000000deadbeef[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33m           deadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33mTransaction 3 - withdraw_intou13():[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 11:55:43,370 - Detector - INFO - [1m[33mInput:     0x5c03b626[0m
+2022-10-03 11:55:43,371 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:43,371 - Detector - INFO - [1m[33mTransaction 4 - withdraw_intou13():[0m
+2022-10-03 11:55:43,371 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:43,371 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:43,371 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:43,371 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 11:55:43,371 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 11:55:43,371 - Detector - INFO - [1m[33mInput:     0x5c03b626[0m
+2022-10-03 11:55:43,371 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:43,839 - Analysis - INFO - [1mGeneration number 4 	 Code coverage: 89.54% (3997/4464) 	 Branch coverage: 82.20% (337/410) 	 Transactions: 1321 (496 unique)   	 Time: 12.975420236587524[0m
+2022-10-03 11:55:45,377 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:45,377 - Detector - INFO - [1m[33m    !!! Transaction order dependency detected !!!    [0m
+2022-10-03 11:55:45,377 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:45,377 - Detector - INFO - [1m[33mSWC-ID:   114[0m
+2022-10-03 11:55:45,377 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 11:55:45,377 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:45,377 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 11:55:45,377 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:45,378 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:41:1[0m
+2022-10-03 11:55:45,378 - Detector - INFO - [1m[33mlockTime_intou1[msg.sender] += _secondsToIncrease[0m
+2022-10-03 11:55:45,378 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:45,378 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 11:55:45,378 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:45,378 - Detector - INFO - [1m[33mTransaction 1 - increaseLockTime_intou1(uint256):[0m
+2022-10-03 11:55:45,378 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:45,378 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:55:45,378 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:45,378 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 11:55:45,378 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 11:55:45,378 - Detector - INFO - [1m[33mInput:     0x1d3fb2a700000000000000000000000000000000[0m
+2022-10-03 11:55:45,378 - Detector - INFO - [1m[33m           00000000000000000000000000000001[0m
+2022-10-03 11:55:45,378 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:45,378 - Detector - INFO - [1m[33mTransaction 2 - withdraw_ovrflow1():[0m
+2022-10-03 11:55:45,378 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:45,378 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:55:45,378 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:45,378 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 11:55:45,378 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 11:55:45,378 - Detector - INFO - [1m[33mInput:     0x76be3cd1[0m
+2022-10-03 11:55:45,378 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33m    !!! Transaction order dependency detected !!!    [0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33mSWC-ID:   114[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:243:1[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33mlockTime_intou21[msg.sender] += _secondsToIncrease[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33mTransaction 1 - increaseLockTime_intou21(uint256):[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33mInput:     0xa3af6a7000000000000000000000000000000000[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33m           00000000000000000000000000000001[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33mTransaction 2 - withdraw_intou21():[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33mInput:     0x81bb4758[0m
+2022-10-03 11:55:46,203 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:55:48,413 - Analysis - INFO - [1mGeneration number 5 	 Code coverage: 92.90% (4147/4464) 	 Branch coverage: 82.20% (337/410) 	 Transactions: 1780 (597 unique)   	 Time: 17.549574613571167[0m
+2022-10-03 11:55:53,537 - Analysis - INFO - [1mGeneration number 6 	 Code coverage: 92.90% (4147/4464) 	 Branch coverage: 82.20% (337/410) 	 Transactions: 2283 (699 unique)   	 Time: 22.673511028289795[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:41:1[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31mlockTime_intou1[msg.sender] += _secondsToIncrease[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31mTransaction 1 - increaseLockTime_intou1(uint256):[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31mInput:     0x1d3fb2a7ffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31mTransaction 2 - withdraw_ovrflow1():[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31mInput:     0x76be3cd1[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31mTransaction 3 - increaseLockTime_intou1(uint256):[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:55:59,163 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:55:59,164 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:55:59,164 - Detector - INFO - [1m[31mInput:     0x1d3fb2a72bd3d04eca4a50493e1fc9793d6d2d60[0m
+2022-10-03 11:55:59,164 - Detector - INFO - [1m[31m           b22c956385dca059bc9c2e624541bd53[0m
+2022-10-03 11:55:59,164 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:55:59,458 - Analysis - INFO - [1mGeneration number 7 	 Code coverage: 92.90% (4147/4464) 	 Branch coverage: 82.20% (337/410) 	 Transactions: 2817 (812 unique)   	 Time: 28.594726085662842[0m
+2022-10-03 11:56:05,340 - Analysis - INFO - [1mGeneration number 8 	 Code coverage: 92.90% (4147/4464) 	 Branch coverage: 82.20% (337/410) 	 Transactions: 3356 (922 unique)   	 Time: 34.47646689414978[0m
+2022-10-03 11:56:11,394 - Analysis - INFO - [1mGeneration number 9 	 Code coverage: 92.90% (4147/4464) 	 Branch coverage: 82.20% (337/410) 	 Transactions: 3921 (1042 unique)   	 Time: 40.53072166442871[0m
+2022-10-03 11:56:17,614 - Analysis - INFO - [1mGeneration number 10 	 Code coverage: 92.90% (4147/4464) 	 Branch coverage: 82.20% (337/410) 	 Transactions: 4514 (1168 unique)   	 Time: 46.750306367874146[0m
+2022-10-03 11:56:23,650 - Analysis - INFO - [1mGeneration number 11 	 Code coverage: 92.90% (4147/4464) 	 Branch coverage: 82.20% (337/410) 	 Transactions: 5118 (1306 unique)   	 Time: 52.786231994628906[0m
+2022-10-03 11:56:29,732 - Analysis - INFO - [1mGeneration number 12 	 Code coverage: 92.90% (4147/4464) 	 Branch coverage: 82.20% (337/410) 	 Transactions: 5722 (1443 unique)   	 Time: 58.86875820159912[0m
+2022-10-03 11:56:36,106 - Analysis - INFO - [1mGeneration number 13 	 Code coverage: 92.90% (4147/4464) 	 Branch coverage: 82.20% (337/410) 	 Transactions: 6332 (1583 unique)   	 Time: 65.24211573600769[0m
+2022-10-03 11:56:42,589 - Analysis - INFO - [1mGeneration number 14 	 Code coverage: 92.90% (4147/4464) 	 Branch coverage: 82.20% (337/410) 	 Transactions: 6955 (1722 unique)   	 Time: 71.72533416748047[0m
+2022-10-03 11:56:48,980 - Analysis - INFO - [1mGeneration number 15 	 Code coverage: 92.90% (4147/4464) 	 Branch coverage: 82.20% (337/410) 	 Transactions: 7575 (1862 unique)   	 Time: 78.11660671234131[0m
+2022-10-03 11:56:55,638 - Analysis - INFO - [1mGeneration number 16 	 Code coverage: 92.90% (4147/4464) 	 Branch coverage: 82.20% (337/410) 	 Transactions: 8209 (2001 unique)   	 Time: 84.77455019950867[0m
+2022-10-03 11:56:56,080 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,080 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-10-03 11:56:56,080 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,080 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:56:56,080 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:56:56,080 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,080 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:56:56,080 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,080 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:316:1[0m
+2022-10-03 11:56:56,080 - Detector - INFO - [1m[31mbalances_intou14[msg.sender] - _value[0m
+2022-10-03 11:56:56,080 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,080 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:56:56,080 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,080 - Detector - INFO - [1m[31mTransaction - transfer_intou14(address,uint256):[0m
+2022-10-03 11:56:56,080 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,080 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:56:56,080 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:56:56,080 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:56:56,080 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:56:56,080 - Detector - INFO - [1m[31mInput:     0xaefa5519000000000000000000000000cafebabe[0m
+2022-10-03 11:56:56,080 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabeffffffffff[0m
+2022-10-03 11:56:56,081 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:56:56,081 - Detector - INFO - [1m[31m           ffffffffffff[0m
+2022-10-03 11:56:56,081 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,083 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,083 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-10-03 11:56:56,083 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,083 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:56:56,083 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:56:56,083 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,083 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:56:56,083 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,083 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:317:1[0m
+2022-10-03 11:56:56,083 - Detector - INFO - [1m[31mbalances_intou14[msg.sender] -= _value[0m
+2022-10-03 11:56:56,083 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,083 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:56:56,083 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,083 - Detector - INFO - [1m[31mTransaction - transfer_intou14(address,uint256):[0m
+2022-10-03 11:56:56,083 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,083 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:56:56,083 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:56:56,083 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:56:56,083 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:56:56,083 - Detector - INFO - [1m[31mInput:     0xaefa5519000000000000000000000000cafebabe[0m
+2022-10-03 11:56:56,083 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabeffffffffff[0m
+2022-10-03 11:56:56,083 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:56:56,083 - Detector - INFO - [1m[31m           ffffffffffff[0m
+2022-10-03 11:56:56,083 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,086 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,086 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-10-03 11:56:56,086 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,086 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:56:56,086 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:56:56,086 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,086 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:56:56,086 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,086 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:318:1[0m
+2022-10-03 11:56:56,086 - Detector - INFO - [1m[31mbalances_intou14[_to] += _value[0m
+2022-10-03 11:56:56,086 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,086 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:56:56,086 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,086 - Detector - INFO - [1m[31mTransaction - transfer_intou14(address,uint256):[0m
+2022-10-03 11:56:56,086 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,086 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:56:56,086 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:56:56,086 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:56:56,086 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:56:56,087 - Detector - INFO - [1m[31mInput:     0xaefa5519000000000000000000000000cafebabe[0m
+2022-10-03 11:56:56,087 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabeffffffffff[0m
+2022-10-03 11:56:56,087 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:56:56,087 - Detector - INFO - [1m[31m           ffffffffffff[0m
+2022-10-03 11:56:56,087 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33m        !!! Unchecked return value detected !!!         [0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33mSWC-ID:   104[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:406:1[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33mApproveAndCallFallBack(spender).receiveApproval(msg.sender, tokens, address(this), data)[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33mTransaction - approveAndCall(address,uint256,bytes):[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33mInput:     0xcae9ca51000000000000000000000000deadbeef[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33m           deadbeefdeadbeefdeadbeefdeadbeefb0d89c648d[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33m           7196eccc25f578a798ad40d137f571acd883e1bfa7[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33m           6d852cd3aeb6000000000000000000000000000000[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33m           000000000000000000000000000000006000000000[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33m           000000000000000000000000000000000000000000[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33m           00000000000001af00000000000000000000000000[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33m           000000000000000000000000000000000000[0m
+2022-10-03 11:56:56,258 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:56:56,608 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,608 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-10-03 11:56:56,608 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,608 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:56:56,608 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:56:56,608 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,608 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:56:56,608 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,608 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:131:1[0m
+2022-10-03 11:56:56,608 - Detector - INFO - [1m[31mbalances_intou26[_to] += _value[0m
+2022-10-03 11:56:56,608 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,608 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:56:56,608 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,608 - Detector - INFO - [1m[31mTransaction - transfer_intou26(address,uint256):[0m
+2022-10-03 11:56:56,608 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:56,608 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:56:56,609 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:56:56,609 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:56:56,609 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:56:56,609 - Detector - INFO - [1m[31mInput:     0x46aa9243000000000000000000000000cafebabe[0m
+2022-10-03 11:56:56,609 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabe5a721e517b[0m
+2022-10-03 11:56:56,609 - Detector - INFO - [1m[31m           7c8193db52f35e741d9b662e62e05cd9c647de337e[0m
+2022-10-03 11:56:56,609 - Detector - INFO - [1m[31m           87a54e07fff7[0m
+2022-10-03 11:56:56,609 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:57,443 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:57,443 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-10-03 11:56:57,443 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:57,443 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:56:57,443 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:56:57,443 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:57,443 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:56:57,443 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:57,443 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:236:1[0m
+2022-10-03 11:56:57,443 - Detector - INFO - [1m[31mbalances_intou34[_to] += _value[0m
+2022-10-03 11:56:57,443 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:57,443 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:56:57,443 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:57,443 - Detector - INFO - [1m[31mTransaction - transfer_intou34(address,uint256):[0m
+2022-10-03 11:56:57,443 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:57,443 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:56:57,443 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:56:57,443 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:56:57,443 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:56:57,443 - Detector - INFO - [1m[31mInput:     0x46852dfc000000000000000000000000cafebabe[0m
+2022-10-03 11:56:57,443 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabe0000000000[0m
+2022-10-03 11:56:57,443 - Detector - INFO - [1m[31m           000000000000000000000000000000000000000000[0m
+2022-10-03 11:56:57,443 - Detector - INFO - [1m[31m           000000000002[0m
+2022-10-03 11:56:57,443 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:58,520 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:58,520 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-10-03 11:56:58,520 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:58,520 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:56:58,520 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:56:58,520 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:58,520 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:56:58,520 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:58,520 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:210:1[0m
+2022-10-03 11:56:58,520 - Detector - INFO - [1m[31mbalances_intou38[_to] += _value[0m
+2022-10-03 11:56:58,521 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:58,521 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:56:58,521 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:58,521 - Detector - INFO - [1m[31mTransaction 1 - transfer_intou38(address,uint256):[0m
+2022-10-03 11:56:58,521 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:58,521 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:56:58,521 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:56:58,521 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:56:58,521 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:56:58,521 - Detector - INFO - [1m[31mInput:     0x7daba891000000000000000000000000deadbeef[0m
+2022-10-03 11:56:58,521 - Detector - INFO - [1m[31m           deadbeefdeadbeefdeadbeefdeadbeef0000000000[0m
+2022-10-03 11:56:58,521 - Detector - INFO - [1m[31m           000000000000000000000000000000000000000000[0m
+2022-10-03 11:56:58,521 - Detector - INFO - [1m[31m           000000000002[0m
+2022-10-03 11:56:58,521 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:58,521 - Detector - INFO - [1m[31mTransaction 2 - transfer_intou38(address,uint256):[0m
+2022-10-03 11:56:58,521 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:58,521 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:56:58,521 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:56:58,521 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:56:58,521 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:56:58,521 - Detector - INFO - [1m[31mInput:     0x7daba891000000000000000000000000deadbeef[0m
+2022-10-03 11:56:58,521 - Detector - INFO - [1m[31m           deadbeefdeadbeefdeadbeefdeadbeef443518298b[0m
+2022-10-03 11:56:58,521 - Detector - INFO - [1m[31m           7e084571afc8ade5c5ca6e227b3a273e0e90cea003[0m
+2022-10-03 11:56:58,521 - Detector - INFO - [1m[31m           2439f46f6e77[0m
+2022-10-03 11:56:58,521 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:58,998 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:58,998 - Detector - INFO - [1m[31m           !!! Leaking ether detected !!!            [0m
+2022-10-03 11:56:58,998 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:58,998 - Detector - INFO - [1m[31mSWC-ID:   105[0m
+2022-10-03 11:56:58,998 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:56:58,998 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:58,998 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:56:58,998 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:58,998 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:107:1[0m
+2022-10-03 11:56:58,998 - Detector - INFO - [1m[31mmsg.sender.transfer(transferValue_intou9)[0m
+2022-10-03 11:56:58,998 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:58,999 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:56:58,999 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:58,999 - Detector - INFO - [1m[31mTransaction - withdraw_intou37():[0m
+2022-10-03 11:56:58,999 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:58,999 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:56:58,999 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:56:58,999 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:56:58,999 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:56:58,999 - Detector - INFO - [1m[31mInput:     0xc2bc6798[0m
+2022-10-03 11:56:58,999 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:56:59,018 - Analysis - INFO - [1mGeneration number 17 	 Code coverage: 94.83% (4233/4464) 	 Branch coverage: 84.63% (347/410) 	 Transactions: 8496 (2175 unique)   	 Time: 88.15418148040771[0m
+2022-10-03 11:57:02,240 - Analysis - INFO - [1mGeneration number 18 	 Code coverage: 94.83% (4233/4464) 	 Branch coverage: 84.63% (347/410) 	 Transactions: 8779 (2268 unique)   	 Time: 91.3767557144165[0m
+2022-10-03 11:57:07,223 - Analysis - INFO - [1mGeneration number 19 	 Code coverage: 94.83% (4233/4464) 	 Branch coverage: 84.63% (347/410) 	 Transactions: 9184 (2375 unique)   	 Time: 96.35948944091797[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:436:1[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31mlockTime_intou33[msg.sender] += _secondsToIncrease[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31mTransaction 1 - increaseLockTime_intou33(uint256):[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31mInput:     0x7d756971ffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31m           fffffffffffffffffffffffffffffffd[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31mTransaction 2 - lockTime_intou33(address):[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:57:08,436 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:57:08,437 - Detector - INFO - [1m[31mInput:     0x1a3e9d6c000000000000000000000000cafebabe[0m
+2022-10-03 11:57:08,437 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:57:08,437 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:08,437 - Detector - INFO - [1m[31mTransaction 3 - lockTime_intou33(address):[0m
+2022-10-03 11:57:08,437 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:08,437 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:57:08,437 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:08,437 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:57:08,437 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:57:08,437 - Detector - INFO - [1m[31mInput:     0x1a3e9d6c000000000000000000000000deadbeef[0m
+2022-10-03 11:57:08,437 - Detector - INFO - [1m[31m           deadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:57:08,437 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:08,437 - Detector - INFO - [1m[31mTransaction 4 - increaseLockTime_intou33(uint256):[0m
+2022-10-03 11:57:08,437 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:08,437 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:57:08,437 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:08,437 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:57:08,437 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:57:08,437 - Detector - INFO - [1m[31mInput:     0x7d7569719a01eb4cca411ec43cad67add719a7de[0m
+2022-10-03 11:57:08,437 - Detector - INFO - [1m[31m           d9e3af15f603100cb43e1f297f1378e3[0m
+2022-10-03 11:57:08,437 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:12,790 - Analysis - INFO - [1mGeneration number 20 	 Code coverage: 94.83% (4233/4464) 	 Branch coverage: 84.63% (347/410) 	 Transactions: 9649 (2489 unique)   	 Time: 101.92635321617126[0m
+2022-10-03 11:57:13,020 - Analysis - INFO - [1m-----------------------------------------------------[0m
+2022-10-03 11:57:13,020 - Analysis - INFO - Number of generations: 	 20
+2022-10-03 11:57:13,020 - Analysis - INFO - Number of transactions: 	 9649 (2489 unique)
+2022-10-03 11:57:13,020 - Analysis - INFO - Transactions per second: 	 94
+2022-10-03 11:57:13,020 - Analysis - INFO - Total code coverage: 	 94.83% (4233/4464)
+2022-10-03 11:57:13,020 - Analysis - INFO - Total branch coverage: 	 84.63% (347/410)
+2022-10-03 11:57:13,020 - Analysis - INFO - Total execution time: 	 102.16 seconds
+2022-10-03 11:57:13,021 - Analysis - INFO - Total memory consumption: 	 156.57 MB
+2022-10-03 11:57:13,023 - Fuzzer   - INFO - [1mFuzzing contract [1mOwned[0m[0m
+2022-10-03 11:57:13,057 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,057 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-10-03 11:57:13,057 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,057 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:57:13,057 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:57:13,057 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,057 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:57:13,057 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,057 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:208:1[0m
+2022-10-03 11:57:13,057 - Detector - INFO - [1m[31mbalances_intou38[msg.sender] - _value[0m
+2022-10-03 11:57:13,057 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,057 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:57:13,057 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,057 - Detector - INFO - [1m[31mTransaction - transfer_intou38(address,uint256):[0m
+2022-10-03 11:57:13,057 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,057 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:57:13,057 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:13,057 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:57:13,057 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:57:13,057 - Detector - INFO - [1m[31mInput:     0x7daba891000000000000000000000000cafebabe[0m
+2022-10-03 11:57:13,057 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabe0000000000[0m
+2022-10-03 11:57:13,057 - Detector - INFO - [1m[31m           000000000000000000000000000000000000000000[0m
+2022-10-03 11:57:13,057 - Detector - INFO - [1m[31m           000000000001[0m
+2022-10-03 11:57:13,057 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,060 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,060 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-10-03 11:57:13,060 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,060 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:57:13,060 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:57:13,060 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,060 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:57:13,060 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,060 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:209:1[0m
+2022-10-03 11:57:13,060 - Detector - INFO - [1m[31mbalances_intou38[msg.sender] -= _value[0m
+2022-10-03 11:57:13,060 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,060 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:57:13,060 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,060 - Detector - INFO - [1m[31mTransaction - transfer_intou38(address,uint256):[0m
+2022-10-03 11:57:13,060 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,060 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:57:13,060 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:13,060 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:57:13,060 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:57:13,060 - Detector - INFO - [1m[31mInput:     0x7daba891000000000000000000000000cafebabe[0m
+2022-10-03 11:57:13,060 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabe0000000000[0m
+2022-10-03 11:57:13,060 - Detector - INFO - [1m[31m           000000000000000000000000000000000000000000[0m
+2022-10-03 11:57:13,060 - Detector - INFO - [1m[31m           000000000001[0m
+2022-10-03 11:57:13,060 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,063 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,063 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-10-03 11:57:13,063 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,063 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:57:13,063 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:57:13,063 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,063 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:57:13,063 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,063 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:210:1[0m
+2022-10-03 11:57:13,063 - Detector - INFO - [1m[31mbalances_intou38[_to] += _value[0m
+2022-10-03 11:57:13,063 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,063 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:57:13,063 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,063 - Detector - INFO - [1m[31mTransaction - transfer_intou38(address,uint256):[0m
+2022-10-03 11:57:13,063 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,063 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:57:13,064 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:13,064 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:57:13,064 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:57:13,064 - Detector - INFO - [1m[31mInput:     0x7daba891000000000000000000000000cafebabe[0m
+2022-10-03 11:57:13,064 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabe0000000000[0m
+2022-10-03 11:57:13,064 - Detector - INFO - [1m[31m           000000000000000000000000000000000000000000[0m
+2022-10-03 11:57:13,064 - Detector - INFO - [1m[31m           000000000001[0m
+2022-10-03 11:57:13,064 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,129 - Analysis - INFO - [1mGeneration number 0 	 Code coverage: 85.38% (578/677) 	 Branch coverage: 83.33% (55/66) 	 Transactions: 27 (26 unique)   	 Time: 0.10135579109191895[0m
+2022-10-03 11:57:13,236 - Analysis - INFO - [1mGeneration number 1 	 Code coverage: 85.38% (578/677) 	 Branch coverage: 84.85% (56/66) 	 Transactions: 52 (39 unique)   	 Time: 0.20866036415100098[0m
+2022-10-03 11:57:13,333 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,333 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:180:1[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31mlockTime_intou13[msg.sender] += _secondsToIncrease[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31mTransaction 1 - increaseLockTime_intou13(uint256):[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31mInput:     0xb21d31b6b95edf560e5c90150465f52390184153[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31m           065d73ea0dbee7af18a5a083ed6bc46b[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31mTransaction 2 - withdraw_intou13():[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31mValue:     1 Wei[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31mInput:     0x5c03b626[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31mTransaction 3 - increaseLockTime_intou13(uint256):[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31mInput:     0xb21d31b6ffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31m           fffffffffffffffffffffffffffffffe[0m
+2022-10-03 11:57:13,334 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32m          !!! Block dependency detected !!!          [0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32mSWC-ID:   120[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32mSeverity: Low[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32mSource code line:[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:183:1[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32mnow[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32mTransaction sequence:[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32mTransaction 1 - increaseLockTime_intou13(uint256):[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32mInput:     0xb21d31b65c630db7f5f39b6ee355eeba9558e219[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32m           ebc5b265e51546400f1f75080b9e4608[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32mTransaction 2 - withdraw_intou13():[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32mInput:     0x5c03b626[0m
+2022-10-03 11:57:13,369 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:13,492 - Analysis - INFO - [1mGeneration number 2 	 Code coverage: 85.82% (581/677) 	 Branch coverage: 86.36% (57/66) 	 Transactions: 94 (55 unique)   	 Time: 0.46463775634765625[0m
+2022-10-03 11:57:13,759 - Analysis - INFO - [1mGeneration number 3 	 Code coverage: 85.82% (581/677) 	 Branch coverage: 86.36% (57/66) 	 Transactions: 149 (74 unique)   	 Time: 0.7317101955413818[0m
+2022-10-03 11:57:13,830 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:57:13,830 - Detector - INFO - [1m[33m    !!! Transaction order dependency detected !!!    [0m
+2022-10-03 11:57:13,830 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:57:13,830 - Detector - INFO - [1m[33mSWC-ID:   114[0m
+2022-10-03 11:57:13,830 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 11:57:13,830 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:57:13,830 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 11:57:13,830 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:57:13,830 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:180:1[0m
+2022-10-03 11:57:13,830 - Detector - INFO - [1m[33mlockTime_intou13[msg.sender] += _secondsToIncrease[0m
+2022-10-03 11:57:13,830 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:57:13,830 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 11:57:13,830 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:57:13,830 - Detector - INFO - [1m[33mTransaction 1 - increaseLockTime_intou13(uint256):[0m
+2022-10-03 11:57:13,830 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:57:13,830 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:57:13,831 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:13,831 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 11:57:13,831 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 11:57:13,831 - Detector - INFO - [1m[33mInput:     0xb21d31b68c35e8485abc77eaf8b3b4a0a6c6f8e9[0m
+2022-10-03 11:57:13,831 - Detector - INFO - [1m[33m           23f52f2b8a6f1d207c1891e8e31e8395[0m
+2022-10-03 11:57:13,831 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:57:13,831 - Detector - INFO - [1m[33mTransaction 2 - withdraw_intou13():[0m
+2022-10-03 11:57:13,831 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:57:13,831 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:57:13,831 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:13,831 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 11:57:13,831 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 11:57:13,831 - Detector - INFO - [1m[33mInput:     0x5c03b626[0m
+2022-10-03 11:57:13,831 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:57:14,154 - Analysis - INFO - [1mGeneration number 4 	 Code coverage: 85.82% (581/677) 	 Branch coverage: 86.36% (57/66) 	 Transactions: 219 (93 unique)   	 Time: 1.126525640487671[0m
+2022-10-03 11:57:14,618 - Analysis - INFO - [1mGeneration number 5 	 Code coverage: 85.82% (581/677) 	 Branch coverage: 86.36% (57/66) 	 Transactions: 302 (110 unique)   	 Time: 1.5900394916534424[0m
+2022-10-03 11:57:15,166 - Analysis - INFO - [1mGeneration number 6 	 Code coverage: 85.82% (581/677) 	 Branch coverage: 86.36% (57/66) 	 Transactions: 399 (129 unique)   	 Time: 2.1379969120025635[0m
+2022-10-03 11:57:15,821 - Analysis - INFO - [1mGeneration number 7 	 Code coverage: 85.82% (581/677) 	 Branch coverage: 86.36% (57/66) 	 Transactions: 511 (149 unique)   	 Time: 2.792908191680908[0m
+2022-10-03 11:57:16,510 - Analysis - INFO - [1mGeneration number 8 	 Code coverage: 85.82% (581/677) 	 Branch coverage: 86.36% (57/66) 	 Transactions: 627 (168 unique)   	 Time: 3.481769323348999[0m
+2022-10-03 11:57:17,199 - Analysis - INFO - [1mGeneration number 9 	 Code coverage: 85.82% (581/677) 	 Branch coverage: 86.36% (57/66) 	 Transactions: 744 (188 unique)   	 Time: 4.17096209526062[0m
+2022-10-03 11:57:17,914 - Analysis - INFO - [1mGeneration number 10 	 Code coverage: 85.82% (581/677) 	 Branch coverage: 86.36% (57/66) 	 Transactions: 864 (209 unique)   	 Time: 4.885789394378662[0m
+2022-10-03 11:57:18,701 - Analysis - INFO - [1mGeneration number 11 	 Code coverage: 85.82% (581/677) 	 Branch coverage: 86.36% (57/66) 	 Transactions: 989 (229 unique)   	 Time: 5.673212289810181[0m
+2022-10-03 11:57:19,471 - Analysis - INFO - [1mGeneration number 12 	 Code coverage: 85.82% (581/677) 	 Branch coverage: 86.36% (57/66) 	 Transactions: 1112 (247 unique)   	 Time: 6.4434943199157715[0m
+2022-10-03 11:57:20,273 - Analysis - INFO - [1mGeneration number 13 	 Code coverage: 85.82% (581/677) 	 Branch coverage: 86.36% (57/66) 	 Transactions: 1235 (264 unique)   	 Time: 7.245705842971802[0m
+2022-10-03 11:57:20,444 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:20,444 - Detector - INFO - [1m[31m           !!! Leaking ether detected !!!            [0m
+2022-10-03 11:57:20,444 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:20,444 - Detector - INFO - [1m[31mSWC-ID:   105[0m
+2022-10-03 11:57:20,444 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:57:20,444 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:20,444 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:57:20,444 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:20,444 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:185:1[0m
+2022-10-03 11:57:20,444 - Detector - INFO - [1m[31mmsg.sender.transfer(transferValue_intou13)[0m
+2022-10-03 11:57:20,444 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:20,445 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:57:20,445 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:20,445 - Detector - INFO - [1m[31mTransaction - withdraw_intou13():[0m
+2022-10-03 11:57:20,445 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:20,445 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:57:20,445 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:20,445 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:57:20,445 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:57:20,445 - Detector - INFO - [1m[31mInput:     0x5c03b626[0m
+2022-10-03 11:57:20,445 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:20,666 - Analysis - INFO - [1mGeneration number 14 	 Code coverage: 89.81% (608/677) 	 Branch coverage: 89.39% (59/66) 	 Transactions: 1290 (295 unique)   	 Time: 7.638062477111816[0m
+2022-10-03 11:57:21,216 - Analysis - INFO - [1mGeneration number 15 	 Code coverage: 89.81% (608/677) 	 Branch coverage: 89.39% (59/66) 	 Transactions: 1348 (314 unique)   	 Time: 8.18822169303894[0m
+2022-10-03 11:57:21,888 - Analysis - INFO - [1mGeneration number 16 	 Code coverage: 89.81% (608/677) 	 Branch coverage: 89.39% (59/66) 	 Transactions: 1421 (334 unique)   	 Time: 8.85980486869812[0m
+2022-10-03 11:57:22,777 - Analysis - INFO - [1mGeneration number 17 	 Code coverage: 89.81% (608/677) 	 Branch coverage: 89.39% (59/66) 	 Transactions: 1500 (358 unique)   	 Time: 9.749139308929443[0m
+2022-10-03 11:57:23,668 - Analysis - INFO - [1mGeneration number 18 	 Code coverage: 89.81% (608/677) 	 Branch coverage: 89.39% (59/66) 	 Transactions: 1576 (382 unique)   	 Time: 10.640331983566284[0m
+2022-10-03 11:57:24,583 - Analysis - INFO - [1mGeneration number 19 	 Code coverage: 89.81% (608/677) 	 Branch coverage: 89.39% (59/66) 	 Transactions: 1656 (406 unique)   	 Time: 11.555599212646484[0m
+2022-10-03 11:57:25,552 - Analysis - INFO - [1mGeneration number 20 	 Code coverage: 89.81% (608/677) 	 Branch coverage: 89.39% (59/66) 	 Transactions: 1734 (432 unique)   	 Time: 12.524655818939209[0m
+2022-10-03 11:57:25,590 - Analysis - INFO - [1m-----------------------------------------------------[0m
+2022-10-03 11:57:25,590 - Analysis - INFO - Number of generations: 	 20
+2022-10-03 11:57:25,590 - Analysis - INFO - Number of transactions: 	 1734 (432 unique)
+2022-10-03 11:57:25,590 - Analysis - INFO - Transactions per second: 	 138
+2022-10-03 11:57:25,590 - Analysis - INFO - Total code coverage: 	 89.81% (608/677)
+2022-10-03 11:57:25,590 - Analysis - INFO - Total branch coverage: 	 89.39% (59/66)
+2022-10-03 11:57:25,590 - Analysis - INFO - Total execution time: 	 12.56 seconds
+2022-10-03 11:57:25,590 - Analysis - INFO - Total memory consumption: 	 116.73 MB
+2022-10-03 11:57:25,591 - Fuzzer   - INFO - [1mFuzzing contract [1mSafeMath[0m[0m
+2022-10-03 11:57:25,669 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,669 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-10-03 11:57:25,669 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,669 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:57:25,669 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:57:25,670 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,670 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:57:25,670 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,670 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:55:1[0m
+2022-10-03 11:57:25,670 - Detector - INFO - [1m[31mbalances_intou2[msg.sender] - _value[0m
+2022-10-03 11:57:25,670 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,670 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:57:25,670 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,670 - Detector - INFO - [1m[31mTransaction - transfer_undrflow2(address,uint256):[0m
+2022-10-03 11:57:25,670 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,670 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:57:25,670 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:25,670 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:57:25,670 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:57:25,670 - Detector - INFO - [1m[31mInput:     0x37ae6b73000000000000000000000000cafebabe[0m
+2022-10-03 11:57:25,670 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabe1c2e2c8afe[0m
+2022-10-03 11:57:25,670 - Detector - INFO - [1m[31m           876b681df7fb188299d80c70d6ff373e2f772aa8f7[0m
+2022-10-03 11:57:25,670 - Detector - INFO - [1m[31m           5fad987cb2d4[0m
+2022-10-03 11:57:25,670 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,672 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,672 - Detector - INFO - [1m[31m          !!! Integer underflow detected !!!          [0m
+2022-10-03 11:57:25,672 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,672 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:57:25,672 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:57:25,672 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,672 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:57:25,672 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,672 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:56:1[0m
+2022-10-03 11:57:25,672 - Detector - INFO - [1m[31mbalances_intou2[msg.sender] -= _value[0m
+2022-10-03 11:57:25,672 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,672 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:57:25,672 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,672 - Detector - INFO - [1m[31mTransaction - transfer_undrflow2(address,uint256):[0m
+2022-10-03 11:57:25,672 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,672 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:57:25,672 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:25,672 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:57:25,672 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:57:25,672 - Detector - INFO - [1m[31mInput:     0x37ae6b73000000000000000000000000cafebabe[0m
+2022-10-03 11:57:25,672 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabe1c2e2c8afe[0m
+2022-10-03 11:57:25,672 - Detector - INFO - [1m[31m           876b681df7fb188299d80c70d6ff373e2f772aa8f7[0m
+2022-10-03 11:57:25,672 - Detector - INFO - [1m[31m           5fad987cb2d4[0m
+2022-10-03 11:57:25,673 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,709 - Analysis - INFO - [1mGeneration number 0 	 Code coverage: 93.20% (713/765) 	 Branch coverage: 76.67% (69/90) 	 Transactions: 27 (26 unique)   	 Time: 0.11406326293945312[0m
+2022-10-03 11:57:25,736 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,736 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-10-03 11:57:25,736 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,736 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:57:25,736 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:57:25,736 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,736 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:57:25,736 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,736 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:57:1[0m
+2022-10-03 11:57:25,736 - Detector - INFO - [1m[31mbalances_intou2[_to] += _value[0m
+2022-10-03 11:57:25,736 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,736 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:57:25,736 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,736 - Detector - INFO - [1m[31mTransaction - transfer_undrflow2(address,uint256):[0m
+2022-10-03 11:57:25,736 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,736 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:57:25,736 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:25,736 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:57:25,736 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:57:25,736 - Detector - INFO - [1m[31mInput:     0x37ae6b73000000000000000000000000deadbeef[0m
+2022-10-03 11:57:25,736 - Detector - INFO - [1m[31m           deadbeefdeadbeefdeadbeefdeadbeefffffffffff[0m
+2022-10-03 11:57:25,736 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:57:25,736 - Detector - INFO - [1m[31m           ffffffffffff[0m
+2022-10-03 11:57:25,736 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,822 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,822 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-10-03 11:57:25,822 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,822 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:57:25,822 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:57:25,822 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,822 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:57:25,822 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,822 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:27:1[0m
+2022-10-03 11:57:25,822 - Detector - INFO - [1m[31ma + b[0m
+2022-10-03 11:57:25,822 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,822 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:57:25,822 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,822 - Detector - INFO - [1m[31mTransaction - safeAdd(uint256,uint256):[0m
+2022-10-03 11:57:25,822 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,822 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:57:25,822 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:25,822 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:57:25,822 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:57:25,822 - Detector - INFO - [1m[31mInput:     0xe6cb90131fb71ce3c52a8770af94681b3819481b[0m
+2022-10-03 11:57:25,822 - Detector - INFO - [1m[31m           53e1645fb70b559a17e79b343a6732b2ffffffffff[0m
+2022-10-03 11:57:25,822 - Detector - INFO - [1m[31m           ffffffffffffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:57:25,822 - Detector - INFO - [1m[31m           fffffffffffe[0m
+2022-10-03 11:57:25,822 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:25,868 - Analysis - INFO - [1mGeneration number 1 	 Code coverage: 93.99% (719/765) 	 Branch coverage: 78.89% (71/90) 	 Transactions: 58 (42 unique)   	 Time: 0.273282527923584[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32m          !!! Block dependency detected !!!          [0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32mSWC-ID:   120[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32mSeverity: Low[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32mSource code line:[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:70:1[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32mnow[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32mTransaction sequence:[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32mTransaction 1 - increaseLockTime_intou17(uint256):[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32mInput:     0xb55c7520681d70f06bd512774ae48a4e1494e552[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32m           47915118222df25868590820475c35b9[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32mTransaction 2 - withdraw_intou17():[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32mInput:     0x24243846[0m
+2022-10-03 11:57:25,937 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:26,103 - Analysis - INFO - [1mGeneration number 2 	 Code coverage: 94.38% (722/765) 	 Branch coverage: 80.00% (72/90) 	 Transactions: 105 (61 unique)   	 Time: 0.5075492858886719[0m
+2022-10-03 11:57:26,434 - Analysis - INFO - [1mGeneration number 3 	 Code coverage: 94.77% (725/765) 	 Branch coverage: 81.11% (73/90) 	 Transactions: 166 (78 unique)   	 Time: 0.8392434120178223[0m
+2022-10-03 11:57:26,810 - Analysis - INFO - [1mGeneration number 4 	 Code coverage: 94.77% (725/765) 	 Branch coverage: 81.11% (73/90) 	 Transactions: 248 (97 unique)   	 Time: 1.2147579193115234[0m
+2022-10-03 11:57:27,460 - Analysis - INFO - [1mGeneration number 5 	 Code coverage: 94.77% (725/765) 	 Branch coverage: 81.11% (73/90) 	 Transactions: 341 (115 unique)   	 Time: 1.8646235466003418[0m
+2022-10-03 11:57:28,164 - Analysis - INFO - [1mGeneration number 6 	 Code coverage: 94.77% (725/765) 	 Branch coverage: 81.11% (73/90) 	 Transactions: 444 (135 unique)   	 Time: 2.5693039894104004[0m
+2022-10-03 11:57:28,909 - Analysis - INFO - [1mGeneration number 7 	 Code coverage: 94.77% (725/765) 	 Branch coverage: 81.11% (73/90) 	 Transactions: 560 (159 unique)   	 Time: 3.314462423324585[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:67:1[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mlockTime_intou17[msg.sender] += _secondsToIncrease[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mTransaction 1 - increaseLockTime_intou17(uint256):[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mInput:     0xb55c7520c7013afca81ec13fb5e48ecc72034223[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31m           35be7445373b1c242c92fce00a12aeb4[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mTransaction 2 - withdraw_intou17():[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mInput:     0x24243846[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mTransaction 3 - lockTime_intou17(address):[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mInput:     0x1d9bf886000000000000000000000000cafebabe[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31m           cafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mTransaction 4 - increaseLockTime_intou17(uint256):[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:29,538 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:57:29,539 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:57:29,539 - Detector - INFO - [1m[31mInput:     0xb55c7520c934abdd0e783c0a3de869ba15bb3408[0m
+2022-10-03 11:57:29,539 - Detector - INFO - [1m[31m           6466c0cfb0e1bbb3ad4493571485bb6b[0m
+2022-10-03 11:57:29,539 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:29,632 - Analysis - INFO - [1mGeneration number 8 	 Code coverage: 94.77% (725/765) 	 Branch coverage: 81.11% (73/90) 	 Transactions: 672 (181 unique)   	 Time: 4.037377834320068[0m
+2022-10-03 11:57:30,363 - Analysis - INFO - [1mGeneration number 9 	 Code coverage: 94.77% (725/765) 	 Branch coverage: 81.11% (73/90) 	 Transactions: 784 (201 unique)   	 Time: 4.768401622772217[0m
+2022-10-03 11:57:31,135 - Analysis - INFO - [1mGeneration number 10 	 Code coverage: 94.77% (725/765) 	 Branch coverage: 81.11% (73/90) 	 Transactions: 902 (226 unique)   	 Time: 5.5397789478302[0m
+2022-10-03 11:57:31,908 - Analysis - INFO - [1mGeneration number 11 	 Code coverage: 94.77% (725/765) 	 Branch coverage: 81.11% (73/90) 	 Transactions: 1019 (248 unique)   	 Time: 6.3134543895721436[0m
+2022-10-03 11:57:32,734 - Analysis - INFO - [1mGeneration number 12 	 Code coverage: 94.77% (725/765) 	 Branch coverage: 81.11% (73/90) 	 Transactions: 1135 (267 unique)   	 Time: 7.138522624969482[0m
+2022-10-03 11:57:33,570 - Analysis - INFO - [1mGeneration number 13 	 Code coverage: 94.77% (725/765) 	 Branch coverage: 81.11% (73/90) 	 Transactions: 1251 (284 unique)   	 Time: 7.974986791610718[0m
+2022-10-03 11:57:34,387 - Analysis - INFO - [1mGeneration number 14 	 Code coverage: 94.77% (725/765) 	 Branch coverage: 81.11% (73/90) 	 Transactions: 1363 (302 unique)   	 Time: 8.791487216949463[0m
+2022-10-03 11:57:34,954 - Analysis - INFO - [1mGeneration number 15 	 Code coverage: 95.16% (728/765) 	 Branch coverage: 85.56% (77/90) 	 Transactions: 1418 (334 unique)   	 Time: 9.358766078948975[0m
+2022-10-03 11:57:35,193 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:35,193 - Detector - INFO - [1m[31m           !!! Leaking ether detected !!!            [0m
+2022-10-03 11:57:35,193 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:35,193 - Detector - INFO - [1m[31mSWC-ID:   105[0m
+2022-10-03 11:57:35,193 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:57:35,193 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:35,193 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:57:35,193 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:35,193 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:72:1[0m
+2022-10-03 11:57:35,193 - Detector - INFO - [1m[31mmsg.sender.transfer(transferValue_intou17)[0m
+2022-10-03 11:57:35,193 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:35,193 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:57:35,193 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:35,193 - Detector - INFO - [1m[31mTransaction - withdraw_intou17():[0m
+2022-10-03 11:57:35,193 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:35,193 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:57:35,193 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:35,193 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:57:35,193 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:57:35,193 - Detector - INFO - [1m[31mInput:     0x24243846[0m
+2022-10-03 11:57:35,193 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:35,201 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:57:35,201 - Detector - INFO - [1m[33m    !!! Transaction order dependency detected !!!    [0m
+2022-10-03 11:57:35,201 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:57:35,201 - Detector - INFO - [1m[33mSWC-ID:   114[0m
+2022-10-03 11:57:35,201 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 11:57:35,201 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:57:35,202 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 11:57:35,202 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:57:35,202 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:67:1[0m
+2022-10-03 11:57:35,202 - Detector - INFO - [1m[33mlockTime_intou17[msg.sender] += _secondsToIncrease[0m
+2022-10-03 11:57:35,202 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:57:35,202 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 11:57:35,202 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:57:35,202 - Detector - INFO - [1m[33mTransaction 1 - increaseLockTime_intou17(uint256):[0m
+2022-10-03 11:57:35,202 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:57:35,202 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 11:57:35,202 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:35,202 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 11:57:35,202 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 11:57:35,202 - Detector - INFO - [1m[33mInput:     0xb55c7520ffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:57:35,202 - Detector - INFO - [1m[33m           fffffffffffffffffffffffffffffffd[0m
+2022-10-03 11:57:35,202 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:57:35,202 - Detector - INFO - [1m[33mTransaction 2 - withdraw_intou17():[0m
+2022-10-03 11:57:35,202 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:57:35,202 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:57:35,202 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:35,202 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 11:57:35,202 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 11:57:35,202 - Detector - INFO - [1m[33mInput:     0x24243846[0m
+2022-10-03 11:57:35,202 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32m          !!! Block dependency detected !!!          [0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32mSWC-ID:   120[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32mSeverity: Low[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32mSource code line:[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:44:1[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32mnow[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32mTransaction sequence:[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32mTransaction 1 - increaseLockTime_intou1(uint256):[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32mInput:     0x1d3fb2a73473fce278046a44746cc905605c8e0e[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32m           216c74dcb18fc418f4c4646842edf23e[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32mTransaction 2 - withdraw_ovrflow1():[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32mValue:     0 Wei[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32mGas Limit: 4500000[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32mInput:     0x76be3cd1[0m
+2022-10-03 11:57:35,225 - Detector - INFO - [1m[32m-----------------------------------------------------[0m
+2022-10-03 11:57:35,509 - Analysis - INFO - [1mGeneration number 16 	 Code coverage: 95.69% (732/765) 	 Branch coverage: 86.67% (78/90) 	 Transactions: 1479 (353 unique)   	 Time: 9.914013147354126[0m
+2022-10-03 11:57:35,653 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:35,653 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-10-03 11:57:35,653 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:35,653 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 11:57:35,653 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 11:57:35,653 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:35,653 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Overflow-Underflow/integer_buggy_37.sol:41:1[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31mlockTime_intou1[msg.sender] += _secondsToIncrease[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31mTransaction 1 - increaseLockTime_intou1(uint256):[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31mInput:     0x1d3fb2a700000000000000000000000000000000[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31m           00000000000000000000000000000002[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31mTransaction 2 - withdraw_ovrflow1():[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31mInput:     0x76be3cd1[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31mTransaction 3 - increaseLockTime_intou1(uint256):[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31mInput:     0x1d3fb2a7ffffffffffffffffffffffffffffffff[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31m           fffffffffffffffffffffffffffffffe[0m
+2022-10-03 11:57:35,654 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 11:57:36,203 - Analysis - INFO - [1mGeneration number 17 	 Code coverage: 95.69% (732/765) 	 Branch coverage: 86.67% (78/90) 	 Transactions: 1552 (375 unique)   	 Time: 10.60814642906189[0m
+2022-10-03 11:57:36,976 - Analysis - INFO - [1mGeneration number 18 	 Code coverage: 95.69% (732/765) 	 Branch coverage: 86.67% (78/90) 	 Transactions: 1629 (396 unique)   	 Time: 11.380967378616333[0m
+2022-10-03 11:57:37,730 - Analysis - INFO - [1mGeneration number 19 	 Code coverage: 95.69% (732/765) 	 Branch coverage: 86.67% (78/90) 	 Transactions: 1708 (419 unique)   	 Time: 12.134881973266602[0m
+2022-10-03 11:57:38,618 - Analysis - INFO - [1mGeneration number 20 	 Code coverage: 95.69% (732/765) 	 Branch coverage: 86.67% (78/90) 	 Transactions: 1789 (443 unique)   	 Time: 13.023084163665771[0m
+2022-10-03 11:57:38,676 - Analysis - INFO - [1m-----------------------------------------------------[0m
+2022-10-03 11:57:38,676 - Analysis - INFO - Number of generations: 	 20
+2022-10-03 11:57:38,676 - Analysis - INFO - Number of transactions: 	 1789 (443 unique)
+2022-10-03 11:57:38,676 - Analysis - INFO - Transactions per second: 	 137
+2022-10-03 11:57:38,676 - Analysis - INFO - Total code coverage: 	 95.69% (732/765)
+2022-10-03 11:57:38,677 - Analysis - INFO - Total branch coverage: 	 86.67% (78/90)
+2022-10-03 11:57:38,677 - Analysis - INFO - Total execution time: 	 13.08 seconds
+2022-10-03 11:57:38,677 - Analysis - INFO - Total memory consumption: 	 155.66 MB

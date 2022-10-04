@@ -1,0 +1,781 @@
+2022-10-03 14:23:02,123 - Main     - INFO - [1mInitializing seed to 0.5868625831220057[0m
+2022-10-03 14:23:02,339 - Fuzzer   - INFO - [1mFuzzing contract [1mDanPanCoin[0m[0m
+2022-10-03 14:23:02,584 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:02,584 - Detector - INFO - [1m[33m          !!! Assertion failure detected !!!         [0m
+2022-10-03 14:23:02,584 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:02,584 - Detector - INFO - [1m[33mSWC-ID:   110[0m
+2022-10-03 14:23:02,584 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 14:23:02,584 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:02,584 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 14:23:02,584 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:02,584 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:35:1[0m
+2022-10-03 14:23:02,584 - Detector - INFO - [1m[33massert(b <= a)[0m
+2022-10-03 14:23:02,584 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:02,584 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 14:23:02,584 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:02,584 - Detector - INFO - [1m[33mTransaction - decreaseAllowance(address,uint256):[0m
+2022-10-03 14:23:02,584 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:02,584 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 14:23:02,584 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:02,584 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 14:23:02,584 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 14:23:02,585 - Detector - INFO - [1m[33mInput:     0xa457c2d7000000000000000000000000deadbeef[0m
+2022-10-03 14:23:02,585 - Detector - INFO - [1m[33m           deadbeefdeadbeefdeadbeefdeadbeef0864734019[0m
+2022-10-03 14:23:02,585 - Detector - INFO - [1m[33m           ec53875cb29047b7771300eb9ce50477fea57a537c[0m
+2022-10-03 14:23:02,585 - Detector - INFO - [1m[33m           2d861fbcfe67[0m
+2022-10-03 14:23:02,585 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:02,650 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:02,650 - Detector - INFO - [1m[31m            !!! Reentrancy detected !!!              [0m
+2022-10-03 14:23:02,650 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:02,650 - Detector - INFO - [1m[31mSWC-ID:   107[0m
+2022-10-03 14:23:02,650 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 14:23:02,650 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:02,650 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 14:23:02,650 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:02,650 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:58:1[0m
+2022-10-03 14:23:02,650 - Detector - INFO - [1m[31mmsg.sender.call.value(userBalance_re_ent40[msg.sender])("")[0m
+2022-10-03 14:23:02,650 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:02,650 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 14:23:02,650 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:02,650 - Detector - INFO - [1m[31mTransaction - withdrawBalance_re_ent40():[0m
+2022-10-03 14:23:02,650 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:02,650 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 14:23:02,650 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:02,650 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 14:23:02,650 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 14:23:02,650 - Detector - INFO - [1m[31mInput:     0x6cfd7721[0m
+2022-10-03 14:23:02,650 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:02,685 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:02,685 - Detector - INFO - [1m[31m            !!! Reentrancy detected !!!              [0m
+2022-10-03 14:23:02,685 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:02,685 - Detector - INFO - [1m[31mSWC-ID:   107[0m
+2022-10-03 14:23:02,685 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 14:23:02,685 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:02,685 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 14:23:02,685 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:02,685 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:92:25[0m
+2022-10-03 14:23:02,685 - Detector - INFO - [1m[31mmsg.sender.call.value(balances_re_ent21[msg.sender ])("")[0m
+2022-10-03 14:23:02,685 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:02,685 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 14:23:02,685 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:02,685 - Detector - INFO - [1m[31mTransaction - withdraw_balances_re_ent21():[0m
+2022-10-03 14:23:02,685 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:02,685 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 14:23:02,685 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:02,685 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 14:23:02,685 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 14:23:02,685 - Detector - INFO - [1m[31mInput:     0x96c176f9[0m
+2022-10-03 14:23:02,685 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:02,718 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:02,719 - Detector - INFO - [1m[31m            !!! Reentrancy detected !!!              [0m
+2022-10-03 14:23:02,719 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:02,719 - Detector - INFO - [1m[31mSWC-ID:   107[0m
+2022-10-03 14:23:02,719 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 14:23:02,719 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:02,719 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 14:23:02,719 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:02,719 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:452:1[0m
+2022-10-03 14:23:02,719 - Detector - INFO - [1m[31mmsg.sender.call.value(userBalance_re_ent26[msg.sender])("")[0m
+2022-10-03 14:23:02,719 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:02,719 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 14:23:02,719 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:02,719 - Detector - INFO - [1m[31mTransaction - withdrawBalance_re_ent26():[0m
+2022-10-03 14:23:02,719 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:02,719 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 14:23:02,719 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:02,719 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 14:23:02,719 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 14:23:02,719 - Detector - INFO - [1m[31mInput:     0x8f94454c[0m
+2022-10-03 14:23:02,719 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:02,763 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:02,763 - Detector - INFO - [1m[33m          !!! Assertion failure detected !!!         [0m
+2022-10-03 14:23:02,763 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:02,763 - Detector - INFO - [1m[33mSWC-ID:   110[0m
+2022-10-03 14:23:02,763 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 14:23:02,763 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:02,763 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 14:23:02,763 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:02,763 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:25:1[0m
+2022-10-03 14:23:02,763 - Detector - INFO - [1m[33massert(c / a == b)[0m
+2022-10-03 14:23:02,763 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:02,763 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 14:23:02,763 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:02,763 - Detector - INFO - [1m[33mTransaction - findDPPercent(uint256):[0m
+2022-10-03 14:23:02,763 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:02,763 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 14:23:02,763 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:02,763 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 14:23:02,763 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 14:23:02,763 - Detector - INFO - [1m[33mInput:     0xa5948fdbfcc10f7b1754c03b17ba6d0a897589de[0m
+2022-10-03 14:23:02,763 - Detector - INFO - [1m[33m           eea88da87790d5edd556a5c0f2c34ead[0m
+2022-10-03 14:23:02,763 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:03,110 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:03,110 - Detector - INFO - [1m[31m            !!! Reentrancy detected !!!              [0m
+2022-10-03 14:23:03,110 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:03,110 - Detector - INFO - [1m[31mSWC-ID:   107[0m
+2022-10-03 14:23:03,110 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 14:23:03,110 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:03,110 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 14:23:03,110 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:03,110 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:628:1[0m
+2022-10-03 14:23:03,110 - Detector - INFO - [1m[31mmsg.sender.call.value(balances_re_ent8[msg.sender ])("")[0m
+2022-10-03 14:23:03,110 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:03,110 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 14:23:03,110 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:03,110 - Detector - INFO - [1m[31mTransaction - withdraw_balances_re_ent8():[0m
+2022-10-03 14:23:03,110 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:03,110 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 14:23:03,110 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:03,110 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 14:23:03,110 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 14:23:03,110 - Detector - INFO - [1m[31mInput:     0xa2bcc8c5[0m
+2022-10-03 14:23:03,110 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:03,363 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:03,363 - Detector - INFO - [1m[31m            !!! Reentrancy detected !!!              [0m
+2022-10-03 14:23:03,363 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:03,363 - Detector - INFO - [1m[31mSWC-ID:   107[0m
+2022-10-03 14:23:03,363 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 14:23:03,363 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:03,363 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 14:23:03,363 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:03,363 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:138:1[0m
+2022-10-03 14:23:03,363 - Detector - INFO - [1m[31mmsg.sender.call.value(balances_re_ent1[msg.sender ])("")[0m
+2022-10-03 14:23:03,363 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:03,363 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 14:23:03,363 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:03,363 - Detector - INFO - [1m[31mTransaction - withdraw_balances_re_ent1():[0m
+2022-10-03 14:23:03,363 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:03,363 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 14:23:03,363 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:03,363 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 14:23:03,363 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 14:23:03,363 - Detector - INFO - [1m[31mInput:     0xf0b6e306[0m
+2022-10-03 14:23:03,363 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:03,403 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:03,403 - Detector - INFO - [1m[31m            !!! Reentrancy detected !!!              [0m
+2022-10-03 14:23:03,403 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:03,403 - Detector - INFO - [1m[31mSWC-ID:   107[0m
+2022-10-03 14:23:03,403 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 14:23:03,403 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:03,403 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 14:23:03,403 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:03,403 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:231:1[0m
+2022-10-03 14:23:03,403 - Detector - INFO - [1m[31mmsg.sender.call.value(userBalance_re_ent33[msg.sender])("")[0m
+2022-10-03 14:23:03,403 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:03,403 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 14:23:03,403 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:03,403 - Detector - INFO - [1m[31mTransaction - withdrawBalance_re_ent33():[0m
+2022-10-03 14:23:03,403 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:03,403 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 14:23:03,403 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:03,403 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 14:23:03,403 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 14:23:03,403 - Detector - INFO - [1m[31mInput:     0xc6604ad7[0m
+2022-10-03 14:23:03,403 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:03,501 - Analysis - INFO - [1mGeneration number 0 	 Code coverage: 67.00% (5154/7692) 	 Branch coverage: 70.21% (403/574) 	 Transactions: 141 (140 unique)   	 Time: 1.135589599609375[0m
+2022-10-03 14:23:04,692 - Analysis - INFO - [1mGeneration number 1 	 Code coverage: 67.08% (5160/7692) 	 Branch coverage: 70.56% (405/574) 	 Transactions: 253 (187 unique)   	 Time: 2.3265135288238525[0m
+2022-10-03 14:23:05,075 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:05,075 - Detector - INFO - [1m[31m           !!! Leaking ether detected !!!            [0m
+2022-10-03 14:23:05,075 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:05,075 - Detector - INFO - [1m[31mSWC-ID:   105[0m
+2022-10-03 14:23:05,075 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 14:23:05,075 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:05,076 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 14:23:05,076 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:05,076 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:328:1[0m
+2022-10-03 14:23:05,076 - Detector - INFO - [1m[31mlastPlayer_re_ent37.send(jackpot_re_ent37)[0m
+2022-10-03 14:23:05,076 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:05,076 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 14:23:05,076 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:05,076 - Detector - INFO - [1m[31mTransaction 1 - buyTicket_re_ent37():[0m
+2022-10-03 14:23:05,076 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:05,076 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 14:23:05,076 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:05,076 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 14:23:05,076 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 14:23:05,076 - Detector - INFO - [1m[31mInput:     0x3c7604de[0m
+2022-10-03 14:23:05,076 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:05,076 - Detector - INFO - [1m[31mTransaction 2 - buyTicket_re_ent37():[0m
+2022-10-03 14:23:05,076 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:05,076 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 14:23:05,076 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:05,076 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 14:23:05,076 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 14:23:05,076 - Detector - INFO - [1m[31mInput:     0x3c7604de[0m
+2022-10-03 14:23:05,076 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:05,344 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:05,344 - Detector - INFO - [1m[31m          !!! Integer overflow detected !!!          [0m
+2022-10-03 14:23:05,344 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:05,344 - Detector - INFO - [1m[31mSWC-ID:   101[0m
+2022-10-03 14:23:05,344 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 14:23:05,344 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:05,344 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 14:23:05,344 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:05,344 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:40:1[0m
+2022-10-03 14:23:05,344 - Detector - INFO - [1m[31ma + b[0m
+2022-10-03 14:23:05,344 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:05,344 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 14:23:05,344 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:05,344 - Detector - INFO - [1m[31mTransaction - findDPPercent(uint256):[0m
+2022-10-03 14:23:05,344 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:05,344 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 14:23:05,344 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:05,344 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 14:23:05,344 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 14:23:05,344 - Detector - INFO - [1m[31mInput:     0xa5948fdbffffffffffffffffffffffffffffffff[0m
+2022-10-03 14:23:05,344 - Detector - INFO - [1m[31m           fffffffffffffffffffffffffffffffd[0m
+2022-10-03 14:23:05,344 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:05,346 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:05,346 - Detector - INFO - [1m[33m          !!! Assertion failure detected !!!         [0m
+2022-10-03 14:23:05,346 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:05,346 - Detector - INFO - [1m[33mSWC-ID:   110[0m
+2022-10-03 14:23:05,346 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 14:23:05,346 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:05,346 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 14:23:05,346 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:05,346 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:41:1[0m
+2022-10-03 14:23:05,346 - Detector - INFO - [1m[33massert(c >= a)[0m
+2022-10-03 14:23:05,346 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:05,346 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 14:23:05,346 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:05,346 - Detector - INFO - [1m[33mTransaction - findDPPercent(uint256):[0m
+2022-10-03 14:23:05,346 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:05,346 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 14:23:05,346 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:05,346 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 14:23:05,346 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 14:23:05,346 - Detector - INFO - [1m[33mInput:     0xa5948fdbffffffffffffffffffffffffffffffff[0m
+2022-10-03 14:23:05,346 - Detector - INFO - [1m[33m           fffffffffffffffffffffffffffffffd[0m
+2022-10-03 14:23:05,346 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:06,174 - Analysis - INFO - [1mGeneration number 2 	 Code coverage: 67.98% (5229/7692) 	 Branch coverage: 71.25% (409/574) 	 Transactions: 384 (232 unique)   	 Time: 3.808197021484375[0m
+2022-10-03 14:23:06,418 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:06,418 - Detector - INFO - [1m[33m    !!! Transaction order dependency detected !!!    [0m
+2022-10-03 14:23:06,418 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:06,418 - Detector - INFO - [1m[33mSWC-ID:   114[0m
+2022-10-03 14:23:06,418 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 14:23:06,418 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:06,418 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 14:23:06,418 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:06,418 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:330:1[0m
+2022-10-03 14:23:06,418 - Detector - INFO - [1m[33mlastPlayer_re_ent37 = msg.sender[0m
+2022-10-03 14:23:06,418 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:06,418 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 14:23:06,418 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:06,418 - Detector - INFO - [1m[33mTransaction 1 - buyTicket_re_ent37():[0m
+2022-10-03 14:23:06,418 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:06,418 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 14:23:06,418 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:06,418 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 14:23:06,418 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 14:23:06,418 - Detector - INFO - [1m[33mInput:     0x3c7604de[0m
+2022-10-03 14:23:06,418 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:06,419 - Detector - INFO - [1m[33mTransaction 2 - buyTicket_re_ent37():[0m
+2022-10-03 14:23:06,419 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:06,419 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 14:23:06,419 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:06,419 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 14:23:06,419 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 14:23:06,419 - Detector - INFO - [1m[33mInput:     0x3c7604de[0m
+2022-10-03 14:23:06,419 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:07,568 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:07,568 - Detector - INFO - [1m[33m    !!! Transaction order dependency detected !!!    [0m
+2022-10-03 14:23:07,568 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:07,568 - Detector - INFO - [1m[33mSWC-ID:   114[0m
+2022-10-03 14:23:07,568 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 14:23:07,568 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:07,568 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 14:23:07,568 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:07,568 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:618:1[0m
+2022-10-03 14:23:07,568 - Detector - INFO - [1m[33mlastPlayer_re_ent30 = msg.sender[0m
+2022-10-03 14:23:07,568 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:07,568 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 14:23:07,568 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:07,568 - Detector - INFO - [1m[33mTransaction 1 - buyTicket_re_ent30():[0m
+2022-10-03 14:23:07,568 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:07,568 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 14:23:07,568 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:07,568 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 14:23:07,568 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 14:23:07,569 - Detector - INFO - [1m[33mInput:     0xe096369d[0m
+2022-10-03 14:23:07,569 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:07,569 - Detector - INFO - [1m[33mTransaction 2 - buyTicket_re_ent30():[0m
+2022-10-03 14:23:07,569 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:07,569 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 14:23:07,569 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:07,569 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 14:23:07,569 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 14:23:07,569 - Detector - INFO - [1m[33mInput:     0xe096369d[0m
+2022-10-03 14:23:07,569 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:07,740 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:07,740 - Detector - INFO - [1m[31m            !!! Reentrancy detected !!!              [0m
+2022-10-03 14:23:07,740 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:07,740 - Detector - INFO - [1m[31mSWC-ID:   107[0m
+2022-10-03 14:23:07,740 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 14:23:07,740 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:07,740 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 14:23:07,740 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:07,740 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:343:1[0m
+2022-10-03 14:23:07,740 - Detector - INFO - [1m[31mmsg.sender.call.value(_weiToWithdraw)("")[0m
+2022-10-03 14:23:07,740 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:07,740 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 14:23:07,740 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:07,740 - Detector - INFO - [1m[31mTransaction - withdrawFunds_re_ent3(uint256):[0m
+2022-10-03 14:23:07,740 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:07,740 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 14:23:07,740 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:07,740 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 14:23:07,740 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 14:23:07,740 - Detector - INFO - [1m[31mInput:     0xa4e80ee000000000000000000000000000000000[0m
+2022-10-03 14:23:07,740 - Detector - INFO - [1m[31m           00000000000000000000000000000000[0m
+2022-10-03 14:23:07,741 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33m    !!! Transaction order dependency detected !!!    [0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33mSWC-ID:   114[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:190:1[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33mlastPlayer_re_ent16 = msg.sender[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33mTransaction 1 - buyTicket_re_ent16():[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33mInput:     0x0be0f287[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33mTransaction 2 - bug_re_ent6():[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33mInput:     0x1f510f8e[0m
+2022-10-03 14:23:07,770 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:07,998 - Analysis - INFO - [1mGeneration number 3 	 Code coverage: 69.77% (5367/7692) 	 Branch coverage: 72.65% (417/574) 	 Transactions: 536 (285 unique)   	 Time: 5.632443189620972[0m
+2022-10-03 14:23:11,041 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:11,041 - Detector - INFO - [1m[31m           !!! Leaking ether detected !!!            [0m
+2022-10-03 14:23:11,041 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:11,041 - Detector - INFO - [1m[31mSWC-ID:   105[0m
+2022-10-03 14:23:11,041 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 14:23:11,041 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:11,041 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:616:1[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mlastPlayer_re_ent30.send(jackpot_re_ent30)[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mTransaction 1 - buyTicket_re_ent30():[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mInput:     0xe096369d[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mTransaction 2 - buyTicket_re_ent30():[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mInput:     0xe096369d[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mTransaction 3 - buyTicket_re_ent30():[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mInput:     0xe096369d[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mTransaction 4 - buyTicket_re_ent30():[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31mInput:     0xe096369d[0m
+2022-10-03 14:23:11,042 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:11,307 - Analysis - INFO - [1mGeneration number 4 	 Code coverage: 70.42% (5417/7692) 	 Branch coverage: 73.34% (421/574) 	 Transactions: 825 (353 unique)   	 Time: 8.941762685775757[0m
+2022-10-03 14:23:14,819 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:14,819 - Detector - INFO - [1m[33m    !!! Transaction order dependency detected !!!    [0m
+2022-10-03 14:23:14,819 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:14,819 - Detector - INFO - [1m[33mSWC-ID:   114[0m
+2022-10-03 14:23:14,819 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 14:23:14,819 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:14,820 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 14:23:14,820 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:14,820 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:88:1[0m
+2022-10-03 14:23:14,820 - Detector - INFO - [1m[33mowner = newOwner[0m
+2022-10-03 14:23:14,820 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:14,820 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 14:23:14,820 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:14,820 - Detector - INFO - [1m[33mTransaction 1 - transferOwnership(address):[0m
+2022-10-03 14:23:14,820 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:14,820 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 14:23:14,820 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:14,820 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 14:23:14,820 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 14:23:14,820 - Detector - INFO - [1m[33mInput:     0xf2fde38b000000000000000000000000cafebabe[0m
+2022-10-03 14:23:14,820 - Detector - INFO - [1m[33m           cafebabecafebabecafebabecafebabe[0m
+2022-10-03 14:23:14,820 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:14,820 - Detector - INFO - [1m[33mTransaction 2 - setWhitelistedTo(address,bool):[0m
+2022-10-03 14:23:14,820 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:14,820 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 14:23:14,820 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:14,820 - Detector - INFO - [1m[33mValue:     1 Wei[0m
+2022-10-03 14:23:14,820 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 14:23:14,820 - Detector - INFO - [1m[33mInput:     0xa486309d000000000000000000000000deadbeef[0m
+2022-10-03 14:23:14,821 - Detector - INFO - [1m[33m           deadbeefdeadbeefdeadbeefdeadbeef0000000000[0m
+2022-10-03 14:23:14,821 - Detector - INFO - [1m[33m           000000000000000000000000000000000000000000[0m
+2022-10-03 14:23:14,821 - Detector - INFO - [1m[33m           000000000000[0m
+2022-10-03 14:23:14,821 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:14,821 - Detector - INFO - [1m[33mTransaction 3 - bug_re_ent41():[0m
+2022-10-03 14:23:14,821 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:14,821 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 14:23:14,821 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:14,821 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 14:23:14,821 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 14:23:14,821 - Detector - INFO - [1m[33mInput:     0xf9a1f3d9[0m
+2022-10-03 14:23:14,821 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:23:15,202 - Analysis - INFO - [1mGeneration number 5 	 Code coverage: 70.42% (5417/7692) 	 Branch coverage: 73.34% (421/574) 	 Transactions: 1149 (397 unique)   	 Time: 12.836570262908936[0m
+2022-10-03 14:23:19,290 - Analysis - INFO - [1mGeneration number 6 	 Code coverage: 71.48% (5498/7692) 	 Branch coverage: 74.04% (425/574) 	 Transactions: 1401 (425 unique)   	 Time: 16.92497706413269[0m
+2022-10-03 14:23:22,365 - Analysis - INFO - [1mGeneration number 7 	 Code coverage: 71.48% (5498/7692) 	 Branch coverage: 74.04% (425/574) 	 Transactions: 1651 (454 unique)   	 Time: 19.999828338623047[0m
+2022-10-03 14:23:26,234 - Analysis - INFO - [1mGeneration number 8 	 Code coverage: 71.48% (5498/7692) 	 Branch coverage: 74.04% (425/574) 	 Transactions: 1885 (472 unique)   	 Time: 23.86877202987671[0m
+2022-10-03 14:23:29,958 - Analysis - INFO - [1mGeneration number 9 	 Code coverage: 71.48% (5498/7692) 	 Branch coverage: 74.04% (425/574) 	 Transactions: 2111 (486 unique)   	 Time: 27.592419147491455[0m
+2022-10-03 14:23:33,267 - Analysis - INFO - [1mGeneration number 10 	 Code coverage: 71.48% (5498/7692) 	 Branch coverage: 74.04% (425/574) 	 Transactions: 2290 (492 unique)   	 Time: 30.90174627304077[0m
+2022-10-03 14:23:36,829 - Analysis - INFO - [1mGeneration number 11 	 Code coverage: 71.48% (5498/7692) 	 Branch coverage: 74.04% (425/574) 	 Transactions: 2503 (503 unique)   	 Time: 34.463622093200684[0m
+2022-10-03 14:23:40,210 - Analysis - INFO - [1mGeneration number 12 	 Code coverage: 71.48% (5498/7692) 	 Branch coverage: 74.04% (425/574) 	 Transactions: 2706 (507 unique)   	 Time: 37.84496307373047[0m
+2022-10-03 14:23:43,426 - Analysis - INFO - [1mGeneration number 13 	 Code coverage: 71.48% (5498/7692) 	 Branch coverage: 74.04% (425/574) 	 Transactions: 2893 (508 unique)   	 Time: 41.06033277511597[0m
+2022-10-03 14:23:47,087 - Analysis - INFO - [1mGeneration number 14 	 Code coverage: 71.48% (5498/7692) 	 Branch coverage: 74.04% (425/574) 	 Transactions: 3118 (516 unique)   	 Time: 44.72180724143982[0m
+2022-10-03 14:23:50,748 - Analysis - INFO - [1mGeneration number 15 	 Code coverage: 71.48% (5498/7692) 	 Branch coverage: 74.04% (425/574) 	 Transactions: 3346 (520 unique)   	 Time: 48.38248658180237[0m
+2022-10-03 14:23:54,688 - Analysis - INFO - [1mGeneration number 16 	 Code coverage: 71.48% (5498/7692) 	 Branch coverage: 74.04% (425/574) 	 Transactions: 3590 (524 unique)   	 Time: 52.323087215423584[0m
+2022-10-03 14:23:58,534 - Analysis - INFO - [1mGeneration number 17 	 Code coverage: 71.48% (5498/7692) 	 Branch coverage: 74.04% (425/574) 	 Transactions: 3824 (527 unique)   	 Time: 56.16824507713318[0m
+2022-10-03 14:23:59,624 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:59,624 - Detector - INFO - [1m[31m           !!! Leaking ether detected !!!            [0m
+2022-10-03 14:23:59,624 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:59,624 - Detector - INFO - [1m[31mSWC-ID:   105[0m
+2022-10-03 14:23:59,624 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 14:23:59,624 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:59,625 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 14:23:59,625 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:59,625 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:517:1[0m
+2022-10-03 14:23:59,625 - Detector - INFO - [1m[31mmsg.sender.send(1 ether)[0m
+2022-10-03 14:23:59,625 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:59,625 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 14:23:59,625 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:59,625 - Detector - INFO - [1m[31mTransaction - bug_re_ent20():[0m
+2022-10-03 14:23:59,625 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:59,625 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 14:23:59,625 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:59,625 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 14:23:59,625 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 14:23:59,625 - Detector - INFO - [1m[31mInput:     0xd8fa982f[0m
+2022-10-03 14:23:59,625 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:59,676 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:59,676 - Detector - INFO - [1m[31m           !!! Leaking ether detected !!!            [0m
+2022-10-03 14:23:59,677 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:59,677 - Detector - INFO - [1m[31mSWC-ID:   105[0m
+2022-10-03 14:23:59,677 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 14:23:59,677 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:59,677 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 14:23:59,677 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:59,677 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:572:1[0m
+2022-10-03 14:23:59,677 - Detector - INFO - [1m[31mmsg.sender.send(10 ether)[0m
+2022-10-03 14:23:59,677 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:59,677 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 14:23:59,677 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:59,677 - Detector - INFO - [1m[31mTransaction - callme_re_ent7():[0m
+2022-10-03 14:23:59,677 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:59,677 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 14:23:59,677 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:59,677 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 14:23:59,677 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 14:23:59,677 - Detector - INFO - [1m[31mInput:     0xfef28f0b[0m
+2022-10-03 14:23:59,677 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:59,968 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:59,968 - Detector - INFO - [1m[31m           !!! Leaking ether detected !!!            [0m
+2022-10-03 14:23:59,968 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:59,968 - Detector - INFO - [1m[31mSWC-ID:   105[0m
+2022-10-03 14:23:59,968 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 14:23:59,968 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:59,968 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 14:23:59,968 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:59,968 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:663:1[0m
+2022-10-03 14:23:59,968 - Detector - INFO - [1m[31mmsg.sender.send(10 ether)[0m
+2022-10-03 14:23:59,968 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:59,968 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 14:23:59,968 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:59,968 - Detector - INFO - [1m[31mTransaction - callme_re_ent35():[0m
+2022-10-03 14:23:59,968 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:23:59,968 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 14:23:59,968 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:23:59,968 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 14:23:59,968 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 14:23:59,968 - Detector - INFO - [1m[31mInput:     0x1578e01e[0m
+2022-10-03 14:23:59,968 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:00,097 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:00,097 - Detector - INFO - [1m[31m            !!! Reentrancy detected !!!              [0m
+2022-10-03 14:24:00,097 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:00,097 - Detector - INFO - [1m[31mSWC-ID:   107[0m
+2022-10-03 14:24:00,097 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 14:24:00,098 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:00,098 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 14:24:00,098 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:00,098 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:317:1[0m
+2022-10-03 14:24:00,098 - Detector - INFO - [1m[31mmsg.sender.call.value(_weiToWithdraw)("")[0m
+2022-10-03 14:24:00,098 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:00,098 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 14:24:00,098 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:00,098 - Detector - INFO - [1m[31mTransaction - withdrawFunds_re_ent17(uint256):[0m
+2022-10-03 14:24:00,098 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:00,098 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 14:24:00,098 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:24:00,098 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 14:24:00,098 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 14:24:00,098 - Detector - INFO - [1m[31mInput:     0x8d18e1e800000000000000000000000000000000[0m
+2022-10-03 14:24:00,098 - Detector - INFO - [1m[31m           00000000000000000000000000000000[0m
+2022-10-03 14:24:00,098 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:00,243 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:00,243 - Detector - INFO - [1m[31m           !!! Leaking ether detected !!!            [0m
+2022-10-03 14:24:00,243 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:00,243 - Detector - INFO - [1m[31mSWC-ID:   105[0m
+2022-10-03 14:24:00,243 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 14:24:00,243 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:00,243 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 14:24:00,243 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:00,243 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:241:1[0m
+2022-10-03 14:24:00,243 - Detector - INFO - [1m[31mmsg.sender.send(1 ether)[0m
+2022-10-03 14:24:00,243 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:00,243 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 14:24:00,243 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:00,243 - Detector - INFO - [1m[31mTransaction - bug_re_ent27():[0m
+2022-10-03 14:24:00,243 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:00,243 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 14:24:00,243 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:24:00,243 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 14:24:00,243 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 14:24:00,243 - Detector - INFO - [1m[31mInput:     0x9128b348[0m
+2022-10-03 14:24:00,243 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:00,268 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:00,268 - Detector - INFO - [1m[31m           !!! Leaking ether detected !!!            [0m
+2022-10-03 14:24:00,268 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:00,268 - Detector - INFO - [1m[31mSWC-ID:   105[0m
+2022-10-03 14:24:00,268 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 14:24:00,268 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:00,268 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 14:24:00,268 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:00,269 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:221:1[0m
+2022-10-03 14:24:00,269 - Detector - INFO - [1m[31mmsg.sender.send(10 ether)[0m
+2022-10-03 14:24:00,269 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:00,269 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 14:24:00,269 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:00,269 - Detector - INFO - [1m[31mTransaction - callme_re_ent28():[0m
+2022-10-03 14:24:00,269 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:00,269 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 14:24:00,269 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:24:00,269 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 14:24:00,269 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 14:24:00,269 - Detector - INFO - [1m[31mInput:     0x0d5feff1[0m
+2022-10-03 14:24:00,269 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:02,495 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:02,495 - Detector - INFO - [1m[33m          !!! Assertion failure detected !!!         [0m
+2022-10-03 14:24:02,495 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:02,495 - Detector - INFO - [1m[33mSWC-ID:   110[0m
+2022-10-03 14:24:02,495 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 14:24:02,495 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:02,495 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 14:24:02,496 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:02,496 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:429:1[0m
+2022-10-03 14:24:02,496 - Detector - INFO - [1m[33mamounts[i][0m
+2022-10-03 14:24:02,496 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:02,496 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 14:24:02,496 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:02,496 - Detector - INFO - [1m[33mTransaction - multiTransfer(address[],uint256[]):[0m
+2022-10-03 14:24:02,496 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:02,496 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 14:24:02,496 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:24:02,496 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 14:24:02,496 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 14:24:02,496 - Detector - INFO - [1m[33mInput:     0x1e89d54500000000000000000000000000000000[0m
+2022-10-03 14:24:02,496 - Detector - INFO - [1m[33m           000000000000000000000000000000400000000000[0m
+2022-10-03 14:24:02,496 - Detector - INFO - [1m[33m           000000000000000000000000000000000000000000[0m
+2022-10-03 14:24:02,496 - Detector - INFO - [1m[33m           000000000080000000000000000000000000000000[0m
+2022-10-03 14:24:02,496 - Detector - INFO - [1m[33m           000000000000000000000000000000000100000000[0m
+2022-10-03 14:24:02,496 - Detector - INFO - [1m[33m           0000000000000000cafebabecafebabecafebabeca[0m
+2022-10-03 14:24:02,496 - Detector - INFO - [1m[33m           febabecafebabe0000000000000000000000000000[0m
+2022-10-03 14:24:02,496 - Detector - INFO - [1m[33m           000000000000000000000000000000000000[0m
+2022-10-03 14:24:02,496 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:02,812 - Analysis - INFO - [1mGeneration number 18 	 Code coverage: 81.31% (6254/7692) 	 Branch coverage: 80.84% (464/574) 	 Transactions: 4089 (684 unique)   	 Time: 60.44686675071716[0m
+2022-10-03 14:24:04,477 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:04,477 - Detector - INFO - [1m[33m    !!! Transaction order dependency detected !!!    [0m
+2022-10-03 14:24:04,477 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:04,477 - Detector - INFO - [1m[33mSWC-ID:   114[0m
+2022-10-03 14:24:04,477 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 14:24:04,477 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:04,477 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 14:24:04,477 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:04,478 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:345:1[0m
+2022-10-03 14:24:04,478 - Detector - INFO - [1m[33mbalances_re_ent3[msg.sender] -= _weiToWithdraw[0m
+2022-10-03 14:24:04,478 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:04,478 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 14:24:04,478 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:04,478 - Detector - INFO - [1m[33mTransaction 1 - withdrawFunds_re_ent3(uint256):[0m
+2022-10-03 14:24:04,478 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:04,478 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 14:24:04,478 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:24:04,478 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 14:24:04,478 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 14:24:04,478 - Detector - INFO - [1m[33mInput:     0xa4e80ee000000000000000000000000000000000[0m
+2022-10-03 14:24:04,478 - Detector - INFO - [1m[33m           00000000000000000000000000000000[0m
+2022-10-03 14:24:04,478 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:04,478 - Detector - INFO - [1m[33mTransaction 2 - withdrawFunds_re_ent3(uint256):[0m
+2022-10-03 14:24:04,478 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:04,478 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 14:24:04,478 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:24:04,478 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 14:24:04,478 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 14:24:04,478 - Detector - INFO - [1m[33mInput:     0xa4e80ee000000000000000000000000000000000[0m
+2022-10-03 14:24:04,478 - Detector - INFO - [1m[33m           00000000000000000000000000000000[0m
+2022-10-03 14:24:04,478 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:05,914 - Analysis - INFO - [1mGeneration number 19 	 Code coverage: 82.53% (6348/7692) 	 Branch coverage: 81.53% (468/574) 	 Transactions: 4283 (747 unique)   	 Time: 63.5483603477478[0m
+2022-10-03 14:24:07,230 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:07,230 - Detector - INFO - [1m[31m           !!! Leaking ether detected !!!            [0m
+2022-10-03 14:24:07,230 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:07,230 - Detector - INFO - [1m[31mSWC-ID:   105[0m
+2022-10-03 14:24:07,230 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 14:24:07,230 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:07,230 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 14:24:07,230 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:07,231 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:149:1[0m
+2022-10-03 14:24:07,231 - Detector - INFO - [1m[31mmsg.sender.send(1 ether)[0m
+2022-10-03 14:24:07,231 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:07,231 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 14:24:07,231 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:07,231 - Detector - INFO - [1m[31mTransaction - bug_re_ent41():[0m
+2022-10-03 14:24:07,231 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:07,231 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 14:24:07,231 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:24:07,231 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 14:24:07,231 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 14:24:07,231 - Detector - INFO - [1m[31mInput:     0xf9a1f3d9[0m
+2022-10-03 14:24:07,231 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:11,960 - Analysis - INFO - [1mGeneration number 20 	 Code coverage: 82.75% (6365/7692) 	 Branch coverage: 82.06% (471/574) 	 Transactions: 4659 (846 unique)   	 Time: 69.5944242477417[0m
+2022-10-03 14:24:11,960 - Analysis - INFO - [1m-----------------------------------------------------[0m
+2022-10-03 14:24:11,960 - Analysis - INFO - Number of generations: 	 20
+2022-10-03 14:24:11,960 - Analysis - INFO - Number of transactions: 	 4659 (846 unique)
+2022-10-03 14:24:11,960 - Analysis - INFO - Transactions per second: 	 67
+2022-10-03 14:24:11,960 - Analysis - INFO - Total code coverage: 	 82.75% (6365/7692)
+2022-10-03 14:24:11,960 - Analysis - INFO - Total branch coverage: 	 82.06% (471/574)
+2022-10-03 14:24:11,960 - Analysis - INFO - Total execution time: 	 69.59 seconds
+2022-10-03 14:24:11,961 - Analysis - INFO - Total memory consumption: 	 105.06 MB
+2022-10-03 14:24:11,963 - Fuzzer   - INFO - [1mFuzzing contract [1mOwnable[0m[0m
+2022-10-03 14:24:11,971 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:11,971 - Detector - INFO - [1m[31m            !!! Reentrancy detected !!!              [0m
+2022-10-03 14:24:11,971 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:11,971 - Detector - INFO - [1m[31mSWC-ID:   107[0m
+2022-10-03 14:24:11,971 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 14:24:11,971 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:11,971 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 14:24:11,971 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:11,972 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:92:25[0m
+2022-10-03 14:24:11,972 - Detector - INFO - [1m[31mmsg.sender.call.value(balances_re_ent21[msg.sender ])("")[0m
+2022-10-03 14:24:11,972 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:11,972 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 14:24:11,972 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:11,972 - Detector - INFO - [1m[31mTransaction - withdraw_balances_re_ent21():[0m
+2022-10-03 14:24:11,972 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:11,972 - Detector - INFO - [1m[31mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 14:24:11,972 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:24:11,972 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 14:24:11,972 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 14:24:11,972 - Detector - INFO - [1m[31mInput:     0x96c176f9[0m
+2022-10-03 14:24:11,972 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:11,978 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:11,978 - Detector - INFO - [1m[31m            !!! Reentrancy detected !!!              [0m
+2022-10-03 14:24:11,978 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:11,978 - Detector - INFO - [1m[31mSWC-ID:   107[0m
+2022-10-03 14:24:11,978 - Detector - INFO - [1m[31mSeverity: High[0m
+2022-10-03 14:24:11,978 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:11,978 - Detector - INFO - [1m[31mSource code line:[0m
+2022-10-03 14:24:11,978 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:11,978 - Detector - INFO - [1m[31mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:58:1[0m
+2022-10-03 14:24:11,978 - Detector - INFO - [1m[31mmsg.sender.call.value(userBalance_re_ent40[msg.sender])("")[0m
+2022-10-03 14:24:11,978 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:11,978 - Detector - INFO - [1m[31mTransaction sequence:[0m
+2022-10-03 14:24:11,978 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:11,978 - Detector - INFO - [1m[31mTransaction - withdrawBalance_re_ent40():[0m
+2022-10-03 14:24:11,978 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:11,978 - Detector - INFO - [1m[31mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 14:24:11,978 - Detector - INFO - [1m[31mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:24:11,978 - Detector - INFO - [1m[31mValue:     0 Wei[0m
+2022-10-03 14:24:11,978 - Detector - INFO - [1m[31mGas Limit: 4500000[0m
+2022-10-03 14:24:11,978 - Detector - INFO - [1m[31mInput:     0x6cfd7721[0m
+2022-10-03 14:24:11,978 - Detector - INFO - [1m[31m-----------------------------------------------------[0m
+2022-10-03 14:24:12,008 - Analysis - INFO - [1mGeneration number 0 	 Code coverage: 77.20% (403/522) 	 Branch coverage: 71.43% (30/42) 	 Transactions: 13 (12 unique)   	 Time: 0.042238712310791016[0m
+2022-10-03 14:24:12,046 - Analysis - INFO - [1mGeneration number 1 	 Code coverage: 77.20% (403/522) 	 Branch coverage: 71.43% (30/42) 	 Transactions: 21 (15 unique)   	 Time: 0.0802605152130127[0m
+2022-10-03 14:24:12,160 - Analysis - INFO - [1mGeneration number 2 	 Code coverage: 86.78% (453/522) 	 Branch coverage: 76.19% (32/42) 	 Transactions: 29 (19 unique)   	 Time: 0.19391489028930664[0m
+2022-10-03 14:24:12,286 - Analysis - INFO - [1mGeneration number 3 	 Code coverage: 86.78% (453/522) 	 Branch coverage: 76.19% (32/42) 	 Transactions: 45 (23 unique)   	 Time: 0.3201003074645996[0m
+2022-10-03 14:24:12,503 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:12,503 - Detector - INFO - [1m[33m    !!! Transaction order dependency detected !!!    [0m
+2022-10-03 14:24:12,503 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:12,503 - Detector - INFO - [1m[33mSWC-ID:   114[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33mSeverity: Medium[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33mSource code line:[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33mbenchmarks/unified-dataset/MI/Re-entrancy/reentrancy_buggy_27.sol:75:1[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33mbalances_re_ent10[msg.sender] -= _weiToWithdraw[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33mTransaction sequence:[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33mTransaction 1 - withdrawFunds_re_ent10(uint256):[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33mFrom:      0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33mInput:     0xcbaa318a00000000000000000000000000000000[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33m           00000000000000000000000000000000[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33mTransaction 2 - withdrawFunds_re_ent10(uint256):[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33mFrom:      0xcafebabecafebabecafebabecafebabecafebabe[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33mTo:        0x2c5e8a3b3aad9df32339409534e64dfcabcd3a65[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33mValue:     0 Wei[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33mGas Limit: 4500000[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33mInput:     0xcbaa318a00000000000000000000000000000000[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33m           00000000000000000000000000000000[0m
+2022-10-03 14:24:12,504 - Detector - INFO - [1m[33m-----------------------------------------------------[0m
+2022-10-03 14:24:12,543 - Analysis - INFO - [1mGeneration number 4 	 Code coverage: 86.78% (453/522) 	 Branch coverage: 76.19% (32/42) 	 Transactions: 69 (28 unique)   	 Time: 0.5774493217468262[0m
+2022-10-03 14:24:12,775 - Analysis - INFO - [1mGeneration number 5 	 Code coverage: 86.78% (453/522) 	 Branch coverage: 76.19% (32/42) 	 Transactions: 87 (28 unique)   	 Time: 0.8090176582336426[0m
+2022-10-03 14:24:13,035 - Analysis - INFO - [1mGeneration number 6 	 Code coverage: 86.78% (453/522) 	 Branch coverage: 76.19% (32/42) 	 Transactions: 109 (30 unique)   	 Time: 1.0696172714233398[0m
+2022-10-03 14:24:13,379 - Analysis - INFO - [1mGeneration number 7 	 Code coverage: 86.78% (453/522) 	 Branch coverage: 76.19% (32/42) 	 Transactions: 140 (34 unique)   	 Time: 1.4132957458496094[0m
+2022-10-03 14:24:13,709 - Analysis - INFO - [1mGeneration number 8 	 Code coverage: 86.78% (453/522) 	 Branch coverage: 76.19% (32/42) 	 Transactions: 167 (36 unique)   	 Time: 1.7432429790496826[0m
+2022-10-03 14:24:13,975 - Analysis - INFO - [1mGeneration number 9 	 Code coverage: 86.78% (453/522) 	 Branch coverage: 76.19% (32/42) 	 Transactions: 191 (38 unique)   	 Time: 2.0090317726135254[0m
+2022-10-03 14:24:14,247 - Analysis - INFO - [1mGeneration number 10 	 Code coverage: 86.78% (453/522) 	 Branch coverage: 76.19% (32/42) 	 Transactions: 215 (38 unique)   	 Time: 2.281680107116699[0m
+2022-10-03 14:24:14,471 - Analysis - INFO - [1mGeneration number 11 	 Code coverage: 86.78% (453/522) 	 Branch coverage: 76.19% (32/42) 	 Transactions: 236 (39 unique)   	 Time: 2.5057456493377686[0m
+2022-10-03 14:24:14,704 - Analysis - INFO - [1mGeneration number 12 	 Code coverage: 86.78% (453/522) 	 Branch coverage: 76.19% (32/42) 	 Transactions: 259 (40 unique)   	 Time: 2.7386739253997803[0m
+2022-10-03 14:24:14,900 - Analysis - INFO - [1mGeneration number 13 	 Code coverage: 86.78% (453/522) 	 Branch coverage: 76.19% (32/42) 	 Transactions: 283 (41 unique)   	 Time: 2.9339773654937744[0m
+2022-10-03 14:24:15,140 - Analysis - INFO - [1mGeneration number 14 	 Code coverage: 92.91% (485/522) 	 Branch coverage: 90.48% (38/42) 	 Transactions: 305 (55 unique)   	 Time: 3.1744894981384277[0m
+2022-10-03 14:24:15,315 - Analysis - INFO - [1mGeneration number 15 	 Code coverage: 93.49% (488/522) 	 Branch coverage: 92.86% (39/42) 	 Transactions: 321 (60 unique)   	 Time: 3.3497135639190674[0m
+2022-10-03 14:24:15,537 - Analysis - INFO - [1mGeneration number 16 	 Code coverage: 93.49% (488/522) 	 Branch coverage: 92.86% (39/42) 	 Transactions: 343 (64 unique)   	 Time: 3.5716872215270996[0m
+2022-10-03 14:24:15,985 - Analysis - INFO - [1mGeneration number 17 	 Code coverage: 93.49% (488/522) 	 Branch coverage: 92.86% (39/42) 	 Transactions: 379 (71 unique)   	 Time: 4.019476413726807[0m
+2022-10-03 14:24:16,266 - Analysis - INFO - [1mGeneration number 18 	 Code coverage: 93.49% (488/522) 	 Branch coverage: 92.86% (39/42) 	 Transactions: 404 (73 unique)   	 Time: 4.300536632537842[0m
+2022-10-03 14:24:16,547 - Analysis - INFO - [1mGeneration number 19 	 Code coverage: 93.49% (488/522) 	 Branch coverage: 92.86% (39/42) 	 Transactions: 429 (73 unique)   	 Time: 4.581455230712891[0m
+2022-10-03 14:24:16,807 - Analysis - INFO - [1mGeneration number 20 	 Code coverage: 93.49% (488/522) 	 Branch coverage: 92.86% (39/42) 	 Transactions: 450 (73 unique)   	 Time: 4.841115951538086[0m
+2022-10-03 14:24:16,829 - Analysis - INFO - [1m-----------------------------------------------------[0m
+2022-10-03 14:24:16,829 - Analysis - INFO - Number of generations: 	 20
+2022-10-03 14:24:16,830 - Analysis - INFO - Number of transactions: 	 450 (73 unique)
+2022-10-03 14:24:16,830 - Analysis - INFO - Transactions per second: 	 93
+2022-10-03 14:24:16,830 - Analysis - INFO - Total code coverage: 	 93.49% (488/522)
+2022-10-03 14:24:16,830 - Analysis - INFO - Total branch coverage: 	 92.86% (39/42)
+2022-10-03 14:24:16,830 - Analysis - INFO - Total execution time: 	 4.86 seconds
+2022-10-03 14:24:16,830 - Analysis - INFO - Total memory consumption: 	 105.06 MB
