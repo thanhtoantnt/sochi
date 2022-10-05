@@ -1,3 +1,5 @@
+pragma solidity ^0.4.21;
+
 /* 建立一个新合约，类似于C++中的类，实现合约管理者的功能 */
 contract owned {
     address public owner;

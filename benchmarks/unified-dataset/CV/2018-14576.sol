@@ -1,3 +1,5 @@
+pragma solidity ^0.4.21;
+
 //
 /* SunContract Token Smart Contract v1.0 */   
 //

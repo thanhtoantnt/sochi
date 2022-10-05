@@ -54,6 +54,7 @@ fn interpret_mythril_results(input_file: PathBuf) -> Summary {
 
 /// Generate mythril command for each file
 fn generate_command(input_file_path: PathBuf) -> String {
+    debug!("input file: {}", input_file_path.display());
     let check_results = solc::check_solc_settings(&input_file_path);
 
     if let Err(msg) = check_results {

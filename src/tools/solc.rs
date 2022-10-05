@@ -102,7 +102,7 @@ pub fn check_solc_settings(input_file: &Path) -> Result<String, String> {
         println!("new file is written to: {}", input_file.to_str().unwrap());
     }
 
-    let regex = Regex::new(r"pragma solidity \^(\d+\.\d+\.\d+)").unwrap();
+    let regex = Regex::new(r"pragma solidity \^?(\d+\.\d+\.\d+)").unwrap();
     let regex_gt = Regex::new(r"pragma solidity >=\x20?(\d+\.\d+\.\d+)").unwrap();
     let regex_less =
         Regex::new(r"pragma solidity >=\x20?(\d+\.\d+\.\d+) <\x20?(\d+\.\d+\.\d+)").unwrap();

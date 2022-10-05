@@ -1,3 +1,5 @@
+pragma solidity ^0.4.21;
+
 /*
  * ERC20 interface
  * see https://github.com/ethereum/EIPs/issues/20

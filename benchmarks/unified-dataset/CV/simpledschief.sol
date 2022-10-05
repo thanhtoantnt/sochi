@@ -1,3 +1,5 @@
+pragma solidity 0.4.24;
+
 /*
  * @source: https://forum.zeppelin.solutions/t/using-automatic-analysis-tools-with-makerdao-contracts/1021/3
  * Author: Vera Bogdanich Espina / Zeppelin Solutions
