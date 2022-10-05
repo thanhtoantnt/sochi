@@ -9,6 +9,7 @@ use std::io::Write;
 // use rutil::report;
 use std::path::PathBuf;
 use std::{ffi::OsStr, fs, fs::File, path::Path};
+use walkdir::WalkDir;
 
 /// Read and interpret mythril results for each file
 fn interpret_mythril_results(input_file: PathBuf) -> Summary {
@@ -129,8 +130,7 @@ pub fn interpret_results(dir: &str) -> Summary {
 pub fn generate_commands(dir: &str) {
     // List all files in the repository
     let path = Path::new(&dir);
-    let mut paths: Vec<_> = fs::read_dir(path).unwrap().map(|r| r.unwrap()).collect();
-    paths.sort_by_key(|dir| dir.path());
+    let paths = WalkDir::new(path).into_iter().filter_map(|e| e.ok());
 
     let output_file_path = env::current_dir().unwrap().join("mythril_script.sh");
     File::create(&output_file_path).unwrap();
@@ -144,8 +144,8 @@ pub fn generate_commands(dir: &str) {
         let file = path.path();
         let extension = file.extension().and_then(OsStr::to_str);
 
-        if extension.unwrap() == "sol" {
-            let output = generate_command(path.path());
+        if let Some(super::SOL) = extension {
+            let output = generate_command(path.path().to_path_buf());
             let _ = writeln!(output_file, "{}", output);
         }
     }

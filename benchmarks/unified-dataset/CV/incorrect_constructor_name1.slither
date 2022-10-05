@@ -1,0 +1,13 @@
+Compilation warnings/errors on CV/incorrect_constructor_name1.sol:
+CV/incorrect_constructor_name1.sol:31:23: Warning: Using contract member "balance" inherited from the address type is deprecated. Convert the contract to "address" type to access the member, for example use "address(contract).balance" instead.
+       owner.transfer(this.balance);
+                      ^----------^
+CV/incorrect_constructor_name1.sol:25:5: Warning: No visibility specified. Defaulting to "public". 
+    function () payable {} 
+    ^--------------------^
+
+
+Pragma version0.4.24 (CV/incorrect_constructor_name1.sol#9) allows old versions
+solc-0.4.24 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+CV/incorrect_constructor_name1.sol analyzed (1 contracts with 80 detectors), 2 result(s) found

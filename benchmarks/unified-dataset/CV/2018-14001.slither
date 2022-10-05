@@ -1,0 +1,142 @@
+Compilation warnings/errors on CV/2018-14001.sol:
+CV/2018-14001.sol:61:34: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if(!managers[msg.sender])throw;
+                                 ^---^
+CV/2018-14001.sol:67:5: Warning: No visibility specified. Defaulting to "public".
+    function Trade(uint256 _qty, uint256 _price, bytes32 _data, address _seller, address _buyer) payable onlyManager
+    ^ (Relevant source part starts here and spans across multiple lines).
+CV/2018-14001.sol:83:5: Warning: No visibility specified. Defaulting to "public".
+    function Shark()
+    ^ (Relevant source part starts here and spans across multiple lines).
+CV/2018-14001.sol:99:34: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if(msg.sender!=tx.origin)throw;
+                                 ^---^
+CV/2018-14001.sol:105:30: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if(msg.sender!=owner)throw;
+                             ^---^
+CV/2018-14001.sol:109:5: Warning: No visibility specified. Defaulting to "public".
+    function changePrice(uint256 _newPrice)
+    ^ (Relevant source part starts here and spans across multiple lines).
+CV/2018-14001.sol:118:5: Warning: No visibility specified. Defaulting to "public".
+    function Buy()
+    ^ (Relevant source part starts here and spans across multiple lines).
+CV/2018-14001.sol:122:36: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if(msg.value<price*1 ether)throw;
+                                   ^---^
+CV/2018-14001.sol:126:5: Warning: No visibility specified. Defaulting to "public".
+    function Sell(uint256 _qty) 
+    ^ (Relevant source part starts here and spans across multiple lines).
+CV/2018-14001.sol:130:36: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if(this.balance<_qty*price)throw;
+                                   ^---^
+CV/2018-14001.sol:145:5: Warning: No visibility specified. Defaulting to "public".
+    function cashOut(uint256 _am)
+    ^ (Relevant source part starts here and spans across multiple lines).
+CV/2018-14001.sol:19:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Transfer(msg.sender, _to, _value);
+        ^-------------------------------^
+CV/2018-14001.sol:28:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Transfer(_from, _to, _value);
+        ^--------------------------^
+CV/2018-14001.sol:34:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Approval(msg.sender, _spender, _value);
+        ^------------------------------------^
+CV/2018-14001.sol:49:13: Warning: Invoking events without "emit" prefix is deprecated.
+            Transfer(msg.sender, _receivers[i], _value);
+            ^-----------------------------------------^
+CV/2018-14001.sol:75:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Transfer(_seller,_buyer,_qty);
+        ^---------------------------^
+CV/2018-14001.sol:76:9: Warning: Invoking events without "emit" prefix is deprecated.
+        deal(_seller,_buyer,_qty,_price,_data);
+        ^------------------------------------^
+CV/2018-14001.sol:130:12: Warning: Using contract member "balance" inherited from the address type is deprecated. Convert the contract to "address" type to access the member.
+        if(this.balance<_qty*price)throw;
+           ^----------^
+
+
+Traded.Trade(uint256,uint256,bytes32,address,address) (CV/2018-14001.sol#67-77) sends eth to arbitrary user
+	Dangerous calls:
+	- _seller.transfer(total) (CV/2018-14001.sol#72)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Reentrancy in Shark.airDrop(address[],uint256) (CV/2018-14001.sol#134-143):
+	External calls:
+	- Buy() (CV/2018-14001.sol#140)
+		- this.Trade(msg.value / price,price,,owner,msg.sender) (CV/2018-14001.sol#123)
+	State variables written after the call(s):
+	- batchTransfer(_adr,_val) (CV/2018-14001.sol#141)
+		- balanceOf[msg.sender] -= amount (CV/2018-14001.sol#46)
+		- i < cnt (CV/2018-14001.sol#47)
+		- balanceOf[_receivers[i]] += _value (CV/2018-14001.sol#48)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-2
+
+Reentrancy in Shark.airDrop(address[],uint256) (CV/2018-14001.sol#134-143):
+	External calls:
+	- Buy() (CV/2018-14001.sol#140)
+		- this.Trade(msg.value / price,price,,owner,msg.sender) (CV/2018-14001.sol#123)
+	Event emitted after the call(s):
+	- Transfer(msg.sender,_receivers[i],_value) (CV/2018-14001.sol#49)
+		- batchTransfer(_adr,_val) (CV/2018-14001.sol#141)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+
+Deprecated standard detected THROW (CV/2018-14001.sol#61):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected THROW (CV/2018-14001.sol#122):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected THROW (CV/2018-14001.sol#130):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected THROW (CV/2018-14001.sol#99):
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected THROW (CV/2018-14001.sol#105):
+	- Usage of "throw" should be replaced with "revert()"
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#deprecated-standards
+
+Pragma version^0.4.21 (CV/2018-14001.sol#1) allows old versions
+solc-0.4.21 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Parameter StandardToken.transfer(address,uint256)._to (CV/2018-14001.sol#15) is not in mixedCase
+Parameter StandardToken.transfer(address,uint256)._value (CV/2018-14001.sol#15) is not in mixedCase
+Parameter StandardToken.transferFrom(address,address,uint256)._from (CV/2018-14001.sol#23) is not in mixedCase
+Parameter StandardToken.transferFrom(address,address,uint256)._to (CV/2018-14001.sol#23) is not in mixedCase
+Parameter StandardToken.transferFrom(address,address,uint256)._value (CV/2018-14001.sol#23) is not in mixedCase
+Parameter StandardToken.approve(address,uint256)._spender (CV/2018-14001.sol#32) is not in mixedCase
+Parameter StandardToken.approve(address,uint256)._value (CV/2018-14001.sol#32) is not in mixedCase
+Parameter ExtendetdToken.batchTransfer(address[],uint256)._receivers (CV/2018-14001.sol#41) is not in mixedCase
+Parameter ExtendetdToken.batchTransfer(address[],uint256)._value (CV/2018-14001.sol#41) is not in mixedCase
+Event Tradeddeal(address,address,uint256,uint256,bytes32) (CV/2018-14001.sol#65) is not in CapWords
+Function Traded.Trade(uint256,uint256,bytes32,address,address) (CV/2018-14001.sol#67-77) is not in mixedCase
+Parameter Traded.Trade(uint256,uint256,bytes32,address,address)._qty (CV/2018-14001.sol#67) is not in mixedCase
+Parameter Traded.Trade(uint256,uint256,bytes32,address,address)._price (CV/2018-14001.sol#67) is not in mixedCase
+Parameter Traded.Trade(uint256,uint256,bytes32,address,address)._data (CV/2018-14001.sol#67) is not in mixedCase
+Parameter Traded.Trade(uint256,uint256,bytes32,address,address)._seller (CV/2018-14001.sol#67) is not in mixedCase
+Parameter Traded.Trade(uint256,uint256,bytes32,address,address)._buyer (CV/2018-14001.sol#67) is not in mixedCase
+Parameter Shark.changePrice(uint256)._newPrice (CV/2018-14001.sol#109) is not in mixedCase
+Function Shark.Buy() (CV/2018-14001.sol#118-124) is not in mixedCase
+Function Shark.Sell(uint256) (CV/2018-14001.sol#126-132) is not in mixedCase
+Parameter Shark.Sell(uint256)._qty (CV/2018-14001.sol#126) is not in mixedCase
+Parameter Shark.airDrop(address[],uint256)._adr (CV/2018-14001.sol#134) is not in mixedCase
+Parameter Shark.airDrop(address[],uint256)._val (CV/2018-14001.sol#134) is not in mixedCase
+Parameter Shark.cashOut(uint256)._am (CV/2018-14001.sol#145) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Reentrancy in Traded.Trade(uint256,uint256,bytes32,address,address) (CV/2018-14001.sol#67-77):
+	External calls:
+	- _seller.transfer(total) (CV/2018-14001.sol#72)
+	State variables written after the call(s):
+	- balanceOf[_seller] -= _qty (CV/2018-14001.sol#73)
+	- balanceOf[_buyer] += _qty (CV/2018-14001.sol#74)
+	Event emitted after the call(s):
+	- Transfer(_seller,_buyer,_qty) (CV/2018-14001.sol#75)
+	- deal(_seller,_buyer,_qty,_price,_data) (CV/2018-14001.sol#76)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Shark.Shark() (CV/2018-14001.sol#83-91) uses literals with too many digits:
+	- totalSupply = 100000000000000000000000 (CV/2018-14001.sol#88)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+airDrop(address[],uint256) should be declared external:
+	- Shark.airDrop(address[],uint256) (CV/2018-14001.sol#134-143)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+CV/2018-14001.sol analyzed (4 contracts with 80 detectors), 36 result(s) found

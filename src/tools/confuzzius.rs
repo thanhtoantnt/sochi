@@ -106,7 +106,6 @@ pub fn generate_results(dir: &str) {
     // List all files in the repository
     let path = Path::new(&dir);
     let paths = WalkDir::new(path).into_iter().filter_map(|e| e.ok());
-    // paths.sort_by_key(|dir| dir.path());
 
     for path in paths {
         let file = path.path();
