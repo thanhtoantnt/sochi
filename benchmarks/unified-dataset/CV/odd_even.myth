@@ -1,0 +1,231 @@
+==== Integer Arithmetic Bugs ====
+SWC ID: 101
+Severity: High
+Contract: OddEven
+Function name: play(uint256)
+PC address: 481
+Estimated Gas Usage: 49779 - 246227
+The arithmetic operator can overflow.
+It is possible to cause an integer overflow or underflow in the arithmetic operation. 
+--------------------
+In file: CV/odd_even.sol:27
+
+players[0].number + players[1].number
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x518000028523fbc, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x40000000000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [SOMEGUY], function: play(uint256), txdata: 0x6898f82b0000000100018000000000000000000000000000000000000000000000000000, decoded_data: (26960563731359635246932823200463089680076512948490185073552365977600,), value: 0xde0b6b3a7640000
+Caller: [ATTACKER], function: play(uint256), txdata: 0x6898f82bfffffffefffe8000000000000000000000000000000000000000000000000001, decoded_data: (115792089210355631692211349761755084652806894985564051090967398934360763662337,), value: 0xde0b6b3a7640000
+
+==== External Call To User-Supplied Address ====
+SWC ID: 107
+Severity: Low
+Contract: OddEven
+Function name: play(uint256)
+PC address: 619
+Estimated Gas Usage: 49779 - 246227
+A call to a user-supplied address is executed.
+An external message call to an address specified by the caller is executed. Note that the callee account might contain arbitrary code and could re-enter any function within this contract. Reentering the contract in an intermediate state may lead to unexpected behaviour. Make sure that no state modifications are executed after this call and/or reentrancy guards are in place.
+--------------------
+In file: CV/odd_even.sol:28
+
+players[n%2].addr.call.value(address(this).balance)("")
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0xfff9e, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x2000000000009000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [SOMEGUY], function: play(uint256), txdata: 0x6898f82b0000000000000000000000000000000000000000000000000000000000000000, decoded_data: (0,), value: 0xde0b6b3a7640000
+Caller: [ATTACKER], function: play(uint256), txdata: 0x6898f82b9898989898989898989898980000000000000000000000000000000000000001, decoded_data: (69021166917929653742677606749405544097344080100432963291861481373392525328385,), value: 0xde0b6b3a7640000
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: OddEven
+Function name: play(uint256)
+PC address: 619
+Estimated Gas Usage: 49709 - 245874
+Any sender can withdraw Ether from the contract account.
+Arbitrary senders other than the contract creator can profitably extract Ether from the contract account. Verify the business logic carefully and make sure that appropriate security controls are in place to prevent unexpected loss of funds.
+--------------------
+In file: CV/odd_even.sol:28
+
+players[n%2].addr.call.value(address(this).balance)("")
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x200000000800000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0xf60600003c3b056, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [SOMEGUY], function: play(uint256), txdata: 0x6898f82b4000020040080000000800800840102001011001402002802000012000200201, decoded_data: (28948036119565020112923389917324508328819418212251742293786704572648024703489,), value: 0xde0b6b3a7640000
+Caller: [ATTACKER], function: play(uint256), txdata: 0x6898f82b9898989898989898989898982080084008202004014080022002000240010200, decoded_data: (69021166917929653742677606749591087016083014448812735171679327368834483028480,), value: 0xde0b6b3a7640000
+
+==== State access after external call ====
+SWC ID: 107
+Severity: Medium
+Contract: OddEven
+Function name: play(uint256)
+PC address: 813
+Estimated Gas Usage: 49709 - 245874
+Write to persistent state following external call
+The contract account state is accessed after an external call to a user defined address. To prevent reentrancy issues, consider accessing the state only before the call, especially if the callee is untrusted. Alternatively, a reentrancy lock can be used to prevent untrusted callees from re-entering the contract in an intermediate state.
+--------------------
+In file: CV/odd_even.sol:31
+
+count = 0
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x400000000020bfffd, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0xde0b6b700420000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [SOMEGUY], function: play(uint256), txdata: 0x6898f82b0000000000000000000000000000000000000000000000000000000000000000, decoded_data: (0,), value: 0xde0b6b3a7640000
+Caller: [ATTACKER], function: play(uint256), txdata: 0x6898f82b9898989898989898989898980000000000000000000000000000000000000001, decoded_data: (69021166917929653742677606749405544097344080100432963291861481373392525328385,), value: 0xde0b6b3a7640000
+
+==== State access after external call ====
+SWC ID: 107
+Severity: Low
+Contract: OddEven
+Function name: play(uint256)
+PC address: 832
+Estimated Gas Usage: 49709 - 245874
+Read of persistent state following external call
+The contract account state is accessed after an external call to a user defined address. To prevent reentrancy issues, consider accessing the state only before the call, especially if the callee is untrusted. Alternatively, a reentrancy lock can be used to prevent untrusted callees from re-entering the contract in an intermediate state. This issue is reported for internal compiler generated code.
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x400000000020bfffd, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0xde0b6b700420000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [SOMEGUY], function: play(uint256), txdata: 0x6898f82b0000000000000000000000000000000000000000000000000000000000000000, decoded_data: (0,), value: 0xde0b6b3a7640000
+Caller: [ATTACKER], function: play(uint256), txdata: 0x6898f82b9898989898989898989898980000000000000000000000000000000000000001, decoded_data: (69021166917929653742677606749405544097344080100432963291861481373392525328385,), value: 0xde0b6b3a7640000
+
+==== State access after external call ====
+SWC ID: 107
+Severity: Low
+Contract: OddEven
+Function name: play(uint256)
+PC address: 859
+Estimated Gas Usage: 49709 - 245874
+Write to persistent state following external call
+The contract account state is accessed after an external call to a user defined address. To prevent reentrancy issues, consider accessing the state only before the call, especially if the callee is untrusted. Alternatively, a reentrancy lock can be used to prevent untrusted callees from re-entering the contract in an intermediate state. This issue is reported for internal compiler generated code.
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x400000000020bfffd, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0xde0b6b700420000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [SOMEGUY], function: play(uint256), txdata: 0x6898f82b0000000000000000000000000000000000000000000000000000000000000000, decoded_data: (0,), value: 0xde0b6b3a7640000
+Caller: [ATTACKER], function: play(uint256), txdata: 0x6898f82b9898989898989898989898980000000000000000000000000000000000000001, decoded_data: (69021166917929653742677606749405544097344080100432963291861481373392525328385,), value: 0xde0b6b3a7640000
+
+==== State access after external call ====
+SWC ID: 107
+Severity: Low
+Contract: OddEven
+Function name: play(uint256)
+PC address: 867
+Estimated Gas Usage: 49709 - 245874
+Write to persistent state following external call
+The contract account state is accessed after an external call to a user defined address. To prevent reentrancy issues, consider accessing the state only before the call, especially if the callee is untrusted. Alternatively, a reentrancy lock can be used to prevent untrusted callees from re-entering the contract in an intermediate state. This issue is reported for internal compiler generated code.
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x400000000020bfffd, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0xde0b6b700420000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [SOMEGUY], function: play(uint256), txdata: 0x6898f82b0000000000000000000000000000000000000000000000000000000000000000, decoded_data: (0,), value: 0xde0b6b3a7640000
+Caller: [ATTACKER], function: play(uint256), txdata: 0x6898f82b9898989898989898989898980000000000000000000000000000000000000001, decoded_data: (69021166917929653742677606749405544097344080100432963291861481373392525328385,), value: 0xde0b6b3a7640000
+
+==== State access after external call ====
+SWC ID: 107
+Severity: Low
+Contract: OddEven
+Function name: play(uint256)
+PC address: 884
+Estimated Gas Usage: 49709 - 245874
+Read of persistent state following external call
+The contract account state is accessed after an external call to a user defined address. To prevent reentrancy issues, consider accessing the state only before the call, especially if the callee is untrusted. Alternatively, a reentrancy lock can be used to prevent untrusted callees from re-entering the contract in an intermediate state. This issue is reported for internal compiler generated code.
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x400000000020bfffd, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0xde0b6b700420000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [SOMEGUY], function: play(uint256), txdata: 0x6898f82b0000000000000000000000000000000000000000000000000000000000000000, decoded_data: (0,), value: 0xde0b6b3a7640000
+Caller: [ATTACKER], function: play(uint256), txdata: 0x6898f82b9898989898989898989898980000000000000000000000000000000000000001, decoded_data: (69021166917929653742677606749405544097344080100432963291861481373392525328385,), value: 0xde0b6b3a7640000
+
+==== State access after external call ====
+SWC ID: 107
+Severity: Low
+Contract: OddEven
+Function name: play(uint256)
+PC address: 911
+Estimated Gas Usage: 49709 - 245874
+Write to persistent state following external call
+The contract account state is accessed after an external call to a user defined address. To prevent reentrancy issues, consider accessing the state only before the call, especially if the callee is untrusted. Alternatively, a reentrancy lock can be used to prevent untrusted callees from re-entering the contract in an intermediate state. This issue is reported for internal compiler generated code.
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x400000000020bfffd, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0xde0b6b700420000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [SOMEGUY], function: play(uint256), txdata: 0x6898f82b0000000000000000000000000000000000000000000000000000000000000000, decoded_data: (0,), value: 0xde0b6b3a7640000
+Caller: [ATTACKER], function: play(uint256), txdata: 0x6898f82b9898989898989898989898980000000000000000000000000000000000000001, decoded_data: (69021166917929653742677606749405544097344080100432963291861481373392525328385,), value: 0xde0b6b3a7640000
+
+==== State access after external call ====
+SWC ID: 107
+Severity: Low
+Contract: OddEven
+Function name: play(uint256)
+PC address: 919
+Estimated Gas Usage: 49709 - 245874
+Write to persistent state following external call
+The contract account state is accessed after an external call to a user defined address. To prevent reentrancy issues, consider accessing the state only before the call, especially if the callee is untrusted. Alternatively, a reentrancy lock can be used to prevent untrusted callees from re-entering the contract in an intermediate state. This issue is reported for internal compiler generated code.
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x400000000020bfffd, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0xde0b6b700420000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [SOMEGUY], function: play(uint256), txdata: 0x6898f82b0000000000000000000000000000000000000000000000000000000000000000, decoded_data: (0,), value: 0xde0b6b3a7640000
+Caller: [ATTACKER], function: play(uint256), txdata: 0x6898f82b9898989898989898989898980000000000000000000000000000000000000001, decoded_data: (69021166917929653742677606749405544097344080100432963291861481373392525328385,), value: 0xde0b6b3a7640000
+
+

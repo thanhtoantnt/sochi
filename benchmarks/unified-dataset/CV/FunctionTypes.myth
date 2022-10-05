@@ -1,0 +1,26 @@
+==== Jump to an arbitrary instruction ====
+SWC ID: 127
+Severity: High
+Contract: FunctionTypes
+Function name: breakIt()
+PC address: 264
+Estimated Gas Usage: 283 - 1037
+The caller can redirect execution to arbitrary bytecode locations.
+It is possible to redirect the control flow to arbitrary locations in the code. This may allow an attacker to bypass security controls or manipulate the business logic of the smart contract. Avoid using low-level-operations and assembly to prevent this issue.
+--------------------
+In file: CV/FunctionTypes.sol:28
+
+func.f()
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2000000000200000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x2, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x1
+Caller: [ATTACKER], function: breakIt(), txdata: 0x6a1f9e19, value: 0x1
+
+

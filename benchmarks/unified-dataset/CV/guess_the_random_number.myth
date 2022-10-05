@@ -1,0 +1,27 @@
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: GuessTheRandomNumberChallenge
+Function name: guess(uint8)
+PC address: 259
+Estimated Gas Usage: 1851 - 36462
+Any sender can withdraw Ether from the contract account.
+Arbitrary senders other than the contract creator can profitably extract Ether from the contract account. Verify the business logic carefully and make sure that appropriate security controls are in place to prevent unexpected loss of funds.
+--------------------
+In file: CV/guess_the_random_number.sol:26
+
+msg.sender.transfer(2 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x40000000000010402, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0xe00b6c3b07c0000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0xde0b6b3a7640000
+Caller: [SOMEGUY], function: guess(uint8), txdata: 0x4ba4c16b, value: 0xde0b6b3a7640000
+Caller: [ATTACKER], function: guess(uint8), txdata: 0x4ba4c16b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b40, value: 0xde0b6b3a7640000
+
+

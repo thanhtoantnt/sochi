@@ -1,0 +1,27 @@
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: SimpleEtherDrain
+Function name: withdrawAllAnyone()
+PC address: 156
+Estimated Gas Usage: 1641 - 35922
+Any sender can withdraw Ether from the contract account.
+Arbitrary senders other than the contract creator can profitably extract Ether from the contract account. Verify the business logic carefully and make sure that appropriate security controls are in place to prevent unexpected loss of funds.
+--------------------
+In file: CV/simple_ether_drain.sol:7
+
+msg.sender.transfer(this.balance)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x100040, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [CREATOR], function: unknown, txdata: 0x04000040, decoded_data: , value: 0x1
+Caller: [ATTACKER], function: withdrawAllAnyone(), txdata: 0x6aba6fa1, value: 0x0
+
+

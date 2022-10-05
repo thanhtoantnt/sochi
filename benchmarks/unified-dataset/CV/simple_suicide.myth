@@ -1,0 +1,26 @@
+==== Unprotected Selfdestruct ====
+SWC ID: 106
+Severity: High
+Contract: SimpleSuicide
+Function name: sudicideAnyone()
+PC address: 112
+Estimated Gas Usage: 132 - 227
+Any sender can cause the contract to self-destruct.
+Any sender can trigger execution of the SELFDESTRUCT instruction to destroy this contract account and withdraw its balance to an arbitrary address. Review the transaction trace generated for this issue and make sure that appropriate security controls are in place to prevent unrestricted access.
+--------------------
+In file: CV/simple_suicide.sol:7
+
+selfdestruct(msg.sender)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x1, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [ATTACKER], function: sudicideAnyone(), txdata: 0xa56a3b5a, value: 0x0
+
+

@@ -1,0 +1,76 @@
+==== Integer Arithmetic Bugs ====
+SWC ID: 101
+Severity: High
+Contract: UnusedVariables
+Function name: unusedArg(int256,int256)
+PC address: 495
+Estimated Gas Usage: 1146 - 1522
+The arithmetic operator can overflow.
+It is possible to cause an integer overflow or underflow in the arithmetic operation. 
+--------------------
+In file: CV/unused_variables.sol:9
+
+x + a
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x3, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [ATTACKER], function: unusedArg(int256,int256), txdata: 0x2e591df5ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000, decoded_data: (-1, 0), value: 0x0
+
+==== Integer Arithmetic Bugs ====
+SWC ID: 101
+Severity: High
+Contract: UnusedVariables
+Function name: tupleAssignment(int256)
+PC address: 555
+Estimated Gas Usage: 434 - 905
+The arithmetic operator can underflow.
+It is possible to cause an integer overflow or underflow in the arithmetic operation. 
+--------------------
+In file: CV/unused_variables.sol:14
+
+y - x
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x3, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [ATTACKER], function: tupleAssignment(int256), txdata: 0x0ee1207d0101010101010101010101010101010101010101010101010101010101010107, decoded_data: (454086624460063511464984254936031011189294057512315937409637584344757371143,), value: 0x0
+
+==== Integer Arithmetic Bugs ====
+SWC ID: 101
+Severity: High
+Contract: UnusedVariables
+Function name: unusedReturn(int256,int256)
+PC address: 555
+Estimated Gas Usage: 478 - 1044
+The arithmetic operator can underflow.
+It is possible to cause an integer overflow or underflow in the arithmetic operation. 
+--------------------
+In file: CV/unused_variables.sol:14
+
+y - x
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [ATTACKER], function: unusedReturn(int256,int256), txdata: 0xfb90017200000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000, decoded_data: (1, 0), value: 0x0
+
+

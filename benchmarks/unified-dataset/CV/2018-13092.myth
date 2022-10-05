@@ -1,0 +1,49 @@
+==== Integer Arithmetic Bugs ====
+SWC ID: 101
+Severity: High
+Contract: AdvReimburseToken
+Function name: constructor
+PC address: 161
+Estimated Gas Usage: 42299 - 190441
+The arithmetic operator can overflow.
+It is possible to cause an integer overflow or underflow in the arithmetic operation. 
+--------------------
+In file: CV/2018-13092.sol:49
+
+initialSupply * 10 ** uint256(decimals)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: 80, decoded_data: , value: 0x0
+
+==== Integer Arithmetic Bugs ====
+SWC ID: 101
+Severity: High
+Contract: ReimburseToken
+Function name: constructor
+PC address: 161
+Estimated Gas Usage: 42298 - 190440
+The arithmetic operator can overflow.
+It is possible to cause an integer overflow or underflow in the arithmetic operation. 
+--------------------
+In file: CV/2018-13092.sol:49
+
+initialSupply * 10 ** uint256(decimals)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: 10, decoded_data: , value: 0x0
+
+

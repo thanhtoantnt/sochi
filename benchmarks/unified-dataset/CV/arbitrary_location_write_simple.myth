@@ -1,0 +1,26 @@
+==== Integer Arithmetic Bugs ====
+SWC ID: 101
+Severity: High
+Contract: Wallet
+Function name: PopBonusCode()
+PC address: 331
+Estimated Gas Usage: 7692 - 27787
+The arithmetic operator can underflow.
+It is possible to cause an integer overflow or underflow in the arithmetic operation. 
+--------------------
+In file: CV/arbitrary_location_write_simple.sol:22
+
+bonusCodes.length--
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x3, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [SOMEGUY], function: PopBonusCode(), txdata: 0x7adde4ef, value: 0x0
+
+

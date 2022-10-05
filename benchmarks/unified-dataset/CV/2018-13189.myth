@@ -1,0 +1,26 @@
+==== Exception State ====
+SWC ID: 110
+Severity: Medium
+Contract: BasicToken
+Function name: transfer(address,uint256)
+PC address: 803
+Estimated Gas Usage: 1189 - 1474
+An assertion violation was triggered.
+It is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values).
+--------------------
+In file: CV/2018-13189.sol:74
+
+balances[msg.sender].sub(_value)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x10207bfb9, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x1, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [ATTACKER], function: transfer(address,uint256), txdata: 0xa9059cbb000000000000000000000000000000000000000000000000000000000000000001, decoded_data: ('0x0000000000000000000000000000000000000000', 452312848583266388373324160190187140051835877600158453279131187530910662656), value: 0x0
+
+

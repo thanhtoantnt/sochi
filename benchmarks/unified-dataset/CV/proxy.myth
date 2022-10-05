@@ -1,0 +1,26 @@
+==== Delegatecall to user-supplied address ====
+SWC ID: 112
+Severity: High
+Contract: Proxy
+Function name: forward(address,bytes)
+PC address: 337
+Estimated Gas Usage: 1312 - 38273
+The contract delegates execution to another contract with a user-supplied address.
+The smart contract delegates execution to a user-supplied address.This could allow an attacker to execute arbitrary code in the context of this contract account and manipulate the state of the contract account or execute actions on its behalf.
+--------------------
+In file: CV/proxy.sol:13
+
+callee.delegatecall(_data)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x8, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x1, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [ATTACKER], function: forward(address,bytes), txdata: 0x6fadcf72000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef80, value: 0x0
+
+

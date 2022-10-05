@@ -1,0 +1,73 @@
+==== Exception State ====
+SWC ID: 110
+Severity: Low
+Contract: Map
+Function name: set(uint256,uint256)
+PC address: 381
+Estimated Gas Usage: 7769 - 27864
+An assertion violation was triggered.
+It is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values). This issue is reported for internal compiler generated code.
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x21c1080100043bfd, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x1, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [ATTACKER], function: set(uint256,uint256), txdata: 0x1ab06ee5ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff, value: 0x0
+
+==== Write to an arbitrary storage location ====
+SWC ID: 124
+Severity: High
+Contract: Map
+Function name: set(uint256,uint256)
+PC address: 395
+Estimated Gas Usage: 12845 - 53035
+The caller can write to arbitrary storage locations.
+It is possible to write to arbitrary storage locations. By modifying the values of storage variables, attackers may bypass security controls or manipulate the business logic of the smart contract.
+--------------------
+In file: CV/mapping_write.sol:15
+
+map[key] = value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x8c75e2c00000000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [SOMEGUY], function: set(uint256,uint256), txdata: 0x1ab06ee54ef1d2ad89edf8c4d91132028e8195cdf30bb4b5053d4f8cd2603468cc846125, value: 0x0
+
+==== Exception State ====
+SWC ID: 110
+Severity: Medium
+Contract: Map
+Function name: get(uint256)
+PC address: 640
+Estimated Gas Usage: 1083 - 1178
+An assertion violation was triggered.
+It is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values).
+--------------------
+In file: CV/mapping_write.sol:18
+
+function get(uint256 key) public view returns (uint256) {
+        return map[key];
+    }
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x5000000084cef, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [SOMEGUY], function: get(uint256), txdata: 0x9507d39a, value: 0x0
+
+

@@ -1,0 +1,21 @@
+==== Exception State ====
+SWC ID: 110
+Severity: Low
+Contract: RuntimeCreateUserInput
+Function name: check(uint256)
+PC address: 336
+Estimated Gas Usage: 39148 - 101279
+An assertion violation was triggered.
+It is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values). This issue is reported for internal compiler generated code.
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x4006, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [SOMEGUY], function: check(uint256), txdata: 0x5f72f450, value: 0x0
+
+

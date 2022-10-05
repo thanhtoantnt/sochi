@@ -1,0 +1,104 @@
+==== Dependence on predictable environment variable ====
+SWC ID: 120
+Severity: Low
+Contract: PredictTheBlockHashChallenge
+Function name: settle()
+PC address: 216
+Estimated Gas Usage: 1039 - 1324
+A control flow decision is made based on The block.number environment variable.
+The block.number environment variable is used to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables as sources of randomness and be aware that use of these variables introduces a certain level of trust into miners.
+--------------------
+In file: CV/old_blockhash.sol:28
+
+require(block.number > guesses[msg.sender].block)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2de0a0002747bfb8, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x1, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0xde0b6b3a7640000
+Caller: [ATTACKER], function: settle(), txdata: 0x11da60b4, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 120
+Severity: Low
+Contract: PredictTheBlockHashChallenge
+Function name: settle()
+PC address: 442
+Estimated Gas Usage: 8010 - 28865
+A control flow decision is made based on The block hash of a previous block.
+The block hash of a previous block is used to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables as sources of randomness and be aware that use of these variables introduces a certain level of trust into miners.
+--------------------
+In file: CV/old_blockhash.sol:33
+
+if (guesses[msg.sender].guess == answer) {
+            msg.sender.transfer(2 ether);
+        }
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x4000100000003bfb8, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x1, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0xde0b6b3a7640000
+Caller: [ATTACKER], function: settle(), txdata: 0x11da60b4, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: PredictTheBlockHashChallenge
+Function name: settle()
+PC address: 498
+Estimated Gas Usage: 8835 - 63876
+Any sender can withdraw Ether from the contract account.
+Arbitrary senders other than the contract creator can profitably extract Ether from the contract account. Verify the business logic carefully and make sure that appropriate security controls are in place to prevent unexpected loss of funds.
+--------------------
+In file: CV/old_blockhash.sol:34
+
+msg.sender.transfer(2 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x4000004000203bfb8, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x42220505080200000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0xde0b6b3a7640000
+Caller: [SOMEGUY], function: lockInGuess(bytes32), txdata: 0xed7f559c, value: 0xde0b6b3a7640000
+Caller: [ATTACKER], function: settle(), txdata: 0x11da60b4, value: 0x0
+
+==== Integer Arithmetic Bugs ====
+SWC ID: 101
+Severity: High
+Contract: PredictTheBlockHashChallenge
+Function name: lockInGuess(bytes32)
+PC address: 705
+Estimated Gas Usage: 11382 - 52047
+The arithmetic operator can overflow.
+It is possible to cause an integer overflow or underflow in the arithmetic operation. 
+--------------------
+In file: CV/old_blockhash.sol:24
+
+block.number + 1
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x40001000004079e38, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x2000000000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0xde0b6b3a7640000
+Caller: [ATTACKER], function: lockInGuess(bytes32), txdata: 0xed7f559c, value: 0xde0b6b3a7640000
+
+
