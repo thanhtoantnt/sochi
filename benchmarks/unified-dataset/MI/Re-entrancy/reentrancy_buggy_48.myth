@@ -1,0 +1,51 @@
+==== External Call To User-Supplied Address ====
+SWC ID: 107
+Severity: Low
+Contract: Owned
+Function name: withdraw_balances_re_ent21()
+PC address: 1462
+Estimated Gas Usage: 7138 - 62082
+A call to a user-supplied address is executed.
+An external message call to an address specified by the caller is executed. Note that the callee account might contain arbitrary code and could re-enter any function within this contract. Reentering the contract in an intermediate state may lead to unexpected behaviour. Make sure that no state modifications are executed after this call and/or reentrancy guards are in place.
+--------------------
+In file: MI/Re-entrancy/reentrancy_buggy_48.sol:150
+
+msg.sender.call.value(balances_re_ent21[msg.sender ])("")
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2000080000000002, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x200000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [ATTACKER], function: withdraw_balances_re_ent21(), txdata: 0x96c176f9, value: 0x0
+
+==== State access after external call ====
+SWC ID: 107
+Severity: Medium
+Contract: Owned
+Function name: withdraw_balances_re_ent21()
+PC address: 1592
+Estimated Gas Usage: 7138 - 62082
+Write to persistent state following external call
+The contract account state is accessed after an external call to a user defined address. To prevent reentrancy issues, consider accessing the state only before the call, especially if the callee is untrusted. Alternatively, a reentrancy lock can be used to prevent untrusted callees from re-entering the contract in an intermediate state.
+--------------------
+In file: MI/Re-entrancy/reentrancy_buggy_48.sol:152
+
+balances_re_ent21[msg.sender] = 0
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x100, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [ATTACKER], function: withdraw_balances_re_ent21(), txdata: 0x96c176f9, value: 0x0
+
+

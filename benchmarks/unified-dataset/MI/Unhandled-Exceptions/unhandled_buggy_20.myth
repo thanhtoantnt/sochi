@@ -1,0 +1,101 @@
+==== Unchecked return value from external call. ====
+SWC ID: 104
+Severity: Medium
+Contract: Stoppable
+Function name: bug_unchk27(address)
+PC address: 1442
+Estimated Gas Usage: 1060 - 35341
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee halts with an exception, 'false' is returned and execution continues in the caller. The caller should check whether an exception happened and react accordingly to avoid unexpected behavior. For example it is often desirable to wrap external calls in require() so the transaction is reverted if the call fails.
+--------------------
+In file: MI/Unhandled-Exceptions/unhandled_buggy_20.sol:87
+
+addr.send (42 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x48e00000000000020, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x246ddf97976680000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x246ddf97976680000
+Caller: [ATTACKER], function: bug_unchk27(address), txdata: 0x7bf98cbf0000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000',), value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: Stoppable
+Function name: bug_unchk27(address)
+PC address: 1442
+Estimated Gas Usage: 1060 - 35341
+Any sender can withdraw Ether from the contract account.
+Arbitrary senders other than the contract creator can profitably extract Ether from the contract account. Verify the business logic carefully and make sure that appropriate security controls are in place to prevent unexpected loss of funds.
+--------------------
+In file: MI/Unhandled-Exceptions/unhandled_buggy_20.sol:87
+
+addr.send (42 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x4a4ef2afc17008000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x15382, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x246ddf97976680000
+Caller: [ATTACKER], function: bug_unchk27(address), txdata: 0x7bf98cbf000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef, decoded_data: ('0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef',), value: 0x0
+
+==== Unchecked return value from external call. ====
+SWC ID: 104
+Severity: Medium
+Contract: Stoppable
+Function name: unhandledsend_unchk2(address)
+PC address: 2079
+Estimated Gas Usage: 1103 - 35384
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee halts with an exception, 'false' is returned and execution continues in the caller. The caller should check whether an exception happened and react accordingly to avoid unexpected behavior. For example it is often desirable to wrap external calls in require() so the transaction is reverted if the call fails.
+--------------------
+In file: MI/Unhandled-Exceptions/unhandled_buggy_20.sol:82
+
+callee.send(5 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x211c0950060100000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x3266fb40eb78654e, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x4563918244f40000
+Caller: [SOMEGUY], function: unhandledsend_unchk2(address), txdata: 0xf0808d1e0000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000',), value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: Stoppable
+Function name: unhandledsend_unchk2(address)
+PC address: 2079
+Estimated Gas Usage: 1103 - 35384
+Any sender can withdraw Ether from the contract account.
+Arbitrary senders other than the contract creator can profitably extract Ether from the contract account. Verify the business logic carefully and make sure that appropriate security controls are in place to prevent unexpected loss of funds.
+--------------------
+In file: MI/Unhandled-Exceptions/unhandled_buggy_20.sol:82
+
+callee.send(5 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x42c050200c0f68000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x41c820c0100000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x4563918244f40000
+Caller: [ATTACKER], function: unhandledsend_unchk2(address), txdata: 0xf0808d1e000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef, decoded_data: ('0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef',), value: 0x0
+
+

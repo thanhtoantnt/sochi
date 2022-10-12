@@ -1,0 +1,51 @@
+==== Dependence on tx.origin ====
+SWC ID: 115
+Severity: Low
+Contract: Ownable
+Function name: bug_txorigin32(address)
+PC address: 373
+Estimated Gas Usage: 224 - 319
+Use of tx.origin as a part of authorization control.
+The tx.origin environment variable has been found to influence a control flow decision. Note that using tx.origin as a security control might cause a situation where a user inadvertently authorizes a smart contract to perform an action on their behalf. It is recommended to use msg.sender instead.
+--------------------
+In file: MI/tx.origin/tx_buggy_9.sol:65
+
+require(tx.origin == owner_txorigin32)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x3, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [SOMEGUY], function: bug_txorigin32(address), txdata: 0x06b3ad660000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000',), value: 0x0
+
+==== Dependence on tx.origin ====
+SWC ID: 115
+Severity: Low
+Contract: Ownable
+Function name: sendto_txorigin17(address,uint256,address)
+PC address: 469
+Estimated Gas Usage: 328 - 423
+Use of tx.origin as a part of authorization control.
+The tx.origin environment variable has been found to influence a control flow decision. Note that using tx.origin as a security control might cause a situation where a user inadvertently authorizes a smart contract to perform an action on their behalf. It is recommended to use msg.sender instead.
+--------------------
+In file: MI/tx.origin/tx_buggy_9.sol:56
+
+require (tx.origin == owner_txorigin17)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x3, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [SOMEGUY], function: sendto_txorigin17(address,uint256,address), txdata: 0xebb646c2000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', 0, '0x0000000000000000000000000000000000000000'), value: 0x0
+
+

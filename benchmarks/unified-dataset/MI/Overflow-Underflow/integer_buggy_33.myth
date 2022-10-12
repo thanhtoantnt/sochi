@@ -1,0 +1,176 @@
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: Owned
+Function name: withdraw_intou17()
+PC address: 880
+Estimated Gas Usage: 1058 - 1343
+A control flow decision is made based on The block.timestamp environment variable.
+The block.timestamp environment variable is used to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables as sources of randomness and be aware that use of these variables introduces a certain level of trust into miners.
+--------------------
+In file: MI/Overflow-Underflow/integer_buggy_33.sol:23
+
+require(now > lockTime_intou17[msg.sender])
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x1, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [ATTACKER], function: withdraw_intou17(), txdata: 0x24243846, value: 0x0
+
+==== Integer Arithmetic Bugs ====
+SWC ID: 101
+Severity: High
+Contract: Owned
+Function name: transfer_undrflow2(address,uint256)
+PC address: 1033
+Estimated Gas Usage: 13158 - 54104
+The arithmetic operator can underflow.
+It is possible to cause an integer overflow or underflow in the arithmetic operation. 
+--------------------
+In file: MI/Overflow-Underflow/integer_buggy_33.sol:11
+
+balances_intou2[msg.sender] - _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1000000000002, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x2, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [ATTACKER], function: transfer_undrflow2(address,uint256), txdata: 0x37ae6b7300000000000000000000000000000000000000000000000000000000000000000000000200000800800800020002000200000202010000000000000010101002, decoded_data: ('0x0000000000000000000000000000000000000000', 53919906192944950779643055712915841633911632066485633735392010178562), value: 0x0
+
+==== Integer Arithmetic Bugs ====
+SWC ID: 101
+Severity: High
+Contract: Owned
+Function name: transfer_undrflow2(address,uint256)
+PC address: 1113
+Estimated Gas Usage: 13158 - 54104
+The arithmetic operator can underflow.
+It is possible to cause an integer overflow or underflow in the arithmetic operation. 
+--------------------
+In file: MI/Overflow-Underflow/integer_buggy_33.sol:12
+
+balances_intou2[msg.sender] -= _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1000000000002, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x2, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [ATTACKER], function: transfer_undrflow2(address,uint256), txdata: 0x37ae6b7300000000000000000000000000000000000000000000000000000000000000000000000200000800800800020002000200000202010000000000000010101002, decoded_data: ('0x0000000000000000000000000000000000000000', 53919906192944950779643055712915841633911632066485633735392010178562), value: 0x0
+
+==== Integer Arithmetic Bugs ====
+SWC ID: 101
+Severity: High
+Contract: Owned
+Function name: transfer_undrflow2(address,uint256)
+PC address: 1189
+Estimated Gas Usage: 13158 - 54104
+The arithmetic operator can overflow.
+It is possible to cause an integer overflow or underflow in the arithmetic operation. 
+--------------------
+In file: MI/Overflow-Underflow/integer_buggy_33.sol:13
+
+balances_intou2[_to] += _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x80000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [CREATOR], function: transfer_undrflow2(address,uint256), txdata: 0x37ae6b73000000000000000000000000affeaffeaffeaffeaffeaffeaffeaffeaffeaffef7fbff7ff0000000000000000000000000000000000000000000000000000000, decoded_data: ('0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe', 112166515607832780717287249832618819477340534566594986325789984721529586319360), value: 0x0
+
+==== Integer Arithmetic Bugs ====
+SWC ID: 101
+Severity: High
+Contract: Owned
+Function name: transfer_intou38(address,uint256)
+PC address: 1289
+Estimated Gas Usage: 13202 - 54148
+The arithmetic operator can underflow.
+It is possible to cause an integer overflow or underflow in the arithmetic operation. 
+--------------------
+In file: MI/Overflow-Underflow/integer_buggy_33.sol:54
+
+balances_intou38[msg.sender] - _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x40000000023, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x4, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [ATTACKER], function: transfer_intou38(address,uint256), txdata: 0x7daba89100000000000000000000000000000000000000000000000000000000000000000101020201800000000000000000000000000040000000000001000000000001, decoded_data: ('0x0000000000000000000000000000000000000000', 454093553218600125634597696583561828183335264538212302105249635331127377921), value: 0x0
+
+==== Integer Arithmetic Bugs ====
+SWC ID: 101
+Severity: High
+Contract: Owned
+Function name: transfer_intou38(address,uint256)
+PC address: 1370
+Estimated Gas Usage: 13202 - 54148
+The arithmetic operator can underflow.
+It is possible to cause an integer overflow or underflow in the arithmetic operation. 
+--------------------
+In file: MI/Overflow-Underflow/integer_buggy_33.sol:55
+
+balances_intou38[msg.sender] -= _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x40000000023, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x4, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [ATTACKER], function: transfer_intou38(address,uint256), txdata: 0x7daba89100000000000000000000000000000000000000000000000000000000000000000101020201800000000000000000000000000040000000000001000000000001, decoded_data: ('0x0000000000000000000000000000000000000000', 454093553218600125634597696583561828183335264538212302105249635331127377921), value: 0x0
+
+==== Integer Arithmetic Bugs ====
+SWC ID: 101
+Severity: High
+Contract: Owned
+Function name: transfer_intou38(address,uint256)
+PC address: 1447
+Estimated Gas Usage: 13202 - 54148
+The arithmetic operator can overflow.
+It is possible to cause an integer overflow or underflow in the arithmetic operation. 
+--------------------
+In file: MI/Overflow-Underflow/integer_buggy_33.sol:56
+
+balances_intou38[_to] += _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x100000000019105, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x1, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [ATTACKER], function: transfer_intou38(address,uint256), txdata: 0x7daba891000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdf975ffdba7ffe4bbf9fe99ffffffdbfbffbfffff80000000000000002000000, decoded_data: ('0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef', 101133221647260132191481119909581301039825493551692586656830490677290637197312), value: 0x0
+
+
