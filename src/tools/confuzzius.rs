@@ -145,7 +145,7 @@ pub fn interpret_results(dir: &str) -> Summary {
         let file = path.path();
         let extension = file.extension().and_then(OsStr::to_str);
 
-        if extension.unwrap() == super::CONFUZZIUS {
+        if let Some(super::CONFUZZIUS) = extension {
             println!("Input file: {}", file.display());
             let result = interpret_confuzzius_results(file);
             reentrancy += result.re_entrancy;
