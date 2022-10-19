@@ -39,14 +39,15 @@ fn run_slither(input_file_path: PathBuf) -> Result<PathBuf, String> {
 
     debug!("Running command: {} {}", super::SLITHER, slither_args);
 
+    let mut output_file = File::create(&output_file_path).unwrap();
     if !slither_output.status.success() {
         let error_msg =
             String::from_utf8(slither_output.stderr.to_vec()).expect("Slither: unknown error!");
-        return Err(error_msg);
-    }
 
-    let mut output_file = File::create(&output_file_path).unwrap();
-    output_file.write_all(&slither_output.stderr).unwrap();
+        output_file.write_all(error_msg.as_bytes()).unwrap();
+    } else {
+        output_file.write_all(&slither_output.stderr).unwrap();
+    }
 
     Ok(output_file_path)
 }
