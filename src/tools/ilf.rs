@@ -8,7 +8,7 @@ use std::fs::OpenOptions;
 use std::io::Write;
 // use rutil::report;
 use std::path::PathBuf;
-use std::{ffi::OsStr, fs, fs::File, path::Path};
+use std::{ffi::OsStr, fs, fs::File, path::Path, process::Command};
 use walkdir::WalkDir;
 
 /// Read and interpret mythril results for each file
@@ -53,23 +53,82 @@ fn interpret_mythril_results(input_file: PathBuf) -> Summary {
     )
 }
 
+/// Get contract names from an input file
+fn get_contract_names(input_file: &PathBuf) -> Vec<String> {
+    //
+    let contents = fs::read_to_string(input_file).expect(
+        "Should have been able
+    to read the file",
+    );
+    let regex = Regex::new(r"contract ([A-Z]([0-9A-Za-z])*)").unwrap();
+    regex
+        .find_iter(contents.as_str())
+        .map(|contract| {
+            contract
+                .as_str()
+                .strip_prefix("contract ")
+                .unwrap()
+                .to_string()
+        })
+        .collect()
+}
+
 /// Generate mythril command for each file
 fn generate_command(input_file_path: PathBuf) -> String {
     debug!("input file: {}", input_file_path.display());
+    // Step 1:
     let check_results = solc::check_solc_settings(&input_file_path);
 
     if let Err(msg) = check_results {
         panic!("{}", msg);
     }
 
-    let solv = check_results.unwrap();
+    debug!("Create a directory for the file");
+    let parent_dir = input_file_path
+        .parent()
+        .unwrap()
+        .parent()
+        .unwrap_or_else(|| Path::new(""))
+        .join("ilf");
 
     let file_stem_name = input_file_path
         .file_stem()
         .and_then(OsStr::to_str)
         .unwrap_or("");
 
-    let parent_dir = input_file_path.parent().unwrap_or_else(|| Path::new(""));
+    let output_dir = parent_dir.join(file_stem_name);
+    // contracts directory
+    let output_contract_dir = output_dir.join("contracts");
+    let _ = fs::create_dir_all(&output_contract_dir);
+
+    // migration directory
+    let output_migrations_dir = output_dir.join("migrations");
+    let _ = fs::create_dir_all(&output_migrations_dir);
+    // let migrate_file = output_migrations_dir.join("delop.js");
+    let contract_names = get_contract_names(&input_file_path);
+    println!("contracts: {:?}", contract_names);
+
+    let cp_args =
+        input_file_path.to_str().unwrap().to_string() + " " + output_contract_dir.to_str().unwrap();
+
+    // Copy to the new directory
+    let cp_output = Command::new("cp")
+        .args(cp_args.split_whitespace())
+        .output()
+        .unwrap();
+
+    debug!("cp {}", cp_args);
+
+    if !cp_output.status.success() {
+        let error_msg = String::from_utf8(cp_output.stderr.to_vec()).expect(
+            "Slither:
+        unknown error!",
+        );
+        println!("cp error message: {}", error_msg);
+    }
+
+    let solv = check_results.unwrap();
+
     let output_file_path = parent_dir.join(file_stem_name.to_owned() + "." + super::MYTHRIL);
 
     let mythril_args = "analyze".to_owned()
@@ -132,7 +191,7 @@ pub fn generate_commands(dir: &str) {
     let path = Path::new(&dir);
     let paths = WalkDir::new(path).into_iter().filter_map(|e| e.ok());
 
-    let output_file_path = env::current_dir().unwrap().join("mythril_script.sh");
+    let output_file_path = env::current_dir().unwrap().join("ilf_script.sh");
     File::create(&output_file_path).unwrap();
     let mut output_file = OpenOptions::new()
         .write(true)
@@ -145,8 +204,8 @@ pub fn generate_commands(dir: &str) {
         let extension = file.extension().and_then(OsStr::to_str);
 
         if let Some(super::SOL) = extension {
-            let output = generate_command(path.path().to_path_buf());
-            let _ = writeln!(output_file, "{}", output);
+            let command = generate_command(path.path().to_path_buf());
+            let _ = writeln!(output_file, "{}", command);
         }
     }
 }
