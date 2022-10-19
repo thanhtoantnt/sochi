@@ -16,6 +16,9 @@ pub enum ToolName {
 
     /// Mythril
     Mythril,
+
+    /// ILF
+    ILF,
 }
 
 impl ToolName {
@@ -27,9 +30,11 @@ impl ToolName {
             return ToolName::Mythril;
         } else if input == tools::CONFUZZIUS {
             return ToolName::Confuzzius;
+        } else if input == tools::ILF {
+            return ToolName::ILF;
         }
 
-        panic!("The tool is not in the list of [slither, mythril, confuzzius]");
+        panic!("The tool is not in the list of [slither, myth, confuzzius, ilf]");
     }
 }
 

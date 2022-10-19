@@ -25,6 +25,7 @@ use rutil::{debug, report};
 
 use sochi::cli;
 use sochi::tools::confuzzius;
+use sochi::tools::ilf;
 use sochi::tools::mythril;
 use sochi::tools::slither;
 
@@ -65,6 +66,12 @@ fn main() {
         } else {
             let result = confuzzius::interpret_results(opts.input_dir);
             println!("Confuzzius results: {}", result);
+        }
+    }
+
+    if tools.contains(&cli::ToolName::ILF) {
+        if opts.printer_options.generate_commands {
+            ilf::generate_commands(opts.input_dir);
         }
     }
 
