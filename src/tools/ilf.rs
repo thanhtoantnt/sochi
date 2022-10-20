@@ -84,7 +84,7 @@ fn generate_command(input_file_path: PathBuf) -> String {
     }
 
     debug!("Create a directory for the file");
-    let parent_dir = Path::new("~/go/src/ilf/ilf-data");
+    let parent_dir = env::current_dir().unwrap().join("ilf-data");
 
     let file_stem_name = input_file_path
         .file_stem()
