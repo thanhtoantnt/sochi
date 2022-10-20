@@ -102,7 +102,7 @@ fn generate_command(input_file_path: PathBuf) -> String {
     // let migrate_file = output_migrations_dir.join("delop.js");
     let contract_names = get_contract_names(&input_file_path);
     println!("contracts: {:?}", contract_names);
-    for contract_name in contract_names {
+    for contract_name in contract_names.clone() {
         let input = format!(
             "
 var ContractName = artifacts.require(\"{}\");
@@ -154,20 +154,22 @@ module.exports = function(deployer) {{
         println!("cp error message: {}", error_msg);
     }
 
-    let solv = check_results.unwrap();
+    let mut fst_command = format!(
+        "python3 script/extract.py --proj {} --port 8545\n",
+        output_dir.to_str().unwrap()
+    );
 
-    let output_file_path = parent_dir.join(file_stem_name.to_owned() + "." + super::MYTHRIL);
+    for contract_name in contract_names {
+        let contract_command = format!(
+            "python3 -m ilf --proj {} --contract {} --fuzzer imitation --model ./model/ --limit 2000\n",
+            output_dir.to_str().unwrap(),
+            contract_name
+        );
 
-    let mythril_args = "analyze".to_owned()
-        + " --execution-timeout 10"
-        + format!(" --solv {} ", solv).as_str()
-        + input_file_path.to_str().unwrap()
-        + " > "
-        + output_file_path.to_str().unwrap();
+        fst_command.push_str(&contract_command);
+    }
 
-    debug!("{} {}", super::MYTHRIL, mythril_args);
-
-    format!("echo \"{0} {1}\"\n{0} {1}\n", super::MYTHRIL, mythril_args)
+    return fst_command;
 }
 
 /// Interpret mythril results
@@ -232,6 +234,7 @@ pub fn generate_commands(dir: &str) {
 
         if let Some(super::SOL) = extension {
             let command = generate_command(path.path().to_path_buf());
+            debug!("{}", command);
             let _ = writeln!(output_file, "{}", command);
         }
     }
