@@ -84,12 +84,7 @@ fn generate_command(input_file_path: PathBuf) -> String {
     }
 
     debug!("Create a directory for the file");
-    let parent_dir = input_file_path
-        .parent()
-        .unwrap()
-        .parent()
-        .unwrap_or_else(|| Path::new(""))
-        .join("ilf");
+    let parent_dir = env::current_dir().unwrap().join("ilf-data");
 
     let file_stem_name = input_file_path
         .file_stem()
