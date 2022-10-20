@@ -84,7 +84,7 @@ fn generate_command(input_file_path: PathBuf) -> String {
     }
 
     debug!("Create a directory for the file");
-    let parent_dir = env::current_dir().unwrap().join("ilf-data");
+    let parent_dir = Path::new("~/go/src/ilf/ilf-data");
 
     let file_stem_name = input_file_path
         .file_stem()
@@ -92,13 +92,14 @@ fn generate_command(input_file_path: PathBuf) -> String {
         .unwrap_or("");
 
     let output_dir = parent_dir.join(file_stem_name);
+    let _ = fs::create_dir_all(&output_dir).unwrap();
     // contracts directory
     let output_contract_dir = output_dir.join("contracts");
-    let _ = fs::create_dir_all(&output_contract_dir);
+    let _ = fs::create_dir_all(&output_contract_dir).unwrap();
 
     // migration directory
     let output_migrations_dir = output_dir.join("migrations");
-    let _ = fs::create_dir_all(&output_migrations_dir);
+    let _ = fs::create_dir_all(&output_migrations_dir).unwrap();
     // let migrate_file = output_migrations_dir.join("delop.js");
     let contract_names = get_contract_names(&input_file_path);
     println!("contracts: {:?}", contract_names);
