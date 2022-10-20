@@ -72,6 +72,9 @@ fn main() {
     if tools.contains(&cli::ToolName::ILF) {
         if opts.printer_options.generate_commands {
             ilf::generate_commands(opts.input_dir);
+        } else {
+            //
+            println!("TODO:");
         }
     }
 

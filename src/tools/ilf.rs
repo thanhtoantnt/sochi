@@ -107,6 +107,23 @@ fn generate_command(input_file_path: PathBuf) -> String {
     // let migrate_file = output_migrations_dir.join("delop.js");
     let contract_names = get_contract_names(&input_file_path);
     println!("contracts: {:?}", contract_names);
+    for contract_name in contract_names {
+        let input = format!(
+            "
+var ContractName = artifacts.require(\"{}\");
+
+module.exports = function(deployer) {{
+  deployer.deploy(ContractName);
+}};
+",
+            contract_name
+        );
+
+        let file_path = output_migrations_dir.join(contract_name + ".js");
+        let mut file = File::create(&file_path).unwrap();
+        let _ = writeln!(file, "{}", input);
+        debug!("migration file: {}", file_path.display());
+    }
 
     let cp_args =
         input_file_path.to_str().unwrap().to_string() + " " + output_contract_dir.to_str().unwrap();
@@ -124,6 +141,21 @@ fn generate_command(input_file_path: PathBuf) -> String {
             "Slither:
         unknown error!",
         );
+        println!("cp error message: {}", error_msg);
+    }
+
+    // copy truffle-config.js
+    let truffle_file = Path::new("/home/thanhtoantnt/workspace/sochi/ilf/truffle-config.js");
+    let truffle_args =
+        truffle_file.to_str().unwrap().to_string() + " " + output_dir.to_str().unwrap();
+    let cp_truffle_output = Command::new("cp")
+        .args(truffle_args.split_whitespace())
+        .output()
+        .unwrap();
+
+    debug!("cp {}", truffle_args);
+    if !cp_truffle_output.status.success() {
+        let error_msg = String::from_utf8(cp_truffle_output.stderr.to_vec()).expect("Copy error");
         println!("cp error message: {}", error_msg);
     }
 
