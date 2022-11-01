@@ -51,6 +51,9 @@ pub mod print_args {
 
     /// Generate results for a tool
     pub const GENERATE_RESULTS: &str = "gen-results";
+
+    /// Check results for a tool
+    pub const CHECK_RESULTS: &str = "check-results";
 }
 
 /// Command line argument.
@@ -70,6 +73,9 @@ pub struct RunOptions {
 
     /// Generate results
     pub generate_results: bool,
+
+    /// Check results to be false/true positive
+    pub check_results: bool,
 
     /// Select one tool to run: [Slither, Mythril, etc]
     pub tools: Vec<ToolName>,
@@ -109,12 +115,17 @@ impl<'a> PrinterCli for Command<'a> {
         )
         .arg(
             Arg::new_argument(GENERATE_COMMANDS)
-                .help("Only generate commands for a tool")
+                .help("Generate commands for a tool")
                 .display_order(2),
         )
         .arg(
             Arg::new_argument(GENERATE_RESULTS)
-                .help("Only generate running results for a tool")
+                .help("Generate running results for a tool")
+                .display_order(2),
+        )
+        .arg(
+            Arg::new_argument(CHECK_RESULTS)
+                .help("Check results for a tool")
                 .display_order(2),
         )
     }
@@ -157,6 +168,7 @@ pub fn parse_printer_argument_matches(argms: &ArgMatches) -> RunOptions {
         debug_mode: argms.is_present(DEBUG_MODE),
         generate_commands: argms.is_present(GENERATE_COMMANDS),
         generate_results: argms.is_present(GENERATE_RESULTS),
+        check_results: argms.is_present(CHECK_RESULTS),
         tools,
     }
 }
