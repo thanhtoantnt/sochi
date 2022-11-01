@@ -79,6 +79,74 @@ fn interpret_slither_results(file: &Path) -> Summary {
     )
 }
 
+/// Interpret Slither results
+fn check_slither_results(file: &Path) -> Summary {
+    let contents =
+        fs::read_to_string(file.to_str().unwrap()).expect("Should have been able to read the file");
+
+    // read the csv file
+    // let file_name = file.file_prefix().unwrap();
+
+    let reentrancy_regex = Regex::new(r"Reentrancy in ").unwrap();
+    let timestamp_dep_regex = Regex::new(r" uses timestamp ").unwrap();
+    let unhandled_exceptions_regex = Regex::new(r"Failure condition of ").unwrap();
+    let tx_origin_regex = Regex::new(r" uses tx.origin for authorization").unwrap();
+    let reentrancy = reentrancy_regex.captures_iter(contents.as_str()).count();
+    let timestamp_dep = timestamp_dep_regex.captures_iter(contents.as_str()).count();
+    let unhandled_exceptions = unhandled_exceptions_regex
+        .captures_iter(contents.as_str())
+        .count();
+    let tx_origin = tx_origin_regex.captures_iter(contents.as_str()).count();
+
+    Summary::new(
+        reentrancy,
+        timestamp_dep,
+        0,
+        unhandled_exceptions,
+        0,
+        0,
+        tx_origin,
+    )
+}
+
+/// Check slither results to be false/true positives
+pub fn check_results(dir: &str) -> Summary {
+    // List all files in the repository
+    let path = Path::new(&dir);
+    let mut paths: Vec<_> = fs::read_dir(path).unwrap().map(|r| r.unwrap()).collect();
+    paths.sort_by_key(|dir| dir.path());
+
+    // Statistics
+    let mut reentrancy = 0;
+    let mut timestamp = 0;
+    let mut tx_origin = 0;
+    let mut unhanled_exceptions = 0;
+
+    for path in paths {
+        let file = path.path();
+        let extension = file.extension().and_then(OsStr::to_str);
+        if extension.unwrap() == super::SLITHER {
+            println!("Input file: {}", file.display());
+            let result = check_slither_results(&file);
+            reentrancy += result.re_entrancy;
+            timestamp += result.timestamp;
+            unhanled_exceptions += result.unhandled_exceptions;
+            tx_origin += result.tx_origin;
+            debug!("bugs: {}", result);
+        }
+    }
+
+    Summary::new(
+        reentrancy,
+        timestamp,
+        0,
+        unhanled_exceptions,
+        0,
+        0,
+        tx_origin,
+    )
+}
+
 /// Interpret slither results
 pub fn interpret_results(dir: &str) -> Summary {
     // List all files in the repository
