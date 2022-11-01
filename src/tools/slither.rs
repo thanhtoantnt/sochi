@@ -80,47 +80,34 @@ fn interpret_slither_results(file: &Path) -> Summary {
 }
 
 /// Interpret Slither results
-fn check_slither_results(file: &Path) -> Summary {
-    let contents =
-        fs::read_to_string(file.to_str().unwrap()).expect("Should have been able to read the file");
-
+fn check_slither_results(file: &Path) -> i32 {
     // read the csv file
-    // let file_name = file.file_prefix().unwrap();
+    let file_stem_name = file.file_stem().and_then(OsStr::to_str).unwrap_or("");
+    let parent_dir = file.parent().unwrap_or_else(|| Path::new(""));
+    let result_file = parent_dir.join(file_stem_name.to_owned() + "." + super::CSV);
+    debug!("Reading file: {}", result_file.display());
+    let contents = fs::read_to_string(result_file.to_str().unwrap())
+        .expect("Should have been able to read the file");
 
-    let reentrancy_regex = Regex::new(r"Reentrancy in ").unwrap();
-    let timestamp_dep_regex = Regex::new(r" uses timestamp ").unwrap();
-    let unhandled_exceptions_regex = Regex::new(r"Failure condition of ").unwrap();
-    let tx_origin_regex = Regex::new(r" uses tx.origin for authorization").unwrap();
-    let reentrancy = reentrancy_regex.captures_iter(contents.as_str()).count();
-    let timestamp_dep = timestamp_dep_regex.captures_iter(contents.as_str()).count();
-    let unhandled_exceptions = unhandled_exceptions_regex
-        .captures_iter(contents.as_str())
-        .count();
-    let tx_origin = tx_origin_regex.captures_iter(contents.as_str()).count();
+    let slither_regex = Regex::new(r"sol\#(\d+)\)").unwrap();
 
-    Summary::new(
-        reentrancy,
-        timestamp_dep,
-        0,
-        unhandled_exceptions,
-        0,
-        0,
-        tx_origin,
-    )
+    for found in slither_regex.captures_iter(&contents) {
+        let foundx: String = found.iter().map(|m| m.unwrap().as_str()).collect();
+        println!("found: {:?}", foundx);
+    }
+
+    0
 }
 
 /// Check slither results to be false/true positives
-pub fn check_results(dir: &str) -> Summary {
+pub fn check_results(dir: &str) -> i32 {
     // List all files in the repository
     let path = Path::new(&dir);
     let mut paths: Vec<_> = fs::read_dir(path).unwrap().map(|r| r.unwrap()).collect();
     paths.sort_by_key(|dir| dir.path());
 
     // Statistics
-    let mut reentrancy = 0;
-    let mut timestamp = 0;
-    let mut tx_origin = 0;
-    let mut unhanled_exceptions = 0;
+    let mut summary = 0;
 
     for path in paths {
         let file = path.path();
@@ -128,23 +115,12 @@ pub fn check_results(dir: &str) -> Summary {
         if extension.unwrap() == super::SLITHER {
             println!("Input file: {}", file.display());
             let result = check_slither_results(&file);
-            reentrancy += result.re_entrancy;
-            timestamp += result.timestamp;
-            unhanled_exceptions += result.unhandled_exceptions;
-            tx_origin += result.tx_origin;
+            summary += result;
             debug!("bugs: {}", result);
         }
     }
 
-    Summary::new(
-        reentrancy,
-        timestamp,
-        0,
-        unhanled_exceptions,
-        0,
-        0,
-        tx_origin,
-    )
+    summary
 }
 
 /// Interpret slither results

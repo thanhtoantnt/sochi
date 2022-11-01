@@ -26,6 +26,9 @@ pub const SOLC: &str = "solc";
 /// Extension of Solidity files
 pub const SOL: &str = "sol";
 
+/// Extension of results files
+pub const CSV: &str = "csv";
+
 /// Executable file name of `python3`
 pub const PYTHON3: &str = "python3";
 
