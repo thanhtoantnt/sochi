@@ -30,7 +30,10 @@ fn run_slither(input_file_path: PathBuf) -> Result<PathBuf, String> {
     let solc = check_results.unwrap();
     debug!("solc version: {}", solc);
 
-    let slither_args = input_file_path.to_str().unwrap().to_string();
+    let slither_args = "--detect reentrancy-benign, reentrancy-eth,
+    reentrancy-events, reentrancy-unlimited-gas, reentrancy-no-eth, timestamp, tx-origin"
+        .to_owned()
+        + input_file_path.to_str().unwrap();
 
     let slither_output = Command::new(super::SLITHER)
         .args(slither_args.split_whitespace())
@@ -84,7 +87,7 @@ fn check_slither_results(file: &Path) -> i32 {
     // read the csv file
     let file_stem_name = file.file_stem().and_then(OsStr::to_str).unwrap_or("");
     let parent_dir = file.parent().unwrap_or_else(|| Path::new(""));
-    let result_file = parent_dir.join(file_stem_name.to_owned() + "." + super::CSV);
+    let result_file = parent_dir.join(file_stem_name.to_owned() + "." + super::SLITHER);
     debug!("Reading file: {}", result_file.display());
     let contents = fs::read_to_string(result_file.to_str().unwrap())
         .expect("Should have been able to read the file");
@@ -92,7 +95,7 @@ fn check_slither_results(file: &Path) -> i32 {
     let slither_regex = Regex::new(r"sol\#(\d+)\)").unwrap();
 
     for found in slither_regex.captures_iter(&contents) {
-        let foundx: String = found.iter().map(|m| m.unwrap().as_str()).collect();
+        let foundx = found.get(1).map_or("", |c| c.as_str());
         println!("found: {:?}", foundx);
     }
 
