@@ -1,39 +1,4 @@
 
-Owned.buyTicket_re_ent2() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#10-15) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (lastPlayer_re_ent2.send(jackpot_re_ent2)) (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#11)
-Owned.bug_re_ent27() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#28-34) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#30)
-Token.callme_re_ent7() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#111-117) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#113)
-Token.buyTicket_re_ent23() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#121-126) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#122)
-Staking.buyTicket_re_ent37() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#132-137) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (lastPlayer_re_ent37.send(jackpot_re_ent37)) (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#133)
-Staking.buyTicket_re_ent9() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#150-156) sends eth to arbitrary user
-	Dangerous calls:
-	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#151)
-Staking.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#198-205) sends eth to arbitrary user
-	Dangerous calls:
-	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#200)
-Staking.bug_re_ent20() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#214-220) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#216)
-Staking.callme_re_ent14() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#230-236) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#232)
-Staking.buyTicket_re_ent30() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#247-252) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#248)
-Staking.callme_re_ent35() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#297-303) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#299)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
-
 Reentrancy in Staking.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#198-205):
 	External calls:
 	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#200)
@@ -86,18 +51,6 @@ Reentrancy in Staking.redeem() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#254
 	- staker[msg.sender].tokens = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#262)
 Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
 
-Staking.changeStakeTokens(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#271-273) should emit an event for: 
-	- stakeTokens = _NewTokensThreshold * 10 ** uint256(10) (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#272) 
-Staking.changeStakeTime(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#283-285) should emit an event for: 
-	- stakeTime = _newStakeTime (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#284) 
-Staking.changeStakingPercentage(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#292-295) should emit an event for: 
-	- stakePercentage = _newStakePercentage (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#293) 
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
-
-Owned.transferOwnership(address)._newOwner (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#54) lacks a zero-check on :
-		- newOwner = _newOwner (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#55)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
-
 Reentrancy in Staking.startStaking() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#238-244):
 	External calls:
 	- require(bool)(token.transferFrom(msg.sender,address(this),stakeTokens + findOnePercent(stakeTokens))) (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#240)
@@ -123,96 +76,6 @@ Staking.redeem() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#254-263) uses tim
 	Dangerous comparisons:
 	- require(bool)(staker[msg.sender].time + stakeTime <= now) (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#257)
 Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
-
-Pragma version^0.5.12 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#5) allows old versions
-solc-0.5.12 is not recommended for deployment
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
-
-Low level call in Owned.withdrawFunds_re_ent17(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#18-24):
-	- (success) = msg.sender.call.value(_weiToWithdraw)() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#21)
-Low level call in Staking.withdrawFunds_re_ent3(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#140-146):
-	- (success) = msg.sender.call.value(_weiToWithdraw)() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#143)
-Low level call in Staking.buyTicket_re_ent9() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#150-156):
-	- (success) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#151)
-Low level call in Staking.withdrawBalance_re_ent26() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#179-187):
-	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#182)
-Low level call in Staking.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#198-205):
-	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#200)
-Low level call in Staking.withdraw_balances_re_ent8() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#265-269):
-	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#266)
-Low level call in Staking.withdrawBalance_re_ent40() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#309-317):
-	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#312)
-Low level call in Staking.withdrawBalance_re_ent33() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#325-333):
-	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#328)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
-
-Function Owned.buyTicket_re_ent2() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#10-15) is not in mixedCase
-Function Owned.withdrawFunds_re_ent17(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#18-24) is not in mixedCase
-Parameter Owned.withdrawFunds_re_ent17(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#18) is not in mixedCase
-Function Owned.bug_re_ent27() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#28-34) is not in mixedCase
-Function Owned.claimReward_re_ent32() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#41-47) is not in mixedCase
-Parameter Owned.transferOwnership(address)._newOwner (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#54) is not in mixedCase
-Function Owned.withdrawFunds_re_ent38(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#58-63) is not in mixedCase
-Parameter Owned.withdrawFunds_re_ent38(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#58) is not in mixedCase
-Variable Owned.lastPlayer_re_ent2 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#8) is not in mixedCase
-Variable Owned.jackpot_re_ent2 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#9) is not in mixedCase
-Variable Owned.balances_re_ent17 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#17) is not in mixedCase
-Variable Owned.not_called_re_ent27 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#27) is not in mixedCase
-Variable Owned.redeemableEther_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#40) is not in mixedCase
-Variable Owned.balances_re_ent38 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#57) is not in mixedCase
-Function Token.claimReward_re_ent4() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#102-108) is not in mixedCase
-Function Token.callme_re_ent7() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#111-117) is not in mixedCase
-Function Token.buyTicket_re_ent23() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#121-126) is not in mixedCase
-Variable Token.redeemableEther_re_ent4 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#101) is not in mixedCase
-Variable Token.counter_re_ent7 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#110) is not in mixedCase
-Variable Token.lastPlayer_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#119) is not in mixedCase
-Variable Token.jackpot_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#120) is not in mixedCase
-Struct Staking.stake (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#208-212) is not in CapWords
-Event Stakingstakingstarted(address,uint256,uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#196) is not in CapWords
-Event StakingtokensRedeemed(address,uint256,uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#206) is not in CapWords
-Function Staking.buyTicket_re_ent37() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#132-137) is not in mixedCase
-Function Staking.withdrawFunds_re_ent3(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#140-146) is not in mixedCase
-Parameter Staking.withdrawFunds_re_ent3(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#140) is not in mixedCase
-Function Staking.buyTicket_re_ent9() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#150-156) is not in mixedCase
-Function Staking.claimReward_re_ent25() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#159-165) is not in mixedCase
-Function Staking.withdrawBalance_re_ent19() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#169-176) is not in mixedCase
-Function Staking.withdrawBalance_re_ent26() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#179-187) is not in mixedCase
-Function Staking.withdrawFunds_re_ent31(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#190-195) is not in mixedCase
-Parameter Staking.withdrawFunds_re_ent31(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#190) is not in mixedCase
-Function Staking.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#198-205) is not in mixedCase
-Function Staking.bug_re_ent20() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#214-220) is not in mixedCase
-Function Staking.callme_re_ent14() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#230-236) is not in mixedCase
-Function Staking.buyTicket_re_ent30() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#247-252) is not in mixedCase
-Function Staking.withdraw_balances_re_ent8() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#265-269) is not in mixedCase
-Parameter Staking.changeStakeTokens(uint256)._NewTokensThreshold (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#271) is not in mixedCase
-Function Staking.claimReward_re_ent39() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#275-281) is not in mixedCase
-Parameter Staking.changeStakeTime(uint256)._newStakeTime (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#283) is not in mixedCase
-Function Staking.withdraw_balances_re_ent36() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#287-290) is not in mixedCase
-Parameter Staking.changeStakingPercentage(uint256)._newStakePercentage (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#292) is not in mixedCase
-Function Staking.callme_re_ent35() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#297-303) is not in mixedCase
-Function Staking.withdrawBalance_re_ent40() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#309-317) is not in mixedCase
-Function Staking.withdrawBalance_re_ent33() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#325-333) is not in mixedCase
-Variable Staking.lastPlayer_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#130) is not in mixedCase
-Variable Staking.jackpot_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#131) is not in mixedCase
-Variable Staking.balances_re_ent3 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#139) is not in mixedCase
-Variable Staking.lastPlayer_re_ent9 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#148) is not in mixedCase
-Variable Staking.jackpot_re_ent9 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#149) is not in mixedCase
-Variable Staking.redeemableEther_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#158) is not in mixedCase
-Variable Staking.userBalance_re_ent19 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#168) is not in mixedCase
-Variable Staking.userBalance_re_ent26 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#178) is not in mixedCase
-Variable Staking.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#189) is not in mixedCase
-Variable Staking.not_called_re_ent13 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#197) is not in mixedCase
-Variable Staking.not_called_re_ent20 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#213) is not in mixedCase
-Variable Staking.counter_re_ent14 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#229) is not in mixedCase
-Variable Staking.lastPlayer_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#245) is not in mixedCase
-Variable Staking.jackpot_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#246) is not in mixedCase
-Variable Staking.balances_re_ent8 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#264) is not in mixedCase
-Variable Staking.redeemableEther_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#274) is not in mixedCase
-Variable Staking.balances_re_ent36 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#286) is not in mixedCase
-Variable Staking.counter_re_ent35 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#296) is not in mixedCase
-Variable Staking.userBalance_re_ent40 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#308) is not in mixedCase
-Variable Staking.userBalance_re_ent33 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#324) is not in mixedCase
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
 
 Reentrancy in Staking.bug_re_ent20() (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#214-220):
 	External calls:
@@ -304,31 +167,4 @@ Reentrancy in Staking.withdraw_balances_re_ent36() (benchmarks/SolidiFI/Re-entra
 	State variables written after the call(s):
 	- balances_re_ent36[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#289)
 Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
-
-Variable Owned.balances_re_ent17 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#17) is too similar to Staking.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#189)
-Variable Staking.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#189) is too similar to Staking.balances_re_ent36 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#286)
-Variable Staking.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#189) is too similar to Owned.balances_re_ent38 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#57)
-Variable Staking.balances_re_ent36 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#286) is too similar to Owned.balances_re_ent38 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#57)
-Variable Staking.balances_re_ent3 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#139) is too similar to Staking.balances_re_ent8 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#264)
-Variable Staking.jackpot_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#246) is too similar to Staking.jackpot_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#131)
-Variable Owned.jackpot_re_ent2 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#9) is too similar to Staking.jackpot_re_ent9 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#149)
-Variable Staking.lastPlayer_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#245) is too similar to Staking.lastPlayer_re_ent37 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#130)
-Variable Owned.lastPlayer_re_ent2 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#8) is too similar to Staking.lastPlayer_re_ent9 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#148)
-Variable Staking.not_called_re_ent20 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#213) is too similar to Owned.not_called_re_ent27 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#27)
-Variable Staking.redeemableEther_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#158) is too similar to Owned.redeemableEther_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#40)
-Variable Staking.redeemableEther_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#158) is too similar to Staking.redeemableEther_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#274)
-Variable Owned.redeemableEther_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#40) is too similar to Staking.redeemableEther_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#274)
-Variable Staking.claimReward_re_ent25().transferValue_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#162) is too similar to Owned.claimReward_re_ent32().transferValue_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#44)
-Variable Staking.claimReward_re_ent25().transferValue_re_ent25 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#162) is too similar to Staking.claimReward_re_ent39().transferValue_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#278)
-Variable Owned.claimReward_re_ent32().transferValue_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#44) is too similar to Staking.claimReward_re_ent39().transferValue_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#278)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
-
-Token (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#99-127) does not implement functions:
-	- Token.balanceOf(address) (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#100)
-	- Token.transfer(address,uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#118)
-	- Token.transferFrom(address,address,uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#109)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unimplemented-functions
-
-Staking.basePercent (benchmarks/SolidiFI/Re-entrancy/buggy_42.sol#166) should be constant
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
-benchmarks/SolidiFI/Re-entrancy/buggy_42.sol analyzed (4 contracts with 80 detectors), 139 result(s) found
+benchmarks/SolidiFI/Re-entrancy/buggy_42.sol analyzed (4 contracts with 7 detectors), 30 result(s) found

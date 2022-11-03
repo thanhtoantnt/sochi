@@ -1,21 +1,4 @@
 
-TAMCContract.callme_re_ent14() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#9-15) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#11)
-TAMCContract.buyTicket_re_ent30() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#20-25) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#21)
-TAMCContract.callme_re_ent35() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#59-65) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#61)
-TAMCContract.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#86-93) sends eth to arbitrary user
-	Dangerous calls:
-	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#88)
-TAMCContract.bug_re_ent27() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#136-142) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#138)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
-
 Reentrancy in TAMCContract.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#86-93):
 	External calls:
 	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#88)
@@ -37,50 +20,6 @@ Reentrancy in TAMCContract.withdraw_balances_re_ent8() (benchmarks/SolidiFI/Re-e
 	State variables written after the call(s):
 	- balances_re_ent8[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#31)
 Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
-
-TAMCContract.totalSupply (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#43) is set pre-construction with a non-constant function or state variable:
-	- 1000000000 * (uint256(10) ** decimals)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#function-initializing-state
-
-Pragma version^0.5.10 (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#5) allows old versions
-solc-0.5.10 is not recommended for deployment
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
-
-Low level call in TAMCContract.withdraw_balances_re_ent8() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#28-32):
-	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#29)
-Low level call in TAMCContract.withdrawBalance_re_ent40() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#75-83):
-	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#78)
-Low level call in TAMCContract.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#86-93):
-	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#88)
-Low level call in TAMCContract.withdrawBalance_re_ent33() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#112-120):
-	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#115)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
-
-Function TAMCContract.callme_re_ent14() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#9-15) is not in mixedCase
-Function TAMCContract.buyTicket_re_ent30() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#20-25) is not in mixedCase
-Function TAMCContract.withdraw_balances_re_ent8() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#28-32) is not in mixedCase
-Function TAMCContract.claimReward_re_ent39() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#35-41) is not in mixedCase
-Function TAMCContract.withdrawFunds_re_ent31(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#46-51) is not in mixedCase
-Parameter TAMCContract.withdrawFunds_re_ent31(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#46) is not in mixedCase
-Function TAMCContract.callme_re_ent35() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#59-65) is not in mixedCase
-Function TAMCContract.withdrawBalance_re_ent40() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#75-83) is not in mixedCase
-Function TAMCContract.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#86-93) is not in mixedCase
-Function TAMCContract.withdraw_balances_re_ent36() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#97-100) is not in mixedCase
-Function TAMCContract.withdrawBalance_re_ent33() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#112-120) is not in mixedCase
-Function TAMCContract.bug_re_ent27() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#136-142) is not in mixedCase
-Variable TAMCContract.counter_re_ent14 (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#8) is not in mixedCase
-Variable TAMCContract.lastPlayer_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#18) is not in mixedCase
-Variable TAMCContract.jackpot_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#19) is not in mixedCase
-Variable TAMCContract.balances_re_ent8 (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#27) is not in mixedCase
-Variable TAMCContract.redeemableEther_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#34) is not in mixedCase
-Variable TAMCContract.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#45) is not in mixedCase
-Variable TAMCContract.counter_re_ent35 (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#58) is not in mixedCase
-Variable TAMCContract.userBalance_re_ent40 (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#74) is not in mixedCase
-Variable TAMCContract.not_called_re_ent13 (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#85) is not in mixedCase
-Variable TAMCContract.balances_re_ent36 (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#96) is not in mixedCase
-Variable TAMCContract.userBalance_re_ent33 (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#111) is not in mixedCase
-Variable TAMCContract.not_called_re_ent27 (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#135) is not in mixedCase
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
 
 Reentrancy in TAMCContract.bug_re_ent27() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#136-142):
 	External calls:
@@ -119,16 +58,4 @@ Reentrancy in TAMCContract.withdraw_balances_re_ent36() (benchmarks/SolidiFI/Re-
 	State variables written after the call(s):
 	- balances_re_ent36[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#99)
 Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
-
-Variable TAMCContract.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#45) is too similar to TAMCContract.balances_re_ent36 (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#96)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
-
-TAMCContract.slitherConstructorVariables() (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#7-143) uses literals with too many digits:
-	- totalSupply = 1000000000 * (uint256(10) ** decimals) (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#43)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
-
-TAMCContract.decimals (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#42) should be constant
-TAMCContract.name (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#26) should be constant
-TAMCContract.symbol (benchmarks/SolidiFI/Re-entrancy/buggy_39.sol#33) should be constant
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
-benchmarks/SolidiFI/Re-entrancy/buggy_39.sol analyzed (1 contracts with 80 detectors), 52 result(s) found
+benchmarks/SolidiFI/Re-entrancy/buggy_39.sol analyzed (1 contracts with 7 detectors), 11 result(s) found

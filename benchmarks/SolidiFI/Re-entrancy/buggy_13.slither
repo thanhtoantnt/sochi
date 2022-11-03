@@ -1,30 +1,4 @@
 
-BitCash.bug_re_ent20() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#14-20) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#16)
-BitCash.callme_re_ent7() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#52-58) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#54)
-BitCash.buyTicket_re_ent23() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#62-67) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#63)
-BitCash.bug_re_ent27() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#72-78) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (msg.sender.send(1000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#74)
-BitCash.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#93-100) sends eth to arbitrary user
-	Dangerous calls:
-	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#95)
-BitCash.callme_re_ent14() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#119-125) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#121)
-BitCash.buyTicket_re_ent30() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#149-154) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#150)
-BitCash.callme_re_ent35() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#238-244) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (msg.sender.send(10000000000000000000)) (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#240)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
-
 Reentrancy in BitCash.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#93-100):
 	External calls:
 	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#95)
@@ -46,73 +20,6 @@ Reentrancy in BitCash.withdraw_balances_re_ent8() (benchmarks/SolidiFI/Re-entran
 	State variables written after the call(s):
 	- balances_re_ent8[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#172)
 Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
-
-Pragma version>=0.4.22<0.6.0 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#5) is known to contain severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
-
-Low level call in BitCash.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#93-100):
-	- (success) = msg.sender.call.value(1000000000000000000)() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#95)
-Low level call in BitCash.withdraw_balances_re_ent8() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#169-173):
-	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#170)
-Low level call in BitCash.withdrawBalance_re_ent40() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#261-269):
-	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#264)
-Low level call in BitCash.withdrawBalance_re_ent33() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#289-297):
-	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#292)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
-
-Contract tokenRecipient (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#7-9) is not in CapWords
-Function BitCash.bug_re_ent20() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#14-20) is not in mixedCase
-Function BitCash.claimReward_re_ent32() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#23-29) is not in mixedCase
-Function BitCash.withdrawFunds_re_ent38(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#32-37) is not in mixedCase
-Parameter BitCash.withdrawFunds_re_ent38(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#32) is not in mixedCase
-Function BitCash.claimReward_re_ent4() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#41-47) is not in mixedCase
-Function BitCash.callme_re_ent7() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#52-58) is not in mixedCase
-Function BitCash.buyTicket_re_ent23() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#62-67) is not in mixedCase
-Function BitCash.bug_re_ent27() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#72-78) is not in mixedCase
-Function BitCash.withdrawFunds_re_ent31(uint256) (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#83-88) is not in mixedCase
-Parameter BitCash.withdrawFunds_re_ent31(uint256)._weiToWithdraw (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#83) is not in mixedCase
-Function BitCash.bug_re_ent13() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#93-100) is not in mixedCase
-Function BitCash.callme_re_ent14() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#119-125) is not in mixedCase
-Function BitCash.buyTicket_re_ent30() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#149-154) is not in mixedCase
-Parameter BitCash.transfer(address,uint256)._to (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#164) is not in mixedCase
-Parameter BitCash.transfer(address,uint256)._value (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#164) is not in mixedCase
-Function BitCash.withdraw_balances_re_ent8() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#169-173) is not in mixedCase
-Parameter BitCash.transferFrom(address,address,uint256)._from (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#184) is not in mixedCase
-Parameter BitCash.transferFrom(address,address,uint256)._to (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#184) is not in mixedCase
-Parameter BitCash.transferFrom(address,address,uint256)._value (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#184) is not in mixedCase
-Function BitCash.claimReward_re_ent39() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#191-197) is not in mixedCase
-Parameter BitCash.approve(address,uint256)._spender (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#207) is not in mixedCase
-Parameter BitCash.approve(address,uint256)._value (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#207) is not in mixedCase
-Function BitCash.withdraw_balances_re_ent36() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#214-217) is not in mixedCase
-Parameter BitCash.approveAndCall(address,uint256,bytes)._spender (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#228) is not in mixedCase
-Parameter BitCash.approveAndCall(address,uint256,bytes)._value (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#228) is not in mixedCase
-Parameter BitCash.approveAndCall(address,uint256,bytes)._extraData (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#228) is not in mixedCase
-Function BitCash.callme_re_ent35() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#238-244) is not in mixedCase
-Parameter BitCash.burn(uint256)._value (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#253) is not in mixedCase
-Function BitCash.withdrawBalance_re_ent40() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#261-269) is not in mixedCase
-Parameter BitCash.burnFrom(address,uint256)._from (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#279) is not in mixedCase
-Parameter BitCash.burnFrom(address,uint256)._value (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#279) is not in mixedCase
-Function BitCash.withdrawBalance_re_ent33() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#289-297) is not in mixedCase
-Variable BitCash.not_called_re_ent20 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#13) is not in mixedCase
-Variable BitCash.redeemableEther_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#22) is not in mixedCase
-Variable BitCash.balances_re_ent38 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#31) is not in mixedCase
-Variable BitCash.redeemableEther_re_ent4 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#40) is not in mixedCase
-Variable BitCash.counter_re_ent7 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#51) is not in mixedCase
-Variable BitCash.lastPlayer_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#60) is not in mixedCase
-Variable BitCash.jackpot_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#61) is not in mixedCase
-Variable BitCash.not_called_re_ent27 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#71) is not in mixedCase
-Variable BitCash.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#82) is not in mixedCase
-Variable BitCash.not_called_re_ent13 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#92) is not in mixedCase
-Variable BitCash.counter_re_ent14 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#118) is not in mixedCase
-Variable BitCash.lastPlayer_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#147) is not in mixedCase
-Variable BitCash.jackpot_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#148) is not in mixedCase
-Variable BitCash.balances_re_ent8 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#168) is not in mixedCase
-Variable BitCash.redeemableEther_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#190) is not in mixedCase
-Variable BitCash.balances_re_ent36 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#213) is not in mixedCase
-Variable BitCash.counter_re_ent35 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#237) is not in mixedCase
-Variable BitCash.userBalance_re_ent40 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#260) is not in mixedCase
-Variable BitCash.userBalance_re_ent33 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#288) is not in mixedCase
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
 
 Reentrancy in BitCash.bug_re_ent20() (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#14-20):
 	External calls:
@@ -182,23 +89,4 @@ Reentrancy in BitCash.withdraw_balances_re_ent36() (benchmarks/SolidiFI/Re-entra
 	State variables written after the call(s):
 	- balances_re_ent36[msg.sender] = 0 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#216)
 Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
-
-Variable BitCash.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#82) is too similar to BitCash.balances_re_ent36 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#213)
-Variable BitCash.balances_re_ent31 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#82) is too similar to BitCash.balances_re_ent38 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#31)
-Variable BitCash.balances_re_ent36 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#213) is too similar to BitCash.balances_re_ent38 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#31)
-Variable BitCash.jackpot_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#61) is too similar to BitCash.jackpot_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#148)
-Variable BitCash.lastPlayer_re_ent23 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#60) is too similar to BitCash.lastPlayer_re_ent30 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#147)
-Variable BitCash.not_called_re_ent20 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#13) is too similar to BitCash.not_called_re_ent27 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#71)
-Variable BitCash.redeemableEther_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#22) is too similar to BitCash.redeemableEther_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#190)
-Variable BitCash.claimReward_re_ent32().transferValue_re_ent32 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#26) is too similar to BitCash.claimReward_re_ent39().transferValue_re_ent39 (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#194)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
-
-BitCash.decimals (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#38) should be constant
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
-
-approveAndCall(address,uint256,bytes) should be declared external:
-	- BitCash.approveAndCall(address,uint256,bytes) (benchmarks/SolidiFI/Re-entrancy/buggy_13.sol#228-236)
-Moreover, the following function parameters should change its data location:
-_extraData location should be calldata
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
-benchmarks/SolidiFI/Re-entrancy/buggy_13.sol analyzed (2 contracts with 80 detectors), 92 result(s) found
+benchmarks/SolidiFI/Re-entrancy/buggy_13.sol analyzed (2 contracts with 7 detectors), 17 result(s) found
