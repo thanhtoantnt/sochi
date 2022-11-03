@@ -30,9 +30,9 @@ fn run_slither(input_file_path: PathBuf) -> Result<PathBuf, String> {
     let solc = check_results.unwrap();
     debug!("solc version: {}", solc);
 
-    let slither_args = "--detect reentrancy-benign, reentrancy-eth,
-    reentrancy-events, reentrancy-unlimited-gas, reentrancy-no-eth, timestamp, tx-origin"
+    let slither_args = "--detect reentrancy-benign,reentrancy-eth,reentrancy-events,reentrancy-unlimited-gas,reentrancy-no-eth,timestamp,tx-origin"
         .to_owned()
+        + " "
         + input_file_path.to_str().unwrap();
 
     let slither_output = Command::new(super::SLITHER)

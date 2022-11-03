@@ -1,30 +1,4 @@
 
-EIP20Interface.callme_re_ent7() (tests/re-entrancy/buggy_1.sol#23-29) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (msg.sender.send(10000000000000000000)) (tests/re-entrancy/buggy_1.sol#25)
-EIP20Interface.buyTicket_re_ent23() (tests/re-entrancy/buggy_1.sol#38-43) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (lastPlayer_re_ent23.send(jackpot_re_ent23)) (tests/re-entrancy/buggy_1.sol#39)
-EIP20Interface.callme_re_ent14() (tests/re-entrancy/buggy_1.sol#52-58) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (msg.sender.send(10000000000000000000)) (tests/re-entrancy/buggy_1.sol#54)
-EIP20Interface.buyTicket_re_ent30() (tests/re-entrancy/buggy_1.sol#67-72) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (lastPlayer_re_ent30.send(jackpot_re_ent30)) (tests/re-entrancy/buggy_1.sol#68)
-EIP20Interface.bug_re_ent13() (tests/re-entrancy/buggy_1.sol#95-102) sends eth to arbitrary user
-	Dangerous calls:
-	- (success) = msg.sender.call.value(1000000000000000000)() (tests/re-entrancy/buggy_1.sol#97)
-HotDollarsToken.bug_re_ent20() (tests/re-entrancy/buggy_1.sol#120-126) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (msg.sender.send(1000000000000000000)) (tests/re-entrancy/buggy_1.sol#122)
-HotDollarsToken.callme_re_ent35() (tests/re-entrancy/buggy_1.sol#202-208) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (msg.sender.send(10000000000000000000)) (tests/re-entrancy/buggy_1.sol#204)
-HotDollarsToken.bug_re_ent27() (tests/re-entrancy/buggy_1.sol#244-250) sends eth to arbitrary user
-	Dangerous calls:
-	- ! (msg.sender.send(1000000000000000000)) (tests/re-entrancy/buggy_1.sol#246)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
-
 Reentrancy in EIP20Interface.bug_re_ent13() (tests/re-entrancy/buggy_1.sol#95-102):
 	External calls:
 	- (success) = msg.sender.call.value(1000000000000000000)() (tests/re-entrancy/buggy_1.sol#97)
@@ -51,78 +25,6 @@ Reentrancy in EIP20Interface.withdraw_balances_re_ent8() (tests/re-entrancy/bugg
 	State variables written after the call(s):
 	- balances_re_ent8[msg.sender] = 0 (tests/re-entrancy/buggy_1.sol#82)
 Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
-
-HotDollarsToken.transferFrom(address,address,uint256).allowance (tests/re-entrancy/buggy_1.sol#191) shadows:
-	- HotDollarsToken.allowance(address,address) (tests/re-entrancy/buggy_1.sol#240-242) (function)
-	- EIP20Interface.allowance(address,address) (tests/re-entrancy/buggy_1.sol#77) (function)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#local-variable-shadowing
-
-Pragma version>=0.4.22<0.6.0 (tests/re-entrancy/buggy_1.sol#5) is known to contain severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
-
-Low level call in EIP20Interface.withdraw_balances_re_ent8() (tests/re-entrancy/buggy_1.sol#79-83):
-	- (success) = msg.sender.call.value(balances_re_ent8[msg.sender])() (tests/re-entrancy/buggy_1.sol#80)
-Low level call in EIP20Interface.bug_re_ent13() (tests/re-entrancy/buggy_1.sol#95-102):
-	- (success) = msg.sender.call.value(1000000000000000000)() (tests/re-entrancy/buggy_1.sol#97)
-Low level call in HotDollarsToken.withdrawBalance_re_ent26() (tests/re-entrancy/buggy_1.sol#109-117):
-	- (success) = msg.sender.call.value(userBalance_re_ent26[msg.sender])() (tests/re-entrancy/buggy_1.sol#112)
-Low level call in HotDollarsToken.withdrawBalance_re_ent40() (tests/re-entrancy/buggy_1.sol#214-222):
-	- (success) = msg.sender.call.value(userBalance_re_ent40[msg.sender])() (tests/re-entrancy/buggy_1.sol#217)
-Low level call in HotDollarsToken.withdrawBalance_re_ent33() (tests/re-entrancy/buggy_1.sol#230-238):
-	- (success) = msg.sender.call.value(userBalance_re_ent33[msg.sender])() (tests/re-entrancy/buggy_1.sol#233)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
-
-Function EIP20Interface.callme_re_ent7() (tests/re-entrancy/buggy_1.sol#23-29) is not in mixedCase
-Function EIP20Interface.buyTicket_re_ent23() (tests/re-entrancy/buggy_1.sol#38-43) is not in mixedCase
-Function EIP20Interface.callme_re_ent14() (tests/re-entrancy/buggy_1.sol#52-58) is not in mixedCase
-Function EIP20Interface.buyTicket_re_ent30() (tests/re-entrancy/buggy_1.sol#67-72) is not in mixedCase
-Function EIP20Interface.withdraw_balances_re_ent8() (tests/re-entrancy/buggy_1.sol#79-83) is not in mixedCase
-Function EIP20Interface.withdrawFunds_re_ent31(uint256) (tests/re-entrancy/buggy_1.sol#87-92) is not in mixedCase
-Parameter EIP20Interface.withdrawFunds_re_ent31(uint256)._weiToWithdraw (tests/re-entrancy/buggy_1.sol#87) is not in mixedCase
-Function EIP20Interface.bug_re_ent13() (tests/re-entrancy/buggy_1.sol#95-102) is not in mixedCase
-Variable EIP20Interface.counter_re_ent7 (tests/re-entrancy/buggy_1.sol#22) is not in mixedCase
-Variable EIP20Interface.lastPlayer_re_ent23 (tests/re-entrancy/buggy_1.sol#36) is not in mixedCase
-Variable EIP20Interface.jackpot_re_ent23 (tests/re-entrancy/buggy_1.sol#37) is not in mixedCase
-Variable EIP20Interface.counter_re_ent14 (tests/re-entrancy/buggy_1.sol#51) is not in mixedCase
-Variable EIP20Interface.lastPlayer_re_ent30 (tests/re-entrancy/buggy_1.sol#65) is not in mixedCase
-Variable EIP20Interface.jackpot_re_ent30 (tests/re-entrancy/buggy_1.sol#66) is not in mixedCase
-Variable EIP20Interface.balances_re_ent8 (tests/re-entrancy/buggy_1.sol#78) is not in mixedCase
-Variable EIP20Interface.balances_re_ent31 (tests/re-entrancy/buggy_1.sol#86) is not in mixedCase
-Variable EIP20Interface.not_called_re_ent13 (tests/re-entrancy/buggy_1.sol#94) is not in mixedCase
-Function HotDollarsToken.withdrawBalance_re_ent26() (tests/re-entrancy/buggy_1.sol#109-117) is not in mixedCase
-Function HotDollarsToken.bug_re_ent20() (tests/re-entrancy/buggy_1.sol#120-126) is not in mixedCase
-Function HotDollarsToken.claimReward_re_ent32() (tests/re-entrancy/buggy_1.sol#135-141) is not in mixedCase
-Function HotDollarsToken.withdrawFunds_re_ent38(uint256) (tests/re-entrancy/buggy_1.sol#144-149) is not in mixedCase
-Parameter HotDollarsToken.withdrawFunds_re_ent38(uint256)._weiToWithdraw (tests/re-entrancy/buggy_1.sol#144) is not in mixedCase
-Function HotDollarsToken.claimReward_re_ent4() (tests/re-entrancy/buggy_1.sol#152-158) is not in mixedCase
-Function HotDollarsToken.claimReward_re_ent39() (tests/re-entrancy/buggy_1.sol#169-175) is not in mixedCase
-Parameter HotDollarsToken.transfer(address,uint256)._to (tests/re-entrancy/buggy_1.sol#177) is not in mixedCase
-Parameter HotDollarsToken.transfer(address,uint256)._value (tests/re-entrancy/buggy_1.sol#177) is not in mixedCase
-Function HotDollarsToken.withdraw_balances_re_ent36() (tests/re-entrancy/buggy_1.sol#185-188) is not in mixedCase
-Parameter HotDollarsToken.transferFrom(address,address,uint256)._from (tests/re-entrancy/buggy_1.sol#190) is not in mixedCase
-Parameter HotDollarsToken.transferFrom(address,address,uint256)._to (tests/re-entrancy/buggy_1.sol#190) is not in mixedCase
-Parameter HotDollarsToken.transferFrom(address,address,uint256)._value (tests/re-entrancy/buggy_1.sol#190) is not in mixedCase
-Function HotDollarsToken.callme_re_ent35() (tests/re-entrancy/buggy_1.sol#202-208) is not in mixedCase
-Parameter HotDollarsToken.balanceOf(address)._owner (tests/re-entrancy/buggy_1.sol#210) is not in mixedCase
-Function HotDollarsToken.withdrawBalance_re_ent40() (tests/re-entrancy/buggy_1.sol#214-222) is not in mixedCase
-Parameter HotDollarsToken.approve(address,uint256)._spender (tests/re-entrancy/buggy_1.sol#224) is not in mixedCase
-Parameter HotDollarsToken.approve(address,uint256)._value (tests/re-entrancy/buggy_1.sol#224) is not in mixedCase
-Function HotDollarsToken.withdrawBalance_re_ent33() (tests/re-entrancy/buggy_1.sol#230-238) is not in mixedCase
-Parameter HotDollarsToken.allowance(address,address)._owner (tests/re-entrancy/buggy_1.sol#240) is not in mixedCase
-Parameter HotDollarsToken.allowance(address,address)._spender (tests/re-entrancy/buggy_1.sol#240) is not in mixedCase
-Function HotDollarsToken.bug_re_ent27() (tests/re-entrancy/buggy_1.sol#244-250) is not in mixedCase
-Variable HotDollarsToken.userBalance_re_ent26 (tests/re-entrancy/buggy_1.sol#108) is not in mixedCase
-Variable HotDollarsToken.not_called_re_ent20 (tests/re-entrancy/buggy_1.sol#119) is not in mixedCase
-Variable HotDollarsToken.redeemableEther_re_ent32 (tests/re-entrancy/buggy_1.sol#134) is not in mixedCase
-Variable HotDollarsToken.balances_re_ent38 (tests/re-entrancy/buggy_1.sol#143) is not in mixedCase
-Variable HotDollarsToken.redeemableEther_re_ent4 (tests/re-entrancy/buggy_1.sol#151) is not in mixedCase
-Variable HotDollarsToken.redeemableEther_re_ent39 (tests/re-entrancy/buggy_1.sol#168) is not in mixedCase
-Variable HotDollarsToken.balances_re_ent36 (tests/re-entrancy/buggy_1.sol#184) is not in mixedCase
-Variable HotDollarsToken.counter_re_ent35 (tests/re-entrancy/buggy_1.sol#201) is not in mixedCase
-Variable HotDollarsToken.userBalance_re_ent40 (tests/re-entrancy/buggy_1.sol#213) is not in mixedCase
-Variable HotDollarsToken.userBalance_re_ent33 (tests/re-entrancy/buggy_1.sol#229) is not in mixedCase
-Variable HotDollarsToken.not_called_re_ent27 (tests/re-entrancy/buggy_1.sol#243) is not in mixedCase
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
 
 Reentrancy in HotDollarsToken.bug_re_ent20() (tests/re-entrancy/buggy_1.sol#120-126):
 	External calls:
@@ -192,14 +94,4 @@ Reentrancy in HotDollarsToken.withdraw_balances_re_ent36() (tests/re-entrancy/bu
 	State variables written after the call(s):
 	- balances_re_ent36[msg.sender] = 0 (tests/re-entrancy/buggy_1.sol#187)
 Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
-
-Variable EIP20Interface.jackpot_re_ent23 (tests/re-entrancy/buggy_1.sol#37) is too similar to EIP20Interface.jackpot_re_ent30 (tests/re-entrancy/buggy_1.sol#66)
-Variable EIP20Interface.lastPlayer_re_ent23 (tests/re-entrancy/buggy_1.sol#36) is too similar to EIP20Interface.lastPlayer_re_ent30 (tests/re-entrancy/buggy_1.sol#65)
-Variable EIP20Interface.balances_re_ent31 (tests/re-entrancy/buggy_1.sol#86) is too similar to HotDollarsToken.balances_re_ent36 (tests/re-entrancy/buggy_1.sol#184)
-Variable EIP20Interface.balances_re_ent31 (tests/re-entrancy/buggy_1.sol#86) is too similar to HotDollarsToken.balances_re_ent38 (tests/re-entrancy/buggy_1.sol#143)
-Variable HotDollarsToken.balances_re_ent36 (tests/re-entrancy/buggy_1.sol#184) is too similar to HotDollarsToken.balances_re_ent38 (tests/re-entrancy/buggy_1.sol#143)
-Variable HotDollarsToken.not_called_re_ent20 (tests/re-entrancy/buggy_1.sol#119) is too similar to HotDollarsToken.not_called_re_ent27 (tests/re-entrancy/buggy_1.sol#243)
-Variable HotDollarsToken.redeemableEther_re_ent32 (tests/re-entrancy/buggy_1.sol#134) is too similar to HotDollarsToken.redeemableEther_re_ent39 (tests/re-entrancy/buggy_1.sol#168)
-Variable HotDollarsToken.claimReward_re_ent32().transferValue_re_ent32 (tests/re-entrancy/buggy_1.sol#138) is too similar to HotDollarsToken.claimReward_re_ent39().transferValue_re_ent39 (tests/re-entrancy/buggy_1.sol#172)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
-tests/re-entrancy/buggy_1.sol analyzed (2 contracts with 80 detectors), 91 result(s) found
+tests/re-entrancy/buggy_1.sol analyzed (2 contracts with 7 detectors), 18 result(s) found
