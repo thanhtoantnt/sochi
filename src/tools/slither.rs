@@ -96,7 +96,19 @@ fn check_slither_results(file: &Path) -> i32 {
 
     for line in reader.lines() {
         let line = line.unwrap();
+
+        // Reentrancy bugs
         if line.contains("Reentrancy in") {
+            for found in slither_regex.captures_iter(&line) {
+                let foundx = found.get(1).map_or("", |c| c.as_str());
+                debug!("found: {:?}", foundx);
+                let number = foundx.parse::<i32>().unwrap();
+                positions.push(number);
+            }
+        }
+
+        // Timestamp Dependency bugs
+        if line.contains("uses timestamp ") {
             for found in slither_regex.captures_iter(&line) {
                 let foundx = found.get(1).map_or("", |c| c.as_str());
                 debug!("found: {:?}", foundx);
