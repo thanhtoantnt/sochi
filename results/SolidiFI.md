@@ -9,6 +9,6 @@
 | Unhandled Exceptions (1374)   | 828 (828)   | 26       | 429        |
 | TOD (1336)                    | -           | -        | 4          |
 | Integer Over/Underflow (1333) | -           | 43       | 750        |
-| Use of tx.origin (1336)       | (1337)      | 658      | -          |
+| Use of tx.origin (1336)       | 1268 (1337) | 658      | -          |
 
 

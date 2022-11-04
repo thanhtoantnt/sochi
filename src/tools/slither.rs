@@ -126,7 +126,7 @@ fn check_slither_results(input_file: &Path) -> Summary {
     let mut reentrancy_positions = vec![];
     let mut timestamp_positions = vec![];
     let mut unhandled_positions = vec![];
-    let mut counter = 0;
+    let mut tx_positions = vec![];
 
     for line in reader.lines() {
         let line = line.unwrap();
@@ -153,8 +153,6 @@ fn check_slither_results(input_file: &Path) -> Summary {
 
         // Unhandled exceptions
         if line.contains("Failure condition of") {
-            counter += 1;
-            debug!("{}", line);
             for found in slither_regex_2.captures_iter(&line) {
                 let foundx = found.get(1).map_or("", |c| c.as_str());
                 debug!("found: {:?}", foundx);
@@ -162,12 +160,16 @@ fn check_slither_results(input_file: &Path) -> Summary {
                 unhandled_positions.push(number);
             }
         }
-    }
 
-    // println!("unhanled: {}", unhandled_positions.len());
-    // println!("counter: {}", counter);
-    if unhandled_positions.len() != counter {
-        println!("different in {}", input_file.display());
+        // tx.origin
+        if line.contains(" uses tx.origin for authorization") {
+            for found in slither_regex.captures_iter(&line) {
+                let foundx = found.get(1).map_or("", |c| c.as_str());
+                debug!("found: {:?}", foundx);
+                let number = foundx.parse::<i32>().unwrap();
+                tx_positions.push(number);
+            }
+        }
     }
 
     let baseline_file = parent_dir.join(file_stem_name.to_owned() + "." + super::CSV);
@@ -215,6 +217,15 @@ fn check_slither_results(input_file: &Path) -> Summary {
         }
     }
 
+    let mut tx_counter = 0;
+    for position in tx_positions {
+        for (number, range) in baseline_locations.clone() {
+            if position >= number && position <= number + range {
+                tx_counter += 1;
+            }
+        }
+    }
+
     // for positions
 
     // let contents = fs::read_to_string(result_file.to_str().unwrap())
@@ -234,7 +245,7 @@ fn check_slither_results(input_file: &Path) -> Summary {
         unhandled_counter,
         0,
         0,
-        0,
+        tx_counter,
     )
 }
 
