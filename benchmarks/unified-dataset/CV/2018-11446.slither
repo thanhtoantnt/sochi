@@ -1,85 +1,64 @@
-Compilation warnings/errors on benchmarks/unified-dataset/CV/2018-11446.sol:
-Error: Source file requires different compiler version (current compiler is 0.8.17+commit.8df45f5f.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
- --> benchmarks/unified-dataset/CV/2018-11446.sol:1:1:
-  |
-1 | pragma solidity ^0.4.13;
-  | ^^^^^^^^^^^^^^^^^^^^^^^^
 
-
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 544, in _run_solc
-    ret: Dict = json.loads(stdout)
-  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
-    return _default_decoder.decode(s)
-  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 793, in main_impl
-    ) = process_all(filename, args, detector_classes, printer_classes)
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 86, in process_all
-    compilations = compile_all(target, **vars(args))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 637, in compile_all
-    compilations.append(CryticCompile(target, **kwargs))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 117, in __init__
-    self._compile(**kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 548, in _compile
-    self._platform.compile(self, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 154, in compile
-    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 276, in _get_targets_json
-    return _run_solc(
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 548, in _run_solc
-    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
-crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source file requires different compiler version (current compiler is 0.8.17+commit.8df45f5f.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
- --> benchmarks/unified-dataset/CV/2018-11446.sol:1:1:
-  |
-1 | pragma solidity ^0.4.13;
-  | ^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-None
-Error in benchmarks/unified-dataset/CV/2018-11446.sol
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 544, in _run_solc
-    ret: Dict = json.loads(stdout)
-  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
-    return _default_decoder.decode(s)
-  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 793, in main_impl
-    ) = process_all(filename, args, detector_classes, printer_classes)
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 86, in process_all
-    compilations = compile_all(target, **vars(args))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 637, in compile_all
-    compilations.append(CryticCompile(target, **kwargs))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 117, in __init__
-    self._compile(**kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 548, in _compile
-    self._platform.compile(self, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 154, in compile
-    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 276, in _get_targets_json
-    return _run_solc(
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 548, in _run_solc
-    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
-crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source file requires different compiler version (current compiler is 0.8.17+commit.8df45f5f.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
- --> benchmarks/unified-dataset/CV/2018-11446.sol:1:1:
-  |
-1 | pragma solidity ^0.4.13;
-  | ^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
+Reentrancy in GRX.reward(address,uint256,bool,string) (benchmarks/unified-dataset/CV/2018-11446.sol#210-235):
+	External calls:
+	- sell((minBalanceForAccounts - msg.sender.balance) * sellPrice) (benchmarks/unified-dataset/CV/2018-11446.sol#214)
+		- require(bool)(msg.sender.send(revenue)) (benchmarks/unified-dataset/CV/2018-11446.sol#412)
+	State variables written after the call(s):
+	- _transfer(msg.sender,_to,_value) (benchmarks/unified-dataset/CV/2018-11446.sol#217)
+		- balanceOf[_from] -= _value (benchmarks/unified-dataset/CV/2018-11446.sol#170)
+		- balanceOf[_to] += _value (benchmarks/unified-dataset/CV/2018-11446.sol#171)
+	- balanceOf[msg.sender] -= _value (benchmarks/unified-dataset/CV/2018-11446.sol#222)
+	- lockedRewardsOf[_to][msg.sender] += _value (benchmarks/unified-dataset/CV/2018-11446.sol#224)
+	- totalLockedRewardsOf[_to] += _value (benchmarks/unified-dataset/CV/2018-11446.sol#223)
+	- totalRewardIssuedOut[msg.sender] += _value (benchmarks/unified-dataset/CV/2018-11446.sol#230)
+	- userRewardCount[_to][msg.sender] += 1 (benchmarks/unified-dataset/CV/2018-11446.sol#229)
+	- userRewarderCount[_to] += 1 (benchmarks/unified-dataset/CV/2018-11446.sol#226)
+	- userRewarders[_to][userRewarderCount[_to]] = msg.sender (benchmarks/unified-dataset/CV/2018-11446.sol#227)
+	Event emitted after the call(s):
+	- Reward(msg.sender,_to,_value,data,now) (benchmarks/unified-dataset/CV/2018-11446.sol#234)
+	- Transfer(_from,_to,_value) (benchmarks/unified-dataset/CV/2018-11446.sol#172)
+		- _transfer(msg.sender,_to,_value) (benchmarks/unified-dataset/CV/2018-11446.sol#217)
+	- Transfer(msg.sender,_to,_value) (benchmarks/unified-dataset/CV/2018-11446.sol#231)
+Reentrancy in GRX.sell(uint256) (benchmarks/unified-dataset/CV/2018-11446.sol#403-415):
+	External calls:
+	- require(bool)(msg.sender.send(revenue)) (benchmarks/unified-dataset/CV/2018-11446.sol#412)
+	Event emitted after the call(s):
+	- Transfer(msg.sender,this,amount) (benchmarks/unified-dataset/CV/2018-11446.sol#413)
+Reentrancy in GRX.transfer(address,uint256) (benchmarks/unified-dataset/CV/2018-11446.sol#183-189):
+	External calls:
+	- sell((minBalanceForAccounts - msg.sender.balance) * sellPrice) (benchmarks/unified-dataset/CV/2018-11446.sol#186)
+		- require(bool)(msg.sender.send(revenue)) (benchmarks/unified-dataset/CV/2018-11446.sol#412)
+	State variables written after the call(s):
+	- _transfer(msg.sender,_to,_value) (benchmarks/unified-dataset/CV/2018-11446.sol#188)
+		- balanceOf[_from] -= _value (benchmarks/unified-dataset/CV/2018-11446.sol#170)
+		- balanceOf[_to] += _value (benchmarks/unified-dataset/CV/2018-11446.sol#171)
+	Event emitted after the call(s):
+	- Transfer(_from,_to,_value) (benchmarks/unified-dataset/CV/2018-11446.sol#172)
+		- _transfer(msg.sender,_to,_value) (benchmarks/unified-dataset/CV/2018-11446.sol#188)
+Reentrancy in GRX.transferReward(address,uint256) (benchmarks/unified-dataset/CV/2018-11446.sol#245-257):
+	External calls:
+	- sell((minBalanceForAccounts - msg.sender.balance) * sellPrice) (benchmarks/unified-dataset/CV/2018-11446.sol#251)
+		- require(bool)(msg.sender.send(revenue)) (benchmarks/unified-dataset/CV/2018-11446.sol#412)
+	State variables written after the call(s):
+	- balanceOf[_to] += _value (benchmarks/unified-dataset/CV/2018-11446.sol#255)
+	- lockedRewardsOf[msg.sender][_to] -= _value (benchmarks/unified-dataset/CV/2018-11446.sol#254)
+	- totalLockedRewardsOf[msg.sender] -= _value (benchmarks/unified-dataset/CV/2018-11446.sol#253)
+	Event emitted after the call(s):
+	- Transfer(msg.sender,_to,_value) (benchmarks/unified-dataset/CV/2018-11446.sol#256)
+Reentrancy in GRX.unlockReward(address,uint256) (benchmarks/unified-dataset/CV/2018-11446.sol#267-278):
+	External calls:
+	- sell((minBalanceForAccounts - msg.sender.balance) * sellPrice) (benchmarks/unified-dataset/CV/2018-11446.sol#272)
+		- require(bool)(msg.sender.send(revenue)) (benchmarks/unified-dataset/CV/2018-11446.sol#412)
+	State variables written after the call(s):
+	- balanceOf[addr] += _value (benchmarks/unified-dataset/CV/2018-11446.sol#276)
+	- lockedRewardsOf[addr][msg.sender] -= _value (benchmarks/unified-dataset/CV/2018-11446.sol#275)
+	- totalLockedRewardsOf[addr] -= _value (benchmarks/unified-dataset/CV/2018-11446.sol#274)
+	Event emitted after the call(s):
+	- Unlock(addr,msg.sender,_value) (benchmarks/unified-dataset/CV/2018-11446.sol#277)
+Reentrancy in GRX.withdraw(address,uint256) (benchmarks/unified-dataset/CV/2018-11446.sol#420-423):
+	External calls:
+	- target.transfer(amount) (benchmarks/unified-dataset/CV/2018-11446.sol#421)
+	Event emitted after the call(s):
+	- Withdrawn(target,amount) (benchmarks/unified-dataset/CV/2018-11446.sol#422)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+benchmarks/unified-dataset/CV/2018-11446.sol analyzed (3 contracts with 7 detectors), 6 result(s) found

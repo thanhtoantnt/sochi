@@ -1,85 +1,101 @@
 Compilation warnings/errors on benchmarks/unified-dataset/CV/2018-14086.sol:
-Error: Source file requires different compiler version (current compiler is 0.8.17+commit.8df45f5f.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
- --> benchmarks/unified-dataset/CV/2018-14086.sol:1:1:
-  |
-1 | pragma solidity ^0.4.21;
-  | ^^^^^^^^^^^^^^^^^^^^^^^^
+benchmarks/unified-dataset/CV/2018-14086.sol:7:5: Warning: No visibility specified. Defaulting to "public".
+    function owned() {
+    ^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/unified-dataset/CV/2018-14086.sol:12:34: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (msg.sender != owner) throw;
+                                 ^---^
+benchmarks/unified-dataset/CV/2018-14086.sol:16:5: Warning: No visibility specified. Defaulting to "public".
+    function transferOwnership(address newOwner) onlyOwner {
+    ^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/unified-dataset/CV/2018-14086.sol:41:5: Warning: No visibility specified. Defaulting to "public".
+    function MyToken(
+    ^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/unified-dataset/CV/2018-14086.sol:57:5: Warning: No visibility specified. Defaulting to "public".
+    function transfer(address _to, uint256 _value) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/unified-dataset/CV/2018-14086.sol:58:44: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+            if (frozenAccount[msg.sender]) throw;
+                                           ^---^
+benchmarks/unified-dataset/CV/2018-14086.sol:59:45: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (balanceOf[msg.sender] < _value) throw;           // Check if the sender has enough
+                                            ^---^
+benchmarks/unified-dataset/CV/2018-14086.sol:60:55: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (balanceOf[_to] + _value < balanceOf[_to]) throw; // Check for overflows
+                                                      ^---^
+benchmarks/unified-dataset/CV/2018-14086.sol:69:9: Warning: No visibility specified. Defaulting to "public".
+        function mintToken(address target, uint256 mintedAmount) onlyOwner {
+        ^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/unified-dataset/CV/2018-14086.sol:76:9: Warning: No visibility specified. Defaulting to "public".
+        function freezeAccount(address target, bool freeze) onlyOwner {
+        ^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/unified-dataset/CV/2018-14086.sol:81:9: Warning: No visibility specified. Defaulting to "public".
+        function setPrices(uint256 newSellPrice, uint256 newBuyPrice) onlyOwner {
+        ^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/unified-dataset/CV/2018-14086.sol:86:9: Warning: No visibility specified. Defaulting to "public".
+        function buy() returns (uint amount){
+        ^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/unified-dataset/CV/2018-14086.sol:88:43: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+            if (balanceOf[this] < amount) throw;               // checks if it has enough to sell
+                                          ^---^
+benchmarks/unified-dataset/CV/2018-14086.sol:95:9: Warning: No visibility specified. Defaulting to "public".
+        function sell(uint amount) returns (uint revenue){
+        ^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/unified-dataset/CV/2018-14086.sol:96:50: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+            if (balanceOf[msg.sender] < amount ) throw;        // checks if the sender has enough to sell
+                                                 ^---^
+benchmarks/unified-dataset/CV/2018-14086.sol:106:9: Warning: No visibility specified. Defaulting to "public".
+        function setMinBalance(uint minimumBalanceInFinney) onlyOwner {
+        ^ (Relevant source part starts here and spans across multiple lines).
+benchmarks/unified-dataset/CV/2018-14086.sol:62:52: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        if(_to.balance<minBalanceForAccounts)      _to.send(sell((minBalanceForAccounts-_to.balance)/sellPrice));
+                                                   ^-----------------------------------------------------------^
+benchmarks/unified-dataset/CV/2018-14086.sol:65:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Transfer(msg.sender, _to, _value);                   // Notify anyone listening that this transfer took place
+        ^-------------------------------^
+benchmarks/unified-dataset/CV/2018-14086.sol:72:13: Warning: Invoking events without "emit" prefix is deprecated.
+            Transfer(0, owner, mintedAmount);
+            ^------------------------------^
+benchmarks/unified-dataset/CV/2018-14086.sol:73:13: Warning: Invoking events without "emit" prefix is deprecated.
+            Transfer(owner, target, mintedAmount);
+            ^-----------------------------------^
+benchmarks/unified-dataset/CV/2018-14086.sol:78:13: Warning: Invoking events without "emit" prefix is deprecated.
+            FrozenFunds(target, freeze);
+            ^-------------------------^
+benchmarks/unified-dataset/CV/2018-14086.sol:91:13: Warning: Invoking events without "emit" prefix is deprecated.
+            Transfer(this, msg.sender, amount);                // execute an event reflecting the change
+            ^--------------------------------^
+benchmarks/unified-dataset/CV/2018-14086.sol:100:13: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+            msg.sender.send(revenue);                          // sends ether to the seller
+            ^----------------------^
+benchmarks/unified-dataset/CV/2018-14086.sol:101:13: Warning: Invoking events without "emit" prefix is deprecated.
+            Transfer(msg.sender, this, amount);                // executes an event reflecting on the change
+            ^--------------------------------^
+benchmarks/unified-dataset/CV/2018-14086.sol:87:22: Warning: "msg.value" used in non-payable function. Do you want to add the "payable" modifier to this function?
+            amount = msg.value / buyPrice;                     // calculates the amount
+                     ^-------^
 
 
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 544, in _run_solc
-    ret: Dict = json.loads(stdout)
-  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
-    return _default_decoder.decode(s)
-  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 793, in main_impl
-    ) = process_all(filename, args, detector_classes, printer_classes)
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 86, in process_all
-    compilations = compile_all(target, **vars(args))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 637, in compile_all
-    compilations.append(CryticCompile(target, **kwargs))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 117, in __init__
-    self._compile(**kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 548, in _compile
-    self._platform.compile(self, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 154, in compile
-    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 276, in _get_targets_json
-    return _run_solc(
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 548, in _run_solc
-    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
-crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source file requires different compiler version (current compiler is 0.8.17+commit.8df45f5f.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
- --> benchmarks/unified-dataset/CV/2018-14086.sol:1:1:
-  |
-1 | pragma solidity ^0.4.21;
-  | ^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-None
-Error in benchmarks/unified-dataset/CV/2018-14086.sol
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 544, in _run_solc
-    ret: Dict = json.loads(stdout)
-  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
-    return _default_decoder.decode(s)
-  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 793, in main_impl
-    ) = process_all(filename, args, detector_classes, printer_classes)
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 86, in process_all
-    compilations = compile_all(target, **vars(args))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 637, in compile_all
-    compilations.append(CryticCompile(target, **kwargs))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 117, in __init__
-    self._compile(**kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 548, in _compile
-    self._platform.compile(self, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 154, in compile
-    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 276, in _get_targets_json
-    return _run_solc(
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 548, in _run_solc
-    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
-crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source file requires different compiler version (current compiler is 0.8.17+commit.8df45f5f.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
- --> benchmarks/unified-dataset/CV/2018-14086.sol:1:1:
-  |
-1 | pragma solidity ^0.4.21;
-  | ^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
+Reentrancy in MyToken.sell(uint256) (benchmarks/unified-dataset/CV/2018-14086.sol#95-103):
+	External calls:
+	- msg.sender.send(revenue) (benchmarks/unified-dataset/CV/2018-14086.sol#100)
+	Event emitted after the call(s):
+	- Transfer(msg.sender,this,amount) (benchmarks/unified-dataset/CV/2018-14086.sol#101)
+Reentrancy in MyToken.transfer(address,uint256) (benchmarks/unified-dataset/CV/2018-14086.sol#57-66):
+	External calls:
+	- sell((minBalanceForAccounts - msg.sender.balance) / sellPrice) (benchmarks/unified-dataset/CV/2018-14086.sol#61)
+		- msg.sender.send(revenue) (benchmarks/unified-dataset/CV/2018-14086.sol#100)
+	- _to.send(sell((minBalanceForAccounts - _to.balance) / sellPrice)) (benchmarks/unified-dataset/CV/2018-14086.sol#62)
+		- msg.sender.send(revenue) (benchmarks/unified-dataset/CV/2018-14086.sol#100)
+	State variables written after the call(s):
+	- _to.send(sell((minBalanceForAccounts - _to.balance) / sellPrice)) (benchmarks/unified-dataset/CV/2018-14086.sol#62)
+		- balanceOf[this] += amount (benchmarks/unified-dataset/CV/2018-14086.sol#97)
+		- balanceOf[msg.sender] -= amount (benchmarks/unified-dataset/CV/2018-14086.sol#98)
+	- balanceOf[msg.sender] -= _value (benchmarks/unified-dataset/CV/2018-14086.sol#63)
+	- balanceOf[_to] += _value (benchmarks/unified-dataset/CV/2018-14086.sol#64)
+	Event emitted after the call(s):
+	- Transfer(msg.sender,this,amount) (benchmarks/unified-dataset/CV/2018-14086.sol#101)
+		- _to.send(sell((minBalanceForAccounts - _to.balance) / sellPrice)) (benchmarks/unified-dataset/CV/2018-14086.sol#62)
+	- Transfer(msg.sender,_to,_value) (benchmarks/unified-dataset/CV/2018-14086.sol#65)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+benchmarks/unified-dataset/CV/2018-14086.sol analyzed (2 contracts with 7 detectors), 2 result(s) found

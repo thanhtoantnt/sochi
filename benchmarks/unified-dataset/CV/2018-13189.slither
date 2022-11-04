@@ -1,85 +1,118 @@
 Compilation warnings/errors on benchmarks/unified-dataset/CV/2018-13189.sol:
-Error: Source file requires different compiler version (current compiler is 0.8.17+commit.8df45f5f.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
- --> benchmarks/unified-dataset/CV/2018-13189.sol:1:1:
-  |
-1 | pragma solidity ^0.4.18;
-  | ^^^^^^^^^^^^^^^^^^^^^^^^
+benchmarks/unified-dataset/CV/2018-13189.sol:41:3: Warning: No visibility specified. Defaulting to "public".
+  function balanceOf(address who) constant returns (uint256);
+  ^---------------------------------------------------------^
+benchmarks/unified-dataset/CV/2018-13189.sol:42:3: Warning: No visibility specified. Defaulting to "public".
+  function transfer(address to, uint256 value) returns (bool);
+  ^----------------------------------------------------------^
+benchmarks/unified-dataset/CV/2018-13189.sol:52:3: Warning: No visibility specified. Defaulting to "public".
+  function allowance(address owner, address spender) constant returns (uint256);
+  ^----------------------------------------------------------------------------^
+benchmarks/unified-dataset/CV/2018-13189.sol:53:3: Warning: No visibility specified. Defaulting to "public".
+  function transferFrom(address from, address to, uint256 value) returns (bool);
+  ^----------------------------------------------------------------------------^
+benchmarks/unified-dataset/CV/2018-13189.sol:54:3: Warning: No visibility specified. Defaulting to "public".
+  function approve(address spender, uint256 value) returns (bool);
+  ^--------------------------------------------------------------^
+benchmarks/unified-dataset/CV/2018-13189.sol:73:3: Warning: No visibility specified. Defaulting to "public".
+  function transfer(address _to, uint256 _value) returns (bool) {
+  ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-13189.sol:85:3: Warning: No visibility specified. Defaulting to "public".
+  function balanceOf(address _owner) constant returns (uint256 balance) {
+  ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-13189.sol:109:3: Warning: No visibility specified. Defaulting to "public".
+  function transferFrom(address _from, address _to, uint256 _value) returns (bool) {
+  ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-13189.sol:127:3: Warning: No visibility specified. Defaulting to "public".
+  function approve(address _spender, uint256 _value) returns (bool) {
+  ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-13189.sol:146:3: Warning: No visibility specified. Defaulting to "public".
+  function allowance(address _owner, address _spender) constant returns (uint256 remaining) {
+  ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-13189.sol:165:3: Warning: No visibility specified. Defaulting to "public".
+  function Ownable() {
+  ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-13189.sol:183:3: Warning: No visibility specified. Defaulting to "public".
+  function transferOwnership(address newOwner) onlyOwner {
+  ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-13189.sol:222:3: Warning: No visibility specified. Defaulting to "public".
+  function pause() onlyOwner whenNotPaused returns (bool) {
+  ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-13189.sol:231:3: Warning: No visibility specified. Defaulting to "public".
+  function unpause() onlyOwner whenPaused returns (bool) {
+  ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-13189.sol:247:3: Warning: No visibility specified. Defaulting to "public".
+  function transfer(address _to, uint _value) whenNotPaused returns (bool) {
+  ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-13189.sol:251:3: Warning: No visibility specified. Defaulting to "public".
+  function transferFrom(address _from, address _to, uint _value) whenNotPaused returns (bool) {
+  ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-13189.sol:264:3: Warning: No visibility specified. Defaulting to "public".
+  function UNLB() {
+  ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-13189.sol:290:3: Warning: No visibility specified. Defaulting to "public".
+  function ICO() {
+  ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-13189.sol:8:3: Warning: Function state mutability can be restricted to pure
+  function mul(uint256 a, uint256 b) internal constant returns (uint256) {
+  ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-13189.sol:14:3: Warning: Function state mutability can be restricted to pure
+  function div(uint256 a, uint256 b) internal constant returns (uint256) {
+  ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-13189.sol:21:3: Warning: Function state mutability can be restricted to pure
+  function sub(uint256 a, uint256 b) internal constant returns (uint256) {
+  ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-13189.sol:26:3: Warning: Function state mutability can be restricted to pure
+  function add(uint256 a, uint256 b) internal constant returns (uint256) {
+  ^
+Spanning multiple lines.
 
 
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 544, in _run_solc
-    ret: Dict = json.loads(stdout)
-  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
-    return _default_decoder.decode(s)
-  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+Reentrancy in ICO.finish(address,address,address,address) (benchmarks/unified-dataset/CV/2018-13189.sol#319-329):
+	External calls:
+	- unlb.unpause() (benchmarks/unified-dataset/CV/2018-13189.sol#321)
+	State variables written after the call(s):
+	- isFinished = true (benchmarks/unified-dataset/CV/2018-13189.sol#322)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
 
-During handling of the above exception, another exception occurred:
+Reentrancy in ICO.foreignBuy(address,uint256,string) (benchmarks/unified-dataset/CV/2018-13189.sol#312-317):
+	External calls:
+	- unlb.mint(_investor,_unlbValue) (benchmarks/unified-dataset/CV/2018-13189.sol#315)
+	Event emitted after the call(s):
+	- ForeignBuy(_investor,_unlbValue,_txHash) (benchmarks/unified-dataset/CV/2018-13189.sol#316)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
 
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 793, in main_impl
-    ) = process_all(filename, args, detector_classes, printer_classes)
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 86, in process_all
-    compilations = compile_all(target, **vars(args))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 637, in compile_all
-    compilations.append(CryticCompile(target, **kwargs))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 117, in __init__
-    self._compile(**kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 548, in _compile
-    self._platform.compile(self, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 154, in compile
-    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 276, in _get_targets_json
-    return _run_solc(
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 548, in _run_solc
-    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
-crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source file requires different compiler version (current compiler is 0.8.17+commit.8df45f5f.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
- --> benchmarks/unified-dataset/CV/2018-13189.sol:1:1:
-  |
-1 | pragma solidity ^0.4.18;
-  | ^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-None
-Error in benchmarks/unified-dataset/CV/2018-13189.sol
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 544, in _run_solc
-    ret: Dict = json.loads(stdout)
-  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
-    return _default_decoder.decode(s)
-  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 793, in main_impl
-    ) = process_all(filename, args, detector_classes, printer_classes)
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 86, in process_all
-    compilations = compile_all(target, **vars(args))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 637, in compile_all
-    compilations.append(CryticCompile(target, **kwargs))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 117, in __init__
-    self._compile(**kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 548, in _compile
-    self._platform.compile(self, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 154, in compile
-    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 276, in _get_targets_json
-    return _run_solc(
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 548, in _run_solc
-    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
-crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source file requires different compiler version (current compiler is 0.8.17+commit.8df45f5f.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
- --> benchmarks/unified-dataset/CV/2018-13189.sol:1:1:
-  |
-1 | pragma solidity ^0.4.18;
-  | ^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
+ICO.pricePerWei() (benchmarks/unified-dataset/CV/2018-13189.sol#296-303) uses timestamp for comparisons
+	Dangerous comparisons:
+	- now < 1511799420 (benchmarks/unified-dataset/CV/2018-13189.sol#297)
+	- now < 1511885820 (benchmarks/unified-dataset/CV/2018-13189.sol#298)
+	- now < 1513181820 (benchmarks/unified-dataset/CV/2018-13189.sol#299)
+	- now < 1515514620 (benchmarks/unified-dataset/CV/2018-13189.sol#300)
+	- now < 1516205820 (benchmarks/unified-dataset/CV/2018-13189.sol#301)
+ICO.fallback() (benchmarks/unified-dataset/CV/2018-13189.sol#306-310) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(! paused && now >= ICO_START_DATE && now < ICO_END_DATE) (benchmarks/unified-dataset/CV/2018-13189.sol#307)
+ICO.foreignBuy(address,uint256,string) (benchmarks/unified-dataset/CV/2018-13189.sol#312-317) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(! paused && now >= ICO_START_DATE && now < ICO_END_DATE) (benchmarks/unified-dataset/CV/2018-13189.sol#313)
+ICO.finish(address,address,address,address) (benchmarks/unified-dataset/CV/2018-13189.sol#319-329) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now >= ICO_END_DATE && ! isFinished) (benchmarks/unified-dataset/CV/2018-13189.sol#320)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+benchmarks/unified-dataset/CV/2018-13189.sol analyzed (10 contracts with 7 detectors), 6 result(s) found

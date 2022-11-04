@@ -1,85 +1,116 @@
 Compilation warnings/errors on benchmarks/unified-dataset/CV/2018-14089.sol:
-Error: Source file requires different compiler version (current compiler is 0.8.17+commit.8df45f5f.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
- --> benchmarks/unified-dataset/CV/2018-14089.sol:1:1:
-  |
-1 | pragma solidity ^0.4.19;
-  | ^^^^^^^^^^^^^^^^^^^^^^^^
+benchmarks/unified-dataset/CV/2018-14089.sol:29:5: Warning: No visibility specified. Defaulting to "public".
+    function balanceOf(address _owner) constant returns (uint256);
+    ^------------------------------------------------------------^
+benchmarks/unified-dataset/CV/2018-14089.sol:30:5: Warning: No visibility specified. Defaulting to "public".
+    function transfer(address _to, uint256 _value) returns (bool);
+    ^------------------------------------------------------------^
+benchmarks/unified-dataset/CV/2018-14089.sol:48:5: Warning: No visibility specified. Defaulting to "public".
+    function name() constant returns (string) { return "Virgo_ZodiacToken"; }
+    ^-----------------------------------------------------------------------^
+benchmarks/unified-dataset/CV/2018-14089.sol:49:5: Warning: No visibility specified. Defaulting to "public".
+    function symbol() constant returns (string) { return "VIR♍"; }
+    ^--------------------------------------------------------------^
+benchmarks/unified-dataset/CV/2018-14089.sol:50:5: Warning: No visibility specified. Defaulting to "public".
+    function decimals() constant returns (uint8) { return 8; }
+    ^--------------------------------------------------------^
+benchmarks/unified-dataset/CV/2018-14089.sol:64:5: Warning: No visibility specified. Defaulting to "public".
+    function balanceOf(address _owner) constant returns (uint256) { return balances[_owner]; }
+    ^----------------------------------------------------------------------------------------^
+benchmarks/unified-dataset/CV/2018-14089.sol:66:5: Warning: No visibility specified. Defaulting to "public".
+    function transfer(address _to, uint256 _value) returns (bool success) {
+    ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-14089.sol:68:46: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if(msg.data.length < (2 * 32) + 4) { throw; }
+                                             ^---^
+benchmarks/unified-dataset/CV/2018-14089.sol:86:5: Warning: No visibility specified. Defaulting to "public".
+    function transferFrom(address _from, address _to, uint256 _value) returns (bool success) {
+    ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-14089.sol:88:46: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if(msg.data.length < (3 * 32) + 4) { throw; }
+                                             ^---^
+benchmarks/unified-dataset/CV/2018-14089.sol:110:5: Warning: No visibility specified. Defaulting to "public".
+    function approve(address _spender, uint256 _value) returns (bool success) {
+    ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-14089.sol:120:5: Warning: No visibility specified. Defaulting to "public".
+    function allowance(address _owner, address _spender) constant returns (uint256) {
+    ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-14089.sol:129:5: Warning: No visibility specified. Defaulting to "public".
+    function enablePurchasing() {
+    ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-14089.sol:130:36: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (msg.sender != owner) { throw; }
+                                   ^---^
+benchmarks/unified-dataset/CV/2018-14089.sol:135:5: Warning: No visibility specified. Defaulting to "public".
+    function disablePurchasing() {
+    ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-14089.sol:136:36: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (msg.sender != owner) { throw; }
+                                   ^---^
+benchmarks/unified-dataset/CV/2018-14089.sol:141:5: Warning: No visibility specified. Defaulting to "public".
+    function withdrawForeignTokens(address _tokenContract) returns (bool) {
+    ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-14089.sol:142:36: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (msg.sender != owner) { throw; }
+                                   ^---^
+benchmarks/unified-dataset/CV/2018-14089.sol:150:5: Warning: No visibility specified. Defaulting to "public".
+    function getStats() constant returns (uint256, uint256, uint256, bool) {
+    ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-14089.sol:154:5: Warning: No visibility specified. Defaulting to "public".
+    function setAIRDROPBounce(uint _newPrice)  {
+    ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-14089.sol:155:36: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (msg.sender != owner) { throw; }
+                                   ^---^
+benchmarks/unified-dataset/CV/2018-14089.sol:159:5: Warning: No visibility specified. Defaulting to "public".
+    function setICORatio(uint _newPrice)  {
+    ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-14089.sol:160:36: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (msg.sender != owner) { throw; }
+                                   ^---^
+benchmarks/unified-dataset/CV/2018-14089.sol:164:5: Warning: No visibility specified. Defaulting to "public".
+    function setMINfinney(uint _newPrice)  {
+    ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-14089.sol:165:36: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (msg.sender != owner) { throw; }
+                                   ^---^
+benchmarks/unified-dataset/CV/2018-14089.sol:170:5: Warning: No visibility specified. Defaulting to "public".
+    function() payable {
+    ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-14089.sol:171:35: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if (!purchasingAllowed) { throw; }
+                                  ^---^
+benchmarks/unified-dataset/CV/2018-14089.sol:48:5: Warning: Function state mutability can be restricted to pure
+    function name() constant returns (string) { return "Virgo_ZodiacToken"; }
+    ^-----------------------------------------------------------------------^
+benchmarks/unified-dataset/CV/2018-14089.sol:49:5: Warning: Function state mutability can be restricted to pure
+    function symbol() constant returns (string) { return "VIR♍"; }
+    ^--------------------------------------------------------------^
+benchmarks/unified-dataset/CV/2018-14089.sol:50:5: Warning: Function state mutability can be restricted to pure
+    function decimals() constant returns (uint8) { return 8; }
+    ^--------------------------------------------------------^
 
 
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 544, in _run_solc
-    ret: Dict = json.loads(stdout)
-  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
-    return _default_decoder.decode(s)
-  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 793, in main_impl
-    ) = process_all(filename, args, detector_classes, printer_classes)
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 86, in process_all
-    compilations = compile_all(target, **vars(args))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 637, in compile_all
-    compilations.append(CryticCompile(target, **kwargs))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 117, in __init__
-    self._compile(**kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 548, in _compile
-    self._platform.compile(self, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 154, in compile
-    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 276, in _get_targets_json
-    return _run_solc(
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 548, in _run_solc
-    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
-crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source file requires different compiler version (current compiler is 0.8.17+commit.8df45f5f.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
- --> benchmarks/unified-dataset/CV/2018-14089.sol:1:1:
-  |
-1 | pragma solidity ^0.4.19;
-  | ^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-None
-Error in benchmarks/unified-dataset/CV/2018-14089.sol
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 544, in _run_solc
-    ret: Dict = json.loads(stdout)
-  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
-    return _default_decoder.decode(s)
-  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 793, in main_impl
-    ) = process_all(filename, args, detector_classes, printer_classes)
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 86, in process_all
-    compilations = compile_all(target, **vars(args))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 637, in compile_all
-    compilations.append(CryticCompile(target, **kwargs))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 117, in __init__
-    self._compile(**kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 548, in _compile
-    self._platform.compile(self, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 154, in compile
-    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 276, in _get_targets_json
-    return _run_solc(
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 548, in _run_solc
-    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
-crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source file requires different compiler version (current compiler is 0.8.17+commit.8df45f5f.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
- --> benchmarks/unified-dataset/CV/2018-14089.sol:1:1:
-  |
-1 | pragma solidity ^0.4.19;
-  | ^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
+Reentrancy in Virgo_ZodiacToken.fallback() (benchmarks/unified-dataset/CV/2018-14089.sol#170-185):
+	External calls:
+	- owner.transfer(msg.value) (benchmarks/unified-dataset/CV/2018-14089.sol#175)
+	State variables written after the call(s):
+	- balances[msg.sender] += tokensIssued (benchmarks/unified-dataset/CV/2018-14089.sol#182)
+	- totalContribution += msg.value (benchmarks/unified-dataset/CV/2018-14089.sol#176)
+	- totalSupply += tokensIssued (benchmarks/unified-dataset/CV/2018-14089.sol#181)
+	Event emitted after the call(s):
+	- Transfer(address(this),msg.sender,tokensIssued) (benchmarks/unified-dataset/CV/2018-14089.sol#184)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+benchmarks/unified-dataset/CV/2018-14089.sol analyzed (3 contracts with 7 detectors), 1 result(s) found

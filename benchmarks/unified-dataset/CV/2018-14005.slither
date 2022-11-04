@@ -1,85 +1,79 @@
 Compilation warnings/errors on benchmarks/unified-dataset/CV/2018-14005.sol:
-Error: Source file requires different compiler version (current compiler is 0.8.17+commit.8df45f5f.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
- --> benchmarks/unified-dataset/CV/2018-14005.sol:1:1:
-  |
-1 | pragma solidity ^0.4.19;
-  | ^^^^^^^^^^^^^^^^^^^^^^^^
+benchmarks/unified-dataset/CV/2018-14005.sol:14:3: Warning: No visibility specified. Defaulting to "public".
+  function balanceOf(address who) constant returns (uint256);
+  ^---------------------------------------------------------^
+benchmarks/unified-dataset/CV/2018-14005.sol:15:3: Warning: No visibility specified. Defaulting to "public".
+  function transfer(address to, uint256 value) returns (bool);
+  ^----------------------------------------------------------^
+benchmarks/unified-dataset/CV/2018-14005.sol:26:3: Warning: No visibility specified. Defaulting to "public".
+  function allowance(address owner, address spender) constant returns (uint256);
+  ^----------------------------------------------------------------------------^
+benchmarks/unified-dataset/CV/2018-14005.sol:27:3: Warning: No visibility specified. Defaulting to "public".
+  function transferFrom(address from, address to, uint256 value) returns (bool);
+  ^----------------------------------------------------------------------------^
+benchmarks/unified-dataset/CV/2018-14005.sol:28:3: Warning: No visibility specified. Defaulting to "public".
+  function approve(address spender, uint256 value) returns (bool);
+  ^--------------------------------------------------------------^
+benchmarks/unified-dataset/CV/2018-14005.sol:64:8: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+       throw;
+       ^---^
+benchmarks/unified-dataset/CV/2018-14005.sol:69:2: Warning: No visibility specified. Defaulting to "public".
+ function transfer(address _to, uint256 _value) onlyPayloadSize(2 * 32) returns (bool) {
+ ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-14005.sol:81:3: Warning: No visibility specified. Defaulting to "public".
+  function balanceOf(address _owner) constant returns (uint256 balance) {
+  ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-14005.sol:169:3: Warning: No visibility specified. Defaulting to "public".
+  function Ownable() {
+  ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-14005.sol:184:3: Warning: No visibility specified. Defaulting to "public".
+  function transferOwnership(address newOwner) onlyOwner {
+  ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-14005.sol:199:3: Warning: No visibility specified. Defaulting to "public".
+  function MalaysianCoin () { 
+  ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-14005.sol:212:1: Warning: No visibility specified. Defaulting to "public".
+function transferAUTOtokens10(address[] addresses) {
+^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-14005.sol:223:1: Warning: No visibility specified. Defaulting to "public".
+function transferAUTOtokens5(address[] addresses) {
+^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-14005.sol:234:1: Warning: No visibility specified. Defaulting to "public".
+function transferAUTOtoken1(address[] addresses) {
+^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-14005.sol:246:4: Warning: No visibility specified. Defaulting to "public".
+   function transferAny(address[] addresses, uint256 _value)
+   ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-14005.sol:170:13: Warning: This looks like an address but has an invalid checksum. If this is not used as an address, please prepend '00'. Correct checksummed address: '0x79574f4474BA144820798cCaebB779fe8c8029D0'. For more information please see https://solidity.readthedocs.io/en/develop/types.html#address-literals
+    owner = 0x79574f4474ba144820798ccaebb779fe8c8029d0;
+            ^----------------------------------------^
+benchmarks/unified-dataset/CV/2018-14005.sol:197:33: Warning: Initial value for constant variable has to be compile-time constant. This will fail to compile with the next breaking version change.
+  uint public constant burned = max;
+                                ^-^
+benchmarks/unified-dataset/CV/2018-14005.sol:36:3: Warning: Function state mutability can be restricted to pure
+  function mul(uint256 a, uint256 b) internal constant returns (uint256) {
+  ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-14005.sol:41:3: Warning: Function state mutability can be restricted to pure
+  function div(uint256 a, uint256 b) internal constant returns (uint256) {
+  ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-14005.sol:47:3: Warning: Function state mutability can be restricted to pure
+  function sub(uint256 a, uint256 b) internal constant returns (uint256) {
+  ^
+Spanning multiple lines.
+benchmarks/unified-dataset/CV/2018-14005.sol:51:3: Warning: Function state mutability can be restricted to pure
+  function add(uint256 a, uint256 b) internal constant returns (uint256) {
+  ^
+Spanning multiple lines.
 
-
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 544, in _run_solc
-    ret: Dict = json.loads(stdout)
-  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
-    return _default_decoder.decode(s)
-  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 793, in main_impl
-    ) = process_all(filename, args, detector_classes, printer_classes)
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 86, in process_all
-    compilations = compile_all(target, **vars(args))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 637, in compile_all
-    compilations.append(CryticCompile(target, **kwargs))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 117, in __init__
-    self._compile(**kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 548, in _compile
-    self._platform.compile(self, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 154, in compile
-    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 276, in _get_targets_json
-    return _run_solc(
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 548, in _run_solc
-    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
-crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source file requires different compiler version (current compiler is 0.8.17+commit.8df45f5f.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
- --> benchmarks/unified-dataset/CV/2018-14005.sol:1:1:
-  |
-1 | pragma solidity ^0.4.19;
-  | ^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-None
-Error in benchmarks/unified-dataset/CV/2018-14005.sol
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 544, in _run_solc
-    ret: Dict = json.loads(stdout)
-  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
-    return _default_decoder.decode(s)
-  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 793, in main_impl
-    ) = process_all(filename, args, detector_classes, printer_classes)
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 86, in process_all
-    compilations = compile_all(target, **vars(args))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 637, in compile_all
-    compilations.append(CryticCompile(target, **kwargs))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 117, in __init__
-    self._compile(**kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 548, in _compile
-    self._platform.compile(self, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 154, in compile
-    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 276, in _get_targets_json
-    return _run_solc(
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 548, in _run_solc
-    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
-crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source file requires different compiler version (current compiler is 0.8.17+commit.8df45f5f.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
- --> benchmarks/unified-dataset/CV/2018-14005.sol:1:1:
-  |
-1 | pragma solidity ^0.4.19;
-  | ^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
+benchmarks/unified-dataset/CV/2018-14005.sol analyzed (7 contracts with 7 detectors), 0 result(s) found

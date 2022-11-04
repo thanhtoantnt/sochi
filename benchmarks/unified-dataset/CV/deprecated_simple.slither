@@ -1,85 +1,69 @@
 Compilation warnings/errors on benchmarks/unified-dataset/CV/deprecated_simple.sol:
-Error: Source file requires different compiler version (current compiler is 0.8.17+commit.8df45f5f.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
- --> benchmarks/unified-dataset/CV/deprecated_simple.sol:2:1:
-  |
-2 | pragma solidity ^0.4.24;
-  | ^^^^^^^^^^^^^^^^^^^^^^^^
+benchmarks/unified-dataset/CV/deprecated_simple.sol:16:13: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+            throw;
+            ^---^
+benchmarks/unified-dataset/CV/deprecated_simple.sol:21:9: Warning: Use of the "var" keyword is deprecated.
+        var a = [1,2,3];
+        ^---^
+benchmarks/unified-dataset/CV/deprecated_simple.sol:23:14: Warning: Use of the "var" keyword is deprecated.
+        var (x, y, z) = (false, "test", 0);
+             ^
+benchmarks/unified-dataset/CV/deprecated_simple.sol:23:17: Warning: Use of the "var" keyword is deprecated.
+        var (x, y, z) = (false, "test", 0);
+                ^
+benchmarks/unified-dataset/CV/deprecated_simple.sol:23:20: Warning: Use of the "var" keyword is deprecated.
+        var (x, y, z) = (false, "test", 0);
+                   ^
+benchmarks/unified-dataset/CV/deprecated_simple.sol:10:9: Warning: This declaration shadows a builtin symbol.
+        bytes32 blockhash = block.blockhash(0);
+        ^---------------^
+benchmarks/unified-dataset/CV/deprecated_simple.sol:11:30: Warning: "sha3" has been deprecated in favour of "keccak256"
+        bytes32 hashofhash = sha3(blockhash);
+                             ^-------------^
+benchmarks/unified-dataset/CV/deprecated_simple.sol:11:30: Warning: This function only accepts a single "bytes" argument. Please use "abi.encodePacked(...)" or a similar function to encode the data.
+        bytes32 hashofhash = sha3(blockhash);
+                             ^-------------^
+benchmarks/unified-dataset/CV/deprecated_simple.sol:11:30: Warning: The provided argument of type bytes32 is not implicitly convertible to expected type bytes memory.
+        bytes32 hashofhash = sha3(blockhash);
+                             ^-------------^
+benchmarks/unified-dataset/CV/deprecated_simple.sol:19:9: Warning: Return value of low-level calls not used.
+        address(this).callcode();
+        ^----------------------^
+benchmarks/unified-dataset/CV/deprecated_simple.sol:23:9: Warning: The type of this variable was inferred as uint8, which can hold values between 0 and 255. This is probably not desired. Use an explicit type to silence this warning.
+        var (x, y, z) = (false, "test", 0);
+        ^--------------------------------^
+benchmarks/unified-dataset/CV/deprecated_simple.sol:25:9: Warning: "suicide" has been deprecated in favour of "selfdestruct"
+        suicide(address(0));
+        ^-----------------^
+benchmarks/unified-dataset/CV/deprecated_simple.sol:10:29: Warning: "block.blockhash()" has been deprecated in favor of "blockhash()"
+        bytes32 blockhash = block.blockhash(0);
+                            ^-------------^
+benchmarks/unified-dataset/CV/deprecated_simple.sol:13:20: Warning: "msg.gas" has been deprecated in favor of "gasleft()"
+        uint gas = msg.gas;
+                   ^-----^
+benchmarks/unified-dataset/CV/deprecated_simple.sol:19:9: Warning: "callcode" has been deprecated in favour of "delegatecall".
+        address(this).callcode();
+        ^--------------------^
+benchmarks/unified-dataset/CV/deprecated_simple.sol:11:9: Warning: Unused local variable.
+        bytes32 hashofhash = sha3(blockhash);
+        ^----------------^
+benchmarks/unified-dataset/CV/deprecated_simple.sol:21:9: Warning: Unused local variable.
+        var a = [1,2,3];
+        ^---^
+benchmarks/unified-dataset/CV/deprecated_simple.sol:23:14: Warning: Unused local variable.
+        var (x, y, z) = (false, "test", 0);
+             ^
+benchmarks/unified-dataset/CV/deprecated_simple.sol:23:17: Warning: Unused local variable.
+        var (x, y, z) = (false, "test", 0);
+                ^
+benchmarks/unified-dataset/CV/deprecated_simple.sol:23:20: Warning: Unused local variable.
+        var (x, y, z) = (false, "test", 0);
+                   ^
+benchmarks/unified-dataset/CV/deprecated_simple.sol:19:9: Warning: Function declared as view, but this expression (potentially) modifies the state and thus requires non-payable (the default) or payable.
+        address(this).callcode();
+        ^----------------------^
+benchmarks/unified-dataset/CV/deprecated_simple.sol:25:9: Warning: Function declared as view, but this expression (potentially) modifies the state and thus requires non-payable (the default) or payable.
+        suicide(address(0));
+        ^-----------------^
 
-
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 544, in _run_solc
-    ret: Dict = json.loads(stdout)
-  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
-    return _default_decoder.decode(s)
-  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 793, in main_impl
-    ) = process_all(filename, args, detector_classes, printer_classes)
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 86, in process_all
-    compilations = compile_all(target, **vars(args))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 637, in compile_all
-    compilations.append(CryticCompile(target, **kwargs))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 117, in __init__
-    self._compile(**kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 548, in _compile
-    self._platform.compile(self, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 154, in compile
-    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 276, in _get_targets_json
-    return _run_solc(
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 548, in _run_solc
-    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
-crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source file requires different compiler version (current compiler is 0.8.17+commit.8df45f5f.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
- --> benchmarks/unified-dataset/CV/deprecated_simple.sol:2:1:
-  |
-2 | pragma solidity ^0.4.24;
-  | ^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-None
-Error in benchmarks/unified-dataset/CV/deprecated_simple.sol
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 544, in _run_solc
-    ret: Dict = json.loads(stdout)
-  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
-    return _default_decoder.decode(s)
-  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 793, in main_impl
-    ) = process_all(filename, args, detector_classes, printer_classes)
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 86, in process_all
-    compilations = compile_all(target, **vars(args))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 637, in compile_all
-    compilations.append(CryticCompile(target, **kwargs))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 117, in __init__
-    self._compile(**kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 548, in _compile
-    self._platform.compile(self, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 154, in compile
-    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 276, in _get_targets_json
-    return _run_solc(
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 548, in _run_solc
-    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
-crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source file requires different compiler version (current compiler is 0.8.17+commit.8df45f5f.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
- --> benchmarks/unified-dataset/CV/deprecated_simple.sol:2:1:
-  |
-2 | pragma solidity ^0.4.24;
-  | ^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
+benchmarks/unified-dataset/CV/deprecated_simple.sol analyzed (1 contracts with 7 detectors), 0 result(s) found

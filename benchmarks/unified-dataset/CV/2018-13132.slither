@@ -1,85 +1,36 @@
-Compilation warnings/errors on benchmarks/unified-dataset/CV/2018-13132.sol:
-Error: Source file requires different compiler version (current compiler is 0.8.17+commit.8df45f5f.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
- --> benchmarks/unified-dataset/CV/2018-13132.sol:1:1:
-  |
-1 | pragma solidity ^0.4.18;
-  | ^^^^^^^^^^^^^^^^^^^^^^^^
 
-
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 544, in _run_solc
-    ret: Dict = json.loads(stdout)
-  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
-    return _default_decoder.decode(s)
-  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 793, in main_impl
-    ) = process_all(filename, args, detector_classes, printer_classes)
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 86, in process_all
-    compilations = compile_all(target, **vars(args))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 637, in compile_all
-    compilations.append(CryticCompile(target, **kwargs))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 117, in __init__
-    self._compile(**kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 548, in _compile
-    self._platform.compile(self, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 154, in compile
-    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 276, in _get_targets_json
-    return _run_solc(
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 548, in _run_solc
-    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
-crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source file requires different compiler version (current compiler is 0.8.17+commit.8df45f5f.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
- --> benchmarks/unified-dataset/CV/2018-13132.sol:1:1:
-  |
-1 | pragma solidity ^0.4.18;
-  | ^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-None
-Error in benchmarks/unified-dataset/CV/2018-13132.sol
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 544, in _run_solc
-    ret: Dict = json.loads(stdout)
-  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
-    return _default_decoder.decode(s)
-  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 793, in main_impl
-    ) = process_all(filename, args, detector_classes, printer_classes)
-  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 86, in process_all
-    compilations = compile_all(target, **vars(args))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 637, in compile_all
-    compilations.append(CryticCompile(target, **kwargs))
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 117, in __init__
-    self._compile(**kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 548, in _compile
-    self._platform.compile(self, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 154, in compile
-    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 276, in _get_targets_json
-    return _run_solc(
-  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 548, in _run_solc
-    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
-crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source file requires different compiler version (current compiler is 0.8.17+commit.8df45f5f.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
- --> benchmarks/unified-dataset/CV/2018-13132.sol:1:1:
-  |
-1 | pragma solidity ^0.4.18;
-  | ^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
+Reentrancy in SpadeIco.buyTokens(address,uint256,uint256,string) (benchmarks/unified-dataset/CV/2018-13132.sol#387-398):
+	External calls:
+	- token.mint(buyer,tokens) (benchmarks/unified-dataset/CV/2018-13132.sol#396)
+	Event emitted after the call(s):
+	- TokenBuy(buyer,tokens,factor,txHash) (benchmarks/unified-dataset/CV/2018-13132.sol#397)
+Reentrancy in SpadeIco.convertPresaleTokens(address,uint256,uint256,string) (benchmarks/unified-dataset/CV/2018-13132.sol#365-376):
+	External calls:
+	- token.mint(buyer,tokens) (benchmarks/unified-dataset/CV/2018-13132.sol#374)
+	Event emitted after the call(s):
+	- TokenBuyPresale(buyer,tokens,factor,txHash) (benchmarks/unified-dataset/CV/2018-13132.sol#375)
+Reentrancy in SpadeIco.creditJackpotTokens(address,uint256,uint256) (benchmarks/unified-dataset/CV/2018-13132.sol#378-385):
+	External calls:
+	- token.mint(buyer,tokens) (benchmarks/unified-dataset/CV/2018-13132.sol#383)
+	Event emitted after the call(s):
+	- TokenWin(buyer,tokens,jackpot) (benchmarks/unified-dataset/CV/2018-13132.sol#384)
+Reentrancy in SpadeIco.finishIco(address,address) (benchmarks/unified-dataset/CV/2018-13132.sol#323-349):
+	External calls:
+	- amountWithFoundation = SafeMath.add(token.totalSupply(),TOKENS_FOUNDATION) (benchmarks/unified-dataset/CV/2018-13132.sol#330)
+	- amountWithFoundation > token.TOKEN_LIMIT() (benchmarks/unified-dataset/CV/2018-13132.sol#331)
+	- foundationToMint = token.TOKEN_LIMIT() - token.totalSupply() (benchmarks/unified-dataset/CV/2018-13132.sol#332)
+	- token.mint(foundation,foundationToMint) (benchmarks/unified-dataset/CV/2018-13132.sol#334)
+	- token.mint(foundation,TOKENS_FOUNDATION) (benchmarks/unified-dataset/CV/2018-13132.sol#337)
+	- mintedTokens = token.totalSupply() (benchmarks/unified-dataset/CV/2018-13132.sol#339)
+	- remaining = token.TOKEN_LIMIT() - mintedTokens (benchmarks/unified-dataset/CV/2018-13132.sol#341)
+	- token.mint(other,remaining) (benchmarks/unified-dataset/CV/2018-13132.sol#343)
+	- token.unfreeze() (benchmarks/unified-dataset/CV/2018-13132.sol#347)
+	Event emitted after the call(s):
+	- IcoFinished() (benchmarks/unified-dataset/CV/2018-13132.sol#348)
+Reentrancy in SPXToken.migrate(uint256) (benchmarks/unified-dataset/CV/2018-13132.sol#252-262):
+	External calls:
+	- MigrationAgent(migrationAgent).migrateFrom(msg.sender,value) (benchmarks/unified-dataset/CV/2018-13132.sol#260)
+	Event emitted after the call(s):
+	- Migrate(msg.sender,migrationAgent,value) (benchmarks/unified-dataset/CV/2018-13132.sol#261)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+benchmarks/unified-dataset/CV/2018-13132.sol analyzed (8 contracts with 7 detectors), 5 result(s) found
