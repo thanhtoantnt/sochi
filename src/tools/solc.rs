@@ -143,8 +143,6 @@ pub fn check_solc_settings(input_file: &Path) -> Result<String, String> {
         }
     };
 
-    println!("solc-ver: {}", solc_ver);
-
     match check_solc_path() {
         Ok(_) => check_solc_version(solc_ver),
         Err(msg) => Err(msg),
