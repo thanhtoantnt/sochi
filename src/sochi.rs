@@ -86,6 +86,9 @@ fn main() {
     if tools.contains(&cli::ToolName::Mythril) {
         if opts.printer_options.generate_commands {
             mythril::generate_commands(opts.input_dir);
+        } else if opts.printer_options.check_results {
+            let result = mythril::check_results(opts.input_dir);
+            println!("Slither true-positive results: {}", result);
         } else {
             let result = mythril::interpret_results(opts.input_dir);
             println!("Mythril results: {}", result);

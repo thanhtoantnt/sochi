@@ -1,86 +1,47 @@
-Compilation warnings/errors on CV/2018-10705.sol:
-CV/2018-10705.sol:10:3: Warning: No visibility specified. Defaulting to "public".
+Compilation warnings/errors on benchmarks/unified-dataset/CV/2018-10705.sol:
+benchmarks/unified-dataset/CV/2018-10705.sol:10:3: Warning: No visibility specified. Defaulting to "public".
   function safeMul(uint256 a, uint256 b) returns (uint256) {
   ^
 Spanning multiple lines.
-CV/2018-10705.sol:15:3: Warning: No visibility specified. Defaulting to "public".
+benchmarks/unified-dataset/CV/2018-10705.sol:15:3: Warning: No visibility specified. Defaulting to "public".
   function safeSub(uint256 a, uint256 b) returns (uint256) {
   ^
 Spanning multiple lines.
-CV/2018-10705.sol:19:3: Warning: No visibility specified. Defaulting to "public".
+benchmarks/unified-dataset/CV/2018-10705.sol:19:3: Warning: No visibility specified. Defaulting to "public".
   function safeAdd(uint256 a, uint256 b) returns (uint256) {
   ^
 Spanning multiple lines.
-CV/2018-10705.sol:28:3: Warning: No visibility specified. Defaulting to "public".
+benchmarks/unified-dataset/CV/2018-10705.sol:28:3: Warning: No visibility specified. Defaulting to "public".
   function Owned() {
   ^
 Spanning multiple lines.
-CV/2018-10705.sol:31:3: Warning: No visibility specified. Defaulting to "public".
+benchmarks/unified-dataset/CV/2018-10705.sol:31:3: Warning: No visibility specified. Defaulting to "public".
   function setOwner(address _owner) returns (bool success) {
   ^
 Spanning multiple lines.
-CV/2018-10705.sol:140:5: Warning: No visibility specified. Defaulting to "public".
+benchmarks/unified-dataset/CV/2018-10705.sol:140:5: Warning: No visibility specified. Defaulting to "public".
     function unlockToken() onlyOwner {
     ^
 Spanning multiple lines.
-CV/2018-10705.sol:145:5: Warning: No visibility specified. Defaulting to "public".
+benchmarks/unified-dataset/CV/2018-10705.sol:145:5: Warning: No visibility specified. Defaulting to "public".
     function uploadBalances(address[] recipients, uint256[] balances) onlyOwner {
     ^
 Spanning multiple lines.
-CV/2018-10705.sol:154:5: Warning: No visibility specified. Defaulting to "public".
+benchmarks/unified-dataset/CV/2018-10705.sol:154:5: Warning: No visibility specified. Defaulting to "public".
     function lockBalances() onlyOwner {
     ^
 Spanning multiple lines.
-CV/2018-10705.sol:10:3: Warning: Function state mutability can be restricted to pure
+benchmarks/unified-dataset/CV/2018-10705.sol:10:3: Warning: Function state mutability can be restricted to pure
   function safeMul(uint256 a, uint256 b) returns (uint256) {
   ^
 Spanning multiple lines.
-CV/2018-10705.sol:15:3: Warning: Function state mutability can be restricted to pure
+benchmarks/unified-dataset/CV/2018-10705.sol:15:3: Warning: Function state mutability can be restricted to pure
   function safeSub(uint256 a, uint256 b) returns (uint256) {
   ^
 Spanning multiple lines.
-CV/2018-10705.sol:19:3: Warning: Function state mutability can be restricted to pure
+benchmarks/unified-dataset/CV/2018-10705.sol:19:3: Warning: Function state mutability can be restricted to pure
   function safeAdd(uint256 a, uint256 b) returns (uint256) {
   ^
 Spanning multiple lines.
 
-
-Owned.setOwner(address)._owner (CV/2018-10705.sol#31) lacks a zero-check on :
-		- owner = _owner (CV/2018-10705.sol#32)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
-
-Pragma version^0.4.19 (CV/2018-10705.sol#5) allows old versions
-solc-0.4.19 is not recommended for deployment
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
-
-Contract tokenRecipient (CV/2018-10705.sol#7) is not in CapWords
-Parameter Owned.setOwner(address)._owner (CV/2018-10705.sol#31) is not in mixedCase
-Parameter AURA.transfer(address,uint256)._to (CV/2018-10705.sol#85) is not in mixedCase
-Parameter AURA.transfer(address,uint256)._value (CV/2018-10705.sol#85) is not in mixedCase
-Parameter AURA.transferFrom(address,address,uint256)._from (CV/2018-10705.sol#99) is not in mixedCase
-Parameter AURA.transferFrom(address,address,uint256)._to (CV/2018-10705.sol#99) is not in mixedCase
-Parameter AURA.transferFrom(address,address,uint256)._value (CV/2018-10705.sol#99) is not in mixedCase
-Parameter AURA.approve(address,uint256)._spender (CV/2018-10705.sol#114) is not in mixedCase
-Parameter AURA.approve(address,uint256)._value (CV/2018-10705.sol#114) is not in mixedCase
-Parameter AURA.approveAndCall(address,uint256,bytes)._spender (CV/2018-10705.sol#130) is not in mixedCase
-Parameter AURA.approveAndCall(address,uint256,bytes)._value (CV/2018-10705.sol#130) is not in mixedCase
-Parameter AURA.approveAndCall(address,uint256,bytes)._extraData (CV/2018-10705.sol#130) is not in mixedCase
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
-
-AURA.AURA() (CV/2018-10705.sol#57-60) uses literals with too many digits:
-	- totalSupply = 1000000000000000000000000000 (CV/2018-10705.sol#58)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
-
-AURA.decimals (CV/2018-10705.sol#45) should be constant
-AURA.name (CV/2018-10705.sol#43) should be constant
-AURA.symbol (CV/2018-10705.sol#44) should be constant
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
-
-receiveApproval(address,uint256,address,bytes) should be declared external:
-	- tokenRecipient.receiveApproval(address,uint256,address,bytes) (CV/2018-10705.sol#7)
-approveAndCall(address,uint256,bytes) should be declared external:
-	- AURA.approveAndCall(address,uint256,bytes) (CV/2018-10705.sol#130-138)
-uploadBalances(address[],uint256[]) should be declared external:
-	- AURA.uploadBalances(address[],uint256[]) (CV/2018-10705.sol#145-153)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
-CV/2018-10705.sol analyzed (4 contracts with 80 detectors), 22 result(s) found
+benchmarks/unified-dataset/CV/2018-10705.sol analyzed (4 contracts with 7 detectors), 0 result(s) found

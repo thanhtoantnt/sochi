@@ -86,20 +86,6 @@ fn interpret_slither_results(input_file: &Path) -> Summary {
             tx_origin += 1;
         }
     }
-    // let contents =
-    //     fs::read_to_string(file.to_str().unwrap()).expect("Should have been able to read the file");
-
-    // let reentrancy_regex = Regex::new(r"Reentrancy in ").unwrap();
-    // let timestamp_dep_regex = Regex::new(r" uses timestamp ").unwrap();
-    // let unhandled_exceptions_regex = Regex::new(r"Failure condition of ").unwrap();
-    // let tx_origin_regex = Regex::new(r" uses tx.origin for authorization").unwrap();
-
-    // let reentrancy = reentrancy_regex.captures_iter(contents.as_str()).count();
-    // let timestamp_dep = timestamp_dep_regex.captures_iter(contents.as_str()).count();
-    // let unhandled_exceptions = unhandled_exceptions_regex
-    //     .captures_iter(contents.as_str())
-    //     .count();
-    // let tx_origin = tx_origin_regex.captures_iter(contents.as_str()).count();
 
     Summary::new(
         reentrancy,
@@ -225,18 +211,6 @@ fn check_slither_results(input_file: &Path) -> Summary {
             }
         }
     }
-
-    // for positions
-
-    // let contents = fs::read_to_string(result_file.to_str().unwrap())
-    //     .expect("Should have been able to read the file");
-
-    // let slither_regex = Regex::new(r"sol\#(\d+)\)").unwrap();
-
-    // for found in slither_regex.captures_iter(&contents) {
-    //     let foundx = found.get(1).map_or("", |c| c.as_str());
-    //     println!("found: {:?}", foundx);
-    // }
 
     Summary::new(
         reentrancy_counter,

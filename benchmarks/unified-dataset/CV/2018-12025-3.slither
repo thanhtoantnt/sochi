@@ -1,12 +1,4 @@
 
-UselessEthereumToken.fallback() () uses a dangerous strict equality:
-	- bonusHash[0] == 0 ()
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
-
-UselessEthereumToken.transferFrom(address,address,uint256).allowance () shadows:
-	- UselessEthereumToken.allowance(address,address) () (function)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#local-variable-shadowing
-
 UselessEthereumToken.fallback() () uses timestamp for comparisons
 	Dangerous comparisons:
 	- bonusHash[0] == 0 ()
@@ -267,30 +259,6 @@ UselessEthereumToken.fallback() () uses timestamp for comparisons
 	- (bonusHash[1] & 0x80 != 0) ()
 Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
 
-Deprecated standard detected THROW ():
-	- Usage of "throw" should be replaced with "revert()"
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#deprecated-standards
-
-Pragma version^0.4.10 () allows old versions
-solc-0.4.10 is not recommended for deployment
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
-
-UselessEthereumToken () should inherit from ForeignToken ()
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-inheritance
-
-Parameter UselessEthereumToken.balanceOf(address)._owner () is not in mixedCase
-Parameter UselessEthereumToken.transfer(address,uint256)._to () is not in mixedCase
-Parameter UselessEthereumToken.transfer(address,uint256)._value () is not in mixedCase
-Parameter UselessEthereumToken.transferFrom(address,address,uint256)._from () is not in mixedCase
-Parameter UselessEthereumToken.transferFrom(address,address,uint256)._to () is not in mixedCase
-Parameter UselessEthereumToken.transferFrom(address,address,uint256)._value () is not in mixedCase
-Parameter UselessEthereumToken.approve(address,uint256)._spender () is not in mixedCase
-Parameter UselessEthereumToken.approve(address,uint256)._value () is not in mixedCase
-Parameter UselessEthereumToken.allowance(address,address)._owner () is not in mixedCase
-Parameter UselessEthereumToken.allowance(address,address)._spender () is not in mixedCase
-Parameter UselessEthereumToken.withdrawForeignTokens(address)._tokenContract () is not in mixedCase
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
-
 Reentrancy in UselessEthereumToken.fallback() ():
 	External calls:
 	- owner.transfer(msg.value) ()
@@ -302,4 +270,4 @@ Reentrancy in UselessEthereumToken.fallback() ():
 	Event emitted after the call(s):
 	- Transfer(address(this),msg.sender,tokensIssued) ()
 Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
-CV/2018-12025-3.sol analyzed (2 contracts with 80 detectors), 19 result(s) found
+benchmarks/unified-dataset/CV/2018-12025-3.sol analyzed (2 contracts with 7 detectors), 2 result(s) found

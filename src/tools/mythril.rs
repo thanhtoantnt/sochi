@@ -5,10 +5,10 @@ use super::Summary;
 use regex::Regex;
 use std::env;
 use std::fs::OpenOptions;
+use std::io::prelude::*;
 use std::io::Write;
-// use rutil::report;
 use std::path::PathBuf;
-use std::{ffi::OsStr, fs, fs::File, path::Path};
+use std::{ffi::OsStr, fs, fs::File, io::BufReader, path::Path};
 use walkdir::WalkDir;
 
 /// Read and interpret mythril results for each file
@@ -149,4 +149,79 @@ pub fn generate_commands(dir: &str) {
             let _ = writeln!(output_file, "{}", output);
         }
     }
+}
+
+/// Interpret Slither results
+fn check_mythril_results(input_file: &Path) -> u32 {
+    // read the csv file
+    let file_stem_name = input_file.file_stem().and_then(OsStr::to_str).unwrap_or("");
+    let parent_dir = input_file.parent().unwrap_or_else(|| Path::new(""));
+    let result_file = parent_dir.join(file_stem_name.to_owned() + "." + super::MYTHRIL);
+    debug!("Reading file: {}", result_file.display());
+    let result_file = File::open(result_file.to_str().unwrap().to_string());
+    let reader = BufReader::new(result_file.unwrap());
+    let mythril_regex = Regex::new(r"sol:(\d+)").unwrap();
+    let mut positions = vec![];
+
+    for line in reader.lines() {
+        let line = line.unwrap();
+
+        for found in mythril_regex.captures_iter(&line) {
+            let foundx = found.get(1).map_or("", |c| c.as_str());
+            let number = foundx.parse::<i32>().unwrap();
+            debug!("found: {}", number);
+            positions.push(number);
+        }
+    }
+
+    let baseline_file = parent_dir.join(file_stem_name.to_owned() + "." + super::CSV);
+    let baseline = File::open(baseline_file.to_str().unwrap().to_string());
+    let baseline_reader = BufReader::new(baseline.unwrap());
+    let mut baseline_locations = vec![];
+
+    for line in baseline_reader.lines() {
+        let line = line.unwrap();
+        let elements: Vec<&str> = line.split(',').collect();
+        let location = elements[0];
+        let range = elements[1];
+        let number_opt = location.parse::<i32>();
+        if let Ok(number) = number_opt {
+            let range = range.parse::<i32>().unwrap();
+            baseline_locations.push((number, range));
+        }
+    }
+
+    let mut counter = 0;
+    for position in positions {
+        for (number, range) in baseline_locations.clone() {
+            if position >= number && position <= number + range {
+                counter += 1;
+            }
+        }
+    }
+
+    counter
+}
+
+/// Check mythril results to be false/true positives
+pub fn check_results(dir: &str) -> u32 {
+    // List all files in the repository
+    let path = Path::new(&dir);
+    let mut paths: Vec<_> = fs::read_dir(path).unwrap().map(|r| r.unwrap()).collect();
+    paths.sort_by_key(|dir| dir.path());
+
+    // Statistics
+    let mut counter = 0;
+
+    for path in paths {
+        let file = path.path();
+        let extension = file.extension().and_then(OsStr::to_str);
+        if extension.unwrap() == super::MYTHRIL {
+            println!("Input file: {}", file.display());
+            let result = check_mythril_results(&file);
+            counter += result;
+        }
+    }
+
+    counter
 }

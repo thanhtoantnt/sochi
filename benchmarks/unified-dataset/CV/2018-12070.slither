@@ -1,64 +1,43 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 793, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 86, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 637, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 117, in __init__
+    self._compile(**kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 548, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 154, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 276, in _get_targets_json
+    return _run_solc(
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 474, in _run_solc
+    compiler="solc", version=get_version(solc, env), optimized=is_optimized(solc_arguments)
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 381, in get_version
+    raise InvalidCompilation(f"Solidity version not found: {stdout}")
+crytic_compile.platform.exceptions.InvalidCompilation: Solidity version not found: 
+None
+Error in benchmarks/unified-dataset/CV/2018-12070.sol
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 793, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 86, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 637, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 117, in __init__
+    self._compile(**kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 548, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 154, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 276, in _get_targets_json
+    return _run_solc(
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 474, in _run_solc
+    compiler="solc", version=get_version(solc, env), optimized=is_optimized(solc_arguments)
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 381, in get_version
+    raise InvalidCompilation(f"Solidity version not found: {stdout}")
+crytic_compile.platform.exceptions.InvalidCompilation: Solidity version not found: 
 
-SECToken._transfer(address,address,uint256) (CV/2018-12070.sol#194-227) performs a multiplication on the result of a division:
-	-require(bool)((balance - amount) >= SECtotalAmount / 10 * 3 / 4) (CV/2018-12070.sol#213)
-SECToken._transfer(address,address,uint256) (CV/2018-12070.sol#194-227) performs a multiplication on the result of a division:
-	-require(bool)((balance - amount) >= SECtotalAmount / 10 * 2 / 4) (CV/2018-12070.sol#216)
-SECToken._transfer(address,address,uint256) (CV/2018-12070.sol#194-227) performs a multiplication on the result of a division:
-	-require(bool)((balance - amount) >= SECtotalAmount / 10 * 1 / 4) (CV/2018-12070.sol#219)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
-
-SEC (CV/2018-12070.sol#269) has incorrect ERC20 function interface:TokenERC20.transfer(address,uint256) (CV/2018-12070.sol#85-87)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-erc20-interface
-
-owned.transferOwnership(address) (CV/2018-12070.sol#15-17) should emit an event for: 
-	- owner = newOwner (CV/2018-12070.sol#16) 
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
-
-owned.transferOwnership(address).newOwner (CV/2018-12070.sol#15) lacks a zero-check on :
-		- owner = newOwner (CV/2018-12070.sol#16)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
-
-SECToken._transfer(address,address,uint256) (CV/2018-12070.sol#194-227) uses timestamp for comparisons
-	Dangerous comparisons:
-	- now < start + 365 * 86400 (CV/2018-12070.sol#212)
-	- now < start + (2 * 365 + 1) * 86400 (CV/2018-12070.sol#215)
-	- now < start + (3 * 365 + 1) * 86400 (CV/2018-12070.sol#218)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
-
-TokenERC20._transfer(address,address,uint256) (CV/2018-12070.sol#59-75) is never used and should be removed
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
-
-Pragma version^0.4.16 (CV/2018-12070.sol#1) allows old versions
-solc-0.4.16 is not recommended for deployment
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
-
-Contract owned (CV/2018-12070.sol#3-18) is not in CapWords
-Contract tokenRecipient (CV/2018-12070.sol#20) is not in CapWords
-Parameter TokenERC20.transfer(address,uint256)._to (CV/2018-12070.sol#85) is not in mixedCase
-Parameter TokenERC20.transfer(address,uint256)._value (CV/2018-12070.sol#85) is not in mixedCase
-Parameter TokenERC20.transferFrom(address,address,uint256)._from (CV/2018-12070.sol#98) is not in mixedCase
-Parameter TokenERC20.transferFrom(address,address,uint256)._to (CV/2018-12070.sol#98) is not in mixedCase
-Parameter TokenERC20.transferFrom(address,address,uint256)._value (CV/2018-12070.sol#98) is not in mixedCase
-Parameter TokenERC20.approve(address,uint256)._spender (CV/2018-12070.sol#113) is not in mixedCase
-Parameter TokenERC20.approve(address,uint256)._value (CV/2018-12070.sol#113) is not in mixedCase
-Parameter TokenERC20.approveAndCall(address,uint256,bytes)._spender (CV/2018-12070.sol#128) is not in mixedCase
-Parameter TokenERC20.approveAndCall(address,uint256,bytes)._value (CV/2018-12070.sol#128) is not in mixedCase
-Parameter TokenERC20.approveAndCall(address,uint256,bytes)._extraData (CV/2018-12070.sol#128) is not in mixedCase
-Parameter TokenERC20.burn(uint256)._value (CV/2018-12070.sol#145) is not in mixedCase
-Parameter TokenERC20.burnFrom(address,uint256)._from (CV/2018-12070.sol#161) is not in mixedCase
-Parameter TokenERC20.burnFrom(address,uint256)._value (CV/2018-12070.sol#161) is not in mixedCase
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
-
-SECToken._transfer(address,address,uint256) (CV/2018-12070.sol#194-227) uses literals with too many digits:
-	- SECtotalAmount = 1500000000 * 10 ** 18 (CV/2018-12070.sol#203)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
-
-TokenERC20.decimals (CV/2018-12070.sol#26) should be constant
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
-
-receiveApproval(address,uint256,address,bytes) should be declared external:
-	- tokenRecipient.receiveApproval(address,uint256,address,bytes) (CV/2018-12070.sol#20)
-approveAndCall(address,uint256,bytes) should be declared external:
-	- TokenERC20.approveAndCall(address,uint256,bytes) (CV/2018-12070.sol#128-136)
-Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
-CV/2018-12070.sol analyzed (5 contracts with 80 detectors), 29 result(s) found

@@ -22,6 +22,7 @@ pub fn check_solc_path() -> Result<(), String> {
 
 /// Check version of the Solc compiler
 pub fn check_solc_version(required_version: Version) -> Result<(), String> {
+    debug!("version: {}", required_version);
     match Command::new(tools::SOLC).args(&["--version"]).output() {
         Ok(output) => {
             let output_str = String::from_utf8(output.stdout).unwrap();
@@ -34,7 +35,8 @@ pub fn check_solc_version(required_version: Version) -> Result<(), String> {
             match Version::parse(solc_ver) {
                 Ok(ver) => {
                     if required_version != ver {
-                        let err_msg = format!("Expect Solc version {0} but found: {1}. Please use Solc {0}",
+                        let err_msg = format!(
+                            "Expect Solc version {0} but found: {1}. Please use Solc {0}",
                             required_version, solc_ver
                         );
 
@@ -59,12 +61,10 @@ pub fn check_solc_settings(input_file: &str) -> Result<(), String> {
     let path = Path::new(input_file);
     let extension = path.extension();
     if extension != Some(OsStr::new("sol")) {
-        return Err("Input file is not a Solidity file. Please choose again."
-            .to_string());
+        return Err("Input file is not a Solidity file. Please choose again.".to_string());
     }
 
-    let contents = fs::read_to_string(input_file)
-        .expect("Should have been able to read the file");
+    let contents = fs::read_to_string(input_file).expect("Should have been able to read the file");
     let regex = Regex::new(r"pragma solidity \^(\d+\.\d+\.\d+)").unwrap();
     let solc_ver = match regex.captures(contents.as_str()) {
         Some(capture) => capture.get(1).map_or("", |c| c.as_str()),
@@ -89,10 +89,7 @@ pub fn check_solc_settings(input_file: &str) -> Result<(), String> {
 }
 
 /// Compile Solidity programs and return the output file name.
-pub fn compile(
-    input_file: &str,
-    user_options: &[&str],
-) -> Result<Vec<String>, String> {
+pub fn compile(input_file: &str, user_options: &[&str]) -> Result<Vec<String>, String> {
     // Check compiler settings
     let check_results = check_solc_settings(input_file);
     if let Err(msg) = check_results {
@@ -128,8 +125,8 @@ pub fn compile(
         .unwrap();
 
     if !solc_output.status.success() {
-        let error_msg = String::from_utf8(solc_output.stderr.to_vec())
-            .expect("Solc: unknown error!");
+        let error_msg =
+            String::from_utf8(solc_output.stderr.to_vec()).expect("Solc: unknown error!");
         report::print_message("Solc error message:", error_msg.as_str());
         let err_msg = format!("Failed to compile: {}", input_file);
         return Err(err_msg);
