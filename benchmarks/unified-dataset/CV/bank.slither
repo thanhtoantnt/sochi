@@ -1,0 +1,202 @@
+Compilation warnings/errors on benchmarks/unified-dataset/CV/bank.sol:
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> benchmarks/unified-dataset/CV/bank.sol
+
+Error: No visibility specified. Did you intend to add "public"?
+  --> benchmarks/unified-dataset/CV/bank.sol:13:4:
+   |
+13 |    function getUserBalance(address user) returns(uint) {
+   |    ^ (Relevant source part starts here and spans across multiple lines).
+
+Error: No visibility specified. Did you intend to add "public"?
+  --> benchmarks/unified-dataset/CV/bank.sol:18:4:
+   |
+18 |    function addToBalance() {
+   |    ^ (Relevant source part starts here and spans across multiple lines).
+
+Error: No visibility specified. Did you intend to add "public"?
+  --> benchmarks/unified-dataset/CV/bank.sol:23:4:
+   |
+23 |    function withdrawBalance() {
+   |    ^ (Relevant source part starts here and spans across multiple lines).
+
+Error: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+  --> benchmarks/unified-dataset/CV/bank.sol:26:10:
+   |
+26 |          throw;
+   |          ^^^^^
+
+Error: Using ".value(...)" is deprecated. Use "{value: ...}" instead.
+  --> benchmarks/unified-dataset/CV/bank.sol:25:10:
+   |
+25 |      if (msg.sender.call.value(amountToWithdraw)() == false) {
+   |          ^^^^^^^^^^^^^^^^^^^^^
+
+Error: Wrong argument count for function call: 0 arguments given but expected 1. This function requires a single bytes argument. Use "" as argument to provide empty calldata.
+  --> benchmarks/unified-dataset/CV/bank.sol:25:10:
+   |
+25 |      if (msg.sender.call.value(amountToWithdraw)() == false) {
+   |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Operator == not compatible with types tuple(bool,bytes memory) and bool.
+  --> benchmarks/unified-dataset/CV/bank.sol:25:10:
+   |
+25 |      if (msg.sender.call.value(amountToWithdraw)() == false) {
+   |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 544, in _run_solc
+    ret: Dict = json.loads(stdout)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 793, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 86, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 637, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 117, in __init__
+    self._compile(**kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 548, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 154, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 276, in _get_targets_json
+    return _run_solc(
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 548, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> benchmarks/unified-dataset/CV/bank.sol
+
+Error: No visibility specified. Did you intend to add "public"?
+  --> benchmarks/unified-dataset/CV/bank.sol:13:4:
+   |
+13 |    function getUserBalance(address user) returns(uint) {
+   |    ^ (Relevant source part starts here and spans across multiple lines).
+
+Error: No visibility specified. Did you intend to add "public"?
+  --> benchmarks/unified-dataset/CV/bank.sol:18:4:
+   |
+18 |    function addToBalance() {
+   |    ^ (Relevant source part starts here and spans across multiple lines).
+
+Error: No visibility specified. Did you intend to add "public"?
+  --> benchmarks/unified-dataset/CV/bank.sol:23:4:
+   |
+23 |    function withdrawBalance() {
+   |    ^ (Relevant source part starts here and spans across multiple lines).
+
+Error: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+  --> benchmarks/unified-dataset/CV/bank.sol:26:10:
+   |
+26 |          throw;
+   |          ^^^^^
+
+Error: Using ".value(...)" is deprecated. Use "{value: ...}" instead.
+  --> benchmarks/unified-dataset/CV/bank.sol:25:10:
+   |
+25 |      if (msg.sender.call.value(amountToWithdraw)() == false) {
+   |          ^^^^^^^^^^^^^^^^^^^^^
+
+Error: Wrong argument count for function call: 0 arguments given but expected 1. This function requires a single bytes argument. Use "" as argument to provide empty calldata.
+  --> benchmarks/unified-dataset/CV/bank.sol:25:10:
+   |
+25 |      if (msg.sender.call.value(amountToWithdraw)() == false) {
+   |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Operator == not compatible with types tuple(bool,bytes memory) and bool.
+  --> benchmarks/unified-dataset/CV/bank.sol:25:10:
+   |
+25 |      if (msg.sender.call.value(amountToWithdraw)() == false) {
+   |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+None
+Error in benchmarks/unified-dataset/CV/bank.sol
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 544, in _run_solc
+    ret: Dict = json.loads(stdout)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 793, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/usr/local/lib/python3.10/dist-packages/slither_analyzer-0.8.3-py3.10.egg/slither/__main__.py", line 86, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 637, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 117, in __init__
+    self._compile(**kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/crytic_compile.py", line 548, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 154, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 276, in _get_targets_json
+    return _run_solc(
+  File "/usr/local/lib/python3.10/dist-packages/crytic_compile-0.2.3-py3.10.egg/crytic_compile/platform/solc.py", line 548, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> benchmarks/unified-dataset/CV/bank.sol
+
+Error: No visibility specified. Did you intend to add "public"?
+  --> benchmarks/unified-dataset/CV/bank.sol:13:4:
+   |
+13 |    function getUserBalance(address user) returns(uint) {
+   |    ^ (Relevant source part starts here and spans across multiple lines).
+
+Error: No visibility specified. Did you intend to add "public"?
+  --> benchmarks/unified-dataset/CV/bank.sol:18:4:
+   |
+18 |    function addToBalance() {
+   |    ^ (Relevant source part starts here and spans across multiple lines).
+
+Error: No visibility specified. Did you intend to add "public"?
+  --> benchmarks/unified-dataset/CV/bank.sol:23:4:
+   |
+23 |    function withdrawBalance() {
+   |    ^ (Relevant source part starts here and spans across multiple lines).
+
+Error: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+  --> benchmarks/unified-dataset/CV/bank.sol:26:10:
+   |
+26 |          throw;
+   |          ^^^^^
+
+Error: Using ".value(...)" is deprecated. Use "{value: ...}" instead.
+  --> benchmarks/unified-dataset/CV/bank.sol:25:10:
+   |
+25 |      if (msg.sender.call.value(amountToWithdraw)() == false) {
+   |          ^^^^^^^^^^^^^^^^^^^^^
+
+Error: Wrong argument count for function call: 0 arguments given but expected 1. This function requires a single bytes argument. Use "" as argument to provide empty calldata.
+  --> benchmarks/unified-dataset/CV/bank.sol:25:10:
+   |
+25 |      if (msg.sender.call.value(amountToWithdraw)() == false) {
+   |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Operator == not compatible with types tuple(bool,bytes memory) and bool.
+  --> benchmarks/unified-dataset/CV/bank.sol:25:10:
+   |
+25 |      if (msg.sender.call.value(amountToWithdraw)() == false) {
+   |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+

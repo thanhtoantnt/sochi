@@ -58,7 +58,7 @@ fn install_solc_version(version: Version) -> Result<String, String> {
 
 /// Check version of the Solc compiler
 fn check_solc_version(required_version: Version) -> Result<String, String> {
-    match Command::new(super::SOLC).args(&[" --version"]).output() {
+    match Command::new(super::SOLC).args(&["--version"]).output() {
         Ok(output) => {
             let output_str = String::from_utf8(output.stdout).unwrap();
             let regex = Regex::new(r"Version: (\d+\.\d+\.\d+)").unwrap();
@@ -66,6 +66,8 @@ fn check_solc_version(required_version: Version) -> Result<String, String> {
                 Some(capture) => capture.get(1).map_or("", |c| c.as_str()),
                 None => "",
             };
+
+            // debug!("solc_ver: {}", solc_ver);
 
             match Version::parse(solc_ver) {
                 Ok(ver) => {
@@ -142,6 +144,8 @@ pub fn check_solc_settings(input_file: &Path) -> Result<String, String> {
             return Err(err_msg);
         }
     };
+
+    // debug!("solc-ver: {}", solc_ver);
 
     match check_solc_path() {
         Ok(_) => check_solc_version(solc_ver),
