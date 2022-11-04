@@ -55,7 +55,8 @@ fn main() {
         if opts.printer_options.generate_results {
             slither::generate_results(opts.input_dir);
         } else if opts.printer_options.check_results {
-            slither::check_results(opts.input_dir);
+            let result = slither::check_results(opts.input_dir);
+            println!("Slither true-positive results: {}", result);
         } else {
             let result = slither::interpret_results(opts.input_dir);
             println!("Slither results: {}", result);

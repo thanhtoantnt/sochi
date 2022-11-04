@@ -1,0 +1,60 @@
+Compilation warnings/errors on tests/unhanled_exceptions/buggy_1.sol:
+tests/unhanled_exceptions/buggy_1.sol:23:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+tests/unhanled_exceptions/buggy_1.sol:52:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk8.send(winAmount_unchk8);
+        ^----------------------------------^
+tests/unhanled_exceptions/buggy_1.sol:62:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (4 ether); }
+       ^-----------------^
+tests/unhanled_exceptions/buggy_1.sol:69:9: Warning: Return value of low-level calls not used.
+        dst.call.value(msg.value)("");
+        ^---------------------------^
+tests/unhanled_exceptions/buggy_1.sol:77:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+tests/unhanled_exceptions/buggy_1.sol:89:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+tests/unhanled_exceptions/buggy_1.sol:94:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk46.send(subpot_unchk46);  //bug
+        ^---------------------------------^
+tests/unhanled_exceptions/buggy_1.sol:121:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+tests/unhanled_exceptions/buggy_1.sol:133:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+tests/unhanled_exceptions/buggy_1.sol:149:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk44.send(winAmount_unchk44);
+        ^------------------------------------^
+tests/unhanled_exceptions/buggy_1.sol:181:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+tests/unhanled_exceptions/buggy_1.sol:190:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (42 ether); }
+       ^------------------^
+tests/unhanled_exceptions/buggy_1.sol:92:25: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+  function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                        ^-------------^
+tests/unhanled_exceptions/buggy_1.sol:92:42: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+  function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                                         ^--------------^
+tests/unhanled_exceptions/buggy_1.sol:80:3: Warning: Function state mutability can be restricted to pure
+  function callnotchecked_unchk13(address callee) public {
+  ^ (Relevant source part starts here and spans across multiple lines).
+
+
+Reentrancy in HotDollarsToken.sendToWinner_unchk44() (tests/unhanled_exceptions/buggy_1.sol#147-151):
+	External calls:
+	- winner_unchk44.send(winAmount_unchk44) (tests/unhanled_exceptions/buggy_1.sol#149)
+	State variables written after the call(s):
+	- payedOut_unchk44 = true (tests/unhanled_exceptions/buggy_1.sol#150)
+Reentrancy in EIP20Interface.sendToWinner_unchk8() (tests/unhanled_exceptions/buggy_1.sol#50-54):
+	External calls:
+	- winner_unchk8.send(winAmount_unchk8) (tests/unhanled_exceptions/buggy_1.sol#52)
+	State variables written after the call(s):
+	- payedOut_unchk8 = true (tests/unhanled_exceptions/buggy_1.sol#53)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+tests/unhanled_exceptions/buggy_1.sol analyzed (2 contracts with 7 detectors), 2 result(s) found

@@ -1,0 +1,73 @@
+Compilation warnings/errors on tests/unhanled_exceptions/buggy_2.sol:
+tests/unhanled_exceptions/buggy_2.sol:18:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+tests/unhanled_exceptions/buggy_2.sol:32:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk20.send(winAmount_unchk20);
+        ^------------------------------------^
+tests/unhanled_exceptions/buggy_2.sol:42:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk32.send(winAmount_unchk32);
+        ^------------------------------------^
+tests/unhanled_exceptions/buggy_2.sol:47:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+tests/unhanled_exceptions/buggy_2.sol:52:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk46.send(subpot_unchk46);  //bug
+        ^---------------------------------^
+tests/unhanled_exceptions/buggy_2.sol:73:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+tests/unhanled_exceptions/buggy_2.sol:79:5: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+    callee.send(5 ether);
+    ^------------------^
+tests/unhanled_exceptions/buggy_2.sol:138:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk8.send(winAmount_unchk8);
+        ^----------------------------------^
+tests/unhanled_exceptions/buggy_2.sol:166:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (4 ether); }
+       ^-----------------^
+tests/unhanled_exceptions/buggy_2.sol:176:9: Warning: Return value of low-level calls not used.
+        dst.call.value(msg.value)("");
+        ^---------------------------^
+tests/unhanled_exceptions/buggy_2.sol:186:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        dst.send(msg.value);
+        ^-----------------^
+tests/unhanled_exceptions/buggy_2.sol:204:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        winner_unchk44.send(winAmount_unchk44);
+        ^------------------------------------^
+tests/unhanled_exceptions/buggy_2.sol:233:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(address(this).balance);
+        ^------------------------------------^
+tests/unhanled_exceptions/buggy_2.sol:241:8: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+      {addr.send (42 ether); }
+       ^------------------^
+tests/unhanled_exceptions/buggy_2.sol:50:25: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+  function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                        ^-------------^
+tests/unhanled_exceptions/buggy_2.sol:50:42: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+  function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+                                         ^--------------^
+
+
+Reentrancy in CareerOnToken.sendToWinner_unchk20() (tests/unhanled_exceptions/buggy_2.sol#30-34):
+	External calls:
+	- winner_unchk20.send(winAmount_unchk20) (tests/unhanled_exceptions/buggy_2.sol#32)
+	State variables written after the call(s):
+	- payedOut_unchk20 = true (tests/unhanled_exceptions/buggy_2.sol#33)
+Reentrancy in CareerOnToken.sendToWinner_unchk32() (tests/unhanled_exceptions/buggy_2.sol#40-44):
+	External calls:
+	- winner_unchk32.send(winAmount_unchk32) (tests/unhanled_exceptions/buggy_2.sol#42)
+	State variables written after the call(s):
+	- payedOut_unchk32 = true (tests/unhanled_exceptions/buggy_2.sol#43)
+Reentrancy in CareerOnToken.sendToWinner_unchk44() (tests/unhanled_exceptions/buggy_2.sol#202-206):
+	External calls:
+	- winner_unchk44.send(winAmount_unchk44) (tests/unhanled_exceptions/buggy_2.sol#204)
+	State variables written after the call(s):
+	- payedOut_unchk44 = true (tests/unhanled_exceptions/buggy_2.sol#205)
+Reentrancy in CareerOnToken.sendToWinner_unchk8() (tests/unhanled_exceptions/buggy_2.sol#136-140):
+	External calls:
+	- winner_unchk8.send(winAmount_unchk8) (tests/unhanled_exceptions/buggy_2.sol#138)
+	State variables written after the call(s):
+	- payedOut_unchk8 = true (tests/unhanled_exceptions/buggy_2.sol#139)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+tests/unhanled_exceptions/buggy_2.sol analyzed (1 contracts with 7 detectors), 4 result(s) found
